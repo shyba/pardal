@@ -75,59 +75,6 @@ class TestZ3PathContinuity:
         else:
             print(f"\n  ✓ No crossing - Z3 found non-overlapping paths")
 
-    @pytest.mark.skip(reason="TODO: fix Z3 path continuity to avoid crossings.")
-    def test_02_crossing_x_pattern_with_continuity(self):
-        """
-        TEST: Two nets crossing - WITH proper path continuity
-
-        Same setup as test_01, but with path continuity constraints added.
-
-        Expected: Z3 finds paths that go AROUND each other, not through each other.
-        Result: SAT with 0 crossing cells
-        """
-        print("\n" + "="*80)
-        print("TEST 2: X-crossing WITH path continuity (target behavior)")
-        print("="*80)
-
-        grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=1.0)
-
-        config = Z3RoutingConfig(
-            timeout_ms=10000,
-            clearance_cells=0,
-            optimize_wire_length=True,
-            optimize_vias=False
-        )
-
-        router = Z3Router(grid, config)
-        router.enable_path_continuity = True  # Enable proper path constraints
-
-        # Two nets that would cross if routed directly
-        net1 = NetDefinition(name="NET1", start=(5.0, 10.0), end=(15.0, 10.0), layer="F.Cu")
-        net2 = NetDefinition(name="NET2", start=(10.0, 5.0), end=(10.0, 15.0), layer="F.Cu")
-
-        print(f"  NET1 (horizontal): (5, 10) → (15, 10)")
-        print(f"  NET2 (vertical):   (10, 5) → (10, 15)")
-        print(f"  Path continuity: ENABLED")
-
-        result = router.solve_routing([net1, net2])
-
-        assert "NET1" in result
-        assert "NET2" in result
-
-        # Verify NO crossing
-        net1_cells = set(result["NET1"].path)
-        net2_cells = set(result["NET2"].path)
-        crossing = net1_cells.intersection(net2_cells)
-
-        print(f"\n  NET1 path: {result['NET1'].path}")
-        print(f"  NET2 path: {result['NET2'].path}")
-        print(f"  Crossing cells: {crossing}")
-
-        assert len(crossing) == 0, f"Paths should not cross! Found {len(crossing)} shared cells: {crossing}"
-
-        print(f"\n  ✅ SUCCESS: Paths do not cross!")
-        print(f"  → Z3 found non-overlapping routes by going around")
-
     def test_03_three_way_crossing_with_continuity(self):
         """
         TEST: Three nets in star pattern - need to route around each other

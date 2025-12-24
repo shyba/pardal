@@ -9,11 +9,59 @@ An AI-friendly command-line tool for PCB component placement and layout.
 
 ## Table of Contents
 
+- [One-Shot Board Generation](#one-shot-board-generation)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Command Reference](#command-reference)
 - [Example Workflows](#example-workflows)
 - [Troubleshooting](#troubleshooting)
+
+---
+
+## One-Shot Board Generation
+
+Generate a production-quality board with 0 DRC errors in a single command:
+
+```bash
+pardal build project.net -o board_final.kicad_pcb --route --finalize
+```
+
+This command:
+1. Loads the netlist
+2. Places components (auto-placement or via placement script)
+3. Autoroutes all nets
+4. Replaces simplified footprints with full KiCad library footprints
+5. Adds GND copper zones on F.Cu and B.Cu
+6. Runs DRC check
+
+### Example with Placement Script
+
+```bash
+# Create placement.txt with component positions
+pardal build project.net -p placement.txt -o board.kicad_pcb --route --finalize
+```
+
+### Requirements for --finalize
+
+The `--finalize` flag requires:
+- **System Python** with pcbnew (KiCad's Python module)
+- Not venv Python (pcbnew is only available in system Python)
+
+To run with system Python:
+
+```bash
+# Use system Python directly
+/usr/bin/python3 -m pcb_tool.cli build project.net -o board.kicad_pcb --route --finalize
+```
+
+### What --finalize Does
+
+The finalization process (SDK workflow):
+1. **Extract** - Reads routing geometry (tracks, vias, net assignments)
+2. **Rebuild** - Replaces footprints with KiCad library versions (full graphics, 3D models)
+3. **Zones** - Adds GND copper zones on both layers and fills them
+
+This workflow achieves 0 DRC errors on standard boards.
 
 ---
 
@@ -60,6 +108,68 @@ optional arguments:
   --batch FILE    Execute commands from file
   --exec CMD      Execute single command
   --version       show program's version number and exit
+```
+
+---
+
+## CLI Commands
+
+Pardal provides a unified CLI with subcommands:
+
+```bash
+pardal --help                    # Show all commands
+pardal build --help              # Show build options
+pardal drc --help                # Show DRC options
+```
+
+### Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `pardal build` | Build PCB: load netlist → place → route → save → DRC |
+| `pardal drc` | Run KiCad DRC check on existing PCB |
+| `pardal place` | Place components only (no routing) |
+| `pardal route` | Autoroute existing PCB |
+| `pardal repl` | Interactive REPL mode |
+
+### Build Command
+
+One-shot build from netlist to validated PCB:
+
+```bash
+# Basic build (placement only)
+pardal build project.net -o board.kicad_pcb
+
+# With placement script
+pardal build project.net -p placement.txt -o board.kicad_pcb
+
+# With autorouting
+pardal build project.net -p placement.txt -o board.kicad_pcb --route
+
+# Skip DRC check
+pardal build project.net -o board.kicad_pcb --no-drc
+```
+
+### DRC Command
+
+Run KiCad Design Rule Check:
+
+```bash
+# Basic DRC (text output)
+pardal drc board.kicad_pcb
+
+# JSON output for scripting
+pardal drc board.kicad_pcb -o report.json --format json
+```
+
+### Interactive Mode
+
+```bash
+# Start REPL
+pardal repl
+
+# Run batch script
+pardal repl --batch commands.txt
 ```
 
 ---
@@ -855,10 +965,10 @@ Logs are written to `.pcb_tool.log` in the current directory.
 
 ### Not Yet Implemented
 
-- ❌ Routing commands (ROUTE, VIA) - coming in MVP2
+- ✅ Routing commands (ROUTE, VIA, AUTOROUTE)
 - ❌ Auto-placement algorithm
-- ❌ Auto-routing algorithm
-- ❌ DRC checking integration
+- ✅ Auto-routing algorithm (A* pathfinder + Z3 optimizer)
+- ✅ DRC checking integration (via kicad-cli)
 - ❌ Net airwire visualization
 - ❌ Footprint library resolution
 - ❌ Component detail view

@@ -154,7 +154,9 @@ class NetlistReader:
 
         if ref and value and footprint:
             # Get pad definitions for this footprint
-            pads = get_footprint_pads(footprint)
+            pads, error = get_footprint_pads(footprint)
+            if error:
+                print(f"Warning: {error} for {ref}")
 
             return Component(
                 ref=ref,

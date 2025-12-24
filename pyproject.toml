@@ -5,13 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pardal"
 dynamic = ["version"]
-description = "A command-line PCB place & route tool."
+description = "A command-line PCB place & route tool with autorouting and DRC."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
 dependencies = ["z3-solver==4.12.6.0"]
 
 [project.scripts]
+pardal = "pcb_tool.cli:main"
 pcb-tool = "pcb_tool.__main__:main"
 
 [tool.setuptools]
@@ -19,3 +20,9 @@ packages = {find = {include = ["pcb_tool*"]}}
 
 [tool.setuptools.dynamic]
 version = {attr = "pcb_tool.__version__"}
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')"
+]
+addopts = "-m 'not slow'"

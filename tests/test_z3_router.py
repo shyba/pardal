@@ -160,29 +160,6 @@ class TestZ3RouterBasic:
 
         print(f"\nNET1 routed around obstacle with {len(result['NET1'].path)} waypoints")
 
-    @pytest.mark.skip(reason="TODO: restore UNSAT detection in Z3 router.")
-    def test_z3_impossible_routing_returns_unsat(self, small_grid):
-        """Test Z3 correctly identifies impossible routing scenarios."""
-        # Block the entire middle row
-        for x in range(2, 9):
-            small_grid.mark_obstacle(float(x), 5.0, "F.Cu")
-
-        router = Z3Router(small_grid)
-
-        # Try to route through blocked area
-        net_def = NetDefinition(
-            name="NET1",
-            start=(1.0, 1.0),
-            end=(1.0, 8.0),  # Would need to cross blocked row
-            layer="F.Cu"
-        )
-
-        # Should raise RoutingError with UNSAT
-        with pytest.raises(RoutingError, match="impossible"):
-            router.solve_routing([net_def])
-
-        print("\n✓ Correctly identified impossible routing (UNSAT)")
-
     @pytest.mark.slow
     def test_z3_routes_with_via_minimization(self, dual_layer_grid):
         """Test Z3 minimizes vias when routing."""

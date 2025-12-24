@@ -7,18 +7,26 @@ Each footprint function returns a list of Pad objects with correct positions.
 
 from pcb_tool.data_model import Pad
 
+# Map atopile footprint suffixes to KiCad names
+SUFFIX_MAP = {
+    'C0805': 'C_0805_2012Metric',
+    'R0805': 'R_0805_2012Metric',
+    'C0603': 'C_0603_1608Metric',
+    'R0603': 'R_0603_1608Metric',
+    'TO-220-3_Vertical': 'TO-220-3_Vertical',
+    'SOT-223-3_TabPin2': 'SOT-223-3',
+    'D_SMB': 'D_SMB',
+}
 
-def get_footprint_pads(footprint_name: str) -> list[Pad]:
+
+def get_footprint_pads(footprint_name: str) -> tuple[list[Pad], str | None]:
     """Get pad definitions for a footprint.
 
     Args:
         footprint_name: KiCad footprint library name (e.g., "Resistor_SMD:R_0805_2012Metric")
 
     Returns:
-        List of Pad objects with correct positions
-
-    Raises:
-        ValueError: If footprint not found in library
+        Tuple of (pads list, error message or None)
     """
     # Extract footprint type from library name
     if ':' in footprint_name:
@@ -70,12 +78,26 @@ def get_footprint_pads(footprint_name: str) -> list[Pad]:
         'PinHeader_1x10_P2.54mm_Vertical': lambda: _pin_header_1xn(10),
     }
 
+    # Step 1: Try exact match
     handler = handlers.get(footprint_type)
-    if not handler:
-        # Return generic single pad as fallback
-        return [Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="circle")]
+    if handler:
+        return (handler(), None)
 
-    return handler()
+    # Step 2: Try suffix mapping (for atopile footprints like Samsung_...:C0805)
+    suffix = footprint_type.split('_')[-1] if '_' in footprint_type else footprint_type
+    mapped = SUFFIX_MAP.get(suffix) or SUFFIX_MAP.get(footprint_type)
+    if mapped:
+        handler = handlers.get(mapped)
+        if handler:
+            return (handler(), None)
+
+    # Step 3: Try pcbnew SDK fallback
+    pads = _try_pcbnew_load(footprint_name)
+    if pads:
+        return (pads, None)
+
+    # Step 4: Fail with error (NOT single pad!)
+    return ([], f"Unknown footprint: {footprint_name}")
 
 
 # MOSFETs
@@ -262,3 +284,53 @@ def list_supported_footprints() -> list[str]:
         'Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical',
         'Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical',
     ]
+
+
+def _try_pcbnew_load(footprint_name: str) -> list[Pad] | None:
+    """Try to load footprint from KiCad libraries using pcbnew SDK."""
+    try:
+        import pcbnew
+
+        if ':' not in footprint_name:
+            return None
+
+        lib_name, fp_name = footprint_name.split(':', 1)
+
+        # Try common library paths
+        for base in ['/usr/share/kicad/footprints']:
+            lib_path = f"{base}/{lib_name}.pretty"
+            try:
+                io = pcbnew.PCB_IO_KICAD_SEXPR()
+                fp = io.FootprintLoad(lib_path, fp_name)
+                if fp:
+                    return _extract_pads_from_footprint(fp)
+            except Exception:
+                continue
+        return None
+    except ImportError:
+        return None
+
+
+def _extract_pads_from_footprint(fp) -> list[Pad]:
+    """Extract Pad objects from pcbnew footprint."""
+    import pcbnew
+
+    pads = []
+    fp_pos = fp.GetPosition()
+
+    for kicad_pad in fp.Pads():
+        pad_pos = kicad_pad.GetPosition()
+        pads.append(Pad(
+            number=kicad_pad.GetNumber(),
+            position_offset=(
+                pcbnew.ToMM(pad_pos.x - fp_pos.x),
+                pcbnew.ToMM(pad_pos.y - fp_pos.y)
+            ),
+            size=(
+                pcbnew.ToMM(kicad_pad.GetSize().x),
+                pcbnew.ToMM(kicad_pad.GetSize().y)
+            ),
+            shape='rect' if kicad_pad.GetShape() == pcbnew.PAD_SHAPE_RECT else 'circle'
+        ))
+
+    return pads

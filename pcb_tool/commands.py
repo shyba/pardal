@@ -135,8 +135,10 @@ class ListComponentsCommand(Command):
             x, y = comp.position
             locked_tag = " [LOCKED]" if comp.locked else ""
 
-            # Format: REF: Value @ (x, y) rot° Layer [LOCKED]
-            line = f"  {ref}: {comp.value} @ ({x}, {y}) {int(comp.rotation)}° {comp.layer}{locked_tag}"
+            # Format: REF: Value @ (x, y) rot° Layer [N pads] [LOCKED]
+            pad_count = len(comp.pads)
+            pad_info = f"[{pad_count} pads]" if pad_count > 0 else "[NO PADS!]"
+            line = f"  {ref}: {comp.value} @ ({x}, {y}) {int(comp.rotation)}° {comp.layer} {pad_info}{locked_tag}"
             lines.append(line)
 
         return "\n".join(lines)
@@ -2519,6 +2521,26 @@ class AutoRouteCommand(Command):
         # Check board has nets
         if not board.nets:
             return error("Board has no nets. Load a netlist first with: LOAD <file>")
+
+        # Check components have pads for routing
+        missing_pads = []
+        single_pad = []
+        for ref, comp in board.components.items():
+            if len(comp.pads) == 0:
+                missing_pads.append(f"  {ref} ({comp.footprint}): 0 pads")
+            elif len(comp.pads) == 1:
+                single_pad.append(f"  {ref} ({comp.footprint}): 1 pad")
+
+        if missing_pads:
+            msg = f"Cannot route - {len(missing_pads)} components have no pads:\n"
+            msg += "\n".join(missing_pads[:10])
+            if len(missing_pads) > 10:
+                msg += f"\n  ... and {len(missing_pads) - 10} more"
+            msg += "\n\nHint: Footprints may not be in library. Check pcb_tool/footprint_library.py"
+            return error(msg)
+
+        if single_pad:
+            print(f"Note: {len(single_pad)} components have only 1 pad (test points?)")
 
         # Check specific net exists
         if self.net_name not in ["ALL", "UNROUTED"] and self.net_name not in board.nets:

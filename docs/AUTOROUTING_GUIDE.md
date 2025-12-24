@@ -34,6 +34,27 @@ Board → RoutingGrid → PathFinder → MultiNetRouter → RoutedNets
 
 ## Quick Start
 
+### Using the CLI (Recommended)
+
+The easiest way to build and route a board:
+
+```bash
+# Build with autorouting and DRC
+pardal build project.net -p placement.txt -o board.kicad_pcb --route
+
+# Build with full finalization (production-ready, 0 DRC errors)
+pardal build project.net -p placement.txt -o board.kicad_pcb --route --finalize
+
+# Check DRC on existing board
+pardal drc board.kicad_pcb
+```
+
+**Note**: The `--finalize` flag requires system Python with pcbnew (not venv).
+
+### Using the REPL
+
+For interactive work, use `pardal repl` or follow the steps below:
+
 ### Basic Autorouting
 
 1. Load your board:
@@ -532,6 +553,26 @@ ROUTE NET PROBLEM_NET FROM R5.1 VIA (82, 50) TO R6.2 LAYER F.Cu WIDTH 0.3
 AUTOROUTE UNROUTED
 ```
 
+### CLI Workflow
+
+For scripted/automated builds:
+
+```bash
+# 1. Build with autorouting
+pardal build injector_2ch.net \
+    -p placement.txt \
+    -o injector_routed.kicad_pcb \
+    --route
+
+# 2. Check DRC
+pardal drc injector_routed.kicad_pcb
+
+# Output:
+# ✓ DRC PASSED: 0 errors, 0 warnings
+```
+
+This is equivalent to the REPL workflow but runs in a single command.
+
 ## Advanced Topics
 
 ### Understanding the Routing Grid
@@ -683,6 +724,16 @@ A: Contact the development team with:
 ## SDK-Based Board Generation
 
 After autorouting, regenerate the board using KiCad's SDK for production-quality output.
+
+### One-Shot Finalization (Easiest)
+
+Use the `--finalize` flag to automatically run the SDK workflow:
+
+```bash
+pardal build project.net -o board.kicad_pcb --route --finalize
+```
+
+This automates the entire 3-phase workflow described below. Requires system Python with pcbnew.
 
 ### Why Use SDK Workflow?
 

@@ -43,6 +43,49 @@ cd pardal-pcb
 
 ## Quick Start
 
+```bash
+# Install
+pip install -e .
+
+# Show available commands
+pardal --help
+
+# Build PCB from netlist with placement
+pardal build project.net -p placement.txt -o board.kicad_pcb
+
+# Run DRC check
+pardal drc board.kicad_pcb
+
+# Interactive mode
+pardal repl
+```
+
+## CLI Commands
+
+| Command | Description |
+|---------|-------------|
+| `pardal build` | Load netlist, place components, optionally route, save PCB, run DRC |
+| `pardal drc` | Run KiCad DRC check on existing PCB file |
+| `pardal place` | Place components from netlist (no routing) |
+| `pardal route` | Autoroute existing PCB file |
+| `pardal repl` | Interactive REPL mode |
+
+### Examples
+
+```bash
+# Full build with autorouting
+pardal build project.net -p placement.txt -o board.kicad_pcb --route
+
+# Build without DRC check
+pardal build project.net -o board.kicad_pcb --no-drc
+
+# Check DRC and save JSON report
+pardal drc board.kicad_pcb -o report.json --format json
+
+# Run batch commands
+pardal repl --batch commands.txt
+```
+
 ### Interactive Mode
 ```bash
 ./venv/bin/python -m pcb_tool
