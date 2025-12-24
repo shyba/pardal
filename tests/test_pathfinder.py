@@ -819,3 +819,179 @@ class TestMultiLayerPathfinding:
         layers_in_path = [layer for pos, layer in path_with_layers]
         assert "F.Cu" in layers_in_path
         assert "B.Cu" in layers_in_path
+
+
+class TestMultiLayerPathfinding4Layer:
+    """Test multi-layer pathfinding on 4+ layer boards."""
+
+    def test_4layer_through_hole_via(self):
+        """Test pathfinding on 4-layer board with through-hole via."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["through"])
+
+        # Route from F.Cu to B.Cu
+        path = finder.find_path(
+            start_mm=(10.0, 20.0),
+            goal_mm=(30.0, 20.0),
+            layer="F.Cu",
+            target_layer="B.Cu"
+        )
+
+        assert path is not None
+        assert len(path) >= 2
+
+    def test_4layer_layer_transitions(self):
+        """Test that allowed layer transitions work correctly on 4-layer board."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["through"])
+
+        # Test layer transition options from F.Cu
+        transitions = finder._get_possible_layer_transitions("F.Cu")
+
+        # Through-hole via allows transition to any other layer
+        target_layers = [layer for layer, _ in transitions]
+        assert "In1.Cu" in target_layers
+        assert "In2.Cu" in target_layers
+        assert "B.Cu" in target_layers
+        assert "F.Cu" not in target_layers  # Can't transition to same layer
+
+    def test_4layer_blind_via_from_top(self):
+        """Test blind via from F.Cu to In1.Cu."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["blind"])
+
+        # Test layer transition options from F.Cu with blind vias
+        transitions = finder._get_possible_layer_transitions("F.Cu")
+
+        # Blind via from outer (F.Cu) should only go to adjacent inner
+        target_layers = [layer for layer, _ in transitions]
+        assert "In1.Cu" in target_layers
+        assert "In2.Cu" not in target_layers  # Not adjacent
+        assert "B.Cu" not in target_layers  # Other outer layer
+
+    def test_4layer_blind_via_from_inner_to_outer(self):
+        """Test blind via from In1.Cu back to F.Cu."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["blind"])
+
+        # Test layer transition options from In1.Cu with blind vias
+        transitions = finder._get_possible_layer_transitions("In1.Cu")
+
+        # Blind via from inner should be able to go to adjacent outer
+        target_layers = [layer for layer, _ in transitions]
+        assert "F.Cu" in target_layers  # Adjacent outer
+
+    def test_4layer_buried_via(self):
+        """Test buried via between inner layers."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["buried"])
+
+        # Test layer transition options from In1.Cu with buried vias
+        transitions = finder._get_possible_layer_transitions("In1.Cu")
+
+        # Buried via should only go between inner layers
+        target_layers = [layer for layer, _ in transitions]
+        assert "In2.Cu" in target_layers  # Adjacent inner
+        assert "F.Cu" not in target_layers  # Outer layer
+        assert "B.Cu" not in target_layers  # Outer layer
+
+    def test_4layer_buried_via_not_from_outer(self):
+        """Test that buried vias can't be created from outer layers."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["buried"])
+
+        # Test layer transition options from F.Cu with buried vias only
+        transitions = finder._get_possible_layer_transitions("F.Cu")
+
+        # No transitions should be available (can't create buried from outer)
+        assert len(transitions) == 0
+
+    def test_4layer_mixed_via_types(self):
+        """Test pathfinding with multiple via types allowed."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(
+            grid, via_cost=10.0,
+            allowed_via_types=["through", "blind", "buried"]
+        )
+
+        # Test layer transition options from F.Cu
+        transitions = finder._get_possible_layer_transitions("F.Cu")
+
+        # Should have both through and blind options
+        target_layers = [layer for layer, _ in transitions]
+        # Through-hole allows all layers
+        assert "B.Cu" in target_layers
+        # Blind allows adjacent inner
+        assert target_layers.count("In1.Cu") >= 1  # At least one option to In1.Cu
+
+    def test_via_type_cost_modifiers(self):
+        """Test that via type cost modifiers are applied correctly."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(
+            grid, via_cost=10.0,
+            allowed_via_types=["through", "blind", "buried"]
+        )
+
+        # Check that through-hole has highest cost multiplier
+        assert finder.via_type_costs["through"] > finder.via_type_costs["blind"]
+        assert finder.via_type_costs["blind"] > finder.via_type_costs["buried"]
+
+    def test_6layer_routing(self):
+        """Test pathfinding on 6-layer board."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"]
+        )
+        finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["through"])
+
+        # Route from F.Cu to B.Cu on 6-layer board
+        path = finder.find_path(
+            start_mm=(10.0, 20.0),
+            goal_mm=(30.0, 20.0),
+            layer="F.Cu",
+            target_layer="B.Cu"
+        )
+
+        assert path is not None
+
+    def test_4layer_inner_layer_routing(self):
+        """Test routing entirely on inner layers."""
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+        )
+        finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["through"])
+
+        # Route from In1.Cu to In2.Cu
+        path = finder.find_path(
+            start_mm=(10.0, 20.0),
+            goal_mm=(30.0, 20.0),
+            layer="In1.Cu",
+            target_layer="In2.Cu"
+        )
+
+        assert path is not None

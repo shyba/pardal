@@ -21,6 +21,8 @@ import math
 from pcb_tool.routing.grid import RoutingGrid
 from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition
 
+pytestmark = pytest.mark.slow
+
 
 class TestDenseGridRouting:
     """Test routing in dense grid layouts with many components."""

@@ -1,6 +1,7 @@
 """CLI entry point for PCB Place & Route Tool"""
 import argparse
 import sys
+from pcb_tool import __version__
 from pcb_tool.repl import REPL
 
 
@@ -14,7 +15,7 @@ def main():
     parser.add_argument(
         "--version",
         action="version",
-        version="pcb-tool 0.1.0 (MVP1)"
+        version=f"pcb-tool {__version__} (MVP1)"
     )
 
     parser.add_argument(

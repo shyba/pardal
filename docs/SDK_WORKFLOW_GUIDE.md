@@ -527,17 +527,13 @@ Lower number = filled first (higher priority in copper):
 
 ## Reference Implementation
 
-Complete working example at:
-```
-/home/user/repos/ee/manual_temp_test/injector_6ch_project/
-```
-
-Files:
+To create a full working example, generate by following the steps above in a clean
+project folder. The workflow produces:
 - `extract_board_data.py` - Phase 1 script
 - `build_board_from_json.py` - Phase 2 script
 - `add_zones.py` - Phase 3 script
-- `injector_6ch_routed.kicad_pcb` - Input (autorouted board)
-- `injector_6ch_final.kicad_pcb` - Output (0 DRC errors)
+- `*_routed.kicad_pcb` - Input (autorouted board)
+- `*_final.kicad_pcb` - Output (after zones and SDK rebuild)
 
 ## Quick Reference
 

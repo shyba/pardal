@@ -33,6 +33,13 @@ def get_footprint_pads(footprint_name: str) -> list[Pad]:
 
         # Resistors SMD
         'R_0805_2012Metric': _r0805,
+        'R_0805': _r0805,
+        'R_0603_1608Metric': _r0603,
+        'R_0603': _r0603,
+
+        # Resistors THT
+        'R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal': _r_axial_din0207,
+        'R_Axial_DIN0207_L6.3mm': _r_axial_din0207,
 
         # Diodes THT
         'D_DO-41_SOD81_P10.16mm_Horizontal': _do41,
@@ -40,10 +47,22 @@ def get_footprint_pads(footprint_name: str) -> list[Pad]:
         # Capacitors
         'CP_Radial_D6.3mm_P2.50mm': _cap_radial_2_5mm,
         'C_0805_2012Metric': _c0805,
+        'C_0805': _c0805,
+
+        # ICs - SMD
+        'SOT-223-3': _sot223_3,
+        'SSOP-20_W5.3mm': _ssop20,
+
+        # ICs - THT
+        'DIP-8_W7.62mm': _dip8,
+
+        # Test Points
+        'TestPoint_Pad_1.0mm': _testpoint_1mm,
 
         # Connectors
         'PinHeader_1x03_P2.54mm_Vertical': lambda: _pin_header_1xn(3),
         'PinHeader_1x04_P2.54mm_Vertical': lambda: _pin_header_1xn(4),
+        'PinHeader_1x04_P2.54mm': lambda: _pin_header_1xn(4),
         'PinHeader_1x05_P2.54mm_Vertical': lambda: _pin_header_1xn(5),
         'PinHeader_1x06_P2.54mm_Vertical': lambda: _pin_header_1xn(6),
         'PinHeader_1x07_P2.54mm_Vertical': lambda: _pin_header_1xn(7),
@@ -114,6 +133,71 @@ def _c0805() -> list[Pad]:
     return _r0805()
 
 
+# Resistors SMD - additional sizes
+
+def _r0603() -> list[Pad]:
+    """0603 resistor (1.6mm x 0.8mm body)."""
+    return [
+        Pad(number=1, position_offset=(-0.75, 0.0), size=(0.8, 0.9), shape="rect"),
+        Pad(number=2, position_offset=(0.75, 0.0), size=(0.8, 0.9), shape="rect"),
+    ]
+
+
+# Resistors THT
+
+def _r_axial_din0207() -> list[Pad]:
+    """Axial resistor DIN0207 (10.16mm lead spacing)."""
+    return [
+        Pad(number=1, position_offset=(-5.08, 0.0), size=(1.6, 1.6), drill=0.8, shape="rect"),
+        Pad(number=2, position_offset=(5.08, 0.0), size=(1.6, 1.6), drill=0.8, shape="circle"),
+    ]
+
+
+# ICs - SMD
+
+def _sot223_3() -> list[Pad]:
+    """SOT-223-3 voltage regulator (LM1117, AMS1117, etc.)."""
+    return [
+        Pad(number=1, position_offset=(-2.3, 3.2), size=(1.0, 2.0), shape="rect"),   # Input
+        Pad(number=2, position_offset=(0.0, 3.2), size=(1.0, 2.0), shape="rect"),    # GND/Tab
+        Pad(number=3, position_offset=(2.3, 3.2), size=(1.0, 2.0), shape="rect"),    # Output
+        Pad(number=4, position_offset=(0.0, -3.2), size=(3.5, 2.0), shape="rect"),   # Tab/heat sink
+    ]
+
+
+def _ssop20() -> list[Pad]:
+    """SSOP-20 with 5.3mm body width, 0.65mm pitch."""
+    pads = []
+    for i in range(10):
+        shape = "rect" if i == 0 else "rect"
+        pads.append(Pad(number=i+1, position_offset=(-3.9, -2.925 + i*0.65),
+                        size=(1.6, 0.4), shape=shape))
+        pads.append(Pad(number=20-i, position_offset=(3.9, -2.925 + i*0.65),
+                        size=(1.6, 0.4), shape="rect"))
+    return pads
+
+
+# ICs - THT
+
+def _dip8() -> list[Pad]:
+    """DIP-8 with 7.62mm (300mil) row spacing."""
+    pads = []
+    for i in range(4):
+        shape = "rect" if i == 0 else "circle"
+        pads.append(Pad(number=i+1, position_offset=(-3.81, -3.81 + i*2.54),
+                        size=(1.6, 1.6), drill=0.8, shape=shape))
+        pads.append(Pad(number=8-i, position_offset=(3.81, -3.81 + i*2.54),
+                        size=(1.6, 1.6), drill=0.8, shape="circle"))
+    return pads
+
+
+# Test Points
+
+def _testpoint_1mm() -> list[Pad]:
+    """1mm test point pad."""
+    return [Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="circle")]
+
+
 # Connectors
 
 def _pin_header_1xn(num_pins: int) -> list[Pad]:
@@ -150,11 +234,26 @@ def _pin_header_1xn(num_pins: int) -> list[Pad]:
 def list_supported_footprints() -> list[str]:
     """Get list of all supported footprint names."""
     return [
+        # MOSFETs
         'Package_TO_SOT_THT:TO-220-3_Vertical',
+        # Resistors SMD
         'Resistor_SMD:R_0805_2012Metric',
+        'Resistor_SMD:R_0603_1608Metric',
+        # Resistors THT
+        'Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal',
+        # Diodes THT
         'Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal',
+        # Capacitors
         'Capacitor_THT:CP_Radial_D6.3mm_P2.50mm',
         'Capacitor_SMD:C_0805_2012Metric',
+        # ICs - SMD
+        'Package_TO_SOT_SMD:SOT-223-3',
+        'Package_SO:SSOP-20_W5.3mm',
+        # ICs - THT
+        'Package_DIP:DIP-8_W7.62mm',
+        # Test Points
+        'TestPoint:TestPoint_Pad_1.0mm',
+        # Connectors
         'Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical',
         'Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical',
         'Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical',

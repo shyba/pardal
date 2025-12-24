@@ -29,8 +29,8 @@ An AI-friendly command-line tool for PCB component placement and layout.
 
 ```bash
 # Clone repository
-git clone https://github.com/user/pcb-tool
-cd pcb-tool
+git clone https://github.com/shyba/pardal
+cd pardal
 
 # Create virtual environment
 python3 -m venv venv
@@ -570,7 +570,7 @@ Goodbye!
 $ pcb-tool
 
 # Load netlist
-pcb> LOAD examples/led_circuit/build/default.net
+pcb> LOAD /path/to/led_circuit/build/default.net
 OK: Loaded board with 3 components, 2 nets
 
 # See what we have
@@ -758,7 +758,7 @@ ERROR: File not found: myboard.net
 **Solution:** Use absolute or relative path:
 ```
 pcb> LOAD ./build/builds/default/default/default.net
-pcb> LOAD /home/user/project/build/default.net
+pcb> LOAD /path/to/project/build/default.net
 ```
 
 ---
@@ -889,8 +889,8 @@ Planned features for MVP2:
 ## Getting Help
 
 - **Documentation**: See `docs/` directory
-- **Examples**: See `examples/` directory
-- **Issues**: https://github.com/user/pcb-tool/issues
+- **Examples**: See the Example Workflows section above
+- **Issues**: https://github.com/shyba/pardal/issues
 - **In-tool help**: `HELP` command
 
 ---

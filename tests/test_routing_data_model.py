@@ -58,7 +58,7 @@ class TestTraceSegment:
 
     def test_trace_segment_invalid_layer(self):
         """Test that invalid layer name raises ValueError."""
-        with pytest.raises(ValueError, match="layer must be F.Cu or B.Cu"):
+        with pytest.raises(ValueError, match="layer must be a valid copper layer"):
             TraceSegment(
                 net_name="GND",
                 start=(0.0, 0.0),
@@ -66,6 +66,28 @@ class TestTraceSegment:
                 layer="Invalid.Layer",
                 width=0.25
             )
+
+    def test_trace_segment_inner_layer(self):
+        """Test trace segment on inner copper layer (multi-layer support)."""
+        segment = TraceSegment(
+            net_name="SIG1",
+            start=(0.0, 0.0),
+            end=(10.0, 10.0),
+            layer="In1.Cu",
+            width=0.25
+        )
+        assert segment.layer == "In1.Cu"
+
+    def test_trace_segment_inner_layer_2(self):
+        """Test trace segment on second inner copper layer."""
+        segment = TraceSegment(
+            net_name="SIG2",
+            start=(0.0, 0.0),
+            end=(10.0, 10.0),
+            layer="In2.Cu",
+            width=0.25
+        )
+        assert segment.layer == "In2.Cu"
 
     def test_trace_segment_equality(self):
         """Test that two identical segments are equal."""
@@ -163,6 +185,117 @@ class TestVia:
         via1 = Via("GND", (50.0, 60.0), 0.8, 0.4, ("F.Cu", "B.Cu"))
         via2 = Via("GND", (50.0, 60.0), 0.8, 0.4, ("F.Cu", "B.Cu"))
         assert via1 == via2
+
+    def test_via_through_hole_properties(self):
+        """Test through-hole via type properties."""
+        via = Via(
+            net_name="GND",
+            position=(50.0, 60.0),
+            size=0.8,
+            drill=0.4,
+            layers=("F.Cu", "B.Cu"),
+            via_type="through"
+        )
+        assert via.is_through_hole is True
+        assert via.is_blind is False
+        assert via.is_buried is False
+        assert via.start_layer == "F.Cu"
+        assert via.end_layer == "B.Cu"
+
+    def test_via_blind_top(self):
+        """Test blind via from top to inner layer."""
+        via = Via(
+            net_name="VCC",
+            position=(30.0, 40.0),
+            size=0.6,
+            drill=0.3,
+            layers=("F.Cu", "In1.Cu"),
+            via_type="blind"
+        )
+        assert via.is_through_hole is False
+        assert via.is_blind is True
+        assert via.is_buried is False
+        assert via.start_layer == "F.Cu"
+        assert via.end_layer == "In1.Cu"
+
+    def test_via_blind_bottom(self):
+        """Test blind via from bottom to inner layer."""
+        via = Via(
+            net_name="VCC",
+            position=(30.0, 40.0),
+            size=0.6,
+            drill=0.3,
+            layers=("In2.Cu", "B.Cu"),
+            via_type="blind"
+        )
+        assert via.is_through_hole is False
+        assert via.is_blind is True
+        assert via.is_buried is False
+        assert via.start_layer == "In2.Cu"
+        assert via.end_layer == "B.Cu"
+
+    def test_via_buried(self):
+        """Test buried via between inner layers."""
+        via = Via(
+            net_name="SIG",
+            position=(20.0, 30.0),
+            size=0.5,
+            drill=0.25,
+            layers=("In1.Cu", "In2.Cu"),
+            via_type="buried"
+        )
+        assert via.is_through_hole is False
+        assert via.is_blind is False
+        assert via.is_buried is True
+        assert via.start_layer == "In1.Cu"
+        assert via.end_layer == "In2.Cu"
+
+    def test_via_4layer_through_hole(self):
+        """Test 4-layer through-hole via."""
+        via = Via(
+            net_name="GND",
+            position=(50.0, 60.0),
+            size=0.8,
+            drill=0.4,
+            layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu"),
+            via_type="through"
+        )
+        assert via.is_through_hole is True
+        assert len(via.layers) == 4
+
+    def test_via_invalid_layer(self):
+        """Test that invalid layer name raises ValueError."""
+        with pytest.raises(ValueError, match="Invalid via layer"):
+            Via(
+                net_name="GND",
+                position=(0.0, 0.0),
+                size=0.8,
+                drill=0.4,
+                layers=("F.Cu", "Invalid.Layer")
+            )
+
+    def test_via_single_layer_invalid(self):
+        """Test that single-layer via raises ValueError."""
+        with pytest.raises(ValueError, match="must connect at least 2 layers"):
+            Via(
+                net_name="GND",
+                position=(0.0, 0.0),
+                size=0.8,
+                drill=0.4,
+                layers=("F.Cu",)
+            )
+
+    def test_via_invalid_type(self):
+        """Test that invalid via_type raises ValueError."""
+        with pytest.raises(ValueError, match="via_type must be"):
+            Via(
+                net_name="GND",
+                position=(0.0, 0.0),
+                size=0.8,
+                drill=0.4,
+                layers=("F.Cu", "B.Cu"),
+                via_type="invalid_type"
+            )
 
 
 class TestNetRouting:

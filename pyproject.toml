@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=67.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pardal"
+dynamic = ["version"]
+description = "A command-line PCB place & route tool."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = ["z3-solver==4.12.6.0"]
+
+[project.scripts]
+pcb-tool = "pcb_tool.__main__:main"
+
+[tool.setuptools]
+packages = {find = {include = ["pcb_tool*"]}}
+
+[tool.setuptools.dynamic]
+version = {attr = "pcb_tool.__version__"}

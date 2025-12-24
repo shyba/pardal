@@ -87,6 +87,43 @@ def parse_footprint_name(footprint_full_name: str) -> tuple[str, str]:
 class KiCadSDKWriter:
     """Writes PCB files using the pcbnew SDK with library footprints."""
 
+    # Layer name to pcbnew constant mapping
+    # Supports all copper layers up to 32-layer boards
+    LAYER_MAP = {
+        "F.Cu": pcbnew.F_Cu,
+        "In1.Cu": pcbnew.In1_Cu,
+        "In2.Cu": pcbnew.In2_Cu,
+        "In3.Cu": pcbnew.In3_Cu,
+        "In4.Cu": pcbnew.In4_Cu,
+        "In5.Cu": pcbnew.In5_Cu,
+        "In6.Cu": pcbnew.In6_Cu,
+        "In7.Cu": pcbnew.In7_Cu,
+        "In8.Cu": pcbnew.In8_Cu,
+        "In9.Cu": pcbnew.In9_Cu,
+        "In10.Cu": pcbnew.In10_Cu,
+        "In11.Cu": pcbnew.In11_Cu,
+        "In12.Cu": pcbnew.In12_Cu,
+        "In13.Cu": pcbnew.In13_Cu,
+        "In14.Cu": pcbnew.In14_Cu,
+        "In15.Cu": pcbnew.In15_Cu,
+        "In16.Cu": pcbnew.In16_Cu,
+        "In17.Cu": pcbnew.In17_Cu,
+        "In18.Cu": pcbnew.In18_Cu,
+        "In19.Cu": pcbnew.In19_Cu,
+        "In20.Cu": pcbnew.In20_Cu,
+        "In21.Cu": pcbnew.In21_Cu,
+        "In22.Cu": pcbnew.In22_Cu,
+        "In23.Cu": pcbnew.In23_Cu,
+        "In24.Cu": pcbnew.In24_Cu,
+        "In25.Cu": pcbnew.In25_Cu,
+        "In26.Cu": pcbnew.In26_Cu,
+        "In27.Cu": pcbnew.In27_Cu,
+        "In28.Cu": pcbnew.In28_Cu,
+        "In29.Cu": pcbnew.In29_Cu,
+        "In30.Cu": pcbnew.In30_Cu,
+        "B.Cu": pcbnew.B_Cu,
+    }
+
     def __init__(self):
         self.io = pcbnew.PCB_IO_KICAD_SEXPR()
         self._footprint_cache: dict[str, pcbnew.FOOTPRINT] = {}
@@ -230,7 +267,10 @@ class KiCadSDKWriter:
 
     def _add_traces(self, pcb: pcbnew.BOARD, board: Board,
                     net_map: dict[str, pcbnew.NETINFO_ITEM]) -> None:
-        """Add all trace segments."""
+        """Add all trace segments.
+
+        Supports traces on any copper layer (F.Cu, In1.Cu, ..., In30.Cu, B.Cu).
+        """
         for net_name, net in board.nets.items():
             net_info = net_map.get(net_name)
 
@@ -246,11 +286,9 @@ class KiCadSDKWriter:
                 ))
                 track.SetWidth(pcbnew.FromMM(segment.width))
 
-                # Set layer
-                if segment.layer == "F.Cu":
-                    track.SetLayer(pcbnew.F_Cu)
-                elif segment.layer == "B.Cu":
-                    track.SetLayer(pcbnew.B_Cu)
+                # Set layer using dynamic mapping
+                pcbnew_layer = self.LAYER_MAP.get(segment.layer, pcbnew.F_Cu)
+                track.SetLayer(pcbnew_layer)
 
                 if net_info:
                     track.SetNet(net_info)
@@ -259,7 +297,13 @@ class KiCadSDKWriter:
 
     def _add_vias(self, pcb: pcbnew.BOARD, board: Board,
                   net_map: dict[str, pcbnew.NETINFO_ITEM]) -> None:
-        """Add all vias."""
+        """Add all vias.
+
+        Supports multi-layer vias:
+        - Through-hole: VIATYPE_THROUGH
+        - Blind: VIATYPE_BLIND_BURIED (outer to inner)
+        - Buried: VIATYPE_BLIND_BURIED (inner to inner)
+        """
         for net_name, net in board.nets.items():
             net_info = net_map.get(net_name)
 
@@ -271,7 +315,18 @@ class KiCadSDKWriter:
                 ))
                 via.SetWidth(pcbnew.FromMM(via_data.size))
                 via.SetDrill(pcbnew.FromMM(via_data.drill))
-                via.SetViaType(pcbnew.VIATYPE_THROUGH)
+
+                # Set via type based on via_data.via_type
+                if via_data.via_type == "through":
+                    via.SetViaType(pcbnew.VIATYPE_THROUGH)
+                elif via_data.via_type in ("blind", "buried"):
+                    # Both blind and buried use VIATYPE_BLIND_BURIED in KiCad
+                    via.SetViaType(pcbnew.VIATYPE_BLIND_BURIED)
+
+                # Set the layer pair (first and last layer of the via span)
+                first_layer = self.LAYER_MAP.get(via_data.layers[0], pcbnew.F_Cu)
+                last_layer = self.LAYER_MAP.get(via_data.layers[-1], pcbnew.B_Cu)
+                via.SetLayerPair(first_layer, last_layer)
 
                 if net_info:
                     via.SetNet(net_info)

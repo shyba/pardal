@@ -16,7 +16,7 @@ class GridCell:
     """Represents a single cell in the routing grid."""
     x: int  # Grid x-coordinate
     y: int  # Grid y-coordinate
-    layer: str  # "F.Cu" or "B.Cu"
+    layer: str  # Layer name (e.g., "F.Cu", "In1.Cu", "B.Cu")
 
     def __hash__(self):
         return hash((self.x, self.y, self.layer))
@@ -35,7 +35,7 @@ class RoutingGrid:
     - Obstacle: Blocked by component, pad, or existing trace
     - Clearance: Within clearance distance of an obstacle
 
-    Supports two-layer routing (F.Cu and B.Cu) with layer-specific obstacles.
+    Supports multi-layer routing with configurable layer stack.
     """
 
     def __init__(
@@ -43,7 +43,8 @@ class RoutingGrid:
         width_mm: float,
         height_mm: float,
         resolution_mm: float = 0.1,
-        default_clearance_mm: float = 0.2
+        default_clearance_mm: float = 0.2,
+        layers: Optional[List[str]] = None
     ):
         """
         Initialize the routing grid.
@@ -53,34 +54,35 @@ class RoutingGrid:
             height_mm: Board height in millimeters
             resolution_mm: Grid cell size in millimeters (default 0.1mm)
             default_clearance_mm: Default clearance around obstacles (default 0.2mm)
+            layers: List of copper layer names in stack order (default: ["F.Cu", "B.Cu"])
         """
         self.width_mm = width_mm
         self.height_mm = height_mm
         self.resolution_mm = resolution_mm
         self.default_clearance_mm = default_clearance_mm
 
+        # Store layer configuration
+        self.layers = layers if layers is not None else ["F.Cu", "B.Cu"]
+
         # Calculate grid dimensions
         self.grid_width = int(math.ceil(width_mm / resolution_mm))
         self.grid_height = int(math.ceil(height_mm / resolution_mm))
 
-        # Track obstacles per layer
+        # Track obstacles per layer (dynamically created for all layers)
         self.obstacles: dict[str, Set[Tuple[int, int]]] = {
-            "F.Cu": set(),
-            "B.Cu": set()
+            layer: set() for layer in self.layers
         }
 
         # Track cells within clearance zones (different from hard obstacles)
         self.clearance_zones: dict[str, Set[Tuple[int, int]]] = {
-            "F.Cu": set(),
-            "B.Cu": set()
+            layer: set() for layer in self.layers
         }
 
         # Track crossing-forbidden zones (HARD BLOCK - prevents routing crossings)
         # These zones are wider than clearance zones and represent areas where
         # routing would create a crossing with an existing trace
         self.crossing_forbidden: dict[str, Set[Tuple[int, int]]] = {
-            "F.Cu": set(),
-            "B.Cu": set()
+            layer: set() for layer in self.layers
         }
 
         # Track forbidden zones by net (for removal during rip-up)
@@ -89,8 +91,7 @@ class RoutingGrid:
         # Cost map for preferential routing (lower cost = preferred)
         # Base cost is 1.0, obstacles have infinite cost
         self.cost_map: dict[str, dict[Tuple[int, int], float]] = {
-            "F.Cu": {},
-            "B.Cu": {}
+            layer: {} for layer in self.layers
         }
 
         # Track via locations (x, y) in grid coordinates
@@ -101,6 +102,79 @@ class RoutingGrid:
         # Value: List of (neighbor_cell, cost) tuples
         # Cleared when obstacles change via mark_obstacle/mark_via/mark_trace_segment
         self._neighbor_cache: dict[Tuple[int, int, str, bool], List[Tuple[GridCell, float]]] = {}
+
+    @property
+    def layer_count(self) -> int:
+        """Get the number of routing layers."""
+        return len(self.layers)
+
+    def is_valid_layer(self, layer: str) -> bool:
+        """Check if a layer name is valid for this grid.
+
+        Args:
+            layer: Layer name to check
+
+        Returns:
+            True if the layer is in the grid's layer list
+        """
+        return layer in self.layers
+
+    def get_layer_index(self, layer: str) -> int:
+        """Get the index of a layer in the stack (0 = top).
+
+        Args:
+            layer: Layer name
+
+        Returns:
+            Index of the layer
+
+        Raises:
+            ValueError: If layer not in grid's layer list
+        """
+        try:
+            return self.layers.index(layer)
+        except ValueError:
+            raise ValueError(f"Layer {layer} not in grid's layer list: {self.layers}")
+
+    def get_adjacent_layers(self, layer: str) -> List[str]:
+        """Get layers adjacent to the given layer (for via transitions).
+
+        Args:
+            layer: Layer name
+
+        Returns:
+            List of adjacent layer names (up to 2: above and below)
+        """
+        idx = self.get_layer_index(layer)
+        adjacent = []
+        if idx > 0:
+            adjacent.append(self.layers[idx - 1])
+        if idx < len(self.layers) - 1:
+            adjacent.append(self.layers[idx + 1])
+        return adjacent
+
+    def get_inner_layers(self) -> List[str]:
+        """Get all inner copper layers (not F.Cu or B.Cu).
+
+        Returns:
+            List of inner layer names
+        """
+        return [layer for layer in self.layers if layer not in ("F.Cu", "B.Cu")]
+
+    def get_layers_between(self, from_layer: str, to_layer: str) -> List[str]:
+        """Get all layers between two layers (inclusive).
+
+        Args:
+            from_layer: Starting layer
+            to_layer: Ending layer
+
+        Returns:
+            List of layer names from from_layer to to_layer
+        """
+        from_idx = self.get_layer_index(from_layer)
+        to_idx = self.get_layer_index(to_layer)
+        start, end = min(from_idx, to_idx), max(from_idx, to_idx)
+        return self.layers[start:end + 1]
 
     def to_grid_coords(self, x_mm: float, y_mm: float) -> Tuple[int, int]:
         """
@@ -416,20 +490,40 @@ class RoutingGrid:
 
         return cells
 
-    def mark_via(self, x_mm: float, y_mm: float, size_mm: float = 0.8):
+    def mark_via(
+        self,
+        x_mm: float,
+        y_mm: float,
+        size_mm: float = 0.8,
+        via_layers: Optional[Tuple[str, ...]] = None
+    ):
         """
-        Mark a via location (obstacle on both layers).
+        Mark a via location (obstacle on specified layers).
+
+        Supports multi-layer boards with blind and buried vias:
+        - If via_layers is None, marks all layers (through-hole)
+        - If via_layers is specified, only marks those layers
 
         Args:
             x_mm: X-coordinate in millimeters
             y_mm: Y-coordinate in millimeters
             size_mm: Via diameter in millimeters
+            via_layers: Tuple of layer names the via spans (None = all layers)
         """
         grid_x, grid_y = self.to_grid_coords(x_mm, y_mm)
         self.vias.add((grid_x, grid_y))
 
-        # Mark via as obstacle on both layers
-        self.mark_obstacle(x_mm, y_mm, "both", size_mm=size_mm)
+        # Determine which layers to mark
+        if via_layers is None:
+            # Through-hole via: mark all layers
+            layers_to_mark = self.layers
+        else:
+            # Blind/buried via: mark only specified layers
+            layers_to_mark = [l for l in via_layers if l in self.layers]
+
+        # Mark via as obstacle on specified layers
+        for layer in layers_to_mark:
+            self.mark_obstacle(x_mm, y_mm, layer, size_mm=size_mm)
 
         # Cache is cleared by mark_obstacle() call above
 

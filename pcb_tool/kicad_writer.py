@@ -45,7 +45,7 @@ class KicadWriter:
                 self._write_header(f)
                 self._write_general(f)
                 self._write_paper(f)
-                self._write_layers(f)
+                self._write_layers(f, board)
                 self._write_nets(f, board)
                 self._write_footprints(f, board)
                 self._write_routing(f, board)
@@ -73,12 +73,60 @@ class KicadWriter:
         """Write the paper size."""
         f.write("\n  (paper \"A4\")\n")
 
-    def _write_layers(self, f: TextIO) -> None:
-        """Write the layer stack definition."""
+    # KiCad layer indices for copper layers
+    KICAD_LAYER_INDICES = {
+        "F.Cu": 0,
+        "In1.Cu": 1,
+        "In2.Cu": 2,
+        "In3.Cu": 3,
+        "In4.Cu": 4,
+        "In5.Cu": 5,
+        "In6.Cu": 6,
+        "In7.Cu": 7,
+        "In8.Cu": 8,
+        "In9.Cu": 9,
+        "In10.Cu": 10,
+        "In11.Cu": 11,
+        "In12.Cu": 12,
+        "In13.Cu": 13,
+        "In14.Cu": 14,
+        "In15.Cu": 15,
+        "In16.Cu": 16,
+        "In17.Cu": 17,
+        "In18.Cu": 18,
+        "In19.Cu": 19,
+        "In20.Cu": 20,
+        "In21.Cu": 21,
+        "In22.Cu": 22,
+        "In23.Cu": 23,
+        "In24.Cu": 24,
+        "In25.Cu": 25,
+        "In26.Cu": 26,
+        "In27.Cu": 27,
+        "In28.Cu": 28,
+        "In29.Cu": 29,
+        "In30.Cu": 30,
+        "B.Cu": 31,
+    }
+
+    def _write_layers(self, f: TextIO, board: Board) -> None:
+        """Write the layer stack definition.
+
+        Supports multi-layer boards (2, 4, 6, 8+ layers).
+        Dynamically generates copper layer definitions based on board.layers.
+
+        Args:
+            f: File object to write to
+            board: Board object with layer configuration
+        """
         f.write("\n  (layers\n")
-        # Standard 2-layer board
-        f.write("    (0 \"F.Cu\" signal)\n")
-        f.write("    (31 \"B.Cu\" signal)\n")
+
+        # Write copper layers from board configuration
+        for layer_name in board.layers:
+            kicad_idx = self.KICAD_LAYER_INDICES.get(layer_name, 0)
+            f.write(f"    ({kicad_idx} \"{layer_name}\" signal)\n")
+
+        # Write standard non-copper layers
         f.write("    (32 \"B.Adhes\" user \"B.Adhesive\")\n")
         f.write("    (33 \"F.Adhes\" user \"F.Adhesive\")\n")
         f.write("    (34 \"B.Paste\" user)\n")
@@ -256,6 +304,9 @@ class KicadWriter:
     def _write_via(self, f: TextIO, via, net_code: str) -> None:
         """Write a single via.
 
+        Supports multi-layer vias (through, blind, buried).
+        KiCad format specifies the first and last layer the via spans.
+
         Args:
             f: File object to write to
             via: Via to write
@@ -263,8 +314,19 @@ class KicadWriter:
         """
         x, y = via.position
 
-        f.write(f"\n  (via (at {x} {y}) (size {via.size}) (drill {via.drill}) "
-                f"(layers \"{via.layers[0]}\" \"{via.layers[1]}\") (net {net_code}))\n")
+        # For KiCad, specify first and last layer of the via span
+        first_layer = via.layers[0]
+        last_layer = via.layers[-1]
+
+        # Determine via type for KiCad (if not through-hole, add type attribute)
+        via_type_str = ""
+        if via.via_type == "blind":
+            via_type_str = " (type blind)"
+        elif via.via_type == "buried":
+            via_type_str = " (type micro)"  # KiCad uses "micro" for buried vias
+
+        f.write(f"\n  (via{via_type_str} (at {x} {y}) (size {via.size}) (drill {via.drill}) "
+                f"(layers \"{first_layer}\" \"{last_layer}\") (net {net_code}))\n")
 
     def _calculate_board_bounds(self, board: Board, margin: float = 5.0) -> Tuple[float, float, float, float]:
         """Calculate board bounding box from component positions.

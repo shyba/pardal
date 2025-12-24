@@ -4,6 +4,11 @@ Path Finding Module
 Implements A* pathfinding algorithm for PCB trace routing on a discretized grid.
 Finds optimal paths that minimize trace length while avoiding obstacles and
 maintaining clearances.
+
+Supports multi-layer boards with:
+- Through-hole vias (transition to any layer)
+- Blind vias (outer to inner layer)
+- Buried vias (inner to inner layer)
 """
 
 from typing import List, Tuple, Optional, Dict, Set
@@ -49,18 +54,39 @@ class PathFinder:
 
     Finds optimal paths on a RoutingGrid that minimize trace length while
     avoiding obstacles and maintaining clearances.
+
+    Supports multi-layer boards with configurable via types:
+    - "through": Transition to any layer (default, most restrictive)
+    - "blind": Transition from outer to adjacent inner layer
+    - "buried": Transition between inner layers only
     """
 
-    def __init__(self, grid: RoutingGrid, via_cost: float = 10.0):
+    def __init__(
+        self,
+        grid: RoutingGrid,
+        via_cost: float = 10.0,
+        allowed_via_types: Optional[List[str]] = None
+    ):
         """
         Initialize the path finder.
 
         Args:
             grid: RoutingGrid instance with obstacle information
             via_cost: Cost penalty for layer transitions in mm equivalent (default 10.0)
+            allowed_via_types: List of allowed via types ("through", "blind", "buried")
+                              Defaults to ["through"] for standard routing
         """
         self.grid = grid
         self.via_cost = via_cost
+        self.allowed_via_types = allowed_via_types or ["through"]
+
+        # Via cost multipliers for different via types
+        # Blind/buried vias are slightly preferred (less routing congestion)
+        self.via_type_costs = {
+            "through": 1.0,
+            "blind": 0.9,
+            "buried": 0.85
+        }
 
     def find_path(
         self,
@@ -294,7 +320,12 @@ class PathFinder:
         via_cost: Optional[float] = None
     ) -> List[Tuple[GridCell, float]]:
         """
-        Get neighbors on opposite layer (via placement).
+        Get neighbors on other layers (via placement).
+
+        Supports multi-layer boards with different via types:
+        - Through-hole: Can transition to any layer
+        - Blind: Can transition from outer to adjacent inner, or vice versa
+        - Buried: Can transition between inner layers only
 
         Args:
             grid_x: Current grid x-coordinate
@@ -307,26 +338,90 @@ class PathFinder:
             List of (neighbor_cell, cost) tuples for layer transitions
         """
         neighbors = []
-
-        # Determine opposite layer
-        opposite_layer = "B.Cu" if current_layer == "F.Cu" else "F.Cu"
+        current_net = getattr(self, 'current_net', None)
 
         # Use provided via_cost or default to instance via_cost
         effective_via_cost = via_cost if via_cost is not None else self.via_cost
 
-        # Check if opposite layer is valid for routing
-        current_net = getattr(self, 'current_net', None)
-        if self.grid.is_valid_cell(grid_x, grid_y, opposite_layer, current_net=current_net):
-            # Create neighbor cell on opposite layer at same position
-            neighbor_cell = GridCell(grid_x, grid_y, opposite_layer)
-            # Cost is via_cost (penalty for layer transition)
-            neighbors.append((neighbor_cell, effective_via_cost))
+        # Get possible layer transitions based on allowed via types
+        transitions = self._get_possible_layer_transitions(current_layer)
+
+        for to_layer, via_type in transitions:
+            # Check if target layer is valid for routing at this position
+            if not self.grid.is_valid_cell(grid_x, grid_y, to_layer, current_net=current_net):
+                continue
+
+            # Calculate cost with via type multiplier
+            type_cost = self.via_type_costs.get(via_type, 1.0)
+            transition_cost = effective_via_cost * type_cost
+
+            # Create neighbor cell on target layer at same position
+            neighbor_cell = GridCell(grid_x, grid_y, to_layer)
+            neighbors.append((neighbor_cell, transition_cost))
 
         return neighbors
+
+    def _get_possible_layer_transitions(
+        self,
+        current_layer: str
+    ) -> List[Tuple[str, str]]:
+        """
+        Get possible layer transitions from current layer based on allowed via types.
+
+        Args:
+            current_layer: Current layer name
+
+        Returns:
+            List of (target_layer, via_type) tuples
+        """
+        transitions = []
+        layers = self.grid.layers
+        current_idx = layers.index(current_layer) if current_layer in layers else -1
+
+        if current_idx == -1:
+            return transitions
+
+        outer_layers = {"F.Cu", "B.Cu"}
+        is_outer = current_layer in outer_layers
+
+        for via_type in self.allowed_via_types:
+            if via_type == "through":
+                # Through-hole: can go to any other layer
+                for layer in layers:
+                    if layer != current_layer:
+                        transitions.append((layer, "through"))
+
+            elif via_type == "blind":
+                # Blind: from outer to adjacent inner, or inner to outer
+                if is_outer:
+                    # From outer layer, can go to adjacent inner layers
+                    adjacent = self.grid.get_adjacent_layers(current_layer)
+                    for adj_layer in adjacent:
+                        if adj_layer not in outer_layers:
+                            transitions.append((adj_layer, "blind"))
+                else:
+                    # From inner layer, can go to adjacent outer if exists
+                    adjacent = self.grid.get_adjacent_layers(current_layer)
+                    for adj_layer in adjacent:
+                        if adj_layer in outer_layers:
+                            transitions.append((adj_layer, "blind"))
+
+            elif via_type == "buried":
+                # Buried: between inner layers only (no outer layers involved)
+                if not is_outer:
+                    adjacent = self.grid.get_adjacent_layers(current_layer)
+                    for adj_layer in adjacent:
+                        if adj_layer not in outer_layers:
+                            transitions.append((adj_layer, "buried"))
+
+        return transitions
 
     def _mark_vias_in_path(self, path_cells: List[GridCell]) -> None:
         """
         Mark vias in grid at layer transition points.
+
+        For multi-layer boards, determines the correct via layer span
+        based on the layers being transitioned between.
 
         Args:
             path_cells: List of GridCell objects forming the path
@@ -339,7 +434,13 @@ class PathFinder:
             if current_cell.layer != next_cell.layer:
                 # Layer transition detected - mark via
                 x_mm, y_mm = self.grid.to_mm_coords(current_cell.x, current_cell.y)
-                self.grid.mark_via(x_mm, y_mm, size_mm=0.8)
+
+                # Determine via layers (all layers between the two transition layers)
+                via_layers = tuple(self.grid.get_layers_between(
+                    current_cell.layer, next_cell.layer
+                ))
+
+                self.grid.mark_via(x_mm, y_mm, size_mm=0.8, via_layers=via_layers)
 
     def _reconstruct_path(self, goal_node: PathNode) -> List[GridCell]:
         """
