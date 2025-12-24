@@ -2,6 +2,8 @@
 
 A command-line PCB Place & Route tool.
 
+![Pardal PCB example](example.jpg)
+
 ## Features
 
 - **17 Commands**: LOAD, SAVE, MOVE, ROTATE, FLIP, LOCK, UNLOCK, LIST (components/nets), SHOW BOARD, WHERE, UNDO, REDO, HISTORY, HELP, EXIT
