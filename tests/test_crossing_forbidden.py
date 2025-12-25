@@ -80,19 +80,19 @@ class TestCrossingForbidden:
         # 2. Route around the forbidden zone
         # 3. Use a via to B.Cu
         if path2 is not None:
-            # If path exists, verify it doesn't cross the forbidden zone
-            crossing_point_grid = grid.to_grid_coords(50.0, 50.0)
+            # If path exists, verify it doesn't cross the forbidden zone ON F.Cu
+            # (crossing on B.Cu via a via is acceptable)
+            crosses_forbidden_on_fcu = False
 
-            # Check if path avoids the crossing area
-            crosses_forbidden_zone = False
-            for point in path2:
-                point_grid = grid.to_grid_coords(*point)
-                if point_grid in grid.crossing_forbidden[layer2]:
-                    crosses_forbidden_zone = True
-                    break
+            # Use last_path_cells to check layer info at each point
+            if pathfinder.last_path_cells:
+                for cell in pathfinder.last_path_cells:
+                    if cell.layer == "F.Cu" and (cell.x, cell.y) in grid.crossing_forbidden["F.Cu"]:
+                        crosses_forbidden_on_fcu = True
+                        break
 
-            assert not crosses_forbidden_zone, \
-                "Path should not cross forbidden zone"
+            assert not crosses_forbidden_on_fcu, \
+                "Path should not cross forbidden zone on F.Cu (via to B.Cu is OK)"
 
     def test_multi_net_router_uses_forbidden_zones(self, grid):
         """Test that MultiNetRouter marks forbidden zones when routing nets."""

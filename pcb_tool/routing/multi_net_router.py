@@ -31,8 +31,12 @@ class RoutedNet:
     """Result of routing a single net."""
     name: str
     path: List[Tuple[float, float]]  # Waypoints in mm
-    layer: str
+    layer: str  # Default/starting layer (for backwards compatibility)
     segments: List[Tuple[Tuple[float, float], Tuple[float, float]]]  # (start, end) pairs
+    # Per-segment layer info (parallel to segments list)
+    segment_layers: Optional[List[str]] = None
+    # Via locations: (x, y, from_layer, to_layer)
+    vias: Optional[List[Tuple[float, float, str, str]]] = None
 
 
 class MultiNetRouter:
@@ -222,26 +226,44 @@ class MultiNetRouter:
             )
 
             if path is None:
-                # Routing failed - skip this net
+                # Routing failed - skip this edge
+                # For MST routing, this is expected as later edges may be blocked by earlier ones
+                # The retry logic in AutoRouteCommand will attempt to reconnect disconnected groups
                 continue
 
-            # Create segments from path
-            segments = []
-            for i in range(len(path) - 1):
-                segments.append((path[i], path[i + 1]))
+            # Get via locations from pathfinder for layer assignment
+            via_locations = self.pathfinder.last_via_locations.copy()
 
-            # Store routed net
-            routed_net = RoutedNet(
-                name=net_def.name,
-                path=path,
-                layer=routing_layer,
-                segments=segments
+            # Create segments from path with proper layer info
+            segments, segment_layers = self._create_segments_with_layers(
+                path, routing_layer, via_locations
             )
-            routed_nets[net_def.name] = routed_net
-            self.routed_nets[net_def.name] = routed_net  # Track for rip-up
 
-            # Mark this net's path as obstacle for subsequent nets
-            self._mark_net_as_obstacle(path, routing_layer, net_def.name)
+            # Store routed net (accumulate segments for multi-point nets)
+            if net_def.name in routed_nets:
+                # Net already has some segments - append to existing
+                routed_nets[net_def.name].segments.extend(segments)
+                if routed_nets[net_def.name].segment_layers is not None:
+                    routed_nets[net_def.name].segment_layers.extend(segment_layers)
+                routed_nets[net_def.name].path.extend(path[1:])  # Skip duplicate first point
+                if routed_nets[net_def.name].vias is not None and via_locations:
+                    routed_nets[net_def.name].vias.extend(via_locations)
+            else:
+                # First edge for this net - create new entry
+                routed_net = RoutedNet(
+                    name=net_def.name,
+                    path=path,
+                    layer=routing_layer,
+                    segments=segments,
+                    segment_layers=segment_layers,
+                    vias=via_locations if via_locations else None
+                )
+                routed_nets[net_def.name] = routed_net
+
+            self.routed_nets[net_def.name] = routed_nets[net_def.name]  # Track for rip-up
+
+            # Mark this net's path as obstacle for subsequent nets (using per-segment layers)
+            self._mark_net_as_obstacle_with_layers(path, segment_layers, net_def.name)
 
         # Validate routing (check for conflicts)
         if not self._validate_routing(routed_nets):
@@ -360,6 +382,97 @@ class MultiNetRouter:
             return (power_priority, -net_def.priority, length, net_def.name)
 
         return sorted(net_definitions, key=priority_key)
+
+    def _create_segments_with_layers(
+        self,
+        path: List[Tuple[float, float]],
+        start_layer: str,
+        via_locations: List[Tuple[float, float, str, str]]
+    ) -> Tuple[List[Tuple[Tuple[float, float], Tuple[float, float]]], List[str]]:
+        """
+        Create segments from path with proper layer assignment based on via locations.
+
+        When vias are present, segments between vias are assigned to the appropriate layer.
+
+        Args:
+            path: Waypoints of the path
+            start_layer: Starting layer for routing
+            via_locations: List of (x, y, from_layer, to_layer) tuples
+
+        Returns:
+            Tuple of (segments, segment_layers) where:
+            - segments: List of (start, end) coordinate pairs
+            - segment_layers: List of layer names (parallel to segments)
+        """
+        if not path or len(path) < 2:
+            return [], []
+
+        segments = []
+        segment_layers = []
+        current_layer = start_layer
+
+        # Create a map of via positions to layer transitions
+        # Key: (x, y) rounded to 4 decimals for matching
+        via_map = {}
+        for vx, vy, from_l, to_l in via_locations:
+            key = (round(vx, 4), round(vy, 4))
+            via_map[key] = (from_l, to_l)
+
+        for i in range(len(path) - 1):
+            start = path[i]
+            end = path[i + 1]
+
+            # Create segment on current layer
+            segments.append((start, end))
+            segment_layers.append(current_layer)
+
+            # Check if end point is a via location
+            end_key = (round(end[0], 4), round(end[1], 4))
+            if end_key in via_map:
+                from_l, to_l = via_map[end_key]
+                # Transition to new layer
+                current_layer = to_l
+
+        return segments, segment_layers
+
+    def _mark_net_as_obstacle_with_layers(
+        self,
+        path: List[Tuple[float, float]],
+        segment_layers: List[str],
+        net_name: str
+    ) -> None:
+        """
+        Mark routed net as obstacle with per-segment layer info.
+
+        Args:
+            path: Waypoints of the routed path
+            segment_layers: Layer for each segment (parallel to path segments)
+            net_name: Net name (for tracking forbidden zones)
+        """
+        for i in range(len(path) - 1):
+            start = path[i]
+            end = path[i + 1]
+
+            # Get layer for this segment
+            layer = segment_layers[i] if i < len(segment_layers) else "F.Cu"
+
+            # Mark trace segment as obstacle (for clearance)
+            self.grid.mark_trace_segment(
+                start_mm=start,
+                end_mm=end,
+                layer=layer,
+                width_mm=0.25,
+                clearance_mm=0.2
+            )
+
+            # Mark crossing-forbidden zone
+            self.grid.mark_crossing_forbidden_zone(
+                start_mm=start,
+                end_mm=end,
+                layer=layer,
+                trace_width_mm=0.25,
+                net_name=net_name
+            )
 
     def _mark_net_as_obstacle(
         self,

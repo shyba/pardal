@@ -60,6 +60,85 @@ FOOTPRINT_LIBS = {
 
     # Resistors THT
     'R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal': '/usr/share/kicad/footprints/Resistor_THT.pretty',
+
+    # =========================================================================
+    # FPGA/BGA packages
+    # =========================================================================
+    # Lattice MachXO2/iCE40 BGA-132 (8x8mm, 0.5mm pitch)
+    'Lattice_iCE40_csBGA-132_8x8mm_Layout14x14_P0.5mm': '/usr/share/kicad/footprints/Package_BGA.pretty',
+    'csBGA-132': '/usr/share/kicad/footprints/Package_BGA.pretty',
+    'CSPBGA-132': '/usr/share/kicad/footprints/Package_BGA.pretty',
+    # Generic BGA packages
+    'BGA-132_12x18mm_Layout11x17_P1.0mm': '/usr/share/kicad/footprints/Package_BGA.pretty',
+    'BGA-100_11.0x11.0mm_Layout10x10_P1.0mm_Ball0.5mm_Pad0.4mm_NSMD': '/usr/share/kicad/footprints/Package_BGA.pretty',
+    'BGA-144_7.0x7.0mm_Layout13x13_P0.5mm_Ball0.3mm_Pad0.25mm_NSMD': '/usr/share/kicad/footprints/Package_BGA.pretty',
+    'BGA-256_11.0x11.0mm_Layout20x20_P0.5mm_Ball0.3mm_Pad0.25mm_NSMD': '/usr/share/kicad/footprints/Package_BGA.pretty',
+
+    # =========================================================================
+    # QFP packages (for alternative FPGA packages)
+    # =========================================================================
+    'LQFP-100_14x14mm_P0.5mm': '/usr/share/kicad/footprints/Package_QFP.pretty',
+    'LQFP-144_20x20mm_P0.5mm': '/usr/share/kicad/footprints/Package_QFP.pretty',
+    'LQFP-128_14x14mm_P0.4mm': '/usr/share/kicad/footprints/Package_QFP.pretty',
+    'LQFP-128_14x20mm_P0.5mm': '/usr/share/kicad/footprints/Package_QFP.pretty',
+    'TQFP-100_14x14mm_P0.5mm': '/usr/share/kicad/footprints/Package_QFP.pretty',
+    'TQFP-144_20x20mm_P0.5mm': '/usr/share/kicad/footprints/Package_QFP.pretty',
+    'QFP-32_7x7mm_P0.8mm': '/usr/share/kicad/footprints/Package_QFP.pretty',
+    'TQFP-32_7x7mm_P0.8mm': '/usr/share/kicad/footprints/Package_QFP.pretty',
+
+    # =========================================================================
+    # JTAG/Debug connectors (2x5 pin headers)
+    # =========================================================================
+    # 1.27mm pitch (Cortex-style, 10-pin ARM SWD/JTAG)
+    'PinHeader_2x05_P1.27mm_Vertical': '/usr/share/kicad/footprints/Connector_PinHeader_1.27mm.pretty',
+    'PinHeader_2x05_P1.27mm_Horizontal': '/usr/share/kicad/footprints/Connector_PinHeader_1.27mm.pretty',
+    'PinHeader_2x05_P1.27mm_Vertical_SMD': '/usr/share/kicad/footprints/Connector_PinHeader_1.27mm.pretty',
+    # 2.54mm pitch (standard JTAG)
+    'PinHeader_2x05_P2.54mm_Vertical': '/usr/share/kicad/footprints/Connector_PinHeader_2.54mm.pretty',
+    'PinHeader_2x05_P2.54mm_Horizontal': '/usr/share/kicad/footprints/Connector_PinHeader_2.54mm.pretty',
+    # 2-pin power connectors
+    'PinHeader_1x02_P2.54mm_Vertical': '/usr/share/kicad/footprints/Connector_PinHeader_2.54mm.pretty',
+
+    # =========================================================================
+    # Oscillators/Crystals
+    # =========================================================================
+    'Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm': '/usr/share/kicad/footprints/Oscillator.pretty',
+    'Oscillator_SMD_ECS_2520MV-xxx-xx-4Pin_2.5x2.0mm': '/usr/share/kicad/footprints/Oscillator.pretty',
+    'Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm': '/usr/share/kicad/footprints/Oscillator.pretty',
+    'Crystal_SMD_3215-4Pin_3.2x1.5mm': '/usr/share/kicad/footprints/Crystal.pretty',
+
+    # =========================================================================
+    # Inductors/Ferrite beads
+    # =========================================================================
+    'L_0603_1608Metric': '/usr/share/kicad/footprints/Inductor_SMD.pretty',
+    'L_0805_2012Metric': '/usr/share/kicad/footprints/Inductor_SMD.pretty',
+    'FB_0603': '/usr/share/kicad/footprints/Inductor_SMD.pretty',  # Ferrite bead alias
+    'FB_0805': '/usr/share/kicad/footprints/Inductor_SMD.pretty',
+
+    # =========================================================================
+    # Buttons/Switches
+    # =========================================================================
+    'SW_SPST_TL3342': '/usr/share/kicad/footprints/Button_Switch_SMD.pretty',
+    'SW_Push_1P1T_NO_6x6mm_H9.5mm': '/usr/share/kicad/footprints/Button_Switch_THT.pretty',
+    'Panasonic_EVQPUJ_EVQPUA': '/usr/share/kicad/footprints/Button_Switch_SMD.pretty',
+
+    # =========================================================================
+    # LEDs
+    # =========================================================================
+    'LED_0603_1608Metric': '/usr/share/kicad/footprints/LED_SMD.pretty',
+    'LED_0805_2012Metric': '/usr/share/kicad/footprints/LED_SMD.pretty',
+
+    # =========================================================================
+    # Additional capacitors (0402 for decoupling)
+    # =========================================================================
+    'C_0402_1005Metric': '/usr/share/kicad/footprints/Capacitor_SMD.pretty',
+    'C_0402': '/usr/share/kicad/footprints/Capacitor_SMD.pretty',
+
+    # =========================================================================
+    # Additional resistors (0402)
+    # =========================================================================
+    'R_0402_1005Metric': '/usr/share/kicad/footprints/Resistor_SMD.pretty',
+    'R_0402': '/usr/share/kicad/footprints/Resistor_SMD.pretty',
 }
 
 
@@ -96,7 +175,7 @@ def finalize_board(input_pcb: Path, output_pcb: Path, gnd_net: str = "GND") -> t
     # Phase 2: Build with library footprints
     print("Phase 2: Building with KiCad library footprints...")
     final_board = _build_with_library_footprints(board_data)
-    print(f"  Created board with {final_board.GetFootprintCount()} footprints")
+    print(f"  Created board with {len(list(final_board.GetFootprints()))} footprints")
 
     # Phase 3: Add zones
     print("Phase 3: Adding GND zones...")
@@ -119,6 +198,7 @@ def _extract_board_data(input_pcb: Path) -> dict[str, Any]:
         'footprints': [],
         'tracks': [],
         'edges': [],
+        'copper_layer_count': board.GetCopperLayerCount(),  # Preserve layer count
     }
 
     # Extract nets from pads and tracks
@@ -203,6 +283,12 @@ def _build_with_library_footprints(data: dict[str, Any]) -> 'pcbnew.BOARD':
 
     board = pcbnew.BOARD()
     io = pcbnew.PCB_IO_KICAD_SEXPR()
+
+    # Set copper layer count (preserve from input board)
+    copper_layers = data.get('copper_layer_count', 2)
+    if copper_layers > 2:
+        board.SetCopperLayerCount(copper_layers)
+        print(f"  Set copper layer count to {copper_layers}")
 
     # Create nets
     for net_name in data['net_names']:
@@ -291,7 +377,7 @@ def _build_with_library_footprints(data: dict[str, Any]) -> 'pcbnew.BOARD':
 
 
 def _add_gnd_zones(board: 'pcbnew.BOARD', gnd_net: str = "GND"):
-    """Phase 3: Add GND copper zones on both layers."""
+    """Phase 3: Add GND copper zones on all copper layers (supports 2/4/6/8-layer boards)."""
     import pcbnew
 
     gnd_net_info = board.FindNet(gnd_net)
@@ -304,8 +390,38 @@ def _add_gnd_zones(board: 'pcbnew.BOARD', gnd_net: str = "GND"):
     if bbox.GetWidth() == 0:
         bbox = board.ComputeBoundingBox()
 
-    # Create zones on both layers
-    for layer in [pcbnew.F_Cu, pcbnew.B_Cu]:
+    # Get all enabled copper layers from board
+    # Layer IDs: F.Cu=0, B.Cu=2, In1.Cu=4, In2.Cu=6, ... (even numbers for copper)
+    copper_layers = []
+    enabled = board.GetEnabledLayers()
+
+    # Check standard copper layers explicitly
+    standard_copper = [
+        pcbnew.F_Cu,
+        pcbnew.B_Cu,
+    ]
+    # Add inner layers if board has more than 2 copper layers
+    num_copper = board.GetCopperLayerCount()
+    if num_copper >= 4:
+        standard_copper.extend([pcbnew.In1_Cu, pcbnew.In2_Cu])
+    if num_copper >= 6:
+        standard_copper.extend([pcbnew.In3_Cu, pcbnew.In4_Cu])
+    if num_copper >= 8:
+        standard_copper.extend([pcbnew.In5_Cu, pcbnew.In6_Cu])
+
+    for layer_id in standard_copper:
+        if enabled.Contains(layer_id):
+            copper_layers.append(layer_id)
+
+    # Fallback to outer layers if detection fails
+    if not copper_layers:
+        copper_layers = [pcbnew.F_Cu, pcbnew.B_Cu]
+
+    layer_names = [board.GetLayerName(lid) for lid in copper_layers]
+    print(f"  Creating GND zones on {len(copper_layers)} layers: {', '.join(layer_names)}")
+
+    # Create zones on all copper layers
+    for layer in copper_layers:
         zone = pcbnew.ZONE(board)
         zone.SetNet(gnd_net_info)
         zone.SetLayer(layer)
@@ -329,8 +445,44 @@ def _add_gnd_zones(board: 'pcbnew.BOARD', gnd_net: str = "GND"):
 
         board.Add(zone)
 
-    # Fill all zones
-    filler = pcbnew.ZONE_FILLER(board)
-    filler.Fill(board.Zones())
+    # Note: Zone filling via pcbnew Python API can segfault.
+    # We leave zones unfilled - KiCad will auto-fill them when the file is opened.
+    # To fill manually, run: kicad-cli pcb drc --fill-zones <file>
 
-    print(f"  Added GND zones on F.Cu and B.Cu")
+    print(f"  Added GND zones on {len(copper_layers)} copper layers (unfilled - KiCad will refill on open)")
+
+
+def main() -> int:
+    """Standalone CLI for finalization (run with system Python).
+
+    This entry point is meant to be run with /usr/bin/python3 (system Python)
+    which has access to the pcbnew module from KiCad.
+
+    Usage:
+        /usr/bin/python3 -m pcb_tool.finalize input.kicad_pcb output.kicad_pcb
+    """
+    import argparse
+    import sys
+
+    parser = argparse.ArgumentParser(
+        prog='pardal-finalize',
+        description='Finalize PCB with KiCad library footprints (requires system Python with pcbnew)'
+    )
+    parser.add_argument('input', type=Path, help='Input .kicad_pcb file (routed board)')
+    parser.add_argument('output', type=Path, help='Output .kicad_pcb file (finalized board)')
+    parser.add_argument('--gnd-net', default='GND', help='Net name for copper zones (default: GND)')
+
+    args = parser.parse_args()
+
+    if not args.input.exists():
+        print(f"Error: Input file not found: {args.input}", file=sys.stderr)
+        return 1
+
+    success, msg = finalize_board(args.input, args.output, args.gnd_net)
+    print(msg)
+    return 0 if success else 1
+
+
+if __name__ == '__main__':
+    import sys
+    sys.exit(main())

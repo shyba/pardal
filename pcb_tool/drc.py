@@ -97,6 +97,102 @@ def run_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
     )
 
 
+def run_sdk_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
+    """Run KiCad DRC via pcbnew SDK.
+
+    Uses the pcbnew Python module directly instead of kicad-cli.
+    Falls back to kicad-cli if pcbnew is not available.
+
+    Args:
+        pcb_path: Path to .kicad_pcb file
+        output_path: Optional path for report (default: temp file)
+
+    Returns:
+        DrcResult with error/warning counts and violations
+    """
+    try:
+        import pcbnew
+    except ImportError:
+        # Fall back to kicad-cli
+        return run_drc(pcb_path, output_path)
+
+    import re
+
+    pcb_path = Path(pcb_path)
+    if not pcb_path.exists():
+        raise FileNotFoundError(f"PCB file not found: {pcb_path}")
+
+    if output_path is None:
+        fd, tmp_path = tempfile.mkstemp(suffix='.txt')
+        os.close(fd)
+        output_path = Path(tmp_path)
+    else:
+        output_path = Path(output_path)
+
+    # Load board and run DRC
+    board = pcbnew.LoadBoard(str(pcb_path))
+    pcbnew.WriteDRCReport(board, str(output_path), pcbnew.EDA_UNITS_MM, True)
+
+    # Parse the text report
+    errors = 0
+    warnings = 0
+    violations = []
+    unconnected = 0
+
+    if output_path.exists():
+        with open(output_path) as f:
+            content = f.read()
+
+        # Parse violation count
+        match = re.search(r'\*\* Found (\d+) DRC violations \*\*', content)
+        total_violations = int(match.group(1)) if match else 0
+
+        # Parse unconnected items
+        match = re.search(r'\*\* Found (\d+) unconnected pads \*\*', content)
+        unconnected = int(match.group(1)) if match else 0
+
+        # Parse individual violations
+        # Format: [type]: Description\n    severity; qualifier\n    @(x, y): details
+        violation_pattern = re.compile(
+            r'\[(\w+)\]:\s*([^\n]+)\n\s+([\w\s]+);\s*(\w+)',
+            re.MULTILINE
+        )
+
+        for match in violation_pattern.finditer(content):
+            vtype = match.group(1)
+            desc = match.group(2).strip()
+            severity_text = match.group(4).lower()
+
+            # Map severity
+            if severity_text == 'error':
+                severity = 'error'
+                errors += 1
+            else:
+                severity = 'warning'
+                warnings += 1
+
+            violations.append(DrcViolation(
+                type=vtype,
+                severity=severity,
+                description=desc,
+                items=[]
+            ))
+
+        # If we didn't parse individual violations, estimate from total
+        if not violations and total_violations > 0:
+            errors = total_violations
+            warnings = 0
+
+    return DrcResult(
+        errors=errors,
+        warnings=warnings,
+        violations=violations,
+        unconnected=unconnected,
+        report_path=output_path,
+        success=(errors == 0)
+    )
+
+
 def format_drc_report(result: DrcResult, verbose: bool = False) -> str:
     """Format DRC result as human-readable text.
 

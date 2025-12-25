@@ -5,7 +5,7 @@ Parse command strings into Command objects.
 """
 
 from pathlib import Path
-from pcb_tool.commands import Command, LoadCommand, ListComponentsCommand, ListNetsCommand, ShowBoardCommand, LockCommand, UnlockCommand, MoveCommand, RotateCommand, SaveCommand, FlipCommand, WhereCommand, ExitCommand, UndoCommand, RedoCommand, HistoryCommand, HelpCommand, RouteCommand, ViaCommand, DeleteRouteCommand, DeleteViaCommand, MeasureDistanceCommand, MeasureNetLengthCommand, GroupMoveCommand, ArrangeCommand, CheckDrcCommand, CheckAirwiresCommand, CheckClearanceCommand, CheckConnectivityCommand, ShowNetCommand, ShowAirwiresCommand, AutoRouteCommand, OptimizeRoutingCommand
+from pcb_tool.commands import Command, LoadCommand, ListComponentsCommand, ListNetsCommand, ShowBoardCommand, LockCommand, UnlockCommand, MoveCommand, RotateCommand, SaveCommand, FlipCommand, WhereCommand, ExitCommand, UndoCommand, RedoCommand, HistoryCommand, HelpCommand, RouteCommand, ViaCommand, DeleteRouteCommand, DeleteViaCommand, MeasureDistanceCommand, MeasureNetLengthCommand, GroupMoveCommand, ArrangeCommand, CheckDrcCommand, CheckAirwiresCommand, CheckClearanceCommand, CheckConnectivityCommand, ShowNetCommand, ShowAirwiresCommand, AutoRouteCommand, OptimizeRoutingCommand, SetWidthCommand, SetLayersCommand, SetClearanceCommand, SetBoardSizeCommand, StatsCommand, CreateNetCommand, CreateComponentCommand, AutoRouteStrategyCommand
 
 
 class CommandParser:
@@ -42,6 +42,9 @@ class CommandParser:
         self.register("CHECK", self._parse_check)
         self.register("AUTOROUTE", self._parse_autoroute)
         self.register("OPTIMIZE", self._parse_optimize)
+        self.register("SET", self._parse_set)
+        self.register("STATS", self._parse_stats)
+        self.register("CREATE", self._parse_create)
 
     def register(self, verb: str, factory):
         """
@@ -948,15 +951,22 @@ class CommandParser:
                 AUTOROUTE NET <net_name> LAYER <layer>
                 AUTOROUTE ALL
                 AUTOROUTE ALL UNROUTED
+                AUTOROUTE STRATEGY <strategy_name>
 
         Args:
             args: Command arguments split by whitespace
 
         Returns:
-            AutoRouteCommand instance or None if parse fails
+            AutoRouteCommand or AutoRouteStrategyCommand instance or None if parse fails
         """
         if not args:
             return None
+
+        # Check for STRATEGY subcommand
+        if args[0].upper() == "STRATEGY":
+            if len(args) < 2:
+                return None
+            return AutoRouteStrategyCommand(strategy_name=args[1])
 
         # Check for ALL or NET subcommand
         if args[0].upper() == "ALL":
@@ -1055,3 +1065,369 @@ class CommandParser:
             return OptimizeRoutingCommand(net_name=net_name)
 
         return None
+
+    def _parse_set(self, args: list) -> Command:
+        """Parse SET command.
+
+        Syntax: SET WIDTH NET <net_name> <width_mm>
+                SET WIDTH CLASS <class_name> <width_mm>
+                SET WIDTH DEFAULT <width_mm>
+                SET LAYERS <count>
+                SET CLEARANCE NET <net_name> <clearance_mm>
+                SET CLEARANCE CLASS <class_name> <clearance_mm>
+                SET BOARD SIZE <width_mm> <height_mm>
+
+        Args:
+            args: Command arguments split by whitespace
+
+        Returns:
+            SetWidthCommand, SetLayersCommand, SetClearanceCommand, SetBoardSizeCommand, or None if parse fails
+        """
+        if not args:
+            return None
+
+        subcommand = args[0].upper()
+
+        if subcommand == "WIDTH":
+            return self._parse_set_width(args[1:])
+        elif subcommand == "LAYERS":
+            return self._parse_set_layers(args[1:])
+        elif subcommand == "CLEARANCE":
+            return self._parse_set_clearance(args[1:])
+        elif subcommand == "BOARD":
+            return self._parse_set_board(args[1:])
+
+        return None
+
+    def _parse_set_width(self, args: list) -> Command:
+        """Parse SET WIDTH subcommand.
+
+        Syntax: SET WIDTH NET <net_name> <width_mm>
+                SET WIDTH CLASS <class_name> <width_mm>
+                SET WIDTH DEFAULT <width_mm>
+
+        Args:
+            args: Command arguments after WIDTH keyword
+
+        Returns:
+            SetWidthCommand instance or None if parse fails
+        """
+        if not args:
+            return None
+
+        target = args[0].upper()
+
+        if target == "NET":
+            # SET WIDTH NET <net_name> <width_mm>
+            if len(args) < 3:
+                return None
+
+            # Width is the last argument
+            try:
+                width = float(args[-1])
+            except ValueError:
+                return None
+
+            # Net name is everything between NET and width
+            net_name_parts = args[1:-1]
+            if not net_name_parts:
+                return None
+
+            net_name = " ".join(net_name_parts)
+            # Handle quoted names
+            if net_name.startswith('"') and net_name.endswith('"'):
+                net_name = net_name[1:-1]
+
+            return SetWidthCommand(width=width, net_name=net_name)
+
+        elif target == "CLASS":
+            # SET WIDTH CLASS <class_name> <width_mm>
+            if len(args) < 3:
+                return None
+
+            # Width is the last argument
+            try:
+                width = float(args[-1])
+            except ValueError:
+                return None
+
+            # Class name is everything between CLASS and width
+            class_name_parts = args[1:-1]
+            if not class_name_parts:
+                return None
+
+            class_name = " ".join(class_name_parts)
+            # Handle quoted names
+            if class_name.startswith('"') and class_name.endswith('"'):
+                class_name = class_name[1:-1]
+
+            return SetWidthCommand(width=width, class_name=class_name)
+
+        elif target == "DEFAULT":
+            # SET WIDTH DEFAULT <width_mm>
+            if len(args) < 2:
+                return None
+
+            try:
+                width = float(args[1])
+            except ValueError:
+                return None
+
+            return SetWidthCommand(width=width, set_default=True)
+
+        return None
+
+    def _parse_set_layers(self, args: list) -> Command:
+        """Parse SET LAYERS subcommand.
+
+        Syntax: SET LAYERS <count>
+
+        Args:
+            args: Command arguments after LAYERS keyword
+
+        Returns:
+            SetLayersCommand instance or None if parse fails
+        """
+        if not args:
+            return None
+
+        try:
+            layer_count = int(args[0])
+        except ValueError:
+            return None
+
+        return SetLayersCommand(layer_count=layer_count)
+
+    def _parse_set_clearance(self, args: list) -> Command:
+        """Parse SET CLEARANCE subcommand.
+
+        Syntax: SET CLEARANCE NET <net_name> <clearance_mm>
+                SET CLEARANCE CLASS <class_name> <clearance_mm>
+
+        Args:
+            args: Command arguments after CLEARANCE keyword
+
+        Returns:
+            SetClearanceCommand instance or None if parse fails
+        """
+        if not args:
+            return None
+
+        target = args[0].upper()
+
+        if target == "NET":
+            # SET CLEARANCE NET <net_name> <clearance_mm>
+            if len(args) < 3:
+                return None
+
+            # Clearance is the last argument
+            try:
+                clearance = float(args[-1])
+            except ValueError:
+                return None
+
+            # Net name is everything between NET and clearance
+            net_name_parts = args[1:-1]
+            if not net_name_parts:
+                return None
+
+            net_name = " ".join(net_name_parts)
+            # Handle quoted names
+            if net_name.startswith('"') and net_name.endswith('"'):
+                net_name = net_name[1:-1]
+
+            return SetClearanceCommand(clearance=clearance, net_name=net_name)
+
+        elif target == "CLASS":
+            # SET CLEARANCE CLASS <class_name> <clearance_mm>
+            if len(args) < 3:
+                return None
+
+            # Clearance is the last argument
+            try:
+                clearance = float(args[-1])
+            except ValueError:
+                return None
+
+            # Class name is everything between CLASS and clearance
+            class_name_parts = args[1:-1]
+            if not class_name_parts:
+                return None
+
+            class_name = " ".join(class_name_parts)
+            # Handle quoted names
+            if class_name.startswith('"') and class_name.endswith('"'):
+                class_name = class_name[1:-1]
+
+            return SetClearanceCommand(clearance=clearance, class_name=class_name)
+
+        return None
+
+    def _parse_set_board(self, args: list) -> Command:
+        """Parse SET BOARD subcommand.
+
+        Syntax: SET BOARD SIZE <width_mm> <height_mm>
+
+        Args:
+            args: Command arguments after BOARD keyword
+
+        Returns:
+            SetBoardSizeCommand instance or None if parse fails
+        """
+        if not args:
+            return None
+
+        subcommand = args[0].upper()
+
+        if subcommand == "SIZE":
+            # SET BOARD SIZE <width> <height>
+            if len(args) < 3:
+                return None
+
+            try:
+                width = float(args[1])
+                height = float(args[2])
+            except ValueError:
+                return None
+
+            return SetBoardSizeCommand(width=width, height=height)
+
+        return None
+
+    def _parse_stats(self, args: list) -> Command:
+        """Parse STATS command.
+
+        Syntax: STATS
+                STATS ROUTING
+                STATS NETS
+                STATS COMPONENTS
+
+        Args:
+            args: Command arguments split by whitespace
+
+        Returns:
+            StatsCommand instance
+        """
+        category = None
+        if args:
+            category = args[0]
+
+        return StatsCommand(category=category)
+
+    def _parse_create(self, args: list) -> Command:
+        """Parse CREATE command.
+
+        Syntax: CREATE NET <name> <ref.pin> <ref.pin> [<ref.pin>...]
+                CREATE NET <name> CLASS <class_name> <ref.pin> <ref.pin> [<ref.pin>...]
+                CREATE COMPONENT <ref> <footprint> <x> <y> [ROTATION <deg>] [VALUE <val>]
+
+        Args:
+            args: Command arguments split by whitespace
+
+        Returns:
+            CreateNetCommand, CreateComponentCommand, or None if parse fails
+        """
+        if not args:
+            return None
+
+        subcommand = args[0].upper()
+
+        if subcommand == "NET":
+            return self._parse_create_net(args[1:])
+        elif subcommand == "COMPONENT":
+            return self._parse_create_component(args[1:])
+
+        return None
+
+    def _parse_create_net(self, args: list) -> Command:
+        """Parse CREATE NET subcommand.
+
+        Syntax: CREATE NET <name> <ref.pin> <ref.pin> [<ref.pin>...]
+                CREATE NET <name> CLASS <class_name> <ref.pin> <ref.pin> [<ref.pin>...]
+
+        Args:
+            args: Command arguments after NET keyword
+
+        Returns:
+            CreateNetCommand instance or None if parse fails
+        """
+        if len(args) < 3:  # At minimum: <name> <ref.pin> <ref.pin>
+            return None
+
+        name = args[0]
+        net_class = None
+        connection_args = args[1:]
+
+        # Check for CLASS keyword
+        if len(args) > 2 and args[1].upper() == "CLASS":
+            if len(args) < 5:  # <name> CLASS <class> <ref.pin> <ref.pin>
+                return None
+            net_class = args[2]
+            connection_args = args[3:]
+
+        # Parse connections (ref.pin format)
+        connections = []
+        for conn in connection_args:
+            if "." not in conn:
+                return None
+            parts = conn.split(".", 1)
+            if len(parts) != 2:
+                return None
+            connections.append((parts[0], parts[1]))
+
+        if len(connections) < 2:
+            return None
+
+        return CreateNetCommand(name=name, connections=connections, net_class=net_class)
+
+    def _parse_create_component(self, args: list) -> Command:
+        """Parse CREATE COMPONENT subcommand.
+
+        Syntax: CREATE COMPONENT <ref> <footprint> <x> <y> [ROTATION <deg>] [VALUE <val>]
+
+        Args:
+            args: Command arguments after COMPONENT keyword
+
+        Returns:
+            CreateComponentCommand instance or None if parse fails
+        """
+        if len(args) < 4:  # <ref> <footprint> <x> <y>
+            return None
+
+        ref = args[0]
+        footprint = args[1]
+
+        try:
+            x = float(args[2])
+            y = float(args[3])
+        except ValueError:
+            return None
+
+        rotation = 0.0
+        value = ""
+
+        # Parse optional parameters
+        remaining = args[4:]
+        i = 0
+        while i < len(remaining):
+            keyword = remaining[i].upper()
+            if keyword == "ROTATION" and i + 1 < len(remaining):
+                try:
+                    rotation = float(remaining[i + 1])
+                except ValueError:
+                    return None
+                i += 2
+            elif keyword == "VALUE" and i + 1 < len(remaining):
+                value = remaining[i + 1]
+                i += 2
+            else:
+                i += 1
+
+        return CreateComponentCommand(
+            ref=ref,
+            footprint=footprint,
+            x=x,
+            y=y,
+            rotation=rotation,
+            value=value
+        )

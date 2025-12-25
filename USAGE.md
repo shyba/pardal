@@ -9,12 +9,126 @@ An AI-friendly command-line tool for PCB component placement and layout.
 
 ## Table of Contents
 
+- [Prerequisites Check](#prerequisites-check) ← **Verify setup first**
+- [Atopile Quick Start](#atopile-quick-start) ← **Start here if using atopile**
+- [Which Command Should I Use?](#which-command-should-i-use)
 - [One-Shot Board Generation](#one-shot-board-generation)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Command Reference](#command-reference)
 - [Example Workflows](#example-workflows)
 - [Troubleshooting](#troubleshooting)
+
+---
+
+## Prerequisites Check
+
+Before using pardal-pcb, verify your setup:
+
+```bash
+# Set PARDAL_DIR to where pardal-pcb is located
+PARDAL_DIR=/path/to/pardal-pcb
+
+# 1. Check KiCad Python SDK is available (required for route/finalize)
+python3 -c "import pcbnew; print('pcbnew OK:', pcbnew.Version())"
+
+# 2. Check kicad-cli is available (required for DRC)
+kicad-cli --version
+
+# 3. Check pardal-pcb venv has z3 (required for routing optimization)
+$PARDAL_DIR/venv/bin/python -c "import z3; print('z3 OK')"
+```
+
+**If `import pcbnew` fails:**
+```bash
+sudo apt install kicad kicad-packages3d
+```
+
+---
+
+## Atopile Quick Start
+
+**If you have an atopile project built with `ato build`**, use these commands:
+
+```bash
+# Set PARDAL_DIR to where pardal-pcb is located (adjust path as needed)
+PARDAL_DIR=/path/to/pardal-pcb
+
+# Your atopile output files:
+# build/builds/default/default/default.kicad_pcb  ← USE THIS (has placed components)
+# build/builds/default/default/default.net        ← Don't use this (loses placement)
+
+# Step 1: Route the existing board (requires system Python for pcbnew)
+PYTHONPATH=$PARDAL_DIR/venv/lib/python3.*/site-packages \
+  /usr/bin/python3 -m pcb_tool.cli route \
+  build/builds/default/default/default.kicad_pcb \
+  -o board_routed.kicad_pcb
+
+# Step 2: Finalize for production (adds library footprints + GND zones)
+/usr/bin/python3 -m pcb_tool.finalize \
+  board_routed.kicad_pcb \
+  board_final.kicad_pcb
+
+# Step 3: Verify with DRC
+kicad-cli pcb drc board_final.kicad_pcb
+```
+
+**Expected output (success):**
+```
+# Route command:
+Successfully routed 22/25 nets
+Total: 234.5mm traces, 8 vias
+
+# Finalize command:
+Phase 1: Extracting data from board_routed.kicad_pcb...
+  Extracted 14 footprints, 45 tracks
+Phase 2: Building with KiCad library footprints...
+  Created board with 14 footprints
+Phase 3: Adding GND zones...
+  Added GND zones on F.Cu and B.Cu
+Finalized board saved to board_final.kicad_pcb
+
+# DRC command (success):
+** Found 0 DRC violations **
+** Found 0 unconnected pads **
+** Found 0 Footprint errors **
+```
+
+**Why two separate commands?** The `route` and `finalize` steps must run as separate commands because KiCad's pcbnew Python bindings have memory management limitations that require fresh processes.
+
+**Notes:**
+- The `python3.*` wildcard expands automatically to match your Python version (e.g., `python3.11`). If unsure, run `ls $PARDAL_DIR/venv/lib/` to see the exact directory name.
+- Output files are created in your **current working directory**. Use absolute paths for clarity (e.g., `-o /full/path/to/board_routed.kicad_pcb`).
+- The `finalize` command doesn't need PYTHONPATH - it only uses system Python's pcbnew module.
+
+**Important**: Use `pardal route` on the `.kicad_pcb` file, NOT `pardal build` on the `.net` file. The `.kicad_pcb` file already has components placed by atopile.
+
+---
+
+## Which Command Should I Use?
+
+| Your Situation | Command | Why |
+|----------------|---------|-----|
+| Atopile project with `.kicad_pcb` | `pardal route board.kicad_pcb` | Keeps atopile's placement |
+| Starting from netlist only | `pardal build project.net -p placement.txt` | Need placement script |
+| Want production-quality output | Add `--finalize` flag | Adds library footprints + zones |
+| Debugging interactively | `pardal repl` then `LOAD ...` | Full REPL access |
+
+### Input File Types
+
+| File Type | What Happens When Loaded |
+|-----------|--------------------------|
+| `.kicad_pcb` | **Keeps placement** - components stay where atopile put them |
+| `.net` | **Loses placement** - all components go to (0,0) |
+
+### Python Environment
+
+| Operation | Python to Use |
+|-----------|---------------|
+| `pardal build` (no --finalize) | venv Python OK |
+| `pardal route` | System Python required (needs pcbnew) |
+| `--finalize` flag | System Python required (needs pcbnew) |
+| `pardal-finalize` | System Python required |
 
 ---
 
@@ -855,6 +969,92 @@ OK: Saved to output.kicad_pcb
 ---
 
 ## Troubleshooting
+
+### Critical Errors
+
+#### "pcbnew not available" or "ImportError: No module named 'pcbnew'"
+
+```
+Error: 'route' requires KiCad Python SDK (pcbnew).
+pcbnew is only available in system Python, not virtual environments.
+```
+
+**Cause**: You're running in a venv, but `pcbnew` is only in system Python.
+
+**Solution**: Use system Python with venv packages:
+```bash
+PYTHONPATH=/path/to/venv/lib/python3.11/site-packages \
+  /usr/bin/python3 -m pcb_tool.cli route board.kicad_pcb -o output.kicad_pcb
+```
+
+Or use the dedicated finalize command:
+```bash
+/usr/bin/python3 -m pcb_tool.finalize input.kicad_pcb output.kicad_pcb
+```
+
+---
+
+#### "Cannot finalize - unmapped footprints"
+
+```
+Cannot finalize - unmapped footprints:
+  R1 (SomeCustom:R_0805_Custom)
+  C1 (VendorLib:C_0603_Special)
+```
+
+**Cause**: The finalize process doesn't know how to map these footprints to KiCad library versions.
+
+**Solution**: Edit `pcb_tool/finalize.py` and add mappings to `FOOTPRINT_LIBS`:
+```python
+FOOTPRINT_LIBS = {
+    # Add your custom footprints:
+    'R_0805_Custom': '/usr/share/kicad/footprints/Resistor_SMD.pretty',
+    'C_0603_Special': '/usr/share/kicad/footprints/Capacitor_SMD.pretty',
+    # ...
+}
+```
+
+---
+
+#### "Components have no pads" or routing fails silently
+
+```
+Cannot route - 5 components have no pads:
+  R1 (Unknown:CustomFootprint): 0 pads
+```
+
+**Cause**: Footprint not in pardal's library and pcbnew fallback not available.
+
+**Solution**:
+1. Run `LIST COMPONENTS` and look for `[NO PADS!]` warnings
+2. Either add footprint to `pcb_tool/footprint_library.py`
+3. Or use `--finalize` which loads footprints from KiCad libraries directly
+
+---
+
+### Partial Routing Success
+
+If routing reports something like "Successfully routed 22/25 nets":
+
+- **Finalization will still work** - unrouted nets remain as airwires
+- **DRC will report unconnected pads** for the failed nets
+- **Options to handle unrouted nets**:
+  1. Accept partial routing if the failed nets are non-critical
+  2. Adjust component placement to reduce congestion, then re-route
+  3. Route the failed nets manually in KiCad after finalization
+
+---
+
+### Interpreting DRC Results
+
+| DRC Message | Meaning | Action |
+|-------------|---------|--------|
+| `0 violations, 0 unconnected` | ✅ Board is production-ready | Proceed to Gerber export |
+| `N unconnected pads` | Some nets didn't route completely | Check routing output, fix in KiCad |
+| `Clearance violation` | Traces or pads too close | Adjust placement or trace widths |
+| `Track too close to pad` | Routing clearance issue | Edit in KiCad or re-route with more space |
+
+---
 
 ### Common Issues
 

@@ -1,47 +1,115 @@
 # Pardal PCB
 
-A command-line PCB Place & Route tool.
+A command-line PCB Place & Route tool with Python API.
 
 ![Pardal PCB example](example.jpg)
 
 ## Features
 
-- **17 Commands**: LOAD, SAVE, MOVE, ROTATE, FLIP, LOCK, UNLOCK, LIST (components/nets), SHOW BOARD, WHERE, UNDO, REDO, HISTORY, HELP, EXIT
-- **Autorouting**: A* pathfinding with Z3 layer optimization for 2-layer boards, largely based on some of freerouting project features.
-- **CLI Modes**: Interactive REPL, batch file execution (`--batch`), single command execution (`--exec`)
-- **File Formats**: Reads KiCad netlist (.net), writes KiCad PCB (.kicad_pcb)
-- **SDK Workflow**: Generate production-quality boards with library footprints, aiming at 0 DRC errors
-- **Grid Visualization**: ASCII art board display with component positions and orientations
-- **Undo/Redo**: Full command history with state management
+- **Multi-layer Routing**: 2, 4, 6, and 8-layer boards with A* pathfinding and Z3 optimization
+- **Python API**: Fluent `BoardBuilder` interface for programmatic board creation
+- **Routing Strategies**: Pre-configured strategies for FPGA, mixed-signal, and simple boards
+- **20+ Commands**: LOAD, SAVE, MOVE, ROTATE, FLIP, LOCK, UNLOCK, LIST, AUTOROUTE, STATS, CREATE, and more
+- **CLI Modes**: Interactive REPL, batch file execution, single command execution
+- **File Formats**: Reads KiCad netlist (.net) and PCB (.kicad_pcb), writes KiCad PCB
+- **SDK Workflow**: Generate production-quality boards with library footprints, 0 DRC errors
+- **Footprint Templates**: Auto-generates pads for common packages (QFP, SOIC, 0603, etc.)
 
 ## Dependencies
 
 ### Required
-- **Python 3.10+** with virtual environment
+- **Python 3.10+**
 - **KiCad 9.0+** installed (provides `pcbnew` Python module and `kicad-cli`)
-- **kicad-packages3d** package for 3D model rendering in KiCad viewer
 
 Install on Debian/Ubuntu:
 ```bash
-sudo apt install kicad kicad-packages3d
+sudo apt install kicad kicad-packages3d python3-venv
 ```
 
-### For SDK Workflow (Recommended)
-The SDK workflow uses KiCad's Python API directly (system Python, not venv):
+### Python Environment Notes
+
+Pardal uses **two Python environments** for different tasks:
+
+| Task | Python | Why |
+|------|--------|-----|
+| Routing, board creation | venv (`./venv/bin/python`) | Pure Python, isolated dependencies |
+| Finalization, KiCad SDK | System (`/usr/bin/python3`) | `pcbnew` module installed with KiCad |
+
+**Most users only need venv** for routing. System Python is only needed for the `finalize` command that adds library footprints and copper zones.
+
+Verify KiCad SDK is available:
 ```bash
-python3 -c "import pcbnew; print(pcbnew.Version())"
+/usr/bin/python3 -c "import pcbnew; print('KiCad', pcbnew.Version())"
 ```
 
 ## Installation
 
-No installation needed - uses virtual environment:
-
 ```bash
+git clone <repo-url> pardal-pcb
 cd pardal-pcb
-./venv/bin/python -m pcb_tool --help
+python3 -m venv venv
+./venv/bin/pip install -e .
 ```
 
-## Quick Start
+For the `pardal` command shortcut (optional):
+```bash
+pip install -e .
+pardal --help
+```
+
+## Python API Quick Start
+
+Create a 4-layer FPGA board in ~20 lines:
+
+```python
+from pcb_tool.board_builder import fpga_board
+from pcb_tool.routing_strategies import route_board
+from pcb_tool.kicad_writer import KicadWriter
+
+board = (fpga_board(layers=4, width=40, height=40)
+    .component("U1", "TQFP-32", (20, 20), value="FPGA")
+    .component("C1", "0603", (12, 20), value="100nF")
+    .net("VCC", "Power", [("U1", "8"), ("C1", "1")])
+    .net("GND", "Power", [("U1", "16"), ("C1", "2")])
+    .build())
+
+result = route_board(board, "fpga")
+print(f"Routed {result.nets_routed}/{result.nets_total} nets")
+
+KicadWriter().write(board, "board.kicad_pcb")
+```
+
+See [docs/PYTHON_API_GUIDE.md](docs/PYTHON_API_GUIDE.md) for complete API reference.
+
+## Atopile Users - Quick Start
+
+**If you have an atopile project**, use these commands:
+
+```bash
+# Set PARDAL_DIR to where pardal-pcb is located
+PARDAL_DIR=/path/to/pardal-pcb
+
+# After `ato build`, your files are at:
+# build/builds/default/default/default.kicad_pcb  ← Has placed components
+# build/builds/default/default/default.net        ← Netlist only
+
+# Route the existing board (use .kicad_pcb to keep atopile's placement!)
+PYTHONPATH=$PARDAL_DIR/venv/lib/python3.*/site-packages \
+  /usr/bin/python3 -m pcb_tool.cli route \
+  build/builds/default/default/default.kicad_pcb \
+  -o board_routed.kicad_pcb
+
+# Finalize for production (library footprints + GND zones)
+/usr/bin/python3 -m pcb_tool.finalize \
+  board_routed.kicad_pcb board_final.kicad_pcb
+
+# Verify 0 DRC errors
+kicad-cli pcb drc board_final.kicad_pcb
+```
+
+**Important**: Use `pardal route` on `.kicad_pcb`, NOT `pardal build` on `.net` - otherwise you lose atopile's placement!
+
+## Quick Start (General)
 
 ```bash
 # Install
@@ -50,7 +118,7 @@ pip install -e .
 # Show available commands
 pardal --help
 
-# Build PCB from netlist with placement
+# Build PCB from netlist with placement script (when starting from scratch)
 pardal build project.net -p placement.txt -o board.kicad_pcb
 
 # Run DRC check
@@ -132,9 +200,13 @@ See `docs/SDK_WORKFLOW_GUIDE.md` for complete instructions.
 
 ## Documentation
 
-- **USAGE.md**: Complete command reference with examples
-- **docs/AUTOROUTING_GUIDE.md**: Autorouting system guide
-- **docs/SDK_WORKFLOW_GUIDE.md**: SDK workflow for production boards
+- **[docs/PYTHON_API_GUIDE.md](docs/PYTHON_API_GUIDE.md)**: Complete Python API reference
+- **[docs/QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md)**: Command cheat sheet
+- **[docs/PRODUCTION_WORKFLOW.md](docs/PRODUCTION_WORKFLOW.md)**: Routing to production guide
+- **[docs/AI_INTEGRATION.md](docs/AI_INTEGRATION.md)**: Guide for AI assistants
+- **[docs/AUTOROUTING_GUIDE.md](docs/AUTOROUTING_GUIDE.md)**: Autorouting internals
+- **[docs/SDK_WORKFLOW_GUIDE.md](docs/SDK_WORKFLOW_GUIDE.md)**: KiCad SDK details
+- **USAGE.md**: CLI command reference
 
 ## Testing
 
@@ -151,9 +223,9 @@ Run the full test suite:
 
 ## Limitations
 
-- **2-layer boards only**: F.Cu and B.Cu layers supported
-- **Linux paths**: Footprint library paths assume standard KiCad installation at `/usr/share/kicad/footprints/`
+- **Linux only**: Footprint library paths assume standard KiCad installation at `/usr/share/kicad/footprints/`
 - **KiCad 9+**: Requires KiCad 9.0 or newer for SDK compatibility
+- **System Python for finalization**: The `finalize` command requires system Python with pcbnew (see Dependencies)
 
 ## License
 

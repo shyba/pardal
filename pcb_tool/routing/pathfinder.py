@@ -88,6 +88,14 @@ class PathFinder:
             "buried": 0.85
         }
 
+        # Track via locations from last find_path call
+        # Format: [(x_mm, y_mm, from_layer, to_layer), ...]
+        self.last_via_locations: List[Tuple[float, float, str, str]] = []
+
+        # Track path cells with layer info from last find_path call
+        # This allows callers to get layer info for segments
+        self.last_path_cells: Optional[List[GridCell]] = None
+
     def find_path(
         self,
         start_mm: Tuple[float, float],
@@ -119,8 +127,9 @@ class PathFinder:
         Returns:
             List of waypoints (x, y) in millimeters, or None if no path found
         """
-        # Store net_name for use in neighbor generation
+        # Store net_name and layer for use in neighbor generation and path simplification
         self.current_net = net_name
+        self._current_layer = layer
 
         # Default to single-layer routing
         if target_layer is None:
@@ -134,11 +143,30 @@ class PathFinder:
         start_grid = self.grid.to_grid_coords(*start_mm)
         goal_grid = self.grid.to_grid_coords(*goal_mm)
 
-        # Check if start and goal are valid
-        if not self.grid.is_valid_cell(*start_grid, layer, current_net=net_name):
+        # Check if start and goal are within bounds
+        # NOTE: Don't check for obstacles - start/goal are typically at pads,
+        # which are marked as obstacles to prevent other nets from crossing them,
+        # but the current net must be able to start/end at its own pads
+        if not self.grid.is_within_bounds(*start_grid):
             return None
-        if not self.grid.is_valid_cell(*goal_grid, target_layer, current_net=net_name):
+        if not self.grid.is_within_bounds(*goal_grid):
             return None
+
+        # Check if start/goal are in forbidden zones of other nets
+        # (but allow routing through own net's forbidden zones for MST)
+        if start_grid in self.grid.crossing_forbidden.get(layer, set()):
+            if not (net_name and net_name in self.grid.forbidden_zones_by_net):
+                return None
+            zone_key = (*start_grid, layer)
+            if zone_key not in self.grid.forbidden_zones_by_net.get(net_name, set()):
+                return None
+
+        if goal_grid in self.grid.crossing_forbidden.get(target_layer, set()):
+            if not (net_name and net_name in self.grid.forbidden_zones_by_net):
+                return None
+            zone_key = (*goal_grid, target_layer)
+            if zone_key not in self.grid.forbidden_zones_by_net.get(net_name, set()):
+                return None
 
         # Create start and goal cells
         start_cell = GridCell(start_grid[0], start_grid[1], layer)
@@ -151,9 +179,14 @@ class PathFinder:
         path_cells = self._astar_search(start_cell, goal_cell, target_layer, allow_diagonals, force_single_layer, effective_via_cost)
 
         if path_cells is None:
+            self.last_path_cells = None
+            self.last_via_locations = []
             return None
 
-        # Mark vias at layer transitions
+        # Store path cells for layer info access
+        self.last_path_cells = path_cells
+
+        # Mark vias at layer transitions and record via locations
         self._mark_vias_in_path(path_cells)
 
         # Convert grid path to millimeter coordinates
@@ -423,9 +456,15 @@ class PathFinder:
         For multi-layer boards, determines the correct via layer span
         based on the layers being transitioned between.
 
+        Also records via locations in self.last_via_locations for callers
+        to use when creating segments with proper layer assignments.
+
         Args:
             path_cells: List of GridCell objects forming the path
         """
+        # Clear previous via locations
+        self.last_via_locations = []
+
         for i in range(len(path_cells) - 1):
             current_cell = path_cells[i]
             next_cell = path_cells[i + 1]
@@ -434,6 +473,9 @@ class PathFinder:
             if current_cell.layer != next_cell.layer:
                 # Layer transition detected - mark via
                 x_mm, y_mm = self.grid.to_mm_coords(current_cell.x, current_cell.y)
+
+                # Record via location for segment creation
+                self.last_via_locations.append((x_mm, y_mm, current_cell.layer, next_cell.layer))
 
                 # Determine via layers (all layers between the two transition layers)
                 via_layers = tuple(self.grid.get_layers_between(
@@ -515,7 +557,7 @@ class PathFinder:
         epsilon: float
     ) -> bool:
         """
-        Check if all points between start and end are approximately collinear.
+        Check if segment can be simplified (points are collinear AND no obstacles).
 
         Args:
             path: List of waypoints
@@ -525,6 +567,7 @@ class PathFinder:
 
         Returns:
             True if all intermediate points are within epsilon of the line
+            AND the simplified segment doesn't cross any obstacles
         """
         if end_idx - start_idx <= 1:
             return True
@@ -532,14 +575,72 @@ class PathFinder:
         start = path[start_idx]
         end = path[end_idx]
 
-        # Check each intermediate point
+        # Check each intermediate point for collinearity
         for i in range(start_idx + 1, end_idx):
             point = path[i]
             dist = self._point_to_line_distance(point, start, end)
             if dist > epsilon:
                 return False
 
+        # Also check that the simplified segment doesn't cross obstacles
+        # Use the current layer from the pathfinder (set during find_path)
+        layer = getattr(self, '_current_layer', 'F.Cu')
+        current_net = getattr(self, 'current_net', None)
+
+        # Sample points along the segment to check for obstacles
+        start_gx, start_gy = self.grid.to_grid_coords(*start)
+        end_gx, end_gy = self.grid.to_grid_coords(*end)
+
+        # Use Bresenham to get all cells along the line
+        cells = self._bresenham_line(start_gx, start_gy, end_gx, end_gy)
+        for gx, gy in cells:
+            if not self.grid.is_valid_cell(gx, gy, layer, current_net=current_net):
+                # Obstacle in the way - can't simplify
+                return False
+
         return True
+
+    def _bresenham_line(
+        self,
+        x0: int,
+        y0: int,
+        x1: int,
+        y1: int
+    ) -> List[Tuple[int, int]]:
+        """
+        Bresenham's line algorithm to get all grid cells along a line.
+
+        Args:
+            x0, y0: Start grid coordinates
+            x1, y1: End grid coordinates
+
+        Returns:
+            List of (grid_x, grid_y) tuples along the line
+        """
+        cells = []
+        dx = abs(x1 - x0)
+        dy = abs(y1 - y0)
+        sx = 1 if x0 < x1 else -1
+        sy = 1 if y0 < y1 else -1
+        err = dx - dy
+
+        x, y = x0, y0
+
+        while True:
+            cells.append((x, y))
+
+            if x == x1 and y == y1:
+                break
+
+            e2 = 2 * err
+            if e2 > -dy:
+                err -= dy
+                x += sx
+            if e2 < dx:
+                err += dx
+                y += sy
+
+        return cells
 
     def _point_to_line_distance(
         self,

@@ -8,6 +8,27 @@ Provides bidirectional conversion between:
 from pcb_tool.data_model import Board, Component, Net, Pad, TraceSegment, Via
 
 
+def _get_layer_map():
+    """Build layer name → pcbnew constant mapping (lazy import to avoid import-time pcbnew)."""
+    import pcbnew
+    layer_map = {
+        'F.Cu': pcbnew.F_Cu,
+        'B.Cu': pcbnew.B_Cu,
+    }
+    # Add inner layers In1.Cu through In30.Cu
+    for i in range(1, 31):
+        layer_name = f'In{i}.Cu'
+        layer_map[layer_name] = getattr(pcbnew, f'In{i}_Cu', None)
+    return layer_map
+
+
+def _get_pcbnew_layer(layer_name: str):
+    """Get pcbnew layer constant for a layer name. Defaults to F.Cu if unknown."""
+    import pcbnew
+    layer_map = _get_layer_map()
+    return layer_map.get(layer_name, pcbnew.F_Cu)
+
+
 def load_board_from_kicad(kicad_board) -> Board:
     """
     Convert a pcbnew board to pardal Board.
@@ -100,7 +121,7 @@ def write_traces_to_kicad(board: Board, kicad_board):
                 pcbnew.FromMM(segment.end[1])
             ))
             track.SetWidth(pcbnew.FromMM(segment.width))
-            track.SetLayer(pcbnew.F_Cu if segment.layer == 'F.Cu' else pcbnew.B_Cu)
+            track.SetLayer(_get_pcbnew_layer(segment.layer))
             if net_info:
                 track.SetNet(net_info)
             kicad_board.Add(track)

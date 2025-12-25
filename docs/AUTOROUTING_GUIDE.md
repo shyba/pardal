@@ -34,9 +34,33 @@ Board → RoutingGrid → PathFinder → MultiNetRouter → RoutedNets
 
 ## Quick Start
 
-### Using the CLI (Recommended)
+### Atopile Users (Existing .kicad_pcb)
 
-The easiest way to build and route a board:
+If you have an atopile project (with placed components in `.kicad_pcb`):
+
+```bash
+# Set PARDAL_DIR to where pardal-pcb is located
+PARDAL_DIR=/path/to/pardal-pcb
+
+# Route existing board (keeps atopile's placement!)
+PYTHONPATH=$PARDAL_DIR/venv/lib/python3.*/site-packages \
+  /usr/bin/python3 -m pcb_tool.cli route \
+  build/builds/default/default/default.kicad_pcb \
+  -o board_routed.kicad_pcb
+
+# Finalize for production
+/usr/bin/python3 -m pcb_tool.finalize \
+  board_routed.kicad_pcb board_final.kicad_pcb
+
+# Verify
+kicad-cli pcb drc board_final.kicad_pcb
+```
+
+**Important**: Use `route` on `.kicad_pcb`, NOT `build` on `.net` - otherwise you lose placement!
+
+### Starting from Scratch (Netlist Only)
+
+If you have only a netlist (`.net` file) with no placement:
 
 ```bash
 # Build with autorouting and DRC
@@ -557,21 +581,34 @@ AUTOROUTE UNROUTED
 
 For scripted/automated builds:
 
+**Option A: Route existing board (atopile or pre-placed)**
 ```bash
-# 1. Build with autorouting
-pardal build injector_2ch.net \
-    -p placement.txt \
-    -o injector_routed.kicad_pcb \
-    --route
+# Set PARDAL_DIR to where pardal-pcb is located
+PARDAL_DIR=/path/to/pardal-pcb
 
-# 2. Check DRC
-pardal drc injector_routed.kicad_pcb
-
-# Output:
-# ✓ DRC PASSED: 0 errors, 0 warnings
+# Route existing .kicad_pcb (keeps placement)
+PYTHONPATH=$PARDAL_DIR/venv/lib/python3.*/site-packages \
+  /usr/bin/python3 -m pcb_tool.cli route \
+  existing_board.kicad_pcb \
+  -o board_routed.kicad_pcb
 ```
 
-This is equivalent to the REPL workflow but runs in a single command.
+**Option B: Build from netlist (starting from scratch)**
+```bash
+# Build from .net file with placement script
+pardal build project.net \
+    -p placement.txt \
+    -o board_routed.kicad_pcb \
+    --route
+```
+
+**Check DRC:**
+```bash
+pardal drc board_routed.kicad_pcb
+# Output: ✓ DRC PASSED: 0 errors, 0 warnings
+```
+
+**Key difference**: Use `route` when you have placed components; use `build` when starting from netlist only.
 
 ## Advanced Topics
 

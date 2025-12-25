@@ -243,7 +243,12 @@ class TestPathfindingEdgeCases:
         assert path is None
 
     def test_find_path_start_on_obstacle(self):
-        """Test when start position is on an obstacle."""
+        """Test when start position is on an obstacle.
+
+        Routes are allowed to start from obstacles because pads are marked
+        as obstacles but routes need to start from pads. The pathfinder
+        should find a path that escapes the obstacle area.
+        """
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.5)
 
         # Mark start as obstacle
@@ -257,13 +262,21 @@ class TestPathfindingEdgeCases:
             layer="F.Cu"
         )
 
-        assert path is None
+        # Path should be found - routes can start from obstacles (pads are obstacles)
+        # The path will use via to B.Cu or route around
+        assert path is not None, "Path should be found even when starting from obstacle"
+        assert len(path) >= 2, "Path should have at least start and end points"
 
     def test_find_path_goal_on_obstacle(self):
-        """Test when goal position is on an obstacle."""
+        """Test when goal position is on an obstacle without net context.
+
+        When no net_name is provided, routing to an obstacle fails because
+        the pathfinder can't determine if the obstacle belongs to the current net.
+        In production, pad_net_map allows routing to own-net pads.
+        """
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.5)
 
-        # Mark goal as obstacle
+        # Mark goal as obstacle (without associating it with a net)
         grid.mark_obstacle(30.0, 20.0, "F.Cu", size_mm=2.0)
 
         finder = PathFinder(grid)
@@ -272,9 +285,11 @@ class TestPathfindingEdgeCases:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="F.Cu"
+            # No net_name - obstacle has no associated net
         )
 
-        assert path is None
+        # Without net context, goal obstacle blocks routing
+        assert path is None, "Path should fail when goal is on obstacle without net context"
 
     def test_find_path_different_layers(self):
         """Test pathfinding on different layers."""

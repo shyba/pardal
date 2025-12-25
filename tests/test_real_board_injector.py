@@ -82,8 +82,8 @@ def test_injector_board_autoroute_all(injector_board_path, injector_placements):
     # Should route most nets (accept 80%+ success rate)
     assert "routed" in result.lower()
 
-    # Performance check: <60 seconds
-    assert routing_time < 60.0, f"Autorouting took {routing_time:.1f}s, expected <60s"
+    # Performance check: <90 seconds (finer 0.1mm grid takes longer)
+    assert routing_time < 90.0, f"Autorouting took {routing_time:.1f}s, expected <90s"
 
     # Run DRC check
     drc_result = repl.process_command("CHECK DRC")

@@ -108,33 +108,34 @@ class NetOrderOptimizer:
             if net_a in order_vars and net_b in order_vars:
                 opt.add(order_vars[net_a] < order_vars[net_b])
 
-        # Objective: We want shorter nets to have SMALLER order numbers (route first)
-        # If we minimize order[net] * length, then:
-        #   - Long nets get SMALL order numbers (to minimize product) - WRONG!
-        # Instead, we need to minimize order[net] * inverse_length, OR
-        # maximize order[net] * length (so long nets get LARGE order numbers)
+        # Objective: We want shorter nets and higher priority nets to route FIRST
+        # (have SMALLER order numbers).
         #
-        # Solution: Minimize sum of ((N - order[net]) * length)
-        # This way: shorter nets want smaller order[net] to maximize (N - order[net])
+        # Define "routing cost" = length / (1 + priority)
+        # - Higher priority → lower cost → should route first
+        # - Shorter length → lower cost → should route first
+        #
+        # We MAXIMIZE sum(order * cost), so high-cost nets get HIGH order numbers
+        # (route later) and low-cost nets get LOW order numbers (route first).
         objective_terms = []
         for net in nets:
             net_name = net["name"]
             length = net.get("length", 0)
             priority = net.get("priority", 0)
 
-            # Weight based on length and priority
-            # Higher priority = should route earlier = smaller order number
-            priority_scale = 10.0  # Each priority point = 10mm length advantage
-            effective_length = max(1.0, length - (priority * priority_scale))
+            # Routing cost: lower cost = routes earlier
+            # Higher priority → lower cost (divide by (1+priority)^2 to make priority dominant)
+            # Shorter length → lower cost
+            # Using squared priority divisor ensures priority overrides length differences
+            cost = max(1.0, length) / ((1.0 + priority) ** 2)
+            # Scale to integer for Z3
+            cost_int = int(cost * 100)
 
-            # Minimize (N - order[net]) * effective_length
-            # Shorter nets (small effective_length) want SMALL order[net]
-            # to minimize the product
-            objective_terms.append((n - order_vars[net_name]) * int(effective_length * 100))
+            objective_terms.append(order_vars[net_name] * cost_int)
 
-        # Minimize the objective
+        # MAXIMIZE the objective so high-cost nets get high order numbers
         if objective_terms:
-            opt.minimize(z3.Sum(objective_terms))
+            opt.maximize(z3.Sum(objective_terms))
 
         # Solve
         if opt.check() == z3.sat:

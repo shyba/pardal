@@ -13,3 +13,15 @@ venv/
 *.tmp
 *.swp
 .DS_Store
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# DRC reports (test outputs)
+*-drc.rpt
+*-drc.json
+
+# Generated KiCad files
+examples/*.kicad_pcb

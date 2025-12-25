@@ -22,6 +22,33 @@ from pcb_tool.drc import run_drc, format_drc_report, check_kicad_cli
 from pcb_tool.repl import REPL
 
 
+def _check_pcbnew_available(command_name: str) -> bool:
+    """Check pcbnew availability with helpful error message.
+
+    Args:
+        command_name: Name of the command requiring pcbnew (for error message)
+
+    Returns:
+        True if pcbnew is available, False otherwise
+    """
+    try:
+        import pcbnew
+        return True
+    except ImportError:
+        print(f"Error: '{command_name}' requires KiCad Python SDK (pcbnew).", file=sys.stderr)
+        print(file=sys.stderr)
+        print("pcbnew is only available in system Python, not virtual environments.", file=sys.stderr)
+        print(file=sys.stderr)
+        print("Solutions:", file=sys.stderr)
+        print("  1. Run with system Python + venv packages:", file=sys.stderr)
+        print("     PYTHONPATH=$(python -c 'import site; print(site.getsitepackages()[0])') \\", file=sys.stderr)
+        print(f"       /usr/bin/python3 -m pcb_tool.cli {command_name} ...", file=sys.stderr)
+        print(file=sys.stderr)
+        print("  2. Use pardal-finalize (system Python entry point):", file=sys.stderr)
+        print("     /usr/bin/python3 -m pcb_tool.finalize input.kicad_pcb output.kicad_pcb", file=sys.stderr)
+        return False
+
+
 def cmd_build(args) -> int:
     """Build PCB from netlist.
 
@@ -99,17 +126,16 @@ def cmd_build(args) -> int:
 
     # 4.5 Finalize if requested
     if args.finalize:
-        print("Finalizing board with KiCad library footprints...")
-        try:
+        if not _check_pcbnew_available('build --finalize'):
+            print("Continuing without finalization...", file=sys.stderr)
+        else:
+            print("Finalizing board with KiCad library footprints...")
             from pcb_tool.finalize import finalize_board
             success, msg = finalize_board(args.output, args.output)
             print(msg)
             if not success:
                 print(f"Error: Finalization failed", file=sys.stderr)
                 return 1
-        except ImportError as e:
-            print(f"Warning: Cannot finalize - pcbnew not available: {e}")
-            print("Run with system Python (not venv) for finalization")
 
     # 5. Run DRC unless skipped
     if not args.no_drc:
@@ -118,10 +144,30 @@ def cmd_build(args) -> int:
         else:
             print("Running DRC...")
             drc_result = run_drc(args.output)
-            print(format_drc_report(drc_result))
 
-            if not drc_result.success:
-                return 1
+            # Always print warnings
+            if drc_result.warnings > 0:
+                print(f"DRC: {drc_result.warnings} warning(s)")
+                for v in drc_result.violations:
+                    if v.severity == 'warning':
+                        print(f"  WARNING: {v.description}")
+
+            # Determine if build should fail
+            has_errors = drc_result.errors > 0
+            has_warnings_as_errors = args.warnerr and drc_result.warnings > 0
+
+            if has_errors or has_warnings_as_errors:
+                print(format_drc_report(drc_result))
+                if not args.force:
+                    if has_warnings_as_errors and not has_errors:
+                        print("Build failed: warnings treated as errors (--warnerr). Use --force to override.")
+                    else:
+                        print("Build failed: DRC errors found. Use --force to override.")
+                    return 1
+                else:
+                    print("WARNING: Continuing despite DRC issues (--force)")
+            elif drc_result.errors == 0 and drc_result.warnings == 0:
+                print("DRC: PASSED (0 errors, 0 warnings)")
 
     return 0
 
@@ -219,12 +265,12 @@ def cmd_place(args) -> int:
 
 def cmd_route(args) -> int:
     """Autoroute existing PCB file using pcbnew SDK."""
-    try:
-        from pcb_tool.kicad_loader import load_board_from_kicad, write_traces_to_kicad
-        import pcbnew
-    except ImportError:
-        print("Error: pcbnew not available. Use system Python.", file=sys.stderr)
+    if not _check_pcbnew_available('route'):
         return 1
+
+    from pcb_tool.kicad_loader import load_board_from_kicad, write_traces_to_kicad
+    from pcb_tool.data_model import STANDARD_LAYER_STACKS
+    import pcbnew
 
     if not args.pcb.exists():
         print(f"Error: PCB file not found: {args.pcb}", file=sys.stderr)
@@ -233,6 +279,11 @@ def cmd_route(args) -> int:
     print(f"Loading {args.pcb}...")
     kicad_board = pcbnew.LoadBoard(str(args.pcb))
     board = load_board_from_kicad(kicad_board)
+
+    # Set layer stack based on --layers argument
+    if args.layers and args.layers in STANDARD_LAYER_STACKS:
+        board.layers = STANDARD_LAYER_STACKS[args.layers]
+        print(f"Using {args.layers}-layer stack: {board.layers}")
 
     net_name = args.net or "ALL"
     print(f"Routing {net_name}...")
@@ -320,6 +371,10 @@ Examples:
                               help='Run autorouter after placement')
     build_parser.add_argument('--no-drc', action='store_true',
                               help='Skip DRC check after save')
+    build_parser.add_argument('--force', action='store_true',
+                              help='Continue build even if DRC has errors')
+    build_parser.add_argument('--warnerr', action='store_true',
+                              help='Treat DRC warnings as errors')
     build_parser.add_argument('--finalize', action='store_true',
                               help='Replace simplified footprints with KiCad library versions (requires system Python)')
 
@@ -357,6 +412,8 @@ Examples:
     route_parser.add_argument('-o', '--output', type=Path,
                               help='Output PCB file (default: overwrite input)')
     route_parser.add_argument('--net', help='Route specific net (default: ALL)')
+    route_parser.add_argument('--layers', type=int, choices=[2, 4, 6, 8], default=2,
+                              help='Number of copper layers (2, 4, 6, or 8). Default: 2')
 
     # pardal repl
     repl_parser = subparsers.add_parser(

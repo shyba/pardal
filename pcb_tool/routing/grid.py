@@ -535,7 +535,7 @@ class RoutingGrid:
             grid_x: Grid x-coordinate
             grid_y: Grid y-coordinate
             layer: Layer name ("F.Cu" or "B.Cu")
-            current_net: Optional net name being routed (allows routing through own forbidden zones)
+            current_net: Optional net name being routed (allows routing through own forbidden zones and own pads)
 
         Returns:
             True if cell is routable, False otherwise
@@ -543,7 +543,22 @@ class RoutingGrid:
         if not self.is_within_bounds(grid_x, grid_y):
             return False
 
+        # Check if cell is an obstacle
         if (grid_x, grid_y) in self.obstacles.get(layer, set()):
+            # Exception 1: Allow routing through own net's pads
+            if current_net and hasattr(self, 'pad_net_map'):
+                pad_key = (grid_x, grid_y, layer)
+                if pad_key in self.pad_net_map and self.pad_net_map[pad_key] == current_net:
+                    # This obstacle is a pad belonging to current net, allow routing
+                    return True
+            # Exception 2: Allow routing through own net's trace obstacles
+            # (trace obstacles are also in crossing_forbidden, tracked by net)
+            if current_net and current_net in self.forbidden_zones_by_net:
+                zone_key = (grid_x, grid_y, layer)
+                if zone_key in self.forbidden_zones_by_net[current_net]:
+                    # This obstacle is part of current net's traces, allow routing
+                    return True
+            # Obstacle doesn't belong to current net or no current net specified
             return False
 
         # HARD BLOCK: Crossing-forbidden zones cannot be routed through
@@ -560,7 +575,7 @@ class RoutingGrid:
 
         return True
 
-    def get_cell_cost(self, grid_x: int, grid_y: int, layer: str) -> float:
+    def get_cell_cost(self, grid_x: int, grid_y: int, layer: str, current_net: Optional[str] = None) -> float:
         """
         Get the routing cost for a cell.
 
@@ -568,11 +583,12 @@ class RoutingGrid:
             grid_x: Grid x-coordinate
             grid_y: Grid y-coordinate
             layer: Layer name ("F.Cu" or "B.Cu")
+            current_net: Optional net name (allows routing through own pads/traces)
 
         Returns:
             Routing cost (1.0 = base, higher = less preferred, inf = obstacle)
         """
-        if not self.is_valid_cell(grid_x, grid_y, layer):
+        if not self.is_valid_cell(grid_x, grid_y, layer, current_net=current_net):
             return float('inf')
 
         # Check if in clearance zone (higher cost but still routable)
@@ -622,7 +638,7 @@ class RoutingGrid:
         for dx, dy in orthogonal:
             nx, ny = grid_x + dx, grid_y + dy
             if self.is_valid_cell(nx, ny, layer, current_net=current_net):
-                cost = self.get_cell_cost(nx, ny, layer) * self.resolution_mm
+                cost = self.get_cell_cost(nx, ny, layer, current_net=current_net) * self.resolution_mm
                 neighbors.append((GridCell(nx, ny, layer), cost))
 
         # Diagonal neighbors (cost = resolution_mm * sqrt(2))
@@ -631,7 +647,7 @@ class RoutingGrid:
             for dx, dy in diagonal:
                 nx, ny = grid_x + dx, grid_y + dy
                 if self.is_valid_cell(nx, ny, layer, current_net=current_net):
-                    cost = self.get_cell_cost(nx, ny, layer) * self.resolution_mm * math.sqrt(2)
+                    cost = self.get_cell_cost(nx, ny, layer, current_net=current_net) * self.resolution_mm * math.sqrt(2)
                     neighbors.append((GridCell(nx, ny, layer), cost))
 
         # Store in cache and return

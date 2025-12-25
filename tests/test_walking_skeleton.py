@@ -24,7 +24,7 @@ def test_cli_version():
         cwd=Path(__file__).parent.parent
     )
     assert result.returncode == 0, f"CLI failed with: {result.stderr}"
-    assert "0.1.0" in result.stdout
+    assert "0.1.1" in result.stdout
     assert "MVP1" in result.stdout
 
 def test_cli_runs_without_args():
