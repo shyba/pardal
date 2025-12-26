@@ -49,7 +49,13 @@ class REPL:
             self.should_exit = True
 
         # Add to history (except for undo/redo/history/exit commands)
-        if cmd.__class__.__name__ not in ["UndoCommand", "RedoCommand", "HistoryCommand", "ExitCommand", "HelpCommand"]:
+        if cmd.__class__.__name__ not in [
+            "UndoCommand",
+            "RedoCommand",
+            "HistoryCommand",
+            "ExitCommand",
+            "HelpCommand",
+        ]:
             self.history.add(cmd)
 
         return result

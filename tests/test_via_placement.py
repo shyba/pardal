@@ -89,7 +89,9 @@ class TestViaClearanceChecking:
 
     def test_check_via_clearance_custom_clearance(self):
         """Test via clearance check with custom clearance value."""
-        grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.2, default_clearance_mm=0.2)
+        grid = RoutingGrid(
+            width_mm=100.0, height_mm=80.0, resolution_mm=0.2, default_clearance_mm=0.2
+        )
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
         # Place obstacle
@@ -115,12 +117,12 @@ class TestOptimalViaPosition:
             region_center=(50.0, 40.0),
             search_radius_mm=5.0,
             layer_from="F.Cu",
-            layer_to="B.Cu"
+            layer_to="B.Cu",
         )
 
         assert position is not None
         # Should be close to target center
-        dist = math.sqrt((position[0] - 50.0)**2 + (position[1] - 40.0)**2)
+        dist = math.sqrt((position[0] - 50.0) ** 2 + (position[1] - 40.0) ** 2)
         assert dist <= 5.0
 
     def test_find_optimal_via_position_with_obstacles(self):
@@ -136,7 +138,7 @@ class TestOptimalViaPosition:
             region_center=(50.0, 40.0),
             search_radius_mm=5.0,
             layer_from="F.Cu",
-            layer_to="B.Cu"
+            layer_to="B.Cu",
         )
 
         assert position is not None
@@ -154,8 +156,8 @@ class TestOptimalViaPosition:
         center_x, center_y = grid.to_grid_coords(50.0, 40.0)
         search_radius_cells = int(math.ceil(2.0 / 0.5))
 
-        for dx in range(-search_radius_cells-2, search_radius_cells+3):
-            for dy in range(-search_radius_cells-2, search_radius_cells+3):
+        for dx in range(-search_radius_cells - 2, search_radius_cells + 3):
+            for dy in range(-search_radius_cells - 2, search_radius_cells + 3):
                 gx, gy = center_x + dx, center_y + dy
                 if grid.is_within_bounds(gx, gy):
                     grid.obstacles["F.Cu"].add((gx, gy))
@@ -166,7 +168,7 @@ class TestOptimalViaPosition:
             region_center=(50.0, 40.0),
             search_radius_mm=2.0,
             layer_from="F.Cu",
-            layer_to="B.Cu"
+            layer_to="B.Cu",
         )
 
         assert position is None
@@ -184,7 +186,7 @@ class TestOptimalViaPosition:
             region_center=(50.0, 40.0),
             search_radius_mm=5.0,
             layer_from="F.Cu",
-            layer_to="B.Cu"
+            layer_to="B.Cu",
         )
 
         assert position is not None
@@ -203,7 +205,7 @@ class TestViaCountMinimization:
         # Simple path segments with necessary layer change
         segments = [
             (GridCell(10, 20, "F.Cu"), GridCell(20, 20, "F.Cu")),
-            (GridCell(20, 20, "B.Cu"), GridCell(30, 20, "B.Cu"))
+            (GridCell(20, 20, "B.Cu"), GridCell(30, 20, "B.Cu")),
         ]
 
         optimized = via_placer.minimize_via_count(segments)
@@ -219,7 +221,7 @@ class TestViaCountMinimization:
         # Consecutive segments on same layer
         segments = [
             (GridCell(10, 20, "F.Cu"), GridCell(20, 20, "F.Cu")),
-            (GridCell(20, 20, "F.Cu"), GridCell(30, 20, "F.Cu"))
+            (GridCell(20, 20, "F.Cu"), GridCell(30, 20, "F.Cu")),
         ]
 
         optimized = via_placer.minimize_via_count(segments)
@@ -236,7 +238,7 @@ class TestViaCountMinimization:
         segments = [
             (GridCell(10, 20, "F.Cu"), GridCell(15, 20, "F.Cu")),
             (GridCell(15, 20, "B.Cu"), GridCell(20, 20, "B.Cu")),
-            (GridCell(20, 20, "F.Cu"), GridCell(30, 20, "F.Cu"))
+            (GridCell(20, 20, "F.Cu"), GridCell(30, 20, "F.Cu")),
         ]
 
         optimized = via_placer.minimize_via_count(segments)
@@ -258,9 +260,7 @@ class TestViaCountMinimization:
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.5)
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
-        segments = [
-            (GridCell(10, 20, "F.Cu"), GridCell(30, 20, "F.Cu"))
-        ]
+        segments = [(GridCell(10, 20, "F.Cu"), GridCell(30, 20, "F.Cu"))]
 
         optimized = via_placer.minimize_via_count(segments)
 
@@ -275,11 +275,7 @@ class TestViaPositionScoring:
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.5)
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
-        context = {
-            'target_pos': (50.0, 40.0),
-            'layer_from': "F.Cu",
-            'layer_to': "B.Cu"
-        }
+        context = {"target_pos": (50.0, 40.0), "layer_from": "F.Cu", "layer_to": "B.Cu"}
 
         # Score position near target in clear area
         score = via_placer.score_via_position((50.0, 40.0), context)
@@ -295,11 +291,7 @@ class TestViaPositionScoring:
         # Place obstacle
         grid.mark_obstacle(50.0, 40.0, "both", size_mm=2.0)
 
-        context = {
-            'target_pos': (50.0, 40.0),
-            'layer_from': "F.Cu",
-            'layer_to': "B.Cu"
-        }
+        context = {"target_pos": (50.0, 40.0), "layer_from": "F.Cu", "layer_to": "B.Cu"}
 
         # Score position near obstacle
         score_near = via_placer.score_via_position((51.5, 40.0), context)
@@ -315,11 +307,7 @@ class TestViaPositionScoring:
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.5)
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
-        context = {
-            'target_pos': (50.0, 40.0),
-            'layer_from': "F.Cu",
-            'layer_to': "B.Cu"
-        }
+        context = {"target_pos": (50.0, 40.0), "layer_from": "F.Cu", "layer_to": "B.Cu"}
 
         # Score position close to target
         score_close = via_placer.score_via_position((50.0, 40.0), context)
@@ -335,11 +323,7 @@ class TestViaPositionScoring:
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.5)
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
-        context = {
-            'target_pos': (50.0, 40.0),
-            'layer_from': "F.Cu",
-            'layer_to': "B.Cu"
-        }
+        context = {"target_pos": (50.0, 40.0), "layer_from": "F.Cu", "layer_to": "B.Cu"}
 
         # Clear area, close to target = best position
         best_score = via_placer.score_via_position((50.0, 40.0), context)
@@ -369,8 +353,7 @@ class TestMultiLayerViaPlacement:
     def test_get_via_layers_through_4layer(self):
         """Test get_via_layers returns all layers for through-hole via on 4-layer board."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0, height_mm=80.0, layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         )
         via_placer = ViaPlacement(grid)
 
@@ -380,8 +363,7 @@ class TestMultiLayerViaPlacement:
     def test_get_via_layers_blind_top(self):
         """Test get_via_layers for blind via from top layer."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0, height_mm=80.0, layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         )
         via_placer = ViaPlacement(grid)
 
@@ -391,8 +373,7 @@ class TestMultiLayerViaPlacement:
     def test_get_via_layers_blind_bottom(self):
         """Test get_via_layers for blind via from bottom layer."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0, height_mm=80.0, layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         )
         via_placer = ViaPlacement(grid)
 
@@ -402,8 +383,7 @@ class TestMultiLayerViaPlacement:
     def test_get_via_layers_buried(self):
         """Test get_via_layers for buried via between inner layers."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0, height_mm=80.0, layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         )
         via_placer = ViaPlacement(grid)
 
@@ -413,8 +393,9 @@ class TestMultiLayerViaPlacement:
     def test_get_via_layers_blind_spans_multiple_inner(self):
         """Test get_via_layers for blind via spanning multiple inner layers."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"],
         )
         via_placer = ViaPlacement(grid)
 
@@ -456,8 +437,10 @@ class TestMultiLayerViaPlacement:
     def test_check_via_clearance_4layer_through(self):
         """Test via clearance on 4-layer board for through-hole via."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.2,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.2,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
@@ -473,8 +456,10 @@ class TestMultiLayerViaPlacement:
     def test_check_via_clearance_4layer_blind(self):
         """Test via clearance on 4-layer board for blind via."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.2,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.2,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
@@ -483,21 +468,21 @@ class TestMultiLayerViaPlacement:
 
         # Blind via F.Cu->In1.Cu should pass (doesn't reach In2.Cu)
         assert via_placer.check_via_clearance(
-            (50.0, 40.0),
-            via_layers=("F.Cu", "In1.Cu")
+            (50.0, 40.0), via_layers=("F.Cu", "In1.Cu")
         )
 
         # Through-hole via should fail
         assert not via_placer.check_via_clearance(
-            (50.0, 40.0),
-            via_layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu")
+            (50.0, 40.0), via_layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu")
         )
 
     def test_check_via_clearance_4layer_buried(self):
         """Test via clearance on 4-layer board for buried via."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.2,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.2,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
@@ -506,21 +491,21 @@ class TestMultiLayerViaPlacement:
 
         # Buried via In1.Cu->In2.Cu should pass (doesn't touch F.Cu)
         assert via_placer.check_via_clearance(
-            (50.0, 40.0),
-            via_layers=("In1.Cu", "In2.Cu")
+            (50.0, 40.0), via_layers=("In1.Cu", "In2.Cu")
         )
 
         # Through-hole via should fail
         assert not via_placer.check_via_clearance(
-            (50.0, 40.0),
-            via_layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu")
+            (50.0, 40.0), via_layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu")
         )
 
     def test_find_optimal_via_position_with_via_type(self):
         """Test find_optimal_via_position uses via_type parameter."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
@@ -533,7 +518,7 @@ class TestMultiLayerViaPlacement:
             search_radius_mm=5.0,
             layer_from="F.Cu",
             layer_to="B.Cu",
-            via_type="through"
+            via_type="through",
         )
 
         # Blind via F.Cu->In1.Cu should be able to use center
@@ -542,41 +527,43 @@ class TestMultiLayerViaPlacement:
             search_radius_mm=5.0,
             layer_from="F.Cu",
             layer_to="In1.Cu",
-            via_type="blind"
+            via_type="blind",
         )
 
         # Blind via should be closer to target
         if through_pos is not None and blind_pos is not None:
             through_dist = math.sqrt(
-                (through_pos[0] - 50.0)**2 + (through_pos[1] - 40.0)**2
+                (through_pos[0] - 50.0) ** 2 + (through_pos[1] - 40.0) ** 2
             )
             blind_dist = math.sqrt(
-                (blind_pos[0] - 50.0)**2 + (blind_pos[1] - 40.0)**2
+                (blind_pos[0] - 50.0) ** 2 + (blind_pos[1] - 40.0) ** 2
             )
             assert blind_dist <= through_dist
 
     def test_score_via_position_via_type_penalty(self):
         """Test that through-hole vias get slight penalty vs blind/buried."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         via_placer = ViaPlacement(grid, via_size_mm=0.8)
 
         context_through = {
-            'target_pos': (50.0, 40.0),
-            'layer_from': "F.Cu",
-            'layer_to': "B.Cu",
-            'via_type': "through",
-            'via_layers': ("F.Cu", "In1.Cu", "In2.Cu", "B.Cu")
+            "target_pos": (50.0, 40.0),
+            "layer_from": "F.Cu",
+            "layer_to": "B.Cu",
+            "via_type": "through",
+            "via_layers": ("F.Cu", "In1.Cu", "In2.Cu", "B.Cu"),
         }
 
         context_blind = {
-            'target_pos': (50.0, 40.0),
-            'layer_from': "F.Cu",
-            'layer_to': "In1.Cu",
-            'via_type': "blind",
-            'via_layers': ("F.Cu", "In1.Cu")
+            "target_pos": (50.0, 40.0),
+            "layer_from": "F.Cu",
+            "layer_to": "In1.Cu",
+            "via_type": "blind",
+            "via_layers": ("F.Cu", "In1.Cu"),
         }
 
         score_through = via_placer.score_via_position((50.0, 40.0), context_through)

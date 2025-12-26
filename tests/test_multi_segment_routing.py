@@ -34,18 +34,22 @@ def sample_board_with_components():
     board.add_net(Net(name="VCC", code="2", track_width=0.25))
 
     # Create components with pads
-    comp1 = Component(ref="J1", value="CONN", footprint="HDR-1x3", position=(10.0, 5.0), rotation=0)
+    comp1 = Component(
+        ref="J1", value="CONN", footprint="HDR-1x3", position=(10.0, 5.0), rotation=0
+    )
     comp1.pads = [
         Pad(number=1, position_offset=(0, 0), size=(1.5, 1.5), net_name="VCC"),
         Pad(number=2, position_offset=(2.54, 0), size=(1.5, 1.5), net_name="GND"),
-        Pad(number=3, position_offset=(5.08, 0), size=(1.5, 1.5), net_name="GND")
+        Pad(number=3, position_offset=(5.08, 0), size=(1.5, 1.5), net_name="GND"),
     ]
     board.add_component(comp1)
 
-    comp2 = Component(ref="C1", value="10uF", footprint="CAP-0805", position=(60.0, 10.0), rotation=0)
+    comp2 = Component(
+        ref="C1", value="10uF", footprint="CAP-0805", position=(60.0, 10.0), rotation=0
+    )
     comp2.pads = [
         Pad(number=1, position_offset=(-0.95, 0), size=(1.3, 1.5), net_name="VCC"),
-        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5), net_name="GND")
+        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5), net_name="GND"),
     ]
     board.add_component(comp2)
 
@@ -61,6 +65,7 @@ def sample_board_with_components():
 # ============================================================================
 # Parser Tests
 # ============================================================================
+
 
 def test_parser_extracts_single_via():
     """Test parser can extract a single VIA waypoint."""
@@ -79,7 +84,9 @@ def test_parser_extracts_single_via():
 def test_parser_extracts_multiple_vias():
     """Test parser can extract multiple VIA waypoints."""
     parser = CommandParser()
-    cmd = parser.parse("ROUTE NET GND FROM 0 0 VIA (25, 5) VIA (40, 5) VIA (55, 10) TO 70 15")
+    cmd = parser.parse(
+        "ROUTE NET GND FROM 0 0 VIA (25, 5) VIA (40, 5) VIA (55, 10) TO 70 15"
+    )
 
     assert isinstance(cmd, RouteCommand)
     assert cmd.waypoints is not None
@@ -111,7 +118,9 @@ def test_parser_no_via_returns_none_waypoints():
 def test_parser_via_with_layer_and_width():
     """Test parser handles VIA waypoints with LAYER and WIDTH parameters."""
     parser = CommandParser()
-    cmd = parser.parse("ROUTE NET GND FROM 0 0 VIA (25, 5) VIA (40, 5) TO 60 10 LAYER B.Cu WIDTH 1.0")
+    cmd = parser.parse(
+        "ROUTE NET GND FROM 0 0 VIA (25, 5) VIA (40, 5) TO 60 10 LAYER B.Cu WIDTH 1.0"
+    )
 
     assert cmd.waypoints is not None
     assert len(cmd.waypoints) == 2
@@ -122,7 +131,9 @@ def test_parser_via_with_layer_and_width():
 def test_parser_via_with_component_pin_notation():
     """Test parser handles VIA waypoints with component.pin start/end positions."""
     parser = CommandParser()
-    cmd = parser.parse("ROUTE NET GND FROM J1.3 VIA (25, 5) VIA (40, 5) VIA (55, 10) TO C1.2")
+    cmd = parser.parse(
+        "ROUTE NET GND FROM J1.3 VIA (25, 5) VIA (40, 5) VIA (55, 10) TO C1.2"
+    )
 
     assert cmd.start_pos == "J1.3"
     assert cmd.end_pos == "C1.2"
@@ -134,9 +145,12 @@ def test_parser_via_with_component_pin_notation():
 # Segment Creation Tests
 # ============================================================================
 
+
 def test_route_with_waypoints_creates_segments(sample_board):
     """Test that waypoints create N+1 segments for N waypoints."""
-    cmd = RouteCommand("GND", (0.0, 0.0), (60.0, 10.0), waypoints=[(20.0, 5.0), (40.0, 5.0)])
+    cmd = RouteCommand(
+        "GND", (0.0, 0.0), (60.0, 10.0), waypoints=[(20.0, 5.0), (40.0, 5.0)]
+    )
     result = cmd.execute(sample_board)
 
     assert "OK:" in result
@@ -188,7 +202,9 @@ def test_segment_connectivity_with_waypoints(sample_board):
 def test_all_segments_use_same_layer_and_width(sample_board):
     """Test that all segments in multi-segment route use the same layer and width."""
     waypoints = [(20.0, 5.0), (40.0, 5.0)]
-    cmd = RouteCommand("GND", (0.0, 0.0), (60.0, 10.0), layer="B.Cu", width=0.5, waypoints=waypoints)
+    cmd = RouteCommand(
+        "GND", (0.0, 0.0), (60.0, 10.0), layer="B.Cu", width=0.5, waypoints=waypoints
+    )
     cmd.execute(sample_board)
 
     net = sample_board.nets["GND"]
@@ -211,6 +227,7 @@ def test_multi_segment_route_with_component_pins(sample_board_with_components):
 # ============================================================================
 # Backward Compatibility Tests
 # ============================================================================
+
 
 def test_route_without_waypoints_still_works(sample_board):
     """Test that routes without waypoints still work (backward compatibility)."""
@@ -248,6 +265,7 @@ def test_route_with_empty_waypoints_list_still_works(sample_board):
 # Deviation Warning Tests
 # ============================================================================
 
+
 def test_via_routes_no_deviation_warning(sample_board_with_components):
     """Test that VIA-based routes do NOT trigger waypoint deviation warnings."""
     # J1.3 is at (15.08, 5.0), but we specify different coordinates
@@ -281,10 +299,12 @@ def test_via_routes_skip_deviation_logic():
     board.add_net(Net(name="GND", code="1", track_width=0.25))
 
     # Create components (coordinates don't matter for this test since VIA routes skip deviation)
-    comp1 = Component(ref="C1", value="10uF", footprint="CAP-0805", position=(10.0, 20.0), rotation=0)
+    comp1 = Component(
+        ref="C1", value="10uF", footprint="CAP-0805", position=(10.0, 20.0), rotation=0
+    )
     comp1.pads = [
         Pad(number=1, position_offset=(-0.95, 0), size=(1.3, 1.5), net_name="GND"),
-        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5), net_name="VCC")
+        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5), net_name="VCC"),
     ]
     board.add_component(comp1)
 
@@ -312,6 +332,7 @@ def test_via_routes_skip_deviation_logic():
 # ============================================================================
 # Undo Tests
 # ============================================================================
+
 
 def test_undo_multi_segment_route(sample_board):
     """Test that undo removes all segments from multi-segment route."""
@@ -344,10 +365,13 @@ def test_undo_single_segment_route_backward_compatible(sample_board):
 # Integration Tests
 # ============================================================================
 
+
 def test_full_workflow_parser_to_execution(sample_board_with_components):
     """Test complete workflow: parse VIA command, validate, execute."""
     parser = CommandParser()
-    cmd = parser.parse("ROUTE NET GND FROM J1.3 VIA (25, 5) VIA (40, 5) VIA (55, 10) TO C1.2 LAYER B.Cu WIDTH 1.0")
+    cmd = parser.parse(
+        "ROUTE NET GND FROM J1.3 VIA (25, 5) VIA (40, 5) VIA (55, 10) TO C1.2 LAYER B.Cu WIDTH 1.0"
+    )
 
     assert cmd is not None
     assert cmd.validate(sample_board_with_components) is None
@@ -371,7 +395,9 @@ def test_multiple_multi_segment_routes_on_same_net(sample_board):
     cmd1.execute(sample_board)
 
     # Second route: 3 segments
-    cmd2 = RouteCommand("GND", (40.0, 10.0), (70.0, 15.0), waypoints=[(50.0, 12.0), (60.0, 13.0)])
+    cmd2 = RouteCommand(
+        "GND", (40.0, 10.0), (70.0, 15.0), waypoints=[(50.0, 12.0), (60.0, 13.0)]
+    )
     cmd2.execute(sample_board)
 
     net = sample_board.nets["GND"]
@@ -390,7 +416,9 @@ def test_validate_net_exists_with_waypoints(sample_board):
 
 def test_validate_layer_with_waypoints(sample_board):
     """Test validation fails with invalid layer, even with waypoints."""
-    cmd = RouteCommand("GND", (0.0, 0.0), (50.0, 10.0), layer="Invalid.Cu", waypoints=[(25.0, 5.0)])
+    cmd = RouteCommand(
+        "GND", (0.0, 0.0), (50.0, 10.0), layer="Invalid.Cu", waypoints=[(25.0, 5.0)]
+    )
     board = Board()
     board.add_net(Net(name="GND", code="1"))
     error = cmd.validate(board)

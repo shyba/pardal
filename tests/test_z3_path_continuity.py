@@ -32,9 +32,9 @@ class TestZ3PathContinuity:
         Without path continuity: Z3 just marks endpoints, we draw straight lines → CROSSING!
         Expected: SAT but produces crossing traces (current broken behavior)
         """
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("TEST 1: X-crossing WITHOUT path continuity (current broken behavior)")
-        print("="*80)
+        print("=" * 80)
 
         grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=1.0)
 
@@ -42,14 +42,18 @@ class TestZ3PathContinuity:
             timeout_ms=10000,
             clearance_cells=0,
             optimize_wire_length=True,
-            optimize_vias=False
+            optimize_vias=False,
         )
 
         router = Z3Router(grid, config)
 
         # Two nets that cross if routed directly
-        net1 = NetDefinition(name="NET1", start=(5.0, 10.0), end=(15.0, 10.0), layer="F.Cu")
-        net2 = NetDefinition(name="NET2", start=(10.0, 5.0), end=(10.0, 15.0), layer="F.Cu")
+        net1 = NetDefinition(
+            name="NET1", start=(5.0, 10.0), end=(15.0, 10.0), layer="F.Cu"
+        )
+        net2 = NetDefinition(
+            name="NET2", start=(10.0, 5.0), end=(10.0, 15.0), layer="F.Cu"
+        )
 
         print(f"  NET1 (horizontal): (5, 10) → (15, 10)")
         print(f"  NET2 (vertical):   (10, 5) → (10, 15)")
@@ -86,9 +90,9 @@ class TestZ3PathContinuity:
         All three share the center cell as start point (MST branching).
         With continuity, they must route without crossing each other.
         """
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("TEST 3: Three-way crossing (star pattern) with continuity")
-        print("="*80)
+        print("=" * 80)
 
         grid = RoutingGrid(width_mm=30.0, height_mm=30.0, resolution_mm=1.0)
 
@@ -96,7 +100,7 @@ class TestZ3PathContinuity:
             timeout_ms=10000,
             clearance_cells=0,
             optimize_wire_length=True,
-            optimize_vias=False
+            optimize_vias=False,
         )
 
         router = Z3Router(grid, config)

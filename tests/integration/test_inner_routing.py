@@ -27,13 +27,16 @@ from tests.integration.test_routing_scenarios import DRCConfig, RoutingTestCase
 
 # Import from 4-layer test infrastructure
 from tests.integration.test_4layer_power import (
-    MultiLayerTestCase, route_board_multilayer, add_traces_to_board_multilayer
+    MultiLayerTestCase,
+    route_board_multilayer,
+    add_traces_to_board_multilayer,
 )
 
 
 # =============================================================================
 # TEST CASE: Inner Layer Signal Routing
 # =============================================================================
+
 
 class TestInnerLayerRouting:
     """Test signal routing on inner layers."""
@@ -42,10 +45,7 @@ class TestInnerLayerRouting:
         """Test that 4-layer grid has inner layer support."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         # Grid should have obstacles dict for all layers
@@ -58,17 +58,11 @@ class TestInnerLayerRouting:
         """Test that PathFinder can transition between layers."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         # Pathfinder with all via types
-        pathfinder = PathFinder(
-            grid,
-            allowed_via_types=["through", "blind", "buried"]
-        )
+        pathfinder = PathFinder(grid, allowed_via_types=["through", "blind", "buried"])
 
         # Verify allowed via types
         assert "through" in pathfinder.allowed_via_types
@@ -79,10 +73,7 @@ class TestInnerLayerRouting:
         """Test grid layer adjacency for via transitions."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         # F.Cu is adjacent to In1.Cu
@@ -116,7 +107,7 @@ class TestInnerLayerRouting:
             start=(10.0, 10.0),
             end=(20.0, 10.0),
             layer="In1.Cu",
-            width=0.25
+            width=0.25,
         )
         net.add_segment(segment)
 
@@ -144,7 +135,7 @@ class TestInnerLayerRouting:
             start=(10.0, 15.0),
             end=(20.0, 15.0),
             layer="In1.Cu",
-            width=0.25
+            width=0.25,
         )
         test.board.nets["INNER_NET"].add_segment(segment)
 
@@ -181,36 +172,32 @@ class TestInnerLayerRouting:
         """Test that via type costs are configured in PathFinder."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         pathfinder = PathFinder(
-            grid,
-            via_cost=10.0,
-            allowed_via_types=["through", "blind", "buried"]
+            grid, via_cost=10.0, allowed_via_types=["through", "blind", "buried"]
         )
 
         # Verify via type costs exist
-        assert hasattr(pathfinder, 'via_type_costs')
+        assert hasattr(pathfinder, "via_type_costs")
         assert "through" in pathfinder.via_type_costs
         assert "blind" in pathfinder.via_type_costs
         assert "buried" in pathfinder.via_type_costs
 
         # Blind and buried should be cheaper than through (less manufacturing cost)
-        assert pathfinder.via_type_costs["blind"] <= pathfinder.via_type_costs["through"]
-        assert pathfinder.via_type_costs["buried"] <= pathfinder.via_type_costs["through"]
+        assert (
+            pathfinder.via_type_costs["blind"] <= pathfinder.via_type_costs["through"]
+        )
+        assert (
+            pathfinder.via_type_costs["buried"] <= pathfinder.via_type_costs["through"]
+        )
 
     def test_inner_layer_obstacles(self, tmp_path):
         """Test that obstacles can be placed on inner layers."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         # Add obstacle on inner layer
@@ -229,24 +216,28 @@ class TestInnerLayerRouting:
 
         # Net 1 on In1.Cu
         net1 = Net(name="NET1", code="1")
-        net1.add_segment(TraceSegment(
-            net_name="NET1",
-            start=(5.0, 10.0),
-            end=(25.0, 10.0),
-            layer="In1.Cu",
-            width=0.25
-        ))
+        net1.add_segment(
+            TraceSegment(
+                net_name="NET1",
+                start=(5.0, 10.0),
+                end=(25.0, 10.0),
+                layer="In1.Cu",
+                width=0.25,
+            )
+        )
         board.add_net(net1)
 
         # Net 2 on In2.Cu
         net2 = Net(name="NET2", code="2")
-        net2.add_segment(TraceSegment(
-            net_name="NET2",
-            start=(5.0, 20.0),
-            end=(25.0, 20.0),
-            layer="In2.Cu",
-            width=0.25
-        ))
+        net2.add_segment(
+            TraceSegment(
+                net_name="NET2",
+                start=(5.0, 20.0),
+                end=(25.0, 20.0),
+                layer="In2.Cu",
+                width=0.25,
+            )
+        )
         board.add_net(net2)
 
         # Verify traces on different layers
@@ -263,10 +254,7 @@ class TestInnerLayerRouting:
 
         # Grid should support 6 layers
         grid = RoutingGrid(
-            width_mm=50.0,
-            height_mm=50.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=50.0, height_mm=50.0, resolution_mm=0.4, layers=layers
         )
 
         assert len(grid.layers) == 6
@@ -277,14 +265,11 @@ class TestInnerLayerRouting:
         """Test getting layers between two layers."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         # Test get_layers_between if method exists
-        if hasattr(grid, 'get_layers_between'):
+        if hasattr(grid, "get_layers_between"):
             between = grid.get_layers_between("F.Cu", "B.Cu")
             assert "F.Cu" in between
             assert "In1.Cu" in between
@@ -321,8 +306,7 @@ class TestInnerLayerRouting:
 
         # Route with all via types enabled
         paths, layers_used, crossings = route_board_multilayer(
-            test,
-            allowed_via_types=["through", "blind", "buried"]
+            test, allowed_via_types=["through", "blind", "buried"]
         )
 
         # Write board for inspection

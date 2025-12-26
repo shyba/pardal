@@ -12,6 +12,7 @@ import math
 
 try:
     from z3 import *
+
     Z3_AVAILABLE = True
 except ImportError:
     Z3_AVAILABLE = False
@@ -22,14 +23,18 @@ from pcb_tool.routing.grid import RoutingGrid, GridCell
 @dataclass
 class NetPath:
     """Represents a routed net with its path segments."""
+
     name: str
-    segments: List[Tuple[Tuple[float, float], Tuple[float, float]]]  # List of (start, end) in mm
+    segments: List[
+        Tuple[Tuple[float, float], Tuple[float, float]]
+    ]  # List of (start, end) in mm
     default_layer: str = "F.Cu"
 
 
 @dataclass
 class LayerAssignment:
     """Result of layer optimization for a net."""
+
     net_name: str
     segment_assignments: List[Tuple[int, str, bool]]  # (segment_idx, layer, via_after)
 
@@ -61,8 +66,7 @@ class LayerOptimizer:
         self.timeout = timeout
 
     def optimize_layer_assignments(
-        self,
-        nets_paths: List[NetPath]
+        self, nets_paths: List[NetPath]
     ) -> Dict[str, LayerAssignment]:
         """
         Optimize layer assignments for multiple nets.
@@ -103,8 +107,7 @@ class LayerOptimizer:
             return self._greedy_fallback(nets_paths)
 
     def _encode_constraints(
-        self,
-        nets_paths: List[NetPath]
+        self, nets_paths: List[NetPath]
     ) -> Tuple[Optimize, Dict, Dict]:
         """
         Encode routing constraints as Z3 formulas.
@@ -141,8 +144,7 @@ class LayerOptimizer:
         return optimizer, layer_vars, via_vars
 
     def _create_layer_variables(
-        self,
-        nets_paths: List[NetPath]
+        self, nets_paths: List[NetPath]
     ) -> Dict[Tuple[str, int], Bool]:
         """
         Create Z3 Bool variables for layer assignments.
@@ -164,8 +166,7 @@ class LayerOptimizer:
         return layer_vars
 
     def _create_via_variables(
-        self,
-        nets_paths: List[NetPath]
+        self, nets_paths: List[NetPath]
     ) -> Dict[Tuple[str, int], Bool]:
         """
         Create Z3 Bool variables for via placement.
@@ -193,7 +194,7 @@ class LayerOptimizer:
         solver: Optimize,
         layer_vars: Dict,
         via_vars: Dict,
-        nets_paths: List[NetPath]
+        nets_paths: List[NetPath],
     ) -> None:
         """
         Add connectivity constraints to solver.
@@ -221,10 +222,7 @@ class LayerOptimizer:
                 solver.add(via_present == Xor(current_layer, next_layer))
 
     def _add_crossing_constraints(
-        self,
-        solver: Optimize,
-        layer_vars: Dict,
-        nets_paths: List[NetPath]
+        self, solver: Optimize, layer_vars: Dict, nets_paths: List[NetPath]
     ) -> None:
         """
         Add crossing prevention constraints to solver.
@@ -263,7 +261,7 @@ class LayerOptimizer:
         model: ModelRef,
         layer_vars: Dict,
         via_vars: Dict,
-        nets_paths: List[NetPath]
+        nets_paths: List[NetPath],
     ) -> Dict[str, LayerAssignment]:
         """
         Decode Z3 model into layer assignments.
@@ -302,16 +300,12 @@ class LayerOptimizer:
                 segment_assignments.append((seg_idx, layer, via_after))
 
             assignments[net_path.name] = LayerAssignment(
-                net_name=net_path.name,
-                segment_assignments=segment_assignments
+                net_name=net_path.name, segment_assignments=segment_assignments
             )
 
         return assignments
 
-    def _greedy_fallback(
-        self,
-        nets_paths: List[NetPath]
-    ) -> Dict[str, LayerAssignment]:
+    def _greedy_fallback(self, nets_paths: List[NetPath]) -> Dict[str, LayerAssignment]:
         """
         Greedy fallback heuristic for layer assignment.
 
@@ -337,8 +331,7 @@ class LayerOptimizer:
                 segment_assignments.append((idx, net_path.default_layer, False))
 
             assignments[net_path.name] = LayerAssignment(
-                net_name=net_path.name,
-                segment_assignments=segment_assignments
+                net_name=net_path.name, segment_assignments=segment_assignments
             )
 
         return assignments
@@ -346,7 +339,7 @@ class LayerOptimizer:
     def _segments_intersect(
         self,
         seg1: Tuple[Tuple[float, float], Tuple[float, float]],
-        seg2: Tuple[Tuple[float, float], Tuple[float, float]]
+        seg2: Tuple[Tuple[float, float], Tuple[float, float]],
     ) -> bool:
         """
         Check if two line segments intersect.

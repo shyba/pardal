@@ -27,10 +27,7 @@ def test_manual_route_creates_forbidden_zones():
 
     # Add manual route for NET1
     router.add_manual_route(
-        net_name="NET1",
-        path=manual_path,
-        layer="F.Cu",
-        width_mm=0.25
+        net_name="NET1", path=manual_path, layer="F.Cu", width_mm=0.25
     )
 
     # Verify NET1 is tracked as manually routed
@@ -47,8 +44,7 @@ def test_manual_route_creates_forbidden_zones():
     cells_along_path = grid._bresenham_line(start_grid, grid.to_grid_coords(20, 25))
     # At least some cells should be marked forbidden
     forbidden_cells_found = sum(
-        1 for cell in cells_along_path
-        if cell in grid.crossing_forbidden["F.Cu"]
+        1 for cell in cells_along_path if cell in grid.crossing_forbidden["F.Cu"]
     )
     assert forbidden_cells_found > 0
 
@@ -65,10 +61,7 @@ def test_auto_routes_around_manual():
     # Add a manual route that blocks the center horizontally
     manual_path = [(5, 25), (45, 25)]
     router.add_manual_route(
-        net_name="MANUAL_NET",
-        path=manual_path,
-        layer="F.Cu",
-        width_mm=0.25
+        net_name="MANUAL_NET", path=manual_path, layer="F.Cu", width_mm=0.25
     )
 
     # Try to auto-route a net that would cross the manual route
@@ -76,8 +69,8 @@ def test_auto_routes_around_manual():
     auto_net = NetDefinition(
         name="AUTO_NET",
         start=(25, 10),  # Below manual route
-        end=(25, 40),    # Above manual route
-        layer="F.Cu"
+        end=(25, 40),  # Above manual route
+        layer="F.Cu",
     )
 
     # Route the auto net - it should detour or use vias to avoid crossing
@@ -106,16 +99,10 @@ def test_manual_route_command_integration():
 
     # Test manual routes parameter is accepted by AutoRouteCommand
     manual_routes = {
-        "CRITICAL": {
-            "path": [(10, 10), (25, 10), (40, 10)],
-            "layer": "F.Cu"
-        }
+        "CRITICAL": {"path": [(10, 10), (25, 10), (40, 10)], "layer": "F.Cu"}
     }
 
-    cmd = AutoRouteCommand(
-        net_name="ALL",
-        manual_routes=manual_routes
-    )
+    cmd = AutoRouteCommand(net_name="ALL", manual_routes=manual_routes)
 
     # Verify manual routes are stored
     assert cmd.manual_routes is not None
@@ -125,9 +112,7 @@ def test_manual_route_command_integration():
     # Test router applies manual routes correctly
     router = MultiNetRouter(grid)
     router.add_manual_route(
-        net_name="CRITICAL",
-        path=[(10, 10), (25, 10), (40, 10)],
-        layer="F.Cu"
+        net_name="CRITICAL", path=[(10, 10), (25, 10), (40, 10)], layer="F.Cu"
     )
 
     # Verify CRITICAL is marked as manually routed

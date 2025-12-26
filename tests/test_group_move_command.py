@@ -8,22 +8,43 @@ from pcb_tool.data_model import Board, Component
 def sample_board():
     """Create a board with multiple test components."""
     board = Board()
-    board.add_component(Component(
-        ref="R1", value="10k", footprint="R_0805",
-        position=(10.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R2", value="22k", footprint="R_0805",
-        position=(12.0, 22.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="Q1", value="2N3904", footprint="TO-92",
-        position=(14.0, 24.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="C1", value="100nF", footprint="C_0805",
-        position=(16.0, 26.0), rotation=0.0, locked=True
-    ))
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10.0, 20.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R2",
+            value="22k",
+            footprint="R_0805",
+            position=(12.0, 22.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="Q1",
+            value="2N3904",
+            footprint="TO-92",
+            position=(14.0, 24.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="C1",
+            value="100nF",
+            footprint="C_0805",
+            position=(16.0, 26.0),
+            rotation=0.0,
+            locked=True,
+        )
+    )
     return board
 
 

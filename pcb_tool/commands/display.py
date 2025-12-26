@@ -107,7 +107,9 @@ class ShowBoardCommand(Command):
             total_vias += len(net.vias)
 
         # Header
-        lines = [f"Board: {board_width:.1f} x {board_height:.1f} mm | Components: {comp_count} | Nets: {net_count} | Locked: {locked_count}"]
+        lines = [
+            f"Board: {board_width:.1f} x {board_height:.1f} mm | Components: {comp_count} | Nets: {net_count} | Locked: {locked_count}"
+        ]
         lines.append(f"Scale: 1 cell = {cell_size:.0f}mm")
         lines.append("")
 
@@ -236,29 +238,30 @@ class ShowBoardCommand(Command):
         lines.append("")
 
         # Enhanced legend with routing info
-        legend_parts = ["Legend: [Ref] = Component  ↑→↓← = Orientation (0° 90° 180° 270°)"]
+        legend_parts = [
+            "Legend: [Ref] = Component  ↑→↓← = Orientation (0° 90° 180° 270°)"
+        ]
         if total_segments > 0 or total_vias > 0:
             legend_parts.append("        V = Via  * = Trace endpoint")
-            legend_parts.append(f"Routing: {total_segments} segments, {total_vias} vias")
+            legend_parts.append(
+                f"Routing: {total_segments} segments, {total_vias} vias"
+            )
 
         lines.extend(legend_parts)
 
         # Add routing grid statistics if routing exists
         if total_segments > 0 or total_vias > 0:
             lines.append("")
-            grid_stats = self._build_routing_grid_stats(board, min_x, max_x, min_y, max_y)
+            grid_stats = self._build_routing_grid_stats(
+                board, min_x, max_x, min_y, max_y
+            )
             if grid_stats:
                 lines.extend(grid_stats)
 
         return "\n".join(lines)
 
     def _build_routing_grid_stats(
-        self,
-        board: Board,
-        min_x: float,
-        max_x: float,
-        min_y: float,
-        max_y: float
+        self, board: Board, min_x: float, max_x: float, min_y: float, max_y: float
     ) -> list[str]:
         """
         Build routing grid statistics from current board state.
@@ -276,7 +279,7 @@ class ShowBoardCommand(Command):
                 width_mm=width_mm,
                 height_mm=height_mm,
                 resolution_mm=0.1,
-                default_clearance_mm=0.2
+                default_clearance_mm=0.2,
             )
 
             # Mark components as obstacles
@@ -284,10 +287,7 @@ class ShowBoardCommand(Command):
                 # Simple approximation: components are 5mm diameter obstacles
                 x, y = comp.position
                 grid.mark_obstacle(
-                    x_mm=x - min_x,
-                    y_mm=y - min_y,
-                    layer="both",
-                    size_mm=5.0
+                    x_mm=x - min_x, y_mm=y - min_y, layer="both", size_mm=5.0
                 )
 
             # Track routing statistics
@@ -310,47 +310,55 @@ class ShowBoardCommand(Command):
                         bcu_segments += 1
 
                     # Calculate segment length
-                    segment_length = ((end_x - start_x)**2 + (end_y - start_y)**2)**0.5
+                    segment_length = (
+                        (end_x - start_x) ** 2 + (end_y - start_y) ** 2
+                    ) ** 0.5
                     total_trace_length_mm += segment_length
 
                     grid.mark_trace_segment(
                         start_mm=(start_x - min_x, start_y - min_y),
                         end_mm=(end_x - min_x, end_y - min_y),
                         layer=segment.layer,
-                        width_mm=segment.width
+                        width_mm=segment.width,
                     )
 
                 # Mark vias
                 for via in net.vias:
                     x, y = via.position
-                    grid.mark_via(
-                        x_mm=x - min_x,
-                        y_mm=y - min_y,
-                        size_mm=via.size
-                    )
+                    grid.mark_via(x_mm=x - min_x, y_mm=y - min_y, size_mm=via.size)
 
             # Get statistics
             stats = grid.get_statistics()
 
             # Format output
             lines = ["Routing Grid Statistics:"]
-            lines.append(f"  Grid: {stats['dimensions']['grid_width']} × {stats['dimensions']['grid_height']} cells @ {stats['dimensions']['resolution_mm']}mm resolution")
+            lines.append(
+                f"  Grid: {stats['dimensions']['grid_width']} × {stats['dimensions']['grid_height']} cells @ {stats['dimensions']['resolution_mm']}mm resolution"
+            )
             lines.append(f"  Total cells: {stats['dimensions']['total_cells']:,}")
 
             # Calculate routable percentage
-            total_cells = stats['dimensions']['total_cells']
-            fcu_routable = stats['routable_cells']['F.Cu']
-            bcu_routable = stats['routable_cells']['B.Cu']
+            total_cells = stats["dimensions"]["total_cells"]
+            fcu_routable = stats["routable_cells"]["F.Cu"]
+            bcu_routable = stats["routable_cells"]["B.Cu"]
             fcu_pct = (fcu_routable / total_cells * 100) if total_cells > 0 else 0
             bcu_pct = (bcu_routable / total_cells * 100) if total_cells > 0 else 0
 
-            lines.append(f"  F.Cu: {stats['obstacles']['F.Cu']:,} obstacles, {fcu_routable:,} routable ({fcu_pct:.1f}%)")
-            lines.append(f"  B.Cu: {stats['obstacles']['B.Cu']:,} obstacles, {bcu_routable:,} routable ({bcu_pct:.1f}%)")
+            lines.append(
+                f"  F.Cu: {stats['obstacles']['F.Cu']:,} obstacles, {fcu_routable:,} routable ({fcu_pct:.1f}%)"
+            )
+            lines.append(
+                f"  B.Cu: {stats['obstacles']['B.Cu']:,} obstacles, {bcu_routable:,} routable ({bcu_pct:.1f}%)"
+            )
 
             # Multi-layer routing statistics
             if total_segments > 0:
-                fcu_pct_routed = (fcu_segments / total_segments * 100) if total_segments > 0 else 0
-                bcu_pct_routed = (bcu_segments / total_segments * 100) if total_segments > 0 else 0
+                fcu_pct_routed = (
+                    (fcu_segments / total_segments * 100) if total_segments > 0 else 0
+                )
+                bcu_pct_routed = (
+                    (bcu_segments / total_segments * 100) if total_segments > 0 else 0
+                )
                 lines.append("")
                 lines.append("Routing Distribution:")
                 lines.append(f"  Total trace segments: {total_segments}")
@@ -358,7 +366,7 @@ class ShowBoardCommand(Command):
                 lines.append(f"  B.Cu segments: {bcu_segments} ({bcu_pct_routed:.1f}%)")
                 lines.append(f"  Total trace length: {total_trace_length_mm:.2f}mm")
 
-            if stats['obstacles']['vias'] > 0:
+            if stats["obstacles"]["vias"] > 0:
                 lines.append(f"  Layer transitions: {stats['obstacles']['vias']} vias")
 
             return lines
@@ -434,7 +442,9 @@ class ShowNetCommand(Command):
             for segment in net.segments:
                 x1, y1 = segment.start
                 x2, y2 = segment.end
-                lines.append(f"      ({x1}, {y1}) → ({x2}, {y2}) [{segment.layer}, {segment.width}mm]")
+                lines.append(
+                    f"      ({x1}, {y1}) → ({x2}, {y2}) [{segment.layer}, {segment.width}mm]"
+                )
         else:
             lines.append("      (no routed segments)")
 

@@ -24,18 +24,24 @@ from pcb_tool.footprint_library import get_footprint_pads
 
 # Import from existing test infrastructure
 from tests.integration.test_routing_scenarios import (
-    DRCConfig, RoutingTestCase, route_board, add_traces_to_board
+    DRCConfig,
+    RoutingTestCase,
+    route_board,
+    add_traces_to_board,
 )
 
 # Import from 4-layer test infrastructure
 from tests.integration.test_4layer_power import (
-    MultiLayerTestCase, route_board_multilayer, add_traces_to_board_multilayer
+    MultiLayerTestCase,
+    route_board_multilayer,
+    add_traces_to_board_multilayer,
 )
 
 
 # =============================================================================
 # TEST CASE: Variable Trace Widths
 # =============================================================================
+
 
 class TestVariableTraceWidths:
     """Test per-net trace width via NetClass."""
@@ -48,14 +54,18 @@ class TestVariableTraceWidths:
 
         # Three net classes with different widths
         test.board.add_net_class(NetClass(name="Power", track_width=0.5, clearance=0.3))
-        test.board.add_net_class(NetClass(name="Signal", track_width=0.25, clearance=0.2))
-        test.board.add_net_class(NetClass(name="Fine", track_width=0.15, clearance=0.15))
+        test.board.add_net_class(
+            NetClass(name="Signal", track_width=0.25, clearance=0.2)
+        )
+        test.board.add_net_class(
+            NetClass(name="Fine", track_width=0.15, clearance=0.15)
+        )
 
         # Components: 8-pin DIP + resistors
         test.create_component("U1", "74HC00", "DIP-8_W7.62mm", x=20, y=12.5)
         for i in range(4):
-            test.create_component(f"R{i+1}", "10k", "R_0603", x=5 + i*3, y=5)
-            test.create_component(f"R{i+5}", "10k", "R_0603", x=5 + i*3, y=20)
+            test.create_component(f"R{i+1}", "10k", "R_0603", x=5 + i * 3, y=5)
+            test.create_component(f"R{i+5}", "10k", "R_0603", x=5 + i * 3, y=20)
 
         # Power nets (0.5mm)
         test.create_net("VCC", [("U1", "8"), ("R1", "1")], track_width=0.5)
@@ -89,15 +99,21 @@ class TestVariableTraceWidths:
         # Verify trace widths match net class
         if test.board.nets["VCC"].segments:
             for segment in test.board.nets["VCC"].segments:
-                assert segment.width == 0.5, f"Power trace should be 0.5mm, got {segment.width}"
+                assert (
+                    segment.width == 0.5
+                ), f"Power trace should be 0.5mm, got {segment.width}"
 
         if test.board.nets["SIG1"].segments:
             for segment in test.board.nets["SIG1"].segments:
-                assert segment.width == 0.25, f"Signal trace should be 0.25mm, got {segment.width}"
+                assert (
+                    segment.width == 0.25
+                ), f"Signal trace should be 0.25mm, got {segment.width}"
 
         if test.board.nets["CLK"].segments:
             for segment in test.board.nets["CLK"].segments:
-                assert segment.width == 0.15, f"Fine trace should be 0.15mm, got {segment.width}"
+                assert (
+                    segment.width == 0.15
+                ), f"Fine trace should be 0.15mm, got {segment.width}"
 
         # Write and validate
         output_path = tmp_path / "variable_widths.kicad_pcb"
@@ -107,7 +123,9 @@ class TestVariableTraceWidths:
         violations, vtypes = test.run_kicad_drc(output_path)
         if violations >= 0:
             real_violations = test.get_real_violations(vtypes)
-            assert real_violations <= 5, f"Should have minimal DRC violations, got {real_violations}"
+            assert (
+                real_violations <= 5
+            ), f"Should have minimal DRC violations, got {real_violations}"
 
     def test_net_class_default_width(self, tmp_path):
         """Test that nets without explicit class use default width."""
@@ -131,11 +149,15 @@ class TestVariableTraceWidths:
 
         # Unassigned net should use its track_width (default 0.25)
         unassigned_width = test.board.get_net_width("UNASSIGNED")
-        assert unassigned_width == 0.25, f"Unassigned net should use default 0.25mm, got {unassigned_width}"
+        assert (
+            unassigned_width == 0.25
+        ), f"Unassigned net should use default 0.25mm, got {unassigned_width}"
 
         # Assigned net should use class width
         wide_width = test.board.get_net_width("WIDE_NET")
-        assert wide_width == 0.6, f"Wide net should use class width 0.6mm, got {wide_width}"
+        assert (
+            wide_width == 0.6
+        ), f"Wide net should use class width 0.6mm, got {wide_width}"
 
     def test_kicad_output_contains_widths(self, tmp_path):
         """Test that KiCad output contains correct trace widths."""
@@ -171,7 +193,9 @@ class TestVariableTraceWidths:
 
         # Net classes
         test.board.add_net_class(NetClass(name="Power", track_width=0.5, clearance=0.3))
-        test.board.add_net_class(NetClass(name="Signal", track_width=0.2, clearance=0.15))
+        test.board.add_net_class(
+            NetClass(name="Signal", track_width=0.2, clearance=0.15)
+        )
 
         # Components
         test.create_component("U1", "IC", "DIP-8_W7.62mm", x=20, y=12.5)
@@ -190,7 +214,9 @@ class TestVariableTraceWidths:
         vdd_width = test.board.get_net_width("VDD")
         out_width = test.board.get_net_width("OUT")
 
-        assert vdd_width > out_width, f"Power width ({vdd_width}) should be greater than signal ({out_width})"
+        assert (
+            vdd_width > out_width
+        ), f"Power width ({vdd_width}) should be greater than signal ({out_width})"
         assert vdd_width == 0.5
         assert out_width == 0.2
 
@@ -215,11 +241,15 @@ class TestVariableTraceWidths:
         test = RoutingTestCase("via_size")
 
         # Create net class with large vias
-        power_class = NetClass(name="Power", track_width=0.5, via_size=1.0, via_drill=0.5)
+        power_class = NetClass(
+            name="Power", track_width=0.5, via_size=1.0, via_drill=0.5
+        )
         test.board.add_net_class(power_class)
 
         # Create net class with small vias
-        signal_class = NetClass(name="Signal", track_width=0.25, via_size=0.6, via_drill=0.3)
+        signal_class = NetClass(
+            name="Signal", track_width=0.25, via_size=0.6, via_drill=0.3
+        )
         test.board.add_net_class(signal_class)
 
         # Verify via sizes stored correctly
@@ -241,7 +271,7 @@ class TestVariableTraceWidths:
 
         # Create a row of resistors
         for i in range(5):
-            test.create_component(f"R{i+1}", "10k", "R_0805", x=10 + i*8, y=15)
+            test.create_component(f"R{i+1}", "10k", "R_0805", x=10 + i * 8, y=15)
 
         # Different width nets
         test.create_net("PWR", [("R1", "1"), ("R3", "1"), ("R5", "1")], track_width=0.5)

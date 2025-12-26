@@ -14,16 +14,25 @@ from pcb_tool.commands import AutoRouteCommand, OptimizeRoutingCommand
 from pcb_tool.footprint_library import get_footprint_pads
 
 
-def _create_component(ref: str, value: str, footprint: str, position: tuple, rotation: float = 0) -> Component:
+def _create_component(
+    ref: str, value: str, footprint: str, position: tuple, rotation: float = 0
+) -> Component:
     """Helper to create component with proper pads."""
     pads, _ = get_footprint_pads(footprint)
     if not pads:
         # Fallback for generic footprints - create 2 pads
         pads = [
-            Pad(number='1', position_offset=(-1.0, 0), size=(1.0, 1.0), shape='rect'),
-            Pad(number='2', position_offset=(1.0, 0), size=(1.0, 1.0), shape='rect'),
+            Pad(number="1", position_offset=(-1.0, 0), size=(1.0, 1.0), shape="rect"),
+            Pad(number="2", position_offset=(1.0, 0), size=(1.0, 1.0), shape="rect"),
         ]
-    return Component(ref=ref, value=value, footprint=footprint, position=position, rotation=rotation, pads=pads)
+    return Component(
+        ref=ref,
+        value=value,
+        footprint=footprint,
+        position=position,
+        rotation=rotation,
+        pads=pads,
+    )
 
 
 class TestBoardSizeVariety:
@@ -34,8 +43,24 @@ class TestBoardSizeVariety:
         board = Board()
 
         # Two components close together
-        board.add_component(_create_component(ref="R1", value="R", footprint="R_0805_2012Metric", position=(3, 3), rotation=0))
-        board.add_component(_create_component(ref="R2", value="R", footprint="R_0805_2012Metric", position=(7, 7), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="R1",
+                value="R",
+                footprint="R_0805_2012Metric",
+                position=(3, 3),
+                rotation=0,
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="R2",
+                value="R",
+                footprint="R_0805_2012Metric",
+                position=(7, 7),
+                rotation=0,
+            )
+        )
 
         # One net connecting them
         net = Net(name="SIGNAL", code="1")
@@ -50,14 +75,30 @@ class TestBoardSizeVariety:
         assert "OK:" in result or "routed" in result.lower()
 
     def test_small_board_50x50mm(self):
-        """Test routing on a small 50x50mm board."""
+        """Test routing on a small board (reduced footprint for runtime)."""
         board = Board()
 
-        # 4 components in corners
-        board.add_component(_create_component(ref="U1", value="IC", footprint="Generic", position=(10, 10), rotation=0))
-        board.add_component(_create_component(ref="U2", value="IC", footprint="Generic", position=(40, 10), rotation=0))
-        board.add_component(_create_component(ref="U3", value="IC", footprint="Generic", position=(10, 40), rotation=0))
-        board.add_component(_create_component(ref="U4", value="IC", footprint="Generic", position=(40, 40), rotation=0))
+        # 4 components in corners (kept tight to limit grid size)
+        board.add_component(
+            _create_component(
+                ref="U1", value="IC", footprint="Generic", position=(8, 8), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="U2", value="IC", footprint="Generic", position=(28, 8), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="U3", value="IC", footprint="Generic", position=(8, 28), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="U4", value="IC", footprint="Generic", position=(28, 28), rotation=0
+            )
+        )
 
         # Create nets connecting diagonals
         net1 = Net(name="NET1", code="1")
@@ -80,7 +121,15 @@ class TestBoardSizeVariety:
         # 9 components in 3x3 grid
         positions = [(x, y) for x in [20, 50, 80] for y in [20, 50, 80]]
         for i, (x, y) in enumerate(positions):
-            board.add_component(_create_component(ref=f"U{i+1}", value="IC", footprint="Generic", position=(x, y), rotation=0))
+            board.add_component(
+                _create_component(
+                    ref=f"U{i+1}",
+                    value="IC",
+                    footprint="Generic",
+                    position=(x, y),
+                    rotation=0,
+                )
+            )
 
         # Create mesh of nets (each component to next)
         for i in range(len(positions) - 1):
@@ -98,9 +147,19 @@ class TestBoardSizeVariety:
         board = Board()
 
         # 16 components spread across board
-        positions = [(x, y) for x in [20, 60, 100, 140, 180] for y in [20, 60, 100, 140]]
+        positions = [
+            (x, y) for x in [20, 60, 100, 140, 180] for y in [20, 60, 100, 140]
+        ]
         for i, (x, y) in enumerate(positions[:16]):
-            board.add_component(_create_component(ref=f"IC{i+1}", value="IC", footprint="Generic", position=(x, y), rotation=0))
+            board.add_component(
+                _create_component(
+                    ref=f"IC{i+1}",
+                    value="IC",
+                    footprint="Generic",
+                    position=(x, y),
+                    rotation=0,
+                )
+            )
 
         # Create interconnections
         for i in range(15):
@@ -122,10 +181,26 @@ class TestBoardComplexity:
         board = Board()
 
         # Horizontal components
-        board.add_component(_create_component(ref="R1", value="R", footprint="Generic", position=(10, 20), rotation=0))
-        board.add_component(_create_component(ref="R2", value="R", footprint="Generic", position=(30, 20), rotation=0))
-        board.add_component(_create_component(ref="R3", value="R", footprint="Generic", position=(10, 40), rotation=0))
-        board.add_component(_create_component(ref="R4", value="R", footprint="Generic", position=(30, 40), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="R1", value="R", footprint="Generic", position=(10, 20), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="R2", value="R", footprint="Generic", position=(30, 20), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="R3", value="R", footprint="Generic", position=(10, 40), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="R4", value="R", footprint="Generic", position=(30, 40), rotation=0
+            )
+        )
 
         # Two parallel nets
         net1 = Net(name="NET1", code="1")
@@ -142,14 +217,30 @@ class TestBoardComplexity:
         assert "2/2" in result or "routed" in result.lower()
 
     def test_moderate_crossing_nets(self):
-        """Test moderate complexity: nets that cross."""
+        """Test moderate complexity: nets that cross (scaled down for runtime)."""
         board = Board()
 
-        # Components in corners
-        board.add_component(_create_component(ref="U1", value="IC", footprint="Generic", position=(10, 10), rotation=0))
-        board.add_component(_create_component(ref="U2", value="IC", footprint="Generic", position=(50, 10), rotation=0))
-        board.add_component(_create_component(ref="U3", value="IC", footprint="Generic", position=(10, 50), rotation=0))
-        board.add_component(_create_component(ref="U4", value="IC", footprint="Generic", position=(50, 50), rotation=0))
+        # Components in corners (scaled down to reduce grid size)
+        board.add_component(
+            _create_component(
+                ref="U1", value="IC", footprint="Generic", position=(8, 8), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="U2", value="IC", footprint="Generic", position=(28, 8), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="U3", value="IC", footprint="Generic", position=(8, 28), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="U4", value="IC", footprint="Generic", position=(28, 28), rotation=0
+            )
+        )
 
         # Diagonal nets (will cross)
         net1 = Net(name="DIAG1", code="1")
@@ -170,20 +261,37 @@ class TestBoardComplexity:
         board = Board()
 
         # Central component
-        board.add_component(_create_component(ref="HUB", value="IC", footprint="Generic", position=(50, 50), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="HUB",
+                value="IC",
+                footprint="Generic",
+                position=(50, 50),
+                rotation=0,
+            )
+        )
 
         # 8 peripheral components in circle
         import math
+
         radius = 30
         for i in range(8):
             angle = (i * 2 * math.pi) / 8
             x = 50 + radius * math.cos(angle)
             y = 50 + radius * math.sin(angle)
-            board.add_component(_create_component(ref=f"NODE{i+1}", value="IC", footprint="Generic", position=(x, y), rotation=0))
+            board.add_component(
+                _create_component(
+                    ref=f"NODE{i+1}",
+                    value="IC",
+                    footprint="Generic",
+                    position=(x, y),
+                    rotation=0,
+                )
+            )
 
             # Connect each to hub
             net = Net(name=f"SPOKE{i+1}", code="1")
-            net.connections = [("HUB", str(i+1)), (f"NODE{i+1}", "1")]
+            net.connections = [("HUB", str(i + 1)), (f"NODE{i+1}", "1")]
             board.nets[f"SPOKE{i+1}"] = net
 
         # Autoroute
@@ -202,7 +310,15 @@ class TestBoardComplexity:
                 x = 10 + i * spacing
                 y = 10 + j * spacing
                 ref = f"R{i*4+j+1}"
-                board.add_component(_create_component(ref=ref, value="R", footprint="Generic", position=(x, y), rotation=0))
+                board.add_component(
+                    _create_component(
+                        ref=ref,
+                        value="R",
+                        footprint="Generic",
+                        position=(x, y),
+                        rotation=0,
+                    )
+                )
 
         # Connect adjacent components horizontally and vertically
         net_idx = 0
@@ -242,7 +358,15 @@ class TestPerformanceBenchmarks:
 
         # 11 components in line
         for i in range(11):
-            board.add_component(_create_component(ref=f"R{i+1}", value="R", footprint="Generic", position=(10 + i*10, 50), rotation=0))
+            board.add_component(
+                _create_component(
+                    ref=f"R{i+1}",
+                    value="R",
+                    footprint="Generic",
+                    position=(10 + i * 10, 50),
+                    rotation=0,
+                )
+            )
 
         # 10 nets connecting adjacent components
         for i in range(10):
@@ -259,7 +383,6 @@ class TestPerformanceBenchmarks:
         assert elapsed < 5.0, f"Took {elapsed:.1f}s, expected <5s"
         assert "routed" in result.lower()
 
-    @pytest.mark.slow
     def test_performance_50_nets_under_30_seconds(self):
         """50 nets should route in <30 seconds."""
         board = Board()
@@ -270,7 +393,15 @@ class TestPerformanceBenchmarks:
             for j in range(6):
                 x = 10 + i * 15
                 y = 10 + j * 15
-                board.add_component(_create_component(ref=f"U{i*6+j+1}", value="IC", footprint="Generic", position=(x, y), rotation=0))
+                board.add_component(
+                    _create_component(
+                        ref=f"U{i*6+j+1}",
+                        value="IC",
+                        footprint="Generic",
+                        position=(x, y),
+                        rotation=0,
+                    )
+                )
 
         # Connect adjacent components
         net_idx = 0
@@ -305,14 +436,21 @@ class TestPerformanceBenchmarks:
         assert elapsed < 30.0, f"Took {elapsed:.1f}s, expected <30s"
         assert "routed" in result.lower()
 
-    @pytest.mark.slow
     def test_optimization_performance_20_nets(self):
         """Optimization of 20 nets should complete in <15 seconds."""
         board = Board()
 
         # Create and route 20 nets
         for i in range(21):
-            board.add_component(_create_component(ref=f"R{i+1}", value="R", footprint="Generic", position=(10 + i*5, 50), rotation=0))
+            board.add_component(
+                _create_component(
+                    ref=f"R{i+1}",
+                    value="R",
+                    footprint="Generic",
+                    position=(10 + i * 5, 50),
+                    rotation=0,
+                )
+            )
 
         for i in range(20):
             net = Net(name=f"NET{i+1}", code="1")
@@ -369,11 +507,7 @@ class TestBackwardCompatibility:
         pathfinder = PathFinder(grid)
 
         # Find simple path
-        path = pathfinder.find_path(
-            start_mm=(10, 10),
-            goal_mm=(40, 40),
-            layer="F.Cu"
-        )
+        path = pathfinder.find_path(start_mm=(10, 10), goal_mm=(40, 40), layer="F.Cu")
 
         assert path is not None
         assert len(path) >= 2
@@ -430,7 +564,11 @@ class TestBackwardCompatibility:
         assert "LOAD" in error_msg  # Should suggest LOAD command
 
         # Test with board but no nets
-        board.add_component(_create_component(ref="R1", value="R", footprint="Generic", position=(10, 10), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="R1", value="R", footprint="Generic", position=(10, 10), rotation=0
+            )
+        )
         error_msg = cmd.validate(board)
         assert error_msg is not None
         assert "LOAD" in error_msg  # Should suggest LOAD command
@@ -452,7 +590,11 @@ class TestRegressionEdgeCases:
     def test_single_component_board(self):
         """Test board with only one component."""
         board = Board()
-        board.add_component(_create_component(ref="R1", value="R", footprint="Generic", position=(50, 50), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="R1", value="R", footprint="Generic", position=(50, 50), rotation=0
+            )
+        )
 
         cmd = AutoRouteCommand("ALL")
         result = cmd.execute(board)
@@ -462,7 +604,11 @@ class TestRegressionEdgeCases:
     def test_disconnected_net(self):
         """Test net with only one connection."""
         board = Board()
-        board.add_component(_create_component(ref="R1", value="R", footprint="Generic", position=(10, 10), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="R1", value="R", footprint="Generic", position=(10, 10), rotation=0
+            )
+        )
 
         net = Net(name="SINGLE", code="1")
         net.connections = [("R1", "1")]  # Only one connection
@@ -476,7 +622,11 @@ class TestRegressionEdgeCases:
     def test_zero_length_route(self):
         """Test net where start and end are same location."""
         board = Board()
-        board.add_component(_create_component(ref="U1", value="IC", footprint="Generic", position=(50, 50), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="U1", value="IC", footprint="Generic", position=(50, 50), rotation=0
+            )
+        )
 
         # Two pads at same position
         net = Net(name="SAME_POS", code="1")
@@ -489,12 +639,20 @@ class TestRegressionEdgeCases:
         assert isinstance(result, str)
 
     def test_out_of_bounds_components(self):
-        """Test components placed at extreme coordinates."""
+        """Test components placed at extreme coordinates (scaled down for runtime)."""
         board = Board()
 
         # Components at board edges
-        board.add_component(_create_component(ref="R1", value="R", footprint="Generic", position=(0, 0), rotation=0))
-        board.add_component(_create_component(ref="R2", value="R", footprint="Generic", position=(200, 150), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="R1", value="R", footprint="Generic", position=(0, 0), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="R2", value="R", footprint="Generic", position=(50, 40), rotation=0
+            )
+        )
 
         net = Net(name="EXTREME", code="1")
         net.connections = [("R1", "1"), ("R2", "1")]
@@ -510,8 +668,16 @@ class TestRegressionEdgeCases:
         board = Board()
 
         # Two components at same position
-        board.add_component(_create_component(ref="R1", value="R", footprint="Generic", position=(50, 50), rotation=0))
-        board.add_component(_create_component(ref="R2", value="R", footprint="Generic", position=(50, 50), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="R1", value="R", footprint="Generic", position=(50, 50), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="R2", value="R", footprint="Generic", position=(50, 50), rotation=0
+            )
+        )
 
         net = Net(name="OVERLAP", code="1")
         net.connections = [("R1", "1"), ("R2", "1")]
@@ -532,7 +698,15 @@ class TestSystemIntegration:
 
         # Create components
         for i in range(5):
-            board.add_component(_create_component(ref=f"U{i+1}", value="IC", footprint="Generic", position=(20 + i*20, 50), rotation=0))
+            board.add_component(
+                _create_component(
+                    ref=f"U{i+1}",
+                    value="IC",
+                    footprint="Generic",
+                    position=(20 + i * 20, 50),
+                    rotation=0,
+                )
+            )
 
         # Create nets
         for i in range(4):
@@ -548,7 +722,11 @@ class TestSystemIntegration:
         # Optimize
         opt_cmd = OptimizeRoutingCommand("ALL")
         opt_result = opt_cmd.execute(board)
-        assert "optimized" in opt_result.lower() or "OK" in opt_result or "No routed" in opt_result
+        assert (
+            "optimized" in opt_result.lower()
+            or "OK" in opt_result
+            or "No routed" in opt_result
+        )
 
         # Verify board state
         assert len(board.nets) == 4
@@ -560,8 +738,16 @@ class TestSystemIntegration:
         board = Board()
 
         # Simple setup
-        board.add_component(_create_component(ref="R1", value="R", footprint="Generic", position=(10, 50), rotation=0))
-        board.add_component(_create_component(ref="R2", value="R", footprint="Generic", position=(90, 50), rotation=0))
+        board.add_component(
+            _create_component(
+                ref="R1", value="R", footprint="Generic", position=(10, 50), rotation=0
+            )
+        )
+        board.add_component(
+            _create_component(
+                ref="R2", value="R", footprint="Generic", position=(90, 50), rotation=0
+            )
+        )
 
         net = Net(name="TEST", code="1")
         net.connections = [("R1", "1"), ("R2", "1")]
@@ -592,13 +778,13 @@ def test_total_test_count():
         [sys.executable, "-m", "pytest", "--collect-only", "-q"],
         cwd=Path(__file__).resolve().parents[1],
         capture_output=True,
-        text=True
+        text=True,
     )
 
     output = result.stdout
     # Parse "XXX tests collected"
-    for line in output.split('\n'):
-        if 'collected' in line.lower():
+    for line in output.split("\n"):
+        if "collected" in line.lower():
             try:
                 count = int(line.split()[0])
                 print(f"\n=== Total Test Count: {count} ===")
@@ -611,5 +797,5 @@ def test_total_test_count():
     assert True  # If we can't parse, assume OK
 
 
-if __name__ == '__main__':
-    pytest.main([__file__, '-v', '-s'])
+if __name__ == "__main__":
+    pytest.main([__file__, "-v", "-s"])

@@ -17,11 +17,11 @@ def create_test_board_with_nets():
         footprint="R_0805",
         position=(10.0, 10.0),
         rotation=0.0,
-        layer="F.Cu"
+        layer="F.Cu",
     )
     comp1.pads = [
         Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0)),
-        Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0))
+        Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0)),
     ]
     board.add_component(comp1)
 
@@ -31,11 +31,11 @@ def create_test_board_with_nets():
         footprint="R_0805",
         position=(20.0, 10.0),
         rotation=0.0,
-        layer="F.Cu"
+        layer="F.Cu",
     )
     comp2.pads = [
         Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0)),
-        Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0))
+        Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0)),
     ]
     board.add_component(comp2)
 
@@ -45,11 +45,11 @@ def create_test_board_with_nets():
         footprint="C_0805",
         position=(10.0, 20.0),
         rotation=0.0,
-        layer="F.Cu"
+        layer="F.Cu",
     )
     comp3.pads = [
         Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0)),
-        Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0))
+        Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0)),
     ]
     board.add_component(comp3)
 
@@ -169,9 +169,8 @@ def test_autoroute_unrouted_only():
 
     # First route GND net manually (add a dummy segment)
     from pcb_tool.data_model import TraceSegment
-    board.nets["GND"].add_segment(
-        TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25)
-    )
+
+    board.nets["GND"].add_segment(TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25))
 
     # Now route unrouted nets
     cmd = AutoRouteCommand(net_name="UNROUTED")
@@ -249,9 +248,8 @@ def test_optimize_validate_net_not_found():
     board = create_test_board_with_nets()
     # Add routing to at least one net so board has routing
     from pcb_tool.data_model import TraceSegment
-    board.nets["GND"].add_segment(
-        TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25)
-    )
+
+    board.nets["GND"].add_segment(TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25))
 
     cmd = OptimizeRoutingCommand(net_name="INVALID_NET")
     error = cmd.validate(board)
@@ -264,9 +262,8 @@ def test_optimize_validate_net_not_routed():
     board = create_test_board_with_nets()
     # Add routing to VCC but not GND
     from pcb_tool.data_model import TraceSegment
-    board.nets["VCC"].add_segment(
-        TraceSegment("VCC", (20, 10), (10, 20), "F.Cu", 0.25)
-    )
+
+    board.nets["VCC"].add_segment(TraceSegment("VCC", (20, 10), (10, 20), "F.Cu", 0.25))
 
     cmd = OptimizeRoutingCommand(net_name="GND")
     error = cmd.validate(board)
@@ -280,12 +277,9 @@ def test_optimize_routing_all_nets():
 
     # Add some routing first
     from pcb_tool.data_model import TraceSegment
-    board.nets["GND"].add_segment(
-        TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25)
-    )
-    board.nets["VCC"].add_segment(
-        TraceSegment("VCC", (20, 10), (10, 20), "F.Cu", 0.25)
-    )
+
+    board.nets["GND"].add_segment(TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25))
+    board.nets["VCC"].add_segment(TraceSegment("VCC", (20, 10), (10, 20), "F.Cu", 0.25))
 
     cmd = OptimizeRoutingCommand(net_name="ALL")
     error = cmd.validate(board)
@@ -302,12 +296,9 @@ def test_optimize_routing_single_net():
 
     # Add routing to GND
     from pcb_tool.data_model import TraceSegment
-    board.nets["GND"].add_segment(
-        TraceSegment("GND", (10, 10), (15, 10), "F.Cu", 0.25)
-    )
-    board.nets["GND"].add_segment(
-        TraceSegment("GND", (15, 10), (20, 10), "F.Cu", 0.25)
-    )
+
+    board.nets["GND"].add_segment(TraceSegment("GND", (10, 10), (15, 10), "F.Cu", 0.25))
+    board.nets["GND"].add_segment(TraceSegment("GND", (15, 10), (20, 10), "F.Cu", 0.25))
 
     cmd = OptimizeRoutingCommand(net_name="GND")
     error = cmd.validate(board)
@@ -323,6 +314,7 @@ def test_optimize_undo():
 
     # Add routing
     from pcb_tool.data_model import TraceSegment
+
     segment = TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25)
     board.nets["GND"].add_segment(segment)
     original_layer = segment.layer
@@ -467,6 +459,7 @@ def test_autoroute_no_valid_connections():
     cmd = AutoRouteCommand(net_name="GND")
     result = cmd.execute(board)
 
-    assert "no valid connections" in result.lower() or "could not be routed" in result.lower()
-
-
+    assert (
+        "no valid connections" in result.lower()
+        or "could not be routed" in result.lower()
+    )

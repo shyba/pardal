@@ -20,7 +20,7 @@ def test_optimize_order_by_length():
     nets = [
         {"name": "LONG", "length": 100.0, "priority": 0},
         {"name": "SHORT", "length": 10.0, "priority": 0},
-        {"name": "MEDIUM", "length": 50.0, "priority": 0}
+        {"name": "MEDIUM", "length": 50.0, "priority": 0},
     ]
 
     order = optimizer.optimize_order(nets)
@@ -40,8 +40,8 @@ def test_optimize_order_with_user_constraints():
 
     nets = [
         {"name": "A", "length": 100.0, "priority": 0},  # Long
-        {"name": "B", "length": 50.0, "priority": 0},   # Medium
-        {"name": "C", "length": 10.0, "priority": 0}    # Short
+        {"name": "B", "length": 50.0, "priority": 0},  # Medium
+        {"name": "C", "length": 10.0, "priority": 0},  # Short
     ]
 
     # Constraint: A must route before C (even though C is shorter)
@@ -67,7 +67,7 @@ def test_z3_not_available_fallback():
 
     nets = [
         {"name": "HIGH_PRI", "length": 100.0, "priority": 10},
-        {"name": "LOW_PRI", "length": 10.0, "priority": 0}
+        {"name": "LOW_PRI", "length": 10.0, "priority": 0},
     ]
 
     # Should work regardless of Z3 availability
@@ -89,7 +89,7 @@ def test_optimize_order_with_priorities():
 
     nets = [
         {"name": "LOW_PRI", "length": 10.0, "priority": 1},
-        {"name": "HIGH_PRI", "length": 100.0, "priority": 10}
+        {"name": "HIGH_PRI", "length": 100.0, "priority": 10},
     ]
 
     order = optimizer.optimize_order(nets)

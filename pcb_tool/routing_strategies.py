@@ -41,6 +41,7 @@ class RoutingResult:
         layers_used: Set of layers that have traces
         message: Detailed result message
     """
+
     success: bool
     nets_routed: int
     nets_total: int
@@ -81,7 +82,9 @@ class RoutingStrategy(ABC):
         """
         pass
 
-    def _collect_stats(self, board: Board, nets_attempted: List[str]) -> Tuple[int, float, int, set]:
+    def _collect_stats(
+        self, board: Board, nets_attempted: List[str]
+    ) -> Tuple[int, float, int, set]:
         """Collect routing statistics from board.
 
         Args:
@@ -137,8 +140,7 @@ class TwoLayerGroundPlane(RoutingStrategy):
         """Route using ground plane strategy."""
         # Get nets to route
         nets_to_route = [
-            name for name, net in board.nets.items()
-            if len(net.connections) >= 2
+            name for name, net in board.nets.items() if len(net.connections) >= 2
         ]
 
         # Route with ground plane mode enabled
@@ -146,7 +148,7 @@ class TwoLayerGroundPlane(RoutingStrategy):
             net_name="ALL",
             prefer_layer="F.Cu",
             ground_plane_mode=True,
-            via_costs={"*": 5.0}  # High via cost to stay on F.Cu
+            via_costs={"*": 5.0},  # High via cost to stay on F.Cu
         )
         result_msg = cmd.execute(board)
 
@@ -160,7 +162,7 @@ class TwoLayerGroundPlane(RoutingStrategy):
             total_length_mm=length,
             total_vias=vias,
             layers_used=layers,
-            message=result_msg
+            message=result_msg,
         )
 
 
@@ -189,13 +191,11 @@ class TwoLayerSimple(RoutingStrategy):
     def route(self, board: Board) -> RoutingResult:
         """Route with balanced layer usage."""
         nets_to_route = [
-            name for name, net in board.nets.items()
-            if len(net.connections) >= 2
+            name for name, net in board.nets.items() if len(net.connections) >= 2
         ]
 
         cmd = AutoRouteCommand(
-            net_name="ALL",
-            via_costs={"*": 3.0}  # Moderate via cost
+            net_name="ALL", via_costs={"*": 3.0}  # Moderate via cost
         )
         result_msg = cmd.execute(board)
 
@@ -208,7 +208,7 @@ class TwoLayerSimple(RoutingStrategy):
             total_length_mm=length,
             total_vias=vias,
             layers_used=layers,
-            message=result_msg
+            message=result_msg,
         )
 
 
@@ -231,16 +231,26 @@ class FourLayerFPGA(RoutingStrategy):
     def __init__(
         self,
         power_nets: Optional[List[str]] = None,
-        ground_nets: Optional[List[str]] = None
+        ground_nets: Optional[List[str]] = None,
+        net_layer_overrides: Optional[Dict[str, str]] = None,
+        net_via_costs: Optional[Dict[str, float]] = None,
+        verbose: bool = False,
     ):
         """Initialize FPGA strategy.
 
         Args:
             power_nets: Net names for power (default: ["VCC", "3V3", "5V", "VCCIO"])
             ground_nets: Net names for ground (default: ["GND", "VSS", "GNDA"])
+            net_layer_overrides: Optional per-net preferred layer overrides.
+            net_via_costs: Optional mapping of net name patterns to via costs (mm-equivalent).
+                Use {"*": 2.0} to set a global via cost.
+            verbose: If True, print progress during routing.
         """
         self.power_nets = power_nets or ["VCC", "3V3", "5V", "VCCIO", "VDD"]
         self.ground_nets = ground_nets or ["GND", "VSS", "GNDA", "GNDPWR"]
+        self.net_layer_overrides = net_layer_overrides or {}
+        self.net_via_costs = net_via_costs or {"*": 2.0}
+        self.verbose = bool(verbose)
 
     @property
     def name(self) -> str:
@@ -278,39 +288,39 @@ class FourLayerFPGA(RoutingStrategy):
         power, ground, signals = self._classify_nets(board)
         all_nets = power + ground + signals
 
-        # Via costs - low to encourage layer switching
-        via_costs = {
-            "through": 2.0,
-            "blind": 1.5,
-            "buried": 1.0
-        }
-
         # Route power nets first on F.Cu
         for net_name in power:
+            layer = self.net_layer_overrides.get(net_name, "F.Cu")
             cmd = AutoRouteCommand(
                 net_name=net_name,
-                prefer_layer="F.Cu",
-                via_costs=via_costs
+                prefer_layer=layer,
+                via_costs=self.net_via_costs,
+                verbose=self.verbose,
             )
             cmd.execute(board)
 
         # Route signal nets on inner layers
         for i, net_name in enumerate(signals):
-            # Alternate between In1.Cu and In2.Cu
-            layer = "In1.Cu" if i % 2 == 0 else "In2.Cu"
+            # Default alternation between In1.Cu and In2.Cu, unless overridden.
+            layer = self.net_layer_overrides.get(
+                net_name, ("In1.Cu" if i % 2 == 0 else "In2.Cu")
+            )
             cmd = AutoRouteCommand(
                 net_name=net_name,
                 prefer_layer=layer,
-                via_costs=via_costs
+                via_costs=self.net_via_costs,
+                verbose=self.verbose,
             )
             cmd.execute(board)
 
         # Route ground nets on B.Cu
         for net_name in ground:
+            layer = self.net_layer_overrides.get(net_name, "B.Cu")
             cmd = AutoRouteCommand(
                 net_name=net_name,
-                prefer_layer="B.Cu",
-                via_costs=via_costs
+                prefer_layer=layer,
+                via_costs=self.net_via_costs,
+                verbose=self.verbose,
             )
             cmd.execute(board)
 
@@ -323,7 +333,7 @@ class FourLayerFPGA(RoutingStrategy):
             total_length_mm=length,
             total_vias=vias,
             layers_used=layers,
-            message=f"FPGA strategy: {len(power)} power, {len(signals)} signal, {len(ground)} ground nets"
+            message=f"FPGA strategy: {len(power)} power, {len(signals)} signal, {len(ground)} ground nets",
         )
 
 
@@ -353,21 +363,11 @@ class FourLayerMixed(RoutingStrategy):
     def route(self, board: Board) -> RoutingResult:
         """Route with mixed layer strategy."""
         nets_to_route = [
-            name for name, net in board.nets.items()
-            if len(net.connections) >= 2
+            name for name, net in board.nets.items() if len(net.connections) >= 2
         ]
 
-        # Moderate via costs for balanced usage
-        via_costs = {
-            "through": 3.0,
-            "blind": 2.0,
-            "buried": 1.5
-        }
-
-        cmd = AutoRouteCommand(
-            net_name="ALL",
-            via_costs=via_costs
-        )
+        # Balanced usage: moderate global via cost.
+        cmd = AutoRouteCommand(net_name="ALL", via_costs={"*": 3.0})
         result_msg = cmd.execute(board)
 
         routed, length, vias, layers = self._collect_stats(board, nets_to_route)
@@ -379,7 +379,7 @@ class FourLayerMixed(RoutingStrategy):
             total_length_mm=length,
             total_vias=vias,
             layers_used=layers,
-            message=result_msg
+            message=result_msg,
         )
 
 

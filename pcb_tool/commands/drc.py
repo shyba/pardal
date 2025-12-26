@@ -52,7 +52,7 @@ class CheckDrcCommand(Command):
         Returns:
             Dictionary with 'errors' and 'warnings' lists
         """
-        issues = {'errors': [], 'warnings': []}
+        issues = {"errors": [], "warnings": []}
 
         for net_name, net in board.nets.items():
             for via in net.vias:
@@ -62,18 +62,23 @@ class CheckDrcCommand(Command):
                 for comp_ref, component in board.components.items():
                     for pad in component.pads:
                         pad_x, pad_y = component.get_pad_position(pad.number)
-                        distance = math.sqrt((via_x - pad_x)**2 + (via_y - pad_y)**2)
+                        distance = math.sqrt(
+                            (via_x - pad_x) ** 2 + (via_y - pad_y) ** 2
+                        )
 
                         # Check for exact position collision
                         if distance < 0.01:
-                            issues['errors'].append(
+                            issues["errors"].append(
                                 f"  ERROR: Via on net {net_name} at ({via_x}, {via_y}) "
                                 f"overlaps {comp_ref} pad {pad.number}. Drill holes co-located."
                             )
                         # Check proximity with different net pads
-                        elif pad.net_name and distance < via_radius + max(pad.size)/2 + 0.1:
+                        elif (
+                            pad.net_name
+                            and distance < via_radius + max(pad.size) / 2 + 0.1
+                        ):
                             if pad.net_name != net_name:
-                                issues['errors'].append(
+                                issues["errors"].append(
                                     f"  ERROR: Via on net {net_name} too close to "
                                     f"{comp_ref} pad {pad.number} on net {pad.net_name} "
                                     f"({distance:.2f}mm)"
@@ -94,7 +99,7 @@ class CheckDrcCommand(Command):
         Returns:
             Dictionary with 'errors' and 'warnings' lists
         """
-        issues = {'errors': [], 'warnings': []}
+        issues = {"errors": [], "warnings": []}
 
         # Collect all vias with their net names
         all_vias = []
@@ -104,22 +109,22 @@ class CheckDrcCommand(Command):
 
         # Check each pair of vias
         for i, (net1, via1) in enumerate(all_vias):
-            for net2, via2 in all_vias[i+1:]:
+            for net2, via2 in all_vias[i + 1 :]:
                 x1, y1 = via1.position
                 x2, y2 = via2.position
-                distance = math.sqrt((x2-x1)**2 + (y2-y1)**2)
+                distance = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
                 # Check for exact position collision
                 if distance < 0.01:
                     if net1 != net2:
-                        issues['errors'].append(
+                        issues["errors"].append(
                             f"  ERROR: Vias on nets {net1} and {net2} overlap at ({x1}, {y1})"
                         )
                 # Check proximity with different net vias
                 else:
-                    min_clearance = (via1.size + via2.size)/2 + 0.2
+                    min_clearance = (via1.size + via2.size) / 2 + 0.2
                     if distance < min_clearance and net1 != net2:
-                        issues['errors'].append(
+                        issues["errors"].append(
                             f"  ERROR: Vias on nets {net1} and {net2} too close "
                             f"({distance:.2f}mm < {min_clearance:.2f}mm)"
                         )
@@ -139,7 +144,7 @@ class CheckDrcCommand(Command):
         Returns:
             Dictionary with 'errors' and 'warnings' lists
         """
-        issues = {'errors': [], 'warnings': []}
+        issues = {"errors": [], "warnings": []}
 
         # Collect all segments by layer
         segments_by_layer = {}
@@ -150,10 +155,11 @@ class CheckDrcCommand(Command):
                     segments_by_layer[layer] = []
                 segments_by_layer[layer].append((net_name, segment))
 
-        # Check segments on each layer
+        # Check segments on each layer (dedupe by net-pair + intersection point)
         for layer, segments in segments_by_layer.items():
+            seen = set()
             for i, (net1, seg1) in enumerate(segments):
-                for net2, seg2 in segments[i+1:]:
+                for net2, seg2 in segments[i + 1 :]:
                     # Skip if same net
                     if net1 == net2:
                         continue
@@ -162,7 +168,16 @@ class CheckDrcCommand(Command):
                     intersection = self._segments_intersect(seg1, seg2)
                     if intersection:
                         x, y = intersection
-                        issues['errors'].append(
+                        key = (
+                            layer,
+                            tuple(sorted((net1, net2))),
+                            round(x, 2),
+                            round(y, 2),
+                        )
+                        if key in seen:
+                            continue
+                        seen.add(key)
+                        issues["errors"].append(
                             f"  ERROR: Traces from nets {net1} and {net2} cross on {layer} at ({x:.2f}, {y:.2f})"
                         )
 
@@ -205,9 +220,9 @@ class CheckDrcCommand(Command):
 
         return None
 
-    def _point_to_segment_distance(self, px: float, py: float,
-                                    x1: float, y1: float,
-                                    x2: float, y2: float) -> float:
+    def _point_to_segment_distance(
+        self, px: float, py: float, x1: float, y1: float, x2: float, y2: float
+    ) -> float:
         """Calculate minimum distance from point to line segment.
 
         Args:
@@ -248,7 +263,7 @@ class CheckDrcCommand(Command):
         Returns:
             Dictionary with 'errors' and 'warnings' lists
         """
-        issues = {'errors': [], 'warnings': []}
+        issues = {"errors": [], "warnings": []}
         min_clearance = 0.2  # Default clearance in mm
 
         # Build pad-to-net mapping for quick lookup
@@ -257,7 +272,11 @@ class CheckDrcCommand(Command):
             for conn_ref, conn_pin in net.connections:
                 pad_nets[(conn_ref, str(conn_pin))] = net_name
 
-        # Check each track segment against each pad
+        # Check each track segment against each pad, but report each (net,pad,layer)
+        # violation once (keep worst clearance / short).
+        shorts = set()  # (net, comp_ref, pad_num, layer)
+        worst_clearance = {}  # (net, comp_ref, pad_num, layer) -> min clearance
+
         for net_name, net in board.nets.items():
             for segment in net.segments:
                 seg_layer = segment.layer
@@ -268,7 +287,11 @@ class CheckDrcCommand(Command):
                 for comp_ref, component in board.components.items():
                     # Only check pads on same layer (or through-hole on all layers)
                     comp_layer = component.layer
-                    if comp_layer not in [seg_layer, 'F.Cu', 'B.Cu'] and seg_layer not in ['F.Cu', 'B.Cu']:
+                    if comp_layer not in [
+                        seg_layer,
+                        "F.Cu",
+                        "B.Cu",
+                    ] and seg_layer not in ["F.Cu", "B.Cu"]:
                         continue
 
                     for pad in component.pads:
@@ -281,22 +304,43 @@ class CheckDrcCommand(Command):
                         pad_radius = max(pad.size[0], pad.size[1]) / 2
 
                         # Calculate distance from pad center to track segment
-                        dist = self._point_to_segment_distance(pad_x, pad_y, x1, y1, x2, y2)
+                        dist = self._point_to_segment_distance(
+                            pad_x, pad_y, x1, y1, x2, y2
+                        )
 
                         # Actual clearance = distance - track_half_width - pad_radius
                         actual_clearance = dist - track_half_width - pad_radius
 
                         if actual_clearance < 0:
                             # Track touches/overlaps pad - this is a short
-                            issues['errors'].append(
-                                f"  ERROR: Track [{net_name}] shorts to {comp_ref} pad {pad.number} "
-                                f"(net: {pad_net or 'none'}) on {seg_layer}"
+                            shorts.add(
+                                (
+                                    net_name,
+                                    comp_ref,
+                                    pad.number,
+                                    seg_layer,
+                                    pad_net or "none",
+                                )
                             )
                         elif actual_clearance < min_clearance:
-                            issues['errors'].append(
-                                f"  ERROR: Track [{net_name}] too close to {comp_ref} pad {pad.number} "
-                                f"({actual_clearance:.2f}mm < {min_clearance}mm) on {seg_layer}"
-                            )
+                            key = (net_name, comp_ref, pad.number, seg_layer)
+                            prev = worst_clearance.get(key)
+                            if prev is None or actual_clearance < prev:
+                                worst_clearance[key] = actual_clearance
+
+        for net_name, comp_ref, pad_num, seg_layer, pad_net in sorted(shorts):
+            issues["errors"].append(
+                f"  ERROR: Track [{net_name}] shorts to {comp_ref} pad {pad_num} "
+                f"(net: {pad_net}) on {seg_layer}"
+            )
+
+        for (net_name, comp_ref, pad_num, seg_layer), clearance in sorted(
+            worst_clearance.items()
+        ):
+            issues["errors"].append(
+                f"  ERROR: Track [{net_name}] too close to {comp_ref} pad {pad_num} "
+                f"({clearance:.2f}mm < {min_clearance}mm) on {seg_layer}"
+            )
 
         return issues
 
@@ -312,7 +356,7 @@ class CheckDrcCommand(Command):
         Returns:
             Dictionary with 'errors' and 'warnings' lists
         """
-        issues = {'errors': [], 'warnings': []}
+        issues = {"errors": [], "warnings": []}
         min_clearance = 0.1  # Minimum clearance between pads in mm
 
         for comp_ref, component in board.components.items():
@@ -322,7 +366,7 @@ class CheckDrcCommand(Command):
 
             # Check each pair of pads
             for i, pad1 in enumerate(pads):
-                for pad2 in pads[i + 1:]:
+                for pad2 in pads[i + 1 :]:
                     # Get absolute pad positions
                     x1, y1 = component.get_pad_position(pad1.number)
                     x2, y2 = component.get_pad_position(pad2.number)
@@ -338,12 +382,12 @@ class CheckDrcCommand(Command):
                     edge_clearance = center_dist - r1 - r2
 
                     if edge_clearance < 0:
-                        issues['errors'].append(
+                        issues["errors"].append(
                             f"  ERROR: Pads {pad1.number} and {pad2.number} of {comp_ref} overlap "
                             f"by {abs(edge_clearance):.2f}mm (footprint definition error)"
                         )
                     elif edge_clearance < min_clearance:
-                        issues['warnings'].append(
+                        issues["warnings"].append(
                             f"  WARNING: Pads {pad1.number} and {pad2.number} of {comp_ref} "
                             f"very close ({edge_clearance:.2f}mm < {min_clearance}mm)"
                         )
@@ -365,7 +409,7 @@ class CheckDrcCommand(Command):
         min_clearance = 0.2
         components = list(board.components.values())
         for i, comp1 in enumerate(components):
-            for comp2 in components[i + 1:]:
+            for comp2 in components[i + 1 :]:
                 x1, y1 = comp1.position
                 x2, y2 = comp2.position
                 distance = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
@@ -406,28 +450,28 @@ class CheckDrcCommand(Command):
 
         # Check via-to-pad collisions
         via_pad_issues = self._check_via_pad_collisions(board)
-        errors.extend(via_pad_issues['errors'])
-        warnings.extend(via_pad_issues['warnings'])
+        errors.extend(via_pad_issues["errors"])
+        warnings.extend(via_pad_issues["warnings"])
 
         # Check via-to-via collisions
         via_via_issues = self._check_via_via_collisions(board)
-        errors.extend(via_via_issues['errors'])
-        warnings.extend(via_via_issues['warnings'])
+        errors.extend(via_via_issues["errors"])
+        warnings.extend(via_via_issues["warnings"])
 
         # Check trace-to-trace overlaps and crossings
         trace_overlap_issues = self._check_trace_overlaps(board)
-        errors.extend(trace_overlap_issues['errors'])
-        warnings.extend(trace_overlap_issues['warnings'])
+        errors.extend(trace_overlap_issues["errors"])
+        warnings.extend(trace_overlap_issues["warnings"])
 
         # Check track-to-pad clearance
         track_pad_issues = self._check_track_pad_clearance(board)
-        errors.extend(track_pad_issues['errors'])
-        warnings.extend(track_pad_issues['warnings'])
+        errors.extend(track_pad_issues["errors"])
+        warnings.extend(track_pad_issues["warnings"])
 
         # Check pad-to-pad clearance within components
         pad_pad_issues = self._check_pad_pad_clearance(board)
-        errors.extend(pad_pad_issues['errors'])
-        warnings.extend(pad_pad_issues['warnings'])
+        errors.extend(pad_pad_issues["errors"])
+        warnings.extend(pad_pad_issues["warnings"])
 
         # Format output
         lines = [f"DRC: {len(errors)} errors, {len(warnings)} warnings"]
@@ -582,7 +626,7 @@ class CheckClearanceCommand(Command):
 
         components = list(board.components.items())
         for i, (ref1, comp1) in enumerate(components):
-            for ref2, comp2 in components[i + 1:]:
+            for ref2, comp2 in components[i + 1 :]:
                 x1, y1 = comp1.position
                 x2, y2 = comp2.position
                 distance = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
@@ -665,7 +709,9 @@ class CheckConnectivityCommand(Command):
         # Check for nets with insufficient connections
         for net_name, net in board.nets.items():
             if len(net.connections) < 2:
-                issues.append(f'  Net "{net_name}" has only {len(net.connections)} connection (needs at least 2)')
+                issues.append(
+                    f'  Net "{net_name}" has only {len(net.connections)} connection (needs at least 2)'
+                )
 
         # Format output
         if not issues:
@@ -674,7 +720,9 @@ class CheckConnectivityCommand(Command):
             lines.append("All nets have valid connections.")
             connected_count = len(connected_pins) * 2  # Estimate
             floating_count = total_pins - connected_count
-            lines.append(f"Component pins: {total_pins} total, {connected_count} connected, {floating_count} floating")
+            lines.append(
+                f"Component pins: {total_pins} total, {connected_count} connected, {floating_count} floating"
+            )
         else:
             lines = [f"CONNECTIVITY: {len(issues)} issues"]
             lines.append("")

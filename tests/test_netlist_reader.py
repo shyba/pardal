@@ -5,7 +5,7 @@ from pcb_tool.netlist_reader import NetlistReader
 from pcb_tool.data_model import Board
 
 # Sample KiCad netlist content for testing
-SAMPLE_NETLIST = '''(export (version D)
+SAMPLE_NETLIST = """(export (version D)
   (design
     (source /path/to/test.sch)
     (date "2024-01-01 12:00:00")
@@ -40,7 +40,8 @@ SAMPLE_NETLIST = '''(export (version D)
       (node (ref C1) (pin 1)))
     (net (code 3) (name /LED)
       (node (ref U1) (pin 19)))))
-'''
+"""
+
 
 @pytest.fixture
 def sample_netlist_file(tmp_path):
@@ -49,16 +50,19 @@ def sample_netlist_file(tmp_path):
     netlist_path.write_text(SAMPLE_NETLIST)
     return netlist_path
 
+
 def test_netlist_reader_instantiation():
     """Test NetlistReader can be instantiated"""
     reader = NetlistReader()
     assert reader is not None
+
 
 def test_read_nonexistent_file():
     """Test reading nonexistent file raises FileNotFoundError"""
     reader = NetlistReader()
     with pytest.raises(FileNotFoundError):
         reader.read(Path("/nonexistent/path/file.net"))
+
 
 def test_read_netlist_returns_board(sample_netlist_file):
     """Test reading netlist returns Board object"""
@@ -67,6 +71,7 @@ def test_read_netlist_returns_board(sample_netlist_file):
 
     assert isinstance(board, Board)
     assert board.source_file == sample_netlist_file
+
 
 def test_read_components(sample_netlist_file):
     """Test reading components from netlist"""
@@ -77,6 +82,7 @@ def test_read_components(sample_netlist_file):
     assert "U1" in board.components
     assert "R1" in board.components
     assert "C1" in board.components
+
 
 def test_component_properties(sample_netlist_file):
     """Test component properties are parsed correctly"""
@@ -95,6 +101,7 @@ def test_component_properties(sample_netlist_file):
     assert r1.value == "10k"
     assert r1.footprint == "Resistor_SMD:R_0805_2012Metric"
 
+
 def test_component_default_position_rotation(sample_netlist_file):
     """Test components have default position and rotation"""
     reader = NetlistReader()
@@ -102,8 +109,9 @@ def test_component_default_position_rotation(sample_netlist_file):
 
     u1 = board.get_component("U1")
     assert u1.position == (0.0, 0.0)  # Default position
-    assert u1.rotation == 0.0         # Default rotation
-    assert u1.locked is False         # Default unlocked
+    assert u1.rotation == 0.0  # Default rotation
+    assert u1.locked is False  # Default unlocked
+
 
 def test_read_nets(sample_netlist_file):
     """Test reading nets from netlist"""
@@ -114,6 +122,7 @@ def test_read_nets(sample_netlist_file):
     assert "GND" in board.nets
     assert "VCC" in board.nets
     assert "/LED" in board.nets
+
 
 def test_net_properties(sample_netlist_file):
     """Test net properties are parsed correctly"""
@@ -128,6 +137,7 @@ def test_net_properties(sample_netlist_file):
     assert ("R1", "2") in gnd.connections
     assert ("C1", "2") in gnd.connections
 
+
 def test_net_with_single_connection(sample_netlist_file):
     """Test net with single connection"""
     reader = NetlistReader()
@@ -139,19 +149,21 @@ def test_net_with_single_connection(sample_netlist_file):
     assert len(led_net.connections) == 1
     assert ("U1", "19") in led_net.connections
 
+
 def test_empty_netlist():
     """Test reading netlist with no components or nets"""
-    empty_netlist = '''(export (version D)
+    empty_netlist = """(export (version D)
   (design
     (source /test.sch)
     (tool "Eeschema"))
   (components)
   (nets))
-'''
+"""
     reader = NetlistReader()
     # Create temp file
     from tempfile import NamedTemporaryFile
-    with NamedTemporaryFile(mode='w', suffix='.net', delete=False) as f:
+
+    with NamedTemporaryFile(mode="w", suffix=".net", delete=False) as f:
         f.write(empty_netlist)
         temp_path = Path(f.name)
 

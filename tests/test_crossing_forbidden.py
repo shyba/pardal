@@ -19,10 +19,7 @@ class TestCrossingForbidden:
     def grid(self):
         """Create a routing grid for testing."""
         return RoutingGrid(
-            width_mm=100.0,
-            height_mm=100.0,
-            resolution_mm=0.1,
-            default_clearance_mm=0.2
+            width_mm=100.0, height_mm=100.0, resolution_mm=0.2, default_clearance_mm=0.2
         )
 
     def test_crossing_forbidden_zone_marked(self, grid):
@@ -48,10 +45,11 @@ class TestCrossingForbidden:
 
         # At least the center cells should be forbidden
         for x in range(start_grid[0], end_grid[0] + 1):
-            assert (x, start_grid[1]) in grid.crossing_forbidden[layer] or \
-                   (x, start_grid[1] - 1) in grid.crossing_forbidden[layer] or \
-                   (x, start_grid[1] + 1) in grid.crossing_forbidden[layer], \
-                f"Cell near ({x}, {start_grid[1]}) should be in forbidden zone"
+            assert (
+                (x, start_grid[1]) in grid.crossing_forbidden[layer]
+                or (x, start_grid[1] - 1) in grid.crossing_forbidden[layer]
+                or (x, start_grid[1] + 1) in grid.crossing_forbidden[layer]
+            ), f"Cell near ({x}, {start_grid[1]}) should be in forbidden zone"
 
     def test_crossing_forbidden_blocks_routing(self, grid):
         """Test that crossing-forbidden zones block pathfinding."""
@@ -87,12 +85,16 @@ class TestCrossingForbidden:
             # Use last_path_cells to check layer info at each point
             if pathfinder.last_path_cells:
                 for cell in pathfinder.last_path_cells:
-                    if cell.layer == "F.Cu" and (cell.x, cell.y) in grid.crossing_forbidden["F.Cu"]:
+                    if (
+                        cell.layer == "F.Cu"
+                        and (cell.x, cell.y) in grid.crossing_forbidden["F.Cu"]
+                    ):
                         crosses_forbidden_on_fcu = True
                         break
 
-            assert not crosses_forbidden_on_fcu, \
-                "Path should not cross forbidden zone on F.Cu (via to B.Cu is OK)"
+            assert (
+                not crosses_forbidden_on_fcu
+            ), "Path should not cross forbidden zone on F.Cu (via to B.Cu is OK)"
 
     def test_multi_net_router_uses_forbidden_zones(self, grid):
         """Test that MultiNetRouter marks forbidden zones when routing nets."""
@@ -105,15 +107,15 @@ class TestCrossingForbidden:
                 start=(10.0, 50.0),
                 end=(90.0, 50.0),
                 layer="F.Cu",
-                priority=10
+                priority=10,
             ),
             NetDefinition(
                 name="NET2",
                 start=(50.0, 10.0),
                 end=(50.0, 90.0),
                 layer="F.Cu",
-                priority=5
-            )
+                priority=5,
+            ),
         ]
 
         # Route nets
@@ -124,8 +126,9 @@ class TestCrossingForbidden:
         assert "NET2" in routed, "NET2 should route"
 
         # Forbidden zones should be marked
-        assert len(grid.crossing_forbidden["F.Cu"]) > 0, \
-            "Forbidden zones should be marked after routing"
+        assert (
+            len(grid.crossing_forbidden["F.Cu"]) > 0
+        ), "Forbidden zones should be marked after routing"
 
     def test_forbidden_zone_properties(self, grid):
         """Test that forbidden zones have correct properties."""
@@ -139,15 +142,15 @@ class TestCrossingForbidden:
         forbidden_count = len(grid.crossing_forbidden[layer])
 
         # Forbidden zone should have cells marked
-        assert forbidden_count > 0, \
-            "Forbidden zone should have cells marked"
+        assert forbidden_count > 0, "Forbidden zone should have cells marked"
 
         # Forbidden zone corridor width should be trace_width + 0.3mm
         # For trace_width=0.25mm, corridor = 0.55mm, radius = 0.275mm
         # This is wide enough to prevent crossings while allowing routing nearby
         expected_min_cells = 100  # Rough estimate for 10mm line with 0.55mm corridor
-        assert forbidden_count >= expected_min_cells, \
-            f"Forbidden zone ({forbidden_count} cells) should have at least {expected_min_cells} cells"
+        assert (
+            forbidden_count >= expected_min_cells
+        ), f"Forbidden zone ({forbidden_count} cells) should have at least {expected_min_cells} cells"
 
     def test_is_valid_cell_checks_forbidden_zones(self, grid):
         """Test that is_valid_cell() blocks cells in forbidden zones."""
@@ -157,15 +160,17 @@ class TestCrossingForbidden:
 
         # Initially, center cell should be valid
         center_grid = grid.to_grid_coords(55.0, 50.0)
-        assert grid.is_valid_cell(*center_grid, layer), \
-            "Cell should be valid before marking forbidden zone"
+        assert grid.is_valid_cell(
+            *center_grid, layer
+        ), "Cell should be valid before marking forbidden zone"
 
         # Mark crossing-forbidden zone
         grid.mark_crossing_forbidden_zone(start, end, layer, trace_width_mm=0.25)
 
         # Center cell should now be invalid
-        assert not grid.is_valid_cell(*center_grid, layer), \
-            "Cell should be invalid after marking forbidden zone"
+        assert not grid.is_valid_cell(
+            *center_grid, layer
+        ), "Cell should be invalid after marking forbidden zone"
 
     def test_ground_plane_mode_reduced_via_cost(self):
         """Test that ground plane mode uses reduced via cost."""
@@ -173,13 +178,15 @@ class TestCrossingForbidden:
 
         # Regular mode
         router_regular = MultiNetRouter(grid, ground_plane_mode=False)
-        assert router_regular.pathfinder.via_cost == 10.0, \
-            "Regular mode should have via cost of 10.0"
+        assert (
+            router_regular.pathfinder.via_cost == 10.0
+        ), "Regular mode should have via cost of 10.0"
 
         # Ground plane mode
         router_gp = MultiNetRouter(grid, ground_plane_mode=True)
-        assert router_gp.pathfinder.via_cost == 0.5, \
-            "Ground plane mode should have via cost of 0.5"
+        assert (
+            router_gp.pathfinder.via_cost == 0.5
+        ), "Ground plane mode should have via cost of 0.5"
 
     def test_statistics_include_forbidden_zones(self, grid):
         """Test that grid statistics include forbidden zone counts."""
@@ -194,18 +201,26 @@ class TestCrossingForbidden:
         stats = grid.get_statistics()
 
         # Check that forbidden zones are reported
-        assert "crossing_forbidden_zones" in stats, \
-            "Statistics should include crossing_forbidden_zones"
-        assert stats["crossing_forbidden_zones"]["F.Cu"] > 0, \
-            "F.Cu forbidden zone count should be > 0"
-        assert stats["crossing_forbidden_zones"]["B.Cu"] > 0, \
-            "B.Cu forbidden zone count should be > 0"
+        assert (
+            "crossing_forbidden_zones" in stats
+        ), "Statistics should include crossing_forbidden_zones"
+        assert (
+            stats["crossing_forbidden_zones"]["F.Cu"] > 0
+        ), "F.Cu forbidden zone count should be > 0"
+        assert (
+            stats["crossing_forbidden_zones"]["B.Cu"] > 0
+        ), "B.Cu forbidden zone count should be > 0"
 
         # Check that routable cells account for forbidden zones
         total_cells = grid.grid_width * grid.grid_height
-        expected_routable_fcu = total_cells - len(grid.obstacles["F.Cu"]) - len(grid.crossing_forbidden["F.Cu"])
-        assert stats["routable_cells"]["F.Cu"] == expected_routable_fcu, \
-            "Routable cells should exclude both obstacles and forbidden zones"
+        expected_routable_fcu = (
+            total_cells
+            - len(grid.obstacles["F.Cu"])
+            - len(grid.crossing_forbidden["F.Cu"])
+        )
+        assert (
+            stats["routable_cells"]["F.Cu"] == expected_routable_fcu
+        ), "Routable cells should exclude both obstacles and forbidden zones"
 
 
 class TestCrossingForbiddenIntegration:
@@ -213,7 +228,7 @@ class TestCrossingForbiddenIntegration:
 
     def test_h_pattern_routing_no_crossings(self):
         """Test H-pattern routing (two vertical nets, one horizontal connector)."""
-        grid = RoutingGrid(100.0, 100.0, resolution_mm=0.1)
+        grid = RoutingGrid(100.0, 100.0, resolution_mm=0.2)
         router = MultiNetRouter(grid, ground_plane_mode=True)
 
         # Define H-pattern nets
@@ -242,14 +257,16 @@ class TestCrossingForbiddenIntegration:
         v2_h1_intersect = v2_path & h1_path
 
         # Allow small intersection near endpoints (within 1mm)
-        assert len(v1_h1_intersect) <= 3, \
-            f"V1 and H1 should not cross significantly: {len(v1_h1_intersect)} shared points"
-        assert len(v2_h1_intersect) <= 3, \
-            f"V2 and H1 should not cross significantly: {len(v2_h1_intersect)} shared points"
+        assert (
+            len(v1_h1_intersect) <= 3
+        ), f"V1 and H1 should not cross significantly: {len(v1_h1_intersect)} shared points"
+        assert (
+            len(v2_h1_intersect) <= 3
+        ), f"V2 and H1 should not cross significantly: {len(v2_h1_intersect)} shared points"
 
     def test_crossing_pattern_forces_detour(self):
         """Test that crossing pattern forces router to find alternative path."""
-        grid = RoutingGrid(50.0, 50.0, resolution_mm=0.1)
+        grid = RoutingGrid(50.0, 50.0, resolution_mm=0.2)
         router = MultiNetRouter(grid, ground_plane_mode=True)
 
         # Net 1: Straight horizontal path
@@ -269,13 +286,14 @@ class TestCrossingForbiddenIntegration:
         net2_length = 0.0
         path = routed["NET2"].path
         for i in range(len(path) - 1):
-            dx = path[i+1][0] - path[i][0]
-            dy = path[i+1][1] - path[i][1]
-            net2_length += (dx*dx + dy*dy)**0.5
+            dx = path[i + 1][0] - path[i][0]
+            dy = path[i + 1][1] - path[i][1]
+            net2_length += (dx * dx + dy * dy) ** 0.5
 
         straight_line_distance = 30.0  # 40.0 - 10.0
 
         # NET2 should be at least as long as straight line
         # (could be exactly same length if it used vias cleverly)
-        assert net2_length >= straight_line_distance * 0.95, \
-            f"NET2 length ({net2_length:.1f}mm) should be close to straight line ({straight_line_distance:.1f}mm)"
+        assert (
+            net2_length >= straight_line_distance * 0.95
+        ), f"NET2 length ({net2_length:.1f}mm) should be close to straight line ({straight_line_distance:.1f}mm)"

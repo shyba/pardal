@@ -26,18 +26,24 @@ from pcb_tool.footprint_library import get_footprint_pads
 
 # Import from existing test infrastructure
 from tests.integration.test_routing_scenarios import (
-    DRCConfig, RoutingTestCase, route_board, add_traces_to_board
+    DRCConfig,
+    RoutingTestCase,
+    route_board,
+    add_traces_to_board,
 )
 
 # Import from 4-layer test infrastructure
 from tests.integration.test_4layer_power import (
-    MultiLayerTestCase, route_board_multilayer, add_traces_to_board_multilayer
+    MultiLayerTestCase,
+    route_board_multilayer,
+    add_traces_to_board_multilayer,
 )
 
 
 # =============================================================================
 # TEST CASE: Mixed THT/SMD Components
 # =============================================================================
+
 
 class TestMixedThtSmd:
     """Test THT and SMD components on both board sides."""
@@ -49,7 +55,9 @@ class TestMixedThtSmd:
         test.drc.board_height_mm = 20.0
 
         # THT resistor
-        test.create_component("R1", "10k", "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal", x=15, y=10)
+        test.create_component(
+            "R1", "10k", "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal", x=15, y=10
+        )
 
         # Verify pads have drill holes
         r1 = test.board.components["R1"]
@@ -78,8 +86,12 @@ class TestMixedThtSmd:
         test.drc.board_height_mm = 25.0
 
         # THT components
-        test.create_component("R1", "10k", "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal", x=10, y=10)
-        test.create_component("J1", "CONN", "PinHeader_1x04_P2.54mm_Vertical", x=5, y=15)
+        test.create_component(
+            "R1", "10k", "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal", x=10, y=10
+        )
+        test.create_component(
+            "J1", "CONN", "PinHeader_1x04_P2.54mm_Vertical", x=5, y=15
+        )
 
         # SMD components
         test.create_component("R2", "10k", "R_0805", x=25, y=10)
@@ -118,7 +130,9 @@ class TestMixedThtSmd:
         test.drc.board_height_mm = 25.0
 
         # THT connector
-        test.create_component("J1", "CONN", "PinHeader_1x04_P2.54mm_Vertical", x=5, y=12)
+        test.create_component(
+            "J1", "CONN", "PinHeader_1x04_P2.54mm_Vertical", x=5, y=12
+        )
 
         # SMD resistors
         test.create_component("R1", "10k", "R_0805", x=25, y=10)
@@ -169,10 +183,14 @@ class TestMixedThtSmd:
 
         # Net classes
         test.board.add_net_class(NetClass(name="Power", track_width=0.5, clearance=0.3))
-        test.board.add_net_class(NetClass(name="Signal", track_width=0.25, clearance=0.2))
+        test.board.add_net_class(
+            NetClass(name="Signal", track_width=0.25, clearance=0.2)
+        )
 
         # Pin header
-        test.create_component("J1", "CONN", "PinHeader_1x04_P2.54mm_Vertical", x=5, y=15)
+        test.create_component(
+            "J1", "CONN", "PinHeader_1x04_P2.54mm_Vertical", x=5, y=15
+        )
 
         # Power components
         test.create_component("C1", "100uF", "C_0805", x=15, y=15)
@@ -251,7 +269,9 @@ class TestMixedThtSmd:
         test.create_net_class("Signal", track_width=0.25, clearance=0.2)
 
         # THT connector on left
-        test.create_component("J1", "CONN", "PinHeader_1x06_P2.54mm_Vertical", x=5, y=17.5)
+        test.create_component(
+            "J1", "CONN", "PinHeader_1x06_P2.54mm_Vertical", x=5, y=17.5
+        )
 
         # SMD on F.Cu in middle
         test.create_component("R1", "10k", "R_0805", x=20, y=10)
@@ -303,7 +323,9 @@ class TestMixedThtSmd:
         test.drc.board_height_mm = 20.0
 
         # THT resistor
-        test.create_component("R1", "10k", "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal", x=15, y=10)
+        test.create_component(
+            "R1", "10k", "R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal", x=15, y=10
+        )
 
         # Simple net
         test.create_net("NET1", [("R1", "1"), ("R1", "2")])
@@ -325,16 +347,24 @@ class TestMixedThtSmd:
 
         # Create component on F.Cu
         comp1 = Component(
-            ref="R1", value="10k", footprint="R_0805",
-            position=(10.0, 10.0), rotation=0.0, pads=pads
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10.0, 10.0),
+            rotation=0.0,
+            pads=pads,
         )
         comp1.layer = "F.Cu"
         board.add_component(comp1)
 
         # Create component on B.Cu
         comp2 = Component(
-            ref="R2", value="10k", footprint="R_0805",
-            position=(20.0, 10.0), rotation=0.0, pads=pads
+            ref="R2",
+            value="10k",
+            footprint="R_0805",
+            position=(20.0, 10.0),
+            rotation=0.0,
+            pads=pads,
         )
         comp2.layer = "B.Cu"
         board.add_component(comp2)
@@ -357,7 +387,9 @@ class TestMixedThtSmd:
         test.create_component("J1", "IN", "PinHeader_1x04_P2.54mm_Vertical", x=5, y=20)
 
         # Output connector (THT)
-        test.create_component("J2", "OUT", "PinHeader_1x03_P2.54mm_Vertical", x=55, y=20)
+        test.create_component(
+            "J2", "OUT", "PinHeader_1x03_P2.54mm_Vertical", x=55, y=20
+        )
 
         # Processing IC (THT DIP)
         test.create_component("U1", "74HC00", "DIP-8_W7.62mm", x=30, y=20)
@@ -365,12 +397,20 @@ class TestMixedThtSmd:
         # SMD passives around IC
         test.create_component("C1", "100nF", "C_0805", x=20, y=15)  # Input decoupling
         test.create_component("C2", "100nF", "C_0805", x=40, y=15)  # Output decoupling
-        test.create_component("R1", "10k", "R_0603", x=20, y=25)    # Pull-up
-        test.create_component("R2", "10k", "R_0603", x=40, y=25)    # Series termination
+        test.create_component("R1", "10k", "R_0603", x=20, y=25)  # Pull-up
+        test.create_component("R2", "10k", "R_0603", x=40, y=25)  # Series termination
 
         # Power distribution
-        test.create_net("VCC", [("J1", "1"), ("U1", "8"), ("C1", "1"), ("C2", "1"), ("R1", "1")], track_width=0.5)
-        test.create_net("GND", [("J1", "4"), ("U1", "4"), ("C1", "2"), ("C2", "2"), ("J2", "3")], track_width=0.5)
+        test.create_net(
+            "VCC",
+            [("J1", "1"), ("U1", "8"), ("C1", "1"), ("C2", "1"), ("R1", "1")],
+            track_width=0.5,
+        )
+        test.create_net(
+            "GND",
+            [("J1", "4"), ("U1", "4"), ("C1", "2"), ("C2", "2"), ("J2", "3")],
+            track_width=0.5,
+        )
         test.board.assign_net_to_class("VCC", "Power")
         test.board.assign_net_to_class("GND", "Power")
 
@@ -397,5 +437,6 @@ class TestMixedThtSmd:
         if violations >= 0:
             real_violations = test.get_real_violations(vtypes)
             # Allow some margin for complex board
-            assert real_violations <= 10, f"Should have minimal DRC violations, got {real_violations}"
-
+            assert (
+                real_violations <= 10
+            ), f"Should have minimal DRC violations, got {real_violations}"

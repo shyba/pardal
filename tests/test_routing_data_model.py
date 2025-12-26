@@ -15,7 +15,7 @@ class TestTraceSegment:
             start=(10.0, 20.0),
             end=(30.0, 40.0),
             layer="F.Cu",
-            width=0.25
+            width=0.25,
         )
         assert segment.net_name == "GND"
         assert segment.start == (10.0, 20.0)
@@ -26,11 +26,7 @@ class TestTraceSegment:
     def test_trace_segment_back_copper(self):
         """Test trace segment on back copper layer."""
         segment = TraceSegment(
-            net_name="VCC",
-            start=(0.0, 0.0),
-            end=(10.0, 10.0),
-            layer="B.Cu",
-            width=0.5
+            net_name="VCC", start=(0.0, 0.0), end=(10.0, 10.0), layer="B.Cu", width=0.5
         )
         assert segment.layer == "B.Cu"
 
@@ -42,7 +38,7 @@ class TestTraceSegment:
                 start=(0.0, 0.0),
                 end=(10.0, 10.0),
                 layer="F.Cu",
-                width=0.0
+                width=0.0,
             )
 
     def test_trace_segment_invalid_width_negative(self):
@@ -53,7 +49,7 @@ class TestTraceSegment:
                 start=(0.0, 0.0),
                 end=(10.0, 10.0),
                 layer="F.Cu",
-                width=-0.25
+                width=-0.25,
             )
 
     def test_trace_segment_invalid_layer(self):
@@ -64,7 +60,7 @@ class TestTraceSegment:
                 start=(0.0, 0.0),
                 end=(10.0, 10.0),
                 layer="Invalid.Layer",
-                width=0.25
+                width=0.25,
             )
 
     def test_trace_segment_inner_layer(self):
@@ -74,7 +70,7 @@ class TestTraceSegment:
             start=(0.0, 0.0),
             end=(10.0, 10.0),
             layer="In1.Cu",
-            width=0.25
+            width=0.25,
         )
         assert segment.layer == "In1.Cu"
 
@@ -85,7 +81,7 @@ class TestTraceSegment:
             start=(0.0, 0.0),
             end=(10.0, 10.0),
             layer="In2.Cu",
-            width=0.25
+            width=0.25,
         )
         assert segment.layer == "In2.Cu"
 
@@ -106,7 +102,7 @@ class TestVia:
             position=(50.0, 60.0),
             size=0.8,
             drill=0.4,
-            layers=("F.Cu", "B.Cu")
+            layers=("F.Cu", "B.Cu"),
         )
         assert via.net_name == "GND"
         assert via.position == (50.0, 60.0)
@@ -122,7 +118,7 @@ class TestVia:
                 position=(0.0, 0.0),
                 size=0.0,
                 drill=0.4,
-                layers=("F.Cu", "B.Cu")
+                layers=("F.Cu", "B.Cu"),
             )
 
     def test_via_invalid_size_negative(self):
@@ -133,7 +129,7 @@ class TestVia:
                 position=(0.0, 0.0),
                 size=-0.8,
                 drill=0.4,
-                layers=("F.Cu", "B.Cu")
+                layers=("F.Cu", "B.Cu"),
             )
 
     def test_via_invalid_drill_zero(self):
@@ -144,7 +140,7 @@ class TestVia:
                 position=(0.0, 0.0),
                 size=0.8,
                 drill=0.0,
-                layers=("F.Cu", "B.Cu")
+                layers=("F.Cu", "B.Cu"),
             )
 
     def test_via_invalid_drill_negative(self):
@@ -155,7 +151,7 @@ class TestVia:
                 position=(0.0, 0.0),
                 size=0.8,
                 drill=-0.4,
-                layers=("F.Cu", "B.Cu")
+                layers=("F.Cu", "B.Cu"),
             )
 
     def test_via_drill_larger_than_size(self):
@@ -166,7 +162,7 @@ class TestVia:
                 position=(0.0, 0.0),
                 size=0.4,
                 drill=0.8,
-                layers=("F.Cu", "B.Cu")
+                layers=("F.Cu", "B.Cu"),
             )
 
     def test_via_drill_equal_to_size(self):
@@ -177,7 +173,7 @@ class TestVia:
                 position=(0.0, 0.0),
                 size=0.8,
                 drill=0.8,
-                layers=("F.Cu", "B.Cu")
+                layers=("F.Cu", "B.Cu"),
             )
 
     def test_via_equality(self):
@@ -194,7 +190,7 @@ class TestVia:
             size=0.8,
             drill=0.4,
             layers=("F.Cu", "B.Cu"),
-            via_type="through"
+            via_type="through",
         )
         assert via.is_through_hole is True
         assert via.is_blind is False
@@ -210,7 +206,7 @@ class TestVia:
             size=0.6,
             drill=0.3,
             layers=("F.Cu", "In1.Cu"),
-            via_type="blind"
+            via_type="blind",
         )
         assert via.is_through_hole is False
         assert via.is_blind is True
@@ -226,7 +222,7 @@ class TestVia:
             size=0.6,
             drill=0.3,
             layers=("In2.Cu", "B.Cu"),
-            via_type="blind"
+            via_type="blind",
         )
         assert via.is_through_hole is False
         assert via.is_blind is True
@@ -242,7 +238,7 @@ class TestVia:
             size=0.5,
             drill=0.25,
             layers=("In1.Cu", "In2.Cu"),
-            via_type="buried"
+            via_type="buried",
         )
         assert via.is_through_hole is False
         assert via.is_blind is False
@@ -258,7 +254,7 @@ class TestVia:
             size=0.8,
             drill=0.4,
             layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu"),
-            via_type="through"
+            via_type="through",
         )
         assert via.is_through_hole is True
         assert len(via.layers) == 4
@@ -271,7 +267,7 @@ class TestVia:
                 position=(0.0, 0.0),
                 size=0.8,
                 drill=0.4,
-                layers=("F.Cu", "Invalid.Layer")
+                layers=("F.Cu", "Invalid.Layer"),
             )
 
     def test_via_single_layer_invalid(self):
@@ -282,7 +278,7 @@ class TestVia:
                 position=(0.0, 0.0),
                 size=0.8,
                 drill=0.4,
-                layers=("F.Cu",)
+                layers=("F.Cu",),
             )
 
     def test_via_invalid_type(self):
@@ -294,7 +290,7 @@ class TestVia:
                 size=0.8,
                 drill=0.4,
                 layers=("F.Cu", "B.Cu"),
-                via_type="invalid_type"
+                via_type="invalid_type",
             )
 
 
@@ -312,13 +308,7 @@ class TestNetRouting:
 
     def test_net_custom_routing_parameters(self):
         """Test creating Net with custom routing parameters."""
-        net = Net(
-            name="VCC",
-            code="2",
-            track_width=0.5,
-            via_size=1.0,
-            via_drill=0.6
-        )
+        net = Net(name="VCC", code="2", track_width=0.5, via_size=1.0, via_drill=0.6)
         assert net.track_width == 0.5
         assert net.via_size == 1.0
         assert net.via_drill == 0.6
@@ -327,11 +317,7 @@ class TestNetRouting:
         """Test adding a segment to a net."""
         net = Net(name="GND", code="1")
         segment = TraceSegment(
-            net_name="GND",
-            start=(0.0, 0.0),
-            end=(10.0, 10.0),
-            layer="F.Cu",
-            width=0.25
+            net_name="GND", start=(0.0, 0.0), end=(10.0, 10.0), layer="F.Cu", width=0.25
         )
         net.add_segment(segment)
         assert len(net.segments) == 1
@@ -361,7 +347,7 @@ class TestNetRouting:
             position=(50.0, 60.0),
             size=0.8,
             drill=0.4,
-            layers=("F.Cu", "B.Cu")
+            layers=("F.Cu", "B.Cu"),
         )
         net.add_via(via)
         assert len(net.vias) == 1

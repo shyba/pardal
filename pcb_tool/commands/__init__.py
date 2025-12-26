@@ -89,61 +89,53 @@ from pcb_tool.commands.config import (
 
 __all__ = [
     # Base
-    'Command',
-
+    "Command",
     # I/O
-    'HelpCommand',
-    'LoadCommand',
-    'SaveCommand',
-    'ExitCommand',
-
+    "HelpCommand",
+    "LoadCommand",
+    "SaveCommand",
+    "ExitCommand",
     # Display
-    'ListComponentsCommand',
-    'ListNetsCommand',
-    'ShowBoardCommand',
-    'ShowNetCommand',
-    'ShowAirwiresCommand',
-
+    "ListComponentsCommand",
+    "ListNetsCommand",
+    "ShowBoardCommand",
+    "ShowNetCommand",
+    "ShowAirwiresCommand",
     # Component
-    'LockCommand',
-    'UnlockCommand',
-    'MoveCommand',
-    'RotateCommand',
-    'FlipCommand',
-    'WhereCommand',
-    'GroupMoveCommand',
-    'ArrangeCommand',
-
+    "LockCommand",
+    "UnlockCommand",
+    "MoveCommand",
+    "RotateCommand",
+    "FlipCommand",
+    "WhereCommand",
+    "GroupMoveCommand",
+    "ArrangeCommand",
     # History
-    'UndoCommand',
-    'RedoCommand',
-    'HistoryCommand',
-
+    "UndoCommand",
+    "RedoCommand",
+    "HistoryCommand",
     # Measure
-    'MeasureDistanceCommand',
-    'MeasureNetLengthCommand',
-
+    "MeasureDistanceCommand",
+    "MeasureNetLengthCommand",
     # DRC
-    'CheckDrcCommand',
-    'CheckAirwiresCommand',
-    'CheckClearanceCommand',
-    'CheckConnectivityCommand',
-
+    "CheckDrcCommand",
+    "CheckAirwiresCommand",
+    "CheckClearanceCommand",
+    "CheckConnectivityCommand",
     # Routing
-    'RouteCommand',
-    'ViaCommand',
-    'DeleteRouteCommand',
-    'DeleteViaCommand',
-    'AutoRouteCommand',
-    'OptimizeRoutingCommand',
-
+    "RouteCommand",
+    "ViaCommand",
+    "DeleteRouteCommand",
+    "DeleteViaCommand",
+    "AutoRouteCommand",
+    "OptimizeRoutingCommand",
     # Config
-    'SetWidthCommand',
-    'SetLayersCommand',
-    'SetClearanceCommand',
-    'SetBoardSizeCommand',
-    'StatsCommand',
-    'CreateNetCommand',
-    'CreateComponentCommand',
-    'AutoRouteStrategyCommand',
+    "SetWidthCommand",
+    "SetLayersCommand",
+    "SetClearanceCommand",
+    "SetBoardSizeCommand",
+    "StatsCommand",
+    "CreateNetCommand",
+    "CreateComponentCommand",
+    "AutoRouteStrategyCommand",
 ]

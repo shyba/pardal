@@ -17,7 +17,7 @@ def test_x_pattern_horizontal_vertical_crossing():
     # Should cross at cell (5, 5)
     net_paths = {
         "horizontal": [(2.0, 5.0), (5.0, 5.0), (8.0, 5.0)],
-        "vertical": [(5.0, 2.0), (5.0, 5.0), (5.0, 8.0)]
+        "vertical": [(5.0, 2.0), (5.0, 5.0), (5.0, 8.0)],
     }
 
     crossings = detector.detect_crossings(net_paths, layer="F.Cu")
@@ -40,10 +40,7 @@ def test_parallel_paths_no_crossing():
     detector = CrossingDetector(resolution_mm=1.0)
 
     # Two parallel horizontal paths
-    net_paths = {
-        "net1": [(2.0, 3.0), (8.0, 3.0)],
-        "net2": [(2.0, 7.0), (8.0, 7.0)]
-    }
+    net_paths = {"net1": [(2.0, 3.0), (8.0, 3.0)], "net2": [(2.0, 7.0), (8.0, 7.0)]}
 
     crossings = detector.detect_crossings(net_paths, layer="F.Cu")
 
@@ -57,9 +54,7 @@ def test_t_junction_same_net_not_crossing():
 
     # Single net with T-junction
     # This is NOT a crossing (same net can overlap itself)
-    net_paths = {
-        "net1": [(2.0, 5.0), (5.0, 5.0), (8.0, 5.0), (5.0, 5.0), (5.0, 8.0)]
-    }
+    net_paths = {"net1": [(2.0, 5.0), (5.0, 5.0), (8.0, 5.0), (5.0, 5.0), (5.0, 8.0)]}
 
     crossings = detector.detect_crossings(net_paths, layer="F.Cu")
 
@@ -75,7 +70,7 @@ def test_three_nets_crossing_at_same_point():
     net_paths = {
         "net1": [(2.0, 5.0), (5.0, 5.0), (8.0, 5.0)],
         "net2": [(5.0, 2.0), (5.0, 5.0), (5.0, 8.0)],
-        "net3": [(2.0, 2.0), (5.0, 5.0), (8.0, 8.0)]
+        "net3": [(2.0, 2.0), (5.0, 5.0), (8.0, 8.0)],
     }
 
     crossings = detector.detect_crossings(net_paths, layer="F.Cu")
@@ -87,9 +82,5 @@ def test_three_nets_crossing_at_same_point():
 
     # Verify all pairs are represented
     pairs = {(c.net1, c.net2) for c in crossing_at_center}
-    expected_pairs = {
-        ("net1", "net2"),
-        ("net1", "net3"),
-        ("net2", "net3")
-    }
+    expected_pairs = {("net1", "net2"), ("net1", "net3"), ("net2", "net3")}
     assert pairs == expected_pairs

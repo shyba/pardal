@@ -41,7 +41,7 @@ LIBRARY_PATHS = {
         "Diode_THT": "Diode_THT.pretty",
         "Package_TO_SOT_THT": "Package_TO_SOT_THT.pretty",
         "Connector_PinHeader_2.54mm": "Connector_PinHeader_2.54mm.pretty",
-    }
+    },
 }
 
 
@@ -76,8 +76,8 @@ def parse_footprint_name(footprint_full_name: str) -> tuple[str, str]:
     Returns:
         Tuple of (library_nickname, footprint_name)
     """
-    if ':' in footprint_full_name:
-        library, fp_name = footprint_full_name.split(':', 1)
+    if ":" in footprint_full_name:
+        library, fp_name = footprint_full_name.split(":", 1)
         return library, fp_name
     else:
         # No library specified, return empty library
@@ -151,7 +151,9 @@ class KiCadSDKWriter:
         lib_path = find_footprint_library_path(library)
 
         if not lib_path:
-            print(f"Warning: Library '{library}' not found for footprint '{footprint_full_name}'")
+            print(
+                f"Warning: Library '{library}' not found for footprint '{footprint_full_name}'"
+            )
             return None
 
         try:
@@ -159,7 +161,9 @@ class KiCadSDKWriter:
             self._footprint_cache[footprint_full_name] = fp
             return self.io.FootprintLoad(lib_path, fp_name)  # Return fresh copy
         except Exception as e:
-            print(f"Warning: Failed to load footprint '{fp_name}' from '{lib_path}': {e}")
+            print(
+                f"Warning: Failed to load footprint '{fp_name}' from '{lib_path}': {e}"
+            )
             return None
 
     def write_board(self, board: Board, output_path: str) -> bool:
@@ -197,10 +201,13 @@ class KiCadSDKWriter:
         except Exception as e:
             print(f"Error writing board: {e}")
             import traceback
+
             traceback.print_exc()
             return False
 
-    def _create_nets(self, pcb: pcbnew.BOARD, board: Board) -> dict[str, pcbnew.NETINFO_ITEM]:
+    def _create_nets(
+        self, pcb: pcbnew.BOARD, board: Board
+    ) -> dict[str, pcbnew.NETINFO_ITEM]:
         """Create all nets on the board.
 
         Returns:
@@ -218,8 +225,9 @@ class KiCadSDKWriter:
 
         return net_map
 
-    def _add_components(self, pcb: pcbnew.BOARD, board: Board,
-                        net_map: dict[str, pcbnew.NETINFO_ITEM]) -> None:
+    def _add_components(
+        self, pcb: pcbnew.BOARD, board: Board, net_map: dict[str, pcbnew.NETINFO_ITEM]
+    ) -> None:
         """Add all components with library footprints."""
         for comp in board.components.values():
             fp = self.load_footprint(comp.footprint)
@@ -230,8 +238,7 @@ class KiCadSDKWriter:
 
             # Set position (KiCad uses nm internally, FromMM converts)
             pos = pcbnew.VECTOR2I(
-                pcbnew.FromMM(comp.position[0]),
-                pcbnew.FromMM(comp.position[1])
+                pcbnew.FromMM(comp.position[0]), pcbnew.FromMM(comp.position[1])
             )
             fp.SetPosition(pos)
 
@@ -251,8 +258,13 @@ class KiCadSDKWriter:
 
             pcb.Add(fp)
 
-    def _assign_pad_nets(self, fp: pcbnew.FOOTPRINT, comp: Component,
-                         board: Board, net_map: dict[str, pcbnew.NETINFO_ITEM]) -> None:
+    def _assign_pad_nets(
+        self,
+        fp: pcbnew.FOOTPRINT,
+        comp: Component,
+        board: Board,
+        net_map: dict[str, pcbnew.NETINFO_ITEM],
+    ) -> None:
         """Assign nets to footprint pads based on board connections."""
         for pad in fp.Pads():
             pad_num = pad.GetNumber()
@@ -265,8 +277,9 @@ class KiCadSDKWriter:
                             pad.SetNet(net_map[net_name])
                         break
 
-    def _add_traces(self, pcb: pcbnew.BOARD, board: Board,
-                    net_map: dict[str, pcbnew.NETINFO_ITEM]) -> None:
+    def _add_traces(
+        self, pcb: pcbnew.BOARD, board: Board, net_map: dict[str, pcbnew.NETINFO_ITEM]
+    ) -> None:
         """Add all trace segments.
 
         Supports traces on any copper layer (F.Cu, In1.Cu, ..., In30.Cu, B.Cu).
@@ -276,14 +289,16 @@ class KiCadSDKWriter:
 
             for segment in net.segments:
                 track = pcbnew.PCB_TRACK(pcb)
-                track.SetStart(pcbnew.VECTOR2I(
-                    pcbnew.FromMM(segment.start[0]),
-                    pcbnew.FromMM(segment.start[1])
-                ))
-                track.SetEnd(pcbnew.VECTOR2I(
-                    pcbnew.FromMM(segment.end[0]),
-                    pcbnew.FromMM(segment.end[1])
-                ))
+                track.SetStart(
+                    pcbnew.VECTOR2I(
+                        pcbnew.FromMM(segment.start[0]), pcbnew.FromMM(segment.start[1])
+                    )
+                )
+                track.SetEnd(
+                    pcbnew.VECTOR2I(
+                        pcbnew.FromMM(segment.end[0]), pcbnew.FromMM(segment.end[1])
+                    )
+                )
                 track.SetWidth(pcbnew.FromMM(segment.width))
 
                 # Set layer using dynamic mapping
@@ -295,8 +310,9 @@ class KiCadSDKWriter:
 
                 pcb.Add(track)
 
-    def _add_vias(self, pcb: pcbnew.BOARD, board: Board,
-                  net_map: dict[str, pcbnew.NETINFO_ITEM]) -> None:
+    def _add_vias(
+        self, pcb: pcbnew.BOARD, board: Board, net_map: dict[str, pcbnew.NETINFO_ITEM]
+    ) -> None:
         """Add all vias.
 
         Supports multi-layer vias:
@@ -309,10 +325,12 @@ class KiCadSDKWriter:
 
             for via_data in net.vias:
                 via = pcbnew.PCB_VIA(pcb)
-                via.SetPosition(pcbnew.VECTOR2I(
-                    pcbnew.FromMM(via_data.position[0]),
-                    pcbnew.FromMM(via_data.position[1])
-                ))
+                via.SetPosition(
+                    pcbnew.VECTOR2I(
+                        pcbnew.FromMM(via_data.position[0]),
+                        pcbnew.FromMM(via_data.position[1]),
+                    )
+                )
                 via.SetWidth(pcbnew.FromMM(via_data.size))
                 via.SetDrill(pcbnew.FromMM(via_data.drill))
 
@@ -340,10 +358,10 @@ class KiCadSDKWriter:
             return
 
         margin = 5.0  # mm
-        min_x = float('inf')
-        min_y = float('inf')
-        max_x = float('-inf')
-        max_y = float('-inf')
+        min_x = float("inf")
+        min_y = float("inf")
+        max_x = float("-inf")
+        max_y = float("-inf")
 
         for comp in board.components.values():
             x, y = comp.position
@@ -372,22 +390,21 @@ class KiCadSDKWriter:
 
             line = pcbnew.PCB_SHAPE(pcb)
             line.SetShape(pcbnew.SHAPE_T_SEGMENT)
-            line.SetStart(pcbnew.VECTOR2I(
-                pcbnew.FromMM(start[0]),
-                pcbnew.FromMM(start[1])
-            ))
-            line.SetEnd(pcbnew.VECTOR2I(
-                pcbnew.FromMM(end[0]),
-                pcbnew.FromMM(end[1])
-            ))
+            line.SetStart(
+                pcbnew.VECTOR2I(pcbnew.FromMM(start[0]), pcbnew.FromMM(start[1]))
+            )
+            line.SetEnd(pcbnew.VECTOR2I(pcbnew.FromMM(end[0]), pcbnew.FromMM(end[1])))
             line.SetLayer(pcbnew.Edge_Cuts)
             line.SetWidth(pcbnew.FromMM(0.1))
             pcb.Add(line)
 
 
-def convert_board_to_sdk(input_board: Board, output_path: str,
-                         add_gnd_pour: bool = True,
-                         fill_zones: bool = True) -> bool:
+def convert_board_to_sdk(
+    input_board: Board,
+    output_path: str,
+    add_gnd_pour: bool = True,
+    fill_zones: bool = True,
+) -> bool:
     """Convert a Board data model to a KiCad PCB file using the SDK.
 
     This function creates a PCB file with:
@@ -414,6 +431,7 @@ def convert_board_to_sdk(input_board: Board, output_path: str,
     if add_gnd_pour:
         try:
             from pcb_tool.kicad_postprocess import postprocess
+
             # Reprocess the saved file to add pours
             postprocess(output_path, output_path, add_gnd=True, fill=fill_zones)
         except ImportError:

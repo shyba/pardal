@@ -4,8 +4,10 @@ from pcb_tool.command_parser import CommandParser
 from pcb_tool.commands import Command
 from pcb_tool.data_model import Board
 
+
 class DummyCommand(Command):
     """Test command for registration testing"""
+
     def __init__(self, arg: str = ""):
         self.arg = arg
 
@@ -15,6 +17,7 @@ class DummyCommand(Command):
     def execute(self, board: Board) -> str:
         return f"Executed with {self.arg}"
 
+
 def test_parser_can_register_commands():
     """Test that parser can register command factories"""
     parser = CommandParser()
@@ -23,6 +26,7 @@ def test_parser_can_register_commands():
     parser.register("TEST", lambda args: DummyCommand(args[0] if args else ""))
 
     assert "TEST" in parser.commands
+
 
 def test_parser_parse_registered_command():
     """Test parser can parse and create registered commands"""
@@ -36,6 +40,7 @@ def test_parser_parse_registered_command():
     assert isinstance(cmd, DummyCommand)
     assert cmd.arg == "hello"
 
+
 def test_parser_parse_unregistered_command_returns_none():
     """Test parser returns None for unregistered commands"""
     parser = CommandParser()
@@ -43,6 +48,7 @@ def test_parser_parse_unregistered_command_returns_none():
     cmd = parser.parse("UNREGISTERED arg1 arg2")
 
     assert cmd is None
+
 
 def test_parser_case_insensitive_lookup():
     """Test command lookup is case insensitive"""

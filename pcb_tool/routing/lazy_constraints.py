@@ -13,9 +13,11 @@ class LazyConstraintManager:
 
     def __init__(self):
         """Initialize constraint manager."""
-        self.blocked_cells: List[Tuple[str, Tuple[int, int], str]] = []  # (net_name, cell, layer)
+        self.blocked_cells: List[Tuple[str, Tuple[int, int], str]] = (
+            []
+        )  # (net_name, cell, layer)
 
-    def add_crossing_blocks(self, crossings: List['Crossing']):
+    def add_crossing_blocks(self, crossings: List["Crossing"]):
         """
         Add constraints to prevent detected crossings.
 
@@ -34,8 +36,8 @@ class LazyConstraintManager:
     def apply_to_solver(
         self,
         solver,  # Z3 Solver or Optimize
-        cell_vars: Dict[Tuple[int, int, str], 'ArithRef'],
-        net_name_to_idx: Dict[str, int]
+        cell_vars: Dict[Tuple[int, int, str], "ArithRef"],
+        net_name_to_idx: Dict[str, int],
     ):
         """
         Add blocking constraints to Z3 solver.

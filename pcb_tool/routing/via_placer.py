@@ -31,10 +31,7 @@ class ViaPlacement:
         self.via_size_mm = via_size_mm
 
     def get_via_layers(
-        self,
-        from_layer: str,
-        to_layer: str,
-        via_type: str = "through"
+        self, from_layer: str, to_layer: str, via_type: str = "through"
     ) -> Tuple[str, ...]:
         """
         Get the layers a via spans based on type.
@@ -78,7 +75,7 @@ class ViaPlacement:
         self,
         position: Tuple[float, float],
         clearance_mm: Optional[float] = None,
-        via_layers: Optional[Tuple[str, ...]] = None
+        via_layers: Optional[Tuple[str, ...]] = None,
     ) -> bool:
         """
         Check if a via can be placed at position with required clearance.
@@ -107,7 +104,9 @@ class ViaPlacement:
 
         # Calculate clearance radius in grid cells
         via_radius = int(math.ceil(self.via_size_mm / (2 * self.grid.resolution_mm)))
-        clearance_radius = int(math.ceil((self.via_size_mm / 2 + clearance_mm) / self.grid.resolution_mm))
+        clearance_radius = int(
+            math.ceil((self.via_size_mm / 2 + clearance_mm) / self.grid.resolution_mm)
+        )
 
         # Check clearance on all layers the via spans
         for layer in via_layers:
@@ -124,7 +123,7 @@ class ViaPlacement:
                         continue
 
                     # Calculate distance from via center
-                    dist = math.sqrt(dx*dx + dy*dy) * self.grid.resolution_mm
+                    dist = math.sqrt(dx * dx + dy * dy) * self.grid.resolution_mm
 
                     # Check if within via body
                     if dist <= self.via_size_mm / 2:
@@ -145,7 +144,7 @@ class ViaPlacement:
         search_radius_mm: float,
         layer_from: str,
         layer_to: str,
-        via_type: str = "through"
+        via_type: str = "through",
     ) -> Optional[Tuple[float, float]]:
         """
         Find optimal via position near a target location.
@@ -173,7 +172,7 @@ class ViaPlacement:
         search_radius_cells = int(math.ceil(search_radius_mm / self.grid.resolution_mm))
 
         best_position = None
-        best_score = float('inf')
+        best_score = float("inf")
 
         # Search grid cells in radius
         for dx in range(-search_radius_cells, search_radius_cells + 1):
@@ -185,7 +184,9 @@ class ViaPlacement:
                     continue
 
                 # Calculate distance from center
-                dist_from_center = math.sqrt(dx*dx + dy*dy) * self.grid.resolution_mm
+                dist_from_center = (
+                    math.sqrt(dx * dx + dy * dy) * self.grid.resolution_mm
+                )
 
                 # Skip if outside search radius
                 if dist_from_center > search_radius_mm:
@@ -200,11 +201,11 @@ class ViaPlacement:
 
                 # Score this position
                 context = {
-                    'target_pos': region_center,
-                    'layer_from': layer_from,
-                    'layer_to': layer_to,
-                    'via_type': via_type,
-                    'via_layers': via_layers
+                    "target_pos": region_center,
+                    "layer_from": layer_from,
+                    "layer_to": layer_to,
+                    "via_type": via_type,
+                    "via_layers": via_layers,
                 }
                 score = self.score_via_position(pos_mm, context)
 
@@ -216,8 +217,7 @@ class ViaPlacement:
         return best_position
 
     def minimize_via_count(
-        self,
-        path_segments: List[Tuple[GridCell, GridCell]]
+        self, path_segments: List[Tuple[GridCell, GridCell]]
     ) -> List[Tuple[GridCell, GridCell]]:
         """
         Optimize path to minimize via count.
@@ -249,9 +249,11 @@ class ViaPlacement:
                 next_next_seg = path_segments[i + 2]
 
                 # Check for A->B->A pattern (redundant layer transition)
-                if (start_cell.layer != next_seg[0].layer and
-                    next_seg[1].layer != next_next_seg[0].layer and
-                    start_cell.layer == next_next_seg[1].layer):
+                if (
+                    start_cell.layer != next_seg[0].layer
+                    and next_seg[1].layer != next_next_seg[0].layer
+                    and start_cell.layer == next_next_seg[1].layer
+                ):
                     # Can eliminate middle transition
                     # Merge: start -> next_next_end (skip middle segment)
                     merged_seg = (start_cell, next_next_seg[1])
@@ -262,7 +264,10 @@ class ViaPlacement:
             # Check if we can merge with next segment (same layer)
             if i + 1 < len(path_segments):
                 next_seg = path_segments[i + 1]
-                if end_cell.layer == next_seg[0].layer and end_cell.layer == next_seg[1].layer:
+                if (
+                    end_cell.layer == next_seg[0].layer
+                    and end_cell.layer == next_seg[1].layer
+                ):
                     # Same layer, can potentially merge
                     merged_seg = (start_cell, next_seg[1])
                     optimized.append(merged_seg)
@@ -275,11 +280,7 @@ class ViaPlacement:
 
         return optimized
 
-    def score_via_position(
-        self,
-        position: Tuple[float, float],
-        context: dict
-    ) -> float:
+    def score_via_position(self, position: Tuple[float, float], context: dict) -> float:
         """
         Score a via position based on routing quality heuristics.
 
@@ -301,11 +302,11 @@ class ViaPlacement:
         grid_x, grid_y = self.grid.to_grid_coords(*position)
 
         # Determine which layers to check (use via_layers from context or all grid layers)
-        layers_to_check = context.get('via_layers', tuple(self.grid.layers))
+        layers_to_check = context.get("via_layers", tuple(self.grid.layers))
 
         # Score component 1: Clearance from obstacles (prefer clear areas)
         # Check minimum distance to obstacles on affected layers
-        min_obstacle_dist = float('inf')
+        min_obstacle_dist = float("inf")
         check_radius = int(math.ceil(2.0 / self.grid.resolution_mm))  # Check 2mm radius
 
         for layer in layers_to_check:
@@ -320,7 +321,7 @@ class ViaPlacement:
                         continue
 
                     if (check_x, check_y) in self.grid.obstacles[layer]:
-                        dist = math.sqrt(dx*dx + dy*dy) * self.grid.resolution_mm
+                        dist = math.sqrt(dx * dx + dy * dy) * self.grid.resolution_mm
                         min_obstacle_dist = min(min_obstacle_dist, dist)
 
         # Penalize positions close to obstacles
@@ -328,10 +329,10 @@ class ViaPlacement:
             score += (1.0 - min_obstacle_dist) * 10.0  # Heavy penalty
 
         # Score component 2: Distance from target (minimize deviation)
-        if 'target_pos' in context:
-            target = context['target_pos']
+        if "target_pos" in context:
+            target = context["target_pos"]
             dist_from_target = math.sqrt(
-                (position[0] - target[0])**2 + (position[1] - target[1])**2
+                (position[0] - target[0]) ** 2 + (position[1] - target[1]) ** 2
             )
             score += dist_from_target * 0.5  # Light penalty for distance
 
@@ -343,8 +344,8 @@ class ViaPlacement:
 
         # Score component 4: Prefer blind/buried vias over through-hole when possible
         # (Through-hole vias affect more layers and may cause routing congestion)
-        via_type = context.get('via_type', 'through')
-        if via_type == 'through':
+        via_type = context.get("via_type", "through")
+        if via_type == "through":
             score += 0.5  # Slight penalty for through-hole (encourages blind/buried when available)
 
         return score

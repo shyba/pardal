@@ -11,22 +11,38 @@ def sample_board():
     board = Board()
 
     # Add components
-    board.add_component(Component(
-        ref="U1", value="IC", footprint="DIP-8",
-        position=(10.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R1", value="10k", footprint="R_0805",
-        position=(30.0, 40.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R2", value="10k", footprint="R_0805",
-        position=(50.0, 40.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="C1", value="100nF", footprint="C_0805",
-        position=(70.0, 20.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="U1", value="IC", footprint="DIP-8", position=(10.0, 20.0), rotation=0.0
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(30.0, 40.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R2",
+            value="10k",
+            footprint="R_0805",
+            position=(50.0, 40.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="C1",
+            value="100nF",
+            footprint="C_0805",
+            position=(70.0, 20.0),
+            rotation=0.0,
+        )
+    )
 
     # VCC net - completely unrouted (4 connections, 0 segments)
     vcc_net = Net(name="VCC", code="1")
@@ -42,26 +58,30 @@ def sample_board():
     gnd_net.add_connection("R1", "2")
     gnd_net.add_connection("C1", "2")
     # Add some routing
-    gnd_net.add_segment(TraceSegment(
-        net_name="GND",
-        start=(10.0, 20.0),
-        end=(30.0, 40.0),
-        layer="F.Cu",
-        width=0.25
-    ))
+    gnd_net.add_segment(
+        TraceSegment(
+            net_name="GND",
+            start=(10.0, 20.0),
+            end=(30.0, 40.0),
+            layer="F.Cu",
+            width=0.25,
+        )
+    )
     board.add_net(gnd_net)
 
     # /LED net - fully routed (2 connections, has segments)
     led_net = Net(name="/LED", code="3")
     led_net.add_connection("R2", "2")
     led_net.add_connection("U1", "5")
-    led_net.add_segment(TraceSegment(
-        net_name="/LED",
-        start=(50.0, 40.0),
-        end=(10.0, 20.0),
-        layer="F.Cu",
-        width=0.25
-    ))
+    led_net.add_segment(
+        TraceSegment(
+            net_name="/LED",
+            start=(50.0, 40.0),
+            end=(10.0, 20.0),
+            layer="F.Cu",
+            width=0.25,
+        )
+    )
     board.add_net(led_net)
 
     return board

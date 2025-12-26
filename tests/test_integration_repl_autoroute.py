@@ -32,12 +32,12 @@ def create_test_netlist_board():
             footprint=footprint,
             position=pos,
             rotation=0.0,
-            layer="F.Cu"
+            layer="F.Cu",
         )
         # Add pads
         comp.pads = [
             Pad(number=1, position_offset=(-0.5, 0.0), size=(0.8, 0.8)),
-            Pad(number=2, position_offset=(0.5, 0.0), size=(0.8, 0.8))
+            Pad(number=2, position_offset=(0.5, 0.0), size=(0.8, 0.8)),
         ]
         board.add_component(comp)
 
@@ -147,7 +147,7 @@ def test_repl_workflow_command_chaining():
         "AUTOROUTE NET GND",
         "AUTOROUTE NET VCC",
         "AUTOROUTE NET LED_OUT",
-        "OPTIMIZE ROUTING ALL"
+        "OPTIMIZE ROUTING ALL",
     ]
 
     for cmd_str in commands:
@@ -214,9 +214,8 @@ def test_repl_workflow_autoroute_unrouted_only():
 
     # Manually route GND net (simulate previous routing)
     from pcb_tool.data_model import TraceSegment
-    board.nets["GND"].add_segment(
-        TraceSegment("GND", (50, 50), (45, 45), "F.Cu", 0.25)
-    )
+
+    board.nets["GND"].add_segment(TraceSegment("GND", (50, 50), (45, 45), "F.Cu", 0.25))
 
     # Auto-route only unrouted nets
     cmd = parser.parse("AUTOROUTE ALL UNROUTED")

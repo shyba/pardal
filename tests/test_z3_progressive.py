@@ -25,9 +25,9 @@ class TestZ3Progressive:
         - No MST branching
         - Expected: SAT (should work)
         """
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("TEST 1: Simplest - 1 net, 2 pads")
-        print("="*80)
+        print("=" * 80)
 
         grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=1.0)
 
@@ -35,17 +35,14 @@ class TestZ3Progressive:
             timeout_ms=10000,
             clearance_cells=0,
             optimize_wire_length=True,
-            optimize_vias=False
+            optimize_vias=False,
         )
 
         router = Z3Router(grid, config)
 
         # Single net: A→B (horizontal, 10mm apart)
         net1 = NetDefinition(
-            name="NET1",
-            start=(5.0, 10.0),
-            end=(15.0, 10.0),
-            layer="F.Cu"
+            name="NET1", start=(5.0, 10.0), end=(15.0, 10.0), layer="F.Cu"
         )
 
         print(f"  NET1: ({net1.start}) → ({net1.end})")
@@ -63,9 +60,9 @@ class TestZ3Progressive:
         - No conflicts (parallel, spaced apart)
         - Expected: SAT
         """
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("TEST 2: Simple - 2 nets, parallel, no conflicts")
-        print("="*80)
+        print("=" * 80)
 
         grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=1.0)
 
@@ -73,14 +70,18 @@ class TestZ3Progressive:
             timeout_ms=10000,
             clearance_cells=0,
             optimize_wire_length=True,
-            optimize_vias=False
+            optimize_vias=False,
         )
 
         router = Z3Router(grid, config)
 
         # Two parallel nets, spaced 5mm apart
-        net1 = NetDefinition(name="NET1", start=(5.0, 10.0), end=(15.0, 10.0), layer="F.Cu")
-        net2 = NetDefinition(name="NET2", start=(5.0, 5.0), end=(15.0, 5.0), layer="F.Cu")
+        net1 = NetDefinition(
+            name="NET1", start=(5.0, 10.0), end=(15.0, 10.0), layer="F.Cu"
+        )
+        net2 = NetDefinition(
+            name="NET2", start=(5.0, 5.0), end=(15.0, 5.0), layer="F.Cu"
+        )
 
         print(f"  NET1: ({net1.start}) → ({net1.end})")
         print(f"  NET2: ({net2.start}) → ({net2.end})")
@@ -101,9 +102,9 @@ class TestZ3Progressive:
         - THIS IS THE CRITICAL TEST
         - Expected: SAT or UNSAT? Let's find out!
         """
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("TEST 3: Medium - 1 net, 3 pads, MST branching")
-        print("="*80)
+        print("=" * 80)
 
         grid = RoutingGrid(width_mm=30.0, height_mm=30.0, resolution_mm=1.0)
 
@@ -111,7 +112,7 @@ class TestZ3Progressive:
             timeout_ms=10000,
             clearance_cells=0,
             optimize_wire_length=True,
-            optimize_vias=False
+            optimize_vias=False,
         )
 
         router = Z3Router(grid, config)
@@ -160,9 +161,9 @@ class TestZ3Progressive:
         - NET2: 3 pads (MST)
         - Expected: UNSAT (if TEST 3 fails)
         """
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("TEST 4: Complex - 2 nets, one with MST")
-        print("="*80)
+        print("=" * 80)
 
         grid = RoutingGrid(width_mm=30.0, height_mm=30.0, resolution_mm=1.0)
 
@@ -170,13 +171,15 @@ class TestZ3Progressive:
             timeout_ms=10000,
             clearance_cells=0,
             optimize_wire_length=True,
-            optimize_vias=False
+            optimize_vias=False,
         )
 
         router = Z3Router(grid, config)
 
         # NET1: Simple 2-pad net
-        net1_seg = NetDefinition(name="NET1", start=(5.0, 5.0), end=(15.0, 5.0), layer="F.Cu")
+        net1_seg = NetDefinition(
+            name="NET1", start=(5.0, 5.0), end=(15.0, 5.0), layer="F.Cu"
+        )
 
         # NET2: MST with 3 pads
         pad_A = (10.0, 15.0)
@@ -206,9 +209,9 @@ class TestZ3Progressive:
         Create 2 segments of the SAME net that share a cell.
         Current encoding treats them as different net_idx values.
         """
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("TEST 5: Diagnostic - Show NET1 conflict explicitly")
-        print("="*80)
+        print("=" * 80)
 
         grid = RoutingGrid(width_mm=10.0, height_mm=10.0, resolution_mm=1.0)
 
@@ -216,14 +219,18 @@ class TestZ3Progressive:
             timeout_ms=10000,
             clearance_cells=0,
             optimize_wire_length=False,
-            optimize_vias=False
+            optimize_vias=False,
         )
 
         router = Z3Router(grid, config)
 
         # Two segments of NET1 that share cell (5, 5)
-        seg1 = NetDefinition(name="NET1", start=(5.0, 5.0), end=(8.0, 5.0), layer="F.Cu")
-        seg2 = NetDefinition(name="NET1", start=(5.0, 5.0), end=(5.0, 8.0), layer="F.Cu")
+        seg1 = NetDefinition(
+            name="NET1", start=(5.0, 5.0), end=(8.0, 5.0), layer="F.Cu"
+        )
+        seg2 = NetDefinition(
+            name="NET1", start=(5.0, 5.0), end=(5.0, 8.0), layer="F.Cu"
+        )
 
         print(f"  Segment 1 (NET1): (5, 5) → (8, 5)  [net_idx=0]")
         print(f"  Segment 2 (NET1): (5, 5) → (5, 8)  [net_idx=1]")
@@ -239,7 +246,9 @@ class TestZ3Progressive:
         # So both segments can claim cell (5,5) without conflict!
         assert "NET1" in result
         print(f"  ✓ SAT after fix! Encoding now groups segments by net name")
-        print(f"  → Both segments share net_idx=0, so cell[5,5]==0 is satisfied by both")
+        print(
+            f"  → Both segments share net_idx=0, so cell[5,5]==0 is satisfied by both"
+        )
         print(f"    NET1: {len(result['NET1'].path)} waypoints")
 
 

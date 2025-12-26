@@ -22,12 +22,7 @@ def test_route_single_net():
     grid = RoutingGrid(width_mm=10.0, height_mm=10.0, resolution_mm=0.1)
     router = MultiNetRouter(grid)
 
-    net_def = NetDefinition(
-        name="NET1",
-        start=(1.0, 1.0),
-        end=(5.0, 1.0),
-        layer="F.Cu"
-    )
+    net_def = NetDefinition(name="NET1", start=(1.0, 1.0), end=(5.0, 1.0), layer="F.Cu")
 
     result = router.route_nets([net_def])
 
@@ -62,8 +57,12 @@ def test_route_multiple_nets_with_conflict():
 
     # Two nets that cross paths
     nets = [
-        NetDefinition(name="NET1", start=(1.0, 5.0), end=(9.0, 5.0), layer="F.Cu", priority=1),
-        NetDefinition(name="NET2", start=(5.0, 1.0), end=(5.0, 9.0), layer="F.Cu", priority=0),
+        NetDefinition(
+            name="NET1", start=(1.0, 5.0), end=(9.0, 5.0), layer="F.Cu", priority=1
+        ),
+        NetDefinition(
+            name="NET2", start=(5.0, 1.0), end=(5.0, 9.0), layer="F.Cu", priority=0
+        ),
     ]
 
     result = router.route_nets(nets)
@@ -103,14 +102,14 @@ def test_conflict_detection():
         name="NET1",
         path=[(0.0, 1.0), (2.0, 1.0)],
         layer="F.Cu",
-        segments=[((0.0, 1.0), (2.0, 1.0))]
+        segments=[((0.0, 1.0), (2.0, 1.0))],
     )
 
     net2 = RoutedNet(
         name="NET2",
         path=[(1.0, 0.0), (1.0, 2.0)],
         layer="F.Cu",
-        segments=[((1.0, 0.0), (1.0, 2.0))]
+        segments=[((1.0, 0.0), (1.0, 2.0))],
     )
 
     conflicts = router._detect_conflicts({"NET1": net1, "NET2": net2})
@@ -129,14 +128,14 @@ def test_no_conflicts_different_layers():
         name="NET1",
         path=[(0.0, 1.0), (2.0, 1.0)],
         layer="F.Cu",
-        segments=[((0.0, 1.0), (2.0, 1.0))]
+        segments=[((0.0, 1.0), (2.0, 1.0))],
     )
 
     net2 = RoutedNet(
         name="NET2",
         path=[(1.0, 0.0), (1.0, 2.0)],
         layer="B.Cu",  # Different layer
-        segments=[((1.0, 0.0), (1.0, 2.0))]
+        segments=[((1.0, 0.0), (1.0, 2.0))],
     )
 
     conflicts = router._detect_conflicts({"NET1": net1, "NET2": net2})
@@ -154,14 +153,14 @@ def test_drc_validation():
         name="NET1",
         path=[(0.0, 0.0), (1.0, 0.0)],
         layer="F.Cu",
-        segments=[((0.0, 0.0), (1.0, 0.0))]
+        segments=[((0.0, 0.0), (1.0, 0.0))],
     )
 
     net2 = RoutedNet(
         name="NET2",
         path=[(0.0, 2.0), (1.0, 2.0)],
         layer="F.Cu",
-        segments=[((0.0, 2.0), (1.0, 2.0))]
+        segments=[((0.0, 2.0), (1.0, 2.0))],
     )
 
     valid = router._validate_routing({"NET1": net1, "NET2": net2})

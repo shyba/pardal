@@ -54,12 +54,16 @@ class TestTrackPadClearance:
 
         # Component with pad at (10, 10)
         comp = Component(
-            ref="R1", value="10k", footprint="R_0805",
-            position=(10.0, 10.0), rotation=0.0, layer="F.Cu"
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10.0, 10.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         comp.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape='rect'),
-            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape='rect'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="rect"),
+            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape="rect"),
         ]
         board.add_component(comp)
 
@@ -96,12 +100,16 @@ class TestTrackPadClearance:
 
         # Component with pad at (10, 10)
         comp = Component(
-            ref="R1", value="10k", footprint="R_0805",
-            position=(10.0, 10.0), rotation=0.0, layer="F.Cu"
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10.0, 10.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         comp.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape='rect'),
-            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape='rect'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="rect"),
+            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape="rect"),
         ]
         board.add_component(comp)
 
@@ -120,7 +128,9 @@ class TestTrackPadClearance:
 
         return board
 
-    def test_allows_track_with_sufficient_clearance(self, board_with_track_sufficient_clearance):
+    def test_allows_track_with_sufficient_clearance(
+        self, board_with_track_sufficient_clearance
+    ):
         """Track with sufficient clearance should not report error."""
         cmd = CheckDrcCommand()
         result = cmd.execute(board_with_track_sufficient_clearance)
@@ -136,12 +146,16 @@ class TestTrackPadClearance:
 
         # Component with pad
         comp = Component(
-            ref="R1", value="10k", footprint="R_0805",
-            position=(10.0, 10.0), rotation=0.0, layer="F.Cu"
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10.0, 10.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         comp.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape='rect'),
-            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape='rect'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="rect"),
+            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape="rect"),
         ]
         board.add_component(comp)
 
@@ -175,13 +189,17 @@ class TestPadPadClearance:
 
         # Component with overlapping pads (like bad TQFP with 1.2mm pads at 0.8mm pitch)
         comp = Component(
-            ref="U1", value="IC", footprint="TQFP-32",
-            position=(20.0, 20.0), rotation=0.0, layer="F.Cu"
+            ref="U1",
+            value="IC",
+            footprint="TQFP-32",
+            position=(20.0, 20.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         # Pads at 0.8mm pitch with 1.2mm size = 0.4mm overlap
         comp.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(0.5, 1.2), shape='rect'),
-            Pad(number=2, position_offset=(0.0, 0.8), size=(0.5, 1.2), shape='rect'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(0.5, 1.2), shape="rect"),
+            Pad(number=2, position_offset=(0.0, 0.8), size=(0.5, 1.2), shape="rect"),
         ]
         board.add_component(comp)
 
@@ -203,12 +221,16 @@ class TestPadPadClearance:
 
         # Component with properly spaced pads (0.5mm pads at 0.8mm pitch = 0.3mm gap)
         comp = Component(
-            ref="U1", value="IC", footprint="TQFP-32",
-            position=(20.0, 20.0), rotation=0.0, layer="F.Cu"
+            ref="U1",
+            value="IC",
+            footprint="TQFP-32",
+            position=(20.0, 20.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         comp.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(0.45, 0.5), shape='rect'),
-            Pad(number=2, position_offset=(0.0, 0.8), size=(0.45, 0.5), shape='rect'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(0.45, 0.5), shape="rect"),
+            Pad(number=2, position_offset=(0.0, 0.8), size=(0.45, 0.5), shape="rect"),
         ]
         board.add_component(comp)
 
@@ -229,13 +251,17 @@ class TestPadPadClearance:
 
         # Component with close pads (edge-to-edge = 0.05mm, which is < 0.1mm min)
         comp = Component(
-            ref="U1", value="IC", footprint="Fine-pitch",
-            position=(20.0, 20.0), rotation=0.0, layer="F.Cu"
+            ref="U1",
+            value="IC",
+            footprint="Fine-pitch",
+            position=(20.0, 20.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         # Pads: 0.4mm diameter at 0.45mm pitch = 0.05mm clearance
         comp.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(0.4, 0.4), shape='circle'),
-            Pad(number=2, position_offset=(0.45, 0.0), size=(0.4, 0.4), shape='circle'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(0.4, 0.4), shape="circle"),
+            Pad(number=2, position_offset=(0.45, 0.0), size=(0.4, 0.4), shape="circle"),
         ]
         board.add_component(comp)
 
@@ -257,6 +283,7 @@ class TestSdkDrc:
     def test_sdk_drc_import(self):
         """Verify SDK DRC function is importable."""
         from pcb_tool.drc import run_sdk_drc
+
         assert callable(run_sdk_drc)
 
     def test_sdk_drc_fallback(self, tmp_path):
@@ -270,12 +297,16 @@ class TestSdkDrc:
         board.height = 20.0
 
         comp = Component(
-            ref="R1", value="10k", footprint="R_0805",
-            position=(10.0, 10.0), rotation=0.0, layer="F.Cu"
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10.0, 10.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         comp.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape='rect'),
-            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape='rect'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="rect"),
+            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape="rect"),
         ]
         board.add_component(comp)
 
@@ -287,9 +318,9 @@ class TestSdkDrc:
         result = run_sdk_drc(pcb_path)
 
         # Should return a DrcResult
-        assert hasattr(result, 'errors')
-        assert hasattr(result, 'warnings')
-        assert hasattr(result, 'success')
+        assert hasattr(result, "errors")
+        assert hasattr(result, "warnings")
+        assert hasattr(result, "success")
 
 
 class TestIntegration:
@@ -302,23 +333,31 @@ class TestIntegration:
 
         # Component with overlapping pads
         comp1 = Component(
-            ref="U1", value="IC", footprint="TQFP",
-            position=(20.0, 20.0), rotation=0.0, layer="F.Cu"
+            ref="U1",
+            value="IC",
+            footprint="TQFP",
+            position=(20.0, 20.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         comp1.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(0.5, 1.2), shape='rect'),
-            Pad(number=2, position_offset=(0.0, 0.8), size=(0.5, 1.2), shape='rect'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(0.5, 1.2), shape="rect"),
+            Pad(number=2, position_offset=(0.0, 0.8), size=(0.5, 1.2), shape="rect"),
         ]
         board.add_component(comp1)
 
         # Another component
         comp2 = Component(
-            ref="R1", value="10k", footprint="R_0805",
-            position=(10.0, 10.0), rotation=0.0, layer="F.Cu"
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10.0, 10.0),
+            rotation=0.0,
+            layer="F.Cu",
         )
         comp2.pads = [
-            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape='rect'),
-            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape='rect'),
+            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="rect"),
+            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape="rect"),
         ]
         board.add_component(comp2)
 

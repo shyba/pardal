@@ -74,7 +74,7 @@ class NetlistReader:
             Section content or None if not found
         """
         # Find section start
-        pattern = f'({section_name}'
+        pattern = f"({section_name}"
         start_idx = content.find(pattern)
         if start_idx == -1:
             return None
@@ -83,15 +83,15 @@ class NetlistReader:
         depth = 0
         i = start_idx
         while i < len(content):
-            if content[i] == '(':
+            if content[i] == "(":
                 depth += 1
-            elif content[i] == ')':
+            elif content[i] == ")":
                 depth -= 1
                 if depth == 0:
                     # Found matching close paren
-                    section = content[start_idx:i+1]
+                    section = content[start_idx : i + 1]
                     # Extract inner content (remove outer parens and section name)
-                    inner = section[len(f'({section_name}'):-1].strip()
+                    inner = section[len(f"({section_name}") : -1].strip()
                     return inner if inner else ""
             i += 1
         return None
@@ -116,23 +116,25 @@ class NetlistReader:
 
         while i < len(section):
             # Look for block start
-            if section[i] == '(' and start_idx is None:
+            if section[i] == "(" and start_idx is None:
                 # Check if this is the start of our block type
                 remaining = section[i:]
-                if remaining.startswith(f"({block_type} ") or remaining.startswith(f"({block_type}\n"):
+                if remaining.startswith(f"({block_type} ") or remaining.startswith(
+                    f"({block_type}\n"
+                ):
                     start_idx = i
                     depth = 1
                     i += 1
                     continue
 
             if start_idx is not None:
-                if section[i] == '(':
+                if section[i] == "(":
                     depth += 1
-                elif section[i] == ')':
+                elif section[i] == ")":
                     depth -= 1
                     if depth == 0:
                         # Found complete block
-                        blocks.append(section[start_idx:i+1])
+                        blocks.append(section[start_idx : i + 1])
                         start_idx = None
 
             i += 1
@@ -163,9 +165,9 @@ class NetlistReader:
                 value=value,
                 footprint=footprint,
                 position=(0.0, 0.0),  # Default position
-                rotation=0.0,          # Default rotation
-                locked=False,          # Default unlocked
-                pads=pads              # Populate pads from footprint library
+                rotation=0.0,  # Default rotation
+                locked=False,  # Default unlocked
+                pads=pads,  # Populate pads from footprint library
             )
         return None
 
@@ -186,7 +188,7 @@ class NetlistReader:
 
             # Extract all node connections
             # Use [^)] to match everything except closing paren
-            node_pattern = r'\(node\s+\(ref\s+([^)]+)\)\s+\(pin\s+([^)]+)\)\)'
+            node_pattern = r"\(node\s+\(ref\s+([^)]+)\)\s+\(pin\s+([^)]+)\)\)"
             nodes = re.findall(node_pattern, net_block)
             for ref, pin in nodes:
                 net.add_connection(ref, pin)
@@ -205,7 +207,7 @@ class NetlistReader:
             Field value or None if not found
         """
         # Pattern to match (field_name value) where value might be quoted or unquoted
-        pattern = rf'\({field_name}\s+([^)]+)\)'
+        pattern = rf"\({field_name}\s+([^)]+)\)"
         match = re.search(pattern, block)
         if match:
             value = match.group(1).strip()

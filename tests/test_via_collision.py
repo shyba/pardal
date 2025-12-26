@@ -15,10 +15,12 @@ def test_via_command_rejects_via_on_pad_exact_position():
     board.add_net(Net(name="TEST_NET", code="1"))
 
     # Create a component with a pad at (10, 20)
-    comp = Component(ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0)
+    comp = Component(
+        ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0
+    )
     comp.pads = [
         Pad(number=1, position_offset=(-0.95, 0), size=(1.3, 1.5), net_name="TEST_NET"),
-        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5))
+        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5)),
     ]
     board.add_component(comp)
 
@@ -40,10 +42,12 @@ def test_via_command_rejects_via_near_different_net_pad():
     board.add_net(Net(name="NET2", code="2"))
 
     # Create a component with pads
-    comp = Component(ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0)
+    comp = Component(
+        ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0
+    )
     comp.pads = [
         Pad(number=1, position_offset=(-0.95, 0), size=(1.3, 1.5), net_name="NET1"),
-        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5), net_name="NET2")
+        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5), net_name="NET2"),
     ]
     board.add_component(comp)
 
@@ -64,10 +68,12 @@ def test_via_command_allows_via_on_same_net_pad_if_not_exact():
     board.add_net(Net(name="TEST_NET", code="1"))
 
     # Create a component with pads
-    comp = Component(ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0)
+    comp = Component(
+        ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0
+    )
     comp.pads = [
         Pad(number=1, position_offset=(-0.95, 0), size=(1.3, 1.5), net_name="TEST_NET"),
-        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5))
+        Pad(number=2, position_offset=(0.95, 0), size=(1.3, 1.5)),
     ]
     board.add_component(comp)
 
@@ -150,7 +156,9 @@ def test_check_drc_detects_via_pad_collision():
     board.add_net(Net(name="TEST_NET", code="1"))
 
     # Create a component with a pad
-    comp = Component(ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0)
+    comp = Component(
+        ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0
+    )
     comp.pads = [
         Pad(number=1, position_offset=(-0.95, 0), size=(1.3, 1.5), net_name="TEST_NET")
     ]
@@ -159,8 +167,15 @@ def test_check_drc_detects_via_pad_collision():
     # Manually add a via at the exact pad position (bypassing validation)
     # This simulates a board that was created before collision detection was added
     from pcb_tool.data_model import Via
+
     board.nets["TEST_NET"].vias.append(
-        Via(net_name="TEST_NET", position=(9.05, 20.0), size=0.8, drill=0.4, layers=("F.Cu", "B.Cu"))
+        Via(
+            net_name="TEST_NET",
+            position=(9.05, 20.0),
+            size=0.8,
+            drill=0.4,
+            layers=("F.Cu", "B.Cu"),
+        )
     )
 
     # Run DRC
@@ -183,11 +198,24 @@ def test_check_drc_detects_via_via_collision():
 
     # Manually add two vias at the same position (bypassing validation)
     from pcb_tool.data_model import Via
+
     board.nets["NET1"].vias.append(
-        Via(net_name="NET1", position=(30.0, 40.0), size=0.8, drill=0.4, layers=("F.Cu", "B.Cu"))
+        Via(
+            net_name="NET1",
+            position=(30.0, 40.0),
+            size=0.8,
+            drill=0.4,
+            layers=("F.Cu", "B.Cu"),
+        )
     )
     board.nets["NET2"].vias.append(
-        Via(net_name="NET2", position=(30.0, 40.0), size=0.8, drill=0.4, layers=("F.Cu", "B.Cu"))
+        Via(
+            net_name="NET2",
+            position=(30.0, 40.0),
+            size=0.8,
+            drill=0.4,
+            layers=("F.Cu", "B.Cu"),
+        )
     )
 
     # Run DRC
@@ -209,7 +237,9 @@ def test_check_drc_passes_with_no_collisions():
     board.add_net(Net(name="NET2", code="2"))
 
     # Create components with pads
-    comp1 = Component(ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0)
+    comp1 = Component(
+        ref="R1", value="10k", footprint="RES-0805", position=(10, 20), rotation=0
+    )
     comp1.pads = [
         Pad(number=1, position_offset=(-0.95, 0), size=(1.3, 1.5), net_name="NET1")
     ]

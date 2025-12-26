@@ -17,41 +17,49 @@ def create_simple_board() -> Board:
     board = Board()
 
     # Add components
-    board.add_component(Component(
-        ref="R1",
-        value="10k",
-        footprint="R_0805",
-        position=(5.0, 5.0),
-        rotation=0.0,
-        layer="F.Cu"
-    ))
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(5.0, 5.0),
+            rotation=0.0,
+            layer="F.Cu",
+        )
+    )
 
-    board.add_component(Component(
-        ref="R2",
-        value="10k",
-        footprint="R_0805",
-        position=(15.0, 5.0),
-        rotation=0.0,
-        layer="F.Cu"
-    ))
+    board.add_component(
+        Component(
+            ref="R2",
+            value="10k",
+            footprint="R_0805",
+            position=(15.0, 5.0),
+            rotation=0.0,
+            layer="F.Cu",
+        )
+    )
 
-    board.add_component(Component(
-        ref="C1",
-        value="100n",
-        footprint="C_0805",
-        position=(5.0, 15.0),
-        rotation=0.0,
-        layer="F.Cu"
-    ))
+    board.add_component(
+        Component(
+            ref="C1",
+            value="100n",
+            footprint="C_0805",
+            position=(5.0, 15.0),
+            rotation=0.0,
+            layer="F.Cu",
+        )
+    )
 
-    board.add_component(Component(
-        ref="C2",
-        value="100n",
-        footprint="C_0805",
-        position=(15.0, 15.0),
-        rotation=0.0,
-        layer="F.Cu"
-    ))
+    board.add_component(
+        Component(
+            ref="C2",
+            value="100n",
+            footprint="C_0805",
+            position=(15.0, 15.0),
+            rotation=0.0,
+            layer="F.Cu",
+        )
+    )
 
     return board
 
@@ -61,11 +69,7 @@ def test_simple_two_net_routing():
     board = create_simple_board()
 
     # Create routing grid with appropriate size for test
-    grid = RoutingGrid(
-        width_mm=20.0,
-        height_mm=20.0,
-        resolution_mm=0.2
-    )
+    grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=0.2)
 
     # Create router
     router = MultiNetRouter(grid)
@@ -94,26 +98,18 @@ def test_crossing_nets_with_layer_optimization():
     board = create_simple_board()
 
     # Create routing grid
-    grid = RoutingGrid(
-        width_mm=20.0,
-        height_mm=20.0,
-        resolution_mm=0.2
-    )
+    grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=0.2)
 
     # Create optimizer
     optimizer = LayerOptimizer(grid, timeout=5.0)
 
     # Two crossing nets
     net1 = NetPath(
-        name="HORIZONTAL",
-        segments=[((5.0, 10.0), (15.0, 10.0))],
-        default_layer="F.Cu"
+        name="HORIZONTAL", segments=[((5.0, 10.0), (15.0, 10.0))], default_layer="F.Cu"
     )
 
     net2 = NetPath(
-        name="VERTICAL",
-        segments=[((10.0, 5.0), (10.0, 15.0))],
-        default_layer="F.Cu"
+        name="VERTICAL", segments=[((10.0, 5.0), (10.0, 15.0))], default_layer="F.Cu"
     )
 
     # Optimize layer assignments
@@ -139,11 +135,7 @@ def test_multi_net_routing_with_priorities():
     """Test multi-net routing respects priorities."""
     board = create_simple_board()
 
-    grid = RoutingGrid(
-        width_mm=20.0,
-        height_mm=20.0,
-        resolution_mm=0.2
-    )
+    grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=0.2)
 
     router = MultiNetRouter(grid)
 
@@ -164,30 +156,22 @@ def test_via_minimization_in_optimization():
     """Test that Z3 optimizer minimizes via count."""
     board = create_simple_board()
 
-    grid = RoutingGrid(
-        width_mm=20.0,
-        height_mm=20.0,
-        resolution_mm=0.2
-    )
+    grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=0.2)
 
     optimizer = LayerOptimizer(grid, timeout=5.0)
 
     # Single straight net - should not need vias
     net = NetPath(
         name="STRAIGHT",
-        segments=[
-            ((5.0, 5.0), (10.0, 5.0)),
-            ((10.0, 5.0), (15.0, 5.0))
-        ],
-        default_layer="F.Cu"
+        segments=[((5.0, 5.0), (10.0, 5.0)), ((10.0, 5.0), (15.0, 5.0))],
+        default_layer="F.Cu",
     )
 
     result = optimizer.optimize_layer_assignments([net])
 
     # Count vias
     via_count = sum(
-        1 for _, _, via_after in result["STRAIGHT"].segment_assignments
-        if via_after
+        1 for _, _, via_after in result["STRAIGHT"].segment_assignments if via_after
     )
 
     # Should be 0 (no vias needed for straight line)
@@ -200,10 +184,7 @@ def test_complete_workflow_grid_to_optimization():
 
     # Step 1: Create routing grid from board
     grid = RoutingGrid(
-        width_mm=20.0,
-        height_mm=20.0,
-        resolution_mm=0.2,
-        default_clearance_mm=0.2
+        width_mm=20.0, height_mm=20.0, resolution_mm=0.2, default_clearance_mm=0.2
     )
 
     # Step 2: Mark component positions as obstacles
@@ -215,11 +196,7 @@ def test_complete_workflow_grid_to_optimization():
 
     # Step 3: Route nets
     pathfinder = PathFinder(grid, via_cost=5.0)
-    path1 = pathfinder.find_path(
-        start_mm=(6.0, 5.0),
-        goal_mm=(14.0, 5.0),
-        layer="F.Cu"
-    )
+    path1 = pathfinder.find_path(start_mm=(6.0, 5.0), goal_mm=(14.0, 5.0), layer="F.Cu")
 
     assert path1 is not None
     assert len(path1) >= 2
@@ -246,11 +223,7 @@ def test_performance_simple_board():
 
     board = create_simple_board()
 
-    grid = RoutingGrid(
-        width_mm=20.0,
-        height_mm=20.0,
-        resolution_mm=0.2
-    )
+    grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=0.2)
 
     router = MultiNetRouter(grid)
 
@@ -279,17 +252,21 @@ def test_fallback_on_infeasible_constraints():
     # (many crossing nets - may not be solvable with just 2 layers)
     nets = []
     for i in range(5):
-        nets.append(NetPath(
-            name=f"H{i}",
-            segments=[((0.0, float(i)), (10.0, float(i)))],
-            default_layer="F.Cu"
-        ))
+        nets.append(
+            NetPath(
+                name=f"H{i}",
+                segments=[((0.0, float(i)), (10.0, float(i)))],
+                default_layer="F.Cu",
+            )
+        )
     for i in range(5):
-        nets.append(NetPath(
-            name=f"V{i}",
-            segments=[((float(i), 0.0), (float(i), 10.0))],
-            default_layer="F.Cu"
-        ))
+        nets.append(
+            NetPath(
+                name=f"V{i}",
+                segments=[((float(i), 0.0), (float(i), 10.0))],
+                default_layer="F.Cu",
+            )
+        )
 
     # Should return greedy fallback without crashing
     result = optimizer.optimize_layer_assignments(nets)
@@ -302,11 +279,7 @@ def test_routing_with_obstacles():
     """Test routing around obstacles."""
     board = create_simple_board()
 
-    grid = RoutingGrid(
-        width_mm=20.0,
-        height_mm=20.0,
-        resolution_mm=0.2
-    )
+    grid = RoutingGrid(width_mm=20.0, height_mm=20.0, resolution_mm=0.2)
 
     # Add obstacle in the middle
     for x in range(8, 12):
@@ -316,9 +289,7 @@ def test_routing_with_obstacles():
     # Route around obstacle
     pathfinder = PathFinder(grid)
     path = pathfinder.find_path(
-        start_mm=(5.0, 10.0),
-        goal_mm=(15.0, 10.0),
-        layer="F.Cu"
+        start_mm=(5.0, 10.0), goal_mm=(15.0, 10.0), layer="F.Cu"
     )
 
     # Should find path around obstacle
@@ -337,9 +308,9 @@ def test_layer_assignment_consistency():
         segments=[
             ((0.0, 0.0), (3.0, 0.0)),
             ((3.0, 0.0), (6.0, 0.0)),
-            ((6.0, 0.0), (9.0, 0.0))
+            ((6.0, 0.0), (9.0, 0.0)),
         ],
-        default_layer="F.Cu"
+        default_layer="F.Cu",
     )
 
     result = optimizer.optimize_layer_assignments([net])

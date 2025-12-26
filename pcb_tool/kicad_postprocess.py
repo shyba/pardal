@@ -198,8 +198,12 @@ def postprocess(input_path, output_path, add_gnd=True, fill=True, replace_fps=Fa
     board = pcbnew.LoadBoard(str(input_path))
 
     if replace_fps:
-        print("WARNING: Footprint replacement disabled due to pcbnew SWIG memory issues")
-        print("  The lib_footprint_mismatch warnings are cosmetic and don't affect manufacturing")
+        print(
+            "WARNING: Footprint replacement disabled due to pcbnew SWIG memory issues"
+        )
+        print(
+            "  The lib_footprint_mismatch warnings are cosmetic and don't affect manufacturing"
+        )
         # Footprint replacement causes segfaults in pcbnew SWIG bindings
         # count = replace_footprints_with_library(board)
         # print(f"  Replaced {count} footprints")
@@ -231,14 +235,20 @@ def main():
     parser = argparse.ArgumentParser(description="KiCad PCB post-processor")
     parser.add_argument("input", help="Input .kicad_pcb file")
     parser.add_argument("output", help="Output .kicad_pcb file")
-    parser.add_argument("--gnd-pour", action="store_true",
-                        help="Add GND copper pour on both layers")
-    parser.add_argument("--replace-footprints", action="store_true",
-                        help="Replace footprints with KiCad library versions")
-    parser.add_argument("--no-fill", action="store_true",
-                        help="Skip zone filling")
-    parser.add_argument("--all", action="store_true",
-                        help="Apply all post-processing (--gnd-pour --replace-footprints)")
+    parser.add_argument(
+        "--gnd-pour", action="store_true", help="Add GND copper pour on both layers"
+    )
+    parser.add_argument(
+        "--replace-footprints",
+        action="store_true",
+        help="Replace footprints with KiCad library versions",
+    )
+    parser.add_argument("--no-fill", action="store_true", help="Skip zone filling")
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Apply all post-processing (--gnd-pour --replace-footprints)",
+    )
 
     args = parser.parse_args()
 
@@ -250,7 +260,7 @@ def main():
         args.output,
         add_gnd=add_gnd,
         fill=not args.no_fill,
-        replace_fps=replace_fps
+        replace_fps=replace_fps,
     )
 
 

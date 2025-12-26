@@ -16,7 +16,7 @@ def test_add_crossing_blocks():
     # Create some crossings
     crossings = [
         Crossing(net1="net1", net2="net2", cell=(5, 5), layer="F.Cu"),
-        Crossing(net1="net3", net2="net4", cell=(10, 10), layer="F.Cu")
+        Crossing(net1="net3", net2="net4", cell=(10, 10), layer="F.Cu"),
     ]
 
     # Add blocks
@@ -39,9 +39,7 @@ def test_apply_to_solver():
     manager = LazyConstraintManager()
 
     # Create crossing
-    crossings = [
-        Crossing(net1="net1", net2="net2", cell=(5, 5), layer="F.Cu")
-    ]
+    crossings = [Crossing(net1="net1", net2="net2", cell=(5, 5), layer="F.Cu")]
     manager.add_crossing_blocks(crossings)
 
     # Mock Z3 components
@@ -61,13 +59,8 @@ def test_apply_to_solver():
 
     # Create mock solver and variables
     solver = MockSolver()
-    cell_vars = {
-        (5, 5, "F.Cu"): MockVar("cell_5_5_F.Cu")
-    }
-    net_name_to_idx = {
-        "net1": 0,
-        "net2": 1
-    }
+    cell_vars = {(5, 5, "F.Cu"): MockVar("cell_5_5_F.Cu")}
+    net_name_to_idx = {"net1": 0, "net2": 1}
 
     # Apply constraints
     manager.apply_to_solver(solver, cell_vars, net_name_to_idx)
@@ -89,7 +82,7 @@ def test_count_tracking():
     crossings = [
         Crossing(net1="net1", net2="net2", cell=(5, 5), layer="F.Cu"),
         Crossing(net1="net3", net2="net4", cell=(10, 10), layer="F.Cu"),
-        Crossing(net1="net5", net2="net6", cell=(15, 15), layer="B.Cu")
+        Crossing(net1="net5", net2="net6", cell=(15, 15), layer="B.Cu"),
     ]
     manager.add_crossing_blocks(crossings)
 

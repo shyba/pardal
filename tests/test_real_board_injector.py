@@ -49,6 +49,7 @@ def injector_placements():
     ]
 
 
+@pytest.mark.slow
 def test_injector_board_autoroute_all(injector_board_path, injector_placements):
     """Test autorouting all nets on the injector board.
 
@@ -93,10 +94,10 @@ def test_injector_board_autoroute_all(injector_board_path, injector_placements):
     drc_errors = 0
     if "violations:" in drc_result.lower():
         # Extract violation count
-        for line in drc_result.split('\n'):
-            if 'violations:' in line.lower():
+        for line in drc_result.split("\n"):
+            if "violations:" in line.lower():
                 try:
-                    drc_errors = int(line.split(':')[1].strip().split()[0])
+                    drc_errors = int(line.split(":")[1].strip().split()[0])
                 except (ValueError, IndexError):
                     pass
 
@@ -124,7 +125,17 @@ def test_injector_board_net_count(injector_board_path):
     nets_result = repl.process_command("LIST NETS")
 
     # Expected nets
-    expected_nets = ['GND', '+12V', '+5V', 'IN1', 'IN2', 'GATE1', 'GATE2', 'OUT1', 'OUT2']
+    expected_nets = [
+        "GND",
+        "+12V",
+        "+5V",
+        "IN1",
+        "IN2",
+        "GATE1",
+        "GATE2",
+        "OUT1",
+        "OUT2",
+    ]
 
     for net_name in expected_nets:
         assert net_name in nets_result, f"Expected net {net_name} not found"
@@ -147,8 +158,21 @@ def test_injector_board_component_count(injector_board_path):
     components_result = repl.process_command("LIST COMPONENTS")
 
     # Expected components
-    expected_components = ['J1', 'J2', 'J3', 'C1', 'C2', 'R1', 'R2', 'R3', 'R4',
-                           'Q1', 'Q2', 'D1', 'D2']
+    expected_components = [
+        "J1",
+        "J2",
+        "J3",
+        "C1",
+        "C2",
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "Q1",
+        "Q2",
+        "D1",
+        "D2",
+    ]
 
     for comp_ref in expected_components:
         assert comp_ref in components_result, f"Expected component {comp_ref} not found"
@@ -157,7 +181,10 @@ def test_injector_board_component_count(injector_board_path):
     print(f"Found all {len(expected_components)} expected components")
 
 
-def test_injector_board_routing_quality_metrics(injector_board_path, injector_placements):
+@pytest.mark.slow
+def test_injector_board_routing_quality_metrics(
+    injector_board_path, injector_placements
+):
     """Test routing quality metrics.
 
     Measures:
@@ -178,52 +205,54 @@ def test_injector_board_routing_quality_metrics(injector_board_path, injector_pl
 
     # Extract metrics from result
     metrics = {
-        'nets_routed': 0,
-        'total_nets': 0,
-        'total_length_mm': 0.0,
-        'vias': 0,
-        'routing_time': 0.0,
+        "nets_routed": 0,
+        "total_nets": 0,
+        "total_length_mm": 0.0,
+        "vias": 0,
+        "routing_time": 0.0,
     }
 
     # Parse result
-    for line in result.split('\n'):
-        if '/' in line and 'routed' in line.lower():
+    for line in result.split("\n"):
+        if "/" in line and "routed" in line.lower():
             # Extract "X/Y nets routed"
             try:
-                parts = line.split('/')
-                metrics['nets_routed'] = int(parts[0].split()[-1])
-                metrics['total_nets'] = int(parts[1].split()[0])
+                parts = line.split("/")
+                metrics["nets_routed"] = int(parts[0].split()[-1])
+                metrics["total_nets"] = int(parts[1].split()[0])
             except (ValueError, IndexError):
                 pass
-        if 'length:' in line.lower():
+        if "length:" in line.lower():
             # Extract "Total length: X.Xmm"
             try:
-                metrics['total_length_mm'] = float(line.split(':')[1].strip().replace('mm', ''))
+                metrics["total_length_mm"] = float(
+                    line.split(":")[1].strip().replace("mm", "")
+                )
             except (ValueError, IndexError):
                 pass
-        if 'via' in line.lower():
+        if "via" in line.lower():
             # Count via mentions
-            metrics['vias'] += line.lower().count('via')
+            metrics["vias"] += line.lower().count("via")
 
     # Run DRC
     drc_result = repl.process_command("CHECK DRC")
     drc_errors = 0
     if "violations:" in drc_result.lower():
-        for line in drc_result.split('\n'):
-            if 'violations:' in line.lower():
+        for line in drc_result.split("\n"):
+            if "violations:" in line.lower():
                 try:
-                    drc_errors = int(line.split(':')[1].strip().split()[0])
+                    drc_errors = int(line.split(":")[1].strip().split()[0])
                 except (ValueError, IndexError):
                     pass
 
-    metrics['drc_errors'] = drc_errors
+    metrics["drc_errors"] = drc_errors
 
     # Quality assertions
-    if metrics['total_nets'] > 0:
-        success_rate = (metrics['nets_routed'] / metrics['total_nets']) * 100
+    if metrics["total_nets"] > 0:
+        success_rate = (metrics["nets_routed"] / metrics["total_nets"]) * 100
         assert success_rate >= 80.0, f"Success rate {success_rate:.1f}% below 80%"
 
-    assert metrics['drc_errors'] <= 5, f"DRC errors {metrics['drc_errors']} exceeds 5"
+    assert metrics["drc_errors"] <= 5, f"DRC errors {metrics['drc_errors']} exceeds 5"
 
     # Report metrics
     print(f"\n=== Routing Quality Metrics ===")
@@ -231,11 +260,16 @@ def test_injector_board_routing_quality_metrics(injector_board_path, injector_pl
     print(f"Total trace length: {metrics['total_length_mm']:.1f}mm")
     print(f"Via count: {metrics['vias']}")
     print(f"DRC errors: {metrics['drc_errors']}")
-    if metrics['total_nets'] > 0:
-        print(f"Success rate: {(metrics['nets_routed']/metrics['total_nets'])*100:.1f}%")
+    if metrics["total_nets"] > 0:
+        print(
+            f"Success rate: {(metrics['nets_routed']/metrics['total_nets'])*100:.1f}%"
+        )
 
 
-def test_injector_board_stress_test_repeated_routing(injector_board_path, injector_placements):
+@pytest.mark.slow
+def test_injector_board_stress_test_repeated_routing(
+    injector_board_path, injector_placements
+):
     """Stress test: Route, undo, route again.
 
     Tests that autorouting is deterministic and undo works correctly.
@@ -265,5 +299,5 @@ def test_injector_board_stress_test_repeated_routing(injector_board_path, inject
     print(f"Second routing: {result2[:100]}")
 
 
-if __name__ == '__main__':
-    pytest.main([__file__, '-v', '-s'])
+if __name__ == "__main__":
+    pytest.main([__file__, "-v", "-s"])

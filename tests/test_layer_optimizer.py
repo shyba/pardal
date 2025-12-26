@@ -42,9 +42,9 @@ def test_optimize_single_net_no_constraints():
         segments=[
             ((0.0, 0.0), (1.0, 0.0)),
             ((1.0, 0.0), (2.0, 0.0)),
-            ((2.0, 0.0), (3.0, 0.0))
+            ((2.0, 0.0), (3.0, 0.0)),
         ],
-        default_layer="F.Cu"
+        default_layer="F.Cu",
     )
 
     result = optimizer.optimize_layer_assignments([net])
@@ -65,15 +65,17 @@ def test_via_minimization():
         segments=[
             ((0.0, 0.0), (1.0, 0.0)),
             ((1.0, 0.0), (2.0, 0.0)),
-            ((2.0, 0.0), (3.0, 0.0))
+            ((2.0, 0.0), (3.0, 0.0)),
         ],
-        default_layer="F.Cu"
+        default_layer="F.Cu",
     )
 
     result = optimizer.optimize_layer_assignments([net])
 
     # Count vias
-    via_count = sum(1 for _, _, via_after in result["NET1"].segment_assignments if via_after)
+    via_count = sum(
+        1 for _, _, via_after in result["NET1"].segment_assignments if via_after
+    )
 
     # Should be zero (all on same layer is optimal)
     assert via_count == 0
@@ -92,18 +94,14 @@ def test_crossing_prevention():
     # Two nets that cross - one must be on different layer
     net1 = NetPath(
         name="NET1",
-        segments=[
-            ((0.0, 1.0), (2.0, 1.0))  # Horizontal
-        ],
-        default_layer="F.Cu"
+        segments=[((0.0, 1.0), (2.0, 1.0))],  # Horizontal
+        default_layer="F.Cu",
     )
 
     net2 = NetPath(
         name="NET2",
-        segments=[
-            ((1.0, 0.0), (1.0, 2.0))  # Vertical, crosses NET1
-        ],
-        default_layer="F.Cu"
+        segments=[((1.0, 0.0), (1.0, 2.0))],  # Vertical, crosses NET1
+        default_layer="F.Cu",
     )
 
     result = optimizer.optimize_layer_assignments([net1, net2])
@@ -131,11 +129,8 @@ def test_decode_solution_format():
 
     net = NetPath(
         name="TEST",
-        segments=[
-            ((0.0, 0.0), (1.0, 0.0)),
-            ((1.0, 0.0), (2.0, 0.0))
-        ],
-        default_layer="F.Cu"
+        segments=[((0.0, 0.0), (1.0, 0.0)), ((1.0, 0.0), (2.0, 0.0))],
+        default_layer="F.Cu",
     )
 
     result = optimizer.optimize_layer_assignments([net])
@@ -163,13 +158,13 @@ def test_greedy_fallback():
     # Large problem that will timeout
     nets = []
     for i in range(20):
-        nets.append(NetPath(
-            name=f"NET{i}",
-            segments=[
-                ((float(i), 0.0), (float(i), 10.0))
-            ],
-            default_layer="F.Cu"
-        ))
+        nets.append(
+            NetPath(
+                name=f"NET{i}",
+                segments=[((float(i), 0.0), (float(i), 10.0))],
+                default_layer="F.Cu",
+            )
+        )
 
     # Should fall back to greedy solution
     result = optimizer.optimize_layer_assignments(nets)
@@ -207,11 +202,7 @@ def test_timeout_handling():
     optimizer = LayerOptimizer(grid, timeout=0.001)  # Very short timeout
 
     net = NetPath(
-        name="NET1",
-        segments=[
-            ((0.0, 0.0), (1.0, 0.0))
-        ],
-        default_layer="F.Cu"
+        name="NET1", segments=[((0.0, 0.0), (1.0, 0.0))], default_layer="F.Cu"
     )
 
     # Should not crash, should return fallback solution
@@ -247,18 +238,15 @@ def test_encode_constraints():
 
     net = NetPath(
         name="NET1",
-        segments=[
-            ((0.0, 0.0), (1.0, 0.0)),
-            ((1.0, 0.0), (2.0, 0.0))
-        ],
-        default_layer="F.Cu"
+        segments=[((0.0, 0.0), (1.0, 0.0)), ((1.0, 0.0), (2.0, 0.0))],
+        default_layer="F.Cu",
     )
 
     opt, layer_vars, via_vars = optimizer._encode_constraints([net])
 
     # Check that variables were created
     assert len(layer_vars) == 2  # 2 segments
-    assert len(via_vars) == 1    # 1 junction
+    assert len(via_vars) == 1  # 1 junction
 
     # Check variable keys
     assert ("NET1", 0) in layer_vars

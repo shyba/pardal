@@ -27,14 +27,16 @@ class TestDrcModule:
         """Test DRC returns proper result structure."""
         # Create a minimal PCB file
         pcb_file = tmp_path / "test.kicad_pcb"
-        pcb_file.write_text("""(kicad_pcb (version 20240108) (generator "test")
+        pcb_file.write_text(
+            """(kicad_pcb (version 20240108) (generator "test")
   (general (thickness 1.6) (legacy_teardrops no))
   (paper "A4")
   (layers (0 "F.Cu" signal) (31 "B.Cu" signal))
   (setup (pad_to_mask_clearance 0))
   (net 0 "")
 )
-""")
+"""
+        )
 
         if not check_kicad_cli():
             pytest.skip("kicad-cli not available")
@@ -53,43 +55,43 @@ class TestCliHelp:
     def test_pardal_help(self):
         """Test pardal --help shows subcommands."""
         result = subprocess.run(
-            ['./venv/bin/pardal', '--help'],
+            ["./venv/bin/pardal", "--help"],
             capture_output=True,
             text=True,
-            cwd='/home/user/repos/ee/pardal-pcb'
+            cwd="/home/user/repos/ee/pardal-pcb",
         )
         assert result.returncode == 0
-        assert 'build' in result.stdout
-        assert 'drc' in result.stdout
-        assert 'place' in result.stdout
-        assert 'route' in result.stdout
-        assert 'repl' in result.stdout
+        assert "build" in result.stdout
+        assert "drc" in result.stdout
+        assert "place" in result.stdout
+        assert "route" in result.stdout
+        assert "repl" in result.stdout
 
     def test_pardal_build_help(self):
         """Test pardal build --help shows options."""
         result = subprocess.run(
-            ['./venv/bin/pardal', 'build', '--help'],
+            ["./venv/bin/pardal", "build", "--help"],
             capture_output=True,
             text=True,
-            cwd='/home/user/repos/ee/pardal-pcb'
+            cwd="/home/user/repos/ee/pardal-pcb",
         )
         assert result.returncode == 0
-        assert '--placement' in result.stdout
-        assert '--output' in result.stdout
-        assert '--route' in result.stdout
-        assert '--no-drc' in result.stdout
+        assert "--placement" in result.stdout
+        assert "--output" in result.stdout
+        assert "--route" in result.stdout
+        assert "--no-drc" in result.stdout
 
     def test_pardal_drc_help(self):
         """Test pardal drc --help shows options."""
         result = subprocess.run(
-            ['./venv/bin/pardal', 'drc', '--help'],
+            ["./venv/bin/pardal", "drc", "--help"],
             capture_output=True,
             text=True,
-            cwd='/home/user/repos/ee/pardal-pcb'
+            cwd="/home/user/repos/ee/pardal-pcb",
         )
         assert result.returncode == 0
-        assert '--format' in result.stdout
-        assert 'json' in result.stdout
+        assert "--format" in result.stdout
+        assert "json" in result.stdout
 
 
 class TestCliBuild:
@@ -98,7 +100,7 @@ class TestCliBuild:
     @pytest.fixture
     def netlist_path(self):
         """Path to test netlist."""
-        path = Path('/home/user/repos/ee/pardal-pcb/tests/fixtures/injector_2ch.net')
+        path = Path("/home/user/repos/ee/pardal-pcb/tests/fixtures/injector_2ch.net")
         if not path.exists():
             pytest.skip("Test netlist not found")
         return path
@@ -108,28 +110,40 @@ class TestCliBuild:
         output = tmp_path / "test.kicad_pcb"
 
         result = subprocess.run(
-            ['./venv/bin/pardal', 'build', str(netlist_path),
-             '-o', str(output), '--no-drc'],
+            [
+                "./venv/bin/pardal",
+                "build",
+                str(netlist_path),
+                "-o",
+                str(output),
+                "--no-drc",
+            ],
             capture_output=True,
             text=True,
-            cwd='/home/user/repos/ee/pardal-pcb'
+            cwd="/home/user/repos/ee/pardal-pcb",
         )
 
         assert result.returncode == 0
         assert output.exists()
-        assert 'OK: Loaded' in result.stdout
-        assert 'OK: Saved' in result.stdout
+        assert "OK: Loaded" in result.stdout
+        assert "OK: Saved" in result.stdout
 
     def test_build_missing_netlist(self, tmp_path):
         """Test build fails with missing netlist."""
         output = tmp_path / "test.kicad_pcb"
 
         result = subprocess.run(
-            ['./venv/bin/pardal', 'build', '/nonexistent.net',
-             '-o', str(output), '--no-drc'],
+            [
+                "./venv/bin/pardal",
+                "build",
+                "/nonexistent.net",
+                "-o",
+                str(output),
+                "--no-drc",
+            ],
             capture_output=True,
             text=True,
-            cwd='/home/user/repos/ee/pardal-pcb'
+            cwd="/home/user/repos/ee/pardal-pcb",
         )
 
         assert result.returncode != 0
@@ -141,14 +155,14 @@ class TestCliDrc:
     def test_drc_missing_file(self):
         """Test DRC fails with missing file."""
         result = subprocess.run(
-            ['./venv/bin/pardal', 'drc', '/nonexistent.kicad_pcb'],
+            ["./venv/bin/pardal", "drc", "/nonexistent.kicad_pcb"],
             capture_output=True,
             text=True,
-            cwd='/home/user/repos/ee/pardal-pcb'
+            cwd="/home/user/repos/ee/pardal-pcb",
         )
 
         assert result.returncode != 0
-        assert 'not found' in result.stderr.lower() or 'error' in result.stderr.lower()
+        assert "not found" in result.stderr.lower() or "error" in result.stderr.lower()
 
 
 class TestCliPlace:
@@ -157,7 +171,7 @@ class TestCliPlace:
     @pytest.fixture
     def netlist_path(self):
         """Path to test netlist."""
-        path = Path('/home/user/repos/ee/pardal-pcb/tests/fixtures/injector_2ch.net')
+        path = Path("/home/user/repos/ee/pardal-pcb/tests/fixtures/injector_2ch.net")
         if not path.exists():
             pytest.skip("Test netlist not found")
         return path
@@ -167,14 +181,13 @@ class TestCliPlace:
         output = tmp_path / "test.kicad_pcb"
 
         result = subprocess.run(
-            ['./venv/bin/pardal', 'place', str(netlist_path),
-             '-o', str(output)],
+            ["./venv/bin/pardal", "place", str(netlist_path), "-o", str(output)],
             capture_output=True,
             text=True,
-            cwd='/home/user/repos/ee/pardal-pcb'
+            cwd="/home/user/repos/ee/pardal-pcb",
         )
 
         assert result.returncode == 0
         assert output.exists()
-        assert 'OK: Loaded' in result.stdout
-        assert 'OK: Saved' in result.stdout
+        assert "OK: Loaded" in result.stdout
+        assert "OK: Saved" in result.stdout

@@ -24,25 +24,27 @@ class TestGridVisualization:
             value="1k",
             footprint="R_0805",
             position=(10.0, 20.0),
-            rotation=0.0
+            rotation=0.0,
         )
         board.components["R2"] = Component(
             ref="R2",
             value="1k",
             footprint="R_0805",
             position=(30.0, 20.0),
-            rotation=0.0
+            rotation=0.0,
         )
 
         # Add a net with routing
         net = Net(name="NET1", code="1")
-        net.segments.append(TraceSegment(
-            net_name="NET1",
-            start=(10.0, 20.0),
-            end=(30.0, 20.0),
-            layer="F.Cu",
-            width=0.5
-        ))
+        net.segments.append(
+            TraceSegment(
+                net_name="NET1",
+                start=(10.0, 20.0),
+                end=(30.0, 20.0),
+                layer="F.Cu",
+                width=0.5,
+            )
+        )
         board.nets["NET1"] = net
 
         # Execute SHOW BOARD command
@@ -67,25 +69,29 @@ class TestGridVisualization:
             value="Conn",
             footprint="Conn_01x02",
             position=(10.0, 20.0),
-            rotation=0.0
+            rotation=0.0,
         )
 
         # Add net with via
         net = Net(name="GND", code="1")
-        net.segments.append(TraceSegment(
-            net_name="GND",
-            start=(10.0, 20.0),
-            end=(15.0, 20.0),
-            layer="F.Cu",
-            width=0.8
-        ))
-        net.vias.append(Via(
-            net_name="GND",
-            position=(15.0, 20.0),
-            size=0.8,
-            drill=0.4,
-            layers=("F.Cu", "B.Cu")
-        ))
+        net.segments.append(
+            TraceSegment(
+                net_name="GND",
+                start=(10.0, 20.0),
+                end=(15.0, 20.0),
+                layer="F.Cu",
+                width=0.8,
+            )
+        )
+        net.vias.append(
+            Via(
+                net_name="GND",
+                position=(15.0, 20.0),
+                size=0.8,
+                drill=0.4,
+                layers=("F.Cu", "B.Cu"),
+            )
+        )
         board.nets["GND"] = net
 
         # Execute SHOW BOARD command
@@ -106,7 +112,7 @@ class TestGridVisualization:
             value="1k",
             footprint="R_0805",
             position=(10.0, 20.0),
-            rotation=0.0
+            rotation=0.0,
         )
 
         # Execute SHOW BOARD command
@@ -127,19 +133,21 @@ class TestGridVisualization:
                 value="1k",
                 footprint="R_0805",
                 position=(10.0 + i * 10.0, 20.0),
-                rotation=0.0
+                rotation=0.0,
             )
 
         # Add multiple nets with routing
         for i in range(2):
-            net = Net(name=f"NET{i+1}", code=str(i+1))
-            net.segments.append(TraceSegment(
-                net_name=f"NET{i+1}",
-                start=(10.0 + i * 10.0, 20.0),
-                end=(20.0 + i * 10.0, 20.0),
-                layer="F.Cu",
-                width=0.5
-            ))
+            net = Net(name=f"NET{i+1}", code=str(i + 1))
+            net.segments.append(
+                TraceSegment(
+                    net_name=f"NET{i+1}",
+                    start=(10.0 + i * 10.0, 20.0),
+                    end=(20.0 + i * 10.0, 20.0),
+                    layer="F.Cu",
+                    width=0.5,
+                )
+            )
             board.nets[f"NET{i+1}"] = net
 
         # Execute SHOW BOARD command
@@ -163,18 +171,20 @@ class TestGridVisualization:
             value="1k",
             footprint="R_0805",
             position=(50.0, 50.0),
-            rotation=0.0
+            rotation=0.0,
         )
 
         # Add a single trace
         net = Net(name="NET1", code="1")
-        net.segments.append(TraceSegment(
-            net_name="NET1",
-            start=(40.0, 50.0),
-            end=(60.0, 50.0),
-            layer="F.Cu",
-            width=0.5
-        ))
+        net.segments.append(
+            TraceSegment(
+                net_name="NET1",
+                start=(40.0, 50.0),
+                end=(60.0, 50.0),
+                layer="F.Cu",
+                width=0.5,
+            )
+        )
         board.nets["NET1"] = net
 
         # Execute SHOW BOARD command

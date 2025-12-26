@@ -37,9 +37,11 @@ from pcb_tool.footprint_library import get_footprint_pads
 # DRC Configuration
 # =============================================================================
 
+
 @dataclass
 class DRCConfig:
     """Design Rule Check configuration."""
+
     resolution_mm: float = 0.4
     trace_to_trace: float = 0.25
     trace_to_pad: float = 0.25
@@ -56,6 +58,7 @@ class DRCConfig:
 # Test Infrastructure
 # =============================================================================
 
+
 class RoutingTestCase:
     """Base class for routing test cases."""
 
@@ -64,15 +67,26 @@ class RoutingTestCase:
         self.drc = drc or DRCConfig()
         self.board = Board()
 
-    def create_component(self, ref: str, value: str, footprint: str,
-                         x: float, y: float, rotation: float = 0) -> Component:
+    def create_component(
+        self,
+        ref: str,
+        value: str,
+        footprint: str,
+        x: float,
+        y: float,
+        rotation: float = 0,
+    ) -> Component:
         """Create and place a component."""
         pads, _ = get_footprint_pads(footprint)
         if not pads:
             # Fallback for generic footprints
             pads = [
-                Pad(number='1', position_offset=(-1.0, 0), size=(1.0, 1.0), shape='rect'),
-                Pad(number='2', position_offset=(1.0, 0), size=(1.0, 1.0), shape='rect'),
+                Pad(
+                    number="1", position_offset=(-1.0, 0), size=(1.0, 1.0), shape="rect"
+                ),
+                Pad(
+                    number="2", position_offset=(1.0, 0), size=(1.0, 1.0), shape="rect"
+                ),
             ]
         comp = Component(
             ref=ref,
@@ -80,13 +94,14 @@ class RoutingTestCase:
             footprint=footprint,
             position=(x, y),
             rotation=rotation,
-            pads=pads
+            pads=pads,
         )
         self.board.components[ref] = comp
         return comp
 
-    def create_net(self, name: str, connections: List[Tuple[str, str]],
-                   track_width: float = None) -> Net:
+    def create_net(
+        self, name: str, connections: List[Tuple[str, str]], track_width: float = None
+    ) -> Net:
         """Create a net with connections."""
         # Generate unique code for the net
         code = len(self.board.nets) + 1
@@ -99,21 +114,28 @@ class RoutingTestCase:
 
     def run_kicad_drc(self, pcb_file: Path) -> Tuple[int, Dict[str, int]]:
         """Run KiCad CLI DRC and return violation counts by type."""
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False) as f:
             report_file = Path(f.name)
 
         try:
             result = subprocess.run(
-                ['kicad-cli', 'pcb', 'drc', '--output', str(report_file), str(pcb_file)],
+                [
+                    "kicad-cli",
+                    "pcb",
+                    "drc",
+                    "--output",
+                    str(report_file),
+                    str(pcb_file),
+                ],
                 capture_output=True,
-                text=True
+                text=True,
             )
 
             report_text = report_file.read_text() if report_file.exists() else ""
             total_violations = 0
 
-            for line in result.stdout.strip().split('\n'):
-                if 'Found' in line and 'violations' in line:
+            for line in result.stdout.strip().split("\n"):
+                if "Found" in line and "violations" in line:
                     try:
                         total_violations = int(line.split()[1])
                     except (ValueError, IndexError):
@@ -121,9 +143,9 @@ class RoutingTestCase:
 
             # Parse violation types
             violation_types = {}
-            for line in report_text.split('\n'):
-                if line.startswith('['):
-                    vtype = line.split(']')[0][1:]
+            for line in report_text.split("\n"):
+                if line.startswith("["):
+                    vtype = line.split("]")[0][1:]
                     violation_types[vtype] = violation_types.get(vtype, 0) + 1
 
             return total_violations, violation_types
@@ -137,13 +159,19 @@ class RoutingTestCase:
 
     def get_real_violations(self, violation_types: Dict[str, int]) -> int:
         """Count real routing violations (excluding cosmetic/expected)."""
-        real_types = ['tracks_crossing', 'shorting_items', 'clearance', 'track_dangling']
+        real_types = [
+            "tracks_crossing",
+            "shorting_items",
+            "clearance",
+            "track_dangling",
+        ]
         return sum(violation_types.get(v, 0) for v in real_types)
 
 
 # =============================================================================
 # Routing Functions (simplified from test_route_6ch.py)
 # =============================================================================
+
 
 def simplify_path(path, tolerance=0.5):
     """Remove collinear points from path."""
@@ -162,7 +190,7 @@ def simplify_path(path, tolerance=0.5):
         dy2 = next_pt[1] - prev[1]
 
         cross = abs(dx1 * dy2 - dy1 * dx2)
-        line_len = math.sqrt(dx2*dx2 + dy2*dy2)
+        line_len = math.sqrt(dx2 * dx2 + dy2 * dy2)
         distance = cross / line_len if line_len > 0 else 0
 
         if distance > tolerance:
@@ -201,7 +229,7 @@ def path_to_cells_drc(path, grid, layer, net_name, drc: DRCConfig):
     if not path:
         return cells
 
-    is_power_net = net_name.upper() in ['+12V', '+5V', 'GND', 'VDD', 'VCC', 'VSS']
+    is_power_net = net_name.upper() in ["+12V", "+5V", "GND", "VDD", "VCC", "VSS"]
     trace_width = drc.power_trace_width if is_power_net else drc.signal_trace_width
     excl_mm = (trace_width / 2) + drc.trace_to_trace
     excl_cells = max(1, int(math.ceil(excl_mm / drc.resolution_mm)))
@@ -237,15 +265,19 @@ def path_to_cells_drc(path, grid, layer, net_name, drc: DRCConfig):
     return cells
 
 
-def route_net_segment(start: Tuple[float, float], end: Tuple[float, float],
-                      grid: RoutingGrid, pathfinder: PathFinder,
-                      routed_cells: Set, drc: DRCConfig,
-                      prefer_layer: str = "F.Cu") -> Tuple[Optional[List], str]:
+def route_net_segment(
+    start: Tuple[float, float],
+    end: Tuple[float, float],
+    grid: RoutingGrid,
+    pathfinder: PathFinder,
+    routed_cells: Set,
+    drc: DRCConfig,
+    prefer_layer: str = "F.Cu",
+) -> Tuple[Optional[List], str]:
     """Route a single segment between two points."""
     # Try preferred layer first
     path = pathfinder.find_path(
-        start_mm=start, goal_mm=end,
-        layer=prefer_layer, force_single_layer=True
+        start_mm=start, goal_mm=end, layer=prefer_layer, force_single_layer=True
     )
     if path:
         return simplify_path(path, drc.resolution_mm), prefer_layer
@@ -253,8 +285,7 @@ def route_net_segment(start: Tuple[float, float], end: Tuple[float, float],
     # Try other layer
     other_layer = "B.Cu" if prefer_layer == "F.Cu" else "F.Cu"
     path = pathfinder.find_path(
-        start_mm=start, goal_mm=end,
-        layer=other_layer, force_single_layer=True
+        start_mm=start, goal_mm=end, layer=other_layer, force_single_layer=True
     )
     if path:
         return simplify_path(path, drc.resolution_mm), other_layer
@@ -262,7 +293,9 @@ def route_net_segment(start: Tuple[float, float], end: Tuple[float, float],
     return None, None
 
 
-def route_board(test_case: RoutingTestCase) -> Tuple[Dict[str, List], Dict[str, str], int]:
+def route_board(
+    test_case: RoutingTestCase,
+) -> Tuple[Dict[str, List], Dict[str, str], int]:
     """Route all nets on a board. Returns (paths, layers, crossings)."""
     board = test_case.board
     drc = test_case.drc
@@ -270,7 +303,7 @@ def route_board(test_case: RoutingTestCase) -> Tuple[Dict[str, List], Dict[str, 
     grid = RoutingGrid(
         width_mm=drc.board_width_mm,
         height_mm=drc.board_height_mm,
-        resolution_mm=drc.resolution_mm
+        resolution_mm=drc.resolution_mm,
     )
     pathfinder = PathFinder(grid)
     detector = CrossingDetector(drc.resolution_mm)
@@ -280,12 +313,9 @@ def route_board(test_case: RoutingTestCase) -> Tuple[Dict[str, List], Dict[str, 
     for comp in board.components.values():
         for pad in comp.pads:
             pad_pos = comp.get_pad_position(pad.number)
-            pad_info.append({
-                'pos': pad_pos,
-                'size': pad.size,
-                'comp': comp.ref,
-                'pad': pad.number
-            })
+            pad_info.append(
+                {"pos": pad_pos, "size": pad.size, "comp": comp.ref, "pad": pad.number}
+            )
 
     paths = {}
     layers = {}
@@ -293,7 +323,7 @@ def route_board(test_case: RoutingTestCase) -> Tuple[Dict[str, List], Dict[str, 
 
     # Route each net
     for net in board.nets.values():
-        if net.name.upper() in ['GND', 'GROUND']:
+        if net.name.upper() in ["GND", "GROUND"]:
             continue
 
         # Clear obstacles and add pads
@@ -313,9 +343,9 @@ def route_board(test_case: RoutingTestCase) -> Tuple[Dict[str, List], Dict[str, 
 
         # Add non-net pads as obstacles
         for pad in pad_info:
-            pad_key = (round(pad['pos'][0], 2), round(pad['pos'][1], 2))
+            pad_key = (round(pad["pos"][0], 2), round(pad["pos"][1], 2))
             if pad_key not in net_pads:
-                add_pad_obstacle(grid, pad['pos'], pad['size'], drc)
+                add_pad_obstacle(grid, pad["pos"], pad["size"], drc)
 
         # Add routed traces as obstacles
         for cell, layer in routed_cells:
@@ -344,8 +374,7 @@ def route_board(test_case: RoutingTestCase) -> Tuple[Dict[str, List], Dict[str, 
 
         for i in range(len(points) - 1):
             seg_path, seg_layer = route_net_segment(
-                points[i], points[i + 1], grid, pathfinder,
-                routed_cells, drc
+                points[i], points[i + 1], grid, pathfinder, routed_cells, drc
             )
             if seg_path:
                 net_path.extend(seg_path)
@@ -388,7 +417,7 @@ def add_traces_to_board(board: Board, paths: Dict, layers: Dict):
                 start=path[i],
                 end=path[i + 1],
                 layer=layer,
-                width=net.track_width
+                width=net.track_width,
             )
             net.add_segment(segment)
 
@@ -396,6 +425,7 @@ def add_traces_to_board(board: Board, paths: Dict, layers: Dict):
 # =============================================================================
 # TEST CASE 1: Simple Point-to-Point
 # =============================================================================
+
 
 class TestSimplePointToPoint:
     """Test basic point-to-point routing."""
@@ -405,8 +435,20 @@ class TestSimplePointToPoint:
         test = RoutingTestCase("simple_two_pin")
 
         # Create two connectors
-        test.create_component("J1", "IN", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
-        test.create_component("J2", "OUT", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 80, 40)
+        test.create_component(
+            "J1",
+            "IN",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
+        test.create_component(
+            "J2",
+            "OUT",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            80,
+            40,
+        )
 
         # Create net connecting pin 1 of each
         test.create_net("SIG1", [("J1", "1"), ("J2", "1")])
@@ -421,8 +463,20 @@ class TestSimplePointToPoint:
         """Route multiple independent nets."""
         test = RoutingTestCase("multiple_nets")
 
-        test.create_component("J1", "IN", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
-        test.create_component("J2", "OUT", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 80, 40)
+        test.create_component(
+            "J1",
+            "IN",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
+        test.create_component(
+            "J2",
+            "OUT",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            80,
+            40,
+        )
 
         test.create_net("SIG1", [("J1", "1"), ("J2", "1")])
         test.create_net("SIG2", [("J1", "2"), ("J2", "2")])
@@ -438,6 +492,7 @@ class TestSimplePointToPoint:
 # TEST CASE 2: Fan-Out Routing
 # =============================================================================
 
+
 class TestFanOutRouting:
     """Test fan-out scenarios where one pin connects to multiple destinations."""
 
@@ -446,7 +501,13 @@ class TestFanOutRouting:
         test = RoutingTestCase("fanout_1to3")
 
         # Source connector
-        test.create_component("J1", "SRC", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
+        test.create_component(
+            "J1",
+            "SRC",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
 
         # Three destination components
         test.create_component("R1", "1k", "Resistor_SMD:R_0805_2012Metric", 50, 20)
@@ -468,13 +529,23 @@ class TestFanOutRouting:
         test.drc.board_width_mm = 120
 
         # Clock source
-        test.create_component("Y1", "OSC", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
+        test.create_component(
+            "Y1",
+            "OSC",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
 
         # Multiple "IC" destinations (represented as pin headers)
         for i in range(4):
-            test.create_component(f"U{i+1}", f"IC{i+1}",
-                                  "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
-                                  30 + i*25, 40)
+            test.create_component(
+                f"U{i+1}",
+                f"IC{i+1}",
+                "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+                30 + i * 25,
+                40,
+            )
 
         # Clock net to all ICs
         connections = [("Y1", "1")]
@@ -491,6 +562,7 @@ class TestFanOutRouting:
 # TEST CASE 3: Shared Power Rails (Multiple VDD from Single Source)
 # =============================================================================
 
+
 class TestSharedPowerRails:
     """Test power distribution with multiple loads from single source."""
 
@@ -500,14 +572,27 @@ class TestSharedPowerRails:
         test.drc.board_width_mm = 150
 
         # Power connector
-        test.create_component("J1", "PWR", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
+        test.create_component(
+            "J1",
+            "PWR",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
 
         # Bypass caps and "ICs"
         for i in range(5):
-            x = 30 + i*25
-            test.create_component(f"C{i+1}", "100nF", "Capacitor_SMD:C_0805_2012Metric", x, 30)
-            test.create_component(f"U{i+1}", f"IC{i+1}",
-                                  "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", x, 50)
+            x = 30 + i * 25
+            test.create_component(
+                f"C{i+1}", "100nF", "Capacitor_SMD:C_0805_2012Metric", x, 30
+            )
+            test.create_component(
+                f"U{i+1}",
+                f"IC{i+1}",
+                "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+                x,
+                50,
+            )
 
         # VDD net with wide traces
         vdd_connections = [("J1", "1")]
@@ -526,12 +611,20 @@ class TestSharedPowerRails:
         test.drc.board_width_mm = 120
 
         # Power connector (VDD, GND)
-        test.create_component("J1", "PWR", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
+        test.create_component(
+            "J1",
+            "PWR",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
 
         # Multiple loads
         for i in range(3):
-            x = 40 + i*30
-            test.create_component(f"R{i+1}", "10k", "Resistor_SMD:R_0805_2012Metric", x, 40)
+            x = 40 + i * 30
+            test.create_component(
+                f"R{i+1}", "10k", "Resistor_SMD:R_0805_2012Metric", x, 40
+            )
 
         # VDD net
         vdd_conn = [("J1", "1")]
@@ -555,6 +648,7 @@ class TestSharedPowerRails:
 # TEST CASE 4: Routing Through Pad Gaps
 # =============================================================================
 
+
 class TestPadGapRouting:
     """Test routing traces between component pads."""
 
@@ -568,8 +662,20 @@ class TestPadGapRouting:
         test.create_component("R3", "10k", "Resistor_SMD:R_0805_2012Metric", 50, 40)
 
         # Connectors on opposite sides
-        test.create_component("J1", "IN", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
-        test.create_component("J2", "OUT", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 80, 40)
+        test.create_component(
+            "J1",
+            "IN",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
+        test.create_component(
+            "J2",
+            "OUT",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            80,
+            40,
+        )
 
         # Nets - one needs to route through the resistor array
         test.create_net("SIG1", [("J1", "1"), ("R1", "1")])
@@ -589,11 +695,29 @@ class TestPadGapRouting:
         test = RoutingTestCase("ic_pin_array")
 
         # Simulate an IC with pin headers (like through-hole DIP)
-        test.create_component("U1", "DIP8", "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical", 50, 40)
+        test.create_component(
+            "U1",
+            "DIP8",
+            "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical",
+            50,
+            40,
+        )
 
         # Connectors on sides
-        test.create_component("J1", "IN", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical", 20, 40)
-        test.create_component("J2", "OUT", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical", 80, 40)
+        test.create_component(
+            "J1",
+            "IN",
+            "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+            20,
+            40,
+        )
+        test.create_component(
+            "J2",
+            "OUT",
+            "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+            80,
+            40,
+        )
 
         # Connect some pins through the array
         test.create_net("SIG1", [("J1", "1"), ("U1", "1")])
@@ -610,6 +734,7 @@ class TestPadGapRouting:
 # TEST CASE 5: Different Trace Widths
 # =============================================================================
 
+
 class TestMixedTraceWidths:
     """Test boards with different trace widths for power vs signal."""
 
@@ -619,10 +744,22 @@ class TestMixedTraceWidths:
         test.drc.board_width_mm = 100
 
         # Power connector
-        test.create_component("J1", "PWR", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
+        test.create_component(
+            "J1",
+            "PWR",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
 
         # Signal connector
-        test.create_component("J2", "SIG", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical", 90, 40)
+        test.create_component(
+            "J2",
+            "SIG",
+            "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+            90,
+            40,
+        )
 
         # Load components
         test.create_component("R1", "100", "Resistor_SMD:R_0805_2012Metric", 50, 30)
@@ -638,12 +775,15 @@ class TestMixedTraceWidths:
         paths, layers, crossings = route_board(test)
 
         assert "VCC" in paths, "Power net should be routed"
-        assert len([n for n in paths if n.startswith("DATA")]) >= 1, "Signal nets should route"
+        assert (
+            len([n for n in paths if n.startswith("DATA")]) >= 1
+        ), "Signal nets should route"
 
 
 # =============================================================================
 # TEST CASE 6: Crossing Avoidance (Layer Switching)
 # =============================================================================
+
 
 class TestCrossingAvoidance:
     """Test layer switching to avoid crossings."""
@@ -653,10 +793,34 @@ class TestCrossingAvoidance:
         test = RoutingTestCase("crossing_avoidance")
 
         # Create X pattern that requires layer change
-        test.create_component("J1", "TL", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 20, 60)
-        test.create_component("J2", "TR", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 80, 60)
-        test.create_component("J3", "BL", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 20, 20)
-        test.create_component("J4", "BR", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 80, 20)
+        test.create_component(
+            "J1",
+            "TL",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            20,
+            60,
+        )
+        test.create_component(
+            "J2",
+            "TR",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            80,
+            60,
+        )
+        test.create_component(
+            "J3",
+            "BL",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            20,
+            20,
+        )
+        test.create_component(
+            "J4",
+            "BR",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            80,
+            20,
+        )
 
         # X pattern - these will cross if on same layer
         test.create_net("DIAG1", [("J1", "1"), ("J4", "1")])  # TL to BR
@@ -679,9 +843,11 @@ class TestCrossingAvoidance:
         for i in range(3):
             for j in range(3):
                 test.create_component(
-                    f"J{i*3+j+1}", f"P{i*3+j+1}",
+                    f"J{i*3+j+1}",
+                    f"P{i*3+j+1}",
                     "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
-                    20 + i*25, 20 + j*25
+                    20 + i * 25,
+                    20 + j * 25,
                 )
 
         # Horizontal connections
@@ -702,14 +868,15 @@ class TestCrossingAvoidance:
 # TEST CASE 7: Full 6-Channel Injector (Integration)
 # =============================================================================
 
+
 class TestInjector6Channel:
     """Full integration test with 6-channel injector board."""
-
 
 
 # =============================================================================
 # TEST CASE 8: Edge Cases
 # =============================================================================
+
 
 class TestEdgeCases:
     """Test edge cases and corner conditions."""
@@ -731,7 +898,13 @@ class TestEdgeCases:
         """Test net with only one connection (no routing needed)."""
         test = RoutingTestCase("single_pin")
 
-        test.create_component("TP1", "TEST", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 50, 40)
+        test.create_component(
+            "TP1",
+            "TEST",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            50,
+            40,
+        )
         test.create_net("TEST", [("TP1", "1")])
 
         paths, layers, crossings = route_board(test)
@@ -743,8 +916,20 @@ class TestEdgeCases:
         test = RoutingTestCase("long_route")
         test.drc.board_width_mm = 200
 
-        test.create_component("J1", "START", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 10, 40)
-        test.create_component("J2", "END", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 190, 40)
+        test.create_component(
+            "J1",
+            "START",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            10,
+            40,
+        )
+        test.create_component(
+            "J2",
+            "END",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            190,
+            40,
+        )
 
         test.create_net("LONG", [("J1", "1"), ("J2", "1")])
 
@@ -779,6 +964,7 @@ class TestEdgeCases:
 # TEST CASE 9: ECU-Style Multi-VDD (shared power from single source)
 # =============================================================================
 
+
 class TestECUStylePower:
     """Test ECU-style power distribution with multiple VDD pins from single source."""
 
@@ -788,29 +974,42 @@ class TestECUStylePower:
         test.drc = DRCConfig(board_width_mm=150, board_height_mm=100)
 
         # Power input (like automotive 5V regulator output)
-        test.create_component("U1", "REG", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 20, 50)
+        test.create_component(
+            "U1",
+            "REG",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            20,
+            50,
+        )
 
         # Multiple MCU/IC VDD pins (simulated with pin headers)
         # In real ECU, each IC has VDD pin that needs power
         for i in range(5):
             x = 40 + i * 20
-            test.create_component(f"IC{i+1}", f"MCU{i+1}",
-                                  "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical", x, 50)
+            test.create_component(
+                f"IC{i+1}",
+                f"MCU{i+1}",
+                "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+                x,
+                50,
+            )
             # Bypass cap for each IC
-            test.create_component(f"C{i+1}", "100nF", "Capacitor_SMD:C_0805_2012Metric", x, 35)
+            test.create_component(
+                f"C{i+1}", "100nF", "Capacitor_SMD:C_0805_2012Metric", x, 35
+            )
 
         # VDD net: single source (U1.1) to all IC VDD pins (pin 1) and caps
         vdd_connections = [("U1", "1")]
         for i in range(5):
             vdd_connections.append((f"IC{i+1}", "1"))  # VDD pin
-            vdd_connections.append((f"C{i+1}", "1"))   # Bypass cap
+            vdd_connections.append((f"C{i+1}", "1"))  # Bypass cap
         test.create_net("VDD", vdd_connections, track_width=0.5)
 
         # GND net: similar distribution
         gnd_connections = [("U1", "2")]
         for i in range(5):
             gnd_connections.append((f"IC{i+1}", "2"))  # GND pin
-            gnd_connections.append((f"C{i+1}", "2"))   # Bypass cap GND
+            gnd_connections.append((f"C{i+1}", "2"))  # Bypass cap GND
         test.create_net("GND", gnd_connections, track_width=0.5)
 
         paths, layers, crossings = route_board(test)
@@ -825,17 +1024,33 @@ class TestECUStylePower:
         test.drc = DRCConfig(board_width_mm=120, board_height_mm=80)
 
         # Power connector with AVDD and DVDD
-        test.create_component("J1", "PWR", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical", 15, 40)
+        test.create_component(
+            "J1",
+            "PWR",
+            "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+            15,
+            40,
+        )
 
         # Digital section
         for i in range(3):
-            test.create_component(f"U{i+1}", f"DIGITAL{i+1}",
-                                  "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 40 + i*20, 55)
+            test.create_component(
+                f"U{i+1}",
+                f"DIGITAL{i+1}",
+                "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+                40 + i * 20,
+                55,
+            )
 
         # Analog section (separate area)
         for i in range(2):
-            test.create_component(f"A{i+1}", f"ANALOG{i+1}",
-                                  "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 40 + i*25, 25)
+            test.create_component(
+                f"A{i+1}",
+                f"ANALOG{i+1}",
+                "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+                40 + i * 25,
+                25,
+            )
 
         # DVDD net (digital power)
         dvdd_conn = [("J1", "1")]
@@ -859,6 +1074,7 @@ class TestECUStylePower:
 # TEST CASE 10: Dense Component Routing
 # =============================================================================
 
+
 class TestDenseRouting:
     """Test routing through dense component arrangements."""
 
@@ -870,12 +1086,25 @@ class TestDenseRouting:
         # Simulate QFP pins on one side (0.5mm pitch approximated with 0805)
         # In reality these would be much smaller, but we test the pattern
         for i in range(6):
-            test.create_component(f"P{i+1}", f"PIN{i+1}",
-                                  "Resistor_SMD:R_0805_2012Metric", 30, 25 + i*5)
+            test.create_component(
+                f"P{i+1}", f"PIN{i+1}", "Resistor_SMD:R_0805_2012Metric", 30, 25 + i * 5
+            )
 
         # Breakout destination connectors
-        test.create_component("J1", "OUT1", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 60, 25)
-        test.create_component("J2", "OUT2", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 60, 45)
+        test.create_component(
+            "J1",
+            "OUT1",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            60,
+            25,
+        )
+        test.create_component(
+            "J2",
+            "OUT2",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            60,
+            45,
+        )
 
         # Fan-out signals from dense pins to breakout
         test.create_net("SIG1", [("P1", "2"), ("J1", "1")])
@@ -897,14 +1126,26 @@ class TestDenseRouting:
         test.drc = DRCConfig(board_width_mm=100, board_height_mm=60)
 
         # Source connector (8-bit bus)
-        test.create_component("J1", "SRC", "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical", 20, 30)
+        test.create_component(
+            "J1",
+            "SRC",
+            "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical",
+            20,
+            30,
+        )
 
         # Destination connector
-        test.create_component("J2", "DST", "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical", 80, 30)
+        test.create_component(
+            "J2",
+            "DST",
+            "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical",
+            80,
+            30,
+        )
 
         # 8 parallel data lines
         for i in range(8):
-            test.create_net(f"D{i}", [("J1", str(i+1)), ("J2", str(i+1))])
+            test.create_net(f"D{i}", [("J1", str(i + 1)), ("J2", str(i + 1))])
 
         paths, layers, crossings = route_board(test)
 
@@ -917,20 +1158,30 @@ class TestDenseRouting:
 # TEST CASE 11: DRC Validation Tests
 # =============================================================================
 
+
 class TestDRCValidation:
     """Tests that verify DRC compliance of routing."""
 
     def test_trace_clearance_maintained(self, tmp_path):
         """Verify trace-to-trace clearance is maintained."""
         test = RoutingTestCase("clearance_test")
-        test.drc = DRCConfig(
-            trace_to_trace=0.25,
-            signal_trace_width=0.25
-        )
+        test.drc = DRCConfig(trace_to_trace=0.25, signal_trace_width=0.25)
 
         # Two parallel routes that must maintain clearance
-        test.create_component("J1", "A", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 20, 40)
-        test.create_component("J2", "B", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical", 80, 40)
+        test.create_component(
+            "J1",
+            "A",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            20,
+            40,
+        )
+        test.create_component(
+            "J2",
+            "B",
+            "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+            80,
+            40,
+        )
 
         test.create_net("NET1", [("J1", "1"), ("J2", "1")])
         test.create_net("NET2", [("J1", "2"), ("J2", "2")])
@@ -945,15 +1196,29 @@ class TestDRCValidation:
 
         total, types = test.run_kicad_drc(output_path)
         if total >= 0:  # kicad-cli available
-            clearance_violations = types.get('clearance', 0)
-            assert clearance_violations == 0, f"Should have no clearance violations, got {clearance_violations}"
+            clearance_violations = types.get("clearance", 0)
+            assert (
+                clearance_violations == 0
+            ), f"Should have no clearance violations, got {clearance_violations}"
 
     def test_no_shorts(self, tmp_path):
         """Verify no shorting between different nets."""
         test = RoutingTestCase("no_shorts_test")
 
-        test.create_component("J1", "IN", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical", 20, 40)
-        test.create_component("J2", "OUT", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical", 80, 40)
+        test.create_component(
+            "J1",
+            "IN",
+            "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+            20,
+            40,
+        )
+        test.create_component(
+            "J2",
+            "OUT",
+            "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+            80,
+            40,
+        )
 
         # Create nets that could potentially short if routed incorrectly
         test.create_net("A", [("J1", "1"), ("J2", "2")])
@@ -969,13 +1234,14 @@ class TestDRCValidation:
 
         total, types = test.run_kicad_drc(output_path)
         if total >= 0:
-            shorts = types.get('shorting_items', 0)
+            shorts = types.get("shorting_items", 0)
             assert shorts == 0, f"Should have no shorts, got {shorts}"
 
 
 # =============================================================================
 # TEST CASE 12: Layer Management
 # =============================================================================
+
 
 class TestLayerManagement:
     """Test proper layer usage and via placement."""
@@ -988,9 +1254,13 @@ class TestLayerManagement:
         # Create a pattern that benefits from layer distribution
         # Grid of connectors
         for i in range(4):
-            test.create_component(f"J{i+1}", f"C{i+1}",
-                                  "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
-                                  20 + i*25, 40)
+            test.create_component(
+                f"J{i+1}",
+                f"C{i+1}",
+                "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+                20 + i * 25,
+                40,
+            )
 
         # Create some crossing patterns
         test.create_net("H1", [("J1", "1"), ("J4", "1")])  # Horizontal

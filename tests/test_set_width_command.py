@@ -277,20 +277,36 @@ class TestFourLayerRoutingWithWidths:
 
         # Create components
         board.components["R1"] = Component(
-            ref="R1", value="10k", footprint="R_0805",
-            position=(10, 10), rotation=0, pads=make_smd_pads()
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10, 10),
+            rotation=0,
+            pads=make_smd_pads(),
         )
         board.components["R2"] = Component(
-            ref="R2", value="10k", footprint="R_0805",
-            position=(30, 10), rotation=0, pads=make_smd_pads()
+            ref="R2",
+            value="10k",
+            footprint="R_0805",
+            position=(30, 10),
+            rotation=0,
+            pads=make_smd_pads(),
         )
         board.components["R3"] = Component(
-            ref="R3", value="10k", footprint="R_0805",
-            position=(10, 30), rotation=0, pads=make_smd_pads()
+            ref="R3",
+            value="10k",
+            footprint="R_0805",
+            position=(10, 30),
+            rotation=0,
+            pads=make_smd_pads(),
         )
         board.components["R4"] = Component(
-            ref="R4", value="10k", footprint="R_0805",
-            position=(30, 30), rotation=0, pads=make_smd_pads()
+            ref="R4",
+            value="10k",
+            footprint="R_0805",
+            position=(30, 30),
+            rotation=0,
+            pads=make_smd_pads(),
         )
 
         # Create nets with different widths
@@ -350,8 +366,9 @@ class TestFourLayerRoutingWithWidths:
         for net_name, net in board.nets.items():
             expected_width = net.track_width
             for seg in net.segments:
-                assert seg.width == expected_width, \
-                    f"Net {net_name}: segment width {seg.width} != expected {expected_width}"
+                assert (
+                    seg.width == expected_width
+                ), f"Net {net_name}: segment width {seg.width} != expected {expected_width}"
 
     def test_4layer_width_change_affects_routing(self, four_layer_board):
         """Test that changing width before routing affects segment widths."""
@@ -368,7 +385,9 @@ class TestFourLayerRoutingWithWidths:
         # Verify segments use new width
         if board.nets["SIG1"].segments:
             for seg in board.nets["SIG1"].segments:
-                assert seg.width == 0.4, f"SIG1 segment should be 0.4mm, got {seg.width}"
+                assert (
+                    seg.width == 0.4
+                ), f"SIG1 segment should be 0.4mm, got {seg.width}"
 
     def test_4layer_class_width_used(self, four_layer_board):
         """Test that net class width is used when net is assigned to class."""
@@ -405,20 +424,12 @@ class TestFourLayerRoutingScenarios:
 
         # Power net class
         board.net_classes["Power"] = NetClass(
-            name="Power",
-            track_width=0.5,
-            clearance=0.3,
-            via_size=0.8,
-            via_drill=0.4
+            name="Power", track_width=0.5, clearance=0.3, via_size=0.8, via_drill=0.4
         )
 
         # Signal net class
         board.net_classes["Signal"] = NetClass(
-            name="Signal",
-            track_width=0.2,
-            clearance=0.2,
-            via_size=0.6,
-            via_drill=0.3
+            name="Signal", track_width=0.2, clearance=0.2, via_size=0.6, via_drill=0.3
         )
 
         # Create pads (using correct Pad API)
@@ -433,22 +444,31 @@ class TestFourLayerRoutingScenarios:
             for j in range(3):
                 ref = f"R{i*3+j+1}"
                 board.components[ref] = Component(
-                    ref=ref, value="10k", footprint="R_0805",
-                    position=(10 + i*15, 10 + j*15), rotation=0,
-                    pads=make_smd_pads()
+                    ref=ref,
+                    value="10k",
+                    footprint="R_0805",
+                    position=(10 + i * 15, 10 + j * 15),
+                    rotation=0,
+                    pads=make_smd_pads(),
                 )
 
         # Create power net connecting all components
-        board.nets["VCC"] = Net(name="VCC", code="1", track_width=0.5, net_class="Power")
+        board.nets["VCC"] = Net(
+            name="VCC", code="1", track_width=0.5, net_class="Power"
+        )
         for ref in ["R1", "R4", "R7"]:  # Left column
             board.nets["VCC"].add_connection(ref, "1")
 
         # Create signal nets
-        board.nets["SIG_A"] = Net(name="SIG_A", code="2", track_width=0.2, net_class="Signal")
+        board.nets["SIG_A"] = Net(
+            name="SIG_A", code="2", track_width=0.2, net_class="Signal"
+        )
         board.nets["SIG_A"].add_connection("R1", "2")
         board.nets["SIG_A"].add_connection("R5", "1")
 
-        board.nets["SIG_B"] = Net(name="SIG_B", code="3", track_width=0.2, net_class="Signal")
+        board.nets["SIG_B"] = Net(
+            name="SIG_B", code="3", track_width=0.2, net_class="Signal"
+        )
         board.nets["SIG_B"].add_connection("R2", "2")
         board.nets["SIG_B"].add_connection("R6", "1")
 
@@ -465,15 +485,17 @@ class TestFourLayerRoutingScenarios:
         # Verify power net has wider traces
         vcc_widths = [seg.width for seg in board.nets["VCC"].segments]
         if vcc_widths:
-            assert all(w == 0.5 for w in vcc_widths), \
-                f"VCC traces should be 0.5mm, got {set(vcc_widths)}"
+            assert all(
+                w == 0.5 for w in vcc_widths
+            ), f"VCC traces should be 0.5mm, got {set(vcc_widths)}"
 
         # Verify signal nets have narrower traces
         for net_name in ["SIG_A", "SIG_B"]:
             sig_widths = [seg.width for seg in board.nets[net_name].segments]
             if sig_widths:
-                assert all(w == 0.2 for w in sig_widths), \
-                    f"{net_name} traces should be 0.2mm, got {set(sig_widths)}"
+                assert all(
+                    w == 0.2 for w in sig_widths
+                ), f"{net_name} traces should be 0.2mm, got {set(sig_widths)}"
 
     def test_set_layers_then_route(self):
         """Test setting layers via command then routing."""

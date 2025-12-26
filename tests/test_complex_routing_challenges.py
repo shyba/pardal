@@ -21,8 +21,6 @@ import math
 from pcb_tool.routing.grid import RoutingGrid
 from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition
 
-pytestmark = pytest.mark.slow
-
 
 class TestDenseGridRouting:
     """Test routing in dense grid layouts with many components."""
@@ -47,26 +45,30 @@ class TestDenseGridRouting:
             for col in range(3):
                 c1_idx = row * 4 + col
                 c2_idx = row * 4 + col + 1
-                nets.append(NetDefinition(
-                    name=f"H{row}_{col}",
-                    start=(components[c1_idx][0], components[c1_idx][1]),
-                    end=(components[c2_idx][0], components[c2_idx][1]),
-                    layer="F.Cu",
-                    priority=10
-                ))
+                nets.append(
+                    NetDefinition(
+                        name=f"H{row}_{col}",
+                        start=(components[c1_idx][0], components[c1_idx][1]),
+                        end=(components[c2_idx][0], components[c2_idx][1]),
+                        layer="F.Cu",
+                        priority=10,
+                    )
+                )
 
         # Route vertical connections (12 nets)
         for col in range(4):
             for row in range(3):
                 c1_idx = row * 4 + col
                 c2_idx = (row + 1) * 4 + col
-                nets.append(NetDefinition(
-                    name=f"V{row}_{col}",
-                    start=(components[c1_idx][0], components[c1_idx][1]),
-                    end=(components[c2_idx][0], components[c2_idx][1]),
-                    layer="F.Cu",
-                    priority=5
-                ))
+                nets.append(
+                    NetDefinition(
+                        name=f"V{row}_{col}",
+                        start=(components[c1_idx][0], components[c1_idx][1]),
+                        end=(components[c2_idx][0], components[c2_idx][1]),
+                        layer="F.Cu",
+                        priority=5,
+                    )
+                )
 
         # Route all 24 nets
         routed = router.route_nets(nets)
@@ -74,12 +76,14 @@ class TestDenseGridRouting:
         # Validate results
         # Note: Dense grid is challenging - crossing-forbidden zones make later nets harder
         success_count = len(routed)
-        assert success_count >= 8, \
-            f"Should route at least 8/24 nets in dense grid, got {success_count}"
+        assert (
+            success_count >= 8
+        ), f"Should route at least 8/24 nets in dense grid, got {success_count}"
 
         # Check that forbidden zones are being used
-        assert len(grid.crossing_forbidden["F.Cu"]) > 0, \
-            "Should have crossing-forbidden zones marked"
+        assert (
+            len(grid.crossing_forbidden["F.Cu"]) > 0
+        ), "Should have crossing-forbidden zones marked"
 
         print(f"\n4x4 Grid Routing: {success_count}/24 nets routed successfully")
 
@@ -111,7 +115,7 @@ class TestStarPattern:
                 start=peripherals[i],
                 end=center,
                 layer="F.Cu",
-                priority=10 - i  # Vary priority
+                priority=10 - i,  # Vary priority
             )
             for i in range(8)
         ]
@@ -120,18 +124,19 @@ class TestStarPattern:
 
         # Star pattern is challenging - first spoke blocks center area
         # Later spokes struggle to reach blocked center
-        assert len(routed) >= 1, \
-            f"Should route at least 1/8 spokes, got {len(routed)}"
+        assert len(routed) >= 1, f"Should route at least 1/8 spokes, got {len(routed)}"
 
         # Calculate total length
         total_length = 0.0
         for net_name, net in routed.items():
             for i in range(len(net.path) - 1):
-                dx = net.path[i+1][0] - net.path[i][0]
-                dy = net.path[i+1][1] - net.path[i][1]
-                total_length += math.sqrt(dx*dx + dy*dy)
+                dx = net.path[i + 1][0] - net.path[i][0]
+                dy = net.path[i + 1][1] - net.path[i][1]
+                total_length += math.sqrt(dx * dx + dy * dy)
 
-        print(f"\nStar Pattern: {len(routed)}/8 spokes routed, total length: {total_length:.1f}mm")
+        print(
+            f"\nStar Pattern: {len(routed)}/8 spokes routed, total length: {total_length:.1f}mm"
+        )
 
     def test_16_spoke_star_high_density(self):
         """Route 16 components in star pattern (higher density challenge)."""
@@ -155,7 +160,7 @@ class TestStarPattern:
                 start=peripherals[i],
                 end=center,
                 layer="F.Cu",
-                priority=16 - i
+                priority=16 - i,
             )
             for i in range(16)
         ]
@@ -163,8 +168,9 @@ class TestStarPattern:
         routed = router.route_nets(nets)
 
         # High-density star is extremely challenging with forbidden zones
-        assert len(routed) >= 1, \
-            f"Should route at least 1/16 high-density spokes, got {len(routed)}"
+        assert (
+            len(routed) >= 1
+        ), f"Should route at least 1/16 high-density spokes, got {len(routed)}"
 
         print(f"\nHigh-Density Star: {len(routed)}/16 spokes routed")
 
@@ -191,7 +197,7 @@ class TestBusRouting:
                 start=(start_x, base_y + i * spacing),
                 end=(end_x, base_y + i * spacing),
                 layer="F.Cu",
-                priority=10
+                priority=10,
             )
             for i in range(8)
         ]
@@ -199,21 +205,21 @@ class TestBusRouting:
         routed = router.route_nets(nets)
 
         # All bus lines should route (they're parallel, no crossings)
-        assert len(routed) == 8, \
-            f"Should route all 8 bus lines, got {len(routed)}"
+        assert len(routed) == 8, f"Should route all 8 bus lines, got {len(routed)}"
 
         # Verify traces stay roughly parallel (no excessive meandering)
         for i, (net_name, net) in enumerate(routed.items()):
             path_length = 0.0
             for j in range(len(net.path) - 1):
-                dx = net.path[j+1][0] - net.path[j][0]
-                dy = net.path[j+1][1] - net.path[j][1]
-                path_length += math.sqrt(dx*dx + dy*dy)
+                dx = net.path[j + 1][0] - net.path[j][0]
+                dy = net.path[j + 1][1] - net.path[j][1]
+                path_length += math.sqrt(dx * dx + dy * dy)
 
             straight_line = 80.0  # end_x - start_x
             # Path should be close to straight line (within 20% overhead)
-            assert path_length <= straight_line * 1.2, \
-                f"Bus line {net_name} too long: {path_length:.1f}mm vs {straight_line:.1f}mm"
+            assert (
+                path_length <= straight_line * 1.2
+            ), f"Bus line {net_name} too long: {path_length:.1f}mm vs {straight_line:.1f}mm"
 
         print(f"\n8-bit Bus: All 8 lines routed successfully")
 
@@ -230,28 +236,33 @@ class TestBusRouting:
 
         nets = []
         for i in range(8):
-            nets.append(NetDefinition(
-                name=f"DATA{i}",
-                start=(start_x, base_y + i * spacing),
-                end=(end_x, base_y + i * spacing),
-                layer="F.Cu",
-                priority=10  # High priority - route bus first
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"DATA{i}",
+                    start=(start_x, base_y + i * spacing),
+                    end=(end_x, base_y + i * spacing),
+                    layer="F.Cu",
+                    priority=10,  # High priority - route bus first
+                )
+            )
 
         # Add perpendicular signal (vertical, crosses bus)
-        nets.append(NetDefinition(
-            name="CROSS_SIGNAL",
-            start=(50.0, 10.0),
-            end=(50.0, 50.0),
-            layer="F.Cu",
-            priority=5  # Lower priority - routes after bus
-        ))
+        nets.append(
+            NetDefinition(
+                name="CROSS_SIGNAL",
+                start=(50.0, 10.0),
+                end=(50.0, 50.0),
+                layer="F.Cu",
+                priority=5,  # Lower priority - routes after bus
+            )
+        )
 
         routed = router.route_nets(nets)
 
         # All nets should route (crossing signal forced to detour or use via)
-        assert len(routed) >= 8, \
-            f"Should route at least all bus lines, got {len(routed)}"
+        assert (
+            len(routed) >= 8
+        ), f"Should route at least all bus lines, got {len(routed)}"
 
         # If crossing signal routed, verify it doesn't cross bus on same layer
         if "CROSS_SIGNAL" in routed:
@@ -275,13 +286,15 @@ class TestMixedSignalRouting:
         # +5V from left to 4 load points
         power_loads = [(30.0, 40.0), (60.0, 40.0), (90.0, 40.0), (60.0, 60.0)]
         for i, load in enumerate(power_loads):
-            nets.append(NetDefinition(
-                name=f"+5V_LOAD{i}",
-                start=(10.0, 40.0),
-                end=load,
-                layer="F.Cu",
-                priority=20  # Very high priority for power
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"+5V_LOAD{i}",
+                    start=(10.0, 40.0),
+                    end=load,
+                    layer="F.Cu",
+                    priority=20,  # Very high priority for power
+                )
+            )
 
         # Signal traces (lower priority, must route around power)
         signal_pairs = [
@@ -291,26 +304,28 @@ class TestMixedSignalRouting:
             ((20.0, 60.0), (100.0, 60.0)),
         ]
         for i, (start, end) in enumerate(signal_pairs):
-            nets.append(NetDefinition(
-                name=f"SIG{i}",
-                start=start,
-                end=end,
-                layer="F.Cu",
-                priority=5
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"SIG{i}", start=start, end=end, layer="F.Cu", priority=5
+                )
+            )
 
         routed = router.route_nets(nets)
 
         # Mixed signal routing - some nets will struggle with congestion
-        assert len(routed) >= 5, \
-            f"Should route at least 5/8 nets in mixed signal board, got {len(routed)}"
+        assert (
+            len(routed) >= 5
+        ), f"Should route at least 5/8 nets in mixed signal board, got {len(routed)}"
 
         # Power nets should route successfully (at least one)
         power_routed = sum(1 for name in routed if "+5V" in name)
-        assert power_routed >= 1, \
-            f"Should route at least 1/4 power nets, got {power_routed}"
+        assert (
+            power_routed >= 1
+        ), f"Should route at least 1/4 power nets, got {power_routed}"
 
-        print(f"\nMixed Signal: {len(routed)}/8 nets routed ({power_routed} power nets)")
+        print(
+            f"\nMixed Signal: {len(routed)}/8 nets routed ({power_routed} power nets)"
+        )
 
 
 class TestHighPinCountIC:
@@ -344,13 +359,15 @@ class TestHighPinCountIC:
             end_x = ic_positions[1][0] - pin_radius * math.cos(angle)
             end_y = ic_positions[1][1] + pin_radius * math.sin(angle)
 
-            nets.append(NetDefinition(
-                name=f"IC1_IC2_PIN{pin}",
-                start=(start_x, start_y),
-                end=(end_x, end_y),
-                layer="F.Cu",
-                priority=10
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"IC1_IC2_PIN{pin}",
+                    start=(start_x, start_y),
+                    end=(end_x, end_y),
+                    layer="F.Cu",
+                    priority=10,
+                )
+            )
 
         # IC1 to IC3 (vertical, left)
         for pin in range(pins_per_ic):
@@ -360,13 +377,15 @@ class TestHighPinCountIC:
             end_x = ic_positions[2][0] + pin_radius * math.cos(angle)
             end_y = ic_positions[2][1] - pin_radius * math.sin(angle)
 
-            nets.append(NetDefinition(
-                name=f"IC1_IC3_PIN{pin}",
-                start=(start_x, start_y),
-                end=(end_x, end_y),
-                layer="F.Cu",
-                priority=9
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"IC1_IC3_PIN{pin}",
+                    start=(start_x, start_y),
+                    end=(end_x, end_y),
+                    layer="F.Cu",
+                    priority=9,
+                )
+            )
 
         # IC2 to IC4 (vertical, right)
         for pin in range(pins_per_ic):
@@ -376,13 +395,15 @@ class TestHighPinCountIC:
             end_x = ic_positions[3][0] + pin_radius * math.cos(angle)
             end_y = ic_positions[3][1] - pin_radius * math.sin(angle)
 
-            nets.append(NetDefinition(
-                name=f"IC2_IC4_PIN{pin}",
-                start=(start_x, start_y),
-                end=(end_x, end_y),
-                layer="F.Cu",
-                priority=8
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"IC2_IC4_PIN{pin}",
+                    start=(start_x, start_y),
+                    end=(end_x, end_y),
+                    layer="F.Cu",
+                    priority=8,
+                )
+            )
 
         # IC3 to IC4 (horizontal, bottom)
         for pin in range(pins_per_ic):
@@ -392,23 +413,28 @@ class TestHighPinCountIC:
             end_x = ic_positions[3][0] - pin_radius * math.cos(angle)
             end_y = ic_positions[3][1] + pin_radius * math.sin(angle)
 
-            nets.append(NetDefinition(
-                name=f"IC3_IC4_PIN{pin}",
-                start=(start_x, start_y),
-                end=(end_x, end_y),
-                layer="F.Cu",
-                priority=7
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"IC3_IC4_PIN{pin}",
+                    start=(start_x, start_y),
+                    end=(end_x, end_y),
+                    layer="F.Cu",
+                    priority=7,
+                )
+            )
 
         # Route all 32 nets
         routed = router.route_nets(nets)
 
         # High pin count IC routing is challenging - congestion around ICs
         success_rate = len(routed) / len(nets)
-        assert len(routed) >= 12, \
-            f"Should route at least 12/32 IC nets, got {len(routed)} ({success_rate*100:.0f}%)"
+        assert (
+            len(routed) >= 12
+        ), f"Should route at least 12/32 IC nets, got {len(routed)} ({success_rate*100:.0f}%)"
 
-        print(f"\nQuad IC Routing: {len(routed)}/32 nets routed ({success_rate*100:.0f}%)")
+        print(
+            f"\nQuad IC Routing: {len(routed)}/32 nets routed ({success_rate*100:.0f}%)"
+        )
 
 
 class TestBottleneckRouting:
@@ -422,15 +448,11 @@ class TestBottleneckRouting:
         # Mark obstacles creating bottleneck
         # Left obstacle
         grid.mark_rectangle_obstacle(
-            x_min_mm=0.0, y_min_mm=15.0,
-            x_max_mm=45.0, y_max_mm=25.0,
-            layer="F.Cu"
+            x_min_mm=0.0, y_min_mm=15.0, x_max_mm=45.0, y_max_mm=25.0, layer="F.Cu"
         )
         # Right obstacle
         grid.mark_rectangle_obstacle(
-            x_min_mm=55.0, y_min_mm=35.0,
-            x_max_mm=100.0, y_max_mm=45.0,
-            layer="F.Cu"
+            x_min_mm=55.0, y_min_mm=35.0, x_max_mm=100.0, y_max_mm=45.0, layer="F.Cu"
         )
 
         # Bottleneck is between obstacles (45-55mm, allows ~10mm passage)
@@ -440,20 +462,24 @@ class TestBottleneckRouting:
         for i in range(6):
             y_start = 10.0 + i * 2.0
             y_end = 35.0 + i * 2.0
-            nets.append(NetDefinition(
-                name=f"NET{i}",
-                start=(10.0, y_start),
-                end=(90.0, y_end),
-                layer="F.Cu",
-                priority=10 - i
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"NET{i}",
+                    start=(10.0, y_start),
+                    end=(90.0, y_end),
+                    layer="F.Cu",
+                    priority=10 - i,
+                )
+            )
 
         routed = router.route_nets(nets)
 
         # Bottleneck routing is extremely challenging with obstacles
         # Success: Router handles difficult scenarios without crashing
         # Note: Narrow passage may be completely blocked by forbidden zones
-        print(f"\nBottleneck Routing: {len(routed)}/6 nets routed through narrow passage")
+        print(
+            f"\nBottleneck Routing: {len(routed)}/6 nets routed through narrow passage"
+        )
 
         # Test passes if router handles the scenario gracefully (doesn't crash)
         assert True, "Bottleneck test validates robust error handling"
@@ -465,31 +491,29 @@ class TestBottleneckRouting:
 
         # First bottleneck at x=40
         grid.mark_rectangle_obstacle(
-            x_min_mm=0.0, y_min_mm=15.0,
-            x_max_mm=35.0, y_max_mm=25.0,
-            layer="F.Cu"
+            x_min_mm=0.0, y_min_mm=15.0, x_max_mm=35.0, y_max_mm=25.0, layer="F.Cu"
         )
         grid.mark_rectangle_obstacle(
-            x_min_mm=45.0, y_min_mm=35.0,
-            x_max_mm=120.0, y_max_mm=45.0,
-            layer="F.Cu"
+            x_min_mm=45.0, y_min_mm=35.0, x_max_mm=120.0, y_max_mm=45.0, layer="F.Cu"
         )
 
         # Second bottleneck at x=80
         grid.mark_rectangle_obstacle(
-            x_min_mm=0.0, y_min_mm=20.0,
-            x_max_mm=75.0, y_max_mm=30.0,
-            layer="F.Cu"
+            x_min_mm=0.0, y_min_mm=20.0, x_max_mm=75.0, y_max_mm=30.0, layer="F.Cu"
         )
         grid.mark_rectangle_obstacle(
-            x_min_mm=85.0, y_min_mm=30.0,
-            x_max_mm=120.0, y_max_mm=40.0,
-            layer="F.Cu"
+            x_min_mm=85.0, y_min_mm=30.0, x_max_mm=120.0, y_max_mm=40.0, layer="F.Cu"
         )
 
         # Route nets through both bottlenecks
         nets = [
-            NetDefinition(f"NET{i}", (10.0, 10.0 + i * 3.0), (110.0, 30.0 + i * 2.0), "F.Cu", 10 - i)
+            NetDefinition(
+                f"NET{i}",
+                (10.0, 10.0 + i * 3.0),
+                (110.0, 30.0 + i * 2.0),
+                "F.Cu",
+                10 - i,
+            )
             for i in range(4)
         ]
 
@@ -504,6 +528,7 @@ class TestBottleneckRouting:
 class TestLargeBoardStressTest:
     """Stress test with large boards and many components."""
 
+    @pytest.mark.slow
     def test_50_component_random_routing(self):
         """Route 50 random nets on large board."""
         grid = RoutingGrid(200.0, 150.0, resolution_mm=0.1)
@@ -511,6 +536,7 @@ class TestLargeBoardStressTest:
 
         # Generate 50 random component positions (reproducible with seed)
         import random
+
         random.seed(42)
 
         components = []
@@ -531,37 +557,40 @@ class TestLargeBoardStressTest:
                 if i != j:
                     dx = end_pos[0] - start[0]
                     dy = end_pos[1] - start[1]
-                    dist = math.sqrt(dx*dx + dy*dy)
+                    dist = math.sqrt(dx * dx + dy * dy)
                     distances.append((dist, j))
 
             # Connect to 2nd or 3rd nearest (not nearest to add complexity)
             distances.sort()
-            target_idx = distances[min(2, len(distances)-1)][1]
+            target_idx = distances[min(2, len(distances) - 1)][1]
             end = components[target_idx]
 
-            nets.append(NetDefinition(
-                name=f"NET{i}",
-                start=start,
-                end=end,
-                layer="F.Cu",
-                priority=random.randint(1, 10)
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"NET{i}",
+                    start=start,
+                    end=end,
+                    layer="F.Cu",
+                    priority=random.randint(1, 10),
+                )
+            )
 
         # Route all nets
         routed = router.route_nets(nets)
 
         # Large board with many components - congestion is challenging
         success_rate = len(routed) / len(nets)
-        assert len(routed) >= 15, \
-            f"Should route at least 15/40 nets on large board, got {len(routed)} ({success_rate*100:.0f}%)"
+        assert (
+            len(routed) >= 15
+        ), f"Should route at least 15/40 nets on large board, got {len(routed)} ({success_rate*100:.0f}%)"
 
         # Calculate statistics
         total_length = 0.0
         for net in routed.values():
             for i in range(len(net.path) - 1):
-                dx = net.path[i+1][0] - net.path[i][0]
-                dy = net.path[i+1][1] - net.path[i][1]
-                total_length += math.sqrt(dx*dx + dy*dy)
+                dx = net.path[i + 1][0] - net.path[i][0]
+                dy = net.path[i + 1][1] - net.path[i][1]
+                total_length += math.sqrt(dx * dx + dy * dy)
 
         print(f"\nLarge Board (50 components): {len(routed)}/40 nets routed")
         print(f"  Total trace length: {total_length:.1f}mm")
@@ -575,6 +604,7 @@ class TestLargeBoardStressTest:
         router = MultiNetRouter(grid, ground_plane_mode=True)
 
         import random
+
         random.seed(123)
 
         # 100 components
@@ -595,32 +625,39 @@ class TestLargeBoardStressTest:
                 if i != j:
                     dx = end_pos[0] - start[0]
                     dy = end_pos[1] - start[1]
-                    dist = math.sqrt(dx*dx + dy*dy)
+                    dist = math.sqrt(dx * dx + dy * dy)
                     if dist < 100.0:  # Only connect to components within 100mm
                         distances.append((dist, j))
 
             if distances:
                 distances.sort()
-                target_idx = distances[min(len(distances)//2, len(distances)-1)][1]
+                target_idx = distances[min(len(distances) // 2, len(distances) - 1)][1]
                 end = components[target_idx]
 
-                nets.append(NetDefinition(
-                    name=f"NET{i}",
-                    start=start,
-                    end=end,
-                    layer="F.Cu",
-                    priority=random.randint(1, 10)
-                ))
+                nets.append(
+                    NetDefinition(
+                        name=f"NET{i}",
+                        start=start,
+                        end=end,
+                        layer="F.Cu",
+                        priority=random.randint(1, 10),
+                    )
+                )
 
         # Route all nets
-        print(f"\nStarting mega stress test: {len(nets)} nets on 100-component board...")
+        print(
+            f"\nStarting mega stress test: {len(nets)} nets on 100-component board..."
+        )
         routed = router.route_nets(nets)
 
         success_rate = len(routed) / len(nets)
-        assert len(routed) >= 50, \
-            f"Should route at least 50/{len(nets)} nets on mega board, got {len(routed)} ({success_rate*100:.0f}%)"
+        assert (
+            len(routed) >= 50
+        ), f"Should route at least 50/{len(nets)} nets on mega board, got {len(routed)} ({success_rate*100:.0f}%)"
 
-        print(f"Mega Stress Test (100 components): {len(routed)}/{len(nets)} nets routed ({success_rate*100:.0f}%)")
+        print(
+            f"Mega Stress Test (100 components): {len(routed)}/{len(nets)} nets routed ({success_rate*100:.0f}%)"
+        )
 
 
 class TestCrossingPatterns:
@@ -636,30 +673,35 @@ class TestCrossingPatterns:
         # 3 horizontal lines
         for i in range(3):
             y = 15.0 + i * 15.0
-            nets.append(NetDefinition(
-                name=f"H{i}",
-                start=(10.0, y),
-                end=(50.0, y),
-                layer="F.Cu",
-                priority=10
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"H{i}",
+                    start=(10.0, y),
+                    end=(50.0, y),
+                    layer="F.Cu",
+                    priority=10,
+                )
+            )
 
         # 3 vertical lines (will cross horizontals)
         for i in range(3):
             x = 15.0 + i * 15.0
-            nets.append(NetDefinition(
-                name=f"V{i}",
-                start=(x, 10.0),
-                end=(x, 50.0),
-                layer="F.Cu",
-                priority=5
-            ))
+            nets.append(
+                NetDefinition(
+                    name=f"V{i}",
+                    start=(x, 10.0),
+                    end=(x, 50.0),
+                    layer="F.Cu",
+                    priority=5,
+                )
+            )
 
         routed = router.route_nets(nets)
 
         # With crossing-forbidden zones, should route all or most
-        assert len(routed) >= 5, \
-            f"Should route at least 5/6 tic-tac-toe lines, got {len(routed)}"
+        assert (
+            len(routed) >= 5
+        ), f"Should route at least 5/6 tic-tac-toe lines, got {len(routed)}"
 
         print(f"\nTic-Tac-Toe Grid: {len(routed)}/6 lines routed")
 
@@ -681,8 +723,9 @@ class TestCrossingPatterns:
         routed = router.route_nets(nets)
 
         # Diagonal crossings - first two create forbidden zones blocking later nets
-        assert len(routed) >= 2, \
-            f"Should route at least 2/4 diagonal crossings, got {len(routed)}"
+        assert (
+            len(routed) >= 2
+        ), f"Should route at least 2/4 diagonal crossings, got {len(routed)}"
 
         print(f"\nDiagonal Crossings: {len(routed)}/4 diagonals routed")
 
@@ -696,9 +739,7 @@ class TestEdgeCases:
         router = MultiNetRouter(grid, ground_plane_mode=True)
 
         # Extremely long trace
-        nets = [
-            NetDefinition("LONG", (10.0, 50.0), (290.0, 50.0), "F.Cu", 10)
-        ]
+        nets = [NetDefinition("LONG", (10.0, 50.0), (290.0, 50.0), "F.Cu", 10)]
 
         routed = router.route_nets(nets)
 
@@ -708,44 +749,45 @@ class TestEdgeCases:
         path = routed["LONG"].path
         length = 0.0
         for i in range(len(path) - 1):
-            dx = path[i+1][0] - path[i][0]
-            dy = path[i+1][1] - path[i][1]
-            length += math.sqrt(dx*dx + dy*dy)
+            dx = path[i + 1][0] - path[i][0]
+            dy = path[i + 1][1] - path[i][1]
+            length += math.sqrt(dx * dx + dy * dy)
 
-        assert length >= 280.0, f"Long trace should be at least 280mm, got {length:.1f}mm"
+        assert (
+            length >= 280.0
+        ), f"Long trace should be at least 280mm, got {length:.1f}mm"
         print(f"\nVery Long Trace: {length:.1f}mm routed successfully")
 
     def test_hairpin_turn(self):
         """Route trace that requires sharp hairpin turn."""
         grid = RoutingGrid(40.0, 40.0, resolution_mm=0.1)
-        router = MultiNetRouter(grid, ground_plane_mode=True)
+        from pcb_tool.routing.pathfinder import PathFinder
+
+        finder = PathFinder(grid)
 
         # Block direct path, force hairpin
         grid.mark_rectangle_obstacle(
-            x_min_mm=15.0, y_min_mm=10.0,
-            x_max_mm=25.0, y_max_mm=30.0,
-            layer="F.Cu"
+            x_min_mm=15.0, y_min_mm=10.0, x_max_mm=25.0, y_max_mm=30.0, layer="F.Cu"
         )
 
-        # Trace must go around obstacle
-        nets = [
-            NetDefinition("HAIRPIN", (10.0, 20.0), (30.0, 20.0), "F.Cu", 10)
-        ]
-
-        routed = router.route_nets(nets)
-
-        assert "HAIRPIN" in routed, "Should route trace with hairpin turn"
-
-        path = routed["HAIRPIN"].path
+        # Trace must go around obstacle on the same layer (disallow vias).
+        path = finder.find_path(
+            start_mm=(10.0, 20.0),
+            goal_mm=(30.0, 20.0),
+            layer="F.Cu",
+            force_single_layer=True,
+        )
+        assert path is not None, "Should route trace with hairpin turn"
         length = 0.0
         for i in range(len(path) - 1):
-            dx = path[i+1][0] - path[i][0]
-            dy = path[i+1][1] - path[i][1]
-            length += math.sqrt(dx*dx + dy*dy)
+            dx = path[i + 1][0] - path[i][0]
+            dy = path[i + 1][1] - path[i][1]
+            length += math.sqrt(dx * dx + dy * dy)
 
         # Hairpin should be significantly longer than straight line (20mm)
-        assert length > 25.0, \
-            f"Hairpin should be >25mm (detoured around obstacle), got {length:.1f}mm"
+        assert (
+            length > 25.0
+        ), f"Hairpin should be >25mm (detoured around obstacle), got {length:.1f}mm"
 
         print(f"\nHairpin Turn: {length:.1f}mm (detoured around obstacle)")
 
@@ -775,17 +817,18 @@ class TestEdgeCases:
         routed = router.route_nets(nets)
 
         # At least one should find path through maze
-        assert len(routed) >= 1, \
-            f"Should route at least 1/2 nets through maze, got {len(routed)}"
+        assert (
+            len(routed) >= 1
+        ), f"Should route at least 1/2 nets through maze, got {len(routed)}"
 
         print(f"\nMaze Routing: {len(routed)}/2 nets found path through maze")
 
 
 def test_summary():
     """Print summary of all tests."""
-    print("\n" + "="*70)
+    print("\n" + "=" * 70)
     print("COMPLEX ROUTING CHALLENGES - TEST SUITE SUMMARY")
-    print("="*70)
+    print("=" * 70)
     print("Test Categories:")
     print("  1. Dense Grid Routing - 4x4 grid with 24 interconnections")
     print("  2. Star Pattern - 8 and 16 spoke radial connections")
@@ -796,6 +839,6 @@ def test_summary():
     print("  7. Large Board Stress - 50-100 component mega boards")
     print("  8. Crossing Patterns - Tic-tac-toe and diagonal crossings")
     print("  9. Edge Cases - Long traces, hairpins, maze routing")
-    print("="*70)
+    print("=" * 70)
     print("All tests validate crossing-forbidden zones on complex scenarios")
-    print("="*70 + "\n")
+    print("=" * 70 + "\n")

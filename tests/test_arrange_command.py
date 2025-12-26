@@ -9,26 +9,48 @@ from pcb_tool.data_model import Board, Component
 def sample_board():
     """Create a board with multiple test components at various positions."""
     board = Board()
-    board.add_component(Component(
-        ref="R1", value="10k", footprint="R_0805",
-        position=(10.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R2", value="22k", footprint="R_0805",
-        position=(15.0, 25.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="C1", value="100nF", footprint="C_0805",
-        position=(20.0, 30.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="Q1", value="2N3904", footprint="TO-92",
-        position=(25.0, 35.0), rotation=0.0, locked=True
-    ))
-    board.add_component(Component(
-        ref="U1", value="IC", footprint="DIP-8",
-        position=(30.0, 40.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(10.0, 20.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R2",
+            value="22k",
+            footprint="R_0805",
+            position=(15.0, 25.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="C1",
+            value="100nF",
+            footprint="C_0805",
+            position=(20.0, 30.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="Q1",
+            value="2N3904",
+            footprint="TO-92",
+            position=(25.0, 35.0),
+            rotation=0.0,
+            locked=True,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="U1", value="IC", footprint="DIP-8", position=(30.0, 40.0), rotation=0.0
+        )
+    )
     return board
 
 
@@ -187,10 +209,15 @@ def test_arrange_execute_grid_nine_components():
     """Test arranging nine components in a grid (3x3)."""
     board = Board()
     for i in range(9):
-        board.add_component(Component(
-            ref=f"R{i+1}", value="10k", footprint="R_0805",
-            position=(i * 10.0, i * 10.0), rotation=0.0
-        ))
+        board.add_component(
+            Component(
+                ref=f"R{i+1}",
+                value="10k",
+                footprint="R_0805",
+                position=(i * 10.0, i * 10.0),
+                rotation=0.0,
+            )
+        )
 
     refs = [f"R{i+1}" for i in range(9)]
     cmd = ArrangeCommand(refs, pattern="GRID", spacing=10.0)
@@ -202,8 +229,8 @@ def test_arrange_execute_grid_nine_components():
     r3 = board.get_component("R3")
     r9 = board.get_component("R9")
 
-    assert r1.position == (0.0, 0.0)    # [0,0]
-    assert r3.position == (20.0, 0.0)   # [2,0]
+    assert r1.position == (0.0, 0.0)  # [0,0]
+    assert r3.position == (20.0, 0.0)  # [2,0]
     assert r9.position == (20.0, 20.0)  # [2,2]
 
 

@@ -16,7 +16,14 @@ Example:
 """
 
 from typing import List, Tuple, Optional, Union
-from pcb_tool.data_model import Board, Component, Net, NetClass, Pad, STANDARD_LAYER_STACKS
+from pcb_tool.data_model import (
+    Board,
+    Component,
+    Net,
+    NetClass,
+    Pad,
+    STANDARD_LAYER_STACKS,
+)
 from pcb_tool.footprint_templates import generate_pads, get_template, FOOTPRINT_ALIASES
 
 
@@ -34,12 +41,7 @@ class BoardBuilder:
         _net_code_counter: Counter for generating net codes
     """
 
-    def __init__(
-        self,
-        layers: int = 2,
-        width: float = 100.0,
-        height: float = 100.0
-    ):
+    def __init__(self, layers: int = 2, width: float = 100.0, height: float = 100.0):
         """Initialize a new board builder.
 
         Args:
@@ -64,7 +66,7 @@ class BoardBuilder:
         track_width: float = 0.25,
         clearance: float = 0.2,
         via_size: float = 0.8,
-        via_drill: float = 0.4
+        via_drill: float = 0.4,
     ) -> "BoardBuilder":
         """Add a net class with routing rules.
 
@@ -86,7 +88,7 @@ class BoardBuilder:
             track_width=track_width,
             clearance=clearance,
             via_size=via_size,
-            via_drill=via_drill
+            via_drill=via_drill,
         )
         return self
 
@@ -98,7 +100,7 @@ class BoardBuilder:
         value: str = "",
         rotation: float = 0,
         layer: str = "F.Cu",
-        pads: Optional[List[Pad]] = None
+        pads: Optional[List[Pad]] = None,
     ) -> "BoardBuilder":
         """Add a component to the board.
 
@@ -139,7 +141,7 @@ class BoardBuilder:
             position=position,
             rotation=rotation,
             layer=layer,
-            pads=pads
+            pads=pads,
         )
         self._board.add_component(comp)
         return self
@@ -149,7 +151,7 @@ class BoardBuilder:
         name: str,
         net_class: Optional[str] = None,
         connections: Optional[List[Tuple[str, str]]] = None,
-        track_width: Optional[float] = None
+        track_width: Optional[float] = None,
     ) -> "BoardBuilder":
         """Add a net with connections.
 
@@ -178,7 +180,7 @@ class BoardBuilder:
             name=name,
             code=str(self._net_code_counter),
             track_width=width,
-            net_class=net_class
+            net_class=net_class,
         )
         self._net_code_counter += 1
 
@@ -195,12 +197,7 @@ class BoardBuilder:
 
         return self
 
-    def connect(
-        self,
-        net_name: str,
-        ref: str,
-        pin: Union[str, int]
-    ) -> "BoardBuilder":
+    def connect(self, net_name: str, ref: str, pin: Union[str, int]) -> "BoardBuilder":
         """Add a connection to an existing net.
 
         Args:
@@ -263,10 +260,9 @@ class BoardBuilder:
 
 # Convenience functions for quick board creation
 
+
 def quick_board(
-    layers: int = 2,
-    width: float = 100.0,
-    height: float = 100.0
+    layers: int = 2, width: float = 100.0, height: float = 100.0
 ) -> BoardBuilder:
     """Create a new board builder with sensible defaults.
 
@@ -289,7 +285,7 @@ def fpga_board(
     width: float = 40.0,
     height: float = 40.0,
     power_width: float = 0.5,
-    signal_width: float = 0.2
+    signal_width: float = 0.2,
 ) -> BoardBuilder:
     """Create a board builder pre-configured for FPGA designs.
 
@@ -312,16 +308,30 @@ def fpga_board(
         ...     .net("VCC", "Power", [("U1", "8"), ("C1", "1")])
         ...     .build())
     """
-    return (BoardBuilder(layers=layers, width=width, height=height)
-        .net_class("Power", track_width=power_width, clearance=0.25, via_size=0.8, via_drill=0.4)
-        .net_class("Signal", track_width=signal_width, clearance=0.2, via_size=0.6, via_drill=0.3))
+    return (
+        BoardBuilder(layers=layers, width=width, height=height)
+        .net_class(
+            "Power",
+            track_width=power_width,
+            clearance=0.25,
+            via_size=0.8,
+            via_drill=0.4,
+        )
+        .net_class(
+            "Signal",
+            track_width=signal_width,
+            clearance=0.2,
+            via_size=0.6,
+            via_drill=0.3,
+        )
+    )
 
 
 def simple_board(
     layers: int = 2,
     width: float = 50.0,
     height: float = 50.0,
-    track_width: float = 0.25
+    track_width: float = 0.25,
 ) -> BoardBuilder:
     """Create a simple board with default net class.
 
@@ -337,5 +347,6 @@ def simple_board(
     Example:
         >>> board = simple_board().component("R1", "0603", (10, 10)).build()
     """
-    return (BoardBuilder(layers=layers, width=width, height=height)
-        .net_class("Default", track_width=track_width, clearance=0.2))
+    return BoardBuilder(layers=layers, width=width, height=height).net_class(
+        "Default", track_width=track_width, clearance=0.2
+    )

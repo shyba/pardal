@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=67.0", "wheel"]
+requires = ["setuptools>=67.0", "wheel", "Cython>=3.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -11,6 +11,11 @@ requires-python = ">=3.10"
 license = {file = "LICENSE"}
 dependencies = ["z3-solver==4.12.6.0"]
 
+[project.optional-dependencies]
+dev = [
+    "black>=25.1.0",
+]
+
 [project.scripts]
 pardal = "pcb_tool.cli:main"
 pcb-tool = "pcb_tool.__main__:main"
@@ -21,6 +26,11 @@ packages = {find = {include = ["pcb_tool*"]}}
 
 [tool.setuptools.dynamic]
 version = {attr = "pcb_tool.__version__"}
+
+[tool.black]
+target-version = ["py310"]
+line-length = 88
+extend-exclude = "(^venv/|^build/|^dist/|^\\.venv/|pcb_tool/fastpath/_astar\\.c$)"
 
 [tool.pytest.ini_options]
 markers = [

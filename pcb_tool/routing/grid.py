@@ -14,6 +14,7 @@ import math
 @dataclass
 class GridCell:
     """Represents a single cell in the routing grid."""
+
     x: int  # Grid x-coordinate
     y: int  # Grid y-coordinate
     layer: str  # Layer name (e.g., "F.Cu", "In1.Cu", "B.Cu")
@@ -44,7 +45,7 @@ class RoutingGrid:
         height_mm: float,
         resolution_mm: float = 0.1,
         default_clearance_mm: float = 0.2,
-        layers: Optional[List[str]] = None
+        layers: Optional[List[str]] = None,
     ):
         """
         Initialize the routing grid.
@@ -101,7 +102,66 @@ class RoutingGrid:
         # Key: (grid_x, grid_y, layer, allow_diagonals)
         # Value: List of (neighbor_cell, cost) tuples
         # Cleared when obstacles change via mark_obstacle/mark_via/mark_trace_segment
-        self._neighbor_cache: dict[Tuple[int, int, str, bool], List[Tuple[GridCell, float]]] = {}
+        self._neighbor_cache: dict[
+            Tuple[int, int, str, bool], List[Tuple[GridCell, float]]
+        ] = {}
+
+        # Cached rasterization masks for common trace widths/clearances.
+        # Keys use integer microunits to avoid float hash surprises.
+        self._trace_offset_cache: dict[
+            Tuple[int, int, int], Tuple[List[Tuple[int, int]], List[Tuple[int, int]]]
+        ] = {}
+        self._forbidden_offset_cache: dict[Tuple[int, int], List[Tuple[int, int]]] = {}
+
+    def _get_trace_offsets(
+        self, width_mm: float, clearance_mm: float
+    ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, int]]]:
+        res_um = int(round(self.resolution_mm * 1000))
+        width_um = int(round(width_mm * 1000))
+        clearance_um = int(round(clearance_mm * 1000))
+        key = (width_um, clearance_um, res_um)
+        cached = self._trace_offset_cache.get(key)
+        if cached is not None:
+            return cached
+
+        r_inner = (width_mm / 2.0) / self.resolution_mm
+        r_outer = (width_mm / 2.0 + clearance_mm) / self.resolution_mm
+        r_inner2 = r_inner * r_inner
+        r_outer2 = r_outer * r_outer
+
+        max_r = int(math.ceil(r_outer))
+        obstacle_offsets: List[Tuple[int, int]] = []
+        clearance_offsets: List[Tuple[int, int]] = []
+        for dx in range(-max_r, max_r + 1):
+            for dy in range(-max_r, max_r + 1):
+                d2 = dx * dx + dy * dy
+                if d2 <= r_inner2:
+                    obstacle_offsets.append((dx, dy))
+                elif d2 <= r_outer2:
+                    clearance_offsets.append((dx, dy))
+
+        self._trace_offset_cache[key] = (obstacle_offsets, clearance_offsets)
+        return obstacle_offsets, clearance_offsets
+
+    def _get_forbidden_offsets(self, corridor_width_mm: float) -> List[Tuple[int, int]]:
+        res_um = int(round(self.resolution_mm * 1000))
+        corridor_um = int(round(corridor_width_mm * 1000))
+        key = (corridor_um, res_um)
+        cached = self._forbidden_offset_cache.get(key)
+        if cached is not None:
+            return cached
+
+        r = (corridor_width_mm / 2.0) / self.resolution_mm
+        r2 = r * r
+        max_r = int(math.ceil(r))
+        offsets: List[Tuple[int, int]] = []
+        for dx in range(-max_r, max_r + 1):
+            for dy in range(-max_r, max_r + 1):
+                if dx * dx + dy * dy <= r2:
+                    offsets.append((dx, dy))
+
+        self._forbidden_offset_cache[key] = offsets
+        return offsets
 
     @property
     def layer_count(self) -> int:
@@ -174,7 +234,7 @@ class RoutingGrid:
         from_idx = self.get_layer_index(from_layer)
         to_idx = self.get_layer_index(to_layer)
         start, end = min(from_idx, to_idx), max(from_idx, to_idx)
-        return self.layers[start:end + 1]
+        return self.layers[start : end + 1]
 
     def to_grid_coords(self, x_mm: float, y_mm: float) -> Tuple[int, int]:
         """
@@ -217,8 +277,7 @@ class RoutingGrid:
         Returns:
             True if within bounds, False otherwise
         """
-        return (0 <= grid_x < self.grid_width and
-                0 <= grid_y < self.grid_height)
+        return 0 <= grid_x < self.grid_width and 0 <= grid_y < self.grid_height
 
     def mark_obstacle(
         self,
@@ -226,7 +285,7 @@ class RoutingGrid:
         y_mm: float,
         layer: str,
         clearance_mm: Optional[float] = None,
-        size_mm: float = 0.0
+        size_mm: float = 0.0,
     ):
         """
         Mark a cell as an obstacle with clearance inflation.
@@ -238,12 +297,16 @@ class RoutingGrid:
             clearance_mm: Clearance distance (uses default if None)
             size_mm: Size of the obstacle (e.g., pad diameter)
         """
-        clearance = clearance_mm if clearance_mm is not None else self.default_clearance_mm
+        clearance = (
+            clearance_mm if clearance_mm is not None else self.default_clearance_mm
+        )
         grid_x, grid_y = self.to_grid_coords(x_mm, y_mm)
 
         # Calculate clearance radius in grid cells
         obstacle_radius = int(math.ceil(size_mm / (2 * self.resolution_mm)))
-        clearance_radius = int(math.ceil((size_mm / 2 + clearance) / self.resolution_mm))
+        clearance_radius = int(
+            math.ceil((size_mm / 2 + clearance) / self.resolution_mm)
+        )
 
         layers = ["F.Cu", "B.Cu"] if layer == "both" else [layer]
 
@@ -253,7 +316,7 @@ class RoutingGrid:
                 for dy in range(-obstacle_radius, obstacle_radius + 1):
                     gx, gy = grid_x + dx, grid_y + dy
                     if self.is_within_bounds(gx, gy):
-                        dist = math.sqrt(dx*dx + dy*dy) * self.resolution_mm
+                        dist = math.sqrt(dx * dx + dy * dy) * self.resolution_mm
                         if dist <= size_mm / 2:
                             self.obstacles[lyr].add((gx, gy))
 
@@ -262,7 +325,7 @@ class RoutingGrid:
                 for dy in range(-clearance_radius, clearance_radius + 1):
                     gx, gy = grid_x + dx, grid_y + dy
                     if self.is_within_bounds(gx, gy):
-                        dist = math.sqrt(dx*dx + dy*dy) * self.resolution_mm
+                        dist = math.sqrt(dx * dx + dy * dy) * self.resolution_mm
                         if size_mm / 2 < dist <= (size_mm / 2 + clearance):
                             self.clearance_zones[lyr].add((gx, gy))
 
@@ -276,7 +339,7 @@ class RoutingGrid:
         x_max_mm: float,
         y_max_mm: float,
         layer: str,
-        clearance_mm: Optional[float] = None
+        clearance_mm: Optional[float] = None,
     ):
         """
         Mark a rectangular area as an obstacle.
@@ -289,7 +352,9 @@ class RoutingGrid:
             layer: Layer name ("F.Cu", "B.Cu", or "both")
             clearance_mm: Clearance distance around rectangle
         """
-        clearance = clearance_mm if clearance_mm is not None else self.default_clearance_mm
+        clearance = (
+            clearance_mm if clearance_mm is not None else self.default_clearance_mm
+        )
         clearance_cells = int(math.ceil(clearance / self.resolution_mm))
 
         gx_min, gy_min = self.to_grid_coords(x_min_mm, y_min_mm)
@@ -309,8 +374,9 @@ class RoutingGrid:
                 for gy in range(gy_min - clearance_cells, gy_max + clearance_cells + 1):
                     if self.is_within_bounds(gx, gy):
                         # Only mark if not already an obstacle and outside the obstacle rectangle
-                        if ((gx, gy) not in self.obstacles[lyr] and
-                            not (gx_min <= gx <= gx_max and gy_min <= gy <= gy_max)):
+                        if (gx, gy) not in self.obstacles[lyr] and not (
+                            gx_min <= gx <= gx_max and gy_min <= gy <= gy_max
+                        ):
                             self.clearance_zones[lyr].add((gx, gy))
 
         # Clear neighbor cache when obstacles change
@@ -322,7 +388,7 @@ class RoutingGrid:
         end_mm: Tuple[float, float],
         layer: str,
         width_mm: float,
-        clearance_mm: Optional[float] = None
+        clearance_mm: Optional[float] = None,
     ):
         """
         Mark a trace segment as an obstacle using line rasterization.
@@ -334,7 +400,9 @@ class RoutingGrid:
             width_mm: Trace width in millimeters
             clearance_mm: Clearance distance around trace
         """
-        clearance = clearance_mm if clearance_mm is not None else self.default_clearance_mm
+        clearance = (
+            clearance_mm if clearance_mm is not None else self.default_clearance_mm
+        )
 
         start_grid = self.to_grid_coords(*start_mm)
         end_grid = self.to_grid_coords(*end_mm)
@@ -343,28 +411,27 @@ class RoutingGrid:
         cells = self._bresenham_line(start_grid, end_grid)
 
         # Calculate trace radius in grid cells
-        trace_radius = int(math.ceil(width_mm / (2 * self.resolution_mm)))
-        clearance_radius = int(math.ceil((width_mm / 2 + clearance) / self.resolution_mm))
+        obstacle_offsets, clearance_offsets = self._get_trace_offsets(
+            width_mm, clearance
+        )
 
         # Mark obstacles and clearances around each cell in the trace
+        obstacles = self.obstacles[layer]
+        clearance_zones = self.clearance_zones[layer]
+        gw = self.grid_width
+        gh = self.grid_height
         for cx, cy in cells:
             # Mark obstacle cells (trace itself)
-            for dx in range(-trace_radius, trace_radius + 1):
-                for dy in range(-trace_radius, trace_radius + 1):
-                    gx, gy = cx + dx, cy + dy
-                    if self.is_within_bounds(gx, gy):
-                        dist = math.sqrt(dx*dx + dy*dy) * self.resolution_mm
-                        if dist <= width_mm / 2:
-                            self.obstacles[layer].add((gx, gy))
+            for dx, dy in obstacle_offsets:
+                gx, gy = cx + dx, cy + dy
+                if 0 <= gx < gw and 0 <= gy < gh:
+                    obstacles.add((gx, gy))
 
             # Mark clearance zone cells
-            for dx in range(-clearance_radius, clearance_radius + 1):
-                for dy in range(-clearance_radius, clearance_radius + 1):
-                    gx, gy = cx + dx, cy + dy
-                    if self.is_within_bounds(gx, gy):
-                        dist = math.sqrt(dx*dx + dy*dy) * self.resolution_mm
-                        if width_mm / 2 < dist <= (width_mm / 2 + clearance):
-                            self.clearance_zones[layer].add((gx, gy))
+            for dx, dy in clearance_offsets:
+                gx, gy = cx + dx, cy + dy
+                if 0 <= gx < gw and 0 <= gy < gh:
+                    clearance_zones.add((gx, gy))
 
         # Clear neighbor cache when obstacles change
         self._neighbor_cache.clear()
@@ -375,7 +442,7 @@ class RoutingGrid:
         end_mm: Tuple[float, float],
         layer: str,
         trace_width_mm: float = 0.25,
-        net_name: Optional[str] = None
+        net_name: Optional[str] = None,
     ):
         """
         Mark a zone around a trace where crossing would occur (HARD BLOCK).
@@ -400,23 +467,24 @@ class RoutingGrid:
         # Calculate crossing-forbidden radius (wider than clearance)
         # This corridor is wide enough to prevent any routing that would cross
         corridor_width = trace_width_mm + 0.3  # 0.3mm wider than trace
-        forbidden_radius = int(math.ceil(corridor_width / (2 * self.resolution_mm)))
+        forbidden_offsets = self._get_forbidden_offsets(corridor_width)
+
+        forbidden = self.crossing_forbidden[layer]
+        gw = self.grid_width
+        gh = self.grid_height
 
         # Mark forbidden zone around each cell in the trace
         for cx, cy in cells:
-            for dx in range(-forbidden_radius, forbidden_radius + 1):
-                for dy in range(-forbidden_radius, forbidden_radius + 1):
-                    gx, gy = cx + dx, cy + dy
-                    if self.is_within_bounds(gx, gy):
-                        dist = math.sqrt(dx*dx + dy*dy) * self.resolution_mm
-                        if dist <= corridor_width / 2:
-                            self.crossing_forbidden[layer].add((gx, gy))
+            for dx, dy in forbidden_offsets:
+                gx, gy = cx + dx, cy + dy
+                if 0 <= gx < gw and 0 <= gy < gh:
+                    forbidden.add((gx, gy))
 
-                            # Track by net if specified (for rip-up)
-                            if net_name:
-                                if net_name not in self.forbidden_zones_by_net:
-                                    self.forbidden_zones_by_net[net_name] = set()
-                                self.forbidden_zones_by_net[net_name].add((gx, gy, layer))
+                    # Track by net if specified (for rip-up)
+                    if net_name:
+                        if net_name not in self.forbidden_zones_by_net:
+                            self.forbidden_zones_by_net[net_name] = set()
+                        self.forbidden_zones_by_net[net_name].add((gx, gy, layer))
 
         # Clear neighbor cache when crossing zones change
         self._neighbor_cache.clear()
@@ -448,9 +516,7 @@ class RoutingGrid:
         self._neighbor_cache.clear()
 
     def _bresenham_line(
-        self,
-        start: Tuple[int, int],
-        end: Tuple[int, int]
+        self, start: Tuple[int, int], end: Tuple[int, int]
     ) -> List[Tuple[int, int]]:
         """
         Bresenham's line algorithm to rasterize a line on the grid.
@@ -495,7 +561,7 @@ class RoutingGrid:
         x_mm: float,
         y_mm: float,
         size_mm: float = 0.8,
-        via_layers: Optional[Tuple[str, ...]] = None
+        via_layers: Optional[Tuple[str, ...]] = None,
     ):
         """
         Mark a via location (obstacle on specified layers).
@@ -527,7 +593,9 @@ class RoutingGrid:
 
         # Cache is cleared by mark_obstacle() call above
 
-    def is_valid_cell(self, grid_x: int, grid_y: int, layer: str, current_net: Optional[str] = None) -> bool:
+    def is_valid_cell(
+        self, grid_x: int, grid_y: int, layer: str, current_net: Optional[str] = None
+    ) -> bool:
         """
         Check if a cell is valid for routing (not obstacle, within bounds).
 
@@ -546,9 +614,12 @@ class RoutingGrid:
         # Check if cell is an obstacle
         if (grid_x, grid_y) in self.obstacles.get(layer, set()):
             # Exception 1: Allow routing through own net's pads
-            if current_net and hasattr(self, 'pad_net_map'):
+            if current_net and hasattr(self, "pad_net_map"):
                 pad_key = (grid_x, grid_y, layer)
-                if pad_key in self.pad_net_map and self.pad_net_map[pad_key] == current_net:
+                if (
+                    pad_key in self.pad_net_map
+                    and self.pad_net_map[pad_key] == current_net
+                ):
                     # This obstacle is a pad belonging to current net, allow routing
                     return True
             # Exception 2: Allow routing through own net's trace obstacles
@@ -575,7 +646,9 @@ class RoutingGrid:
 
         return True
 
-    def get_cell_cost(self, grid_x: int, grid_y: int, layer: str, current_net: Optional[str] = None) -> float:
+    def get_cell_cost(
+        self, grid_x: int, grid_y: int, layer: str, current_net: Optional[str] = None
+    ) -> float:
         """
         Get the routing cost for a cell.
 
@@ -589,7 +662,7 @@ class RoutingGrid:
             Routing cost (1.0 = base, higher = less preferred, inf = obstacle)
         """
         if not self.is_valid_cell(grid_x, grid_y, layer, current_net=current_net):
-            return float('inf')
+            return float("inf")
 
         # Check if in clearance zone (higher cost but still routable)
         if (grid_x, grid_y) in self.clearance_zones.get(layer, set()):
@@ -607,7 +680,7 @@ class RoutingGrid:
         grid_y: int,
         layer: str,
         allow_diagonals: bool = True,
-        current_net: Optional[str] = None
+        current_net: Optional[str] = None,
     ) -> List[Tuple[GridCell, float]]:
         """
         Get valid neighboring cells for A* expansion.
@@ -638,7 +711,10 @@ class RoutingGrid:
         for dx, dy in orthogonal:
             nx, ny = grid_x + dx, grid_y + dy
             if self.is_valid_cell(nx, ny, layer, current_net=current_net):
-                cost = self.get_cell_cost(nx, ny, layer, current_net=current_net) * self.resolution_mm
+                cost = (
+                    self.get_cell_cost(nx, ny, layer, current_net=current_net)
+                    * self.resolution_mm
+                )
                 neighbors.append((GridCell(nx, ny, layer), cost))
 
         # Diagonal neighbors (cost = resolution_mm * sqrt(2))
@@ -646,8 +722,25 @@ class RoutingGrid:
             diagonal = [(1, 1), (1, -1), (-1, 1), (-1, -1)]
             for dx, dy in diagonal:
                 nx, ny = grid_x + dx, grid_y + dy
+                # Disallow diagonal "corner cutting" through obstacles: require both
+                # adjacent orthogonal steps to be valid as well.
+                if not self.is_valid_cell(nx, ny, layer, current_net=current_net):
+                    continue
+                if not self.is_valid_cell(
+                    grid_x + dx, grid_y, layer, current_net=current_net
+                ):
+                    continue
+                if not self.is_valid_cell(
+                    grid_x, grid_y + dy, layer, current_net=current_net
+                ):
+                    continue
+
                 if self.is_valid_cell(nx, ny, layer, current_net=current_net):
-                    cost = self.get_cell_cost(nx, ny, layer, current_net=current_net) * self.resolution_mm * math.sqrt(2)
+                    cost = (
+                        self.get_cell_cost(nx, ny, layer, current_net=current_net)
+                        * self.resolution_mm
+                        * math.sqrt(2)
+                    )
                     neighbors.append((GridCell(nx, ny, layer), cost))
 
         # Store in cache and return
@@ -668,23 +761,27 @@ class RoutingGrid:
                 "grid_width": self.grid_width,
                 "grid_height": self.grid_height,
                 "resolution_mm": self.resolution_mm,
-                "total_cells": self.grid_width * self.grid_height
+                "total_cells": self.grid_width * self.grid_height,
             },
             "obstacles": {
                 "F.Cu": len(self.obstacles["F.Cu"]),
                 "B.Cu": len(self.obstacles["B.Cu"]),
-                "vias": len(self.vias)
+                "vias": len(self.vias),
             },
             "clearance_zones": {
                 "F.Cu": len(self.clearance_zones["F.Cu"]),
-                "B.Cu": len(self.clearance_zones["B.Cu"])
+                "B.Cu": len(self.clearance_zones["B.Cu"]),
             },
             "crossing_forbidden_zones": {
                 "F.Cu": len(self.crossing_forbidden["F.Cu"]),
-                "B.Cu": len(self.crossing_forbidden["B.Cu"])
+                "B.Cu": len(self.crossing_forbidden["B.Cu"]),
             },
             "routable_cells": {
-                "F.Cu": self.grid_width * self.grid_height - len(self.obstacles["F.Cu"]) - len(self.crossing_forbidden["F.Cu"]),
-                "B.Cu": self.grid_width * self.grid_height - len(self.obstacles["B.Cu"]) - len(self.crossing_forbidden["B.Cu"])
-            }
+                "F.Cu": self.grid_width * self.grid_height
+                - len(self.obstacles["F.Cu"])
+                - len(self.crossing_forbidden["F.Cu"]),
+                "B.Cu": self.grid_width * self.grid_height
+                - len(self.obstacles["B.Cu"])
+                - len(self.crossing_forbidden["B.Cu"]),
+            },
         }

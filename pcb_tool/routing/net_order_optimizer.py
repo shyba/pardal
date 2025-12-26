@@ -11,6 +11,7 @@ import math
 # Try to import z3, gracefully handle if not available
 try:
     import z3
+
     Z3_AVAILABLE = True
 except ImportError:
     Z3_AVAILABLE = False
@@ -31,9 +32,7 @@ class NetOrderOptimizer:
         self.z3_available = Z3_AVAILABLE
 
     def optimize_order(
-        self,
-        nets: List[Dict],
-        user_constraints: Optional[List[Tuple[str, str]]] = None
+        self, nets: List[Dict], user_constraints: Optional[List[Tuple[str, str]]] = None
     ) -> List[str]:
         """
         Optimize routing order for given nets.
@@ -69,9 +68,7 @@ class NetOrderOptimizer:
         return self._z3_optimize_order(nets, user_constraints or [])
 
     def _z3_optimize_order(
-        self,
-        nets: List[Dict],
-        user_constraints: List[Tuple[str, str]]
+        self, nets: List[Dict], user_constraints: List[Tuple[str, str]]
     ) -> List[str]:
         """
         Use Z3 to find optimal net ordering.
@@ -158,9 +155,7 @@ class NetOrderOptimizer:
             return self._fallback_order(nets, user_constraints)
 
     def _fallback_order(
-        self,
-        nets: List[Dict],
-        user_constraints: Optional[List[Tuple[str, str]]] = None
+        self, nets: List[Dict], user_constraints: Optional[List[Tuple[str, str]]] = None
     ) -> List[str]:
         """
         Fallback heuristic-based ordering when Z3 is not available.
@@ -176,8 +171,7 @@ class NetOrderOptimizer:
         """
         # Sort by priority (descending), then length (ascending)
         sorted_nets = sorted(
-            nets,
-            key=lambda n: (-n.get("priority", 0), n.get("length", 0))
+            nets, key=lambda n: (-n.get("priority", 0), n.get("length", 0))
         )
 
         # Basic constraint satisfaction: move constrained nets

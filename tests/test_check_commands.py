@@ -7,7 +7,7 @@ from pcb_tool.commands import (
     CheckDrcCommand,
     CheckAirwiresCommand,
     CheckClearanceCommand,
-    CheckConnectivityCommand
+    CheckConnectivityCommand,
 )
 from pcb_tool.command_parser import CommandParser
 from pcb_tool.data_model import Board, Component, Net, TraceSegment
@@ -25,18 +25,33 @@ def basic_board():
     board = Board()
 
     # Add components
-    board.add_component(Component(
-        ref="R1", value="10K", footprint="R_0805",
-        position=(10.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R2", value="10K", footprint="R_0805",
-        position=(15.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="U1", value="ATmega328P", footprint="DIP-28",
-        position=(50.0, 60.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10K",
+            footprint="R_0805",
+            position=(10.0, 20.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R2",
+            value="10K",
+            footprint="R_0805",
+            position=(15.0, 20.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="U1",
+            value="ATmega328P",
+            footprint="DIP-28",
+            position=(50.0, 60.0),
+            rotation=0.0,
+        )
+    )
 
     # Add nets
     net_vcc = Net(name="VCC", code="1")
@@ -60,14 +75,24 @@ def board_with_routing():
     board = Board()
 
     # Add components
-    board.add_component(Component(
-        ref="R1", value="10K", footprint="R_0805",
-        position=(10.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R2", value="10K", footprint="R_0805",
-        position=(15.0, 20.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10K",
+            footprint="R_0805",
+            position=(10.0, 20.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R2",
+            value="10K",
+            footprint="R_0805",
+            position=(15.0, 20.0),
+            rotation=0.0,
+        )
+    )
 
     # Add nets with routing
     net_vcc = Net(name="VCC", code="1", track_width=0.25)
@@ -93,24 +118,44 @@ def board_with_clearance_violations():
     board = Board()
 
     # Components very close - 0.15mm apart (< 0.2mm minimum)
-    board.add_component(Component(
-        ref="R1", value="10K", footprint="R_0805",
-        position=(10.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R2", value="10K", footprint="R_0805",
-        position=(10.15, 20.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10K",
+            footprint="R_0805",
+            position=(10.0, 20.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R2",
+            value="10K",
+            footprint="R_0805",
+            position=(10.15, 20.0),
+            rotation=0.0,
+        )
+    )
 
     # Another pair too close
-    board.add_component(Component(
-        ref="U1", value="ATmega328P", footprint="DIP-28",
-        position=(50.0, 60.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="C1", value="100nF", footprint="C_0805",
-        position=(50.18, 60.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="U1",
+            value="ATmega328P",
+            footprint="DIP-28",
+            position=(50.0, 60.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="C1",
+            value="100nF",
+            footprint="C_0805",
+            position=(50.18, 60.0),
+            rotation=0.0,
+        )
+    )
 
     return board
 
@@ -121,20 +166,35 @@ def board_with_drc_errors():
     board = Board()
 
     # Components too close
-    board.add_component(Component(
-        ref="R1", value="10K", footprint="R_0805",
-        position=(10.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R2", value="10K", footprint="R_0805",
-        position=(10.15, 20.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10K",
+            footprint="R_0805",
+            position=(10.0, 20.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R2",
+            value="10K",
+            footprint="R_0805",
+            position=(10.15, 20.0),
+            rotation=0.0,
+        )
+    )
 
     # Component with no connections
-    board.add_component(Component(
-        ref="U1", value="ATmega328P", footprint="DIP-28",
-        position=(50.0, 60.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="U1",
+            value="ATmega328P",
+            footprint="DIP-28",
+            position=(50.0, 60.0),
+            rotation=0.0,
+        )
+    )
 
     # Net with narrow track
     net_vcc = Net(name="VCC", code="1", track_width=0.15)
@@ -154,6 +214,7 @@ def board_with_drc_errors():
 
 
 # CheckDrcCommand Tests
+
 
 def test_check_drc_command_creation():
     """Test CheckDrcCommand can be created"""
@@ -211,6 +272,7 @@ def test_check_drc_undo_returns_empty_string():
 
 
 # CheckAirwiresCommand Tests
+
 
 def test_check_airwires_command_creation():
     """Test CheckAirwiresCommand can be created"""
@@ -289,6 +351,7 @@ def test_check_airwires_undo_returns_empty_string():
 
 # CheckClearanceCommand Tests
 
+
 def test_check_clearance_command_creation():
     """Test CheckClearanceCommand can be created"""
     cmd = CheckClearanceCommand()
@@ -342,6 +405,7 @@ def test_check_clearance_undo_returns_empty_string():
 
 # CheckConnectivityCommand Tests
 
+
 def test_check_connectivity_command_creation():
     """Test CheckConnectivityCommand can be created"""
     cmd = CheckConnectivityCommand()
@@ -380,10 +444,15 @@ def test_check_connectivity_execute_with_floating_pins():
     board = Board()
 
     # Component with no net connections
-    board.add_component(Component(
-        ref="R5", value="10K", footprint="R_0805",
-        position=(10.0, 20.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="R5",
+            value="10K",
+            footprint="R_0805",
+            position=(10.0, 20.0),
+            rotation=0.0,
+        )
+    )
 
     # Net with only 1 connection
     net = Net(name="DEBUG", code="3")
@@ -405,6 +474,7 @@ def test_check_connectivity_undo_returns_empty_string():
 
 
 # Parser Tests
+
 
 def test_parser_check_drc():
     """Test parsing CHECK DRC"""
@@ -468,6 +538,7 @@ def test_parser_check_case_insensitive():
 
 
 # Integration Tests
+
 
 def test_check_drc_integration_workflow(board_with_drc_errors):
     """Test full CHECK DRC workflow"""

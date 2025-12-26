@@ -5,7 +5,49 @@ Parse command strings into Command objects.
 """
 
 from pathlib import Path
-from pcb_tool.commands import Command, LoadCommand, ListComponentsCommand, ListNetsCommand, ShowBoardCommand, LockCommand, UnlockCommand, MoveCommand, RotateCommand, SaveCommand, FlipCommand, WhereCommand, ExitCommand, UndoCommand, RedoCommand, HistoryCommand, HelpCommand, RouteCommand, ViaCommand, DeleteRouteCommand, DeleteViaCommand, MeasureDistanceCommand, MeasureNetLengthCommand, GroupMoveCommand, ArrangeCommand, CheckDrcCommand, CheckAirwiresCommand, CheckClearanceCommand, CheckConnectivityCommand, ShowNetCommand, ShowAirwiresCommand, AutoRouteCommand, OptimizeRoutingCommand, SetWidthCommand, SetLayersCommand, SetClearanceCommand, SetBoardSizeCommand, StatsCommand, CreateNetCommand, CreateComponentCommand, AutoRouteStrategyCommand
+from pcb_tool.commands import (
+    Command,
+    LoadCommand,
+    ListComponentsCommand,
+    ListNetsCommand,
+    ShowBoardCommand,
+    LockCommand,
+    UnlockCommand,
+    MoveCommand,
+    RotateCommand,
+    SaveCommand,
+    FlipCommand,
+    WhereCommand,
+    ExitCommand,
+    UndoCommand,
+    RedoCommand,
+    HistoryCommand,
+    HelpCommand,
+    RouteCommand,
+    ViaCommand,
+    DeleteRouteCommand,
+    DeleteViaCommand,
+    MeasureDistanceCommand,
+    MeasureNetLengthCommand,
+    GroupMoveCommand,
+    ArrangeCommand,
+    CheckDrcCommand,
+    CheckAirwiresCommand,
+    CheckClearanceCommand,
+    CheckConnectivityCommand,
+    ShowNetCommand,
+    ShowAirwiresCommand,
+    AutoRouteCommand,
+    OptimizeRoutingCommand,
+    SetWidthCommand,
+    SetLayersCommand,
+    SetClearanceCommand,
+    SetBoardSizeCommand,
+    StatsCommand,
+    CreateNetCommand,
+    CreateComponentCommand,
+    AutoRouteStrategyCommand,
+)
 
 
 class CommandParser:
@@ -201,7 +243,7 @@ class CommandParser:
             if mode in ["TO", "BY"]:
                 try:
                     angle = float(args[2])
-                    absolute = (mode == "TO")
+                    absolute = mode == "TO"
                     return RotateCommand(ref, angle, absolute=absolute)
                 except ValueError:
                     return None
@@ -396,6 +438,7 @@ class CommandParser:
 
         # Reconstruct full command string to extract VIA waypoints using regex
         import re
+
         command_text = " ".join(args)
 
         # Find FROM and TO keywords
@@ -417,7 +460,7 @@ class CommandParser:
 
         # Extract VIA waypoints from command text using regex
         # Pattern matches: VIA (x, y) or VIA (x.x, y.y)
-        via_pattern = r'VIA\s*\(\s*(\d+\.?\d*)\s*,\s*(\d+\.?\d*)\s*\)'
+        via_pattern = r"VIA\s*\(\s*(\d+\.?\d*)\s*,\s*(\d+\.?\d*)\s*\)"
         waypoints = []
         for match in re.finditer(via_pattern, command_text):
             x = float(match.group(1))
@@ -436,7 +479,7 @@ class CommandParser:
             return None
 
         # Determine start position type
-        if len(start_parts) == 1 and '.' in start_parts[0]:
+        if len(start_parts) == 1 and "." in start_parts[0]:
             # Component.pin notation
             start_pos = start_parts[0]  # Store as string
         elif len(start_parts) == 2:
@@ -462,7 +505,7 @@ class CommandParser:
             return None
 
         # Determine end position type
-        if len(end_parts) == 1 and '.' in end_parts[0]:
+        if len(end_parts) == 1 and "." in end_parts[0]:
             # Component.pin notation
             end_pos = end_parts[0]  # Store as string
         elif len(end_parts) == 2:
@@ -497,8 +540,14 @@ class CommandParser:
             pass
 
         # Pass waypoints to RouteCommand (None if no VIA waypoints found)
-        return RouteCommand(net_name, start_pos, end_pos, layer=layer, width=width,
-                          waypoints=waypoints if waypoints else None)
+        return RouteCommand(
+            net_name,
+            start_pos,
+            end_pos,
+            layer=layer,
+            width=width,
+            waypoints=waypoints if waypoints else None,
+        )
 
     def _parse_via(self, args: list) -> Command:
         """Parse VIA command.
@@ -741,7 +790,7 @@ class CommandParser:
             return None
 
         # Extract end position (after TO)
-        end_parts = args[to_idx + 1:]
+        end_parts = args[to_idx + 1 :]
         if not end_parts:
             return None
 
@@ -795,7 +844,9 @@ class CommandParser:
 
         # Find LENGTH keyword
         try:
-            length_idx = next(i for i, arg in enumerate(args) if arg.upper() == "LENGTH")
+            length_idx = next(
+                i for i, arg in enumerate(args) if arg.upper() == "LENGTH"
+            )
         except StopIteration:
             return None
 
@@ -869,7 +920,7 @@ class CommandParser:
         # Parse arguments
         refs = []
         pattern = "GRID"  # Default
-        spacing = 5.0     # Default
+        spacing = 5.0  # Default
 
         i = 0
         # Collect refs until we hit a keyword
@@ -984,7 +1035,9 @@ class CommandParser:
             # Find optional LAYER keyword
             layer_idx = None
             try:
-                layer_idx = next(i for i, arg in enumerate(args) if arg.upper() == "LAYER")
+                layer_idx = next(
+                    i for i, arg in enumerate(args) if arg.upper() == "LAYER"
+                )
             except StopIteration:
                 pass
 
@@ -1424,10 +1477,5 @@ class CommandParser:
                 i += 1
 
         return CreateComponentCommand(
-            ref=ref,
-            footprint=footprint,
-            x=x,
-            y=y,
-            rotation=rotation,
-            value=value
+            ref=ref, footprint=footprint, x=x, y=y, rotation=rotation, value=value
         )

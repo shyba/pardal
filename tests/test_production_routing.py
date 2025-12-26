@@ -10,6 +10,7 @@ These tests define the requirements for a production-ready autorouter:
 
 Run with: pytest tests/test_production_routing.py -v
 """
+
 import pytest
 import math
 from pcb_tool.data_model import Board, Net, Component, Pad, STANDARD_LAYER_STACKS
@@ -28,14 +29,26 @@ class TestPadObstacleMarking:
 
         # Component with pads at known positions
         comp = Component(
-            ref="U1", value="IC", footprint="test",
-            position=(15.0, 15.0), rotation=0, layer="F.Cu"
+            ref="U1",
+            value="IC",
+            footprint="test",
+            position=(15.0, 15.0),
+            rotation=0,
+            layer="F.Cu",
         )
         # Pads at offsets from center
-        comp.pads.append(Pad(number=1, position_offset=(-2.0, 0.0), size=(1.0, 1.0), shape='rect'))
-        comp.pads.append(Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape='rect'))
-        comp.pads.append(Pad(number=3, position_offset=(0.0, -2.0), size=(1.0, 1.0), shape='rect'))
-        comp.pads.append(Pad(number=4, position_offset=(0.0, 2.0), size=(1.0, 1.0), shape='rect'))
+        comp.pads.append(
+            Pad(number=1, position_offset=(-2.0, 0.0), size=(1.0, 1.0), shape="rect")
+        )
+        comp.pads.append(
+            Pad(number=2, position_offset=(2.0, 0.0), size=(1.0, 1.0), shape="rect")
+        )
+        comp.pads.append(
+            Pad(number=3, position_offset=(0.0, -2.0), size=(1.0, 1.0), shape="rect")
+        )
+        comp.pads.append(
+            Pad(number=4, position_offset=(0.0, 2.0), size=(1.0, 1.0), shape="rect")
+        )
         board.add_component(comp)
 
         # Net connecting pads 1 and 2 (horizontal)
@@ -54,10 +67,12 @@ class TestPadObstacleMarking:
         pad4_gx, pad4_gy = grid.to_grid_coords(15.0, 17.0)
 
         # These pads should be blocked (they're not part of NET1)
-        assert not grid.is_valid_cell(pad3_gx, pad3_gy, "F.Cu"), \
-            "Pad 3 should be marked as obstacle"
-        assert not grid.is_valid_cell(pad4_gx, pad4_gy, "F.Cu"), \
-            "Pad 4 should be marked as obstacle"
+        assert not grid.is_valid_cell(
+            pad3_gx, pad3_gy, "F.Cu"
+        ), "Pad 3 should be marked as obstacle"
+        assert not grid.is_valid_cell(
+            pad4_gx, pad4_gy, "F.Cu"
+        ), "Pad 4 should be marked as obstacle"
 
     def test_route_does_not_cross_other_pads(self):
         """Routes must not pass through pads of other nets."""
@@ -66,20 +81,44 @@ class TestPadObstacleMarking:
         board.height = 30.0
 
         # Two connectors on opposite sides
-        j1 = Component(ref="J1", value="CONN", footprint="test",
-                      position=(5.0, 15.0), rotation=0, layer="F.Cu")
-        j1.pads.append(Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape='circle'))
+        j1 = Component(
+            ref="J1",
+            value="CONN",
+            footprint="test",
+            position=(5.0, 15.0),
+            rotation=0,
+            layer="F.Cu",
+        )
+        j1.pads.append(
+            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="circle")
+        )
         board.add_component(j1)
 
-        j2 = Component(ref="J2", value="CONN", footprint="test",
-                      position=(25.0, 15.0), rotation=0, layer="F.Cu")
-        j2.pads.append(Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape='circle'))
+        j2 = Component(
+            ref="J2",
+            value="CONN",
+            footprint="test",
+            position=(25.0, 15.0),
+            rotation=0,
+            layer="F.Cu",
+        )
+        j2.pads.append(
+            Pad(number=1, position_offset=(0.0, 0.0), size=(1.0, 1.0), shape="circle")
+        )
         board.add_component(j2)
 
         # Obstacle component in the middle with pad directly on the path
-        obstacle = Component(ref="R1", value="RES", footprint="test",
-                            position=(15.0, 15.0), rotation=0, layer="F.Cu")
-        obstacle.pads.append(Pad(number=1, position_offset=(0.0, 0.0), size=(1.5, 1.5), shape='rect'))
+        obstacle = Component(
+            ref="R1",
+            value="RES",
+            footprint="test",
+            position=(15.0, 15.0),
+            rotation=0,
+            layer="F.Cu",
+        )
+        obstacle.pads.append(
+            Pad(number=1, position_offset=(0.0, 0.0), size=(1.5, 1.5), shape="rect")
+        )
         board.add_component(obstacle)
 
         # Net 1: J1 to J2 (must route around R1's pad)
@@ -113,9 +152,12 @@ class TestPadObstacleMarking:
                 continue  # B.Cu traces can pass under F.Cu pads
 
             # Check if segment passes through pad
-            dist = self._point_to_segment_distance(r1_pad_pos, segment.start, segment.end)
-            assert dist >= pad_radius, \
-                f"Route passes through R1 pad on {segment.layer}: segment {segment.start}->{segment.end}, dist={dist:.2f}mm"
+            dist = self._point_to_segment_distance(
+                r1_pad_pos, segment.start, segment.end
+            )
+            assert (
+                dist >= pad_radius
+            ), f"Route passes through R1 pad on {segment.layer}: segment {segment.start}->{segment.end}, dist={dist:.2f}mm"
 
     def _point_to_segment_distance(self, point, seg_start, seg_end):
         """Calculate minimum distance from point to line segment."""
@@ -151,8 +193,9 @@ class TestClearanceViolations:
         # Resolution should be <= half of clearance for accurate diagonal routing
         # Diagonal step = resolution * sqrt(2), should be < clearance
         diagonal_step = grid.resolution_mm * math.sqrt(2)
-        assert diagonal_step < grid.default_clearance_mm * 1.5, \
-            f"Grid resolution {grid.resolution_mm}mm too coarse for {grid.default_clearance_mm}mm clearance"
+        assert (
+            diagonal_step < grid.default_clearance_mm * 1.5
+        ), f"Grid resolution {grid.resolution_mm}mm too coarse for {grid.default_clearance_mm}mm clearance"
 
     def test_parallel_traces_maintain_clearance(self):
         """Parallel traces should maintain minimum clearance."""
@@ -162,17 +205,43 @@ class TestClearanceViolations:
 
         # Two parallel nets
         for i, y_pos in enumerate([10.0, 12.0]):  # 2mm apart vertically
-            j_left = Component(ref=f"JL{i}", value="CONN", footprint="test",
-                              position=(5.0, y_pos), rotation=0, layer="F.Cu")
-            j_left.pads.append(Pad(number=1, position_offset=(0.0, 0.0), size=(0.8, 0.8), shape='circle'))
+            j_left = Component(
+                ref=f"JL{i}",
+                value="CONN",
+                footprint="test",
+                position=(5.0, y_pos),
+                rotation=0,
+                layer="F.Cu",
+            )
+            j_left.pads.append(
+                Pad(
+                    number=1,
+                    position_offset=(0.0, 0.0),
+                    size=(0.8, 0.8),
+                    shape="circle",
+                )
+            )
             board.add_component(j_left)
 
-            j_right = Component(ref=f"JR{i}", value="CONN", footprint="test",
-                               position=(25.0, y_pos), rotation=0, layer="F.Cu")
-            j_right.pads.append(Pad(number=1, position_offset=(0.0, 0.0), size=(0.8, 0.8), shape='circle'))
+            j_right = Component(
+                ref=f"JR{i}",
+                value="CONN",
+                footprint="test",
+                position=(25.0, y_pos),
+                rotation=0,
+                layer="F.Cu",
+            )
+            j_right.pads.append(
+                Pad(
+                    number=1,
+                    position_offset=(0.0, 0.0),
+                    size=(0.8, 0.8),
+                    shape="circle",
+                )
+            )
             board.add_component(j_right)
 
-            net = Net(name=f"NET{i}", code=str(i+1))
+            net = Net(name=f"NET{i}", code=str(i + 1))
             net.add_connection(f"JL{i}", "1")
             net.add_connection(f"JR{i}", "1")
             board.add_net(net)
@@ -193,8 +262,9 @@ class TestClearanceViolations:
                 )
                 # Account for trace width (assume 0.25mm)
                 effective_dist = dist - 0.25
-                assert effective_dist >= min_clearance * 0.9, \
-                    f"Clearance violation: {effective_dist:.3f}mm < {min_clearance}mm"
+                assert (
+                    effective_dist >= min_clearance * 0.9
+                ), f"Clearance violation: {effective_dist:.3f}mm < {min_clearance}mm"
 
     def _segment_to_segment_distance(self, s1_start, s1_end, s2_start, s2_end):
         """Approximate minimum distance between two line segments."""
@@ -232,7 +302,7 @@ class TestCompleteRouting:
 
         # 5-point VCC net (star topology)
         positions = [
-            ("J1", (5.0, 20.0)),   # Left
+            ("J1", (5.0, 20.0)),  # Left
             ("J2", (35.0, 20.0)),  # Right
             ("C1", (15.0, 10.0)),  # Top-left
             ("C2", (25.0, 10.0)),  # Top-right
@@ -240,9 +310,22 @@ class TestCompleteRouting:
         ]
 
         for ref, pos in positions:
-            comp = Component(ref=ref, value="CAP", footprint="test",
-                           position=pos, rotation=0, layer="F.Cu")
-            comp.pads.append(Pad(number=1, position_offset=(0.0, 0.0), size=(0.8, 0.8), shape='circle'))
+            comp = Component(
+                ref=ref,
+                value="CAP",
+                footprint="test",
+                position=pos,
+                rotation=0,
+                layer="F.Cu",
+            )
+            comp.pads.append(
+                Pad(
+                    number=1,
+                    position_offset=(0.0, 0.0),
+                    size=(0.8, 0.8),
+                    shape="circle",
+                )
+            )
             board.add_component(comp)
 
         vcc = Net(name="VCC", code="1")
@@ -256,8 +339,9 @@ class TestCompleteRouting:
 
         # Should have at least N-1 edges for N points (MST property)
         vcc_net = board.nets["VCC"]
-        assert len(vcc_net.segments) >= len(positions) - 1, \
-            f"VCC not fully connected: {len(vcc_net.segments)} segments for {len(positions)} pads"
+        assert (
+            len(vcc_net.segments) >= len(positions) - 1
+        ), f"VCC not fully connected: {len(vcc_net.segments)} segments for {len(positions)} pads"
 
         # Verify connectivity using union-find
         connected = self._check_connectivity(vcc_net, positions)
@@ -315,10 +399,23 @@ class TestTHTPadBlocking:
         board.height = 30.0
 
         # THT component (connector with drill holes)
-        conn = Component(ref="J1", value="HEADER", footprint="test",
-                        position=(15.0, 15.0), rotation=0, layer="F.Cu")
-        conn.pads.append(Pad(number=1, position_offset=(0.0, 0.0),
-                            size=(1.5, 1.5), shape='circle', drill=0.8))  # THT pad
+        conn = Component(
+            ref="J1",
+            value="HEADER",
+            footprint="test",
+            position=(15.0, 15.0),
+            rotation=0,
+            layer="F.Cu",
+        )
+        conn.pads.append(
+            Pad(
+                number=1,
+                position_offset=(0.0, 0.0),
+                size=(1.5, 1.5),
+                shape="circle",
+                drill=0.8,
+            )
+        )  # THT pad
         board.add_component(conn)
 
         # Create grid
@@ -329,8 +426,9 @@ class TestTHTPadBlocking:
         pad_gx, pad_gy = grid.to_grid_coords(15.0, 15.0)
 
         for layer in board.layers:
-            assert not grid.is_valid_cell(pad_gx, pad_gy, layer), \
-                f"THT pad should block {layer}"
+            assert not grid.is_valid_cell(
+                pad_gx, pad_gy, layer
+            ), f"THT pad should block {layer}"
 
 
 class TestTraceSegmentObstacles:
@@ -348,7 +446,16 @@ class TestTraceSegmentObstacles:
 
         # Add a horizontal trace from (5, 15) to (25, 15)
         from pcb_tool.data_model import TraceSegment
-        net1.segments.append(TraceSegment(net_name="EXISTING", start=(5.0, 15.0), end=(25.0, 15.0), layer="F.Cu", width=0.25))
+
+        net1.segments.append(
+            TraceSegment(
+                net_name="EXISTING",
+                start=(5.0, 15.0),
+                end=(25.0, 15.0),
+                layer="F.Cu",
+                width=0.25,
+            )
+        )
 
         # Create grid
         cmd = AutoRouteCommand(net_name="TEST")
@@ -356,8 +463,9 @@ class TestTraceSegmentObstacles:
 
         # Middle of trace at (15, 15) should be blocked
         mid_gx, mid_gy = grid.to_grid_coords(15.0, 15.0)
-        assert not grid.is_valid_cell(mid_gx, mid_gy, "F.Cu"), \
-            "Middle of existing trace should be marked as obstacle"
+        assert not grid.is_valid_cell(
+            mid_gx, mid_gy, "F.Cu"
+        ), "Middle of existing trace should be marked as obstacle"
 
 
 class TestFPGABoardRouting:
@@ -398,7 +506,7 @@ class TestFPGABoardRouting:
 
         # Check for incomplete nets
         for net_name, net in board.nets.items():
-            if net_name.upper() in ['GND', 'GROUND']:
+            if net_name.upper() in ["GND", "GROUND"]:
                 continue  # Skip ground (copper pour)
             num_connections = len(net.connections)
             num_segments = len(net.segments)
@@ -416,47 +524,134 @@ class TestFPGABoardRouting:
         board.height = 40.0
 
         # Central IC (TQFP-32 style)
-        ic = Component(ref="U1", value="FPGA", footprint="TQFP-32",
-                      position=(20.0, 20.0), rotation=0, layer="F.Cu")
+        ic = Component(
+            ref="U1",
+            value="FPGA",
+            footprint="TQFP-32",
+            position=(20.0, 20.0),
+            rotation=0,
+            layer="F.Cu",
+        )
         pad_positions = [
-            (1, (-3.5, -2.8)), (2, (-3.5, -2.0)), (3, (-3.5, -1.2)), (4, (-3.5, -0.4)),
-            (5, (-3.5, 0.4)), (6, (-3.5, 1.2)), (7, (-3.5, 2.0)), (8, (-3.5, 2.8)),
-            (9, (-2.8, 3.5)), (10, (-2.0, 3.5)), (11, (-1.2, 3.5)), (12, (-0.4, 3.5)),
-            (13, (0.4, 3.5)), (14, (1.2, 3.5)), (15, (2.0, 3.5)), (16, (2.8, 3.5)),
-            (17, (3.5, 2.8)), (18, (3.5, 2.0)), (19, (3.5, 1.2)), (20, (3.5, 0.4)),
-            (21, (3.5, -0.4)), (22, (3.5, -1.2)), (23, (3.5, -2.0)), (24, (3.5, -2.8)),
-            (25, (2.8, -3.5)), (26, (2.0, -3.5)), (27, (1.2, -3.5)), (28, (0.4, -3.5)),
-            (29, (-0.4, -3.5)), (30, (-1.2, -3.5)), (31, (-2.0, -3.5)), (32, (-2.8, -3.5)),
+            (1, (-3.5, -2.8)),
+            (2, (-3.5, -2.0)),
+            (3, (-3.5, -1.2)),
+            (4, (-3.5, -0.4)),
+            (5, (-3.5, 0.4)),
+            (6, (-3.5, 1.2)),
+            (7, (-3.5, 2.0)),
+            (8, (-3.5, 2.8)),
+            (9, (-2.8, 3.5)),
+            (10, (-2.0, 3.5)),
+            (11, (-1.2, 3.5)),
+            (12, (-0.4, 3.5)),
+            (13, (0.4, 3.5)),
+            (14, (1.2, 3.5)),
+            (15, (2.0, 3.5)),
+            (16, (2.8, 3.5)),
+            (17, (3.5, 2.8)),
+            (18, (3.5, 2.0)),
+            (19, (3.5, 1.2)),
+            (20, (3.5, 0.4)),
+            (21, (3.5, -0.4)),
+            (22, (3.5, -1.2)),
+            (23, (3.5, -2.0)),
+            (24, (3.5, -2.8)),
+            (25, (2.8, -3.5)),
+            (26, (2.0, -3.5)),
+            (27, (1.2, -3.5)),
+            (28, (0.4, -3.5)),
+            (29, (-0.4, -3.5)),
+            (30, (-1.2, -3.5)),
+            (31, (-2.0, -3.5)),
+            (32, (-2.8, -3.5)),
         ]
         for pad_num, offset in pad_positions:
-            ic.pads.append(Pad(number=pad_num, position_offset=offset, size=(0.5, 1.2), shape='rect'))
+            ic.pads.append(
+                Pad(
+                    number=pad_num,
+                    position_offset=offset,
+                    size=(0.5, 1.2),
+                    shape="rect",
+                )
+            )
         board.add_component(ic)
 
         # Decoupling capacitors
-        cap_positions = [("C1", (12.0, 20.0)), ("C2", (28.0, 20.0)),
-                        ("C3", (20.0, 12.0)), ("C4", (20.0, 28.0))]
+        cap_positions = [
+            ("C1", (12.0, 20.0)),
+            ("C2", (28.0, 20.0)),
+            ("C3", (20.0, 12.0)),
+            ("C4", (20.0, 28.0)),
+        ]
         for ref, pos in cap_positions:
-            cap = Component(ref=ref, value="100nF", footprint="0603",
-                          position=pos, rotation=0 if pos[0] != 20.0 else 90, layer="F.Cu")
-            cap.pads.append(Pad(number=1, position_offset=(-0.8, 0.0), size=(0.9, 0.9), shape='rect'))
-            cap.pads.append(Pad(number=2, position_offset=(0.8, 0.0), size=(0.9, 0.9), shape='rect'))
+            cap = Component(
+                ref=ref,
+                value="100nF",
+                footprint="0603",
+                position=pos,
+                rotation=0 if pos[0] != 20.0 else 90,
+                layer="F.Cu",
+            )
+            cap.pads.append(
+                Pad(
+                    number=1, position_offset=(-0.8, 0.0), size=(0.9, 0.9), shape="rect"
+                )
+            )
+            cap.pads.append(
+                Pad(number=2, position_offset=(0.8, 0.0), size=(0.9, 0.9), shape="rect")
+            )
             board.add_component(cap)
 
         # JTAG header (THT)
-        jtag = Component(ref="J1", value="JTAG", footprint="2x05_1.27mm",
-                        position=(5.0, 20.0), rotation=0, layer="F.Cu")
+        jtag = Component(
+            ref="J1",
+            value="JTAG",
+            footprint="2x05_1.27mm",
+            position=(5.0, 20.0),
+            rotation=0,
+            layer="F.Cu",
+        )
         for i in range(10):
             row, col = i % 2, i // 2
-            jtag.pads.append(Pad(number=i+1,
-                                position_offset=(row * 1.27, col * 1.27 - 2.54),
-                                size=(0.7, 0.7), shape='circle', drill=0.4))
+            jtag.pads.append(
+                Pad(
+                    number=i + 1,
+                    position_offset=(row * 1.27, col * 1.27 - 2.54),
+                    size=(0.7, 0.7),
+                    shape="circle",
+                    drill=0.4,
+                )
+            )
         board.add_component(jtag)
 
         # Power connector (THT)
-        pwr = Component(ref="J2", value="PWR", footprint="1x02_2.54mm",
-                       position=(35.0, 20.0), rotation=0, layer="F.Cu")
-        pwr.pads.append(Pad(number=1, position_offset=(0.0, -1.27), size=(1.0, 1.0), shape='circle', drill=0.6))
-        pwr.pads.append(Pad(number=2, position_offset=(0.0, 1.27), size=(1.0, 1.0), shape='circle', drill=0.6))
+        pwr = Component(
+            ref="J2",
+            value="PWR",
+            footprint="1x02_2.54mm",
+            position=(35.0, 20.0),
+            rotation=0,
+            layer="F.Cu",
+        )
+        pwr.pads.append(
+            Pad(
+                number=1,
+                position_offset=(0.0, -1.27),
+                size=(1.0, 1.0),
+                shape="circle",
+                drill=0.6,
+            )
+        )
+        pwr.pads.append(
+            Pad(
+                number=2,
+                position_offset=(0.0, 1.27),
+                size=(1.0, 1.0),
+                shape="circle",
+                drill=0.6,
+            )
+        )
         board.add_component(pwr)
 
         # Nets
@@ -482,9 +677,15 @@ class TestFPGABoardRouting:
 
         # JTAG signals
         for sig_name, jtag_pin, ic_pin in [
-            ("TMS", 2, 1), ("TCK", 4, 2), ("TDI", 8, 3), ("TDO", 6, 4)
+            ("TMS", 2, 1),
+            ("TCK", 4, 2),
+            ("TDI", 8, 3),
+            ("TDO", 6, 4),
         ]:
-            net = Net(name=sig_name, code=str(3 + list(["TMS", "TCK", "TDI", "TDO"]).index(sig_name)))
+            net = Net(
+                name=sig_name,
+                code=str(3 + list(["TMS", "TCK", "TDI", "TDO"]).index(sig_name)),
+            )
             net.add_connection("J1", str(jtag_pin))
             net.add_connection("U1", str(ic_pin))
             board.add_net(net)

@@ -43,9 +43,7 @@ def test_optional_nets_graceful_failure():
     Optional nets are marked but failures should not prevent
     routing of other nets.
     """
-    constraints = RoutingConstraints(
-        optional=["OPTIONAL_NET1", "OPTIONAL_NET2"]
-    )
+    constraints = RoutingConstraints(optional=["OPTIONAL_NET1", "OPTIONAL_NET2"])
 
     # Test helper methods
     assert constraints.is_optional("OPTIONAL_NET1") is True
@@ -62,9 +60,15 @@ def test_route_order_constraint():
     router = MultiNetRouter(grid)
 
     # Define three nets with different priorities
-    net1 = NetDefinition(name="NET1", start=(10, 10), end=(40, 10), layer="F.Cu", priority=10)
-    net2 = NetDefinition(name="NET2", start=(10, 25), end=(40, 25), layer="F.Cu", priority=5)
-    net3 = NetDefinition(name="NET3", start=(10, 40), end=(40, 40), layer="F.Cu", priority=1)
+    net1 = NetDefinition(
+        name="NET1", start=(10, 10), end=(40, 10), layer="F.Cu", priority=10
+    )
+    net2 = NetDefinition(
+        name="NET2", start=(10, 25), end=(40, 25), layer="F.Cu", priority=5
+    )
+    net3 = NetDefinition(
+        name="NET3", start=(10, 40), end=(40, 40), layer="F.Cu", priority=1
+    )
 
     # Create constraints with explicit order (overrides priority)
     constraints = RoutingConstraints(route_order=["NET3", "NET1", "NET2"])
@@ -90,14 +94,11 @@ def test_constraints_command_integration():
         must_route=["CRITICAL1", "CRITICAL2"],
         optional=["OPTIONAL"],
         route_order=["CRITICAL1", "CRITICAL2"],
-        via_costs={"CRITICAL1": 100.0}
+        via_costs={"CRITICAL1": 100.0},
     )
 
     # Create auto-route command with constraints
-    cmd = AutoRouteCommand(
-        net_name="ALL",
-        constraints=constraints
-    )
+    cmd = AutoRouteCommand(net_name="ALL", constraints=constraints)
 
     # Verify constraints are stored
     assert cmd.constraints is not None

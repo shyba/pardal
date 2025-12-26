@@ -11,22 +11,38 @@ def sample_board():
     board = Board()
 
     # Add components
-    board.add_component(Component(
-        ref="U1", value="IC", footprint="DIP-8",
-        position=(10.0, 20.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R1", value="10k", footprint="R_0805",
-        position=(30.0, 40.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="R2", value="10k", footprint="R_0805",
-        position=(50.0, 40.0), rotation=0.0
-    ))
-    board.add_component(Component(
-        ref="C1", value="100nF", footprint="C_0805",
-        position=(70.0, 20.0), rotation=0.0
-    ))
+    board.add_component(
+        Component(
+            ref="U1", value="IC", footprint="DIP-8", position=(10.0, 20.0), rotation=0.0
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(30.0, 40.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R2",
+            value="10k",
+            footprint="R_0805",
+            position=(50.0, 40.0),
+            rotation=0.0,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="C1",
+            value="100nF",
+            footprint="C_0805",
+            position=(70.0, 20.0),
+            rotation=0.0,
+        )
+    )
 
     # Add VCC net with connections and routing
     vcc_net = Net(name="VCC", code="1")
@@ -36,29 +52,35 @@ def sample_board():
     vcc_net.add_connection("C1", "1")
 
     # Add segments to VCC
-    vcc_net.add_segment(TraceSegment(
-        net_name="VCC",
-        start=(10.0, 20.0),
-        end=(30.0, 40.0),
-        layer="F.Cu",
-        width=0.25
-    ))
-    vcc_net.add_segment(TraceSegment(
-        net_name="VCC",
-        start=(30.0, 40.0),
-        end=(50.0, 40.0),
-        layer="F.Cu",
-        width=0.25
-    ))
+    vcc_net.add_segment(
+        TraceSegment(
+            net_name="VCC",
+            start=(10.0, 20.0),
+            end=(30.0, 40.0),
+            layer="F.Cu",
+            width=0.25,
+        )
+    )
+    vcc_net.add_segment(
+        TraceSegment(
+            net_name="VCC",
+            start=(30.0, 40.0),
+            end=(50.0, 40.0),
+            layer="F.Cu",
+            width=0.25,
+        )
+    )
 
     # Add via to VCC
-    vcc_net.add_via(Via(
-        net_name="VCC",
-        position=(30.0, 40.0),
-        size=0.8,
-        drill=0.4,
-        layers=("F.Cu", "B.Cu")
-    ))
+    vcc_net.add_via(
+        Via(
+            net_name="VCC",
+            position=(30.0, 40.0),
+            size=0.8,
+            drill=0.4,
+            layers=("F.Cu", "B.Cu"),
+        )
+    )
 
     board.add_net(vcc_net)
 

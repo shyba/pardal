@@ -5,7 +5,7 @@ from pcb_tool.command_parser import CommandParser
 from pcb_tool.data_model import Board
 
 # Sample netlist for testing
-SAMPLE_NETLIST = '''(export (version D)
+SAMPLE_NETLIST = """(export (version D)
   (components
     (comp (ref U1)
       (value ATmega328P)
@@ -17,7 +17,8 @@ SAMPLE_NETLIST = '''(export (version D)
     (net (code 1) (name GND)
       (node (ref U1) (pin 8))
       (node (ref R1) (pin 2)))))
-'''
+"""
+
 
 @pytest.fixture
 def sample_netlist_file(tmp_path):
@@ -26,10 +27,12 @@ def sample_netlist_file(tmp_path):
     netlist.write_text(SAMPLE_NETLIST)
     return netlist
 
+
 def test_load_command_creation():
     """Test LoadCommand can be instantiated with path"""
     cmd = LoadCommand(Path("test.net"))
     assert cmd.path == Path("test.net")
+
 
 def test_load_command_validate_file_not_found():
     """Test validation fails for nonexistent file"""
@@ -41,6 +44,7 @@ def test_load_command_validate_file_not_found():
     assert error is not None
     assert "not found" in error.lower() or "does not exist" in error.lower()
 
+
 def test_load_command_validate_success(sample_netlist_file):
     """Test validation succeeds for existing file"""
     cmd = LoadCommand(sample_netlist_file)
@@ -49,6 +53,7 @@ def test_load_command_validate_success(sample_netlist_file):
     error = cmd.validate(board)
 
     assert error is None
+
 
 def test_load_command_execute_loads_board(sample_netlist_file):
     """Test execute loads components and nets into board"""
@@ -64,6 +69,7 @@ def test_load_command_execute_loads_board(sample_netlist_file):
     assert "R1" in board.components
     assert "GND" in board.nets
 
+
 def test_load_command_execute_returns_stats(sample_netlist_file):
     """Test execute returns component/net counts"""
     cmd = LoadCommand(sample_netlist_file)
@@ -74,6 +80,7 @@ def test_load_command_execute_returns_stats(sample_netlist_file):
     assert "2" in result  # 2 components
     assert "1" in result  # 1 net
 
+
 def test_parser_can_parse_load_command(sample_netlist_file):
     """Test CommandParser can parse LOAD command"""
     parser = CommandParser()
@@ -82,6 +89,7 @@ def test_parser_can_parse_load_command(sample_netlist_file):
 
     assert isinstance(cmd, LoadCommand)
     assert cmd.path == sample_netlist_file
+
 
 def test_parser_handles_load_without_path():
     """Test parser handles LOAD without path gracefully"""
@@ -95,6 +103,7 @@ def test_parser_handles_load_without_path():
         board = Board()
         error = cmd.validate(board)
         assert error is not None
+
 
 def test_load_command_full_workflow(sample_netlist_file):
     """Test complete LOAD workflow: parse -> validate -> execute"""

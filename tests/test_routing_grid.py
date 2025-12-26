@@ -30,7 +30,7 @@ class TestRoutingGridInitialization:
 
         assert grid.resolution_mm == 0.05
         assert grid.grid_width == 1000  # 50.0 / 0.05
-        assert grid.grid_height == 800   # 40.0 / 0.05
+        assert grid.grid_height == 800  # 40.0 / 0.05
 
     def test_init_empty_obstacles(self):
         """Test that obstacles are initially empty."""
@@ -156,10 +156,7 @@ class TestObstacleMarking:
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.1)
 
         grid.mark_trace_segment(
-            start_mm=(10.0, 10.0),
-            end_mm=(20.0, 10.0),
-            layer="F.Cu",
-            width_mm=0.5
+            start_mm=(10.0, 10.0), end_mm=(20.0, 10.0), layer="F.Cu", width_mm=0.5
         )
 
         # Check that obstacles were created along the trace
@@ -263,7 +260,7 @@ class TestCellValidation:
         grid.mark_obstacle(10.0, 20.0, "F.Cu", size_mm=2.0)
         obstacle_grid = grid.to_grid_coords(10.0, 20.0)
 
-        assert grid.get_cell_cost(*obstacle_grid, "F.Cu") == float('inf')
+        assert grid.get_cell_cost(*obstacle_grid, "F.Cu") == float("inf")
 
 
 class TestNeighborGeneration:

@@ -35,13 +35,15 @@ class KicadWriter:
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
         except PermissionError as e:
-            raise PermissionError(f"Permission denied creating directory {path.parent}: {e}")
+            raise PermissionError(
+                f"Permission denied creating directory {path.parent}: {e}"
+            )
         except Exception as e:
             raise IOError(f"Error creating directory {path.parent}: {e}")
 
         # Write the file
         try:
-            with open(path, 'w', encoding='utf-8') as f:
+            with open(path, "w", encoding="utf-8") as f:
                 self._write_header(f)
                 self._write_general(f)
                 self._write_paper(f)
@@ -71,7 +73,7 @@ class KicadWriter:
 
     def _write_paper(self, f: TextIO) -> None:
         """Write the paper size."""
-        f.write("\n  (paper \"A4\")\n")
+        f.write('\n  (paper "A4")\n')
 
     # KiCad layer indices for copper layers
     KICAD_LAYER_INDICES = {
@@ -124,27 +126,27 @@ class KicadWriter:
         # Write copper layers from board configuration
         for layer_name in board.layers:
             kicad_idx = self.KICAD_LAYER_INDICES.get(layer_name, 0)
-            f.write(f"    ({kicad_idx} \"{layer_name}\" signal)\n")
+            f.write(f'    ({kicad_idx} "{layer_name}" signal)\n')
 
         # Write standard non-copper layers
-        f.write("    (32 \"B.Adhes\" user \"B.Adhesive\")\n")
-        f.write("    (33 \"F.Adhes\" user \"F.Adhesive\")\n")
-        f.write("    (34 \"B.Paste\" user)\n")
-        f.write("    (35 \"F.Paste\" user)\n")
-        f.write("    (36 \"B.SilkS\" user \"B.Silkscreen\")\n")
-        f.write("    (37 \"F.SilkS\" user \"F.Silkscreen\")\n")
-        f.write("    (38 \"B.Mask\" user)\n")
-        f.write("    (39 \"F.Mask\" user)\n")
-        f.write("    (40 \"Dwgs.User\" user \"User.Drawings\")\n")
-        f.write("    (41 \"Cmts.User\" user \"User.Comments\")\n")
-        f.write("    (42 \"Eco1.User\" user \"User.Eco1\")\n")
-        f.write("    (43 \"Eco2.User\" user \"User.Eco2\")\n")
-        f.write("    (44 \"Edge.Cuts\" user)\n")
-        f.write("    (45 \"Margin\" user)\n")
-        f.write("    (46 \"B.CrtYd\" user \"B.Courtyard\")\n")
-        f.write("    (47 \"F.CrtYd\" user \"F.Courtyard\")\n")
-        f.write("    (48 \"B.Fab\" user)\n")
-        f.write("    (49 \"F.Fab\" user)\n")
+        f.write('    (32 "B.Adhes" user "B.Adhesive")\n')
+        f.write('    (33 "F.Adhes" user "F.Adhesive")\n')
+        f.write('    (34 "B.Paste" user)\n')
+        f.write('    (35 "F.Paste" user)\n')
+        f.write('    (36 "B.SilkS" user "B.Silkscreen")\n')
+        f.write('    (37 "F.SilkS" user "F.Silkscreen")\n')
+        f.write('    (38 "B.Mask" user)\n')
+        f.write('    (39 "F.Mask" user)\n')
+        f.write('    (40 "Dwgs.User" user "User.Drawings")\n')
+        f.write('    (41 "Cmts.User" user "User.Comments")\n')
+        f.write('    (42 "Eco1.User" user "User.Eco1")\n')
+        f.write('    (43 "Eco2.User" user "User.Eco2")\n')
+        f.write('    (44 "Edge.Cuts" user)\n')
+        f.write('    (45 "Margin" user)\n')
+        f.write('    (46 "B.CrtYd" user "B.Courtyard")\n')
+        f.write('    (47 "F.CrtYd" user "F.Courtyard")\n')
+        f.write('    (48 "B.Fab" user)\n')
+        f.write('    (49 "F.Fab" user)\n')
         f.write("  )\n")
 
     def _write_nets(self, f: TextIO, board: Board) -> None:
@@ -156,11 +158,11 @@ class KicadWriter:
         """
         f.write("\n")
         # Net 0 is always the unconnected net
-        f.write("  (net 0 \"\")\n")
+        f.write('  (net 0 "")\n')
 
         # Write each net from the board
         for net in board.nets.values():
-            f.write(f"  (net {net.code} \"{net.name}\")\n")
+            f.write(f'  (net {net.code} "{net.name}")\n')
 
     def _write_footprints(self, f: TextIO, board: Board) -> None:
         """Write all component footprints.
@@ -180,29 +182,32 @@ class KicadWriter:
             comp: Component to write
             board: Board for net lookups
         """
-        f.write(f"\n  (footprint \"{comp.footprint}\" (layer \"F.Cu\")\n")
+        f.write(f'\n  (footprint "{comp.footprint}" (layer "F.Cu")\n')
         f.write("    (tedit 0) (tstamp 00000000-0000-0000-0000-000000000000)\n")
         f.write(f"    (at {comp.position[0]} {comp.position[1]} {comp.rotation})\n")
 
-        # Write properties
-        f.write(f"    (property \"Reference\" \"{comp.ref}\" (at 0 0 0) (layer \"F.SilkS\")\n")
-        f.write("      (effects (font (size 1 1) (thickness 0.15))))\n")
-
-        f.write(f"    (property \"Value\" \"{comp.value}\" (at 0 0 0) (layer \"F.Fab\")\n")
-        f.write("      (effects (font (size 1 1) (thickness 0.15))))\n")
-
-        f.write(f"    (property \"Footprint\" \"{comp.footprint}\" (at 0 0 0) (layer \"F.Fab\") hide\n")
-        f.write("      (effects (font (size 1 1) (thickness 0.15))))\n")
+        # Properties
+        #
+        # KiCad's .kicad_pcb footprint properties use the simple `property "k" "v"`
+        # form (no `(at ...)`, `(layer ...)`, or `(effects ...)` blocks). Reference
+        # and value are represented as `fp_text` elements below.
+        f.write(f'    (property "Reference" "{comp.ref}")\n')
+        f.write(f'    (property "Value" "{comp.value}")\n')
+        f.write(f'    (property "Footprint" "{comp.footprint}")\n')
 
         # UUID path
-        f.write("    (path \"/00000000-0000-0000-0000-000000000000\")\n")
+        f.write('    (path "/00000000-0000-0000-0000-000000000000")\n')
 
         # Reference text
-        f.write(f"    (fp_text reference \"{comp.ref}\" (at 0 0 {comp.rotation}) (layer \"F.SilkS\")\n")
+        f.write(
+            f'    (fp_text reference "{comp.ref}" (at 0 0 {comp.rotation}) (layer "F.SilkS")\n'
+        )
         f.write("      (effects (font (size 1 1) (thickness 0.15))))\n")
 
         # Value text
-        f.write(f"    (fp_text value \"{comp.value}\" (at 0 0 {comp.rotation}) (layer \"F.Fab\")\n")
+        f.write(
+            f'    (fp_text value "{comp.value}" (at 0 0 {comp.rotation}) (layer "F.Fab")\n'
+        )
         f.write("      (effects (font (size 1 1) (thickness 0.15))))\n")
 
         # Generate complete pads for production-ready board
@@ -210,7 +215,9 @@ class KicadWriter:
 
         f.write("  )\n")
 
-    def _get_pad_net(self, comp: Component, pin_num: int, board: Board) -> tuple[str, str]:
+    def _get_pad_net(
+        self, comp: Component, pin_num: int, board: Board
+    ) -> tuple[str, str]:
         """Get the net code and name for a component pin.
 
         Args:
@@ -248,12 +255,12 @@ class KicadWriter:
             if pad.is_tht:
                 # Through-hole pad
                 pad_type = "thru_hole"
-                layers = "\"*.Cu\" \"*.Mask\""
+                layers = '"*.Cu" "*.Mask"'
                 drill_spec = f"(drill {pad.drill})"
             else:
                 # SMD pad
                 pad_type = "smd"
-                layers = "\"F.Cu\" \"F.Paste\" \"F.Mask\""
+                layers = '"F.Cu" "F.Paste" "F.Mask"'
                 drill_spec = ""
 
             # Get pad position offset
@@ -262,12 +269,12 @@ class KicadWriter:
 
             # Write pad S-expression
             f.write(
-                f"    (pad \"{pad.number}\" {pad_type} {pad.shape} "
+                f'    (pad "{pad.number}" {pad_type} {pad.shape} '
                 f"(at {x_offset} {y_offset}) "
                 f"(size {width} {height}) "
                 f"{drill_spec} "
                 f"(layers {layers}) "
-                f"(net {net_code} \"{net_name}\"))\n"
+                f'(net {net_code} "{net_name}"))\n'
             )
 
     def _write_routing(self, f: TextIO, board: Board) -> None:
@@ -298,8 +305,10 @@ class KicadWriter:
         start_x, start_y = segment.start
         end_x, end_y = segment.end
 
-        f.write(f"\n  (segment (start {start_x} {start_y}) (end {end_x} {end_y}) "
-                f"(width {segment.width}) (layer \"{segment.layer}\") (net {net_code}))\n")
+        f.write(
+            f"\n  (segment (start {start_x} {start_y}) (end {end_x} {end_y}) "
+            f'(width {segment.width}) (layer "{segment.layer}") (net {net_code}))\n'
+        )
 
     def _write_via(self, f: TextIO, via, net_code: str) -> None:
         """Write a single via.
@@ -325,10 +334,14 @@ class KicadWriter:
         elif via.via_type == "buried":
             via_type_str = " (type micro)"  # KiCad uses "micro" for buried vias
 
-        f.write(f"\n  (via{via_type_str} (at {x} {y}) (size {via.size}) (drill {via.drill}) "
-                f"(layers \"{first_layer}\" \"{last_layer}\") (net {net_code}))\n")
+        f.write(
+            f"\n  (via{via_type_str} (at {x} {y}) (size {via.size}) (drill {via.drill}) "
+            f'(layers "{first_layer}" "{last_layer}") (net {net_code}))\n'
+        )
 
-    def _calculate_board_bounds(self, board: Board, margin: float = 5.0) -> Tuple[float, float, float, float]:
+    def _calculate_board_bounds(
+        self, board: Board, margin: float = 5.0
+    ) -> Tuple[float, float, float, float]:
         """Calculate board bounding box from component positions.
 
         Args:
@@ -342,10 +355,10 @@ class KicadWriter:
             # Default board size if no components
             return (0, 0, 100, 100)
 
-        min_x = float('inf')
-        min_y = float('inf')
-        max_x = float('-inf')
-        max_y = float('-inf')
+        min_x = float("inf")
+        min_y = float("inf")
+        max_x = float("-inf")
+        max_y = float("-inf")
 
         for comp in board.components.values():
             x, y = comp.position
@@ -363,7 +376,7 @@ class KicadWriter:
                 max_y = max(max_y, pad_y + pad_h / 2)
 
         # If no pads found, use component positions
-        if min_x == float('inf'):
+        if min_x == float("inf"):
             for comp in board.components.values():
                 x, y = comp.position
                 min_x = min(min_x, x)
@@ -398,23 +411,27 @@ class KicadWriter:
 
         f.write("\n")
 
-        # Write four lines forming a closed rectangle (KiCad 8/9 format with stroke)
+        # Use KiCad 7-compatible `gr_line` syntax (no `stroke`, no `uuid`).
         # Bottom edge
-        f.write(f"  (gr_line (start {min_x} {min_y}) (end {max_x} {min_y}) "
-                f"(stroke (width 0.1) (type solid)) (layer \"Edge.Cuts\") "
-                f"(uuid \"{uuid.uuid4()}\"))\n")
+        f.write(
+            f'  (gr_line (start {min_x} {min_y}) (end {max_x} {min_y}) (layer "Edge.Cuts") '
+            f"(width 0.1) (tstamp {uuid.uuid4()}))\n"
+        )
         # Right edge
-        f.write(f"  (gr_line (start {max_x} {min_y}) (end {max_x} {max_y}) "
-                f"(stroke (width 0.1) (type solid)) (layer \"Edge.Cuts\") "
-                f"(uuid \"{uuid.uuid4()}\"))\n")
+        f.write(
+            f'  (gr_line (start {max_x} {min_y}) (end {max_x} {max_y}) (layer "Edge.Cuts") '
+            f"(width 0.1) (tstamp {uuid.uuid4()}))\n"
+        )
         # Top edge
-        f.write(f"  (gr_line (start {max_x} {max_y}) (end {min_x} {max_y}) "
-                f"(stroke (width 0.1) (type solid)) (layer \"Edge.Cuts\") "
-                f"(uuid \"{uuid.uuid4()}\"))\n")
+        f.write(
+            f'  (gr_line (start {max_x} {max_y}) (end {min_x} {max_y}) (layer "Edge.Cuts") '
+            f"(width 0.1) (tstamp {uuid.uuid4()}))\n"
+        )
         # Left edge
-        f.write(f"  (gr_line (start {min_x} {max_y}) (end {min_x} {min_y}) "
-                f"(stroke (width 0.1) (type solid)) (layer \"Edge.Cuts\") "
-                f"(uuid \"{uuid.uuid4()}\"))\n")
+        f.write(
+            f'  (gr_line (start {min_x} {max_y}) (end {min_x} {min_y}) (layer "Edge.Cuts") '
+            f"(width 0.1) (tstamp {uuid.uuid4()}))\n"
+        )
 
     def _write_zones(self, f: TextIO, board: Board) -> None:
         """Write copper zones (pours) to the KiCad file.
@@ -429,14 +446,14 @@ class KicadWriter:
         """
         # Auto-generate GND pour if not already defined
         if not board.zones:
-            gnd_net = board.nets.get('GND')
+            gnd_net = board.nets.get("GND")
             if gnd_net:
                 min_x, min_y, max_x, max_y = self._calculate_board_bounds(board)
                 # Create GND pour on bottom layer covering the board area
                 gnd_zone = CopperZone(
-                    net_name='GND',
+                    net_name="GND",
                     net_code=gnd_net.code,
-                    layer='B.Cu',
+                    layer="B.Cu",
                     outline=[
                         (min_x, min_y),
                         (max_x, min_y),
@@ -465,8 +482,10 @@ class KicadWriter:
         zone_uuid = str(uuid.uuid4())
 
         # Zone header with net name (not code) and layer
-        f.write(f"\n  (zone (net \"{zone.net_name}\") (layer \"{zone.layer}\") (uuid \"{zone_uuid}\")\n")
-        f.write(f"    (name \"{zone.net_name}_pour\")\n")
+        f.write(
+            f'\n  (zone (net "{zone.net_name}") (layer "{zone.layer}") (uuid "{zone_uuid}")\n'
+        )
+        f.write(f'    (name "{zone.net_name}_pour")\n')
         f.write(f"    (hatch edge 0.5)\n")
 
         if zone.priority > 0:
@@ -477,7 +496,9 @@ class KicadWriter:
         f.write(f"    (min_thickness {zone.min_thickness})\n")
 
         # Fill settings with island removal mode (required by KiCad)
-        f.write(f"    (fill yes (thermal_gap {zone.thermal_gap}) (thermal_bridge_width {zone.thermal_bridge}) (island_removal_mode 1) (island_area_min 10))\n")
+        f.write(
+            f"    (fill yes (thermal_gap {zone.thermal_gap}) (thermal_bridge_width {zone.thermal_bridge}) (island_removal_mode 1) (island_area_min 10))\n"
+        )
 
         # Write polygon outline
         f.write("    (polygon\n")

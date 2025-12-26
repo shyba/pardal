@@ -1,4 +1,5 @@
 """CLI entry point for PCB Place & Route Tool"""
+
 import argparse
 import sys
 from pcb_tool import __version__
@@ -8,28 +9,19 @@ from pcb_tool.repl import REPL
 def main():
     """Main CLI entry point"""
     parser = argparse.ArgumentParser(
-        prog="pcb-tool",
-        description="PCB Place & Route Tool"
+        prog="pcb-tool", description="PCB Place & Route Tool"
     )
 
     parser.add_argument(
-        "--version",
-        action="version",
-        version=f"pcb-tool {__version__} (MVP1)"
+        "--version", action="version", version=f"pcb-tool {__version__} (MVP1)"
     )
 
     parser.add_argument(
-        "--load",
-        type=str,
-        metavar="FILE",
-        help="Load netlist or PCB file"
+        "--load", type=str, metavar="FILE", help="Load netlist or PCB file"
     )
 
     parser.add_argument(
-        "--batch",
-        type=str,
-        metavar="FILE",
-        help="Execute commands from file"
+        "--batch", type=str, metavar="FILE", help="Execute commands from file"
     )
 
     parser.add_argument(
@@ -37,7 +29,7 @@ def main():
         action="append",
         dest="commands",
         metavar="CMD",
-        help="Execute single command"
+        help="Execute single command",
     )
 
     args = parser.parse_args()
@@ -67,12 +59,12 @@ def main():
     # Handle --batch
     if args.batch:
         print(f"Executing commands from {args.batch}")
-        with open(args.batch, 'r', encoding='utf-8') as f:
+        with open(args.batch, "r", encoding="utf-8") as f:
             for line_num, line in enumerate(f, 1):
-                line = line.rstrip('\r\n').strip()
+                line = line.rstrip("\r\n").strip()
 
                 # Skip empty lines and comments
-                if not line or line.startswith('#'):
+                if not line or line.startswith("#"):
                     continue
 
                 try:

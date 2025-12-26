@@ -9,11 +9,13 @@ import tempfile
 import os
 from pathlib import Path
 from dataclasses import dataclass, field
+from json import JSONDecodeError
 
 
 @dataclass
 class DrcViolation:
     """A single DRC violation."""
+
     type: str
     severity: str
     description: str
@@ -23,6 +25,7 @@ class DrcViolation:
 @dataclass
 class DrcResult:
     """Result of a DRC check."""
+
     errors: int
     warnings: int
     violations: list[DrcViolation]
@@ -46,18 +49,22 @@ def run_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
         raise FileNotFoundError(f"PCB file not found: {pcb_path}")
 
     if output_path is None:
-        fd, tmp_path = tempfile.mkstemp(suffix='.json')
+        fd, tmp_path = tempfile.mkstemp(suffix=".json")
         os.close(fd)
         output_path = Path(tmp_path)
     else:
         output_path = Path(output_path)
 
     cmd = [
-        'kicad-cli', 'pcb', 'drc',
-        '--output', str(output_path),
-        '--format', 'json',
-        '--severity-all',
-        str(pcb_path)
+        "kicad-cli",
+        "pcb",
+        "drc",
+        "--output",
+        str(output_path),
+        "--format",
+        "json",
+        "--severity-all",
+        str(pcb_path),
     ]
 
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -67,25 +74,44 @@ def run_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
     violations = []
     unconnected = 0
 
-    if output_path.exists():
-        with open(output_path) as f:
-            data = json.load(f)
+    data = None
+    if output_path.exists() and output_path.stat().st_size > 0:
+        try:
+            with open(output_path) as f:
+                data = json.load(f)
+        except JSONDecodeError:
+            data = None
 
-        unconnected = len(data.get('unconnected_items', []))
+    if isinstance(data, dict):
+        unconnected = len(data.get("unconnected_items", []))
 
-        for v in data.get('violations', []):
-            severity = v.get('severity', 'warning')
-            if severity == 'error':
+        for v in data.get("violations", []):
+            severity = v.get("severity", "warning")
+            if severity == "error":
                 errors += 1
             else:
                 warnings += 1
 
-            violations.append(DrcViolation(
-                type=v.get('type', 'unknown'),
-                severity=severity,
-                description=v.get('description', ''),
-                items=v.get('items', [])
-            ))
+            violations.append(
+                DrcViolation(
+                    type=v.get("type", "unknown"),
+                    severity=severity,
+                    description=v.get("description", ""),
+                    items=v.get("items", []),
+                )
+            )
+    elif result.returncode != 0:
+        errors = 1
+        violations.append(
+            DrcViolation(
+                type="kicad-cli",
+                severity="error",
+                description=(
+                    result.stderr or result.stdout or "kicad-cli pcb drc failed"
+                ).strip(),
+                items=[],
+            )
+        )
 
     return DrcResult(
         errors=errors,
@@ -93,7 +119,7 @@ def run_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
         violations=violations,
         unconnected=unconnected,
         report_path=output_path,
-        success=(errors == 0)
+        success=(errors == 0),
     )
 
 
@@ -123,7 +149,7 @@ def run_sdk_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
         raise FileNotFoundError(f"PCB file not found: {pcb_path}")
 
     if output_path is None:
-        fd, tmp_path = tempfile.mkstemp(suffix='.txt')
+        fd, tmp_path = tempfile.mkstemp(suffix=".txt")
         os.close(fd)
         output_path = Path(tmp_path)
     else:
@@ -144,18 +170,17 @@ def run_sdk_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
             content = f.read()
 
         # Parse violation count
-        match = re.search(r'\*\* Found (\d+) DRC violations \*\*', content)
+        match = re.search(r"\*\* Found (\d+) DRC violations \*\*", content)
         total_violations = int(match.group(1)) if match else 0
 
         # Parse unconnected items
-        match = re.search(r'\*\* Found (\d+) unconnected pads \*\*', content)
+        match = re.search(r"\*\* Found (\d+) unconnected pads \*\*", content)
         unconnected = int(match.group(1)) if match else 0
 
         # Parse individual violations
         # Format: [type]: Description\n    severity; qualifier\n    @(x, y): details
         violation_pattern = re.compile(
-            r'\[(\w+)\]:\s*([^\n]+)\n\s+([\w\s]+);\s*(\w+)',
-            re.MULTILINE
+            r"\[(\w+)\]:\s*([^\n]+)\n\s+([\w\s]+);\s*(\w+)", re.MULTILINE
         )
 
         for match in violation_pattern.finditer(content):
@@ -164,19 +189,16 @@ def run_sdk_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
             severity_text = match.group(4).lower()
 
             # Map severity
-            if severity_text == 'error':
-                severity = 'error'
+            if severity_text == "error":
+                severity = "error"
                 errors += 1
             else:
-                severity = 'warning'
+                severity = "warning"
                 warnings += 1
 
-            violations.append(DrcViolation(
-                type=vtype,
-                severity=severity,
-                description=desc,
-                items=[]
-            ))
+            violations.append(
+                DrcViolation(type=vtype, severity=severity, description=desc, items=[])
+            )
 
         # If we didn't parse individual violations, estimate from total
         if not violations and total_violations > 0:
@@ -189,7 +211,7 @@ def run_sdk_drc(pcb_path: Path, output_path: Path | None = None) -> DrcResult:
         violations=violations,
         unconnected=unconnected,
         report_path=output_path,
-        success=(errors == 0)
+        success=(errors == 0),
     )
 
 
@@ -208,7 +230,9 @@ def format_drc_report(result: DrcResult, verbose: bool = False) -> str:
     if result.success:
         lines.append(f"✓ DRC PASSED: 0 errors, {result.warnings} warnings")
     else:
-        lines.append(f"✗ DRC FAILED: {result.errors} errors, {result.warnings} warnings")
+        lines.append(
+            f"✗ DRC FAILED: {result.errors} errors, {result.warnings} warnings"
+        )
 
     if result.unconnected > 0:
         lines.append(f"  Unconnected items: {result.unconnected}")
@@ -223,7 +247,7 @@ def format_drc_report(result: DrcResult, verbose: bool = False) -> str:
     if result.report_path:
         lines.append(f"\nFull report: {result.report_path}")
 
-    return '\n'.join(lines)
+    return "\n".join(lines)
 
 
 def check_kicad_cli() -> bool:
@@ -233,8 +257,9 @@ def check_kicad_cli() -> bool:
         True if kicad-cli is available, False otherwise
     """
     try:
-        result = subprocess.run(['kicad-cli', '--version'],
-                                capture_output=True, text=True)
+        result = subprocess.run(
+            ["kicad-cli", "--version"], capture_output=True, text=True
+        )
         return result.returncode == 0
     except FileNotFoundError:
         return False

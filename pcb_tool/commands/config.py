@@ -30,7 +30,7 @@ class SetWidthCommand(Command):
         width: float,
         net_name: Optional[str] = None,
         class_name: Optional[str] = None,
-        set_default: bool = False
+        set_default: bool = False,
     ):
         """Initialize SetWidthCommand.
 
@@ -60,11 +60,9 @@ class SetWidthCommand(Command):
             return f"Error: Width {self.width}mm exceeds maximum 10mm"
 
         # Check that exactly one target is specified
-        targets = sum([
-            self.net_name is not None,
-            self.class_name is not None,
-            self.set_default
-        ])
+        targets = sum(
+            [self.net_name is not None, self.class_name is not None, self.set_default]
+        )
         if targets != 1:
             return "Error: Must specify exactly one of NET, CLASS, or DEFAULT"
 
@@ -90,7 +88,9 @@ class SetWidthCommand(Command):
                 board.net_classes[self.class_name] = NetClass(name=self.class_name)
             self._previous_class_width = board.net_classes[self.class_name].track_width
             board.net_classes[self.class_name].track_width = self.width
-            return f"OK: Set trace width for class '{self.class_name}' to {self.width}mm"
+            return (
+                f"OK: Set trace width for class '{self.class_name}' to {self.width}mm"
+            )
 
         elif self.set_default:
             # Set default width for all nets without explicit class
@@ -99,7 +99,9 @@ class SetWidthCommand(Command):
                 if net.net_class is None:
                     net.track_width = self.width
                     count += 1
-            return f"OK: Set default trace width to {self.width}mm ({count} nets updated)"
+            return (
+                f"OK: Set default trace width to {self.width}mm ({count} nets updated)"
+            )
 
         return "Error: No target specified"
 
@@ -111,7 +113,9 @@ class SetWidthCommand(Command):
 
         elif self.class_name is not None and self._previous_class_width is not None:
             if self.class_name in board.net_classes:
-                board.net_classes[self.class_name].track_width = self._previous_class_width
+                board.net_classes[self.class_name].track_width = (
+                    self._previous_class_width
+                )
             return f"OK: Restored trace width for class '{self.class_name}' to {self._previous_class_width}mm"
 
         return "Undo not available for this command"
@@ -148,7 +152,9 @@ class SetLayersCommand(Command):
     def validate(self, board: Board) -> str | None:
         """Validate command parameters."""
         if self.layer_count not in self.LAYER_CONFIGS:
-            return f"Error: Unsupported layer count {self.layer_count}. Supported: 2, 4, 6"
+            return (
+                f"Error: Unsupported layer count {self.layer_count}. Supported: 2, 4, 6"
+            )
         return None
 
     def execute(self, board: Board) -> str:
@@ -183,7 +189,7 @@ class SetClearanceCommand(Command):
         self,
         clearance: float,
         net_name: Optional[str] = None,
-        class_name: Optional[str] = None
+        class_name: Optional[str] = None,
     ):
         """Initialize SetClearanceCommand.
 
@@ -221,7 +227,9 @@ class SetClearanceCommand(Command):
                 board.net_classes[self.class_name] = NetClass(name=self.class_name)
             self._previous_clearance = board.net_classes[self.class_name].clearance
             board.net_classes[self.class_name].clearance = self.clearance
-            return f"OK: Set clearance for class '{self.class_name}' to {self.clearance}mm"
+            return (
+                f"OK: Set clearance for class '{self.class_name}' to {self.clearance}mm"
+            )
 
         return "Error: No target specified"
 
@@ -269,8 +277,8 @@ class SetBoardSizeCommand(Command):
 
     def execute(self, board: Board) -> str:
         """Execute the command."""
-        self._previous_width = getattr(board, 'width', None)
-        self._previous_height = getattr(board, 'height', None)
+        self._previous_width = getattr(board, "width", None)
+        self._previous_height = getattr(board, "height", None)
         board.width = self.width
         board.height = self.height
         return f"OK: Set board size to {self.width}mm x {self.height}mm"
@@ -307,7 +315,11 @@ class StatsCommand(Command):
 
     def validate(self, board: Board) -> str | None:
         """Validate command parameters."""
-        if self.category and self.category.upper() not in ("ROUTING", "NETS", "COMPONENTS"):
+        if self.category and self.category.upper() not in (
+            "ROUTING",
+            "NETS",
+            "COMPONENTS",
+        ):
             return f"Error: Unknown category '{self.category}'. Use ROUTING, NETS, or COMPONENTS"
         return None
 
@@ -329,10 +341,16 @@ class StatsCommand(Command):
     def _component_stats(self, board: Board) -> str:
         """Get component statistics."""
         comp_count = len(board.components)
-        smd_count = sum(1 for c in board.components.values()
-                       if c.pads and all(p.drill is None for p in c.pads))
-        tht_count = sum(1 for c in board.components.values()
-                       if c.pads and any(p.drill is not None for p in c.pads))
+        smd_count = sum(
+            1
+            for c in board.components.values()
+            if c.pads and all(p.drill is None for p in c.pads)
+        )
+        tht_count = sum(
+            1
+            for c in board.components.values()
+            if c.pads and any(p.drill is not None for p in c.pads)
+        )
         total_pads = sum(len(c.pads) for c in board.components.values())
 
         return f"""Components: {comp_count}
@@ -411,7 +429,7 @@ class CreateNetCommand(Command):
         self,
         name: str,
         connections: List[Tuple[str, str]],
-        net_class: Optional[str] = None
+        net_class: Optional[str] = None,
     ):
         """Initialize CreateNetCommand.
 
@@ -464,7 +482,7 @@ class CreateNetCommand(Command):
             name=self.name,
             code=net_code,
             track_width=track_width,
-            net_class=self.net_class
+            net_class=self.net_class,
         )
 
         # Add connections
@@ -512,7 +530,7 @@ class CreateComponentCommand(Command):
         x: float,
         y: float,
         rotation: float = 0,
-        value: str = ""
+        value: str = "",
     ):
         """Initialize CreateComponentCommand.
 
@@ -564,7 +582,7 @@ class CreateComponentCommand(Command):
             position=(self.x, self.y),
             rotation=self.rotation,
             layer="F.Cu",
-            pads=pads
+            pads=pads,
         )
 
         board.add_component(comp)
@@ -647,13 +665,16 @@ class AutoRouteStrategyCommand(Command):
             f"Nets routed: {result.nets_routed}/{result.nets_total}",
             f"Total length: {result.total_length_mm:.1f}mm",
             f"Vias: {result.total_vias}",
-            f"Layers used: {', '.join(sorted(result.layers_used)) or 'None'}"
+            f"Layers used: {', '.join(sorted(result.layers_used)) or 'None'}",
         ]
 
         if result.success:
             lines.insert(0, "OK: Routing complete!")
         else:
-            lines.insert(0, f"Warning: {result.nets_total - result.nets_routed} nets failed to route")
+            lines.insert(
+                0,
+                f"Warning: {result.nets_total - result.nets_routed} nets failed to route",
+            )
 
         return "\n".join(lines)
 

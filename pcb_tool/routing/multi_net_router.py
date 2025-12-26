@@ -19,20 +19,26 @@ from pcb_tool.routing.layer_optimizer import LayerOptimizer, NetPath, LayerAssig
 @dataclass
 class NetDefinition:
     """Definition of a net to be routed."""
+
     name: str
     start: Tuple[float, float]  # (x, y) in mm
-    end: Tuple[float, float]    # (x, y) in mm
+    end: Tuple[float, float]  # (x, y) in mm
     layer: str = "F.Cu"
     priority: int = 0  # Higher priority nets routed first
+    width_mm: float = 0.25
+    clearance_mm: float = 0.2
 
 
 @dataclass
 class RoutedNet:
     """Result of routing a single net."""
+
     name: str
     path: List[Tuple[float, float]]  # Waypoints in mm
     layer: str  # Default/starting layer (for backwards compatibility)
-    segments: List[Tuple[Tuple[float, float], Tuple[float, float]]]  # (start, end) pairs
+    segments: List[
+        Tuple[Tuple[float, float], Tuple[float, float]]
+    ]  # (start, end) pairs
     # Per-segment layer info (parallel to segments list)
     segment_layers: Optional[List[str]] = None
     # Via locations: (x, y, from_layer, to_layer)
@@ -56,7 +62,7 @@ class MultiNetRouter:
         pathfinder: Optional[PathFinder] = None,
         optimizer: Optional[LayerOptimizer] = None,
         ground_plane_mode: bool = False,
-        via_cost_map: Optional[Dict[str, float]] = None
+        via_cost_map: Optional[Dict[str, float]] = None,
     ):
         """
         Initialize the multi-net router.
@@ -99,7 +105,7 @@ class MultiNetRouter:
         net_name: str,
         path: List[Tuple[float, float]],
         layer: str,
-        width_mm: float = 0.25
+        width_mm: float = 0.25,
     ) -> None:
         """
         Add a manually routed net to the routing grid.
@@ -127,7 +133,7 @@ class MultiNetRouter:
                 end_mm=end,
                 layer=layer,
                 width_mm=width_mm,
-                clearance_mm=0.2  # Default clearance
+                clearance_mm=0.2,  # Default clearance
             )
 
             # Mark crossing-forbidden zone (HARD BLOCK - prevents crossings)
@@ -136,7 +142,7 @@ class MultiNetRouter:
                 end_mm=end,
                 layer=layer,
                 trace_width_mm=width_mm,
-                net_name=net_name
+                net_name=net_name,
             )
 
     def remove_net_routing(self, net_name: str) -> None:
@@ -162,7 +168,7 @@ class MultiNetRouter:
     def route_nets(
         self,
         net_definitions: List[NetDefinition],
-        constraints: Optional['RoutingConstraints'] = None
+        constraints: Optional["RoutingConstraints"] = None,
     ) -> Dict[str, RoutedNet]:
         """
         Route multiple nets with conflict detection.
@@ -196,7 +202,7 @@ class MultiNetRouter:
                 continue
 
             # In ground plane mode, skip GND (it's a solid plane on B.Cu)
-            if self.ground_plane_mode and net_def.name.upper() in ['GND', 'GROUND']:
+            if self.ground_plane_mode and net_def.name.upper() in ["GND", "GROUND"]:
                 continue
 
             # Determine routing layer and constraints
@@ -222,7 +228,7 @@ class MultiNetRouter:
                 allow_diagonals=True,
                 force_single_layer=force_single_layer,
                 via_cost=net_via_cost,
-                net_name=net_def.name
+                net_name=net_def.name,
             )
 
             if path is None:
@@ -245,7 +251,9 @@ class MultiNetRouter:
                 routed_nets[net_def.name].segments.extend(segments)
                 if routed_nets[net_def.name].segment_layers is not None:
                     routed_nets[net_def.name].segment_layers.extend(segment_layers)
-                routed_nets[net_def.name].path.extend(path[1:])  # Skip duplicate first point
+                routed_nets[net_def.name].path.extend(
+                    path[1:]
+                )  # Skip duplicate first point
                 if routed_nets[net_def.name].vias is not None and via_locations:
                     routed_nets[net_def.name].vias.extend(via_locations)
             else:
@@ -256,14 +264,22 @@ class MultiNetRouter:
                     layer=routing_layer,
                     segments=segments,
                     segment_layers=segment_layers,
-                    vias=via_locations if via_locations else None
+                    vias=via_locations if via_locations else None,
                 )
                 routed_nets[net_def.name] = routed_net
 
-            self.routed_nets[net_def.name] = routed_nets[net_def.name]  # Track for rip-up
+            self.routed_nets[net_def.name] = routed_nets[
+                net_def.name
+            ]  # Track for rip-up
 
-            # Mark this net's path as obstacle for subsequent nets (using per-segment layers)
-            self._mark_net_as_obstacle_with_layers(path, segment_layers, net_def.name)
+            # Mark this net's path as obstacle for subsequent nets (using per-segment layers).
+            self._mark_net_as_obstacle_with_layers(
+                path,
+                segment_layers,
+                net_def.name,
+                trace_width_mm=net_def.width_mm,
+                clearance_mm=net_def.clearance_mm,
+            )
 
         # Validate routing (check for conflicts)
         if not self._validate_routing(routed_nets):
@@ -273,8 +289,7 @@ class MultiNetRouter:
         return routed_nets
 
     def route_nets_with_optimization(
-        self,
-        net_definitions: List[NetDefinition]
+        self, net_definitions: List[NetDefinition]
     ) -> Dict[str, RoutedNet]:
         """
         Route multiple nets with Z3 layer optimization.
@@ -297,7 +312,7 @@ class MultiNetRouter:
                 start_mm=net_def.start,
                 goal_mm=net_def.end,
                 layer=net_def.layer,
-                allow_diagonals=True
+                allow_diagonals=True,
             )
 
             if path is None:
@@ -309,20 +324,19 @@ class MultiNetRouter:
                 segments.append((path[i], path[i + 1]))
 
             initial_routes[net_def.name] = RoutedNet(
-                name=net_def.name,
-                path=path,
-                layer=net_def.layer,
-                segments=segments
+                name=net_def.name, path=path, layer=net_def.layer, segments=segments
             )
 
         # Convert to NetPath format for optimizer
         net_paths = []
         for net_name, routed_net in initial_routes.items():
-            net_paths.append(NetPath(
-                name=net_name,
-                segments=routed_net.segments,
-                default_layer=routed_net.layer
-            ))
+            net_paths.append(
+                NetPath(
+                    name=net_name,
+                    segments=routed_net.segments,
+                    default_layer=routed_net.layer,
+                )
+            )
 
         # Optimize layer assignments
         layer_assignments = self.optimizer.optimize_layer_assignments(net_paths)
@@ -334,8 +348,7 @@ class MultiNetRouter:
         return initial_routes
 
     def _prioritize_nets(
-        self,
-        net_definitions: List[NetDefinition]
+        self, net_definitions: List[NetDefinition]
     ) -> List[NetDefinition]:
         """
         Prioritize nets for routing order.
@@ -358,7 +371,7 @@ class MultiNetRouter:
             Sorted list of NetDefinition objects
         """
         # Hardcoded power net patterns (as per architectural decisions)
-        POWER_NET_PATTERNS = {'GND', 'VCC', 'VDD', 'VSS', '+12V', '+5V', '+3V3'}
+        POWER_NET_PATTERNS = {"GND", "VCC", "VDD", "VSS", "+12V", "+5V", "+3V3"}
 
         def is_power_net(net_name: str) -> bool:
             """Check if net name matches power net patterns."""
@@ -387,7 +400,7 @@ class MultiNetRouter:
         self,
         path: List[Tuple[float, float]],
         start_layer: str,
-        via_locations: List[Tuple[float, float, str, str]]
+        via_locations: List[Tuple[float, float, str, str]],
     ) -> Tuple[List[Tuple[Tuple[float, float], Tuple[float, float]]], List[str]]:
         """
         Create segments from path with proper layer assignment based on via locations.
@@ -439,7 +452,10 @@ class MultiNetRouter:
         self,
         path: List[Tuple[float, float]],
         segment_layers: List[str],
-        net_name: str
+        net_name: str,
+        *,
+        trace_width_mm: float,
+        clearance_mm: float,
     ) -> None:
         """
         Mark routed net as obstacle with per-segment layer info.
@@ -461,8 +477,8 @@ class MultiNetRouter:
                 start_mm=start,
                 end_mm=end,
                 layer=layer,
-                width_mm=0.25,
-                clearance_mm=0.2
+                width_mm=trace_width_mm,
+                clearance_mm=clearance_mm,
             )
 
             # Mark crossing-forbidden zone
@@ -470,15 +486,12 @@ class MultiNetRouter:
                 start_mm=start,
                 end_mm=end,
                 layer=layer,
-                trace_width_mm=0.25,
-                net_name=net_name
+                trace_width_mm=trace_width_mm,
+                net_name=net_name,
             )
 
     def _mark_net_as_obstacle(
-        self,
-        path: List[Tuple[float, float]],
-        layer: str,
-        net_name: str
+        self, path: List[Tuple[float, float]], layer: str, net_name: str
     ) -> None:
         """
         Mark routed net as obstacle AND crossing-forbidden zone for subsequent routing.
@@ -503,7 +516,7 @@ class MultiNetRouter:
                 end_mm=end,
                 layer=layer,
                 width_mm=0.25,  # Default trace width
-                clearance_mm=0.2  # Default clearance
+                clearance_mm=0.2,  # Default clearance
             )
 
             # Mark crossing-forbidden zone (HARD BLOCK - prevents crossings)
@@ -513,12 +526,11 @@ class MultiNetRouter:
                 end_mm=end,
                 layer=layer,
                 trace_width_mm=0.25,
-                net_name=net_name
+                net_name=net_name,
             )
 
     def _detect_conflicts(
-        self,
-        routed_nets: Dict[str, RoutedNet]
+        self, routed_nets: Dict[str, RoutedNet]
     ) -> List[Tuple[str, str]]:
         """
         Detect conflicts between routed nets.
@@ -537,7 +549,7 @@ class MultiNetRouter:
 
         net_list = list(routed_nets.values())
         for i, net1 in enumerate(net_list):
-            for net2 in net_list[i + 1:]:
+            for net2 in net_list[i + 1 :]:
                 # Check if nets on same layer
                 if net1.layer == net2.layer:
                     # Check for segment crossings
@@ -549,10 +561,7 @@ class MultiNetRouter:
 
         return conflicts
 
-    def _validate_routing(
-        self,
-        routed_nets: Dict[str, RoutedNet]
-    ) -> bool:
+    def _validate_routing(self, routed_nets: Dict[str, RoutedNet]) -> bool:
         """
         Validate routing for DRC compliance.
 
@@ -579,7 +588,7 @@ class MultiNetRouter:
     def _segments_intersect(
         self,
         seg1: Tuple[Tuple[float, float], Tuple[float, float]],
-        seg2: Tuple[Tuple[float, float], Tuple[float, float]]
+        seg2: Tuple[Tuple[float, float], Tuple[float, float]],
     ) -> bool:
         """
         Check if two line segments intersect.

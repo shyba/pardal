@@ -51,8 +51,7 @@ class RoutingConstraints:
         # If must_route is specified, filter to only must-route nets
         if self.must_route:
             net_definitions = [
-                net for net in net_definitions
-                if net.name in self.must_route
+                net for net in net_definitions if net.name in self.must_route
             ]
 
         # If route_order is specified, reorder nets accordingly
@@ -68,8 +67,7 @@ class RoutingConstraints:
 
             # Add any remaining nets not in route_order at the end
             remaining_nets = [
-                net for net in net_definitions
-                if net.name not in self.route_order
+                net for net in net_definitions if net.name not in self.route_order
             ]
             net_definitions = ordered_nets + remaining_nets
 

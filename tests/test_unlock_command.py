@@ -3,22 +3,37 @@ from pcb_tool.commands import UnlockCommand
 from pcb_tool.command_parser import CommandParser
 from pcb_tool.data_model import Board, Component
 
+
 @pytest.fixture
 def sample_board():
     board = Board()
-    board.add_component(Component(
-        ref="U1", value="IC", footprint="DIP-8",
-        position=(10.0, 20.0), rotation=0.0, locked=False
-    ))
-    board.add_component(Component(
-        ref="R1", value="10k", footprint="R_0805",
-        position=(30.0, 40.0), rotation=0.0, locked=True
-    ))
+    board.add_component(
+        Component(
+            ref="U1",
+            value="IC",
+            footprint="DIP-8",
+            position=(10.0, 20.0),
+            rotation=0.0,
+            locked=False,
+        )
+    )
+    board.add_component(
+        Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(30.0, 40.0),
+            rotation=0.0,
+            locked=True,
+        )
+    )
     return board
+
 
 def test_unlock_command_creation():
     cmd = UnlockCommand("R1")
     assert cmd.ref == "R1"
+
 
 def test_unlock_command_validate_component_not_found():
     cmd = UnlockCommand("NONEXISTENT")
@@ -27,10 +42,12 @@ def test_unlock_command_validate_component_not_found():
     assert error is not None
     assert "not found" in error.lower()
 
+
 def test_unlock_command_validate_success(sample_board):
     cmd = UnlockCommand("R1")
     error = cmd.validate(sample_board)
     assert error is None
+
 
 def test_unlock_command_execute_unlocks_component(sample_board):
     cmd = UnlockCommand("R1")
@@ -41,6 +58,7 @@ def test_unlock_command_execute_unlocks_component(sample_board):
 
     assert "OK" in result or "Unlocked" in result
     assert comp.locked is False
+
 
 def test_unlock_command_execute_already_unlocked(sample_board):
     cmd = UnlockCommand("U1")
@@ -53,12 +71,14 @@ def test_unlock_command_execute_already_unlocked(sample_board):
     assert "OK" in result or "Unlocked" in result
     assert comp.locked is False
 
+
 def test_parser_can_parse_unlock_command():
     parser = CommandParser()
     cmd = parser.parse("UNLOCK R1")
 
     assert isinstance(cmd, UnlockCommand)
     assert cmd.ref == "R1"
+
 
 def test_unlock_command_full_workflow(sample_board):
     parser = CommandParser()
@@ -69,6 +89,7 @@ def test_unlock_command_full_workflow(sample_board):
 
     assert "OK" in result or "Unlocked" in result
     assert sample_board.get_component("R1").locked is False
+
 
 def test_unlock_then_move_workflow(sample_board):
     """Test that unlocking allows subsequent moves"""

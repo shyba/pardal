@@ -23,24 +23,16 @@ def test_per_net_via_cost_basic():
     # Create an obstacle that blocks a straight path and encourages multi-layer
     # Place large obstacle on F.Cu that forces decision: detour or via
     grid.mark_rectangle_obstacle(
-        x_min_mm=15, y_min_mm=15,
-        x_max_mm=35, y_max_mm=35,
-        layer="F.Cu"
+        x_min_mm=15, y_min_mm=15, x_max_mm=35, y_max_mm=35, layer="F.Cu"
     )
 
     # Define two identical nets with different via costs
     net_low_via_cost = NetDefinition(
-        name="LOW_VIA",
-        start=(10, 25),
-        end=(40, 25),
-        layer="F.Cu"
+        name="LOW_VIA", start=(10, 25), end=(40, 25), layer="F.Cu"
     )
 
     net_high_via_cost = NetDefinition(
-        name="HIGH_VIA",
-        start=(10, 25),
-        end=(40, 25),
-        layer="F.Cu"
+        name="HIGH_VIA", start=(10, 25), end=(40, 25), layer="F.Cu"
     )
 
     # Route with low via cost (0.5) - should encourage vias
@@ -51,9 +43,7 @@ def test_per_net_via_cost_basic():
     # Reset grid for second routing
     grid2 = RoutingGrid(width_mm=50, height_mm=50, resolution_mm=0.5)
     grid2.mark_rectangle_obstacle(
-        x_min_mm=15, y_min_mm=15,
-        x_max_mm=35, y_max_mm=35,
-        layer="F.Cu"
+        x_min_mm=15, y_min_mm=15, x_max_mm=35, y_max_mm=35, layer="F.Cu"
     )
 
     # Route with high via cost (100.0) - should avoid vias
@@ -85,9 +75,9 @@ def test_via_cost_wildcards():
 
     # Create via cost map with wildcards
     via_cost_map = {
-        "SIG*": 0.1,    # All signal nets
-        "POWER*": 50.0, # All power nets
-        "*": 10.0       # Default for everything else
+        "SIG*": 0.1,  # All signal nets
+        "POWER*": 50.0,  # All power nets
+        "*": 10.0,  # Default for everything else
     }
 
     router = MultiNetRouter(grid, via_cost_map=via_cost_map)
@@ -113,14 +103,10 @@ def test_via_cost_in_ground_plane_mode():
     # But we want specific nets to have different via costs
     via_cost_map = {
         "VCC": 100.0,  # VCC avoids vias
-        "SIG*": 0.1    # Signal nets use cheap vias
+        "SIG*": 0.1,  # Signal nets use cheap vias
     }
 
-    router = MultiNetRouter(
-        grid,
-        ground_plane_mode=True,
-        via_cost_map=via_cost_map
-    )
+    router = MultiNetRouter(grid, ground_plane_mode=True, via_cost_map=via_cost_map)
 
     # Verify ground plane mode is active
     assert router.ground_plane_mode is True
@@ -134,10 +120,7 @@ def test_via_cost_in_ground_plane_mode():
 
     # Define a signal net (not a power net, so it will be routed)
     signal_net = NetDefinition(
-        name="SIG_DATA",
-        start=(10, 25),
-        end=(40, 25),
-        layer="F.Cu"
+        name="SIG_DATA", start=(10, 25), end=(40, 25), layer="F.Cu"
     )
 
     # Route signal net - should use via cost from map (0.1 via "SIG*")

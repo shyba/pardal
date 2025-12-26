@@ -21,7 +21,7 @@ def generate_qfp_pads(
     pin_count: int,
     pitch: float,
     body_size: Tuple[float, float],
-    pad_size: Tuple[float, float] = (0.5, 1.2)
+    pad_size: Tuple[float, float] = (0.5, 1.2),
 ) -> List[Pad]:
     """Generate pads for QFP (Quad Flat Package) footprints.
 
@@ -57,48 +57,56 @@ def generate_qfp_pads(
         pin_num = i + 1
         y_offset = start_offset + i * pitch
         x_offset = -half_body_w - pad_size[1] / 2 + 0.3  # Slight inward offset
-        pads.append(Pad(
-            number=pin_num,
-            position_offset=(x_offset, y_offset),
-            size=pad_size,
-            shape='rect'
-        ))
+        pads.append(
+            Pad(
+                number=pin_num,
+                position_offset=(x_offset, y_offset),
+                size=pad_size,
+                shape="rect",
+            )
+        )
 
     # Bottom side (pins pins_per_side+1 to 2*pins_per_side) - pads are vertical
     for i in range(pins_per_side):
         pin_num = pins_per_side + i + 1
         x_offset = start_offset + i * pitch
         y_offset = half_body_h + pad_size[1] / 2 - 0.3
-        pads.append(Pad(
-            number=pin_num,
-            position_offset=(x_offset, y_offset),
-            size=(pad_size[1], pad_size[0]),  # Rotated 90 degrees
-            shape='rect'
-        ))
+        pads.append(
+            Pad(
+                number=pin_num,
+                position_offset=(x_offset, y_offset),
+                size=(pad_size[1], pad_size[0]),  # Rotated 90 degrees
+                shape="rect",
+            )
+        )
 
     # Right side (pins 2*pins_per_side+1 to 3*pins_per_side) - pads horizontal, pointing right
     for i in range(pins_per_side):
         pin_num = 2 * pins_per_side + i + 1
         y_offset = start_offset + (pins_per_side - 1 - i) * pitch  # Reverse order
         x_offset = half_body_w + pad_size[1] / 2 - 0.3
-        pads.append(Pad(
-            number=pin_num,
-            position_offset=(x_offset, -y_offset),
-            size=pad_size,
-            shape='rect'
-        ))
+        pads.append(
+            Pad(
+                number=pin_num,
+                position_offset=(x_offset, -y_offset),
+                size=pad_size,
+                shape="rect",
+            )
+        )
 
     # Top side (pins 3*pins_per_side+1 to 4*pins_per_side) - pads vertical
     for i in range(pins_per_side):
         pin_num = 3 * pins_per_side + i + 1
         x_offset = start_offset + (pins_per_side - 1 - i) * pitch  # Reverse order
         y_offset = -half_body_h - pad_size[1] / 2 + 0.3
-        pads.append(Pad(
-            number=pin_num,
-            position_offset=(-x_offset, y_offset),
-            size=(pad_size[1], pad_size[0]),  # Rotated 90 degrees
-            shape='rect'
-        ))
+        pads.append(
+            Pad(
+                number=pin_num,
+                position_offset=(-x_offset, y_offset),
+                size=(pad_size[1], pad_size[0]),  # Rotated 90 degrees
+                shape="rect",
+            )
+        )
 
     return pads
 
@@ -108,7 +116,7 @@ def generate_header_pads(
     cols: int,
     pitch: float,
     pad_size: Tuple[float, float] = (1.0, 1.0),
-    drill: Optional[float] = 0.8
+    drill: Optional[float] = 0.8,
 ) -> List[Pad]:
     """Generate pads for pin header footprints.
 
@@ -140,21 +148,22 @@ def generate_header_pads(
         for row in range(rows):
             x_offset = row * pitch - center_x
             y_offset = col * pitch - center_y
-            pads.append(Pad(
-                number=pin_num,
-                position_offset=(x_offset, y_offset),
-                size=pad_size,
-                shape='circle' if drill else 'rect',
-                drill=drill
-            ))
+            pads.append(
+                Pad(
+                    number=pin_num,
+                    position_offset=(x_offset, y_offset),
+                    size=pad_size,
+                    shape="circle" if drill else "rect",
+                    drill=drill,
+                )
+            )
             pin_num += 1
 
     return pads
 
 
 def generate_two_pin_smd_pads(
-    pad_spacing: float,
-    pad_size: Tuple[float, float]
+    pad_spacing: float, pad_size: Tuple[float, float]
 ) -> List[Pad]:
     """Generate pads for 2-pin SMD components (resistors, capacitors).
 
@@ -167,8 +176,8 @@ def generate_two_pin_smd_pads(
     """
     half_spacing = pad_spacing / 2
     return [
-        Pad(number=1, position_offset=(-half_spacing, 0), size=pad_size, shape='rect'),
-        Pad(number=2, position_offset=(half_spacing, 0), size=pad_size, shape='rect'),
+        Pad(number=1, position_offset=(-half_spacing, 0), size=pad_size, shape="rect"),
+        Pad(number=2, position_offset=(half_spacing, 0), size=pad_size, shape="rect"),
     ]
 
 
@@ -183,32 +192,34 @@ def generate_sot23_pads(pins: int = 3) -> List[Pad]:
     """
     if pins == 3:
         return [
-            Pad(number=1, position_offset=(-0.95, 1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=2, position_offset=(0.95, 1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=3, position_offset=(0, -1.1), size=(0.6, 0.7), shape='rect'),
+            Pad(number=1, position_offset=(-0.95, 1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=2, position_offset=(0.95, 1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=3, position_offset=(0, -1.1), size=(0.6, 0.7), shape="rect"),
         ]
     elif pins == 5:
         return [
-            Pad(number=1, position_offset=(-0.95, 1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=2, position_offset=(0, 1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=3, position_offset=(0.95, 1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=4, position_offset=(0.95, -1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=5, position_offset=(-0.95, -1.1), size=(0.6, 0.7), shape='rect'),
+            Pad(number=1, position_offset=(-0.95, 1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=2, position_offset=(0, 1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=3, position_offset=(0.95, 1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=4, position_offset=(0.95, -1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=5, position_offset=(-0.95, -1.1), size=(0.6, 0.7), shape="rect"),
         ]
     elif pins == 6:
         return [
-            Pad(number=1, position_offset=(-0.95, 1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=2, position_offset=(0, 1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=3, position_offset=(0.95, 1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=4, position_offset=(0.95, -1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=5, position_offset=(0, -1.1), size=(0.6, 0.7), shape='rect'),
-            Pad(number=6, position_offset=(-0.95, -1.1), size=(0.6, 0.7), shape='rect'),
+            Pad(number=1, position_offset=(-0.95, 1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=2, position_offset=(0, 1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=3, position_offset=(0.95, 1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=4, position_offset=(0.95, -1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=5, position_offset=(0, -1.1), size=(0.6, 0.7), shape="rect"),
+            Pad(number=6, position_offset=(-0.95, -1.1), size=(0.6, 0.7), shape="rect"),
         ]
     else:
         raise ValueError(f"SOT-23 supports 3, 5, or 6 pins, got {pins}")
 
 
-def generate_soic_pads(pins: int, pitch: float = 1.27, body_width: float = 3.9) -> List[Pad]:
+def generate_soic_pads(
+    pins: int, pitch: float = 1.27, body_width: float = 3.9
+) -> List[Pad]:
     """Generate pads for SOIC packages.
 
     Args:
@@ -231,23 +242,27 @@ def generate_soic_pads(pins: int, pitch: float = 1.27, body_width: float = 3.9) 
     for i in range(pins_per_side):
         pin_num = i + 1
         y_offset = start_offset + i * pitch
-        pads.append(Pad(
-            number=pin_num,
-            position_offset=(-pad_center_x, y_offset),
-            size=(0.6, 1.5),
-            shape='rect'
-        ))
+        pads.append(
+            Pad(
+                number=pin_num,
+                position_offset=(-pad_center_x, y_offset),
+                size=(0.6, 1.5),
+                shape="rect",
+            )
+        )
 
     # Right side (pins pins_per_side+1 to pins) - numbered in reverse
     for i in range(pins_per_side):
         pin_num = pins - i
         y_offset = start_offset + i * pitch
-        pads.append(Pad(
-            number=pin_num,
-            position_offset=(pad_center_x, y_offset),
-            size=(0.6, 1.5),
-            shape='rect'
-        ))
+        pads.append(
+            Pad(
+                number=pin_num,
+                position_offset=(pad_center_x, y_offset),
+                size=(0.6, 1.5),
+                shape="rect",
+            )
+        )
 
     return sorted(pads, key=lambda p: p.number)
 
@@ -290,7 +305,6 @@ FOOTPRINT_TEMPLATES: Dict[str, Dict[str, Any]] = {
         "body_size": (14.0, 14.0),
         "pad_size": (0.3, 1.0),
     },
-
     # SMD Passives (Resistors, Capacitors)
     "R_0402_1005Metric": {
         "generator": "two_pin_smd",
@@ -332,7 +346,6 @@ FOOTPRINT_TEMPLATES: Dict[str, Dict[str, Any]] = {
         "pad_spacing": 3.0,
         "pad_size": (1.0, 1.5),
     },
-
     # Pin Headers
     "PinHeader_1x02_P2.54mm_Vertical": {
         "generator": "header",
@@ -390,7 +403,6 @@ FOOTPRINT_TEMPLATES: Dict[str, Dict[str, Any]] = {
         "pad_size": (0.7, 0.7),
         "drill": 0.5,
     },
-
     # SOT packages
     "SOT-23": {
         "generator": "sot23",
@@ -404,7 +416,6 @@ FOOTPRINT_TEMPLATES: Dict[str, Dict[str, Any]] = {
         "generator": "sot23",
         "pins": 6,
     },
-
     # SOIC packages
     "SOIC-8_3.9x4.9mm_P1.27mm": {
         "generator": "soic",
@@ -497,7 +508,7 @@ def generate_pads(footprint_name: str) -> List[Pad]:
             pin_count=template["pin_count"],
             pitch=template["pitch"],
             body_size=template["body_size"],
-            pad_size=template.get("pad_size", (0.5, 1.2))
+            pad_size=template.get("pad_size", (0.5, 1.2)),
         )
     elif generator == "header":
         return generate_header_pads(
@@ -505,12 +516,11 @@ def generate_pads(footprint_name: str) -> List[Pad]:
             cols=template["cols"],
             pitch=template["pitch"],
             pad_size=template.get("pad_size", (1.0, 1.0)),
-            drill=template.get("drill")
+            drill=template.get("drill"),
         )
     elif generator == "two_pin_smd":
         return generate_two_pin_smd_pads(
-            pad_spacing=template["pad_spacing"],
-            pad_size=template["pad_size"]
+            pad_spacing=template["pad_spacing"], pad_size=template["pad_size"]
         )
     elif generator == "sot23":
         return generate_sot23_pads(pins=template["pins"])
@@ -518,7 +528,7 @@ def generate_pads(footprint_name: str) -> List[Pad]:
         return generate_soic_pads(
             pins=template["pins"],
             pitch=template.get("pitch", 1.27),
-            body_width=template.get("body_width", 3.9)
+            body_width=template.get("body_width", 3.9),
         )
     else:
         raise ValueError(f"Unknown generator type: {generator}")

@@ -3,8 +3,14 @@
 
 import pytest
 from pcb_tool.data_model import (
-    LayerConfig, NetClass, Board, Net, TraceSegment, Via,
-    STANDARD_LAYER_STACKS, VALID_COPPER_LAYERS
+    LayerConfig,
+    NetClass,
+    Board,
+    Net,
+    TraceSegment,
+    Via,
+    STANDARD_LAYER_STACKS,
+    VALID_COPPER_LAYERS,
 )
 
 

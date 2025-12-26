@@ -29,13 +29,16 @@ from tests.integration.test_routing_scenarios import DRCConfig, RoutingTestCase
 
 # Import from 4-layer test infrastructure
 from tests.integration.test_4layer_power import (
-    MultiLayerTestCase, route_board_multilayer, add_traces_to_board_multilayer
+    MultiLayerTestCase,
+    route_board_multilayer,
+    add_traces_to_board_multilayer,
 )
 
 
 # =============================================================================
 # TEST CASE: Via Types Validation
 # =============================================================================
+
 
 class TestViaTypes:
     """Test through, blind, and buried via creation."""
@@ -53,7 +56,7 @@ class TestViaTypes:
             size=0.8,
             drill=0.4,
             layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu"),
-            via_type="through"
+            via_type="through",
         )
 
         # Verify via properties
@@ -76,7 +79,7 @@ class TestViaTypes:
             size=0.6,
             drill=0.3,
             layers=("F.Cu", "In1.Cu"),
-            via_type="blind"
+            via_type="blind",
         )
 
         # Verify via properties
@@ -101,7 +104,7 @@ class TestViaTypes:
             size=0.6,
             drill=0.3,
             layers=("In2.Cu", "B.Cu"),
-            via_type="blind"
+            via_type="blind",
         )
 
         # Verify via properties
@@ -126,7 +129,7 @@ class TestViaTypes:
             size=0.5,
             drill=0.25,
             layers=("In1.Cu", "In2.Cu"),
-            via_type="buried"
+            via_type="buried",
         )
 
         # Verify via properties
@@ -142,23 +145,35 @@ class TestViaTypes:
         """Test that via type is correctly detected from layers."""
         # Through-hole
         through = Via(
-            net_name="T", position=(0, 0), size=0.8, drill=0.4,
-            layers=("F.Cu", "B.Cu"), via_type="through"
+            net_name="T",
+            position=(0, 0),
+            size=0.8,
+            drill=0.4,
+            layers=("F.Cu", "B.Cu"),
+            via_type="through",
         )
         assert through.is_through_hole
 
         # Blind from top
         blind_top = Via(
-            net_name="BT", position=(0, 0), size=0.6, drill=0.3,
-            layers=("F.Cu", "In1.Cu"), via_type="blind"
+            net_name="BT",
+            position=(0, 0),
+            size=0.6,
+            drill=0.3,
+            layers=("F.Cu", "In1.Cu"),
+            via_type="blind",
         )
         assert blind_top.is_blind
         assert not blind_top.is_through_hole
 
         # Buried
         buried = Via(
-            net_name="BU", position=(0, 0), size=0.5, drill=0.25,
-            layers=("In1.Cu", "In2.Cu"), via_type="buried"
+            net_name="BU",
+            position=(0, 0),
+            size=0.5,
+            drill=0.25,
+            layers=("In1.Cu", "In2.Cu"),
+            via_type="buried",
         )
         assert buried.is_buried
         assert not buried.is_blind
@@ -184,7 +199,7 @@ class TestViaTypes:
             size=0.8,
             drill=0.4,
             layers=("F.Cu", "B.Cu"),
-            via_type="through"
+            via_type="through",
         )
         test.board.nets["VIA_TEST"].add_via(via)
 
@@ -201,17 +216,16 @@ class TestViaTypes:
         """Test that ViaPlacement supports multi-layer boards."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         via_placer = ViaPlacement(grid)
 
         # Test get_via_layers for through via
         through_layers = via_placer.get_via_layers("F.Cu", "B.Cu", "through")
-        assert through_layers == tuple(layers), f"Through via should span all layers, got {through_layers}"
+        assert through_layers == tuple(
+            layers
+        ), f"Through via should span all layers, got {through_layers}"
 
         # Test get_via_layers for blind via
         blind_layers = via_placer.get_via_layers("F.Cu", "In1.Cu", "blind")
@@ -223,10 +237,7 @@ class TestViaTypes:
         """Test that ViaPlacement correctly determines via type."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         via_placer = ViaPlacement(grid)
@@ -251,10 +262,7 @@ class TestViaTypes:
         """Test that PathFinder respects allowed via types."""
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         grid = RoutingGrid(
-            width_mm=30.0,
-            height_mm=30.0,
-            resolution_mm=0.4,
-            layers=layers
+            width_mm=30.0, height_mm=30.0, resolution_mm=0.4, layers=layers
         )
 
         # Through-only pathfinder
@@ -287,7 +295,7 @@ class TestViaTypes:
             size=0.8,
             drill=0.4,
             layers=("F.Cu", "B.Cu"),
-            via_type="through"
+            via_type="through",
         )
         test.board.nets["NET1"].add_via(through_via)
 
@@ -298,7 +306,9 @@ class TestViaTypes:
         content = output_path.read_text()
 
         # KiCad format for via layers: (layers "F.Cu" "B.Cu")
-        assert '(layers "F.Cu" "B.Cu")' in content, "Via should have F.Cu/B.Cu layer pair"
+        assert (
+            '(layers "F.Cu" "B.Cu")' in content
+        ), "Via should have F.Cu/B.Cu layer pair"
 
     def test_4layer_board_with_multiple_via_types(self, tmp_path):
         """Test a 4-layer board with different via types."""
@@ -317,24 +327,28 @@ class TestViaTypes:
 
         # Add different via types manually
         # Through via
-        test.board.nets["NET1"].add_via(Via(
-            net_name="NET1",
-            position=(15.0, 20.0),
-            size=0.8,
-            drill=0.4,
-            layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu"),
-            via_type="through"
-        ))
+        test.board.nets["NET1"].add_via(
+            Via(
+                net_name="NET1",
+                position=(15.0, 20.0),
+                size=0.8,
+                drill=0.4,
+                layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu"),
+                via_type="through",
+            )
+        )
 
         # Blind via (F.Cu to In1.Cu)
-        test.board.nets["NET2"].add_via(Via(
-            net_name="NET2",
-            position=(25.0, 20.0),
-            size=0.6,
-            drill=0.3,
-            layers=("F.Cu", "In1.Cu"),
-            via_type="blind"
-        ))
+        test.board.nets["NET2"].add_via(
+            Via(
+                net_name="NET2",
+                position=(25.0, 20.0),
+                size=0.6,
+                drill=0.3,
+                layers=("F.Cu", "In1.Cu"),
+                via_type="blind",
+            )
+        )
 
         # Write
         output_path = tmp_path / "multi_via_types.kicad_pcb"
@@ -358,15 +372,15 @@ class TestViaTypes:
             size=0.8,
             drill=0.4,
             layers=("F.Cu", "In1.Cu", "In2.Cu", "B.Cu"),
-            via_type="through"
+            via_type="through",
         )
 
         # Check properties exist
-        assert hasattr(via, 'layers')
-        assert hasattr(via, 'via_type')
-        assert hasattr(via, 'is_through_hole')
-        assert hasattr(via, 'is_blind')
-        assert hasattr(via, 'is_buried')
+        assert hasattr(via, "layers")
+        assert hasattr(via, "via_type")
+        assert hasattr(via, "is_through_hole")
+        assert hasattr(via, "is_blind")
+        assert hasattr(via, "is_buried")
 
         # Verify start/end layers accessible
         assert via.layers[0] == "F.Cu"

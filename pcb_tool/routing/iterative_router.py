@@ -34,10 +34,7 @@ class IterativeRouter:
     """
 
     def __init__(
-        self,
-        grid: RoutingGrid,
-        max_iterations: int = 10,
-        z3_timeout_ms: int = 120000
+        self, grid: RoutingGrid, max_iterations: int = 10, z3_timeout_ms: int = 120000
     ):
         """
         Initialize iterative router.
@@ -53,9 +50,7 @@ class IterativeRouter:
         self.constraint_manager = LazyConstraintManager()
 
     def route(
-        self,
-        net_definitions: List[NetDefinition],
-        single_pass: bool = True
+        self, net_definitions: List[NetDefinition], single_pass: bool = True
     ) -> Dict[str, List[Tuple[float, float]]]:
         """
         Route all nets with hybrid Z3 + A*.
@@ -74,8 +69,7 @@ class IterativeRouter:
             return self._route_iterative(net_definitions)
 
     def _route_single_pass(
-        self,
-        net_definitions: List[NetDefinition]
+        self, net_definitions: List[NetDefinition]
     ) -> Dict[str, List[Tuple[float, float]]]:
         """
         Single-pass hybrid routing: Z3 once → sequential A*.
@@ -125,7 +119,7 @@ class IterativeRouter:
         self,
         net_definitions: List[NetDefinition],
         num_passes: int = 8,
-        seed: Optional[int] = None
+        seed: Optional[int] = None,
     ) -> Dict[str, List[Tuple[float, float]]]:
         """
         Multi-pass routing with random order shuffling (FreeRouting-inspired).
@@ -156,7 +150,7 @@ class IterativeRouter:
         print(f"  ✓ Z3 allocated {len(z3_result)} nets")
 
         best_paths = {}
-        best_score = float('inf')
+        best_score = float("inf")
 
         for pass_no in range(1, num_passes + 1):
             # Shuffle net order for this pass
@@ -182,9 +176,13 @@ class IterativeRouter:
             if score < best_score:
                 best_score = score
                 best_paths = paths.copy()
-                print(f"  Pass {pass_no}/{num_passes}: {routed_count}/{total_count} nets, score={score:.0f} ★ (new best)")
+                print(
+                    f"  Pass {pass_no}/{num_passes}: {routed_count}/{total_count} nets, score={score:.0f} ★ (new best)"
+                )
             else:
-                print(f"  Pass {pass_no}/{num_passes}: {routed_count}/{total_count} nets, score={score:.0f}")
+                print(
+                    f"  Pass {pass_no}/{num_passes}: {routed_count}/{total_count} nets, score={score:.0f}"
+                )
 
             # Early exit if perfect score
             if score == 0:
@@ -201,13 +199,15 @@ class IterativeRouter:
         else:
             print(f"  ⚠ {len(crossings)} crossings detected")
 
-        print(f"\n✓ Best result: {len(best_paths)}/{len(net_names)} nets routed, score={best_score:.0f}")
+        print(
+            f"\n✓ Best result: {len(best_paths)}/{len(net_names)} nets routed, score={best_score:.0f}"
+        )
         return best_paths
 
     def _score_routing(
         self,
         paths: Dict[str, List[Tuple[float, float]]],
-        net_definitions: List[NetDefinition]
+        net_definitions: List[NetDefinition],
     ) -> float:
         """
         Score a routing result (lower is better).
@@ -242,8 +242,7 @@ class IterativeRouter:
         return score
 
     def _route_iterative(
-        self,
-        net_definitions: List[NetDefinition]
+        self, net_definitions: List[NetDefinition]
     ) -> Dict[str, List[Tuple[float, float]]]:
         """
         Iterative refinement routing (legacy mode).
@@ -282,10 +281,14 @@ class IterativeRouter:
             print(f"Found {len(crossings)} crossings, adding constraints")
             self.constraint_manager.add_crossing_blocks(crossings)
 
-        print(f"Warning: Max iterations reached with {len(crossings)} crossings remaining")
+        print(
+            f"Warning: Max iterations reached with {len(crossings)} crossings remaining"
+        )
         return paths
 
-    def _run_z3(self, net_definitions: List[NetDefinition]) -> Optional[Dict[str, RoutedNet]]:
+    def _run_z3(
+        self, net_definitions: List[NetDefinition]
+    ) -> Optional[Dict[str, RoutedNet]]:
         """
         Run Z3 with current blocking constraints.
 
@@ -296,9 +299,7 @@ class IterativeRouter:
             Dictionary of net_name -> RoutedNet, or None if failed
         """
         config = Z3RoutingConfig(
-            timeout_ms=self.z3_timeout,
-            clearance_cells=0,
-            optimize_wire_length=True
+            timeout_ms=self.z3_timeout, clearance_cells=0, optimize_wire_length=True
         )
         router = Z3Router(self.grid, config)
         router.enable_path_continuity = False
@@ -322,9 +323,7 @@ class IterativeRouter:
 
             # NOW apply blocking constraints
             self.constraint_manager.apply_to_solver(
-                router.solver,
-                router.cell_vars,
-                net_name_to_idx
+                router.solver, router.cell_vars, net_name_to_idx
             )
 
             # Continue with rest of solve_routing setup
@@ -362,7 +361,9 @@ class IterativeRouter:
             print(f"Z3 error: {e}")
             return None
 
-    def _group_segments(self, net_definitions: List[NetDefinition]) -> Dict[str, List[NetDefinition]]:
+    def _group_segments(
+        self, net_definitions: List[NetDefinition]
+    ) -> Dict[str, List[NetDefinition]]:
         """
         Group net definitions by net name.
 

@@ -71,7 +71,9 @@ class MoveCommand(Command):
             comp.rotation = self.rotation % 360
 
         # Always show rotation in output
-        return success(f"Moved {self.ref} to ({self.x}, {self.y}) rotation {comp.rotation}°")
+        return success(
+            f"Moved {self.ref} to ({self.x}, {self.y}) rotation {comp.rotation}°"
+        )
 
     def undo(self, board: Board) -> str:
         comp = board.get_component(self.ref)
@@ -108,7 +110,9 @@ class RotateCommand(Command):
         else:
             # BY behavior: add to current rotation
             comp.rotation = (comp.rotation + self.angle) % 360
-            return success(f"Rotated {self.ref} by {self.angle}° (now at {comp.rotation}°)")
+            return success(
+                f"Rotated {self.ref} by {self.angle}° (now at {comp.rotation}°)"
+            )
 
     def undo(self, board: Board) -> str:
         comp = board.get_component(self.ref)
@@ -160,7 +164,7 @@ class WhereCommand(Command):
             f"  Layer: {comp.layer}",
             f"  Footprint: {comp.footprint}",
             f"  Value: {comp.value}",
-            f"  Locked: {locked_status}"
+            f"  Locked: {locked_status}",
         ]
 
         return "\n".join(lines)
@@ -227,7 +231,11 @@ class GroupMoveCommand(Command):
         """
         # Store old positions and move components
         self.old_positions = []
-        lines = [success(f"Moved {len(self.component_refs)} components by ({self.dx}, {self.dy})")]
+        lines = [
+            success(
+                f"Moved {len(self.component_refs)} components by ({self.dx}, {self.dy})"
+            )
+        ]
 
         for ref in self.component_refs:
             comp = board.get_component(ref)
@@ -254,7 +262,9 @@ class GroupMoveCommand(Command):
             comp = board.get_component(ref)
             comp.position = old_pos
 
-        return success(f"Restored {len(self.component_refs)} components to original positions")
+        return success(
+            f"Restored {len(self.component_refs)} components to original positions"
+        )
 
 
 class ArrangeCommand(Command):
@@ -270,7 +280,9 @@ class ArrangeCommand(Command):
         old_positions: List of original positions for undo support
     """
 
-    def __init__(self, component_refs: list[str], pattern: str = "GRID", spacing: float = 5.0):
+    def __init__(
+        self, component_refs: list[str], pattern: str = "GRID", spacing: float = 5.0
+    ):
         """Initialize arrange command.
 
         Args:
@@ -348,10 +360,15 @@ class ArrangeCommand(Command):
                 comp = board.get_component(ref)
                 col = i % grid_size
                 row = i // grid_size
-                comp.position = (start_x + col * self.spacing, start_y + row * self.spacing)
+                comp.position = (
+                    start_x + col * self.spacing,
+                    start_y + row * self.spacing,
+                )
 
         # Build result message
-        lines = [success(f"Arranged {len(self.component_refs)} components in {self.pattern}")]
+        lines = [
+            success(f"Arranged {len(self.component_refs)} components in {self.pattern}")
+        ]
         for ref in self.component_refs:
             comp = board.get_component(ref)
             x, y = comp.position
@@ -369,4 +386,6 @@ class ArrangeCommand(Command):
             comp = board.get_component(ref)
             comp.position = old_pos
 
-        return success(f"Restored {len(self.component_refs)} components to original positions")
+        return success(
+            f"Restored {len(self.component_refs)} components to original positions"
+        )

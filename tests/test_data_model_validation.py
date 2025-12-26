@@ -14,7 +14,7 @@ class TestComponentValidation:
             value="10k",
             footprint="R_0805",
             position=(10.0, 20.0),
-            rotation=90.0
+            rotation=90.0,
         )
         assert comp.ref == "R1"
         assert comp.rotation == 90.0
@@ -22,11 +22,7 @@ class TestComponentValidation:
     def test_component_rotation_range_valid(self):
         """Test valid rotation values."""
         comp = Component(
-            ref="R1",
-            value="10k",
-            footprint="R_0805",
-            position=(0.0, 0.0),
-            rotation=0.0
+            ref="R1", value="10k", footprint="R_0805", position=(0.0, 0.0), rotation=0.0
         )
         assert comp.rotation == 0.0
 
@@ -35,7 +31,7 @@ class TestComponentValidation:
             value="10k",
             footprint="R_0805",
             position=(0.0, 0.0),
-            rotation=359.9
+            rotation=359.9,
         )
         assert comp2.rotation == 359.9
 
@@ -47,7 +43,7 @@ class TestComponentValidation:
                 value="10k",
                 footprint="R_0805",
                 position=(0.0, 0.0),
-                rotation=0.0
+                rotation=0.0,
             )
 
     def test_component_invalid_rotation_below_range(self):
@@ -58,7 +54,7 @@ class TestComponentValidation:
                 value="10k",
                 footprint="R_0805",
                 position=(0.0, 0.0),
-                rotation=-1.0
+                rotation=-1.0,
             )
 
     def test_component_invalid_rotation_above_range(self):
@@ -69,7 +65,7 @@ class TestComponentValidation:
                 value="10k",
                 footprint="R_0805",
                 position=(0.0, 0.0),
-                rotation=360.0
+                rotation=360.0,
             )
 
     def test_component_invalid_rotation_way_above(self):
@@ -80,7 +76,7 @@ class TestComponentValidation:
                 value="10k",
                 footprint="R_0805",
                 position=(0.0, 0.0),
-                rotation=450.0
+                rotation=450.0,
             )
 
     def test_component_invalid_position_not_tuple(self):
@@ -91,7 +87,7 @@ class TestComponentValidation:
                 value="10k",
                 footprint="R_0805",
                 position=[0.0, 0.0],  # List, not tuple
-                rotation=0.0
+                rotation=0.0,
             )
 
     def test_component_invalid_position_wrong_length(self):
@@ -102,7 +98,7 @@ class TestComponentValidation:
                 value="10k",
                 footprint="R_0805",
                 position=(0.0, 0.0, 0.0),  # 3 elements
-                rotation=0.0
+                rotation=0.0,
             )
 
     def test_component_invalid_position_non_numeric(self):
@@ -113,18 +109,14 @@ class TestComponentValidation:
                 value="10k",
                 footprint="R_0805",
                 position=("x", "y"),
-                rotation=0.0
+                rotation=0.0,
             )
 
     def test_component_empty_footprint_raises_error(self):
         """Test that empty footprint raises ValueError."""
         with pytest.raises(ValueError, match="footprint must be non-empty string"):
             Component(
-                ref="R1",
-                value="10k",
-                footprint="",
-                position=(0.0, 0.0),
-                rotation=0.0
+                ref="R1", value="10k", footprint="", position=(0.0, 0.0), rotation=0.0
             )
 
     def test_component_rotation_non_numeric(self):
@@ -135,7 +127,7 @@ class TestComponentValidation:
                 value="10k",
                 footprint="R_0805",
                 position=(0.0, 0.0),
-                rotation="90"  # String, not number
+                rotation="90",  # String, not number
             )
 
 

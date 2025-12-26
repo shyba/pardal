@@ -27,14 +27,18 @@ from pcb_tool.footprint_library import get_footprint_pads
 
 # Import from existing test infrastructure
 from tests.integration.test_routing_scenarios import (
-    DRCConfig, RoutingTestCase, simplify_path, add_pad_obstacle,
-    path_to_cells_drc
+    DRCConfig,
+    RoutingTestCase,
+    simplify_path,
+    add_pad_obstacle,
+    path_to_cells_drc,
 )
 
 
 # =============================================================================
 # Multi-Layer Test Infrastructure
 # =============================================================================
+
 
 class MultiLayerTestCase(RoutingTestCase):
     """Test case with multi-layer board support."""
@@ -43,11 +47,17 @@ class MultiLayerTestCase(RoutingTestCase):
         super().__init__(name, drc)
         self.board.layers = layers
 
-    def create_net_class(self, name: str, track_width: float,
-                         clearance: float = 0.2, via_size: float = 0.8) -> NetClass:
+    def create_net_class(
+        self,
+        name: str,
+        track_width: float,
+        clearance: float = 0.2,
+        via_size: float = 0.8,
+    ) -> NetClass:
         """Create and register a net class."""
-        nc = NetClass(name=name, track_width=track_width,
-                      clearance=clearance, via_size=via_size)
+        nc = NetClass(
+            name=name, track_width=track_width, clearance=clearance, via_size=via_size
+        )
         self.board.add_net_class(nc)
         return nc
 
@@ -63,13 +73,12 @@ def route_net_segment_multilayer(
     pathfinder: PathFinder,
     routed_cells: Set,
     drc: DRCConfig,
-    prefer_layer: str = "F.Cu"
+    prefer_layer: str = "F.Cu",
 ) -> Tuple[Optional[List], str]:
     """Route a single segment between two points on a multi-layer board."""
     # Try preferred layer first
     path = pathfinder.find_path(
-        start_mm=start, goal_mm=end,
-        layer=prefer_layer, force_single_layer=True
+        start_mm=start, goal_mm=end, layer=prefer_layer, force_single_layer=True
     )
     if path:
         return simplify_path(path, drc.resolution_mm), prefer_layer
@@ -78,8 +87,7 @@ def route_net_segment_multilayer(
     for layer in grid.layers:
         if layer != prefer_layer:
             path = pathfinder.find_path(
-                start_mm=start, goal_mm=end,
-                layer=layer, force_single_layer=True
+                start_mm=start, goal_mm=end, layer=layer, force_single_layer=True
             )
             if path:
                 return simplify_path(path, drc.resolution_mm), layer
@@ -88,8 +96,7 @@ def route_net_segment_multilayer(
 
 
 def route_board_multilayer(
-    test_case: MultiLayerTestCase,
-    allowed_via_types: List[str] = None
+    test_case: MultiLayerTestCase, allowed_via_types: List[str] = None
 ) -> Tuple[Dict[str, List], Dict[str, str], int]:
     """Route all nets on a multi-layer board. Returns (paths, layers, crossings)."""
     board = test_case.board
@@ -100,7 +107,7 @@ def route_board_multilayer(
         width_mm=drc.board_width_mm,
         height_mm=drc.board_height_mm,
         resolution_mm=drc.resolution_mm,
-        layers=layers
+        layers=layers,
     )
     pathfinder = PathFinder(grid, allowed_via_types=allowed_via_types or ["through"])
     detector = CrossingDetector(drc.resolution_mm)
@@ -110,12 +117,9 @@ def route_board_multilayer(
     for comp in board.components.values():
         for pad in comp.pads:
             pad_pos = comp.get_pad_position(pad.number)
-            pad_info.append({
-                'pos': pad_pos,
-                'size': pad.size,
-                'comp': comp.ref,
-                'pad': pad.number
-            })
+            pad_info.append(
+                {"pos": pad_pos, "size": pad.size, "comp": comp.ref, "pad": pad.number}
+            )
 
     paths = {}
     path_layers = {}
@@ -123,7 +127,7 @@ def route_board_multilayer(
 
     # Route each net
     for net in board.nets.values():
-        if net.name.upper() in ['GND', 'GROUND']:
+        if net.name.upper() in ["GND", "GROUND"]:
             continue
 
         # Clear obstacles and add pads
@@ -143,9 +147,9 @@ def route_board_multilayer(
 
         # Add non-net pads as obstacles
         for pad in pad_info:
-            pad_key = (round(pad['pos'][0], 2), round(pad['pos'][1], 2))
+            pad_key = (round(pad["pos"][0], 2), round(pad["pos"][1], 2))
             if pad_key not in net_pads:
-                add_pad_obstacle(grid, pad['pos'], pad['size'], drc, layers=layers)
+                add_pad_obstacle(grid, pad["pos"], pad["size"], drc, layers=layers)
 
         # Add routed traces as obstacles
         for cell, layer in routed_cells:
@@ -175,8 +179,7 @@ def route_board_multilayer(
 
         for i in range(len(points) - 1):
             seg_path, seg_layer = route_net_segment_multilayer(
-                points[i], points[i + 1], grid, pathfinder,
-                routed_cells, drc
+                points[i], points[i + 1], grid, pathfinder, routed_cells, drc
             )
             if seg_path:
                 net_path.extend(seg_path)
@@ -214,7 +217,11 @@ def add_traces_to_board_multilayer(board: Board, paths: Dict, layers: Dict):
 
         layer = layers.get(net_name, "F.Cu")
         # Get trace width from net class or net default
-        width = board.get_net_width(net_name) if hasattr(board, 'get_net_width') else net.track_width
+        width = (
+            board.get_net_width(net_name)
+            if hasattr(board, "get_net_width")
+            else net.track_width
+        )
 
         for i in range(len(path) - 1):
             segment = TraceSegment(
@@ -222,7 +229,7 @@ def add_traces_to_board_multilayer(board: Board, paths: Dict, layers: Dict):
                 start=path[i],
                 end=path[i + 1],
                 layer=layer,
-                width=width
+                width=width,
             )
             net.add_segment(segment)
 
@@ -230,6 +237,7 @@ def add_traces_to_board_multilayer(board: Board, paths: Dict, layers: Dict):
 # =============================================================================
 # TEST CASE: 4-Layer Power Distribution
 # =============================================================================
+
 
 class Test4LayerPowerDistribution:
     """Test 4-layer board creation with power planes and through-vias."""
@@ -253,8 +261,12 @@ class Test4LayerPowerDistribution:
         test.create_component("TP2", "VOUT", "TestPoint_Pad_1.0mm", x=25, y=15)
 
         # Power nets (connect to inner planes via vias)
-        test.create_net("VIN", [("TP1", "1"), ("U1", "3"), ("C1", "1")], track_width=0.5)
-        test.create_net("VOUT", [("U1", "2"), ("TP2", "1"), ("C2", "1")], track_width=0.5)
+        test.create_net(
+            "VIN", [("TP1", "1"), ("U1", "3"), ("C1", "1")], track_width=0.5
+        )
+        test.create_net(
+            "VOUT", [("U1", "2"), ("TP2", "1"), ("C2", "1")], track_width=0.5
+        )
         test.create_net("GND", [("U1", "1"), ("C1", "2"), ("C2", "2")], track_width=0.5)
 
         test.assign_net_class("VIN", "Power")
@@ -287,7 +299,9 @@ class Test4LayerPowerDistribution:
         violations, vtypes = test.run_kicad_drc(output_path)
         if violations >= 0:  # kicad-cli available
             real_violations = test.get_real_violations(vtypes)
-            assert real_violations <= 5, f"Should have minimal DRC violations, got {real_violations}"
+            assert (
+                real_violations <= 5
+            ), f"Should have minimal DRC violations, got {real_violations}"
 
     def test_4layer_layer_stack_standard(self, tmp_path):
         """Test that standard 4-layer stack is recognized."""
@@ -372,12 +386,29 @@ class Test4LayerPowerDistribution:
 
         # Input/output connectors
         test.create_component("J1", "VIN", "PinHeader_1x03_P2.54mm_Vertical", x=5, y=15)
-        test.create_component("J2", "VOUT", "PinHeader_1x03_P2.54mm_Vertical", x=38, y=15)
+        test.create_component(
+            "J2", "VOUT", "PinHeader_1x03_P2.54mm_Vertical", x=38, y=15
+        )
 
         # Nets
         test.create_net("VIN", [("J1", "1"), ("C1", "1"), ("U1", "3")], track_width=0.5)
-        test.create_net("VOUT", [("U1", "2"), ("C2", "1"), ("C3", "1"), ("J2", "1")], track_width=0.5)
-        test.create_net("GND", [("J1", "3"), ("C1", "2"), ("U1", "1"), ("C2", "2"), ("C3", "2"), ("J2", "3")], track_width=0.5)
+        test.create_net(
+            "VOUT",
+            [("U1", "2"), ("C2", "1"), ("C3", "1"), ("J2", "1")],
+            track_width=0.5,
+        )
+        test.create_net(
+            "GND",
+            [
+                ("J1", "3"),
+                ("C1", "2"),
+                ("U1", "1"),
+                ("C2", "2"),
+                ("C3", "2"),
+                ("J2", "3"),
+            ],
+            track_width=0.5,
+        )
 
         test.assign_net_class("VIN", "Power")
         test.assign_net_class("VOUT", "Power")

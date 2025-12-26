@@ -20,15 +20,38 @@ STANDARD_LAYER_STACKS = {
 
 # All valid copper layer names
 VALID_COPPER_LAYERS = {
-    "F.Cu", "B.Cu",
-    "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu",
-    "In5.Cu", "In6.Cu", "In7.Cu", "In8.Cu",
-    "In9.Cu", "In10.Cu", "In11.Cu", "In12.Cu",
-    "In13.Cu", "In14.Cu", "In15.Cu", "In16.Cu",
-    "In17.Cu", "In18.Cu", "In19.Cu", "In20.Cu",
-    "In21.Cu", "In22.Cu", "In23.Cu", "In24.Cu",
-    "In25.Cu", "In26.Cu", "In27.Cu", "In28.Cu",
-    "In29.Cu", "In30.Cu",
+    "F.Cu",
+    "B.Cu",
+    "In1.Cu",
+    "In2.Cu",
+    "In3.Cu",
+    "In4.Cu",
+    "In5.Cu",
+    "In6.Cu",
+    "In7.Cu",
+    "In8.Cu",
+    "In9.Cu",
+    "In10.Cu",
+    "In11.Cu",
+    "In12.Cu",
+    "In13.Cu",
+    "In14.Cu",
+    "In15.Cu",
+    "In16.Cu",
+    "In17.Cu",
+    "In18.Cu",
+    "In19.Cu",
+    "In20.Cu",
+    "In21.Cu",
+    "In22.Cu",
+    "In23.Cu",
+    "In24.Cu",
+    "In25.Cu",
+    "In26.Cu",
+    "In27.Cu",
+    "In28.Cu",
+    "In29.Cu",
+    "In30.Cu",
 }
 
 
@@ -41,6 +64,7 @@ class LayerConfig:
         layer_type: Type of layer - "signal" or "power"
         index: Layer index in the stack (0 = top, higher = deeper)
     """
+
     name: str
     layer_type: str = "signal"  # "signal" or "power"
     index: int = 0
@@ -49,7 +73,9 @@ class LayerConfig:
         if self.name not in VALID_COPPER_LAYERS:
             raise ValueError(f"Invalid layer name: {self.name}")
         if self.layer_type not in ("signal", "power"):
-            raise ValueError(f"Layer type must be 'signal' or 'power', got {self.layer_type}")
+            raise ValueError(
+                f"Layer type must be 'signal' or 'power', got {self.layer_type}"
+            )
 
 
 @dataclass
@@ -67,6 +93,7 @@ class NetClass:
         via_drill: Via drill hole diameter in millimeters
         nets: List of net names belonging to this class
     """
+
     name: str
     track_width: float = 0.25
     clearance: float = 0.2
@@ -135,18 +162,24 @@ class Component:
 
         # Validate rotation
         if not isinstance(self.rotation, (int, float)):
-            raise ValueError(f"Rotation must be numeric, got {type(self.rotation).__name__}")
+            raise ValueError(
+                f"Rotation must be numeric, got {type(self.rotation).__name__}"
+            )
         if not (0 <= self.rotation < 360):
             raise ValueError(f"Rotation must be in [0, 360), got {self.rotation}")
 
         # Validate position
         if not isinstance(self.position, tuple) or len(self.position) != 2:
-            raise ValueError(f"Position must be tuple of 2 elements, got {self.position}")
+            raise ValueError(
+                f"Position must be tuple of 2 elements, got {self.position}"
+            )
         try:
             float(self.position[0])
             float(self.position[1])
         except (TypeError, ValueError):
-            raise ValueError(f"Position coordinates must be numeric, got {self.position}")
+            raise ValueError(
+                f"Position coordinates must be numeric, got {self.position}"
+            )
 
         # Validate footprint
         if not self.footprint or not isinstance(self.footprint, str):
@@ -180,10 +213,7 @@ class Component:
         rotated_y = pad.position_offset[0] * sin_a + pad.position_offset[1] * cos_a
 
         # Calculate absolute position from component position + rotated pad offset
-        return (
-            self.position[0] + rotated_x,
-            self.position[1] + rotated_y
-        )
+        return (self.position[0] + rotated_x, self.position[1] + rotated_y)
 
     def get_pad_by_number(self, pad_num: int) -> Optional[Pad]:
         """Get pad by number.
@@ -196,7 +226,9 @@ class Component:
         """
         return next((p for p in self.pads if p.number == pad_num), None)
 
-    def find_nearest_pad(self, target_pos: tuple[float, float]) -> Optional[tuple[Pad, float]]:
+    def find_nearest_pad(
+        self, target_pos: tuple[float, float]
+    ) -> Optional[tuple[Pad, float]]:
         """Find the nearest pad to a target position.
 
         Args:
@@ -209,13 +241,12 @@ class Component:
             return None
 
         nearest = None
-        min_dist = float('inf')
+        min_dist = float("inf")
 
         for pad in self.pads:
             pad_pos = self.get_pad_position(pad.number)
             dist = math.sqrt(
-                (target_pos[0] - pad_pos[0]) ** 2 +
-                (target_pos[1] - pad_pos[1]) ** 2
+                (target_pos[0] - pad_pos[0]) ** 2 + (target_pos[1] - pad_pos[1]) ** 2
             )
             if dist < min_dist:
                 min_dist = dist
@@ -264,7 +295,9 @@ class TraceSegment:
             raise ValueError(f"TraceSegment width must be positive, got {self.width}")
 
         if self.layer not in VALID_COPPER_LAYERS:
-            raise ValueError(f"TraceSegment layer must be a valid copper layer, got {self.layer}")
+            raise ValueError(
+                f"TraceSegment layer must be a valid copper layer, got {self.layer}"
+            )
 
 
 @dataclass
@@ -332,14 +365,18 @@ class Via:
             )
 
         if len(self.layers) < 2:
-            raise ValueError(f"Via must connect at least 2 layers, got {len(self.layers)}")
+            raise ValueError(
+                f"Via must connect at least 2 layers, got {len(self.layers)}"
+            )
 
         for layer in self.layers:
             if layer not in VALID_COPPER_LAYERS:
                 raise ValueError(f"Invalid via layer: {layer}")
 
         if self.via_type not in ("through", "blind", "buried"):
-            raise ValueError(f"via_type must be 'through', 'blind', or 'buried', got {self.via_type}")
+            raise ValueError(
+                f"via_type must be 'through', 'blind', or 'buried', got {self.via_type}"
+            )
 
     @property
     def is_through_hole(self) -> bool:
@@ -480,7 +517,9 @@ class Net:
         except ValueError:
             raise ValueError("Via not found in net")
 
-    def find_segment_near(self, x: float, y: float, tolerance: float = 0.5) -> Optional[TraceSegment]:
+    def find_segment_near(
+        self, x: float, y: float, tolerance: float = 0.5
+    ) -> Optional[TraceSegment]:
         """Find a trace segment with an endpoint near the given position.
 
         Searches for the first segment that has either its start or end point

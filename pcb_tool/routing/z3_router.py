@@ -17,9 +17,7 @@ import math
 try:
     from z3 import *
 except ImportError:
-    raise ImportError(
-        "Z3 solver not installed. Install with: pip install z3-solver"
-    )
+    raise ImportError("Z3 solver not installed. Install with: pip install z3-solver")
 
 from pcb_tool.routing.grid import RoutingGrid
 from pcb_tool.routing.multi_net_router import NetDefinition, RoutedNet
@@ -28,6 +26,7 @@ from pcb_tool.routing.multi_net_router import NetDefinition, RoutedNet
 @dataclass
 class Z3RoutingConfig:
     """Configuration for Z3 routing."""
+
     timeout_ms: int = 30000  # 30 seconds default
     via_cost: float = 5.0  # Cost penalty for vias
     wire_cost_per_mm: float = 1.0  # Cost per mm of wire length
@@ -50,11 +49,7 @@ class Z3Router:
     - Optimization minimizes wire length and via count
     """
 
-    def __init__(
-        self,
-        grid: RoutingGrid,
-        config: Optional[Z3RoutingConfig] = None
-    ):
+    def __init__(self, grid: RoutingGrid, config: Optional[Z3RoutingConfig] = None):
         """
         Initialize Z3 router.
 
@@ -87,8 +82,7 @@ class Z3Router:
         self.fixedpoint = None  # Created on demand
 
     def solve_routing(
-        self,
-        net_definitions: List[NetDefinition]
+        self, net_definitions: List[NetDefinition]
     ) -> Dict[str, RoutedNet]:
         """
         Solve routing for multiple nets using Z3 constraint solver.
@@ -110,7 +104,9 @@ class Z3Router:
         unique_nets = list(set(n.name for n in net_definitions))
         self.net_name_to_idx = {name: idx for idx, name in enumerate(unique_nets)}
 
-        print(f"Z3 Router: Solving {len(unique_nets)} nets ({len(net_definitions)} segments)...")
+        print(
+            f"Z3 Router: Solving {len(unique_nets)} nets ({len(net_definitions)} segments)..."
+        )
         print(f"  Grid: {self.grid.grid_width}x{self.grid.grid_height} cells")
         print(f"  Layers: F.Cu, B.Cu")
         print(f"  Timeout: {self.config.timeout_ms}ms")
@@ -147,7 +143,9 @@ class Z3Router:
             return self._extract_routes(model, net_definitions)
         elif check_result == unsat:
             print("  ✗ UNSAT: Provably impossible to route with current placement")
-            raise RoutingError("Z3 proved routing is impossible - adjust component placement")
+            raise RoutingError(
+                "Z3 proved routing is impossible - adjust component placement"
+            )
         else:  # unknown (timeout)
             print("  ? UNKNOWN: Solver timeout")
             raise RoutingError(f"Z3 timeout after {self.config.timeout_ms}ms")
@@ -169,7 +167,7 @@ class Z3Router:
                     self.solver.add(
                         And(
                             self.cell_vars[(x, y, layer)] >= -1,
-                            self.cell_vars[(x, y, layer)] < len(unique_net_names)
+                            self.cell_vars[(x, y, layer)] < len(unique_net_names),
                         )
                     )
 
@@ -182,7 +180,7 @@ class Z3Router:
         obstacle_count = 0
         layers = ["F.Cu", "B.Cu"]
         for layer in layers:
-            for (x, y) in self.grid.obstacles.get(layer, set()):
+            for x, y in self.grid.obstacles.get(layer, set()):
                 if (x, y, layer) in self.cell_vars:
                     # Obstacle cells must remain empty
                     self.solver.add(self.cell_vars[(x, y, layer)] == -1)
@@ -190,7 +188,9 @@ class Z3Router:
 
         print(f"    Blocked {obstacle_count} obstacle cells")
 
-    def _add_connectivity_constraints(self, net_definitions: List[NetDefinition]) -> None:
+    def _add_connectivity_constraints(
+        self, net_definitions: List[NetDefinition]
+    ) -> None:
         """
         Add connectivity constraints for each net segment.
 
@@ -198,6 +198,8 @@ class Z3Router:
         occupy the same cells without conflict (critical for MST routing!).
         """
         print("  Adding connectivity constraints...")
+
+        terminals_by_net_layer: dict[tuple[int, str], set[tuple[int, int]]] = {}
 
         for net_def in net_definitions:
             # Get the net index for this net name (all segments share same index)
@@ -225,13 +227,91 @@ class Z3Router:
             if (goal_x, goal_y, layer) in self.cell_vars:
                 self.solver.add(self.cell_vars[(goal_x, goal_y, layer)] == net_idx)
 
-            # Add path continuity constraints if enabled
             if self.enable_path_continuity:
-                self._add_path_continuity_for_segment(
-                    net_idx, net_def.name, start_x, start_y, goal_x, goal_y, layer
+                terminals_by_net_layer.setdefault((net_idx, layer), set()).update(
+                    {(start_x, start_y), (goal_x, goal_y)}
                 )
 
+        if self.enable_path_continuity:
+            for (net_idx, layer), terminals in terminals_by_net_layer.items():
+                self._add_path_continuity_for_net(net_idx, terminals, layer)
+
         print(f"    Added connectivity for {len(net_definitions)} segments")
+
+    def _add_path_continuity_for_net(
+        self,
+        net_idx: int,
+        terminals: Set[Tuple[int, int]],
+        layer: str,
+    ) -> None:
+        """
+        Add path continuity for a net with potentially multiple terminals.
+
+        This is a lighter-weight variant of `_add_path_continuity_for_segment`:
+        - Build reachability once per (net, layer)
+        - Assert all terminals are reachable from an arbitrary root terminal
+
+        NOTE: This encoding uses a reachability fixed-point approximation. It is
+        primarily intended to prevent the "endpoints only" behavior that can
+        yield crossings, and is not a fully general, least-fixed-point encoding.
+        """
+        if not terminals:
+            return
+
+        if not hasattr(self, "reachability_vars"):
+            self.reachability_vars = {}  # (net_idx, x, y, layer) -> BoolRef
+
+        root_x, root_y = sorted(terminals)[0]
+
+        # Create reachability variables for this net on this layer.
+        for x in range(self.grid.grid_width):
+            for y in range(self.grid.grid_height):
+                if (x, y, layer) not in self.cell_vars:
+                    continue
+                key = (net_idx, x, y, layer)
+                if key not in self.reachability_vars:
+                    self.reachability_vars[key] = Bool(
+                        f"reach_{net_idx}_{x}_{y}_{layer}"
+                    )
+
+        root_key = (net_idx, root_x, root_y, layer)
+        if root_key in self.reachability_vars:
+            self.solver.add(self.reachability_vars[root_key])
+
+        # Inductive case: a cell is reachable iff it is occupied by this net AND
+        # at least one neighbor is reachable.
+        for x in range(self.grid.grid_width):
+            for y in range(self.grid.grid_height):
+                if x == root_x and y == root_y:
+                    continue
+                cell_key = (net_idx, x, y, layer)
+                if cell_key not in self.reachability_vars:
+                    continue
+
+                neighbors = self._get_cell_neighbors(x, y, layer)
+                neighbor_reach = []
+                for nx, ny, nl in neighbors:
+                    nkey = (net_idx, nx, ny, nl)
+                    if nkey in self.reachability_vars:
+                        neighbor_reach.append(self.reachability_vars[nkey])
+
+                if neighbor_reach:
+                    self.solver.add(
+                        self.reachability_vars[cell_key]
+                        == And(
+                            self.cell_vars[(x, y, layer)] == net_idx,
+                            Or(*neighbor_reach),
+                        )
+                    )
+                else:
+                    # No neighbors => cannot be reachable (unless it's the root, skipped above).
+                    self.solver.add(self.reachability_vars[cell_key] == False)
+
+        # Goal conditions: every terminal must be reachable.
+        for tx, ty in terminals:
+            tkey = (net_idx, tx, ty, layer)
+            if tkey in self.reachability_vars:
+                self.solver.add(self.reachability_vars[tkey])
 
     def _add_path_continuity_for_segment(
         self,
@@ -241,7 +321,7 @@ class Z3Router:
         start_y: int,
         goal_x: int,
         goal_y: int,
-        layer: str
+        layer: str,
     ) -> None:
         """
         Add path continuity using REACHABILITY constraints (inspired by Z3 fixedpoints).
@@ -255,7 +335,7 @@ class Z3Router:
         This encodes transitive closure as SAT constraints within the main solver.
         Much lighter than distance variables, more precise than neighbor-only constraints.
         """
-        if not hasattr(self, 'reachability_vars'):
+        if not hasattr(self, "reachability_vars"):
             self.reachability_vars = {}  # (net_idx, x, y, layer) -> BoolRef
 
         # Create reachability variables for this net on this layer
@@ -266,7 +346,9 @@ class Z3Router:
 
                 var_key = (net_idx, x, y, layer)
                 if var_key not in self.reachability_vars:
-                    self.reachability_vars[var_key] = Bool(f"reach_{net_idx}_{x}_{y}_{layer}")
+                    self.reachability_vars[var_key] = Bool(
+                        f"reach_{net_idx}_{x}_{y}_{layer}"
+                    )
 
         # Base case: Start cell is reachable
         start_key = (net_idx, start_x, start_y, layer)
@@ -299,7 +381,7 @@ class Z3Router:
                     neighbor_reachable_conditions.append(
                         And(
                             self.reachability_vars[neighbor_key],
-                            self.cell_vars[(nx, ny, nl)] == net_idx
+                            self.cell_vars[(nx, ny, nl)] == net_idx,
                         )
                     )
 
@@ -308,7 +390,8 @@ class Z3Router:
                     # is reachable and occupied (forces connected path)
                     # Bi-directional: reachable IFF at least one neighbor is reachable+occupied
                     self.solver.add(
-                        self.reachability_vars[cell_key] == Or(neighbor_reachable_conditions)
+                        self.reachability_vars[cell_key]
+                        == Or(neighbor_reachable_conditions)
                     )
 
         # Goal condition: Goal cell must be reachable
@@ -329,15 +412,12 @@ class Z3Router:
                     self.solver.add(
                         Implies(
                             self.reachability_vars[cell_key],
-                            self.cell_vars[(x, y, layer)] == net_idx
+                            self.cell_vars[(x, y, layer)] == net_idx,
                         )
                     )
 
     def _get_cell_neighbors(
-        self,
-        x: int,
-        y: int,
-        layer: str
+        self, x: int, y: int, layer: str
     ) -> List[Tuple[int, int, str]]:
         """Get valid neighboring cells (orthogonal only for simplicity)."""
         neighbors = []
@@ -351,7 +431,9 @@ class Z3Router:
 
         return neighbors
 
-    def _add_exclusivity_constraints(self, net_definitions: List[NetDefinition]) -> None:
+    def _add_exclusivity_constraints(
+        self, net_definitions: List[NetDefinition]
+    ) -> None:
         """
         Ensure no two different nets occupy the same cell on the same layer.
 
@@ -388,8 +470,13 @@ class Z3Router:
                         continue
 
                     # Check neighbors within clearance distance
-                    for dx in range(-self.config.clearance_cells, self.config.clearance_cells + 1):
-                        for dy in range(-self.config.clearance_cells, self.config.clearance_cells + 1):
+                    for dx in range(
+                        -self.config.clearance_cells, self.config.clearance_cells + 1
+                    ):
+                        for dy in range(
+                            -self.config.clearance_cells,
+                            self.config.clearance_cells + 1,
+                        ):
                             if dx == 0 and dy == 0:
                                 continue
 
@@ -405,8 +492,8 @@ class Z3Router:
                                         self.cell_vars[(x, y, layer)] == net_idx,
                                         Or(
                                             self.cell_vars[(nx, ny, layer)] == net_idx,
-                                            self.cell_vars[(nx, ny, layer)] == -1
-                                        )
+                                            self.cell_vars[(nx, ny, layer)] == -1,
+                                        ),
                                     )
                                 )
                                 clearance_count += 1
@@ -427,16 +514,16 @@ class Z3Router:
                         continue
 
                     # If cell is occupied (not -1), count it
-                    total_cells.append(
-                        If(self.cell_vars[(x, y, layer)] >= 0, 1, 0)
-                    )
+                    total_cells.append(If(self.cell_vars[(x, y, layer)] >= 0, 1, 0))
 
         if total_cells:
             wire_length_cost = Sum(total_cells) * self.config.wire_cost_per_mm
             self.solver.minimize(wire_length_cost)
             print(f"    Minimizing wire length ({len(total_cells)} cell variables)")
 
-    def _add_via_minimization_objective(self, net_definitions: List[NetDefinition]) -> None:
+    def _add_via_minimization_objective(
+        self, net_definitions: List[NetDefinition]
+    ) -> None:
         """Add optimization objective to minimize via count."""
         print("  Adding via minimization objective...")
 
@@ -453,11 +540,15 @@ class Z3Router:
                     # Check for vias between F.Cu and B.Cu
                     layer1, layer2 = "F.Cu", "B.Cu"
 
-                    if (x, y, layer1) in self.cell_vars and (x, y, layer2) in self.cell_vars:
+                    if (x, y, layer1) in self.cell_vars and (
+                        x,
+                        y,
+                        layer2,
+                    ) in self.cell_vars:
                         # Via exists if same net on both layers at this position
                         via_exists = And(
                             self.cell_vars[(x, y, layer1)] == net_idx,
-                            self.cell_vars[(x, y, layer2)] == net_idx
+                            self.cell_vars[(x, y, layer2)] == net_idx,
                         )
                         via_count_terms.append(If(via_exists, 1, 0))
 
@@ -467,9 +558,7 @@ class Z3Router:
             print(f"    Minimizing vias ({len(via_count_terms)} via positions)")
 
     def _extract_routes(
-        self,
-        model: ModelRef,
-        net_definitions: List[NetDefinition]
+        self, model: ModelRef, net_definitions: List[NetDefinition]
     ) -> Dict[str, RoutedNet]:
         """
         Extract routing solution from Z3 model.
@@ -524,18 +613,18 @@ class Z3Router:
             layer = net_segments[0].layer if net_segments else "F.Cu"
 
             routed_net = RoutedNet(
-                name=net_name,
-                path=path,
-                layer=layer,
-                segments=segments
+                name=net_name, path=path, layer=layer, segments=segments
             )
 
             routed_nets[net_name] = routed_net
-            print(f"    {net_name}: {len(occupied_cells)} cells, {len(segments)} segments")
+            print(
+                f"    {net_name}: {len(occupied_cells)} cells, {len(segments)} segments"
+            )
 
         return routed_nets
 
 
 class RoutingError(Exception):
     """Exception raised when routing fails."""
+
     pass

@@ -18,7 +18,7 @@ def test_simple_two_net_case_converges_immediately():
     # Two nets that don't cross
     net_definitions = [
         NetDefinition(name="net1", start=(2.0, 5.0), end=(18.0, 5.0), layer="F.Cu"),
-        NetDefinition(name="net2", start=(2.0, 15.0), end=(18.0, 15.0), layer="F.Cu")
+        NetDefinition(name="net2", start=(2.0, 15.0), end=(18.0, 15.0), layer="F.Cu"),
     ]
 
     # Route with iterative router
@@ -41,8 +41,12 @@ def test_x_crossing_case_requires_iterations():
     # Horizontal: (2, 10) to (18, 10)
     # Vertical: (10, 2) to (10, 18)
     net_definitions = [
-        NetDefinition(name="horizontal", start=(2.0, 10.0), end=(18.0, 10.0), layer="F.Cu"),
-        NetDefinition(name="vertical", start=(10.0, 2.0), end=(10.0, 18.0), layer="F.Cu")
+        NetDefinition(
+            name="horizontal", start=(2.0, 10.0), end=(18.0, 10.0), layer="F.Cu"
+        ),
+        NetDefinition(
+            name="vertical", start=(10.0, 2.0), end=(10.0, 18.0), layer="F.Cu"
+        ),
     ]
 
     # Route with iterative router
@@ -64,7 +68,7 @@ def test_group_segments_by_net_name():
     net_definitions = [
         NetDefinition(name="net1", start=(2.0, 5.0), end=(10.0, 5.0), layer="F.Cu"),
         NetDefinition(name="net1", start=(10.0, 5.0), end=(18.0, 5.0), layer="F.Cu"),
-        NetDefinition(name="net2", start=(2.0, 15.0), end=(18.0, 15.0), layer="F.Cu")
+        NetDefinition(name="net2", start=(2.0, 15.0), end=(18.0, 15.0), layer="F.Cu"),
     ]
 
     groups = router._group_segments(net_definitions)

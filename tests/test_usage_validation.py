@@ -28,13 +28,14 @@ from unittest.mock import patch
 # Test Fixtures - Create REAL files on disk
 # ============================================================================
 
+
 @pytest.fixture
 def real_netlist_file(tmp_path) -> Path:
     """
     Create an actual .net file on disk, not just a Python string.
     This tests real file I/O, encoding, and parser integration.
     """
-    netlist_content = '''(export (version "E")
+    netlist_content = """(export (version "E")
   (design
     (source "/path/to/project.kicad_sch")
     (date "2025-12-21")
@@ -62,9 +63,9 @@ def real_netlist_file(tmp_path) -> Path:
     (net (code 3) (name "GND")
       (node (ref "LED1") (pin "2"))
       (node (ref "J1") (pin "2")))))
-'''
+"""
     net_file = tmp_path / "led_circuit.net"
-    net_file.write_text(netlist_content, encoding='utf-8')
+    net_file.write_text(netlist_content, encoding="utf-8")
     return net_file
 
 
@@ -91,7 +92,7 @@ ROTATE R1 TO 90
 SAVE {tmp_path / "output.kicad_pcb"}
 """
     script_file = tmp_path / "placement.txt"
-    script_file.write_text(script_content, encoding='utf-8')
+    script_file.write_text(script_content, encoding="utf-8")
     return script_file
 
 
@@ -114,13 +115,14 @@ def batch_script_with_edge_cases(tmp_path, real_netlist_file) -> Path:
         f"SAVE {tmp_path / 'edge_case_output.kicad_pcb'}\n"
     )
     script_file = tmp_path / "edge_cases.txt"
-    script_file.write_bytes(script_content.encode('utf-8'))
+    script_file.write_bytes(script_content.encode("utf-8"))
     return script_file
 
 
 # ============================================================================
 # Helper: Verify KiCad is available (required, not optional)
 # ============================================================================
+
 
 @pytest.fixture(scope="session", autouse=True)
 def require_kicad_cli():
@@ -130,10 +132,7 @@ def require_kicad_cli():
     Rationale: KiCad validation is the ultimate acceptance test.
     If we can't validate with KiCad, we can't ship.
     """
-    result = subprocess.run(
-        ["kicad-cli", "--version"],
-        capture_output=True
-    )
+    result = subprocess.run(["kicad-cli", "--version"], capture_output=True)
     if result.returncode != 0:
         pytest.fail(
             "kicad-cli is required for USAGE.md validation tests. "
@@ -145,6 +144,7 @@ def require_kicad_cli():
 # ============================================================================
 # Test 1: CLI --version matches USAGE.md
 # ============================================================================
+
 
 class TestCLIInterface:
     """Validate CLI interface matches USAGE.md exactly."""
@@ -159,14 +159,14 @@ class TestCLIInterface:
         """
         result = subprocess.run(
             [sys.executable, "-m", "pcb_tool", "--version"],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert result.returncode == 0
         # Exact format check
         assert re.match(
-            r"pcb-tool \d+\.\d+\.\d+ \(MVP1\)",
-            result.stdout.strip()
+            r"pcb-tool \d+\.\d+\.\d+ \(MVP1\)", result.stdout.strip()
         ), f"Version output format mismatch: {result.stdout}"
 
     def test_help_output_contains_all_documented_flags(self):
@@ -177,8 +177,7 @@ class TestCLIInterface:
         All must appear in --help output.
         """
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool", "--help"],
-            capture_output=True, text=True
+            [sys.executable, "-m", "pcb_tool", "--help"], capture_output=True, text=True
         )
 
         assert result.returncode == 0
@@ -201,13 +200,20 @@ class TestCLIInterface:
 
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "MOVE R1 TO 10 20",
-                "--exec", "ROTATE R1 TO 90",
-                "--exec", f"SAVE {output_file}"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "MOVE R1 TO 10 20",
+                "--exec",
+                "ROTATE R1 TO 90",
+                "--exec",
+                f"SAVE {output_file}",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert result.returncode == 0
@@ -221,8 +227,12 @@ class TestCLIInterface:
         self._verify_kicad_component_position(output_file, "R1", 10.0, 20.0, 90.0)
 
     def _verify_kicad_component_position(
-        self, pcb_file: Path, ref: str,
-        expected_x: float, expected_y: float, expected_rot: float
+        self,
+        pcb_file: Path,
+        ref: str,
+        expected_x: float,
+        expected_y: float,
+        expected_rot: float,
     ):
         """Helper to verify component position in actual .kicad_pcb file."""
         content = pcb_file.read_text()
@@ -233,8 +243,7 @@ class TestCLIInterface:
 
         # For now, just verify file is valid KiCad file
         result = subprocess.run(
-            ["kicad-cli", "pcb", "drc", str(pcb_file)],
-            capture_output=True
+            ["kicad-cli", "pcb", "drc", str(pcb_file)], capture_output=True
         )
         assert "parse error" not in result.stderr.decode().lower()
 
@@ -242,6 +251,7 @@ class TestCLIInterface:
 # ============================================================================
 # Test 2: Interactive Session Matches USAGE.md
 # ============================================================================
+
 
 class TestInteractiveSession:
     """Test the REPL matches USAGE.md examples exactly."""
@@ -257,8 +267,9 @@ class TestInteractiveSession:
         # Simulate starting REPL with immediate EXIT
         result = subprocess.run(
             [sys.executable, "-m", "pcb_tool", "--exec", "EXIT"],
-            capture_output=True, text=True,
-            timeout=10
+            capture_output=True,
+            text=True,
+            timeout=10,
         )
 
         # Should show welcome message even in exec mode
@@ -284,17 +295,21 @@ class TestInteractiveSession:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "LIST COMPONENTS"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "LIST COMPONENTS",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Check exact format
         assert re.search(
-            r"OK: Loaded board with \d+ components?, \d+ nets?",
-            result.stdout
+            r"OK: Loaded board with \d+ components?, \d+ nets?", result.stdout
         ), f"LOAD message format wrong: {result.stdout}"
 
         # Our test netlist has 3 components, 3 nets
@@ -311,17 +326,21 @@ class TestInteractiveSession:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "MOVE R1 TO 10 20"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "MOVE R1 TO 10 20",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Exact format with degree symbol
         assert re.search(
-            r"OK: Moved R1 to \(10\.0, 20\.0\) rotation \d+\.0°",
-            result.stdout
+            r"OK: Moved R1 to \(10\.0, 20\.0\) rotation \d+\.0°", result.stdout
         ), f"MOVE message format wrong: {result.stdout}"
 
     def test_error_message_format_component_not_found(self, real_netlist_file):
@@ -331,11 +350,16 @@ class TestInteractiveSession:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "MOVE R99 TO 10 20"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "MOVE R99 TO 10 20",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert "ERROR: Component R99 not found" in result.stdout
@@ -347,10 +371,14 @@ class TestInteractiveSession:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--exec", f"LOAD {tmp_path / 'nonexistent.net'}"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--exec",
+                f"LOAD {tmp_path / 'nonexistent.net'}",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert "ERROR: File not found:" in result.stdout
@@ -360,6 +388,7 @@ class TestInteractiveSession:
 # ============================================================================
 # Test 3: SHOW BOARD Output Format
 # ============================================================================
+
 
 class TestShowBoardRendering:
     """Validate ASCII board rendering matches USAGE.md format."""
@@ -374,12 +403,18 @@ class TestShowBoardRendering:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "MOVE R1 TO 10 20",
-                "--exec", "SHOW BOARD"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "MOVE R1 TO 10 20",
+                "--exec",
+                "SHOW BOARD",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Check header format
@@ -400,18 +435,24 @@ class TestShowBoardRendering:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "MOVE R1 TO 10 20",
-                "--exec", "SHOW BOARD"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "MOVE R1 TO 10 20",
+                "--exec",
+                "SHOW BOARD",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         output = result.stdout
 
         # Check for box-drawing characters
-        box_chars = ['┌', '┐', '└', '┘', '│', '─', '┬', '┴', '├', '┤', '┼']
+        box_chars = ["┌", "┐", "└", "┘", "│", "─", "┬", "┴", "├", "┤", "┼"]
         has_box_chars = any(char in output for char in box_chars)
 
         assert has_box_chars, "Board rendering missing box-drawing characters"
@@ -423,12 +464,18 @@ class TestShowBoardRendering:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "MOVE R1 TO 25 30",
-                "--exec", "SHOW BOARD"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "MOVE R1 TO 25 30",
+                "--exec",
+                "SHOW BOARD",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Component reference should appear
@@ -444,17 +491,24 @@ class TestShowBoardRendering:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "MOVE R1 TO 25 30",
-                "--exec", "ROTATE R1 TO 90",
-                "--exec", "SHOW BOARD"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "MOVE R1 TO 25 30",
+                "--exec",
+                "ROTATE R1 TO 90",
+                "--exec",
+                "SHOW BOARD",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Should have at least one orientation arrow
-        arrows = ['↑', '→', '↓', '←']
+        arrows = ["↑", "→", "↓", "←"]
         has_arrows = any(arrow in result.stdout for arrow in arrows)
 
         assert has_arrows, "Board rendering missing orientation arrows"
@@ -463,6 +517,7 @@ class TestShowBoardRendering:
 # ============================================================================
 # Test 4: Complete Workflow Validation (from USAGE.md)
 # ============================================================================
+
 
 class TestUsageWorkflows:
     """
@@ -495,7 +550,7 @@ class TestUsageWorkflows:
             "MOVE LED1 TO 35 30",
             "ROTATE R1 TO 90",
             "SHOW BOARD",
-            f"SAVE {output_file}"
+            f"SAVE {output_file}",
         ]
 
         exec_args = []
@@ -504,7 +559,8 @@ class TestUsageWorkflows:
 
         result = subprocess.run(
             [sys.executable, "-m", "pcb_tool"] + exec_args,
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert result.returncode == 0, f"Workflow failed: {result.stderr}"
@@ -533,7 +589,8 @@ class TestUsageWorkflows:
         """
         result = subprocess.run(
             [sys.executable, "-m", "pcb_tool", "--batch", str(batch_script_file)],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert result.returncode == 0, f"Batch failed: {result.stderr}"
@@ -557,8 +614,15 @@ class TestUsageWorkflows:
         - Whitespace-only lines
         """
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool", "--batch", str(batch_script_with_edge_cases)],
-            capture_output=True, text=True
+            [
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--batch",
+                str(batch_script_with_edge_cases),
+            ],
+            capture_output=True,
+            text=True,
         )
 
         assert result.returncode == 0, f"Edge case batch failed: {result.stderr}"
@@ -596,7 +660,8 @@ class TestUsageWorkflows:
 
         result = subprocess.run(
             [sys.executable, "-m", "pcb_tool"] + exec_args,
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert result.returncode == 0
@@ -613,18 +678,20 @@ class TestUsageWorkflows:
     def _validate_kicad_file(self, pcb_file: Path):
         """Validate file with actual KiCad CLI."""
         result = subprocess.run(
-            ["kicad-cli", "pcb", "drc", str(pcb_file)],
-            capture_output=True
+            ["kicad-cli", "pcb", "drc", str(pcb_file)], capture_output=True
         )
 
         stderr = result.stderr.decode().lower()
         assert "parse error" not in stderr, f"KiCad parse error: {stderr}"
-        assert "error" not in stderr or "drc" in stderr  # DRC errors OK, parse errors not OK
+        assert (
+            "error" not in stderr or "drc" in stderr
+        )  # DRC errors OK, parse errors not OK
 
 
 # ============================================================================
 # Test 5: UNDO/REDO Edge Cases
 # ============================================================================
+
 
 class TestUndoRedoEdgeCases:
     """Test undo/redo behavior matches USAGE.md specification."""
@@ -649,7 +716,8 @@ class TestUndoRedoEdgeCases:
 
         result = subprocess.run(
             [sys.executable, "-m", "pcb_tool"] + exec_args,
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Should handle gracefully (either undo all or show informative message)
@@ -676,7 +744,8 @@ class TestUndoRedoEdgeCases:
 
         result = subprocess.run(
             [sys.executable, "-m", "pcb_tool"] + exec_args,
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert "ERROR" in result.stdout or "nothing to redo" in result.stdout.lower()
@@ -685,6 +754,7 @@ class TestUndoRedoEdgeCases:
 # ============================================================================
 # Test 6: SAVE Edge Cases
 # ============================================================================
+
 
 class TestSaveEdgeCases:
     """Test SAVE behavior matches USAGE.md."""
@@ -697,10 +767,14 @@ class TestSaveEdgeCases:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--exec", f"SAVE {tmp_path / 'no_load.kicad_pcb'}"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--exec",
+                f"SAVE {tmp_path / 'no_load.kicad_pcb'}",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Should error - no board loaded
@@ -714,11 +788,16 @@ class TestSaveEdgeCases:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "SAVE"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "SAVE",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Should handle - either error or derive filename
@@ -732,11 +811,16 @@ class TestSaveEdgeCases:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "SAVE /nonexistent_dir/output.kicad_pcb"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "SAVE /nonexistent_dir/output.kicad_pcb",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Should show permission/path error
@@ -746,6 +830,7 @@ class TestSaveEdgeCases:
 # ============================================================================
 # Test 7: LIST and WHERE Command Validation
 # ============================================================================
+
 
 class TestListAndWhereCommands:
     """Validate query commands match USAGE.md output format."""
@@ -762,11 +847,16 @@ class TestListAndWhereCommands:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "LIST COMPONENTS"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "LIST COMPONENTS",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         output = result.stdout
@@ -776,8 +866,12 @@ class TestListAndWhereCommands:
 
         # Check component line format
         # Format: REF: VALUE @ (X, Y) ANGLE° LAYER
-        component_pattern = r"\s+\w+:\s+\S+\s+@\s+\(\d+\.\d+,\s*\d+\.\d+\)\s+\d+°?\s+[FB]\.Cu"
-        assert re.search(component_pattern, output), f"Component format wrong in: {output}"
+        component_pattern = (
+            r"\s+\w+:\s+\S+\s+@\s+\(\d+\.\d+,\s*\d+\.\d+\)\s+\d+°?\s+[FB]\.Cu"
+        )
+        assert re.search(
+            component_pattern, output
+        ), f"Component format wrong in: {output}"
 
     def test_where_component_format(self, real_netlist_file):
         """
@@ -789,11 +883,16 @@ class TestListAndWhereCommands:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "WHERE R1"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "WHERE R1",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         output = result.stdout
@@ -809,6 +908,7 @@ class TestListAndWhereCommands:
 # Test 8: Help Command Validation
 # ============================================================================
 
+
 class TestHelpCommand:
     """Validate HELP command output."""
 
@@ -818,21 +918,30 @@ class TestHelpCommand:
         All documented commands must appear.
         """
         result = subprocess.run(
-            [
-                sys.executable, "-m", "pcb_tool",
-                "--exec", "HELP"
-            ],
-            capture_output=True, text=True
+            [sys.executable, "-m", "pcb_tool", "--exec", "HELP"],
+            capture_output=True,
+            text=True,
         )
 
         output = result.stdout
 
         # All documented commands must appear
         documented_commands = [
-            "LOAD", "SAVE", "UNDO", "REDO", "HISTORY",
-            "MOVE", "ROTATE", "FLIP", "LOCK", "UNLOCK",
-            "SHOW", "LIST", "WHERE",
-            "HELP", "EXIT"
+            "LOAD",
+            "SAVE",
+            "UNDO",
+            "REDO",
+            "HISTORY",
+            "MOVE",
+            "ROTATE",
+            "FLIP",
+            "LOCK",
+            "UNLOCK",
+            "SHOW",
+            "LIST",
+            "WHERE",
+            "HELP",
+            "EXIT",
         ]
 
         for cmd in documented_commands:
@@ -844,11 +953,9 @@ class TestHelpCommand:
         Test HELP MOVE shows syntax from docs.
         """
         result = subprocess.run(
-            [
-                sys.executable, "-m", "pcb_tool",
-                "--exec", "HELP MOVE"
-            ],
-            capture_output=True, text=True
+            [sys.executable, "-m", "pcb_tool", "--exec", "HELP MOVE"],
+            capture_output=True,
+            text=True,
         )
 
         output = result.stdout
@@ -864,6 +971,7 @@ class TestHelpCommand:
 # Test 9: Rotation Normalization
 # ============================================================================
 
+
 class TestRotationBehavior:
     """Test rotation edge cases."""
 
@@ -873,12 +981,18 @@ class TestRotationBehavior:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "ROTATE R1 TO 450",
-                "--exec", "WHERE R1"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "ROTATE R1 TO 450",
+                "--exec",
+                "WHERE R1",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Should show 90° (450 % 360)
@@ -890,12 +1004,18 @@ class TestRotationBehavior:
         """
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "ROTATE R1 BY -45",
-                "--exec", "WHERE R1"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "ROTATE R1 BY -45",
+                "--exec",
+                "WHERE R1",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         # Should normalize negative rotation
@@ -905,6 +1025,7 @@ class TestRotationBehavior:
 # ============================================================================
 # Test 10: KiCad Output Coordinate Validation
 # ============================================================================
+
 
 class TestKiCadCoordinates:
     """
@@ -921,12 +1042,18 @@ class TestKiCadCoordinates:
 
         result = subprocess.run(
             [
-                sys.executable, "-m", "pcb_tool",
-                "--load", str(real_netlist_file),
-                "--exec", "MOVE R1 TO 25.5 30.75",
-                "--exec", f"SAVE {output_file}"
+                sys.executable,
+                "-m",
+                "pcb_tool",
+                "--load",
+                str(real_netlist_file),
+                "--exec",
+                "MOVE R1 TO 25.5 30.75",
+                "--exec",
+                f"SAVE {output_file}",
             ],
-            capture_output=True, text=True
+            capture_output=True,
+            text=True,
         )
 
         assert result.returncode == 0
@@ -941,13 +1068,14 @@ class TestKiCadCoordinates:
         assert "30.75" in content, "Y coordinate not found in output"
 
         # More precise check with regex
-        at_pattern = r'\(at\s+25\.5\s+30\.75'
+        at_pattern = r"\(at\s+25\.5\s+30\.75"
         assert re.search(at_pattern, content), f"Coordinates not in correct format"
 
 
 # ============================================================================
 # Test 11: Exit Behavior
 # ============================================================================
+
 
 class TestExitBehavior:
     """Test EXIT/QUIT behavior matches USAGE.md."""
@@ -957,11 +1085,16 @@ class TestExitBehavior:
         for exit_cmd in ["EXIT", "QUIT"]:
             result = subprocess.run(
                 [
-                    sys.executable, "-m", "pcb_tool",
-                    "--load", str(real_netlist_file),
-                    "--exec", exit_cmd
+                    sys.executable,
+                    "-m",
+                    "pcb_tool",
+                    "--load",
+                    str(real_netlist_file),
+                    "--exec",
+                    exit_cmd,
                 ],
-                capture_output=True, text=True
+                capture_output=True,
+                text=True,
             )
 
             # Should exit cleanly

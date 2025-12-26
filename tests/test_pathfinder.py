@@ -31,9 +31,7 @@ class TestBasicPathfinding:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0),
-            layer="F.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -53,9 +51,7 @@ class TestBasicPathfinding:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(20.0, 10.0),
-            goal_mm=(20.0, 30.0),
-            layer="F.Cu"
+            start_mm=(20.0, 10.0), goal_mm=(20.0, 30.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -78,7 +74,7 @@ class TestBasicPathfinding:
             start_mm=(10.0, 10.0),
             goal_mm=(20.0, 20.0),
             layer="F.Cu",
-            allow_diagonals=True
+            allow_diagonals=True,
         )
 
         assert path is not None
@@ -97,7 +93,7 @@ class TestBasicPathfinding:
             start_mm=(10.0, 10.0),
             goal_mm=(20.0, 20.0),
             layer="F.Cu",
-            allow_diagonals=False
+            allow_diagonals=False,
         )
 
         assert path is not None
@@ -116,9 +112,7 @@ class TestBasicPathfinding:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(20.0, 20.0),
-            goal_mm=(20.0, 20.0),
-            layer="F.Cu"
+            start_mm=(20.0, 20.0), goal_mm=(20.0, 20.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -139,9 +133,7 @@ class TestPathfindingWithObstacles:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0),
-            layer="F.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -162,9 +154,7 @@ class TestPathfindingWithObstacles:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0),
-            layer="F.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -187,9 +177,7 @@ class TestPathfindingWithObstacles:
 
         # Path should go through the gap at y=20
         path = finder.find_path(
-            start_mm=(5.0, 20.0),
-            goal_mm=(25.0, 20.0),
-            layer="F.Cu"
+            start_mm=(5.0, 20.0), goal_mm=(25.0, 20.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -206,9 +194,7 @@ class TestPathfindingWithObstacles:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(10.0, 10.0),
-            goal_mm=(30.0, 25.0),
-            layer="F.Cu"
+            start_mm=(10.0, 10.0), goal_mm=(30.0, 25.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -234,11 +220,7 @@ class TestPathfindingEdgeCases:
 
         finder = PathFinder(grid)
 
-        path = finder.find_path(
-            start_mm=(5.0, 5.0),
-            goal_mm=(10.0, 10.0),
-            layer="F.Cu"
-        )
+        path = finder.find_path(start_mm=(5.0, 5.0), goal_mm=(10.0, 10.0), layer="F.Cu")
 
         assert path is None
 
@@ -257,9 +239,7 @@ class TestPathfindingEdgeCases:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0),
-            layer="F.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="F.Cu"
         )
 
         # Path should be found - routes can start from obstacles (pads are obstacles)
@@ -284,12 +264,14 @@ class TestPathfindingEdgeCases:
         path = finder.find_path(
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
-            layer="F.Cu"
+            layer="F.Cu",
             # No net_name - obstacle has no associated net
         )
 
         # Without net context, goal obstacle blocks routing
-        assert path is None, "Path should fail when goal is on obstacle without net context"
+        assert (
+            path is None
+        ), "Path should fail when goal is on obstacle without net context"
 
     def test_find_path_different_layers(self):
         """Test pathfinding on different layers."""
@@ -302,16 +284,12 @@ class TestPathfindingEdgeCases:
 
         # Path on F.Cu should go around
         path_fcu = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0),
-            layer="F.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="F.Cu"
         )
 
         # Path on B.Cu should be straighter (no obstacle)
         path_bcu = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0),
-            layer="B.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="B.Cu"
         )
 
         assert path_fcu is not None
@@ -332,9 +310,7 @@ class TestPathSimplification:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0),
-            layer="F.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -355,9 +331,7 @@ class TestPathSimplification:
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 10.0),
-            layer="F.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 10.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -379,7 +353,10 @@ class TestPathSimplification:
         assert finder._simplify_path([(10.0, 20.0)]) == [(10.0, 20.0)]
 
         # Two points
-        assert finder._simplify_path([(10.0, 20.0), (30.0, 20.0)]) == [(10.0, 20.0), (30.0, 20.0)]
+        assert finder._simplify_path([(10.0, 20.0), (30.0, 20.0)]) == [
+            (10.0, 20.0),
+            (30.0, 20.0),
+        ]
 
 
 class TestHeuristic:
@@ -431,9 +408,7 @@ class TestHeuristic:
 
         # Find actual path
         path = finder.find_path(
-            start_mm=(10.0, 10.0),
-            goal_mm=(30.0, 30.0),
-            layer="F.Cu"
+            start_mm=(10.0, 10.0), goal_mm=(30.0, 30.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -493,7 +468,7 @@ class TestPathStatistics:
             (20.0, 10.0),  # Right
             (20.0, 20.0),  # Up (bend 1)
             (30.0, 20.0),  # Right (bend 2)
-            (30.0, 30.0)   # Up (bend 3)
+            (30.0, 30.0),  # Up (bend 3)
         ]
 
         stats = finder.get_path_statistics(path)
@@ -537,8 +512,7 @@ class TestEstimatePathLength:
         finder = PathFinder(grid)
 
         estimate = finder.estimate_path_length(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0)
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0)
         )
 
         assert estimate == 20.0
@@ -549,8 +523,7 @@ class TestEstimatePathLength:
         finder = PathFinder(grid)
 
         estimate = finder.estimate_path_length(
-            start_mm=(20.0, 10.0),
-            goal_mm=(20.0, 30.0)
+            start_mm=(20.0, 10.0), goal_mm=(20.0, 30.0)
         )
 
         assert estimate == 20.0
@@ -561,8 +534,7 @@ class TestEstimatePathLength:
         finder = PathFinder(grid)
 
         estimate = finder.estimate_path_length(
-            start_mm=(10.0, 10.0),
-            goal_mm=(30.0, 30.0)
+            start_mm=(10.0, 10.0), goal_mm=(30.0, 30.0)
         )
 
         # Manhattan distance: |30-10| + |30-10| = 40
@@ -578,9 +550,7 @@ class TestPointToLineDistance:
         finder = PathFinder(grid)
 
         dist = finder._point_to_line_distance(
-            point=(15.0, 20.0),
-            line_start=(10.0, 20.0),
-            line_end=(20.0, 20.0)
+            point=(15.0, 20.0), line_start=(10.0, 20.0), line_end=(20.0, 20.0)
         )
 
         assert abs(dist) < 0.01
@@ -591,9 +561,7 @@ class TestPointToLineDistance:
         finder = PathFinder(grid)
 
         dist = finder._point_to_line_distance(
-            point=(15.0, 25.0),
-            line_start=(10.0, 20.0),
-            line_end=(20.0, 20.0)
+            point=(15.0, 25.0), line_start=(10.0, 20.0), line_end=(20.0, 20.0)
         )
 
         assert abs(dist - 5.0) < 0.01
@@ -604,9 +572,7 @@ class TestPointToLineDistance:
         finder = PathFinder(grid)
 
         dist = finder._point_to_line_distance(
-            point=(25.0, 20.0),
-            line_start=(10.0, 20.0),
-            line_end=(20.0, 20.0)
+            point=(25.0, 20.0), line_start=(10.0, 20.0), line_end=(20.0, 20.0)
         )
 
         # Distance to nearest endpoint (20, 20)
@@ -654,7 +620,7 @@ class TestMultiLayerPathfinding:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="F.Cu",
-            target_layer="B.Cu"
+            target_layer="B.Cu",
         )
 
         assert path is not None
@@ -679,7 +645,7 @@ class TestMultiLayerPathfinding:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="F.Cu",
-            target_layer="B.Cu"
+            target_layer="B.Cu",
         )
 
         assert path is not None
@@ -701,7 +667,7 @@ class TestMultiLayerPathfinding:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="F.Cu",
-            target_layer="F.Cu"  # Start and end on same layer
+            target_layer="F.Cu",  # Start and end on same layer
         )
 
         assert path_multi is not None
@@ -726,7 +692,7 @@ class TestMultiLayerPathfinding:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="F.Cu",
-            target_layer="F.Cu"
+            target_layer="F.Cu",
         )
 
         # Path may need to use multiple layer transitions
@@ -749,7 +715,7 @@ class TestMultiLayerPathfinding:
             start_mm=(10.0, 25.0),
             goal_mm=(40.0, 25.0),
             layer="F.Cu",
-            target_layer="B.Cu"
+            target_layer="B.Cu",
         )
 
         # Path should find a route through available channels
@@ -772,7 +738,7 @@ class TestMultiLayerPathfinding:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="F.Cu",
-            target_layer="B.Cu"
+            target_layer="B.Cu",
         )
 
         assert path is not None
@@ -793,9 +759,7 @@ class TestMultiLayerPathfinding:
 
         # Route without specifying target_layer (defaults to same layer)
         path = finder.find_path(
-            start_mm=(10.0, 20.0),
-            goal_mm=(30.0, 20.0),
-            layer="F.Cu"
+            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="F.Cu"
         )
 
         assert path is not None
@@ -842,8 +806,10 @@ class TestMultiLayerPathfinding4Layer:
     def test_4layer_through_hole_via(self):
         """Test pathfinding on 4-layer board with through-hole via."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["through"])
 
@@ -852,7 +818,7 @@ class TestMultiLayerPathfinding4Layer:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="F.Cu",
-            target_layer="B.Cu"
+            target_layer="B.Cu",
         )
 
         assert path is not None
@@ -861,8 +827,10 @@ class TestMultiLayerPathfinding4Layer:
     def test_4layer_layer_transitions(self):
         """Test that allowed layer transitions work correctly on 4-layer board."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["through"])
 
@@ -879,8 +847,10 @@ class TestMultiLayerPathfinding4Layer:
     def test_4layer_blind_via_from_top(self):
         """Test blind via from F.Cu to In1.Cu."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["blind"])
 
@@ -896,8 +866,10 @@ class TestMultiLayerPathfinding4Layer:
     def test_4layer_blind_via_from_inner_to_outer(self):
         """Test blind via from In1.Cu back to F.Cu."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["blind"])
 
@@ -911,8 +883,10 @@ class TestMultiLayerPathfinding4Layer:
     def test_4layer_buried_via(self):
         """Test buried via between inner layers."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["buried"])
 
@@ -928,8 +902,10 @@ class TestMultiLayerPathfinding4Layer:
     def test_4layer_buried_via_not_from_outer(self):
         """Test that buried vias can't be created from outer layers."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["buried"])
 
@@ -942,12 +918,13 @@ class TestMultiLayerPathfinding4Layer:
     def test_4layer_mixed_via_types(self):
         """Test pathfinding with multiple via types allowed."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(
-            grid, via_cost=10.0,
-            allowed_via_types=["through", "blind", "buried"]
+            grid, via_cost=10.0, allowed_via_types=["through", "blind", "buried"]
         )
 
         # Test layer transition options from F.Cu
@@ -963,12 +940,13 @@ class TestMultiLayerPathfinding4Layer:
     def test_via_type_cost_modifiers(self):
         """Test that via type cost modifiers are applied correctly."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(
-            grid, via_cost=10.0,
-            allowed_via_types=["through", "blind", "buried"]
+            grid, via_cost=10.0, allowed_via_types=["through", "blind", "buried"]
         )
 
         # Check that through-hole has highest cost multiplier
@@ -978,8 +956,10 @@ class TestMultiLayerPathfinding4Layer:
     def test_6layer_routing(self):
         """Test pathfinding on 6-layer board."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu", "B.Cu"],
         )
         finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["through"])
 
@@ -988,7 +968,7 @@ class TestMultiLayerPathfinding4Layer:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="F.Cu",
-            target_layer="B.Cu"
+            target_layer="B.Cu",
         )
 
         assert path is not None
@@ -996,8 +976,10 @@ class TestMultiLayerPathfinding4Layer:
     def test_4layer_inner_layer_routing(self):
         """Test routing entirely on inner layers."""
         grid = RoutingGrid(
-            width_mm=100.0, height_mm=80.0, resolution_mm=0.5,
-            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
+            width_mm=100.0,
+            height_mm=80.0,
+            resolution_mm=0.5,
+            layers=["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"],
         )
         finder = PathFinder(grid, via_cost=10.0, allowed_via_types=["through"])
 
@@ -1006,7 +988,7 @@ class TestMultiLayerPathfinding4Layer:
             start_mm=(10.0, 20.0),
             goal_mm=(30.0, 20.0),
             layer="In1.Cu",
-            target_layer="In2.Cu"
+            target_layer="In2.Cu",
         )
 
         assert path is not None

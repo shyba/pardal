@@ -10,9 +10,14 @@ import pytest
 from pathlib import Path
 from pcb_tool.data_model import Board
 from pcb_tool.commands import (
-    LoadCommand, MoveCommand, AutoRouteCommand,
-    CheckDrcCommand, ShowBoardCommand
+    LoadCommand,
+    MoveCommand,
+    AutoRouteCommand,
+    CheckDrcCommand,
+    ShowBoardCommand,
 )
+
+pytestmark = pytest.mark.slow
 
 
 class TestInjectorAutoRoute:
@@ -44,22 +49,18 @@ class TestInjectorAutoRoute:
             ("J1", 15, 70, 0),
             ("C1", 35, 70, 0),
             ("C2", 50, 70, 0),
-
             # Input connector (left side, mid-height)
             ("J2", 15, 45, 0),
-
             # Channel 1 (center-left)
             ("R1", 55, 50, 0),
             ("R3", 55, 42, 0),
             ("Q1", 65, 46, 0),
             ("D1", 75, 38, 90),
-
             # Channel 2 (center-right)
             ("R2", 85, 50, 0),
             ("R4", 85, 42, 0),
             ("Q2", 95, 46, 0),
             ("D2", 105, 38, 90),
-
             # Output connector (bottom center)
             ("J3", 80, 25, 0),
         ]
@@ -81,8 +82,9 @@ class TestInjectorAutoRoute:
         for net_name in power_nets:
             autoroute_cmd = AutoRouteCommand(net_name=net_name)
             result = autoroute_cmd.execute(board)
-            assert "OK:" in result or "successfully" in result.lower(), \
-                f"Power net {net_name} should route successfully"
+            assert (
+                "OK:" in result or "successfully" in result.lower()
+            ), f"Power net {net_name} should route successfully"
 
         # Then route signal nets
         signal_nets = ["IN1", "IN2", "GATE1", "GATE2", "OUT1", "OUT2"]
@@ -101,15 +103,17 @@ class TestInjectorAutoRoute:
         error_count = 0
         if "errors" in drc_result.lower():
             import re
-            match = re.search(r'(\d+)\s+errors?', drc_result, re.IGNORECASE)
+
+            match = re.search(r"(\d+)\s+errors?", drc_result, re.IGNORECASE)
             if match:
                 error_count = int(match.group(1))
 
         print(f"\nPower-first routing: {error_count} DRC errors")
 
         # Should achieve reasonable error count (routing quality varies with strategy)
-        assert error_count <= 30, \
-            f"Power-first routing should achieve ≤30 errors, got {error_count}"
+        assert (
+            error_count <= 30
+        ), f"Power-first routing should achieve ≤30 errors, got {error_count}"
 
     def test_injector_layer_preference(self, board_with_components):
         """Test routing with layer preferences."""
@@ -136,8 +140,7 @@ class TestInjectorAutoRoute:
         bcu_segments = sum(1 for seg in gnd_net.segments if seg.layer == "B.Cu")
         fcu_segments = sum(1 for seg in gnd_net.segments if seg.layer == "F.Cu")
 
-        assert bcu_segments >= fcu_segments, \
-            "GND should prefer B.Cu layer"
+        assert bcu_segments >= fcu_segments, "GND should prefer B.Cu layer"
 
     def test_injector_incremental_routing(self, board_with_components):
         """Test incremental routing (route some, check, route more)."""
@@ -151,8 +154,9 @@ class TestInjectorAutoRoute:
 
         # Check phase 1
         for net_name in phase1_nets:
-            assert len(board.nets[net_name].segments) > 0, \
-                f"Phase 1: {net_name} should be routed"
+            assert (
+                len(board.nets[net_name].segments) > 0
+            ), f"Phase 1: {net_name} should be routed"
 
         # Phase 2: Route control signals
         phase2_nets = ["IN1", "IN2"]
@@ -192,6 +196,7 @@ class TestInjectorAutoRoute:
 
         # Run optimization
         from pcb_tool.commands import OptimizeRoutingCommand
+
         optimize_cmd = OptimizeRoutingCommand(net_name="ALL")
         result = optimize_cmd.execute(board)
 
@@ -203,8 +208,7 @@ class TestInjectorAutoRoute:
         print(f"Improvement: {vias_before - vias_after} vias removed")
 
         # Optimization should reduce via count or keep it the same
-        assert vias_after <= vias_before, \
-            "Optimization should not increase via count"
+        assert vias_after <= vias_before, "Optimization should not increase via count"
 
     def test_injector_routing_statistics(self, board_with_components):
         """Test that routing produces reasonable statistics."""
@@ -224,12 +228,12 @@ class TestInjectorAutoRoute:
             for seg in net.segments:
                 dx = seg.end[0] - seg.start[0]
                 dy = seg.end[1] - seg.start[1]
-                length += (dx*dx + dy*dy)**0.5
+                length += (dx * dx + dy * dy) ** 0.5
 
             net_stats[net_name] = {
                 "length_mm": length,
                 "segments": len(net.segments),
-                "vias": len(net.vias)
+                "vias": len(net.vias),
             }
 
             total_length += length
@@ -243,8 +247,10 @@ class TestInjectorAutoRoute:
         # Print statistics
         print("\nPer-net statistics:")
         for net_name, stats in net_stats.items():
-            print(f"  {net_name:8s}: {stats['length_mm']:6.1f}mm, "
-                  f"{stats['segments']:2d} segments, {stats['vias']:2d} vias")
+            print(
+                f"  {net_name:8s}: {stats['length_mm']:6.1f}mm, "
+                f"{stats['segments']:2d} segments, {stats['vias']:2d} vias"
+            )
         print(f"\nTotal: {total_length:.1f}mm, {total_vias} vias")
 
     def test_injector_board_visualization(self, board_with_components):
@@ -260,12 +266,14 @@ class TestInjectorAutoRoute:
         result = show_cmd.execute(board)
 
         # Verify statistics are displayed
-        assert "Routing Grid Statistics:" in result, \
-            "Should show routing grid statistics"
+        assert (
+            "Routing Grid Statistics:" in result
+        ), "Should show routing grid statistics"
         assert "F.Cu:" in result, "Should show F.Cu statistics"
         assert "B.Cu:" in result, "Should show B.Cu statistics"
-        assert "Layer transitions:" in result or "vias" in result.lower(), \
-            "Should show via count"
+        assert (
+            "Layer transitions:" in result or "vias" in result.lower()
+        ), "Should show via count"
 
         print(f"\nBoard visualization:\n{result}")
 
@@ -295,10 +303,18 @@ class TestInjectorStressTests:
             load_cmd.execute(board)
 
             placements = [
-                ("J1", 15, 70, 0), ("C1", 35, 70, 0), ("C2", 50, 70, 0),
-                ("J2", 15, 20, 0), ("R1", 65, 48, 0), ("R3", 65, 40, 0),
-                ("Q1", 75, 44, 0), ("D1", 75, 28, 90), ("R2", 95, 48, 0),
-                ("R4", 95, 40, 0), ("Q2", 105, 44, 0), ("D2", 105, 28, 90),
+                ("J1", 15, 70, 0),
+                ("C1", 35, 70, 0),
+                ("C2", 50, 70, 0),
+                ("J2", 15, 20, 0),
+                ("R1", 65, 48, 0),
+                ("R3", 65, 40, 0),
+                ("Q1", 75, 44, 0),
+                ("D1", 75, 28, 90),
+                ("R2", 95, 48, 0),
+                ("R4", 95, 40, 0),
+                ("Q2", 105, 44, 0),
+                ("D2", 105, 28, 90),
                 ("J3", 130, 44, 0),
             ]
 
@@ -318,7 +334,8 @@ class TestInjectorStressTests:
             error_count = 0
             if "errors" in drc_result.lower():
                 import re
-                match = re.search(r'(\d+)\s+errors?', drc_result, re.IGNORECASE)
+
+                match = re.search(r"(\d+)\s+errors?", drc_result, re.IGNORECASE)
                 if match:
                     error_count = int(match.group(1))
 
@@ -327,9 +344,11 @@ class TestInjectorStressTests:
         print(f"\nRepeated routing results: {results}")
 
         # All runs should achieve reasonable quality
-        assert max(results) <= 30, \
-            f"All runs should achieve ≤30 errors, got max={max(results)}"
+        assert (
+            max(results) <= 30
+        ), f"All runs should achieve ≤30 errors, got max={max(results)}"
 
         # Results should be consistent (within 5 errors)
-        assert max(results) - min(results) <= 5, \
-            "Routing quality should be consistent across runs"
+        assert (
+            max(results) - min(results) <= 5
+        ), "Routing quality should be consistent across runs"

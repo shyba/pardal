@@ -15,6 +15,7 @@ from pcb_tool.routing.multi_net_router import RoutedNet, NetDefinition
 @dataclass
 class ConnectedPath:
     """Result of connecting waypoints for a net."""
+
     net_name: str
     path: List[Tuple[float, float]]  # Continuous path in mm
     layer: str
@@ -38,7 +39,7 @@ class PathConnector:
         self,
         z3_result: Dict[str, RoutedNet],
         net_segments: Dict[str, List[NetDefinition]],
-        protected_cells: Optional[Set[Tuple[int, int]]] = None
+        protected_cells: Optional[Set[Tuple[int, int]]] = None,
     ) -> Dict[str, ConnectedPath]:
         """
         Connect all nets from Z3 waypoints to continuous paths.
@@ -88,10 +89,7 @@ class PathConnector:
                 if net_name not in z3_result:
                     # Net not in Z3 result, mark as failed
                     connected_paths[net_name] = ConnectedPath(
-                        net_name=net_name,
-                        path=[],
-                        layer="F.Cu",
-                        success=False
+                        net_name=net_name, path=[], layer="F.Cu", success=False
                     )
                     continue
 
@@ -109,10 +107,7 @@ class PathConnector:
                     path = self._connect_segments(segments, net_name, layer)
 
                     connected_paths[net_name] = ConnectedPath(
-                        net_name=net_name,
-                        path=path,
-                        layer=layer,
-                        success=len(path) > 0
+                        net_name=net_name, path=path, layer=layer, success=len(path) > 0
                     )
 
                     # Add this net's A* path cells to routed_cells for future nets
@@ -126,7 +121,7 @@ class PathConnector:
                         net_name=net_name,
                         path=[],
                         layer=segments[0].layer if segments else "F.Cu",
-                        success=False
+                        success=False,
                     )
 
         finally:
@@ -140,10 +135,7 @@ class PathConnector:
         return connected_paths
 
     def _connect_segments(
-        self,
-        segments: List[NetDefinition],
-        net_name: str,
-        layer: str
+        self, segments: List[NetDefinition], net_name: str, layer: str
     ) -> List[Tuple[float, float]]:
         """
         Connect multiple segments of a net into a continuous path.
@@ -171,7 +163,7 @@ class PathConnector:
                 goal_mm=seg.end,
                 layer=layer,
                 force_single_layer=True,
-                net_name=net_name
+                net_name=net_name,
             )
             if path:
                 return path
@@ -183,7 +175,7 @@ class PathConnector:
                 layer=layer,
                 target_layer=layer,  # Same layer for start/end
                 force_single_layer=False,  # Allow vias
-                net_name=net_name
+                net_name=net_name,
             )
             return path if path else []
 
@@ -198,7 +190,7 @@ class PathConnector:
                 goal_mm=segment.end,
                 layer=layer,
                 force_single_layer=True,
-                net_name=net_name
+                net_name=net_name,
             )
             if not path:
                 # Fallback: try multi-layer routing with escape vias
@@ -208,7 +200,7 @@ class PathConnector:
                     layer=layer,
                     target_layer=layer,  # Same layer for start/end
                     force_single_layer=False,  # Allow vias
-                    net_name=net_name
+                    net_name=net_name,
                 )
 
             if path:
@@ -229,10 +221,7 @@ class PathConnector:
         return deduplicated
 
     def _path_to_cells(
-        self,
-        path: List[Tuple[float, float]],
-        layer: str,
-        clearance_cells: int = 1
+        self, path: List[Tuple[float, float]], layer: str, clearance_cells: int = 1
     ) -> Set[Tuple[Tuple[int, int], str]]:
         """
         Convert a path in mm to a set of grid cells using line interpolation.
@@ -270,15 +259,16 @@ class PathConnector:
             for dx in range(-clearance_cells, clearance_cells + 1):
                 for dy in range(-clearance_cells, clearance_cells + 1):
                     buffered = (cell[0] + dx, cell[1] + dy)
-                    if 0 <= buffered[0] < self.grid.grid_width and 0 <= buffered[1] < self.grid.grid_height:
+                    if (
+                        0 <= buffered[0] < self.grid.grid_width
+                        and 0 <= buffered[1] < self.grid.grid_height
+                    ):
                         cells.add((buffered, layer))
 
         return cells
 
     def _bresenham_line(
-        self,
-        start: Tuple[int, int],
-        end: Tuple[int, int]
+        self, start: Tuple[int, int], end: Tuple[int, int]
     ) -> List[Tuple[int, int]]:
         """
         Bresenham's line algorithm for grid line interpolation.

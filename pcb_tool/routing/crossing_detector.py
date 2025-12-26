@@ -12,6 +12,7 @@ from typing import Dict, List, Tuple, Set, Optional
 @dataclass
 class Crossing:
     """Represents a crossing between two nets."""
+
     net1: str
     net2: str
     cell: Tuple[int, int]  # Grid coordinates
@@ -31,9 +32,7 @@ class CrossingDetector:
         self.resolution_mm = resolution_mm
 
     def detect_crossings(
-        self,
-        net_paths: Dict[str, List[Tuple[float, float]]],
-        layer: str = "F.Cu"
+        self, net_paths: Dict[str, List[Tuple[float, float]]], layer: str = "F.Cu"
     ) -> List[Crossing]:
         """
         Find all crossing points between different nets.
@@ -70,12 +69,14 @@ class CrossingDetector:
                         pair = (nets_list[i], nets_list[j])
                         if pair not in seen_pairs:
                             seen_pairs.add(pair)
-                            crossings.append(Crossing(
-                                net1=nets_list[i],
-                                net2=nets_list[j],
-                                cell=cell,
-                                layer=layer
-                            ))
+                            crossings.append(
+                                Crossing(
+                                    net1=nets_list[i],
+                                    net2=nets_list[j],
+                                    cell=cell,
+                                    layer=layer,
+                                )
+                            )
 
         # Method 2: Line segment intersection (catches diagonal crossings)
         net_names = list(net_paths.keys())
@@ -94,19 +95,14 @@ class CrossingDetector:
                 if intersection:
                     seen_pairs.add(pair)
                     cell = self._mm_to_grid(intersection)
-                    crossings.append(Crossing(
-                        net1=pair[0],
-                        net2=pair[1],
-                        cell=cell,
-                        layer=layer
-                    ))
+                    crossings.append(
+                        Crossing(net1=pair[0], net2=pair[1], cell=cell, layer=layer)
+                    )
 
         return crossings
 
     def _find_segment_intersection(
-        self,
-        path1: List[Tuple[float, float]],
-        path2: List[Tuple[float, float]]
+        self, path1: List[Tuple[float, float]], path2: List[Tuple[float, float]]
     ) -> Optional[Tuple[float, float]]:
         """
         Find first intersection between two paths (line segment pairs).
@@ -132,7 +128,7 @@ class CrossingDetector:
         p1: Tuple[float, float],
         p2: Tuple[float, float],
         p3: Tuple[float, float],
-        p4: Tuple[float, float]
+        p4: Tuple[float, float],
     ) -> Optional[Tuple[float, float]]:
         """
         Check if line segments (p1,p2) and (p3,p4) intersect.
@@ -164,10 +160,7 @@ class CrossingDetector:
 
         return None
 
-    def _path_to_cells(
-        self,
-        path: List[Tuple[float, float]]
-    ) -> Set[Tuple[int, int]]:
+    def _path_to_cells(self, path: List[Tuple[float, float]]) -> Set[Tuple[int, int]]:
         """
         Convert a path in mm to a set of grid cells.
 
@@ -217,9 +210,7 @@ class CrossingDetector:
         return (grid_x, grid_y)
 
     def _bresenham_line(
-        self,
-        start: Tuple[int, int],
-        end: Tuple[int, int]
+        self, start: Tuple[int, int], end: Tuple[int, int]
     ) -> List[Tuple[int, int]]:
         """
         Bresenham's line algorithm for grid line interpolation.

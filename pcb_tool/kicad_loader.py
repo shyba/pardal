@@ -5,26 +5,29 @@ Provides bidirectional conversion between:
 - pcbnew.BOARD (KiCad's native board representation)
 - pcb_tool.data_model.Board (pardal's board representation)
 """
+
 from pcb_tool.data_model import Board, Component, Net, Pad, TraceSegment, Via
 
 
 def _get_layer_map():
     """Build layer name → pcbnew constant mapping (lazy import to avoid import-time pcbnew)."""
     import pcbnew
+
     layer_map = {
-        'F.Cu': pcbnew.F_Cu,
-        'B.Cu': pcbnew.B_Cu,
+        "F.Cu": pcbnew.F_Cu,
+        "B.Cu": pcbnew.B_Cu,
     }
     # Add inner layers In1.Cu through In30.Cu
     for i in range(1, 31):
-        layer_name = f'In{i}.Cu'
-        layer_map[layer_name] = getattr(pcbnew, f'In{i}_Cu', None)
+        layer_name = f"In{i}.Cu"
+        layer_map[layer_name] = getattr(pcbnew, f"In{i}_Cu", None)
     return layer_map
 
 
 def _get_pcbnew_layer(layer_name: str):
     """Get pcbnew layer constant for a layer name. Defaults to F.Cu if unknown."""
     import pcbnew
+
     layer_map = _get_layer_map()
     return layer_map.get(layer_name, pcbnew.F_Cu)
 
@@ -67,7 +70,7 @@ def load_board_from_kicad(kicad_board) -> Board:
             footprint=str(fp.GetFPID().GetLibItemName()),
             position=(pcbnew.ToMM(pos.x), pcbnew.ToMM(pos.y)),
             rotation=fp.GetOrientationDegrees(),
-            layer='F.Cu' if fp.GetLayer() == pcbnew.F_Cu else 'B.Cu'
+            layer="F.Cu" if fp.GetLayer() == pcbnew.F_Cu else "B.Cu",
         )
 
         # Extract pads
@@ -77,13 +80,17 @@ def load_board_from_kicad(kicad_board) -> Board:
                 number=kicad_pad.GetNumber(),
                 position_offset=(
                     pcbnew.ToMM(pad_pos.x - pos.x),
-                    pcbnew.ToMM(pad_pos.y - pos.y)
+                    pcbnew.ToMM(pad_pos.y - pos.y),
                 ),
                 size=(
                     pcbnew.ToMM(kicad_pad.GetSize().x),
-                    pcbnew.ToMM(kicad_pad.GetSize().y)
+                    pcbnew.ToMM(kicad_pad.GetSize().y),
                 ),
-                shape='rect' if kicad_pad.GetShape() == pcbnew.PAD_SHAPE_RECT else 'circle'
+                shape=(
+                    "rect"
+                    if kicad_pad.GetShape() == pcbnew.PAD_SHAPE_RECT
+                    else "circle"
+                ),
             )
             comp.pads.append(pad)
 
@@ -112,14 +119,16 @@ def write_traces_to_kicad(board: Board, kicad_board):
 
         for segment in net.segments:
             track = pcbnew.PCB_TRACK(kicad_board)
-            track.SetStart(pcbnew.VECTOR2I(
-                pcbnew.FromMM(segment.start[0]),
-                pcbnew.FromMM(segment.start[1])
-            ))
-            track.SetEnd(pcbnew.VECTOR2I(
-                pcbnew.FromMM(segment.end[0]),
-                pcbnew.FromMM(segment.end[1])
-            ))
+            track.SetStart(
+                pcbnew.VECTOR2I(
+                    pcbnew.FromMM(segment.start[0]), pcbnew.FromMM(segment.start[1])
+                )
+            )
+            track.SetEnd(
+                pcbnew.VECTOR2I(
+                    pcbnew.FromMM(segment.end[0]), pcbnew.FromMM(segment.end[1])
+                )
+            )
             track.SetWidth(pcbnew.FromMM(segment.width))
             track.SetLayer(_get_pcbnew_layer(segment.layer))
             if net_info:
@@ -128,10 +137,11 @@ def write_traces_to_kicad(board: Board, kicad_board):
 
         for via in net.vias:
             pcb_via = pcbnew.PCB_VIA(kicad_board)
-            pcb_via.SetPosition(pcbnew.VECTOR2I(
-                pcbnew.FromMM(via.position[0]),
-                pcbnew.FromMM(via.position[1])
-            ))
+            pcb_via.SetPosition(
+                pcbnew.VECTOR2I(
+                    pcbnew.FromMM(via.position[0]), pcbnew.FromMM(via.position[1])
+                )
+            )
             pcb_via.SetWidth(pcbnew.FromMM(via.diameter))
             pcb_via.SetDrill(pcbnew.FromMM(via.drill))
             if net_info:

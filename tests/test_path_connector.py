@@ -21,20 +21,24 @@ def test_connect_simple_two_nets():
             name="net1",
             path=[(1.0, 1.0), (2.0, 1.0), (3.0, 1.0)],
             layer="F.Cu",
-            segments=[((1.0, 1.0), (2.0, 1.0)), ((2.0, 1.0), (3.0, 1.0))]
+            segments=[((1.0, 1.0), (2.0, 1.0)), ((2.0, 1.0), (3.0, 1.0))],
         ),
         "net2": RoutedNet(
             name="net2",
             path=[(1.0, 5.0), (2.0, 5.0), (3.0, 5.0)],
             layer="F.Cu",
-            segments=[((1.0, 5.0), (2.0, 5.0)), ((2.0, 5.0), (3.0, 5.0))]
-        )
+            segments=[((1.0, 5.0), (2.0, 5.0)), ((2.0, 5.0), (3.0, 5.0))],
+        ),
     }
 
     # Create net segments
     net_segments = {
-        "net1": [NetDefinition(name="net1", start=(1.0, 1.0), end=(3.0, 1.0), layer="F.Cu")],
-        "net2": [NetDefinition(name="net2", start=(1.0, 5.0), end=(3.0, 5.0), layer="F.Cu")]
+        "net1": [
+            NetDefinition(name="net1", start=(1.0, 1.0), end=(3.0, 1.0), layer="F.Cu")
+        ],
+        "net2": [
+            NetDefinition(name="net2", start=(1.0, 5.0), end=(3.0, 5.0), layer="F.Cu")
+        ],
     }
 
     # Connect paths
@@ -67,16 +71,22 @@ def test_connect_mst_net_with_three_segments():
             segments=[
                 ((5.0, 10.0), (10.0, 10.0)),
                 ((10.0, 10.0), (15.0, 10.0)),
-                ((10.0, 10.0), (10.0, 15.0))
-            ]
+                ((10.0, 10.0), (10.0, 15.0)),
+            ],
         )
     }
 
     net_segments = {
         "mst_net": [
-            NetDefinition(name="mst_net", start=(5.0, 10.0), end=(10.0, 10.0), layer="F.Cu"),
-            NetDefinition(name="mst_net", start=(10.0, 10.0), end=(15.0, 10.0), layer="F.Cu"),
-            NetDefinition(name="mst_net", start=(10.0, 10.0), end=(10.0, 15.0), layer="F.Cu")
+            NetDefinition(
+                name="mst_net", start=(5.0, 10.0), end=(10.0, 10.0), layer="F.Cu"
+            ),
+            NetDefinition(
+                name="mst_net", start=(10.0, 10.0), end=(15.0, 10.0), layer="F.Cu"
+            ),
+            NetDefinition(
+                name="mst_net", start=(10.0, 10.0), end=(10.0, 15.0), layer="F.Cu"
+            ),
         ]
     }
 
@@ -105,19 +115,23 @@ def test_paths_avoid_other_nets_cells():
             name="net1",
             path=[(1.0, 3.0), (5.0, 3.0), (9.0, 3.0)],
             layer="F.Cu",
-            segments=[((1.0, 3.0), (5.0, 3.0)), ((5.0, 3.0), (9.0, 3.0))]
+            segments=[((1.0, 3.0), (5.0, 3.0)), ((5.0, 3.0), (9.0, 3.0))],
         ),
         "net2": RoutedNet(
             name="net2",
             path=[(1.0, 7.0), (5.0, 7.0), (9.0, 7.0)],
             layer="F.Cu",
-            segments=[((1.0, 7.0), (5.0, 7.0)), ((5.0, 7.0), (9.0, 7.0))]
-        )
+            segments=[((1.0, 7.0), (5.0, 7.0)), ((5.0, 7.0), (9.0, 7.0))],
+        ),
     }
 
     net_segments = {
-        "net1": [NetDefinition(name="net1", start=(1.0, 3.0), end=(9.0, 3.0), layer="F.Cu")],
-        "net2": [NetDefinition(name="net2", start=(1.0, 7.0), end=(9.0, 7.0), layer="F.Cu")]
+        "net1": [
+            NetDefinition(name="net1", start=(1.0, 3.0), end=(9.0, 3.0), layer="F.Cu")
+        ],
+        "net2": [
+            NetDefinition(name="net2", start=(1.0, 7.0), end=(9.0, 7.0), layer="F.Cu")
+        ],
     }
 
     # Connect paths

@@ -15,8 +15,17 @@ from typing import List, Tuple, Optional, Dict, Set
 from dataclasses import dataclass
 import heapq
 import math
+import os
+from array import array
 
 from pcb_tool.routing.grid import RoutingGrid, GridCell
+
+try:
+    from pcb_tool.fastpath import astar_path as fast_astar_path
+    from pcb_tool.fastpath import astar_path_3d as fast_astar_path_3d
+except Exception:
+    fast_astar_path = None
+    fast_astar_path_3d = None
 
 
 @dataclass
@@ -26,10 +35,11 @@ class PathNode:
 
     Represents a position in the search space with associated costs.
     """
+
     cell: GridCell
     g_cost: float  # Cost from start to this node
     h_cost: float  # Heuristic cost from this node to goal
-    parent: Optional['PathNode'] = None
+    parent: Optional["PathNode"] = None
 
     @property
     def f_cost(self) -> float:
@@ -44,8 +54,11 @@ class PathNode:
         return hash((self.cell.x, self.cell.y, self.cell.layer))
 
     def __eq__(self, other):
-        return (self.cell.x, self.cell.y, self.cell.layer) == \
-               (other.cell.x, other.cell.y, other.cell.layer)
+        return (self.cell.x, self.cell.y, self.cell.layer) == (
+            other.cell.x,
+            other.cell.y,
+            other.cell.layer,
+        )
 
 
 class PathFinder:
@@ -65,7 +78,8 @@ class PathFinder:
         self,
         grid: RoutingGrid,
         via_cost: float = 10.0,
-        allowed_via_types: Optional[List[str]] = None
+        allowed_via_types: Optional[List[str]] = None,
+        use_fastpath: Optional[bool] = None,
     ):
         """
         Initialize the path finder.
@@ -79,14 +93,37 @@ class PathFinder:
         self.grid = grid
         self.via_cost = via_cost
         self.allowed_via_types = allowed_via_types or ["through"]
+        if use_fastpath is None:
+            env = os.getenv("PARDAL_FASTPATH")
+            if env is None or env == "":
+                use_fastpath = True
+            else:
+                use_fastpath = env.lower() in ("1", "true", "yes", "on")
+        self.use_fastpath = bool(use_fastpath)
+        legacy_max_cells = os.getenv("PARDAL_FASTPATH_MAX_CELLS")
+        if legacy_max_cells is not None and legacy_max_cells != "":
+            legacy_max_cells_i = int(legacy_max_cells)
+            self.max_fastpath_cells = legacy_max_cells_i
+            self.max_fastpath_cells_2d = legacy_max_cells_i
+            self.max_fastpath_cells_3d = legacy_max_cells_i
+        else:
+            # The 2D fastpath currently builds a nested Python list grid, so keep
+            # a conservative default limit. The 3D fastpath uses contiguous
+            # memoryviews, so it can safely handle somewhat larger searches.
+            self.max_fastpath_cells_2d = int(
+                os.getenv("PARDAL_FASTPATH_MAX_CELLS_2D", "2000000")
+            )
+            self.max_fastpath_cells_3d = int(
+                os.getenv("PARDAL_FASTPATH_MAX_CELLS_3D", "5000000")
+            )
+            self.max_fastpath_cells = max(
+                self.max_fastpath_cells_2d, self.max_fastpath_cells_3d
+            )
+        self.last_backend: Optional[str] = None
 
         # Via cost multipliers for different via types
         # Blind/buried vias are slightly preferred (less routing congestion)
-        self.via_type_costs = {
-            "through": 1.0,
-            "blind": 0.9,
-            "buried": 0.85
-        }
+        self.via_type_costs = {"through": 1.0, "blind": 0.9, "buried": 0.85}
 
         # Track via locations from last find_path call
         # Format: [(x_mm, y_mm, from_layer, to_layer), ...]
@@ -105,7 +142,7 @@ class PathFinder:
         allow_diagonals: bool = True,
         force_single_layer: bool = False,
         via_cost: Optional[float] = None,
-        net_name: Optional[str] = None
+        net_name: Optional[str] = None,
     ) -> Optional[List[Tuple[float, float]]]:
         """
         Find a path from start to goal using A*.
@@ -168,6 +205,14 @@ class PathFinder:
             if zone_key not in self.grid.forbidden_zones_by_net.get(net_name, set()):
                 return None
 
+        # Fast-fail when the goal cell is not routable. We intentionally do NOT
+        # apply this to the start cell because routes must be able to start on
+        # pads (which are often marked as obstacles).
+        if not self.grid.is_valid_cell(
+            goal_grid[0], goal_grid[1], target_layer, current_net=net_name
+        ):
+            return None
+
         # Create start and goal cells
         start_cell = GridCell(start_grid[0], start_grid[1], layer)
         goal_cell = GridCell(goal_grid[0], goal_grid[1], target_layer)
@@ -175,27 +220,529 @@ class PathFinder:
         # Use provided via_cost or default to instance via_cost
         effective_via_cost = via_cost if via_cost is not None else self.via_cost
 
+        # Fastpath for forced single-layer routing if enabled
+        if (
+            self.use_fastpath
+            and fast_astar_path is not None
+            and target_layer == layer
+            and force_single_layer
+        ):
+            fast_path = self._fastpath_search(
+                start_cell, goal_cell, layer, allow_diagonals, net_name
+            )
+            if fast_path is not None:
+                return fast_path
+
+        # Fastpath for via-enabled routing (3D A*) when using through-vias
+        if (
+            self.use_fastpath
+            and fast_astar_path_3d is not None
+            and not force_single_layer
+            and self.grid.layer_count >= 2
+            and self.allowed_via_types == ["through"]
+        ):
+            fast_path = self._fastpath_search_3d(
+                start_cell,
+                goal_cell,
+                allow_diagonals,
+                net_name,
+                effective_via_cost,
+            )
+            if fast_path is not None:
+                return fast_path
+
         # A* search with multi-layer support
-        path_cells = self._astar_search(start_cell, goal_cell, target_layer, allow_diagonals, force_single_layer, effective_via_cost)
+        path_cells = self._astar_search(
+            start_cell,
+            goal_cell,
+            target_layer,
+            allow_diagonals,
+            force_single_layer,
+            effective_via_cost,
+        )
 
         if path_cells is None:
             self.last_path_cells = None
             self.last_via_locations = []
+            self.last_backend = None
             return None
+
+        path_cells = self._nudge_via_transitions_off_pads(path_cells)
 
         # Store path cells for layer info access
         self.last_path_cells = path_cells
+        self.last_backend = "python"
 
         # Mark vias at layer transitions and record via locations
         self._mark_vias_in_path(path_cells)
 
-        # Convert grid path to millimeter coordinates
-        path_mm = [self.grid.to_mm_coords(cell.x, cell.y) for cell in path_cells]
+        return self._cells_to_mm_waypoints_layer_aware(path_cells)
 
-        # Simplify path by removing redundant waypoints
-        simplified_path = self._simplify_path(path_mm)
+    def find_path_result(
+        self,
+        start_mm: Tuple[float, float],
+        goal_mm: Tuple[float, float],
+        layer: str,
+        target_layer: Optional[str] = None,
+        allow_diagonals: bool = True,
+        force_single_layer: bool = False,
+        via_cost: Optional[float] = None,
+        net_name: Optional[str] = None,
+    ) -> "PathResult":
+        """Find a path and return a structured result for programmatic use."""
+        from pcb_tool.routing.results import PathResult
 
-        return simplified_path
+        waypoints = self.find_path(
+            start_mm=start_mm,
+            goal_mm=goal_mm,
+            layer=layer,
+            target_layer=target_layer,
+            allow_diagonals=allow_diagonals,
+            force_single_layer=force_single_layer,
+            via_cost=via_cost,
+            net_name=net_name,
+        )
+
+        return PathResult(
+            success=waypoints is not None,
+            waypoints_mm=waypoints or [],
+            backend=self.last_backend,
+            path_cells=list(self.last_path_cells) if self.last_path_cells else None,
+            via_locations=list(self.last_via_locations),
+        )
+
+    def _fastpath_search(
+        self,
+        start_cell: GridCell,
+        goal_cell: GridCell,
+        layer: str,
+        allow_diagonals: bool,
+        net_name: Optional[str],
+    ) -> Optional[List[Tuple[float, float]]]:
+        if self.grid.grid_width * self.grid.grid_height > self.max_fastpath_cells_2d:
+            return None
+
+        cost_grid = self._build_cost_grid(layer, net_name)
+        if cost_grid is None:
+            return None
+
+        path = fast_astar_path(
+            cost_grid,
+            (start_cell.x, start_cell.y),
+            (goal_cell.x, goal_cell.y),
+            diagonal=allow_diagonals,
+        )
+        if not path:
+            return None
+
+        self.last_path_cells = [GridCell(x, y, layer) for x, y in path]
+        self.last_via_locations = []
+        self.last_backend = "fastpath"
+        return self._cells_to_mm_waypoints_layer_aware(self.last_path_cells)
+
+    def _build_cost_grid(
+        self, layer: str, net_name: Optional[str]
+    ) -> Optional[List[List[float]]]:
+        width = self.grid.grid_width
+        height = self.grid.grid_height
+        if width <= 0 or height <= 0:
+            return None
+
+        cost = [[1.0 for _ in range(width)] for _ in range(height)]
+
+        pad_net_map = getattr(self.grid, "pad_net_map", {})
+        allowed_zone = set()
+        if net_name:
+            allowed_zone = self.grid.forbidden_zones_by_net.get(net_name, set())
+
+        # Treat pads as an all-layer keepout (layer-agnostic), so routes won't
+        # "duck under" pads on the opposite side. This matches the project's
+        # simplified short-checking that ignores layers.
+        #
+        # We conservatively apply a radius-based keepout (~0.5mm) around pad
+        # copper. Importantly, we only generate keepout from *other* nets' pads
+        # for the current route so overlapping pad keepouts don't accidentally
+        # "punch holes" near adjacent pins.
+        if pad_net_map:
+            keepout_mm = 0.5
+            keepout_radius = int(math.ceil(keepout_mm / self.grid.resolution_mm))
+            keepout_r2 = keepout_radius * keepout_radius
+
+            pad_cells_by_net = getattr(self.grid, "_pad_xy_cells_by_net", None)
+            if pad_cells_by_net is None:
+                pad_cells_by_net = {}
+                for (px, py, _layer), pnet in pad_net_map.items():
+                    pad_cells_by_net.setdefault(pnet, set()).add((px, py))
+                setattr(self.grid, "_pad_xy_cells_by_net", pad_cells_by_net)
+
+            keepout_offsets = getattr(self.grid, "_pad_keepout_offsets", None)
+            keepout_offsets_key = getattr(self.grid, "_pad_keepout_offsets_key", None)
+            if keepout_offsets is None or keepout_offsets_key != keepout_radius:
+                keepout_offsets = []
+                for dx in range(-keepout_radius, keepout_radius + 1):
+                    for dy in range(-keepout_radius, keepout_radius + 1):
+                        if dx * dx + dy * dy <= keepout_r2:
+                            keepout_offsets.append((dx, dy))
+                setattr(self.grid, "_pad_keepout_offsets", keepout_offsets)
+                setattr(self.grid, "_pad_keepout_offsets_key", keepout_radius)
+
+            keepout_other_cache = getattr(self.grid, "_pad_keepout_other_by_net", None)
+            if keepout_other_cache is None:
+                keepout_other_cache = {}
+                setattr(self.grid, "_pad_keepout_other_by_net", keepout_other_cache)
+
+            cache_key = (net_name, keepout_radius)
+            keepout_other = keepout_other_cache.get(cache_key)
+            if keepout_other is None:
+                keepout_other = set()
+                if not net_name or net_name not in pad_cells_by_net:
+                    # No net context: keepout from all pads.
+                    source_iter = pad_cells_by_net.values()
+                else:
+                    # Keepout from other pads only.
+                    source_iter = (
+                        cells
+                        for pnet, cells in pad_cells_by_net.items()
+                        if pnet != net_name
+                    )
+
+                for cells in source_iter:
+                    for px, py in cells:
+                        for dx, dy in keepout_offsets:
+                            gx = px + dx
+                            gy = py + dy
+                            if 0 <= gx < width and 0 <= gy < height:
+                                keepout_other.add((gx, gy))
+
+                keepout_other_cache[cache_key] = keepout_other
+
+            for px, py in keepout_other:
+                cost[py][px] = 0.0
+
+        for x, y in self.grid.obstacles.get(layer, set()):
+            if net_name and pad_net_map.get((x, y, layer)) == net_name:
+                continue
+            if net_name and (x, y, layer) in allowed_zone:
+                continue
+            cost[y][x] = 0.0
+
+        for x, y in self.grid.crossing_forbidden.get(layer, set()):
+            if net_name and (x, y, layer) in allowed_zone:
+                continue
+            cost[y][x] = 0.0
+
+        for x, y in self.grid.clearance_zones.get(layer, set()):
+            if cost[y][x] > 0:
+                cost[y][x] = 2.0
+
+        for (x, y), value in self.grid.cost_map.get(layer, {}).items():
+            if cost[y][x] > 0:
+                cost[y][x] = float(value)
+
+        return cost
+
+    def _build_cost_grid_3d(
+        self,
+        net_name: Optional[str],
+    ) -> Optional[List[List[List[float]]]]:
+        layers = self.grid.layers
+        if not layers:
+            return None
+        out = []
+        for layer in layers:
+            layer_cost = self._build_cost_grid(layer, net_name)
+            if layer_cost is None:
+                return None
+            out.append(layer_cost)
+        return out
+
+    def _fastpath_search_3d(
+        self,
+        start_cell: GridCell,
+        goal_cell: GridCell,
+        allow_diagonals: bool,
+        net_name: Optional[str],
+        via_cost_mm: float,
+    ) -> Optional[List[Tuple[float, float]]]:
+        total_cells = (
+            self.grid.grid_width * self.grid.grid_height * self.grid.layer_count
+        )
+        if total_cells > self.max_fastpath_cells_3d:
+            return None
+
+        layer_to_idx = {name: idx for idx, name in enumerate(self.grid.layers)}
+        if start_cell.layer not in layer_to_idx or goal_cell.layer not in layer_to_idx:
+            return None
+
+        cost_grid = self._build_cost_grid_3d_mv(net_name)
+        if cost_grid is None:
+            return None
+
+        via_cost_units = float(via_cost_mm) / float(self.grid.resolution_mm)
+        path = fast_astar_path_3d(
+            cost_grid,
+            (start_cell.x, start_cell.y, layer_to_idx[start_cell.layer]),
+            (goal_cell.x, goal_cell.y, layer_to_idx[goal_cell.layer]),
+            diagonal=allow_diagonals,
+            via_cost=via_cost_units,
+        )
+        if not path:
+            return None
+
+        idx_to_layer = self.grid.layers
+        path_cells = [GridCell(x, y, idx_to_layer[z]) for x, y, z in path]
+        path_cells = self._nudge_via_transitions_off_pads(path_cells)
+        self.last_path_cells = path_cells
+        self.last_backend = "fastpath3d"
+
+        # Mark vias + record via locations.
+        self._mark_vias_in_path(path_cells)
+
+        return self._cells_to_mm_waypoints_layer_aware(path_cells)
+
+    def _build_cost_grid_3d_mv(self, net_name: Optional[str]) -> Optional[memoryview]:
+        """Build a 3D cost grid as a contiguous memoryview (layers, y, x).
+
+        This avoids constructing nested Python lists and avoids the wrapper's
+        list->array conversion cost for large grids.
+        """
+        width = self.grid.grid_width
+        height = self.grid.grid_height
+        layers = self.grid.layers
+        if width <= 0 or height <= 0 or not layers:
+            return None
+
+        pad_net_map = getattr(self.grid, "pad_net_map", {})
+        allowed_zone = set()
+        if net_name:
+            allowed_zone = self.grid.forbidden_zones_by_net.get(net_name, set())
+
+        # Base cost: 1.0 everywhere (fast C-level fill).
+        total = len(layers) * width * height
+        flat = array("d", [1.0]) * total
+
+        def idx(layer_idx: int, x: int, y: int) -> int:
+            return (layer_idx * height + y) * width + x
+
+        # All-layer pad keepout (~0.5mm radius) to avoid "ducking under" pads.
+        #
+        # Keepout is generated from *other* nets' pads for the current route so
+        # overlapping pad keepouts don't accidentally "punch holes" near dense
+        # pinfields (e.g. TQFP/QFN).
+        if pad_net_map:
+            keepout_mm = 0.5
+            keepout_radius = int(math.ceil(keepout_mm / self.grid.resolution_mm))
+            keepout_r2 = keepout_radius * keepout_radius
+
+            pad_cells_by_net = getattr(self.grid, "_pad_xy_cells_by_net", None)
+            if pad_cells_by_net is None:
+                pad_cells_by_net = {}
+                for (px, py, _layer), pnet in pad_net_map.items():
+                    pad_cells_by_net.setdefault(pnet, set()).add((px, py))
+                setattr(self.grid, "_pad_xy_cells_by_net", pad_cells_by_net)
+
+            keepout_offsets = getattr(self.grid, "_pad_keepout_offsets", None)
+            keepout_offsets_key = getattr(self.grid, "_pad_keepout_offsets_key", None)
+            if keepout_offsets is None or keepout_offsets_key != keepout_radius:
+                keepout_offsets = []
+                for dx in range(-keepout_radius, keepout_radius + 1):
+                    for dy in range(-keepout_radius, keepout_radius + 1):
+                        if dx * dx + dy * dy <= keepout_r2:
+                            keepout_offsets.append((dx, dy))
+                setattr(self.grid, "_pad_keepout_offsets", keepout_offsets)
+                setattr(self.grid, "_pad_keepout_offsets_key", keepout_radius)
+
+            keepout_other_cache = getattr(self.grid, "_pad_keepout_other_by_net", None)
+            if keepout_other_cache is None:
+                keepout_other_cache = {}
+                setattr(self.grid, "_pad_keepout_other_by_net", keepout_other_cache)
+
+            cache_key = (net_name, keepout_radius)
+            keepout_other = keepout_other_cache.get(cache_key)
+            if keepout_other is None:
+                keepout_other = set()
+                if not net_name or net_name not in pad_cells_by_net:
+                    source_iter = pad_cells_by_net.values()
+                else:
+                    source_iter = (
+                        cells
+                        for pnet, cells in pad_cells_by_net.items()
+                        if pnet != net_name
+                    )
+
+                for cells in source_iter:
+                    for px, py in cells:
+                        for dx, dy in keepout_offsets:
+                            gx = px + dx
+                            gy = py + dy
+                            if 0 <= gx < width and 0 <= gy < height:
+                                keepout_other.add((gx, gy))
+
+                keepout_other_cache[cache_key] = keepout_other
+
+            for px, py in keepout_other:
+                for layer_idx in range(len(layers)):
+                    flat[idx(layer_idx, px, py)] = 0.0
+
+        for layer_idx, layer in enumerate(layers):
+            # Obstacles (pads, traces, etc.)
+            for x, y in self.grid.obstacles.get(layer, set()):
+                if net_name and pad_net_map.get((x, y, layer)) == net_name:
+                    continue
+                if net_name and (x, y, layer) in allowed_zone:
+                    continue
+                flat[idx(layer_idx, x, y)] = 0.0
+
+            # Crossing forbidden zones (hard blocks) except own-net zones.
+            for x, y in self.grid.crossing_forbidden.get(layer, set()):
+                if net_name and (x, y, layer) in allowed_zone:
+                    continue
+                flat[idx(layer_idx, x, y)] = 0.0
+
+            # Clearance zones (soft blocks: cost 2.0) unless already blocked.
+            for x, y in self.grid.clearance_zones.get(layer, set()):
+                i = idx(layer_idx, x, y)
+                if flat[i] > 0.0:
+                    flat[i] = 2.0
+
+            # Custom cost map unless already blocked.
+            for (x, y), value in self.grid.cost_map.get(layer, {}).items():
+                i = idx(layer_idx, x, y)
+                if flat[i] > 0.0:
+                    flat[i] = float(value)
+
+        mv_flat = memoryview(flat).cast("B")
+        return mv_flat.cast("d", shape=(len(layers), height, width))
+
+    def _nudge_via_transitions_off_pads(
+        self, path_cells: List[GridCell]
+    ) -> List[GridCell]:
+        """Move layer transitions off pad centers when possible.
+
+        Our simplified DRC model treats via-in-pad as an error (drill holes co-located
+        with pad centers). The 3D A* can legitimately choose a layer transition
+        at a pad cell (especially at endpoints). This pass tries to shift such
+        transitions by one cell to keep the routed result DRC-clean.
+        """
+        if len(path_cells) < 2:
+            return path_cells
+
+        pad_centers = getattr(self.grid, "pad_centers", None)
+        if not pad_centers:
+            return path_cells
+
+        current_net = getattr(self, "current_net", None)
+
+        out: List[GridCell] = [path_cells[0]]
+        for cur in path_cells[1:]:
+            prev = out[-1]
+
+            # Detect a via transition (same x/y, different layer).
+            if prev.x == cur.x and prev.y == cur.y and prev.layer != cur.layer:
+                if (cur.x, cur.y) in pad_centers:
+                    from_layer = prev.layer
+                    to_layer = cur.layer
+                    for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                        nx = cur.x + dx
+                        ny = cur.y + dy
+                        if not self.grid.is_within_bounds(nx, ny):
+                            continue
+                        if (nx, ny) in pad_centers:
+                            continue
+                        if not self.grid.is_valid_cell(
+                            nx, ny, from_layer, current_net=current_net
+                        ):
+                            continue
+                        if not self.grid.is_valid_cell(
+                            nx, ny, to_layer, current_net=current_net
+                        ):
+                            continue
+
+                        out.append(GridCell(nx, ny, from_layer))
+                        out.append(GridCell(nx, ny, to_layer))
+                        break
+                    else:
+                        out.append(cur)
+                else:
+                    out.append(cur)
+            else:
+                out.append(cur)
+
+        return out
+
+    def _cells_to_mm_waypoints_layer_aware(
+        self, path_cells: List[GridCell]
+    ) -> List[Tuple[float, float]]:
+        """Convert path cells to (x_mm, y_mm) waypoints, simplifying per-layer runs.
+
+        This preserves via waypoints so downstream segment layer assignment (based
+        on via locations) remains correct, while still reducing waypoint count to
+        keep routing artifacts and DRC output stable.
+        """
+        if not path_cells:
+            return []
+
+        previous_layer = getattr(self, "_current_layer", None)
+
+        def compress_run_cells(run: List[GridCell]) -> List[GridCell]:
+            if len(run) <= 2:
+                return run
+
+            out: List[GridCell] = [run[0]]
+            prev = run[0]
+            prev_dx: Optional[int] = None
+            prev_dy: Optional[int] = None
+
+            for cur in run[1:]:
+                dx = cur.x - prev.x
+                dy = cur.y - prev.y
+
+                # Ignore duplicates (shouldn't happen within a single-layer run).
+                if dx == 0 and dy == 0:
+                    prev = cur
+                    continue
+
+                if prev_dx is None:
+                    prev_dx, prev_dy = dx, dy
+                elif dx != prev_dx or dy != prev_dy:
+                    # Direction change: keep the turning point.
+                    out.append(prev)
+                    prev_dx, prev_dy = dx, dy
+
+                prev = cur
+
+            if out[-1] != run[-1]:
+                out.append(run[-1])
+            return out
+
+        def append_run(
+            out: List[Tuple[float, float]],
+            run: List[GridCell],
+        ) -> None:
+            if not run:
+                return
+            run = compress_run_cells(run)
+            pts = [self.grid.to_mm_coords(cell.x, cell.y) for cell in run]
+
+            if out and pts and out[-1] == pts[0]:
+                out.extend(pts[1:])
+            else:
+                out.extend(pts)
+
+        out: List[Tuple[float, float]] = []
+        run: List[GridCell] = [path_cells[0]]
+        for cell in path_cells[1:]:
+            if cell.layer == run[-1].layer:
+                run.append(cell)
+                continue
+            append_run(out, run)
+            run = [cell]
+        append_run(out, run)
+
+        if previous_layer is not None:
+            self._current_layer = previous_layer
+
+        return out
 
     def _astar_search(
         self,
@@ -204,7 +751,7 @@ class PathFinder:
         target_layer: str,
         allow_diagonals: bool,
         force_single_layer: bool = False,
-        via_cost: float = None
+        via_cost: float = None,
     ) -> Optional[List[GridCell]]:
         """
         Core A* search algorithm with multi-layer support.
@@ -227,10 +774,7 @@ class PathFinder:
 
         # Create start node
         start_node = PathNode(
-            cell=start,
-            g_cost=0.0,
-            h_cost=self._heuristic(start, goal),
-            parent=None
+            cell=start, g_cost=0.0, h_cost=self._heuristic(start, goal), parent=None
         )
 
         heapq.heappush(open_set, (start_node.f_cost, counter, start_node))
@@ -249,13 +793,19 @@ class PathFinder:
             _, _, current_node = heapq.heappop(open_set)
 
             # Check if we reached the goal
-            if (current_node.cell.x == goal.x and
-                current_node.cell.y == goal.y and
-                current_node.cell.layer == goal.layer):
+            if (
+                current_node.cell.x == goal.x
+                and current_node.cell.y == goal.y
+                and current_node.cell.layer == goal.layer
+            ):
                 return self._reconstruct_path(current_node)
 
             # Mark as visited
-            cell_key = (current_node.cell.x, current_node.cell.y, current_node.cell.layer)
+            cell_key = (
+                current_node.cell.x,
+                current_node.cell.y,
+                current_node.cell.layer,
+            )
 
             # Skip if we've already found a better path to this cell
             if cell_key in visited and visited[cell_key] <= current_node.g_cost:
@@ -264,13 +814,13 @@ class PathFinder:
             visited[cell_key] = current_node.g_cost
 
             # Explore neighbors (same-layer moves)
-            current_net = getattr(self, 'current_net', None)
+            current_net = getattr(self, "current_net", None)
             neighbors = self.grid.get_neighbors(
                 current_node.cell.x,
                 current_node.cell.y,
                 current_node.cell.layer,
                 allow_diagonals,
-                current_net=current_net
+                current_net=current_net,
             )
 
             # Add layer transition neighbors if multi-layer routing enabled
@@ -282,7 +832,7 @@ class PathFinder:
                     current_node.cell.y,
                     current_node.cell.layer,
                     target_layer,
-                    via_cost
+                    via_cost,
                 )
                 neighbors.extend(layer_neighbors)
 
@@ -310,7 +860,7 @@ class PathFinder:
                         cell=neighbor_cell,
                         g_cost=tentative_g,
                         h_cost=self._heuristic(neighbor_cell, goal),
-                        parent=current_node
+                        parent=current_node,
                     )
                     node_map[neighbor_key] = neighbor_node
 
@@ -350,7 +900,7 @@ class PathFinder:
         grid_y: int,
         current_layer: str,
         target_layer: str,
-        via_cost: Optional[float] = None
+        via_cost: Optional[float] = None,
     ) -> List[Tuple[GridCell, float]]:
         """
         Get neighbors on other layers (via placement).
@@ -371,7 +921,7 @@ class PathFinder:
             List of (neighbor_cell, cost) tuples for layer transitions
         """
         neighbors = []
-        current_net = getattr(self, 'current_net', None)
+        current_net = getattr(self, "current_net", None)
 
         # Use provided via_cost or default to instance via_cost
         effective_via_cost = via_cost if via_cost is not None else self.via_cost
@@ -381,7 +931,9 @@ class PathFinder:
 
         for to_layer, via_type in transitions:
             # Check if target layer is valid for routing at this position
-            if not self.grid.is_valid_cell(grid_x, grid_y, to_layer, current_net=current_net):
+            if not self.grid.is_valid_cell(
+                grid_x, grid_y, to_layer, current_net=current_net
+            ):
                 continue
 
             # Calculate cost with via type multiplier
@@ -395,8 +947,7 @@ class PathFinder:
         return neighbors
 
     def _get_possible_layer_transitions(
-        self,
-        current_layer: str
+        self, current_layer: str
     ) -> List[Tuple[str, str]]:
         """
         Get possible layer transitions from current layer based on allowed via types.
@@ -475,12 +1026,14 @@ class PathFinder:
                 x_mm, y_mm = self.grid.to_mm_coords(current_cell.x, current_cell.y)
 
                 # Record via location for segment creation
-                self.last_via_locations.append((x_mm, y_mm, current_cell.layer, next_cell.layer))
+                self.last_via_locations.append(
+                    (x_mm, y_mm, current_cell.layer, next_cell.layer)
+                )
 
                 # Determine via layers (all layers between the two transition layers)
-                via_layers = tuple(self.grid.get_layers_between(
-                    current_cell.layer, next_cell.layer
-                ))
+                via_layers = tuple(
+                    self.grid.get_layers_between(current_cell.layer, next_cell.layer)
+                )
 
                 self.grid.mark_via(x_mm, y_mm, size_mm=0.8, via_layers=via_layers)
 
@@ -506,9 +1059,7 @@ class PathFinder:
         return path
 
     def _simplify_path(
-        self,
-        path: List[Tuple[float, float]],
-        epsilon: float = 0.01
+        self, path: List[Tuple[float, float]], epsilon: float = 0.01
     ) -> List[Tuple[float, float]]:
         """
         Simplify path by removing redundant waypoints using Douglas-Peucker algorithm.
@@ -554,7 +1105,7 @@ class PathFinder:
         path: List[Tuple[float, float]],
         start_idx: int,
         end_idx: int,
-        epsilon: float
+        epsilon: float,
     ) -> bool:
         """
         Check if segment can be simplified (points are collinear AND no obstacles).
@@ -584,8 +1135,8 @@ class PathFinder:
 
         # Also check that the simplified segment doesn't cross obstacles
         # Use the current layer from the pathfinder (set during find_path)
-        layer = getattr(self, '_current_layer', 'F.Cu')
-        current_net = getattr(self, 'current_net', None)
+        layer = getattr(self, "_current_layer", "F.Cu")
+        current_net = getattr(self, "current_net", None)
 
         # Sample points along the segment to check for obstacles
         start_gx, start_gy = self.grid.to_grid_coords(*start)
@@ -601,11 +1152,7 @@ class PathFinder:
         return True
 
     def _bresenham_line(
-        self,
-        x0: int,
-        y0: int,
-        x1: int,
-        y1: int
+        self, x0: int, y0: int, x1: int, y1: int
     ) -> List[Tuple[int, int]]:
         """
         Bresenham's line algorithm to get all grid cells along a line.
@@ -646,7 +1193,7 @@ class PathFinder:
         self,
         point: Tuple[float, float],
         line_start: Tuple[float, float],
-        line_end: Tuple[float, float]
+        line_end: Tuple[float, float],
     ) -> float:
         """
         Calculate perpendicular distance from point to line segment.
@@ -671,7 +1218,9 @@ class PathFinder:
             return math.sqrt((px - x1) ** 2 + (py - y1) ** 2)
 
         # Parameter t = projection of point onto line (0 = start, 1 = end)
-        t = max(0, min(1, ((px - x1) * (x2 - x1) + (py - y1) * (y2 - y1)) / line_len_sq))
+        t = max(
+            0, min(1, ((px - x1) * (x2 - x1) + (py - y1) * (y2 - y1)) / line_len_sq)
+        )
 
         # Closest point on line segment
         closest_x = x1 + t * (x2 - x1)
@@ -681,9 +1230,7 @@ class PathFinder:
         return math.sqrt((px - closest_x) ** 2 + (py - closest_y) ** 2)
 
     def estimate_path_length(
-        self,
-        start_mm: Tuple[float, float],
-        goal_mm: Tuple[float, float]
+        self, start_mm: Tuple[float, float], goal_mm: Tuple[float, float]
     ) -> float:
         """
         Estimate path length using Manhattan distance (quick heuristic).
@@ -700,8 +1247,7 @@ class PathFinder:
         return dx + dy
 
     def get_path_with_layers(
-        self,
-        path_cells: List[GridCell]
+        self, path_cells: List[GridCell]
     ) -> List[Tuple[Tuple[float, float], str]]:
         """
         Convert path cells to (position, layer) tuples for detailed routing info.
@@ -733,7 +1279,7 @@ class PathFinder:
                 "length_mm": 0.0,
                 "segments": 0,
                 "waypoints": len(path) if path else 0,
-                "bends": 0
+                "bends": 0,
             }
 
         # Calculate total length
@@ -754,8 +1300,8 @@ class PathFinder:
                 dy2 = path[i + 2][1] - path[i + 1][1]
 
                 # Normalize
-                len1 = math.sqrt(dx1 ** 2 + dy1 ** 2)
-                len2 = math.sqrt(dx2 ** 2 + dy2 ** 2)
+                len1 = math.sqrt(dx1**2 + dy1**2)
+                len2 = math.sqrt(dx2**2 + dy2**2)
 
                 if len1 > 0 and len2 > 0:
                     dx1, dy1 = dx1 / len1, dy1 / len1
@@ -770,5 +1316,5 @@ class PathFinder:
             "length_mm": round(length, 2),
             "segments": len(path) - 1,
             "waypoints": len(path),
-            "bends": bends
+            "bends": bends,
         }
