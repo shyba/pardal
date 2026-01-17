@@ -460,12 +460,9 @@ class CreateNetCommand(Command):
             # Optionally validate pin exists on component
             comp = board.components[ref]
             if comp.pads:
-                try:
-                    pin_num = int(pin)
-                    if not any(p.number == pin_num for p in comp.pads):
-                        return f"Error: Pin {pin} not found on component '{ref}'"
-                except ValueError:
-                    pass  # Non-numeric pin names are allowed
+                pin_str = str(pin)
+                if not any(str(p.number) == pin_str for p in comp.pads):
+                    return f"Error: Pin {pin_str} not found on component '{ref}'"
 
         return None
 

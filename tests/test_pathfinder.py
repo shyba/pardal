@@ -234,12 +234,15 @@ class TestPathfindingEdgeCases:
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.5)
 
         # Mark start as obstacle
-        grid.mark_obstacle(10.0, 20.0, "F.Cu", size_mm=2.0)
+        grid.mark_obstacle(10.0, 20.0, "F.Cu", size_mm=2.0, net_name="NET1")
 
         finder = PathFinder(grid)
 
         path = finder.find_path(
-            start_mm=(10.0, 20.0), goal_mm=(30.0, 20.0), layer="F.Cu"
+            start_mm=(10.0, 20.0),
+            goal_mm=(30.0, 20.0),
+            layer="F.Cu",
+            net_name="NET1",
         )
 
         # Path should be found - routes can start from obstacles (pads are obstacles)

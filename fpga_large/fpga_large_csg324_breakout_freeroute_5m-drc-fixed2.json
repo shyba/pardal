@@ -1,0 +1,4769 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2025-12-26T23:35:17+0000",
+    "kicad_version": "9.0.6",
+    "schematic_parity": [],
+    "source": "fpga_large_csg324_breakout_freeroute_5m.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 44.0
+                    },
+                    "uuid": "f3e25fc8-9fbc-40fd-9a15-c837a7ebce93"
+                },
+                {
+                    "description": "Pad 1 [U1_B4] of TP22 on F.Cu",
+                    "pos": {
+                        "x": 73.1852,
+                        "y": 12.0
+                    },
+                    "uuid": "1b251521-6ec6-4d01-8834-cce6863e29b0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 44.0
+                    },
+                    "uuid": "135c0d62-62ca-4570-83f6-b701de258fb2"
+                },
+                {
+                    "description": "Pad 1 [U1_B5] of TP23 on F.Cu",
+                    "pos": {
+                        "x": 76.0988,
+                        "y": 12.0
+                    },
+                    "uuid": "858b1c1c-2dd9-481f-a6f6-cdaf999d22a8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 44.0
+                    },
+                    "uuid": "f132006d-3173-4261-a627-a6cf049ebdab"
+                },
+                {
+                    "description": "Pad 1 [U1_B7] of TP25 on F.Cu",
+                    "pos": {
+                        "x": 81.9259,
+                        "y": 12.0
+                    },
+                    "uuid": "991c8a2f-54d7-404d-9a4b-64982f0c69db"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.8,
+                        "y": 44.0
+                    },
+                    "uuid": "2818f085-0aac-49c7-a8bc-a6f120a20a06"
+                },
+                {
+                    "description": "Pad 1 [U1_B8] of TP26 on F.Cu",
+                    "pos": {
+                        "x": 84.8395,
+                        "y": 12.0
+                    },
+                    "uuid": "cff02d66-1014-4799-83af-1f10de2f5865"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 44.0
+                    },
+                    "uuid": "d5535944-644a-45ed-84d9-e1ce2686ffc7"
+                },
+                {
+                    "description": "Pad 1 [U1_B10] of TP28 on F.Cu",
+                    "pos": {
+                        "x": 90.6667,
+                        "y": 12.0
+                    },
+                    "uuid": "2ef5ddc9-2e7c-4b97-81e5-c1aa29a78c00"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 44.0
+                    },
+                    "uuid": "2a7964ef-d9f6-4530-a3fd-fd8579748290"
+                },
+                {
+                    "description": "Pad 1 [U1_B11] of TP29 on F.Cu",
+                    "pos": {
+                        "x": 93.5802,
+                        "y": 12.0
+                    },
+                    "uuid": "3750b3ef-e808-40e2-99fd-91a961381677"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 44.0
+                    },
+                    "uuid": "cd42a058-bb2d-4f3f-b6c8-a1e27f825101"
+                },
+                {
+                    "description": "Pad 1 [U1_B12] of TP30 on F.Cu",
+                    "pos": {
+                        "x": 96.4938,
+                        "y": 12.0
+                    },
+                    "uuid": "a17b3811-82ba-4ca3-b2e3-36fa386b9d77"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 44.0
+                    },
+                    "uuid": "ef1d953a-a030-4b08-8966-62a390cf3f27"
+                },
+                {
+                    "description": "Pad 1 [U1_B13] of TP31 on F.Cu",
+                    "pos": {
+                        "x": 99.4074,
+                        "y": 12.0
+                    },
+                    "uuid": "da2aa817-4d70-46d8-b5c0-e9a8e181728c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_B14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 44.0
+                    },
+                    "uuid": "612115e7-1cb7-46f6-bae5-1c129b02f0cc"
+                },
+                {
+                    "description": "Pad 1 [U1_B14] of TP32 on F.Cu",
+                    "pos": {
+                        "x": 102.321,
+                        "y": 12.0
+                    },
+                    "uuid": "98d36548-1301-4b99-9a54-919f171a2dfd"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C1] on In1.Cu",
+                    "pos": {
+                        "x": 43.2,
+                        "y": 44.8
+                    },
+                    "uuid": "b29f96d8-4dcf-4fc6-93b8-8380e47ff353"
+                },
+                {
+                    "description": "Track [U1_C1] on F.Cu, length 2.9288 mm",
+                    "pos": {
+                        "x": 114.8179,
+                        "y": 14.071
+                    },
+                    "uuid": "75d1440f-156a-4312-83ae-2783d16d75c8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C2] on In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 44.8
+                    },
+                    "uuid": "5d7c21dd-3266-416a-9d31-96425fb9b3c6"
+                },
+                {
+                    "description": "Pad 1 [U1_C2] of TP38 on F.Cu",
+                    "pos": {
+                        "x": 119.8025,
+                        "y": 12.0
+                    },
+                    "uuid": "3bbe8ba3-f091-4801-a4a0-4a049cb344f7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C3] on In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 44.8
+                    },
+                    "uuid": "1147f26d-9f76-4250-b73c-3c70b4bea8dd"
+                },
+                {
+                    "description": "Pad 1 [U1_C3] of TP39 on F.Cu",
+                    "pos": {
+                        "x": 122.716,
+                        "y": 12.0
+                    },
+                    "uuid": "e7445f02-2742-45a5-ba44-a5bafb797040"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C5] on In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 44.8
+                    },
+                    "uuid": "149bfc9d-8737-4617-a60d-d6e80dd784a2"
+                },
+                {
+                    "description": "Pad 1 [U1_C5] of TP41 on F.Cu",
+                    "pos": {
+                        "x": 128.5432,
+                        "y": 12.0
+                    },
+                    "uuid": "7e4874e2-dec4-4c13-9692-23fe9397eccb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C6] on In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 44.8
+                    },
+                    "uuid": "88ce5d5f-eb16-4a94-bce8-a4256a45bc58"
+                },
+                {
+                    "description": "Track [U1_C6] on F.Cu, length 0.6914 mm",
+                    "pos": {
+                        "x": 125.898,
+                        "y": 36.1523
+                    },
+                    "uuid": "4f350d8f-fd61-4137-b19a-eb2f132bf258"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_C9] on F.Cu, length 0.0016 mm",
+                    "pos": {
+                        "x": 137.9479,
+                        "y": 39.8909
+                    },
+                    "uuid": "fa72869b-b739-4adc-a296-b2d37155791c"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_C9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 44.8
+                    },
+                    "uuid": "8d81786d-1459-4449-8db1-67ee7b0acdb3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_C11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 44.8
+                    },
+                    "uuid": "42bddbd5-7530-4bda-8da5-d20eb6dbbfc3"
+                },
+                {
+                    "description": "Pad 1 [U1_C11] of TP47 on F.Cu",
+                    "pos": {
+                        "x": 146.0247,
+                        "y": 12.0
+                    },
+                    "uuid": "8860071d-4788-4fb0-b4c1-6a99fa7a094f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C12] on In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 44.8
+                    },
+                    "uuid": "a640e10c-72b0-4f30-803f-d76eaf2693ca"
+                },
+                {
+                    "description": "Pad 1 [U1_C12] of TP48 on F.Cu",
+                    "pos": {
+                        "x": 148.9383,
+                        "y": 12.0
+                    },
+                    "uuid": "170eaecd-7d42-4a8d-a541-eaa5ac6c6927"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_C13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 44.8
+                    },
+                    "uuid": "662d0e55-b53f-4c06-a9e1-b30e87e0dc53"
+                },
+                {
+                    "description": "Pad 1 [U1_C13] of TP49 on F.Cu",
+                    "pos": {
+                        "x": 151.8519,
+                        "y": 12.0
+                    },
+                    "uuid": "0188da4c-9a4c-43a0-b73c-e36ab2e9f1ca"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_C14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 44.8
+                    },
+                    "uuid": "712dc3b9-316c-42b2-b3a4-ebeb5b21bea6"
+                },
+                {
+                    "description": "Pad 1 [U1_C14] of TP50 on F.Cu",
+                    "pos": {
+                        "x": 154.7654,
+                        "y": 12.0
+                    },
+                    "uuid": "221dd4eb-ba92-45c5-9321-15b31c9cffa7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C17] on In1.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 44.8
+                    },
+                    "uuid": "1aef0976-f3b4-4335-b94f-524d5379dfe5"
+                },
+                {
+                    "description": "Pad 1 [U1_C17] of TP53 on F.Cu",
+                    "pos": {
+                        "x": 163.5062,
+                        "y": 12.0
+                    },
+                    "uuid": "6b8dc31d-255c-4814-9f60-65c2df8474cb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_C18] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 44.8
+                    },
+                    "uuid": "990ab949-f443-4a44-946d-a17c6a39dc2e"
+                },
+                {
+                    "description": "Pad 1 [U1_C18] of TP54 on F.Cu",
+                    "pos": {
+                        "x": 166.4198,
+                        "y": 12.0
+                    },
+                    "uuid": "ec00e6a6-d4bd-465e-9735-55f3671fa8bc"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_D3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 45.6
+                    },
+                    "uuid": "f8a94621-966c-4c62-a731-d96975edbe50"
+                },
+                {
+                    "description": "Pad 1 [U1_D3] of TP57 on F.Cu",
+                    "pos": {
+                        "x": 175.1605,
+                        "y": 12.0
+                    },
+                    "uuid": "be7a9a6c-dc00-4786-b9d8-7234d6807510"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_D4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 45.6
+                    },
+                    "uuid": "250c1367-dfa0-4208-8911-c741e13e04c7"
+                },
+                {
+                    "description": "Pad 1 [U1_D4] of TP58 on F.Cu",
+                    "pos": {
+                        "x": 178.0741,
+                        "y": 12.0
+                    },
+                    "uuid": "c8b76402-0faf-46a3-a204-97d2b9acf535"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_D6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 45.6
+                    },
+                    "uuid": "32d1bd09-4a91-4695-bced-232f240087fd"
+                },
+                {
+                    "description": "Pad 1 [U1_D6] of TP60 on F.Cu",
+                    "pos": {
+                        "x": 183.9012,
+                        "y": 12.0
+                    },
+                    "uuid": "954950ff-9d41-48cc-b0b9-1a5d8f1cc855"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_D7] on In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 45.6
+                    },
+                    "uuid": "8ae03803-a684-4fee-806f-3afecf050842"
+                },
+                {
+                    "description": "Track [U1_D7] on B.Cu, length 0.0016 mm",
+                    "pos": {
+                        "x": 179.6602,
+                        "y": 22.7387
+                    },
+                    "uuid": "c7009d58-a5aa-447f-b535-ac6c19f347fa"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_D11] on In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 45.6
+                    },
+                    "uuid": "a2128551-5715-44cf-ad81-984732328f45"
+                },
+                {
+                    "description": "Pad 1 [U1_D11] of TP65 on F.Cu",
+                    "pos": {
+                        "x": 198.4691,
+                        "y": 12.0
+                    },
+                    "uuid": "370c6204-f145-435f-a570-a8de39466a48"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_D12] on In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 45.6
+                    },
+                    "uuid": "fe7cc7fb-227a-4781-ba4f-9f96661a5893"
+                },
+                {
+                    "description": "Pad 1 [U1_D12] of TP66 on F.Cu",
+                    "pos": {
+                        "x": 201.3827,
+                        "y": 12.0
+                    },
+                    "uuid": "d3efa786-51d0-40bd-8ac6-a05bc2a9c60b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_D13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 45.6
+                    },
+                    "uuid": "f00b2382-dc1e-45ff-9ce5-a775e4dba994"
+                },
+                {
+                    "description": "Pad 1 [U1_D13] of TP67 on F.Cu",
+                    "pos": {
+                        "x": 204.2963,
+                        "y": 12.0
+                    },
+                    "uuid": "be7c3f4d-56b4-4ef6-b0e3-4d1c54565e14"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_D14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 45.6
+                    },
+                    "uuid": "b1edebfb-16be-465a-ae93-7b2de34368bb"
+                },
+                {
+                    "description": "Pad 1 [U1_D14] of TP68 on F.Cu",
+                    "pos": {
+                        "x": 207.2099,
+                        "y": 12.0
+                    },
+                    "uuid": "6d19f389-fc4f-42f7-8110-adf2dc9e4881"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_D15] on In1.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 45.6
+                    },
+                    "uuid": "f3036e8f-1862-4c37-ba5a-875ac7f8ecd9"
+                },
+                {
+                    "description": "Pad 1 [U1_D15] of TP69 on F.Cu",
+                    "pos": {
+                        "x": 210.1235,
+                        "y": 12.0
+                    },
+                    "uuid": "2872f9dd-c7e1-4c90-93c0-de6fbec08674"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_E1] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 43.2,
+                        "y": 46.4
+                    },
+                    "uuid": "a31b9a62-5be4-4023-a9c7-4f56a0917c03"
+                },
+                {
+                    "description": "Pad 1 [U1_E1] of TP73 on F.Cu",
+                    "pos": {
+                        "x": 221.7778,
+                        "y": 12.0
+                    },
+                    "uuid": "d0646a80-5fcc-4d4a-b00a-af7219fde2bc"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_E2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 46.4
+                    },
+                    "uuid": "5109a12a-5add-4cad-b0a7-9a10fefd9881"
+                },
+                {
+                    "description": "Pad 1 [U1_E2] of TP74 on F.Cu",
+                    "pos": {
+                        "x": 224.6914,
+                        "y": 12.0
+                    },
+                    "uuid": "2f09ba17-ffc0-486b-a90e-389176af148a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_E3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 46.4
+                    },
+                    "uuid": "4af2fb8d-8370-40a3-962f-549d02d69fc2"
+                },
+                {
+                    "description": "Pad 1 [U1_E3] of TP75 on F.Cu",
+                    "pos": {
+                        "x": 227.6049,
+                        "y": 12.0
+                    },
+                    "uuid": "b223b938-6810-4982-b80d-381abdda9f88"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_E4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 46.4
+                    },
+                    "uuid": "de94fc6f-5569-458e-aa9b-af8251d9b4e5"
+                },
+                {
+                    "description": "Pad 1 [U1_E4] of TP76 on F.Cu",
+                    "pos": {
+                        "x": 230.5185,
+                        "y": 12.0
+                    },
+                    "uuid": "724a8879-1358-42fd-bb80-4a3396463611"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_E5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 46.4
+                    },
+                    "uuid": "9dbde5bd-4812-449c-a612-d122832eec95"
+                },
+                {
+                    "description": "Pad 1 [U1_E5] of TP77 on F.Cu",
+                    "pos": {
+                        "x": 233.4321,
+                        "y": 12.0
+                    },
+                    "uuid": "4d227054-c273-417a-ba06-0c126a2a039d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_E6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 46.4
+                    },
+                    "uuid": "b95077d3-bf84-456d-ba4e-88b6875733f7"
+                },
+                {
+                    "description": "Pad 1 [U1_E6] of TP78 on F.Cu",
+                    "pos": {
+                        "x": 236.3457,
+                        "y": 12.0
+                    },
+                    "uuid": "4f6c8756-5f1b-4fc8-b173-6dd9fef309af"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_E7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 46.4
+                    },
+                    "uuid": "3784b95c-39fa-4c63-8c81-9ab33943aaf9"
+                },
+                {
+                    "description": "Pad 1 [U1_E7] of TP79 on F.Cu",
+                    "pos": {
+                        "x": 239.2593,
+                        "y": 12.0
+                    },
+                    "uuid": "a2e4fae8-3096-4121-99cc-c3deb9aeab2b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_E10] on In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 46.4
+                    },
+                    "uuid": "b5b45ffe-e53e-4e96-9920-307e7856c7d4"
+                },
+                {
+                    "description": "Pad 1 [U1_E10] of TP82 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 12.0
+                    },
+                    "uuid": "56be7372-3d68-4693-b42f-7ae9b7e10f9c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_E11] on In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 46.4
+                    },
+                    "uuid": "9373f1e8-e5ff-447a-b8ba-5f7814165624"
+                },
+                {
+                    "description": "Pad 1 [U1_E11] of TP83 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 14.9136
+                    },
+                    "uuid": "fbf3d84a-d52c-422e-bc6c-93d8f98d8aa8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_E12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 46.4
+                    },
+                    "uuid": "c9103d62-4619-46d5-8347-7956ecce9af6"
+                },
+                {
+                    "description": "Pad 1 [U1_E12] of TP84 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 17.8272
+                    },
+                    "uuid": "cf11254a-0e0a-4c83-a1a9-f953bedcc898"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad E13 [U1_E13] of U1 on F.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 46.4
+                    },
+                    "uuid": "540dbf16-c767-48b5-8319-a7833032d325"
+                },
+                {
+                    "description": "Pad 1 [U1_E13] of TP85 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 20.7407
+                    },
+                    "uuid": "f017cdbb-01a8-45c4-ab27-635523feeff7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad E16 [U1_E16] of U1 on F.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 46.4
+                    },
+                    "uuid": "4ab2896f-0e8f-4290-b1a2-f2fbebda3147"
+                },
+                {
+                    "description": "Pad 1 [U1_E16] of TP88 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 29.4815
+                    },
+                    "uuid": "b5e69f73-0227-40ea-ad5a-79afdc30f352"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad E17 [U1_E17] of U1 on F.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 46.4
+                    },
+                    "uuid": "a24f21d0-dfb3-4c51-8e1b-c93b01eb7b14"
+                },
+                {
+                    "description": "Pad 1 [U1_E17] of TP89 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 32.3951
+                    },
+                    "uuid": "bdc9a9ba-3216-4164-8b00-b9cfc05a730e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad E18 [U1_E18] of U1 on F.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 46.4
+                    },
+                    "uuid": "ee6aa93a-1537-4979-88b6-060d0d8d24cb"
+                },
+                {
+                    "description": "Pad 1 [U1_E18] of TP90 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 35.3086
+                    },
+                    "uuid": "74566d7f-265e-41b5-b6f0-e47a9d0c3374"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad F1 [U1_F1] of U1 on F.Cu",
+                    "pos": {
+                        "x": 43.2,
+                        "y": 47.2
+                    },
+                    "uuid": "b8548d86-d57b-426b-a939-b21ab940c5fe"
+                },
+                {
+                    "description": "Track [U1_F1] on B.Cu, length 0.2242 mm",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 40.1282
+                    },
+                    "uuid": "67db56c2-cad6-4239-b37a-c6866e169294"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad F3 [U1_F3] of U1 on F.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 47.2
+                    },
+                    "uuid": "861dcf32-26a4-46b7-91f0-cc64663b5f25"
+                },
+                {
+                    "description": "Pad 1 [U1_F3] of TP93 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 44.0494
+                    },
+                    "uuid": "8b054645-e504-4fbd-9ddc-d50c59e997f2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_F5] on In1.Cu, length 0.1430 mm",
+                    "pos": {
+                        "x": 246.4699,
+                        "y": 47.3995
+                    },
+                    "uuid": "f23578c3-6001-439c-bfb1-a338ad6672a0"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_F5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 47.2
+                    },
+                    "uuid": "a479ecc3-13d3-4115-abff-ff39749d674e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_F7] on In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 47.2
+                    },
+                    "uuid": "9cb7486d-c94a-46bb-a340-4386ab08e0fc"
+                },
+                {
+                    "description": "Track [U1_F7] on F.Cu, length 0.0001 mm",
+                    "pos": {
+                        "x": 243.4389,
+                        "y": 51.8297
+                    },
+                    "uuid": "c9cd6119-e4b4-4e3b-ae5c-f814a6072303"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_F8] on In1.Cu",
+                    "pos": {
+                        "x": 48.8,
+                        "y": 47.2
+                    },
+                    "uuid": "b6002539-d2e2-45e5-9170-301d854a4f72"
+                },
+                {
+                    "description": "Pad 1 [U1_F8] of TP98 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 58.6173
+                    },
+                    "uuid": "9b087f67-6b1c-4c7f-8b4c-49d416a7eb20"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_F9] on F.Cu, length 0.0097 mm",
+                    "pos": {
+                        "x": 243.1841,
+                        "y": 56.715
+                    },
+                    "uuid": "8f213dc6-d9c8-4083-941c-54b39ec4bd91"
+                },
+                {
+                    "description": "Circle [U1_F9] on In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 47.2
+                    },
+                    "uuid": "f5a1ed5d-1148-42ef-aea0-6a92598b24c8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_F10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 47.2
+                    },
+                    "uuid": "3c102fdf-032c-479c-9574-7ff88904a4c9"
+                },
+                {
+                    "description": "Pad 1 [U1_F10] of TP100 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 64.4444
+                    },
+                    "uuid": "edf603cd-3fa0-4ea9-8e74-a6bc342b3558"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_F12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 47.2
+                    },
+                    "uuid": "379d796a-25fd-4bc9-afea-c3b7488f0a3d"
+                },
+                {
+                    "description": "Pad 1 [U1_F12] of TP102 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 70.2716
+                    },
+                    "uuid": "bf020075-0724-4293-af8d-6b3ccfc0c461"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_F13] on In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 47.2
+                    },
+                    "uuid": "a7a21a09-b988-43ab-b923-325991df9c20"
+                },
+                {
+                    "description": "Pad 1 [U1_F13] of TP103 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 73.1852
+                    },
+                    "uuid": "a032432b-1d43-4990-a45f-7312500e0d55"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_F14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 47.2
+                    },
+                    "uuid": "b39cbef0-a942-46d2-897a-c63e7dae4f7d"
+                },
+                {
+                    "description": "Pad 1 [U1_F14] of TP104 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 76.0988
+                    },
+                    "uuid": "db79fe84-48c2-4308-8006-d34497467f41"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_F16] on F.Cu, length 2.1189 mm",
+                    "pos": {
+                        "x": 246.6994,
+                        "y": 80.6253
+                    },
+                    "uuid": "b1a39759-6336-4535-844c-3f719e4c21c8"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_F16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 47.2
+                    },
+                    "uuid": "c5bc63a3-c45a-472b-82e8-9a58238ec92f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_F17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 47.2
+                    },
+                    "uuid": "824b404a-1699-446c-a434-41786f117979"
+                },
+                {
+                    "description": "Pad 1 [U1_F17] of TP107 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 84.8395
+                    },
+                    "uuid": "06b2d8cf-a3d2-4af7-816c-80c20f851f21"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_G2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 48.0
+                    },
+                    "uuid": "e9db44e0-4a0f-4302-87cd-d67605c8697e"
+                },
+                {
+                    "description": "Pad 1 [U1_G2] of TP110 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 93.5802
+                    },
+                    "uuid": "3f20e8d6-827d-4fa9-9f90-8b77185701a1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_G3] on F.Cu, length 2.4932 mm",
+                    "pos": {
+                        "x": 246.7257,
+                        "y": 95.2195
+                    },
+                    "uuid": "f2f81a13-43ed-4f03-b733-0c8cad8271e6"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_G3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 48.0
+                    },
+                    "uuid": "95bacaca-dd2c-494f-bfec-36b91ca8a9d2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G5] on In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 48.0
+                    },
+                    "uuid": "a181ce2e-1e24-4833-9a60-2e72fb144a82"
+                },
+                {
+                    "description": "Pad 1 [U1_G5] of TP113 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 102.321
+                    },
+                    "uuid": "2a69f4be-bcb1-46dc-9698-6bc7126a9f8a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_G6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 48.0
+                    },
+                    "uuid": "1acac652-8442-4923-b52e-38ed57b3f9d2"
+                },
+                {
+                    "description": "Pad 1 [U1_G6] of TP114 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 105.2346
+                    },
+                    "uuid": "18f09e67-5ae2-4181-b36b-dc9566197695"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_G7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 48.0
+                    },
+                    "uuid": "428d7740-7b4e-448e-9227-ec38152e3373"
+                },
+                {
+                    "description": "Pad 1 [U1_G7] of TP115 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 108.1481
+                    },
+                    "uuid": "c03c0212-5fa4-4945-b8c7-3e3581ae9555"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_G9] on B.Cu, length 0.1295 mm",
+                    "pos": {
+                        "x": 246.6899,
+                        "y": 110.3929
+                    },
+                    "uuid": "56d04fb1-853d-4546-8472-598c61158630"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_G9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 48.0
+                    },
+                    "uuid": "190a7633-e934-4405-933b-2aa103bbf517"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_G10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 48.0
+                    },
+                    "uuid": "102690c0-b1be-4092-b23e-1e78b422dbf5"
+                },
+                {
+                    "description": "Pad 1 [U1_G10] of TP118 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 116.8889
+                    },
+                    "uuid": "3fb4046c-9ead-4034-aa47-d94f8abfd983"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G11] on In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 48.0
+                    },
+                    "uuid": "0ada919b-7600-4306-8262-d36b37824d48"
+                },
+                {
+                    "description": "Pad 1 [U1_G11] of TP119 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 119.8025
+                    },
+                    "uuid": "6ab35db4-44c6-4d87-b148-233512e22c22"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G12] on In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 48.0
+                    },
+                    "uuid": "bb90a7c6-0230-41fd-833a-39b3d9dacad2"
+                },
+                {
+                    "description": "Pad 1 [U1_G12] of TP120 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 122.716
+                    },
+                    "uuid": "02f2d3ca-9c6c-4308-bc74-36c90ce1e3d4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G13] on In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 48.0
+                    },
+                    "uuid": "9d9e4a93-70a0-42e8-8de6-76244de192ff"
+                },
+                {
+                    "description": "Pad 1 [U1_G13] of TP121 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 125.6296
+                    },
+                    "uuid": "2e07353e-f690-4fd9-a295-10929f0b0686"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_G14] on F.Cu, length 1.3691 mm",
+                    "pos": {
+                        "x": 246.8506,
+                        "y": 127.3938
+                    },
+                    "uuid": "56b5a9d9-05a0-4697-b5a3-20ea9e1cf840"
+                },
+                {
+                    "description": "Circle [U1_G14] on In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 48.0
+                    },
+                    "uuid": "a856e79c-eee7-4d5f-9579-7245676b511b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_G15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 48.0
+                    },
+                    "uuid": "0f15d6f7-0667-4517-a28a-1101972bb624"
+                },
+                {
+                    "description": "Pad 1 [U1_G15] of TP123 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 131.4568
+                    },
+                    "uuid": "8335f677-ba3f-42fa-b396-fb8522efd77f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_G17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 48.0
+                    },
+                    "uuid": "c1511878-4691-4f58-9e62-5c1d3b46e060"
+                },
+                {
+                    "description": "Pad 1 [U1_G17] of TP125 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 137.2839
+                    },
+                    "uuid": "6b31fb65-8ff2-4f47-9a08-d125c3561c5b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_G18] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 48.0
+                    },
+                    "uuid": "199e13ce-297b-426e-ae4f-0cfce3f6bfbc"
+                },
+                {
+                    "description": "Pad 1 [U1_G18] of TP126 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 140.1975
+                    },
+                    "uuid": "a857d8d1-3580-4d27-8c89-4b9bef44c470"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H1] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 43.2,
+                        "y": 48.8
+                    },
+                    "uuid": "c5eb1c6a-a9da-413c-9477-4ed317dc8cb1"
+                },
+                {
+                    "description": "Pad 1 [U1_H1] of TP127 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 143.1111
+                    },
+                    "uuid": "8ae07d5e-45d1-4c71-8f63-fe7960343a03"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Via [U1_H2] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 241.5,
+                        "y": 108.148
+                    },
+                    "uuid": "72cf6af0-8b5f-4c39-85f2-a003998da0d6"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_H2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 48.8
+                    },
+                    "uuid": "b869221f-cd7d-41ba-a8ea-249c64f799ff"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_H3] on In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 48.8
+                    },
+                    "uuid": "19e5db99-8bbf-4e06-a81e-bfc85787589e"
+                },
+                {
+                    "description": "Pad 1 [U1_H3] of TP129 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 148.9383
+                    },
+                    "uuid": "d182aff6-55de-4e1c-ab0c-c0f0ef8e19e3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 48.8
+                    },
+                    "uuid": "b8c392e0-c0c5-4bc1-8475-bb757828749f"
+                },
+                {
+                    "description": "Pad 1 [U1_H4] of TP130 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 151.8519
+                    },
+                    "uuid": "e340ece8-38bd-4b7e-914e-ef25ef2e798a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 48.8
+                    },
+                    "uuid": "4d4806a9-e271-4adc-a65c-da2a70eec2cc"
+                },
+                {
+                    "description": "Pad 1 [U1_H6] of TP132 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 157.679
+                    },
+                    "uuid": "32ad94c1-31c0-4b02-a91f-90bf0ff3e7da"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 48.8
+                    },
+                    "uuid": "a248bbad-6ed6-4697-8249-1e9214520c4d"
+                },
+                {
+                    "description": "Pad 1 [U1_H7] of TP133 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 160.5926
+                    },
+                    "uuid": "4a0151bd-1229-4e52-8919-e61d5afda0d9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.8,
+                        "y": 48.8
+                    },
+                    "uuid": "0ce47947-a25b-45eb-9003-31c957d6c183"
+                },
+                {
+                    "description": "Track [U1_H8] on In1.Cu, length 0.0603 mm",
+                    "pos": {
+                        "x": 241.9228,
+                        "y": 65.7484
+                    },
+                    "uuid": "e4d45b9c-c148-4e86-80f1-f1e3acfc0818"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_H9] on In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 48.8
+                    },
+                    "uuid": "b457bc6c-3df6-49b1-9581-8e6a5d70c548"
+                },
+                {
+                    "description": "Pad 1 [U1_H9] of TP135 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 166.4198
+                    },
+                    "uuid": "86eb153f-61d1-4c7f-8264-2469dc008e7c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 48.8
+                    },
+                    "uuid": "ff58d193-c36a-436e-92e3-a8697e495a18"
+                },
+                {
+                    "description": "Pad 1 [U1_H11] of TP137 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 172.2469
+                    },
+                    "uuid": "f0c66e5e-312e-426e-bcf6-87ca5d12e1e4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_H13] on In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 48.8
+                    },
+                    "uuid": "0db9141b-0e88-418a-be6b-abe904828ac8"
+                },
+                {
+                    "description": "Pad 1 [U1_H13] of TP139 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 178.0741
+                    },
+                    "uuid": "320cbe3d-6203-4248-a4ca-928f0955689c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 48.8
+                    },
+                    "uuid": "11f06611-f143-41ff-aaa3-ff3fffca7d1c"
+                },
+                {
+                    "description": "Pad 1 [U1_H14] of TP140 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 180.9877
+                    },
+                    "uuid": "bf83a994-df63-4fa8-bc88-11b03b745bc8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 48.8
+                    },
+                    "uuid": "183dda68-85e6-454f-b58f-2172481475a2"
+                },
+                {
+                    "description": "Pad 1 [U1_H16] of TP142 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 186.8148
+                    },
+                    "uuid": "b242a362-b083-470b-b615-31e1aa93a107"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 48.8
+                    },
+                    "uuid": "add155eb-b925-40b4-a054-c373dc95553a"
+                },
+                {
+                    "description": "Pad 1 [U1_H17] of TP143 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 189.7284
+                    },
+                    "uuid": "0c0d44a2-9e75-4486-b1ad-7d05422eb5b1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_H18] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 48.8
+                    },
+                    "uuid": "c5f9c3d8-a399-45c2-aa7d-c76fbfe7a5d6"
+                },
+                {
+                    "description": "Pad 1 [U1_H18] of TP144 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 192.642
+                    },
+                    "uuid": "1869da4d-dc91-48bf-beff-c374650eb3a4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_J2] on F.Cu, length 1.5780 mm",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 198.4691
+                    },
+                    "uuid": "5956b596-b4d2-4d19-985b-080111bd5bf4"
+                },
+                {
+                    "description": "Circle [U1_J2] on In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 49.6
+                    },
+                    "uuid": "0f0de7da-44ca-4ef9-9b52-4088eba1c8a5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 49.6
+                    },
+                    "uuid": "866345e9-e681-46fa-a256-ad9cb2205e31"
+                },
+                {
+                    "description": "Pad 1 [U1_J3] of TP147 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 201.3827
+                    },
+                    "uuid": "e396c07e-182b-42bb-b1fe-785fce9754e0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 49.6
+                    },
+                    "uuid": "160a13af-a8bf-4a89-9ceb-476cb7d10ff3"
+                },
+                {
+                    "description": "Pad 1 [U1_J4] of TP148 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 204.2963
+                    },
+                    "uuid": "7d9134cd-79e7-4108-aec6-e7aeb79d6937"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 49.6
+                    },
+                    "uuid": "9880a9ba-f0c9-46b1-a35d-80db421d6789"
+                },
+                {
+                    "description": "Pad 1 [U1_J5] of TP149 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 207.2099
+                    },
+                    "uuid": "ebdfe9a5-596c-45ce-b5f5-474ab7bea610"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 49.6
+                    },
+                    "uuid": "cd101a0f-5200-4669-ae5c-4832f32b7345"
+                },
+                {
+                    "description": "Pad 1 [U1_J6] of TP150 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 210.1235
+                    },
+                    "uuid": "30d18fb2-6cca-4157-baec-08fec54736a7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 49.6
+                    },
+                    "uuid": "92b5b7cb-21b5-4c30-abf9-4ab5efe66fe0"
+                },
+                {
+                    "description": "Pad 1 [U1_J7] of TP151 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 213.037
+                    },
+                    "uuid": "e5fffb6a-247f-4db7-8c91-b9475277ad73"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_J8] on In1.Cu",
+                    "pos": {
+                        "x": 48.8,
+                        "y": 49.6
+                    },
+                    "uuid": "b31d48a7-5f91-48a3-add5-3edae9613453"
+                },
+                {
+                    "description": "Pad 1 [U1_J8] of TP152 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 215.9506
+                    },
+                    "uuid": "4cb1d656-9f0c-4e72-929f-345e702f776e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_J9] on In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 49.6
+                    },
+                    "uuid": "a8d93438-c37f-4c83-8733-65ce003c1510"
+                },
+                {
+                    "description": "Pad 1 [U1_J9] of TP153 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 218.8642
+                    },
+                    "uuid": "3364dcc0-a059-4e7b-b673-addab45efeb4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 49.6
+                    },
+                    "uuid": "9e5a22e6-6d72-4faa-9728-df24e1407c41"
+                },
+                {
+                    "description": "Pad 1 [U1_J10] of TP154 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 221.7778
+                    },
+                    "uuid": "243b30d3-7bc1-45cf-abbc-114ffa542f57"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 49.6
+                    },
+                    "uuid": "893bbb4e-241b-4f96-ab06-538a983fbec1"
+                },
+                {
+                    "description": "Pad 1 [U1_J12] of TP156 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 227.6049
+                    },
+                    "uuid": "3a9010f1-625c-4f61-9324-47ddd30dd971"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_J13] on F.Cu, length 117.8461 mm",
+                    "pos": {
+                        "x": 216.3917,
+                        "y": 198.9102
+                    },
+                    "uuid": "0fbcadd3-27e4-4f98-b2dd-b368311801d1"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_J13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 49.6
+                    },
+                    "uuid": "79d37539-2f81-4275-a15f-c3a23e1798f0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 49.6
+                    },
+                    "uuid": "7d05c3d8-6702-4078-a852-a035bc74c85f"
+                },
+                {
+                    "description": "Pad 1 [U1_J14] of TP158 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 233.4321
+                    },
+                    "uuid": "6e9bd7be-375b-43e0-8999-802bd52004f5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 49.6
+                    },
+                    "uuid": "55c39457-5dd0-4d9b-8157-a45aa6b3a24c"
+                },
+                {
+                    "description": "Pad 1 [U1_J15] of TP159 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 236.3457
+                    },
+                    "uuid": "4a95c4ac-b77a-49d7-88ee-79d9ccbeffc9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 49.6
+                    },
+                    "uuid": "c64a9ae0-d5a9-467f-bb5e-70c50a0fd259"
+                },
+                {
+                    "description": "Pad 1 [U1_J16] of TP160 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 239.2593
+                    },
+                    "uuid": "41ae384d-3abf-47eb-bf22-f1aa24f8e548"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_J18] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 49.6
+                    },
+                    "uuid": "dabbc4aa-46bf-465e-b3e3-e03a37015849"
+                },
+                {
+                    "description": "Pad 1 [U1_J18] of TP162 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 245.0864
+                    },
+                    "uuid": "bf376d0d-cf4e-44cc-8a87-9bb0ff991736"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K1] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 43.2,
+                        "y": 50.4
+                    },
+                    "uuid": "573642ce-ed24-429e-b6ad-4705f56040b7"
+                },
+                {
+                    "description": "Pad 1 [U1_K1] of TP163 on F.Cu",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 248.0
+                    },
+                    "uuid": "a2757753-d0a0-4dde-b8c7-17a1dcfe5c54"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 50.4
+                    },
+                    "uuid": "8006cbfd-fbc1-4e2f-9270-384865b3fde8"
+                },
+                {
+                    "description": "Track [U1_K2] on B.Cu, length 0.0016 mm",
+                    "pos": {
+                        "x": 52.0174,
+                        "y": 228.7944
+                    },
+                    "uuid": "8a9f730d-7fa2-488f-9c0a-1239b81b8687"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 50.4
+                    },
+                    "uuid": "84d3d5ea-262a-4386-868e-5704097166d0"
+                },
+                {
+                    "description": "Pad 1 [U1_K3] of TP165 on F.Cu",
+                    "pos": {
+                        "x": 242.1728,
+                        "y": 248.0
+                    },
+                    "uuid": "8a7b1fda-ff30-410a-8fef-3004807421c7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 50.4
+                    },
+                    "uuid": "f4d3ba84-6303-419e-8159-09a535ca3aea"
+                },
+                {
+                    "description": "Track [U1_K4] on F.Cu, length 0.9006 mm",
+                    "pos": {
+                        "x": 238.6225,
+                        "y": 243.8431
+                    },
+                    "uuid": "e48726d4-effe-4d18-8f1a-4ac66c729909"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 50.4
+                    },
+                    "uuid": "be2cb0c1-8bc3-4c9f-8118-05c9c53c5c03"
+                },
+                {
+                    "description": "Track [U1_K5] on F.Cu, length 43.6477 mm",
+                    "pos": {
+                        "x": 205.4821,
+                        "y": 217.1364
+                    },
+                    "uuid": "b4243963-0221-4afe-975b-11036337655a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_K6] on In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 50.4
+                    },
+                    "uuid": "9fa8dfbe-56ff-4ae8-9442-7c268f051ad0"
+                },
+                {
+                    "description": "Pad 1 [U1_K6] of TP168 on F.Cu",
+                    "pos": {
+                        "x": 233.4321,
+                        "y": 248.0
+                    },
+                    "uuid": "388cdd5b-9b3e-4204-9e39-90839b89b262"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_K7] on In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 50.4
+                    },
+                    "uuid": "109e5957-8bf5-4594-b457-8d74752be592"
+                },
+                {
+                    "description": "Pad 1 [U1_K7] of TP169 on F.Cu",
+                    "pos": {
+                        "x": 230.5185,
+                        "y": 248.0
+                    },
+                    "uuid": "4837dc50-af1e-4cf0-a124-8aeb7dd5a050"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.8,
+                        "y": 50.4
+                    },
+                    "uuid": "d5bbffbd-a6ed-4b4c-93c9-d6ef52fff261"
+                },
+                {
+                    "description": "Pad 1 [U1_K8] of TP170 on F.Cu",
+                    "pos": {
+                        "x": 227.6049,
+                        "y": 248.0
+                    },
+                    "uuid": "0fbd6da6-90c0-4c22-8565-5d728e604ece"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 50.4
+                    },
+                    "uuid": "84cd8075-03cb-4450-9d8e-ec3c3b21df85"
+                },
+                {
+                    "description": "Pad 1 [U1_K9] of TP171 on F.Cu",
+                    "pos": {
+                        "x": 224.6914,
+                        "y": 248.0
+                    },
+                    "uuid": "44a4a733-5ba1-4a0a-84e6-de6b9fce6b0d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_K10] on In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 50.4
+                    },
+                    "uuid": "19e80ebd-2294-4345-b341-d07bb06e6991"
+                },
+                {
+                    "description": "Pad 1 [U1_K10] of TP172 on F.Cu",
+                    "pos": {
+                        "x": 221.7778,
+                        "y": 248.0
+                    },
+                    "uuid": "7c4e828a-111c-4ac4-b6f6-96d3fbb61e6a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 50.4
+                    },
+                    "uuid": "181480d2-48bd-4ecf-8395-e7bb621b6b93"
+                },
+                {
+                    "description": "Pad 1 [U1_K11] of TP173 on F.Cu",
+                    "pos": {
+                        "x": 218.8642,
+                        "y": 248.0
+                    },
+                    "uuid": "bffc7a2c-f386-47c9-bbe4-e945462502a1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 50.4
+                    },
+                    "uuid": "5cb102ce-3217-45d3-a821-982d648f3d95"
+                },
+                {
+                    "description": "Pad 1 [U1_K13] of TP175 on F.Cu",
+                    "pos": {
+                        "x": 213.037,
+                        "y": 248.0
+                    },
+                    "uuid": "d5dfd07e-75d1-42be-a182-c4d88d71cf9c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 50.4
+                    },
+                    "uuid": "08eabcaa-9a98-4ec6-9285-9df0ee31c792"
+                },
+                {
+                    "description": "Pad 1 [U1_K15] of TP177 on F.Cu",
+                    "pos": {
+                        "x": 207.2099,
+                        "y": 248.0
+                    },
+                    "uuid": "e929b7e1-c8ef-4558-97cc-ba3ff458065f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 50.4
+                    },
+                    "uuid": "b331186e-39e1-4aa0-bbb5-6033d92bec39"
+                },
+                {
+                    "description": "Pad 1 [U1_K16] of TP178 on F.Cu",
+                    "pos": {
+                        "x": 204.2963,
+                        "y": 248.0
+                    },
+                    "uuid": "ec304c3a-f58c-4c63-bedb-b3d77f69f992"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_K18] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 50.4
+                    },
+                    "uuid": "6679cd76-6426-4f82-8af0-d132145d8da5"
+                },
+                {
+                    "description": "Track [U1_K18] on In1.Cu, length 0.1501 mm",
+                    "pos": {
+                        "x": 197.5369,
+                        "y": 50.3914
+                    },
+                    "uuid": "5393d906-4e7a-44c9-a776-d65b0e39a93b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_K18] of TP180 on F.Cu",
+                    "pos": {
+                        "x": 198.4691,
+                        "y": 248.0
+                    },
+                    "uuid": "e31357e7-fc29-41ad-a267-d32cef309214"
+                },
+                {
+                    "description": "Track [U1_K18] on In1.Cu, length 0.1501 mm",
+                    "pos": {
+                        "x": 197.5369,
+                        "y": 50.3914
+                    },
+                    "uuid": "5393d906-4e7a-44c9-a776-d65b0e39a93b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_L1] on In1.Cu",
+                    "pos": {
+                        "x": 43.2,
+                        "y": 51.2
+                    },
+                    "uuid": "f786b752-28da-4496-8248-43a0ddda5f30"
+                },
+                {
+                    "description": "Pad 1 [U1_L1] of TP181 on F.Cu",
+                    "pos": {
+                        "x": 195.5556,
+                        "y": 248.0
+                    },
+                    "uuid": "0697a5c2-9c16-403e-bc06-9baeb48b9bb1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_L3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 51.2
+                    },
+                    "uuid": "acce223d-21ab-481e-8960-61f713c56f79"
+                },
+                {
+                    "description": "Pad 1 [U1_L3] of TP183 on F.Cu",
+                    "pos": {
+                        "x": 189.7284,
+                        "y": 248.0
+                    },
+                    "uuid": "47f4ba55-0069-4f22-b25f-e8486df15b6c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_L5] on In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 51.2
+                    },
+                    "uuid": "ab9ab2ee-6139-441f-a8e4-6e96713d6718"
+                },
+                {
+                    "description": "Pad 1 [U1_L5] of TP185 on F.Cu",
+                    "pos": {
+                        "x": 183.9012,
+                        "y": 248.0
+                    },
+                    "uuid": "c91adbe2-79d8-45ca-baba-580499cd46fc"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_L7] on In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 51.2
+                    },
+                    "uuid": "a7a17547-a022-4c0f-9bdf-02909d7a63e4"
+                },
+                {
+                    "description": "Pad 1 [U1_L7] of TP187 on F.Cu",
+                    "pos": {
+                        "x": 178.0741,
+                        "y": 248.0
+                    },
+                    "uuid": "8230cfbc-0635-4ea6-ab0f-6cbfe48d38d9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_L9] on In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 51.2
+                    },
+                    "uuid": "9c917a01-eeb1-4906-af5f-21831718eecd"
+                },
+                {
+                    "description": "Pad 1 [U1_L9] of TP189 on F.Cu",
+                    "pos": {
+                        "x": 172.2469,
+                        "y": 248.0
+                    },
+                    "uuid": "80ff67dc-4a48-445e-a4be-badcffa9aab1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_L10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 51.2
+                    },
+                    "uuid": "5b220ab4-c43c-4bcc-9819-9463211d4ac6"
+                },
+                {
+                    "description": "Pad 1 [U1_L10] of TP190 on F.Cu",
+                    "pos": {
+                        "x": 169.3333,
+                        "y": 248.0
+                    },
+                    "uuid": "f922b9c9-adc0-41e3-b8a0-d01d8fd2baa3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_L11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 51.2
+                    },
+                    "uuid": "8a385533-09bc-48e7-9fad-b30738d46cb4"
+                },
+                {
+                    "description": "Pad 1 [U1_L11] of TP191 on F.Cu",
+                    "pos": {
+                        "x": 166.4198,
+                        "y": 248.0
+                    },
+                    "uuid": "e2f14610-862d-403b-8dac-4fccb4695876"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_L12] on In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 51.2
+                    },
+                    "uuid": "9ce6878a-1942-459f-a5a4-d9d5e54fe74b"
+                },
+                {
+                    "description": "Pad 1 [U1_L12] of TP192 on F.Cu",
+                    "pos": {
+                        "x": 163.5062,
+                        "y": 248.0
+                    },
+                    "uuid": "7c23ffda-0ee1-4353-aed3-5073f5dc1eeb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_L13] on F.Cu, length 3.9725 mm",
+                    "pos": {
+                        "x": 157.7836,
+                        "y": 241.2574
+                    },
+                    "uuid": "212fc4ed-e592-4817-bc1b-c3ab18752ca7"
+                },
+                {
+                    "description": "Circle [U1_L13] on In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 51.2
+                    },
+                    "uuid": "ad687704-e312-4302-8872-e4d8391fdaf1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_L14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 51.2
+                    },
+                    "uuid": "e24e5a71-3b99-4028-90db-54c0322f7891"
+                },
+                {
+                    "description": "Pad 1 [U1_L14] of TP194 on F.Cu",
+                    "pos": {
+                        "x": 157.679,
+                        "y": 248.0
+                    },
+                    "uuid": "8a12ad32-a02f-48e7-b0b3-cd4694b992de"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_L15] on In1.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 51.2
+                    },
+                    "uuid": "bfbf65bb-c740-46ac-b770-a15257b8cec5"
+                },
+                {
+                    "description": "Pad 1 [U1_L15] of TP195 on F.Cu",
+                    "pos": {
+                        "x": 154.7654,
+                        "y": 248.0
+                    },
+                    "uuid": "caff597f-7dd3-4e32-ad4d-dc1d4c88994e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_L16] on In1.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 51.2
+                    },
+                    "uuid": "0a79bf9d-8927-493d-b8e6-bd1920f9440e"
+                },
+                {
+                    "description": "Pad 1 [U1_L16] of TP196 on F.Cu",
+                    "pos": {
+                        "x": 151.8519,
+                        "y": 248.0
+                    },
+                    "uuid": "08bec8c4-3a58-4b63-be4f-0a5d6f0fc596"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad L17 [U1_L17] of U1 on F.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 51.2
+                    },
+                    "uuid": "ddea5999-8360-48c1-8f95-0bd4e4f6297f"
+                },
+                {
+                    "description": "Pad 1 [U1_L17] of TP197 on F.Cu",
+                    "pos": {
+                        "x": 148.9383,
+                        "y": 248.0
+                    },
+                    "uuid": "1a494776-3d61-42e1-bbeb-1246a5a5fd9d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_L18] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 51.2
+                    },
+                    "uuid": "88794ce1-5c07-4e45-b1cd-99d56223d4da"
+                },
+                {
+                    "description": "Pad 1 [U1_L18] of TP198 on F.Cu",
+                    "pos": {
+                        "x": 146.0247,
+                        "y": 248.0
+                    },
+                    "uuid": "7872f78f-2c87-4c3a-bf86-79ddf018208a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad M3 [U1_M3] of U1 on F.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 52.0
+                    },
+                    "uuid": "625ee731-908e-43bf-8f9a-e346966275d8"
+                },
+                {
+                    "description": "Pad 1 [U1_M3] of TP201 on F.Cu",
+                    "pos": {
+                        "x": 137.284,
+                        "y": 248.0
+                    },
+                    "uuid": "1633bf5b-dd60-4295-b51f-7a1ff3eb97d8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad M4 [U1_M4] of U1 on F.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 52.0
+                    },
+                    "uuid": "cb494bd5-bba7-4c29-8953-a29af3a7f55d"
+                },
+                {
+                    "description": "Pad 1 [U1_M4] of TP202 on F.Cu",
+                    "pos": {
+                        "x": 134.3704,
+                        "y": 248.0
+                    },
+                    "uuid": "ecd80349-8c06-4f89-b8d8-289018f69ef9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad M5 [U1_M5] of U1 on F.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 52.0
+                    },
+                    "uuid": "6ee22a1c-567f-45aa-bba7-ada088c6b77e"
+                },
+                {
+                    "description": "Pad 1 [U1_M5] of TP203 on F.Cu",
+                    "pos": {
+                        "x": 131.4568,
+                        "y": 248.0
+                    },
+                    "uuid": "16c2dbc3-2bf1-4fc9-963c-f8f5259d6e74"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad M7 [U1_M7] of U1 on F.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 52.0
+                    },
+                    "uuid": "a5c03141-f953-4337-8ce3-dabb160234cf"
+                },
+                {
+                    "description": "Pad 1 [U1_M7] of TP205 on F.Cu",
+                    "pos": {
+                        "x": 125.6296,
+                        "y": 248.0
+                    },
+                    "uuid": "7abf7ec9-4e00-4f35-8aea-9170ba17a43c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_M10] on F.Cu, length 0.0103 mm",
+                    "pos": {
+                        "x": 116.8889,
+                        "y": 247.9897
+                    },
+                    "uuid": "39026ac8-6b9f-4166-9513-025826a3cb62"
+                },
+                {
+                    "description": "Circle [U1_M10] on In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 52.0
+                    },
+                    "uuid": "a7347fd8-f8fc-4f46-a1b2-d22d6c80ae28"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_M11] on In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 52.0
+                    },
+                    "uuid": "9f79aa8d-b145-4147-9c41-3c533ca1d88a"
+                },
+                {
+                    "description": "Pad 1 [U1_M11] of TP209 on F.Cu",
+                    "pos": {
+                        "x": 113.9753,
+                        "y": 248.0
+                    },
+                    "uuid": "d40fb3e4-2d35-4fb8-b410-311d273be3b9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad M12 [U1_M12] of U1 on F.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 52.0
+                    },
+                    "uuid": "03835615-66fa-4fdb-880a-12353c4ec98e"
+                },
+                {
+                    "description": "Pad 1 [U1_M12] of TP210 on F.Cu",
+                    "pos": {
+                        "x": 111.0617,
+                        "y": 248.0
+                    },
+                    "uuid": "8fdc1f82-1f79-4a74-a5f1-0b962f0606b9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad M13 [U1_M13] of U1 on F.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 52.0
+                    },
+                    "uuid": "6a35064f-dea8-4534-a16c-5d2bfee29158"
+                },
+                {
+                    "description": "Pad 1 [U1_M13] of TP211 on F.Cu",
+                    "pos": {
+                        "x": 108.1481,
+                        "y": 248.0
+                    },
+                    "uuid": "01188091-7d38-4d27-871f-cca69b1ef445"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_M14] on In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 52.0
+                    },
+                    "uuid": "e2895b72-f7bf-476b-8981-66cf89906ec7"
+                },
+                {
+                    "description": "Pad 1 [U1_M14] of TP212 on F.Cu",
+                    "pos": {
+                        "x": 105.2346,
+                        "y": 248.0
+                    },
+                    "uuid": "347dc729-d2e2-4301-bf29-86c15547e445"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad M15 [U1_M15] of U1 on F.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 52.0
+                    },
+                    "uuid": "60d5182e-b599-4a95-accd-1f9b4c44d481"
+                },
+                {
+                    "description": "Pad 1 [U1_M15] of TP213 on F.Cu",
+                    "pos": {
+                        "x": 102.321,
+                        "y": 248.0
+                    },
+                    "uuid": "7002aa95-fe5f-410c-a04b-007f0808eace"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_N2] on F.Cu, length 30.2789 mm",
+                    "pos": {
+                        "x": 67.8768,
+                        "y": 57.0548
+                    },
+                    "uuid": "beaaa692-c815-4a82-86e0-fc37cbe03baf"
+                },
+                {
+                    "description": "Circle [U1_N2] on In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 52.8
+                    },
+                    "uuid": "8daa974e-bf00-48e3-98fa-7da9295f506c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad N6 [U1_N6] of U1 on F.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 52.8
+                    },
+                    "uuid": "41bb1a86-9c7c-4844-991d-f97c43647bff"
+                },
+                {
+                    "description": "Pad 1 [U1_N6] of TP222 on F.Cu",
+                    "pos": {
+                        "x": 76.0988,
+                        "y": 248.0
+                    },
+                    "uuid": "786801f6-7702-4346-b369-711cd3c6f2b0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_N7] on In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 52.8
+                    },
+                    "uuid": "faf4fb1a-1be1-4356-83f3-26c030cbfd18"
+                },
+                {
+                    "description": "Track [U1_N7] on F.Cu, length 3.6900 mm",
+                    "pos": {
+                        "x": 73.1852,
+                        "y": 239.7044
+                    },
+                    "uuid": "e9d9f9d9-7cfd-4448-bfc2-220eeac67e5c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_N8] on In1.Cu",
+                    "pos": {
+                        "x": 48.8,
+                        "y": 52.8
+                    },
+                    "uuid": "77fbd579-cb9a-411f-b64d-519e19c4878e"
+                },
+                {
+                    "description": "Pad 1 [U1_N8] of TP224 on F.Cu",
+                    "pos": {
+                        "x": 70.2716,
+                        "y": 248.0
+                    },
+                    "uuid": "f296c929-24ef-4961-8024-9b583efc4fce"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_N9] on In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 52.8
+                    },
+                    "uuid": "f84aca00-d445-4784-9c8e-775d24984d26"
+                },
+                {
+                    "description": "Pad 1 [U1_N9] of TP225 on F.Cu",
+                    "pos": {
+                        "x": 67.358,
+                        "y": 248.0
+                    },
+                    "uuid": "9b7c9365-fbf7-4a28-8018-786255424fd6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_N10] on F.Cu, length 0.0074 mm",
+                    "pos": {
+                        "x": 64.4496,
+                        "y": 247.9948
+                    },
+                    "uuid": "67d48b51-218f-4850-a205-e0cacecb5956"
+                },
+                {
+                    "description": "Circle [U1_N10] on In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 52.8
+                    },
+                    "uuid": "a2e89d35-9df1-4a24-9699-64557b78680b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_N12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 52.8
+                    },
+                    "uuid": "3017c213-2794-4c44-be4c-51d8b7a5144d"
+                },
+                {
+                    "description": "Pad 1 [U1_N12] of TP228 on F.Cu",
+                    "pos": {
+                        "x": 58.6173,
+                        "y": 248.0
+                    },
+                    "uuid": "054f08fe-2071-4d5b-a832-a2159126c648"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_N13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 52.8
+                    },
+                    "uuid": "0034228a-73a5-4b90-9c9f-9e57bf44232e"
+                },
+                {
+                    "description": "Pad 1 [U1_N13] of TP229 on F.Cu",
+                    "pos": {
+                        "x": 55.7037,
+                        "y": 248.0
+                    },
+                    "uuid": "3524189d-8e2e-4067-98e0-ae01803df425"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_N14] of TP230 on F.Cu",
+                    "pos": {
+                        "x": 52.7901,
+                        "y": 248.0
+                    },
+                    "uuid": "c96b6763-9393-4807-b0af-e86f13597217"
+                },
+                {
+                    "description": "Circle [U1_N14] on In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 52.8
+                    },
+                    "uuid": "62ce965a-2eb7-480c-8cb0-a4f2f13d7aaa"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_N16] of TP232 on F.Cu",
+                    "pos": {
+                        "x": 46.963,
+                        "y": 248.0
+                    },
+                    "uuid": "48db0616-e8df-4e4b-9751-ef570309737a"
+                },
+                {
+                    "description": "Circle [U1_N16] on In1.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 52.8
+                    },
+                    "uuid": "f8c51655-dd79-4970-9a46-6f59d1ea7d85"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_N17] of TP233 on F.Cu",
+                    "pos": {
+                        "x": 44.0494,
+                        "y": 248.0
+                    },
+                    "uuid": "7dfcc255-5fd1-40d4-a1c0-e9b235035bf1"
+                },
+                {
+                    "description": "Circle [U1_N17] on In1.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 52.8
+                    },
+                    "uuid": "10fbfa1a-788d-47e5-b6b5-b6056bd6d957"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_P2] on F.Cu, length 1.8922 mm",
+                    "pos": {
+                        "x": 35.3086,
+                        "y": 236.6092
+                    },
+                    "uuid": "126f0317-b58b-45f2-8390-69be30f8508a"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_P2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 53.6
+                    },
+                    "uuid": "085972eb-de61-435d-a22d-7eee4c94a6a1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P3] of TP237 on F.Cu",
+                    "pos": {
+                        "x": 32.3951,
+                        "y": 248.0
+                    },
+                    "uuid": "04713983-1183-4086-9e02-edac36021893"
+                },
+                {
+                    "description": "Pad P3 [U1_P3] of U1 on F.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 53.6
+                    },
+                    "uuid": "7ea055ab-d615-4313-9f7a-df05b0c6a04c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P4] of TP238 on F.Cu",
+                    "pos": {
+                        "x": 29.4815,
+                        "y": 248.0
+                    },
+                    "uuid": "104899c6-98f7-4dfa-8efd-274acc6c2aaa"
+                },
+                {
+                    "description": "Pad P4 [U1_P4] of U1 on F.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 53.6
+                    },
+                    "uuid": "fdacb038-33d2-45a2-883b-7ec3bc8347e2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P5] of TP239 on F.Cu",
+                    "pos": {
+                        "x": 26.5679,
+                        "y": 248.0
+                    },
+                    "uuid": "2a27cc12-9c44-4631-bbf7-5e44c7b06aaa"
+                },
+                {
+                    "description": "Track [U1_P5] on F.Cu, length 0.0881 mm",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 53.6
+                    },
+                    "uuid": "ed9a4168-03f6-4fc9-831d-74f314e67145"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_P6] on F.Cu, length 1.5196 mm",
+                    "pos": {
+                        "x": 23.6543,
+                        "y": 246.2772
+                    },
+                    "uuid": "5fb9f346-641c-4bd7-9c03-81dcb9186ebd"
+                },
+                {
+                    "description": "Pad P6 [U1_P6] of U1 on F.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 53.6
+                    },
+                    "uuid": "13963061-dcef-404b-8df8-204fd5c0cb9c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P8] of TP242 on F.Cu",
+                    "pos": {
+                        "x": 17.8272,
+                        "y": 248.0
+                    },
+                    "uuid": "a3bed847-3918-415b-96b3-c85bdbda8b25"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_P8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 48.8,
+                        "y": 53.6
+                    },
+                    "uuid": "c373e3ce-a274-4146-8cef-d9f8e99cd8d1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P9] of TP243 on F.Cu",
+                    "pos": {
+                        "x": 14.9136,
+                        "y": 248.0
+                    },
+                    "uuid": "f6310510-0c3a-4108-a16e-ccafefab3dcb"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_P9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 53.6
+                    },
+                    "uuid": "5f1c76bf-24a4-44d3-b9df-b3c1329e3e97"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad P11 [U1_P11] of U1 on F.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 53.6
+                    },
+                    "uuid": "eccaecbc-d5fd-498f-b549-6fb8e6834be8"
+                },
+                {
+                    "description": "Track [U1_P11] on F.Cu, length 0.1115 mm",
+                    "pos": {
+                        "x": 11.5986,
+                        "y": 56.618
+                    },
+                    "uuid": "0022f541-e65d-495a-9f36-413199bc0665"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_P12] on F.Cu, length 1.7317 mm",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 240.5408
+                    },
+                    "uuid": "acaabdc8-a4bd-42d8-be4b-43809704c0fe"
+                },
+                {
+                    "description": "Pad P12 [U1_P12] of U1 on F.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 53.6
+                    },
+                    "uuid": "27f4b8e0-8556-4a2b-bfc0-c34a0f22fbbb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P13] of TP247 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 239.2593
+                    },
+                    "uuid": "4ff4df90-70bf-407d-865c-3ef28b0cf0c3"
+                },
+                {
+                    "description": "Circle [U1_P13] on In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 53.6
+                    },
+                    "uuid": "608f9d44-bdb1-4313-b74d-8409ba6328f5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P15] of TP249 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 233.4321
+                    },
+                    "uuid": "23e3a449-99f7-4de8-8e3b-b3da4de756dd"
+                },
+                {
+                    "description": "Circle [U1_P15] on In1.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 53.6
+                    },
+                    "uuid": "19727f76-b6e9-4671-8a8f-a53a8cb2e28b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P16] of TP250 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 230.5185
+                    },
+                    "uuid": "653cc343-10bb-458f-bd3e-1ab2f67dd2e7"
+                },
+                {
+                    "description": "Track [U1_P16] on F.Cu, length 158.3454 mm",
+                    "pos": {
+                        "x": 55.1136,
+                        "y": 57.4346
+                    },
+                    "uuid": "4c32276e-2575-4ec4-a240-fc0b138e085a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad P17 [U1_P17] of U1 on F.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 53.6
+                    },
+                    "uuid": "b0725333-3457-4fdf-b615-68705805924c"
+                },
+                {
+                    "description": "Track [U1_P17] on F.Cu, length 0.2496 mm",
+                    "pos": {
+                        "x": 56.5764,
+                        "y": 215.4082
+                    },
+                    "uuid": "13da0e97-a66e-49af-ba28-c981257df683"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_P18] on In1.Cu, length 0.3077 mm",
+                    "pos": {
+                        "x": 54.7462,
+                        "y": 221.3671
+                    },
+                    "uuid": "105e12fd-ae9b-48fa-9144-84f3d7472fc6"
+                },
+                {
+                    "description": "Circle [U1_P18] on In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 53.6
+                    },
+                    "uuid": "af702358-70dd-4379-9bf6-27edc79178a0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_R1] on F.Cu, length 3.0860 mm",
+                    "pos": {
+                        "x": 42.6961,
+                        "y": 54.4
+                    },
+                    "uuid": "2c9f539b-38fa-4d83-810b-29d84dd3a8db"
+                },
+                {
+                    "description": "Pad 1 [U1_R1] of TP253 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 221.7778
+                    },
+                    "uuid": "d4e9cdcd-4125-48f5-9bcf-8a75c753f3eb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R5] of TP257 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 210.1235
+                    },
+                    "uuid": "f4586ab2-0048-4aca-ae7d-d93b4905726b"
+                },
+                {
+                    "description": "Pad R5 [U1_R5] of U1 on F.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 54.4
+                    },
+                    "uuid": "8d800aeb-c499-413c-90e0-a4b216a19f16"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad R10 [U1_R10] of U1 on F.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 54.4
+                    },
+                    "uuid": "dd704867-da0b-4361-85fb-dda34fddd056"
+                },
+                {
+                    "description": "Track [U1_R10] on In2.Cu, length 9.1331 mm",
+                    "pos": {
+                        "x": 38.6329,
+                        "y": 54.5856
+                    },
+                    "uuid": "6853073c-5e57-4c56-9176-5b5d8d3c58d4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_R11] on F.Cu, length 1.9068 mm",
+                    "pos": {
+                        "x": 13.1489,
+                        "y": 191.4931
+                    },
+                    "uuid": "bfea19d8-8bbb-46df-8774-6497563efc46"
+                },
+                {
+                    "description": "Pad R11 [U1_R11] of U1 on F.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 54.4
+                    },
+                    "uuid": "b98ac250-170b-4943-923e-ba3d985d8c49"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R12] of TP264 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 189.7284
+                    },
+                    "uuid": "09f2c89e-d863-417f-a843-19eaa3900869"
+                },
+                {
+                    "description": "Pad R12 [U1_R12] of U1 on F.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 54.4
+                    },
+                    "uuid": "008f0230-cc86-4668-b139-26e9df1a9f91"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R14] of TP266 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 183.9012
+                    },
+                    "uuid": "71142899-73e5-4d94-96d1-5ff193a4083e"
+                },
+                {
+                    "description": "Pad R14 [U1_R14] of U1 on F.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 54.4
+                    },
+                    "uuid": "613c1fcc-be0a-44c4-add0-7a2b9068f7b0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R15] of TP267 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 180.9877
+                    },
+                    "uuid": "6da5b6c4-102b-4a9e-9a6c-d29f95e78419"
+                },
+                {
+                    "description": "Pad R15 [U1_R15] of U1 on F.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 54.4
+                    },
+                    "uuid": "ccafa97f-b787-4cce-a488-202ec710cf51"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R17] of TP269 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 175.1605
+                    },
+                    "uuid": "d873bfe9-c926-4266-b8bc-2f6352e6ecfc"
+                },
+                {
+                    "description": "Circle [U1_R17] on In1.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 54.4
+                    },
+                    "uuid": "0aaee64b-4ed9-485f-afc4-bc3a43c05585"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_R18] on In1.Cu, length 5.6489 mm",
+                    "pos": {
+                        "x": 50.3972,
+                        "y": 169.7451
+                    },
+                    "uuid": "ecd0f84c-3857-401f-b78f-741894daab84"
+                },
+                {
+                    "description": "Circle [U1_R18] on In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 54.4
+                    },
+                    "uuid": "6ffa66cc-dd63-4ddc-865b-8d338267d471"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T2] of TP272 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 166.4198
+                    },
+                    "uuid": "2f6400f7-df2c-412b-9dc3-d41e232cde96"
+                },
+                {
+                    "description": "Circle [U1_T2] on In1.Cu",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 55.2
+                    },
+                    "uuid": "ea20e09e-484b-40b4-894c-cc1f6da43a3d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T3] of TP273 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 163.5062
+                    },
+                    "uuid": "50dd1288-fc86-4727-9289-6626a281e5b9"
+                },
+                {
+                    "description": "Circle [U1_T3] on In1.Cu",
+                    "pos": {
+                        "x": 44.8,
+                        "y": 55.2
+                    },
+                    "uuid": "61430cf3-01f7-4b0a-8002-267f6589b900"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_T5] on F.Cu, length 0.2007 mm",
+                    "pos": {
+                        "x": 26.9389,
+                        "y": 57.9237
+                    },
+                    "uuid": "041aaefa-160e-4ddc-9cea-0f16d8d3c7df"
+                },
+                {
+                    "description": "Pad 1 [U1_T5] of TP275 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 157.679
+                    },
+                    "uuid": "13240c42-47bb-4793-9223-c35e755198e2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Blind/Buried Via [U1_T5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 55.2
+                    },
+                    "uuid": "892979f7-1ee7-4aa1-8785-fe4f957e33c4"
+                },
+                {
+                    "description": "Track [U1_T5] on In1.Cu, length 0.1501 mm",
+                    "pos": {
+                        "x": 26.9389,
+                        "y": 57.8731
+                    },
+                    "uuid": "6a661e4f-3c63-45e3-b870-fe5a96fba682"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T6] of TP276 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 154.7654
+                    },
+                    "uuid": "002cdc2f-6e20-4778-91c1-312cabb58a6e"
+                },
+                {
+                    "description": "Circle [U1_T6] on In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 55.2
+                    },
+                    "uuid": "c854ed41-9f36-423c-8722-cb9d0966d22b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T7] of TP277 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 151.8519
+                    },
+                    "uuid": "59694daa-80b6-4abe-acf6-ebe4715c97ba"
+                },
+                {
+                    "description": "Circle [U1_T7] on In1.Cu",
+                    "pos": {
+                        "x": 48.0,
+                        "y": 55.2
+                    },
+                    "uuid": "ea8c1d4f-9236-4653-aaf5-b8d4664b0aef"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T8] of TP278 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 148.9383
+                    },
+                    "uuid": "5f19ff4c-92eb-4150-ad9a-ba53a83a79cd"
+                },
+                {
+                    "description": "Circle [U1_T8] on In1.Cu",
+                    "pos": {
+                        "x": 48.8,
+                        "y": 55.2
+                    },
+                    "uuid": "de086bc3-bdbb-463c-a449-17f606721b8e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_T10] on F.Cu, length 0.0641 mm",
+                    "pos": {
+                        "x": 31.3009,
+                        "y": 57.7871
+                    },
+                    "uuid": "0a1092c2-4a2e-4a9d-8060-87e20bc365b9"
+                },
+                {
+                    "description": "Pad 1 [U1_T10] of TP280 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 143.1111
+                    },
+                    "uuid": "d0c8d95e-0166-4d27-8689-58f8320151f1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_T10] on In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 55.2
+                    },
+                    "uuid": "c826cf91-80dd-4550-a391-d724142fbdac"
+                },
+                {
+                    "description": "Track [U1_T10] on F.Cu, length 0.0641 mm",
+                    "pos": {
+                        "x": 31.3009,
+                        "y": 57.7871
+                    },
+                    "uuid": "0a1092c2-4a2e-4a9d-8060-87e20bc365b9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_T11] on F.Cu, length 12.1279 mm",
+                    "pos": {
+                        "x": 20.5757,
+                        "y": 131.6218
+                    },
+                    "uuid": "51153cb8-6c8c-41ec-bb91-72674ba9e21b"
+                },
+                {
+                    "description": "Circle [U1_T11] on In1.Cu",
+                    "pos": {
+                        "x": 51.2,
+                        "y": 55.2
+                    },
+                    "uuid": "63c5bb8d-39b7-483f-81ac-1128b4421a09"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T12] of TP282 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 137.2839
+                    },
+                    "uuid": "6b903e57-4ab9-4269-b808-6fdb19ff9d59"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_T12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 55.2
+                    },
+                    "uuid": "49cc813b-1b87-4182-82ac-a3ea00ecd711"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_T13] on In1.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 55.2
+                    },
+                    "uuid": "9d2e8d85-7728-4902-8cf4-6057e4de2aea"
+                },
+                {
+                    "description": "Track [U1_T13] on F.Cu, length 0.4468 mm",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 133.9236
+                    },
+                    "uuid": "57cd41a2-69f9-4c9c-821a-c80a5d3d9466"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_T14] on F.Cu, length 1.8231 mm",
+                    "pos": {
+                        "x": 13.2891,
+                        "y": 130.1677
+                    },
+                    "uuid": "2fee5ec3-f5e1-4977-b0b4-a2e582859ce7"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_T14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 55.2
+                    },
+                    "uuid": "6b5d1e1c-ca47-48ba-8a7a-dc70e673672d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U4] of TP292 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 108.1481
+                    },
+                    "uuid": "5b03e4b8-c68d-4614-af65-51c889bd5253"
+                },
+                {
+                    "description": "Blind/Buried Via [U1_U4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 45.6,
+                        "y": 56.0
+                    },
+                    "uuid": "bbbe2b71-c75f-47ae-a964-ca4c107d6367"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U5] of TP293 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 105.2346
+                    },
+                    "uuid": "cead43e2-0a88-47b2-8aa0-abeba3e3e4d4"
+                },
+                {
+                    "description": "Circle [U1_U5] on In1.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 56.0
+                    },
+                    "uuid": "81841ad4-6c75-4b78-918b-2dbee80f1fe9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U6] of TP294 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 102.321
+                    },
+                    "uuid": "7b3f9894-8fea-4038-ab65-f2aa271ede97"
+                },
+                {
+                    "description": "Circle [U1_U6] on In1.Cu",
+                    "pos": {
+                        "x": 47.2,
+                        "y": 56.0
+                    },
+                    "uuid": "0e77407b-b0af-4c5f-b771-780ba66cd818"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_U8] on In1.Cu, length 5.4062 mm",
+                    "pos": {
+                        "x": 18.6947,
+                        "y": 57.7611
+                    },
+                    "uuid": "45372ceb-83ee-45cc-a686-681c7c72e569"
+                },
+                {
+                    "description": "Pad 1 [U1_U8] of TP296 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 96.4938
+                    },
+                    "uuid": "9693898c-0ded-404b-b612-c07852113fda"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U10] of TP298 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 90.6667
+                    },
+                    "uuid": "b35ef8e6-2a21-4eb5-b4c5-1a7a386d93cc"
+                },
+                {
+                    "description": "Circle [U1_U10] on In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 56.0
+                    },
+                    "uuid": "ca098108-727c-4019-9bd0-36cbbe19191b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U12] of TP300 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 84.8395
+                    },
+                    "uuid": "d11ee542-9fb4-40b7-b013-02b35d5daff9"
+                },
+                {
+                    "description": "Circle [U1_U12] on In1.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 56.0
+                    },
+                    "uuid": "de77db5c-c2e8-49a2-ae09-4f0ae0055ef8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U15] of TP303 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 76.0988
+                    },
+                    "uuid": "09f73f31-5ad8-443c-8b20-9dfab8c09f6e"
+                },
+                {
+                    "description": "Circle [U1_U15] on In1.Cu",
+                    "pos": {
+                        "x": 54.4,
+                        "y": 56.0
+                    },
+                    "uuid": "95881bd6-cb7b-4769-b4ce-201ac825485e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U18] of TP306 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 67.358
+                    },
+                    "uuid": "08585c7f-abd1-4262-a5ee-75b45189baf8"
+                },
+                {
+                    "description": "Circle [U1_U18] on In1.Cu",
+                    "pos": {
+                        "x": 56.8,
+                        "y": 56.0
+                    },
+                    "uuid": "a9e68734-7cc2-4564-ba55-cf6cfe9ee8e7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_V5] of TP311 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 52.7901
+                    },
+                    "uuid": "2406ffeb-46db-4612-a3be-05ee10436787"
+                },
+                {
+                    "description": "Pad V5 [U1_V5] of U1 on F.Cu",
+                    "pos": {
+                        "x": 46.4,
+                        "y": 56.8
+                    },
+                    "uuid": "6c453349-89b6-46ad-879b-0d6cf19e0c6b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_V10] on F.Cu, length 5.8798 mm",
+                    "pos": {
+                        "x": 13.059,
+                        "y": 39.2812
+                    },
+                    "uuid": "9deba698-2c4f-4342-828c-3717440369cb"
+                },
+                {
+                    "description": "Circle [U1_V10] on In1.Cu",
+                    "pos": {
+                        "x": 50.4,
+                        "y": 56.8
+                    },
+                    "uuid": "1255a5e7-02ca-4002-81df-79878ceeef0c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [U1_V12] on F.Cu, length 0.0017 mm",
+                    "pos": {
+                        "x": 17.5258,
+                        "y": 57.6538
+                    },
+                    "uuid": "3f7bd719-f986-4930-864b-588e036e5078"
+                },
+                {
+                    "description": "Pad 1 [U1_V12] of TP318 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 32.3951
+                    },
+                    "uuid": "d38370be-cd8b-4215-92a7-684c07fbc73d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad V12 [U1_V12] of U1 on F.Cu",
+                    "pos": {
+                        "x": 52.0,
+                        "y": 56.8
+                    },
+                    "uuid": "c4f7fdd7-719c-4239-b07f-4c277f830091"
+                },
+                {
+                    "description": "Track [U1_V12] on F.Cu, length 0.0017 mm",
+                    "pos": {
+                        "x": 17.5258,
+                        "y": 57.6538
+                    },
+                    "uuid": "3f7bd719-f986-4930-864b-588e036e5078"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_V13] of TP319 on F.Cu",
+                    "pos": {
+                        "x": 12.0,
+                        "y": 29.4815
+                    },
+                    "uuid": "cc3afcfe-2943-4a17-82e6-d285b45aee0e"
+                },
+                {
+                    "description": "Pad V13 [U1_V13] of U1 on F.Cu",
+                    "pos": {
+                        "x": 52.8,
+                        "y": 56.8
+                    },
+                    "uuid": "3623622e-a403-42da-8a32-bece10aa1c33"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_C1] on F.Cu, length 2.9288 mm",
+                    "pos": {
+                        "x": 114.8179,
+                        "y": 14.071
+                    },
+                    "uuid": "75d1440f-156a-4312-83ae-2783d16d75c8"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [U1_H2] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 241.5,
+                        "y": 108.148
+                    },
+                    "uuid": "72cf6af0-8b5f-4c39-85f2-a003998da0d6"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_J2] on F.Cu, length 1.5780 mm",
+                    "pos": {
+                        "x": 248.0,
+                        "y": 198.4691
+                    },
+                    "uuid": "5956b596-b4d2-4d19-985b-080111bd5bf4"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_J13] on F.Cu, length 117.8461 mm",
+                    "pos": {
+                        "x": 216.3917,
+                        "y": 198.9102
+                    },
+                    "uuid": "0fbcadd3-27e4-4f98-b2dd-b368311801d1"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_K4] on F.Cu, length 0.9006 mm",
+                    "pos": {
+                        "x": 238.6225,
+                        "y": 243.8431
+                    },
+                    "uuid": "e48726d4-effe-4d18-8f1a-4ac66c729909"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_K5] on F.Cu, length 43.6477 mm",
+                    "pos": {
+                        "x": 205.4821,
+                        "y": 217.1364
+                    },
+                    "uuid": "b4243963-0221-4afe-975b-11036337655a"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [U1_L13] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 157.7836,
+                        "y": 241.2574
+                    },
+                    "uuid": "57c53af4-4881-4b53-b4af-fbb43cd6e47c"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_P16] on F.Cu, length 158.3454 mm",
+                    "pos": {
+                        "x": 55.1136,
+                        "y": 57.4346
+                    },
+                    "uuid": "4c32276e-2575-4ec4-a240-fc0b138e085a"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_R1] on F.Cu, length 3.0860 mm",
+                    "pos": {
+                        "x": 42.6961,
+                        "y": 54.4
+                    },
+                    "uuid": "2c9f539b-38fa-4d83-810b-29d84dd3a8db"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_T11] on F.Cu, length 12.1279 mm",
+                    "pos": {
+                        "x": 20.5757,
+                        "y": 131.6218
+                    },
+                    "uuid": "51153cb8-6c8c-41ec-bb91-72674ba9e21b"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [U1_T14] on F.Cu, length 1.8231 mm",
+                    "pos": {
+                        "x": 13.2891,
+                        "y": 130.1677
+                    },
+                    "uuid": "2fee5ec3-f5e1-4977-b0b4-a2e582859ce7"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [U1_U8] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 18.6947,
+                        "y": 57.7611
+                    },
+                    "uuid": "d4766640-5cd3-43ac-86e7-9630da231a02"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        }
+    ]
+}

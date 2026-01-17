@@ -15,7 +15,12 @@ Main components:
 
 from pcb_tool.routing.grid import RoutingGrid, GridCell
 from pcb_tool.routing.pathfinder import PathFinder
-from pcb_tool.routing.layer_optimizer import LayerOptimizer, NetPath, LayerAssignment
+try:
+    from pcb_tool.routing.layer_optimizer import LayerOptimizer, NetPath, LayerAssignment
+except Exception:  # pragma: no cover - optional dependency (z3)
+    LayerOptimizer = None  # type: ignore[assignment]
+    NetPath = None  # type: ignore[assignment]
+    LayerAssignment = None  # type: ignore[assignment]
 from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition, RoutedNet
 from pcb_tool.routing.grid_builder import GridBuildConfig, build_routing_grid_from_board
 from pcb_tool.routing.net_definitions import (

@@ -199,7 +199,25 @@ def cmd_drc(args) -> int:
         return 1
 
     if not check_kicad_cli():
-        print("Error: kicad-cli not found. Install KiCad to use DRC.", file=sys.stderr)
+        from shutil import which
+        from pcb_tool.drc import _kicad_cli_supports_pcb_drc
+
+        if which("kicad-cli") is None:
+            print(
+                "Error: kicad-cli not found. Install KiCad (8+) or set PARDAL_KICAD_DOCKER=1.",
+                file=sys.stderr,
+            )
+        elif not _kicad_cli_supports_pcb_drc():
+            print(
+                "Error: local kicad-cli does not support `pcb drc` (KiCad 8+ required). "
+                "Upgrade KiCad or set PARDAL_KICAD_DOCKER=1 to run KiCad 9 in docker.",
+                file=sys.stderr,
+            )
+        else:
+            print(
+                "Error: KiCad DRC is not available (set PARDAL_KICAD_DOCKER=1 for docker fallback).",
+                file=sys.stderr,
+            )
         return 1
 
     output_path = args.output
@@ -341,28 +359,74 @@ def cmd_place(args) -> int:
 
 
 def cmd_route(args) -> int:
-    """Autoroute existing PCB file using pcbnew SDK."""
-    if not _check_pcbnew_available("route"):
-        return 1
-
-    from pcb_tool.kicad_loader import load_board_from_kicad, write_traces_to_kicad
     from pcb_tool.data_model import STANDARD_LAYER_STACKS
-    import pcbnew
+    from pcb_tool.kicad_project_loader import apply_project_net_settings
 
     if not args.pcb.exists():
         print(f"Error: PCB file not found: {args.pcb}", file=sys.stderr)
         return 1
 
-    print(f"Loading {args.pcb}...")
+    net_name = args.net or "ALL"
+    output_path = args.output or args.pcb
+
+    try:
+        import pcbnew  # type: ignore
+    except ImportError:
+        # Fallback: text loader + minimal writer (no pcbnew required).
+        from pcb_tool.kicad_text_loader import load_board_kicad_pcb
+        from pcb_tool.kicad_writer import KicadWriter
+
+        print(f"Loading {args.pcb} (text loader)...")
+        load_result = load_board_kicad_pcb(args.pcb)
+        board = load_result.board
+        if load_result.warnings:
+            print(f"Warning: {len(load_result.warnings)} load warnings (continuing)")
+        proj_warnings = apply_project_net_settings(board, args.pcb)
+        if proj_warnings:
+            print(f"Warning: {len(proj_warnings)} project warnings (continuing)")
+
+        if args.layers and args.layers in STANDARD_LAYER_STACKS:
+            board.layers = STANDARD_LAYER_STACKS[args.layers]
+            print(f"Using {args.layers}-layer stack: {board.layers}")
+
+        print(f"Routing {net_name}...")
+        autoroute_cmd = AutoRouteCommand(net_name=net_name)
+        error = autoroute_cmd.validate(board)
+        if error:
+            print(f"Error: {error}", file=sys.stderr)
+            return 1
+        result = autoroute_cmd.execute(board)
+        print(result)
+
+        KicadWriter().write(board, output_path)
+        print(f"Saved routed board to {output_path} (minimal .kicad_pcb)")
+        return 0
+
+    # pcbnew-backed route: preserves the existing board file and writes tracks/vias in-place.
+    if not _check_pcbnew_available("route"):
+        return 1
+
+    from pcb_tool.kicad_loader import load_board_from_kicad, write_traces_to_kicad
+
+    print(f"Loading {args.pcb} (pcbnew SDK)...")
     kicad_board = pcbnew.LoadBoard(str(args.pcb))
     board = load_board_from_kicad(kicad_board)
+    proj_warnings = apply_project_net_settings(board, args.pcb)
+    if proj_warnings:
+        print(f"Warning: {len(proj_warnings)} project warnings (continuing)")
 
-    # Set layer stack based on --layers argument
     if args.layers and args.layers in STANDARD_LAYER_STACKS:
         board.layers = STANDARD_LAYER_STACKS[args.layers]
         print(f"Using {args.layers}-layer stack: {board.layers}")
+    else:
+        try:
+            layer_count = int(kicad_board.GetCopperLayerCount())
+        except Exception:
+            layer_count = 0
+        if layer_count in STANDARD_LAYER_STACKS:
+            board.layers = STANDARD_LAYER_STACKS[layer_count]
+            print(f"Using inferred {layer_count}-layer stack: {board.layers}")
 
-    net_name = args.net or "ALL"
     print(f"Routing {net_name}...")
     autoroute_cmd = AutoRouteCommand(net_name=net_name)
     error = autoroute_cmd.validate(board)
@@ -373,10 +437,47 @@ def cmd_route(args) -> int:
     print(result)
 
     write_traces_to_kicad(board, kicad_board)
-
-    output_path = args.output or args.pcb
     kicad_board.Save(str(output_path))
+    # Keep project settings consistent for KiCad CLI DRC: copy sibling `.kicad_pro/.kicad_prl`
+    # when the output file name differs.
+    if output_path != args.pcb:
+        in_pro = args.pcb.with_suffix(".kicad_pro")
+        out_pro = output_path.with_suffix(".kicad_pro")
+        in_prl = args.pcb.with_suffix(".kicad_prl")
+        out_prl = output_path.with_suffix(".kicad_prl")
+        try:
+            if in_pro.exists():
+                out_pro.write_text(in_pro.read_text(encoding="utf-8", errors="replace"), encoding="utf-8")
+            if in_prl.exists():
+                out_prl.write_text(in_prl.read_text(encoding="utf-8", errors="replace"), encoding="utf-8")
+        except Exception:
+            pass
     print(f"Saved routed board to {output_path}")
+    return 0
+
+
+def cmd_rust_route(args) -> int:
+    """Route a KiCad PCB via docker pcbnew extraction + Rust router + docker apply."""
+    from pcb_tool.api.rust_route_kicad_docker import rust_route_kicad_via_docker
+
+    if not args.pcb.exists():
+        print(f"Error: PCB file not found: {args.pcb}", file=sys.stderr)
+        return 1
+    if args.output is None:
+        print("Error: --output is required for rust-route", file=sys.stderr)
+        return 1
+
+    rust_route_kicad_via_docker(
+        in_pcb=args.pcb,
+        out_pcb=args.output,
+        docker_image=str(args.docker_image),
+        resolution_mm=float(args.resolution),
+        inflate_mm=None if args.inflate is None else float(args.inflate),
+        cfg_json=args.cfg,
+        routes_json=args.routes_json,
+        problem_json=args.problem_json,
+    )
+    print(f"Saved routed board to {args.output}")
     return 0
 
 
@@ -616,8 +717,54 @@ Examples:
         "--layers",
         type=int,
         choices=[2, 4, 6, 8],
-        default=2,
-        help="Number of copper layers (2, 4, 6, or 8). Default: 2",
+        default=None,
+        help="Number of copper layers (2, 4, 6, or 8). Default: infer from PCB when possible",
+    )
+
+    # pardal rust-route (experimental Rust backend via docker + pcbnew)
+    rust_route_parser = subparsers.add_parser(
+        "rust-route",
+        help="Autoroute via Rust backend (experimental, docker pcbnew I/O)",
+        description="Extract a compact routing problem via pcbnew in docker, route with Rust, apply via pcbnew.",
+    )
+    rust_route_parser.add_argument("pcb", type=Path, help="Input PCB file (.kicad_pcb)")
+    rust_route_parser.add_argument(
+        "-o", "--output", type=Path, required=True, help="Output PCB file (.kicad_pcb)"
+    )
+    rust_route_parser.add_argument(
+        "--docker-image",
+        default="kicad/kicad:9.0.6-full",
+        help="KiCad docker image to use for pcbnew",
+    )
+    rust_route_parser.add_argument(
+        "--resolution",
+        type=float,
+        default=0.2,
+        help="Grid resolution (mm) for the Rust router prototype",
+    )
+    rust_route_parser.add_argument(
+        "--inflate",
+        type=float,
+        default=None,
+        help="Optional extra obstacle inflation (mm) for extraction (default: derived from netclass)",
+    )
+    rust_route_parser.add_argument(
+        "--cfg",
+        type=Path,
+        default=None,
+        help="Optional Rust router config JSON (margin/via_penalty/etc)",
+    )
+    rust_route_parser.add_argument(
+        "--routes-json",
+        type=Path,
+        default=None,
+        help="Optional path to write routes JSON (default: alongside output)",
+    )
+    rust_route_parser.add_argument(
+        "--problem-json",
+        type=Path,
+        default=None,
+        help="Optional path to write extracted problem JSON (default: alongside output)",
     )
 
     # pardal repl
@@ -642,6 +789,8 @@ Examples:
         return cmd_place(args)
     elif args.command == "route":
         return cmd_route(args)
+    elif args.command == "rust-route":
+        return cmd_rust_route(args)
     elif args.command == "repl":
         return cmd_repl(args)
     else:

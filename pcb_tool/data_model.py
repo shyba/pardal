@@ -118,12 +118,17 @@ class NetClass:
 class Pad:
     """Represents a component pad with position and properties."""
 
-    number: int  # Pin/pad number
+    number: str  # Pin/pad number (e.g. "1", "A1")
     position_offset: tuple[float, float]  # Offset from component center (x, y) in mm
     size: tuple[float, float]  # Pad size (width, height) in mm
     drill: Optional[float] = None  # Drill diameter in mm (None for SMD)
     shape: str = "circle"  # "circle", "rect", "oval"
     net_name: str = ""  # Net this pad connects to
+
+    def __post_init__(self) -> None:
+        # KiCad pad numbers are strings and may be alphanumeric (e.g. BGAs "A1").
+        # Keep the internal representation stringly-typed and normalize inputs.
+        self.number = str(self.number)
 
     @property
     def is_tht(self) -> bool:
@@ -165,8 +170,8 @@ class Component:
             raise ValueError(
                 f"Rotation must be numeric, got {type(self.rotation).__name__}"
             )
-        if not (0 <= self.rotation < 360):
-            raise ValueError(f"Rotation must be in [0, 360), got {self.rotation}")
+        # KiCad can emit negative rotations in board files; normalize to [0, 360).
+        self.rotation = float(self.rotation) % 360.0
 
         # Validate position
         if not isinstance(self.position, tuple) or len(self.position) != 2:
@@ -185,7 +190,7 @@ class Component:
         if not self.footprint or not isinstance(self.footprint, str):
             raise ValueError("Component footprint must be non-empty string")
 
-    def get_pad_position(self, pad_num: int) -> tuple[float, float]:
+    def get_pad_position(self, pad_num: str | int) -> tuple[float, float]:
         """Get absolute position of a pad in board coordinates.
 
         Applies component rotation to pad offset before adding to component position.
@@ -199,9 +204,10 @@ class Component:
         Raises:
             ValueError: If pad number not found
         """
-        pad = next((p for p in self.pads if p.number == pad_num), None)
+        pad_num_str = str(pad_num)
+        pad = next((p for p in self.pads if str(p.number) == pad_num_str), None)
         if not pad:
-            raise ValueError(f"Pad {pad_num} not found on component {self.ref}")
+            raise ValueError(f"Pad {pad_num_str} not found on component {self.ref}")
 
         # Rotate pad offset by component rotation (KiCad uses clockwise rotation)
         # Negate angle for counter-clockwise math convention
@@ -215,7 +221,7 @@ class Component:
         # Calculate absolute position from component position + rotated pad offset
         return (self.position[0] + rotated_x, self.position[1] + rotated_y)
 
-    def get_pad_by_number(self, pad_num: int) -> Optional[Pad]:
+    def get_pad_by_number(self, pad_num: str | int) -> Optional[Pad]:
         """Get pad by number.
 
         Args:
@@ -224,7 +230,8 @@ class Component:
         Returns:
             Pad object or None if not found
         """
-        return next((p for p in self.pads if p.number == pad_num), None)
+        pad_num_str = str(pad_num)
+        return next((p for p in self.pads if str(p.number) == pad_num_str), None)
 
     def find_nearest_pad(
         self, target_pos: tuple[float, float]

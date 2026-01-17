@@ -1,0 +1,4520 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2025-12-28T05:59:38+0000",
+    "kicad_version": "9.0.6",
+    "schematic_parity": [],
+    "source": "bga324_breakout2_rust_ncr8_diag2.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_B7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 54.0
+                    },
+                    "uuid": "f40c28d9-3730-45f8-8555-c16bf48508e9"
+                },
+                {
+                    "description": "Pad 1 [U1_B7] of TP25 on F.Cu",
+                    "pos": {
+                        "x": 82.74074,
+                        "y": 14.0
+                    },
+                    "uuid": "8a70f66d-3918-43a8-8191-e8561cf5d7f8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_B8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 54.0
+                    },
+                    "uuid": "f2c4001b-d715-47ad-b0b5-864f5d7c910b"
+                },
+                {
+                    "description": "Pad 1 [U1_B8] of TP26 on F.Cu",
+                    "pos": {
+                        "x": 85.604938,
+                        "y": 14.0
+                    },
+                    "uuid": "a0e0c4d7-038f-4774-b79a-061a96718101"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_B9] on In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 54.0
+                    },
+                    "uuid": "c4c375e8-26be-4bbf-9d7e-dfb55f287d9b"
+                },
+                {
+                    "description": "Pad 1 [U1_B9] of TP27 on F.Cu",
+                    "pos": {
+                        "x": 88.469135,
+                        "y": 14.0
+                    },
+                    "uuid": "a4f456ce-33a6-4b6c-9f0f-a65c3151680c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_B10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 54.0
+                    },
+                    "uuid": "ff88af21-3d8e-4b5a-bbae-9ccb2c7cab49"
+                },
+                {
+                    "description": "Pad 1 [U1_B10] of TP28 on F.Cu",
+                    "pos": {
+                        "x": 91.333333,
+                        "y": 14.0
+                    },
+                    "uuid": "a1bf1ba8-0bae-4e2f-8210-e10740375c50"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_B11] on In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 54.0
+                    },
+                    "uuid": "f0e4d52e-8cc8-485b-aecb-6f5f4b1e8868"
+                },
+                {
+                    "description": "Pad 1 [U1_B11] of TP29 on F.Cu",
+                    "pos": {
+                        "x": 94.19753,
+                        "y": 14.0
+                    },
+                    "uuid": "c131656d-4b92-4edc-86e0-6da638556bcf"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_B13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 54.0
+                    },
+                    "uuid": "5857b687-0e5f-4ed2-b4a4-8c41d7172597"
+                },
+                {
+                    "description": "Pad 1 [U1_B13] of TP31 on F.Cu",
+                    "pos": {
+                        "x": 99.925925,
+                        "y": 14.0
+                    },
+                    "uuid": "4c132751-06b2-4399-9bff-47aa6c0ae6cc"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_B15] on In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 54.0
+                    },
+                    "uuid": "baac533e-72d7-4798-bb9e-c31faef977d4"
+                },
+                {
+                    "description": "Pad 1 [U1_B15] of TP33 on F.Cu",
+                    "pos": {
+                        "x": 105.65432,
+                        "y": 14.0
+                    },
+                    "uuid": "3c5b2416-1fef-4b8f-9eee-7a6bc2659c7f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_B16] on In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 54.0
+                    },
+                    "uuid": "f516b6f0-d679-4aa7-9982-05c2d44c572e"
+                },
+                {
+                    "description": "Pad 1 [U1_B16] of TP34 on F.Cu",
+                    "pos": {
+                        "x": 108.518518,
+                        "y": 14.0
+                    },
+                    "uuid": "7859fb96-6e05-43eb-8e49-e48c7f93477d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_B17] on In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 54.0
+                    },
+                    "uuid": "c91ffe58-2c7e-4b74-897b-4d661a8e6415"
+                },
+                {
+                    "description": "Pad 1 [U1_B17] of TP35 on F.Cu",
+                    "pos": {
+                        "x": 111.382716,
+                        "y": 14.0
+                    },
+                    "uuid": "8691a6da-9c81-4c69-8c85-39dfdad6266e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 57.2,
+                        "y": 54.8
+                    },
+                    "uuid": "3518d837-be62-4093-a324-a5008df3b306"
+                },
+                {
+                    "description": "Pad 1 [U1_C6] of TP42 on F.Cu",
+                    "pos": {
+                        "x": 131.432098,
+                        "y": 14.0
+                    },
+                    "uuid": "171aaedc-30e3-4b98-ad67-2c5e2a27c04b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 54.8
+                    },
+                    "uuid": "67413d80-2fd4-4e71-8476-e3f151250df2"
+                },
+                {
+                    "description": "Pad 1 [U1_C7] of TP43 on F.Cu",
+                    "pos": {
+                        "x": 134.296296,
+                        "y": 14.0
+                    },
+                    "uuid": "a5b6d7a8-dbca-4fc2-bff3-586a731b2a1a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C8] on In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 54.8
+                    },
+                    "uuid": "b9aab10a-5e49-4a8c-9d8d-4e1be27b238a"
+                },
+                {
+                    "description": "Pad 1 [U1_C8] of TP44 on F.Cu",
+                    "pos": {
+                        "x": 137.160493,
+                        "y": 14.0
+                    },
+                    "uuid": "a835e6b1-b7c0-4489-9321-f409eb14cfe0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 54.8
+                    },
+                    "uuid": "55816439-2a39-4da2-8189-c3bff731a96e"
+                },
+                {
+                    "description": "Pad 1 [U1_C9] of TP45 on F.Cu",
+                    "pos": {
+                        "x": 140.024691,
+                        "y": 14.0
+                    },
+                    "uuid": "4fc92007-8ad3-4c88-8539-ff27d872867d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 54.8
+                    },
+                    "uuid": "1fc5d813-ea55-4b3f-a82f-4fa75447089d"
+                },
+                {
+                    "description": "Pad 1 [U1_C10] of TP46 on F.Cu",
+                    "pos": {
+                        "x": 142.888888,
+                        "y": 14.0
+                    },
+                    "uuid": "8876d5b6-5f26-42d6-babf-e6da10ea4608"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C11] on In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 54.8
+                    },
+                    "uuid": "d96f121b-a52c-4044-9a3d-ba63d86f41a2"
+                },
+                {
+                    "description": "Pad 1 [U1_C11] of TP47 on F.Cu",
+                    "pos": {
+                        "x": 145.753086,
+                        "y": 14.0
+                    },
+                    "uuid": "1c980114-cd04-4844-9cce-a0427cf19058"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 54.8
+                    },
+                    "uuid": "ef27023a-0d1b-40eb-84d3-983a80553312"
+                },
+                {
+                    "description": "Pad 1 [U1_C12] of TP48 on F.Cu",
+                    "pos": {
+                        "x": 148.617283,
+                        "y": 14.0
+                    },
+                    "uuid": "075953d4-41ce-4742-840f-b016ea165adb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_C13] on In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 54.8
+                    },
+                    "uuid": "f424f11f-275a-4d22-83d0-302db6ef6d31"
+                },
+                {
+                    "description": "Pad 1 [U1_C13] of TP49 on F.Cu",
+                    "pos": {
+                        "x": 151.481481,
+                        "y": 14.0
+                    },
+                    "uuid": "e7bf39bf-9406-4f1a-b0ea-8acdbaf77dcd"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 54.8
+                    },
+                    "uuid": "1d9f3ff8-5fae-483f-a428-77e756dc1a16"
+                },
+                {
+                    "description": "Pad 1 [U1_C14] of TP50 on F.Cu",
+                    "pos": {
+                        "x": 154.345679,
+                        "y": 14.0
+                    },
+                    "uuid": "3ed731f3-ea6b-45b6-8d24-4ea9963b0508"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 54.8
+                    },
+                    "uuid": "d95767d5-3cd7-4bd9-a5e3-44b13a418ab2"
+                },
+                {
+                    "description": "Pad 1 [U1_C15] of TP51 on F.Cu",
+                    "pos": {
+                        "x": 157.209876,
+                        "y": 14.0
+                    },
+                    "uuid": "a0ef7d10-6bcf-46dc-80ab-5348c9aa0294"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 54.8
+                    },
+                    "uuid": "1171e050-7d14-4c9d-936f-9baa81ab86f0"
+                },
+                {
+                    "description": "Pad 1 [U1_C16] of TP52 on F.Cu",
+                    "pos": {
+                        "x": 160.074074,
+                        "y": 14.0
+                    },
+                    "uuid": "8d1e56e2-24a7-43a8-a28e-82fe33f31f50"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_C17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 54.8
+                    },
+                    "uuid": "0bdaaf02-5df2-4535-8b03-3ba1f3853df2"
+                },
+                {
+                    "description": "Pad 1 [U1_C17] of TP53 on F.Cu",
+                    "pos": {
+                        "x": 162.938271,
+                        "y": 14.0
+                    },
+                    "uuid": "8a5cd66e-b60b-4fe7-89b8-0e7df6bb3949"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_D7] on In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 55.6
+                    },
+                    "uuid": "ccd124c4-672e-4990-95ba-fafef76fbc85"
+                },
+                {
+                    "description": "Pad 1 [U1_D7] of TP61 on F.Cu",
+                    "pos": {
+                        "x": 185.851851,
+                        "y": 14.0
+                    },
+                    "uuid": "6996531d-509b-47ec-91e6-759c82e5a490"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_D8] on In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 55.6
+                    },
+                    "uuid": "b7689061-294a-454d-836a-41d60da80f98"
+                },
+                {
+                    "description": "Pad 1 [U1_D8] of TP62 on F.Cu",
+                    "pos": {
+                        "x": 188.716049,
+                        "y": 14.0
+                    },
+                    "uuid": "1525c67f-6229-4ed6-aaeb-9ac3270eac65"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 55.6
+                    },
+                    "uuid": "1d972fea-6aae-482d-90a0-6e75c5f7d008"
+                },
+                {
+                    "description": "Pad 1 [U1_D9] of TP63 on F.Cu",
+                    "pos": {
+                        "x": 191.580246,
+                        "y": 14.0
+                    },
+                    "uuid": "9c1f6425-e07b-44e5-84e5-a6982d26704b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 55.6
+                    },
+                    "uuid": "2add32eb-7069-4628-8f49-7782a5b10a82"
+                },
+                {
+                    "description": "Pad 1 [U1_D10] of TP64 on F.Cu",
+                    "pos": {
+                        "x": 194.444444,
+                        "y": 14.0
+                    },
+                    "uuid": "f61be0ec-15eb-4fab-816b-dcc2c08a436a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_D11] on In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 55.6
+                    },
+                    "uuid": "d719e730-41a4-4a8e-b35f-64971c0a1c3f"
+                },
+                {
+                    "description": "Pad 1 [U1_D11] of TP65 on F.Cu",
+                    "pos": {
+                        "x": 197.308641,
+                        "y": 14.0
+                    },
+                    "uuid": "2496679a-7616-449a-a081-710648c8feaa"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 55.6
+                    },
+                    "uuid": "1792bff8-3161-446f-a798-871665a26e82"
+                },
+                {
+                    "description": "Pad 1 [U1_D12] of TP66 on F.Cu",
+                    "pos": {
+                        "x": 200.172839,
+                        "y": 14.0
+                    },
+                    "uuid": "b1f6efef-95fe-4878-81cc-c27dbcaa5cec"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 55.6
+                    },
+                    "uuid": "571cd406-f0ab-4cc1-a386-f0c1d702d634"
+                },
+                {
+                    "description": "Pad 1 [U1_D13] of TP67 on F.Cu",
+                    "pos": {
+                        "x": 203.037037,
+                        "y": 14.0
+                    },
+                    "uuid": "00fdc6b4-1ad6-4e20-bec3-7c5e1d3ce2ad"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 55.6
+                    },
+                    "uuid": "6e45bfeb-432b-43ec-a212-46852fe1eea4"
+                },
+                {
+                    "description": "Pad 1 [U1_D14] of TP68 on F.Cu",
+                    "pos": {
+                        "x": 205.901234,
+                        "y": 14.0
+                    },
+                    "uuid": "ca99273f-19c4-4c11-b871-caeda64c5676"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 55.6
+                    },
+                    "uuid": "d40b20c7-cf18-4d5e-9e72-bec1cbcb6bc8"
+                },
+                {
+                    "description": "Pad 1 [U1_D15] of TP69 on F.Cu",
+                    "pos": {
+                        "x": 208.765432,
+                        "y": 14.0
+                    },
+                    "uuid": "a713d1ed-1308-4a56-b53a-f793ac5888b2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 55.6
+                    },
+                    "uuid": "54cffd81-c911-428b-acee-ca687f5fa72d"
+                },
+                {
+                    "description": "Pad 1 [U1_D16] of TP70 on F.Cu",
+                    "pos": {
+                        "x": 211.629629,
+                        "y": 14.0
+                    },
+                    "uuid": "4d22f835-511c-45a2-bc43-5ae45398f79e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 55.6
+                    },
+                    "uuid": "670f828b-12db-41cb-a8ba-520acf74d81a"
+                },
+                {
+                    "description": "Pad 1 [U1_D17] of TP71 on F.Cu",
+                    "pos": {
+                        "x": 214.493827,
+                        "y": 14.0
+                    },
+                    "uuid": "3b7b47ca-cd88-495f-ad78-a3f67933017c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 56.4
+                    },
+                    "uuid": "9bca95bb-3071-4e5d-a73b-d171d5c563ba"
+                },
+                {
+                    "description": "Pad 1 [U1_E8] of TP80 on F.Cu",
+                    "pos": {
+                        "x": 240.271604,
+                        "y": 14.0
+                    },
+                    "uuid": "9ce3a294-3f3a-4731-91e7-c896b44bd13c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 56.4
+                    },
+                    "uuid": "b33040ac-cec7-45f0-947b-de492da1b291"
+                },
+                {
+                    "description": "Pad 1 [U1_E9] of TP81 on F.Cu",
+                    "pos": {
+                        "x": 243.135802,
+                        "y": 14.0
+                    },
+                    "uuid": "5ec01b89-b704-48a5-9d87-d89dffa4376b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 56.4
+                    },
+                    "uuid": "dbad5360-ccf8-47e2-9489-f22280e74a2f"
+                },
+                {
+                    "description": "Pad 1 [U1_E10] of TP82 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 14.0
+                    },
+                    "uuid": "e276b1e4-1841-4262-a91b-d5075c1bd7df"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 56.4
+                    },
+                    "uuid": "4bc0dfd4-3989-444d-a3b2-4a0f046c3181"
+                },
+                {
+                    "description": "Pad 1 [U1_E11] of TP83 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 16.864197
+                    },
+                    "uuid": "1f23cf8f-d9ea-48a3-93d3-13dfe2c3dd08"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_E12] on In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 56.4
+                    },
+                    "uuid": "eb189575-b3a9-4ec0-b313-165fb547bb2f"
+                },
+                {
+                    "description": "Pad 1 [U1_E12] of TP84 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 19.728395
+                    },
+                    "uuid": "93c7be80-3295-410e-ada3-afd1167aabb6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 56.4
+                    },
+                    "uuid": "423063c8-c078-4ae0-8d68-cfc6fa0d16b7"
+                },
+                {
+                    "description": "Pad 1 [U1_E13] of TP85 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 22.592592
+                    },
+                    "uuid": "a74069b0-0785-46c5-8663-ad13c64ad5fb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_E14] on In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 56.4
+                    },
+                    "uuid": "c91863e5-588f-4374-87ed-3cb57097950f"
+                },
+                {
+                    "description": "Pad 1 [U1_E14] of TP86 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 25.45679
+                    },
+                    "uuid": "f1431a4f-5089-4cf4-bf82-d00c5b817857"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_E15] on In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 56.4
+                    },
+                    "uuid": "e5d712d4-320a-42e4-914f-9906010c867f"
+                },
+                {
+                    "description": "Pad 1 [U1_E15] of TP87 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 28.320987
+                    },
+                    "uuid": "66158edb-bc80-4547-a070-573a27e437d8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 56.4
+                    },
+                    "uuid": "b4805b19-11a0-4280-b134-ba4b35dcb72f"
+                },
+                {
+                    "description": "Pad 1 [U1_E16] of TP88 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 31.185185
+                    },
+                    "uuid": "13d757e1-b135-4662-88f5-956cccbec380"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 56.4
+                    },
+                    "uuid": "050664d3-608f-42fc-a1fc-29d380db4e68"
+                },
+                {
+                    "description": "Pad 1 [U1_E17] of TP89 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 34.049382
+                    },
+                    "uuid": "c1321c7f-e556-4123-a1e8-8875c564aaf8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 57.2
+                    },
+                    "uuid": "2a5f311f-1e09-4228-9cde-41ca4912a12f"
+                },
+                {
+                    "description": "Pad 1 [U1_F9] of TP99 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 62.691358
+                    },
+                    "uuid": "add0472d-c3a9-4ccf-aac2-33a2bc407172"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 57.2
+                    },
+                    "uuid": "66778762-6ea4-46e9-922c-724775b5b209"
+                },
+                {
+                    "description": "Pad 1 [U1_F10] of TP100 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 65.555555
+                    },
+                    "uuid": "f096c264-d14d-40ae-ae59-de4a06e9d2e8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 57.2
+                    },
+                    "uuid": "34e4b7fe-6618-49db-ad78-3ab4a58f2f3b"
+                },
+                {
+                    "description": "Pad 1 [U1_F11] of TP101 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 68.419753
+                    },
+                    "uuid": "5c6f73be-cae6-4d1a-ae0c-0e47cc51c848"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_F12] on In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 57.2
+                    },
+                    "uuid": "d4f63d97-f3d8-4a62-9820-120f546cc6a4"
+                },
+                {
+                    "description": "Pad 1 [U1_F12] of TP102 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 71.28395
+                    },
+                    "uuid": "4bb742a4-5bf6-409b-8613-8ea7b236d5f5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_F13] on In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 57.2
+                    },
+                    "uuid": "ee69adbf-9a3a-4114-bdf3-88e658eee784"
+                },
+                {
+                    "description": "Pad 1 [U1_F13] of TP103 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 74.148148
+                    },
+                    "uuid": "04504d62-de92-42a2-a1b4-f1bef13d2f55"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_F14] on In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 57.2
+                    },
+                    "uuid": "f2ec3fed-2ca7-4354-a666-e3687a783f3c"
+                },
+                {
+                    "description": "Pad 1 [U1_F14] of TP104 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 77.012345
+                    },
+                    "uuid": "dd2e423e-c632-4ed6-a76b-20763aacf50d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 57.2
+                    },
+                    "uuid": "a9ff594f-174e-4989-a29e-d88c3f5a9017"
+                },
+                {
+                    "description": "Pad 1 [U1_F15] of TP105 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 79.876543
+                    },
+                    "uuid": "6eda7f90-0da1-4a53-bb29-9e36df6860fc"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 57.2
+                    },
+                    "uuid": "1275c0a7-35c8-4017-ae80-5df43fdc0368"
+                },
+                {
+                    "description": "Pad 1 [U1_F16] of TP106 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 82.74074
+                    },
+                    "uuid": "c1c64e67-c134-4414-a8bc-2e31139ed1ae"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 57.2
+                    },
+                    "uuid": "2613d2fb-4d05-4165-a629-fc661ddce14e"
+                },
+                {
+                    "description": "Pad 1 [U1_F17] of TP107 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 85.604938
+                    },
+                    "uuid": "acbc09fc-839b-44c8-b826-22d8fd8b0790"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 58.0
+                    },
+                    "uuid": "4f665173-95f7-4281-8ae5-d06a22f0eaf0"
+                },
+                {
+                    "description": "Pad 1 [U1_G9] of TP117 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 114.246913
+                    },
+                    "uuid": "9ae7c845-9d20-4212-b045-3cb49130e698"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G10] on In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 58.0
+                    },
+                    "uuid": "ef3e8d11-e790-4e46-bc87-49af8cc6a8fe"
+                },
+                {
+                    "description": "Pad 1 [U1_G10] of TP118 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 117.111111
+                    },
+                    "uuid": "96ab8a8a-c78f-4ddf-bdf5-cf2a7125ae6b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 58.0
+                    },
+                    "uuid": "cd1e8074-d979-4954-bb2b-ca9b6aa741c9"
+                },
+                {
+                    "description": "Pad 1 [U1_G11] of TP119 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 119.975308
+                    },
+                    "uuid": "31df2fb4-f555-48cc-9723-73373f65c7d4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G12] on In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 58.0
+                    },
+                    "uuid": "eb2282db-143b-47af-83b8-b51f9c2279ee"
+                },
+                {
+                    "description": "Pad 1 [U1_G12] of TP120 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 122.839506
+                    },
+                    "uuid": "ca1a62a4-3c57-4dff-8461-b1e0b84207e4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 58.0
+                    },
+                    "uuid": "b75c6362-3464-47b9-a8fe-ac177ea5bb2a"
+                },
+                {
+                    "description": "Pad 1 [U1_G13] of TP121 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 125.703703
+                    },
+                    "uuid": "5355af1e-a18b-4971-960e-b8f18c27ba72"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G14] on In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 58.0
+                    },
+                    "uuid": "df250b48-c391-472d-bf0a-7b29e56d541a"
+                },
+                {
+                    "description": "Pad 1 [U1_G14] of TP122 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 128.567901
+                    },
+                    "uuid": "e708eeec-5314-4312-8606-658bba95a072"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G15] on In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 58.0
+                    },
+                    "uuid": "d567df3d-bb57-4340-9137-db951aed9ab2"
+                },
+                {
+                    "description": "Pad 1 [U1_G15] of TP123 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 131.432098
+                    },
+                    "uuid": "ef29018b-a862-4f70-88ba-5a247ed8c507"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_G16] on In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 58.0
+                    },
+                    "uuid": "fe7f0194-b072-44cc-8ad3-d46251725441"
+                },
+                {
+                    "description": "Pad 1 [U1_G16] of TP124 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 134.296296
+                    },
+                    "uuid": "a9f7e6fa-203f-4fa8-922a-ebdbfc9ecdf1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 58.0
+                    },
+                    "uuid": "0d6761bc-99df-4bbf-a7c1-0c71f7bb3b34"
+                },
+                {
+                    "description": "Pad 1 [U1_G17] of TP125 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 137.160493
+                    },
+                    "uuid": "df2274eb-24db-49b8-b3f8-adcb6cf90eeb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_H12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 58.8
+                    },
+                    "uuid": "5d3c51e4-22d3-497d-a6b8-865a614aead0"
+                },
+                {
+                    "description": "Pad 1 [U1_H12] of TP138 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 174.395061
+                    },
+                    "uuid": "d98198b2-b298-46dc-aa48-1a0022f72549"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_H13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 58.8
+                    },
+                    "uuid": "7e1eff73-5a9e-4fdf-8862-1cff592cc4b5"
+                },
+                {
+                    "description": "Pad 1 [U1_H13] of TP139 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 177.259259
+                    },
+                    "uuid": "7d19b34e-68f2-4650-ae9e-40acedd44876"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_H14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 58.8
+                    },
+                    "uuid": "e7bc8739-38fe-4697-a6d3-e0ba5ee3ca4e"
+                },
+                {
+                    "description": "Pad 1 [U1_H14] of TP140 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 180.123456
+                    },
+                    "uuid": "0bf3bcda-3dbc-44ee-93b9-9f8e418ccbaf"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_H15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 58.8
+                    },
+                    "uuid": "e11b6a94-d255-4c29-bf0e-df17f5192eb6"
+                },
+                {
+                    "description": "Pad 1 [U1_H15] of TP141 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 182.987654
+                    },
+                    "uuid": "a94c5429-7467-4ca5-8691-8f31713a3d96"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_H16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 58.8
+                    },
+                    "uuid": "4ec5538c-ca36-4de9-a6c1-beba9fe23ffe"
+                },
+                {
+                    "description": "Pad 1 [U1_H16] of TP142 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 185.851851
+                    },
+                    "uuid": "09e520f6-aeb4-4c62-bf33-da4a9f9ab460"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_H17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 58.8
+                    },
+                    "uuid": "00e67708-a979-43ed-95a0-892ae2358a11"
+                },
+                {
+                    "description": "Pad 1 [U1_H17] of TP143 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 188.716049
+                    },
+                    "uuid": "322497e3-d89f-45dd-a7dd-71ad275430f1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_J12] on In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 59.6
+                    },
+                    "uuid": "e8818922-6b95-47f1-8fd6-243083dfa391"
+                },
+                {
+                    "description": "Pad 1 [U1_J12] of TP156 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 225.950617
+                    },
+                    "uuid": "ca9d9632-81d9-4da9-8f50-6ece3269f410"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_J13] on In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 59.6
+                    },
+                    "uuid": "dbfb57c6-f8ac-4d69-892f-3b1ddfd670e7"
+                },
+                {
+                    "description": "Pad 1 [U1_J13] of TP157 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 228.814814
+                    },
+                    "uuid": "80745c03-8ab1-4f1b-9346-e4b1c35a36d2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_J14] on In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 59.6
+                    },
+                    "uuid": "ed8fd04b-70de-4835-a1f2-e248b03fa4f8"
+                },
+                {
+                    "description": "Pad 1 [U1_J14] of TP158 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 231.679012
+                    },
+                    "uuid": "47809101-4469-4353-8ba2-b40b80c1f492"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_J15] on In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 59.6
+                    },
+                    "uuid": "ec85184d-cdc9-466e-acf2-3d30825f137f"
+                },
+                {
+                    "description": "Pad 1 [U1_J15] of TP159 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 234.543209
+                    },
+                    "uuid": "38fa91eb-8f6b-409b-8c0e-1cfdbbb8755e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_J16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 59.6
+                    },
+                    "uuid": "2c20afed-2cf3-4e0e-9ebe-6e1a70f7a6ca"
+                },
+                {
+                    "description": "Pad 1 [U1_J16] of TP160 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 237.407407
+                    },
+                    "uuid": "ac813f01-e514-4bdb-815b-886e4e33b659"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_J17] on In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 59.6
+                    },
+                    "uuid": "fff71e3b-9a61-439f-b009-69e157138661"
+                },
+                {
+                    "description": "Pad 1 [U1_J17] of TP161 on F.Cu",
+                    "pos": {
+                        "x": 246.0,
+                        "y": 240.271604
+                    },
+                    "uuid": "c63e4b2a-3b21-47fc-a396-e369726fb086"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 62.0
+                    },
+                    "uuid": "d36f7dcf-6d58-4a6a-a0bd-17034934606f"
+                },
+                {
+                    "description": "Pad 1 [U1_M3] of TP201 on F.Cu",
+                    "pos": {
+                        "x": 137.160493,
+                        "y": 246.0
+                    },
+                    "uuid": "4d226e7d-7419-45f8-9ced-8aedad8ee1aa"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 62.0
+                    },
+                    "uuid": "487ee4b1-772c-43af-9ee1-37f4fdc9dacd"
+                },
+                {
+                    "description": "Pad 1 [U1_M4] of TP202 on F.Cu",
+                    "pos": {
+                        "x": 134.296296,
+                        "y": 246.0
+                    },
+                    "uuid": "394fedde-65bc-4bea-b9ec-2d62a16009df"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 62.0
+                    },
+                    "uuid": "0ed839a7-a256-46d9-976d-9586ef54cc9d"
+                },
+                {
+                    "description": "Pad 1 [U1_M8] of TP206 on F.Cu",
+                    "pos": {
+                        "x": 122.839506,
+                        "y": 246.0
+                    },
+                    "uuid": "b847b8da-d602-4557-b79d-90325240605e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 62.0
+                    },
+                    "uuid": "129841e9-9512-4b2e-861d-1472bd68b853"
+                },
+                {
+                    "description": "Pad 1 [U1_M9] of TP207 on F.Cu",
+                    "pos": {
+                        "x": 119.975308,
+                        "y": 246.0
+                    },
+                    "uuid": "e7ebadb1-6b14-4362-b13f-c49f2e40d166"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 62.0
+                    },
+                    "uuid": "0a5cab54-f479-44da-9ae5-a47772811b8c"
+                },
+                {
+                    "description": "Pad 1 [U1_M15] of TP213 on F.Cu",
+                    "pos": {
+                        "x": 102.790123,
+                        "y": 246.0
+                    },
+                    "uuid": "524168b0-f8a1-479b-bb60-c23a84677d67"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 62.0
+                    },
+                    "uuid": "2696cd27-943a-44d3-a31d-d29773fa12dc"
+                },
+                {
+                    "description": "Pad 1 [U1_M17] of TP215 on F.Cu",
+                    "pos": {
+                        "x": 97.061728,
+                        "y": 246.0
+                    },
+                    "uuid": "430fff51-a858-45f2-a880-2e44a0bca02f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_N2] on In1.Cu",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 62.8
+                    },
+                    "uuid": "cc924eff-6234-4d53-9722-12ced93d4efb"
+                },
+                {
+                    "description": "Pad 1 [U1_N2] of TP218 on F.Cu",
+                    "pos": {
+                        "x": 88.469135,
+                        "y": 246.0
+                    },
+                    "uuid": "d6325323-583f-4ab5-8875-8f2ad6b4b5b9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 62.8
+                    },
+                    "uuid": "1df598af-e944-410e-aa62-5b4241d4e7fd"
+                },
+                {
+                    "description": "Pad 1 [U1_N3] of TP219 on F.Cu",
+                    "pos": {
+                        "x": 85.604938,
+                        "y": 246.0
+                    },
+                    "uuid": "69265f6a-b685-466a-8b71-6b61fe078394"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 62.8
+                    },
+                    "uuid": "f8e920de-5905-41f7-aa05-f82515c3bb10"
+                },
+                {
+                    "description": "Pad 1 [U1_N4] of TP220 on F.Cu",
+                    "pos": {
+                        "x": 82.74074,
+                        "y": 246.0
+                    },
+                    "uuid": "bd030f5d-2e47-460c-be6d-5eb79cc34f26"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 62.8
+                    },
+                    "uuid": "06d12fe6-4d8a-4488-abb7-9ace0c1a1ef9"
+                },
+                {
+                    "description": "Pad 1 [U1_N7] of TP223 on F.Cu",
+                    "pos": {
+                        "x": 74.148148,
+                        "y": 246.0
+                    },
+                    "uuid": "2d9f35db-a989-4e6f-9fa8-a381e838583e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 62.8
+                    },
+                    "uuid": "962bdad8-8b7c-4986-bff6-bb2c03307b23"
+                },
+                {
+                    "description": "Pad 1 [U1_N8] of TP224 on F.Cu",
+                    "pos": {
+                        "x": 71.28395,
+                        "y": 246.0
+                    },
+                    "uuid": "ff0f0bf0-d866-473c-ad04-bc46ecc70fe6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 62.8
+                    },
+                    "uuid": "4f88166d-774f-4a63-ba3b-e27d84b3f875"
+                },
+                {
+                    "description": "Pad 1 [U1_N9] of TP225 on F.Cu",
+                    "pos": {
+                        "x": 68.419753,
+                        "y": 246.0
+                    },
+                    "uuid": "b24db0bc-63c9-4536-b482-d22c13e13d2a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 62.8
+                    },
+                    "uuid": "2edfc04c-b2d5-4dc3-9550-41ee8d0de314"
+                },
+                {
+                    "description": "Pad 1 [U1_N10] of TP226 on F.Cu",
+                    "pos": {
+                        "x": 65.555555,
+                        "y": 246.0
+                    },
+                    "uuid": "71a381a2-707f-41a9-9967-55dfe0fe3220"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Circle [U1_N11] on In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 62.8
+                    },
+                    "uuid": "c93d4d7a-d2ae-4f0d-a853-460c19de55fa"
+                },
+                {
+                    "description": "Pad 1 [U1_N11] of TP227 on F.Cu",
+                    "pos": {
+                        "x": 62.691358,
+                        "y": 246.0
+                    },
+                    "uuid": "3b82381b-1889-40c1-81c2-0982c239d499"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_N12] of TP228 on F.Cu",
+                    "pos": {
+                        "x": 59.82716,
+                        "y": 246.0
+                    },
+                    "uuid": "991bc1e4-914b-483f-86b1-9ef5b536e0d6"
+                },
+                {
+                    "description": "Circle [U1_N12] on In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 62.8
+                    },
+                    "uuid": "c1244b81-1268-42ea-869f-91e26259eab9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_N14] of TP230 on F.Cu",
+                    "pos": {
+                        "x": 54.098765,
+                        "y": 246.0
+                    },
+                    "uuid": "bee1a41d-7232-45c5-93ba-7670f2a40927"
+                },
+                {
+                    "description": "Micro Via [U1_N14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 62.8
+                    },
+                    "uuid": "e54da240-8bb1-48e2-9170-be953c0272a5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_N15] of TP231 on F.Cu",
+                    "pos": {
+                        "x": 51.234567,
+                        "y": 246.0
+                    },
+                    "uuid": "5defe16b-5bdd-43f5-ac15-bedb1a88216f"
+                },
+                {
+                    "description": "Circle [U1_N15] on In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 62.8
+                    },
+                    "uuid": "cdc238b5-db99-4c61-ad1b-7dd7cf248719"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P2] of TP236 on F.Cu",
+                    "pos": {
+                        "x": 36.91358,
+                        "y": 246.0
+                    },
+                    "uuid": "cec2f414-5d97-42f1-be45-4c9ea4e6089c"
+                },
+                {
+                    "description": "Micro Via [U1_P2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 63.6
+                    },
+                    "uuid": "21838434-df82-4873-b76a-81032fcbb46f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P3] of TP237 on F.Cu",
+                    "pos": {
+                        "x": 34.049382,
+                        "y": 246.0
+                    },
+                    "uuid": "209516c3-e183-45eb-8360-3710ba928204"
+                },
+                {
+                    "description": "Micro Via [U1_P3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 63.6
+                    },
+                    "uuid": "46fd1d1d-4e8e-4ac7-a86f-d7cd6bf1931a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P4] of TP238 on F.Cu",
+                    "pos": {
+                        "x": 31.185185,
+                        "y": 246.0
+                    },
+                    "uuid": "82f367d3-4b4d-4d31-95fd-26993f780f25"
+                },
+                {
+                    "description": "Micro Via [U1_P4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 63.6
+                    },
+                    "uuid": "369bf218-c55b-4af0-b9cf-6263c31646c0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P7] of TP241 on F.Cu",
+                    "pos": {
+                        "x": 22.592592,
+                        "y": 246.0
+                    },
+                    "uuid": "9d78627d-1348-4483-aa92-f2200d4048ab"
+                },
+                {
+                    "description": "Micro Via [U1_P7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 63.6
+                    },
+                    "uuid": "67c697bc-f307-462e-98b4-01a39b109270"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P8] of TP242 on F.Cu",
+                    "pos": {
+                        "x": 19.728395,
+                        "y": 246.0
+                    },
+                    "uuid": "ba93b135-2a49-49b4-9567-e5ea8bf6e3f1"
+                },
+                {
+                    "description": "Micro Via [U1_P8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 63.6
+                    },
+                    "uuid": "a9bdb774-0949-49a1-8e5a-d971259460af"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P9] of TP243 on F.Cu",
+                    "pos": {
+                        "x": 16.864197,
+                        "y": 246.0
+                    },
+                    "uuid": "77206a14-5d5b-4856-b144-7c3e05404b52"
+                },
+                {
+                    "description": "Micro Via [U1_P9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 63.6
+                    },
+                    "uuid": "532f4067-0934-4b9e-8113-42664a3feb89"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P10] of TP244 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 246.0
+                    },
+                    "uuid": "caca3d2e-da59-44ba-99a0-5650a9d11976"
+                },
+                {
+                    "description": "Micro Via [U1_P10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 63.6
+                    },
+                    "uuid": "12329d08-4ed6-4330-9200-b9ba8418e14d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P11] of TP245 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 243.135802
+                    },
+                    "uuid": "b203516e-3911-47ca-a232-b34448a330d8"
+                },
+                {
+                    "description": "Micro Via [U1_P11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 63.6
+                    },
+                    "uuid": "e54a08e5-625e-4603-b012-41bf34094d7d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P12] of TP246 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 240.271604
+                    },
+                    "uuid": "20cf8e30-2540-4054-b249-d9d6ceccdc0c"
+                },
+                {
+                    "description": "Micro Via [U1_P12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 63.6
+                    },
+                    "uuid": "e8b431e0-4a31-4893-8be5-5c1f0d38c5f0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P13] of TP247 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 237.407407
+                    },
+                    "uuid": "fa421bd5-5ea5-4a29-af0c-4d61af271ad2"
+                },
+                {
+                    "description": "Micro Via [U1_P13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 63.6
+                    },
+                    "uuid": "d5f85e3e-9b04-4d2e-96cc-38dd5f67cde0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P14] of TP248 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 234.543209
+                    },
+                    "uuid": "9960d544-cb5a-4617-841c-55b891b8f850"
+                },
+                {
+                    "description": "Micro Via [U1_P14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 63.6
+                    },
+                    "uuid": "cd25af10-3cbf-4886-9e37-48d32dee0e8e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P15] of TP249 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 231.679012
+                    },
+                    "uuid": "4f0e71ad-4846-4288-b8c5-9b35008bcdfb"
+                },
+                {
+                    "description": "Micro Via [U1_P15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 63.6
+                    },
+                    "uuid": "da49f907-0cb1-456d-b84d-60bd6f29f716"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P16] of TP250 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 228.814814
+                    },
+                    "uuid": "d5175089-0eef-42ef-84cd-68bb486789c7"
+                },
+                {
+                    "description": "Micro Via [U1_P16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 63.6
+                    },
+                    "uuid": "8b1dd163-c23f-4905-8191-b3fbd7efe722"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_P17] of TP251 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 225.950617
+                    },
+                    "uuid": "e178b6fb-ba73-43e7-a107-92a32723d5fe"
+                },
+                {
+                    "description": "Micro Via [U1_P17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 63.6
+                    },
+                    "uuid": "c86bad1e-76d0-40a8-811a-8f66f5bcb8d3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R2] of TP254 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 217.358024
+                    },
+                    "uuid": "bb7b26c3-29de-458d-aaab-c69650302a4a"
+                },
+                {
+                    "description": "Micro Via [U1_R2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 64.4
+                    },
+                    "uuid": "e36ed180-729a-4627-8d12-8845369ae58b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R3] of TP255 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 214.493827
+                    },
+                    "uuid": "13962c44-440f-47bd-a8c7-37473429b594"
+                },
+                {
+                    "description": "Micro Via [U1_R3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 64.4
+                    },
+                    "uuid": "bb5ff31a-8703-47c4-bfc7-896080fb0c3f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R4] of TP256 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 211.629629
+                    },
+                    "uuid": "1ee080dc-83da-4987-9ae6-f8423874d583"
+                },
+                {
+                    "description": "Micro Via [U1_R4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 64.4
+                    },
+                    "uuid": "f21b06cf-49ed-40f4-ad7a-05c1f04cf9a6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R5] of TP257 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 208.765432
+                    },
+                    "uuid": "13210b43-c841-4e1b-b5c1-1aed558517b6"
+                },
+                {
+                    "description": "Micro Via [U1_R5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.4,
+                        "y": 64.4
+                    },
+                    "uuid": "0d98e6c4-bfdb-4fed-9a9f-f18bc40785ca"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R6] of TP258 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 205.901234
+                    },
+                    "uuid": "9c0cc4da-0df9-4a97-a0b4-2d5ede75dfe2"
+                },
+                {
+                    "description": "Micro Via [U1_R6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 57.2,
+                        "y": 64.4
+                    },
+                    "uuid": "c4066ec8-f5f2-4939-8d04-65c57e27dc10"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R7] of TP259 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 203.037037
+                    },
+                    "uuid": "0451bba2-c903-4265-8320-3ca5f6ba3298"
+                },
+                {
+                    "description": "Micro Via [U1_R7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 64.4
+                    },
+                    "uuid": "ac9cba08-32be-4858-9df6-fe3b5a3fd461"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R8] of TP260 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 200.172839
+                    },
+                    "uuid": "2dbb3b93-05e9-419d-81c4-8ff62aac806f"
+                },
+                {
+                    "description": "Micro Via [U1_R8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 64.4
+                    },
+                    "uuid": "5e2207a6-32ba-4d59-8b11-65aafd9f3f5f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R9] of TP261 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 197.308641
+                    },
+                    "uuid": "09b172e6-2a2b-40b5-9546-20c726685f33"
+                },
+                {
+                    "description": "Micro Via [U1_R9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 64.4
+                    },
+                    "uuid": "205ba6a6-0b7d-43e7-9680-f033e33b47bc"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R10] of TP262 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 194.444444
+                    },
+                    "uuid": "b9459c0f-890f-4270-b2a1-6a15b2267856"
+                },
+                {
+                    "description": "Micro Via [U1_R10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 64.4
+                    },
+                    "uuid": "f8a8c9bd-a2ab-4387-a87f-15fb662727e9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R11] of TP263 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 191.580246
+                    },
+                    "uuid": "3fbfbd03-7beb-468e-844c-e0bf2cb5d71b"
+                },
+                {
+                    "description": "Micro Via [U1_R11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 64.4
+                    },
+                    "uuid": "d7409d8a-9c00-41ac-8da0-2b0b703f5049"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R12] of TP264 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 188.716049
+                    },
+                    "uuid": "45744fcd-d9dd-4834-b238-58f1f0579d6f"
+                },
+                {
+                    "description": "Micro Via [U1_R12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 64.4
+                    },
+                    "uuid": "5f9a1b27-5ace-4f22-b483-a2f8ddbe7dec"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R13] of TP265 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 185.851851
+                    },
+                    "uuid": "46ef8faa-916f-4f49-add2-0efa8c092eb4"
+                },
+                {
+                    "description": "Micro Via [U1_R13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 64.4
+                    },
+                    "uuid": "4c77cdae-ec57-4692-922e-aa4de78c9480"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R14] of TP266 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 182.987654
+                    },
+                    "uuid": "aeb99dac-5655-49ce-923a-44eba8831585"
+                },
+                {
+                    "description": "Micro Via [U1_R14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 64.4
+                    },
+                    "uuid": "d60babce-6db6-4f04-b840-8630fc8e1bf3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R15] of TP267 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 180.123456
+                    },
+                    "uuid": "9bd7fb9d-b839-4447-880c-d5ff681ef7f0"
+                },
+                {
+                    "description": "Micro Via [U1_R15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 64.4
+                    },
+                    "uuid": "5ef2f401-1f25-4f30-a083-5bdb4c28fda5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R16] of TP268 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 177.259259
+                    },
+                    "uuid": "5204d143-9cdb-4358-b2ee-442543f04e8f"
+                },
+                {
+                    "description": "Micro Via [U1_R16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 64.4
+                    },
+                    "uuid": "eb54acc3-a57a-48f8-a813-845c6afac42f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_R17] of TP269 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 174.395061
+                    },
+                    "uuid": "646e4e96-477a-4476-a62a-447117b87789"
+                },
+                {
+                    "description": "Micro Via [U1_R17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 64.4
+                    },
+                    "uuid": "33f936d1-b85d-40a6-bb96-923286672bc2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T2] of TP272 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 165.802469
+                    },
+                    "uuid": "bfe56aee-18c4-48f0-8961-69e93e575de6"
+                },
+                {
+                    "description": "Micro Via [U1_T2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 65.2
+                    },
+                    "uuid": "d7b749ff-5a6c-4697-815e-b0010608321e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T3] of TP273 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 162.938271
+                    },
+                    "uuid": "64accb1f-d29b-4648-8e31-4864aa3d55e7"
+                },
+                {
+                    "description": "Micro Via [U1_T3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 65.2
+                    },
+                    "uuid": "3f9b0ff0-12e6-403a-baff-73b5162b9b20"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T4] of TP274 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 160.074074
+                    },
+                    "uuid": "add1007e-4156-4786-b7f6-a92b9e34acdf"
+                },
+                {
+                    "description": "Micro Via [U1_T4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 65.2
+                    },
+                    "uuid": "137cc5b5-1089-4ed6-9ec5-e5b6242f34bf"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T5] of TP275 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 157.209876
+                    },
+                    "uuid": "aac9e74b-1252-4ead-bdf0-fadadf042c1d"
+                },
+                {
+                    "description": "Micro Via [U1_T5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.4,
+                        "y": 65.2
+                    },
+                    "uuid": "f63d1e34-9aa4-41d3-a8d5-66278a163f1c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T6] of TP276 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 154.345679
+                    },
+                    "uuid": "7c636951-2d94-44ce-adf3-c1e15f16c567"
+                },
+                {
+                    "description": "Micro Via [U1_T6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 57.2,
+                        "y": 65.2
+                    },
+                    "uuid": "7db2cd4a-3363-4194-bad4-65ae0e3039e0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T7] of TP277 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 151.481481
+                    },
+                    "uuid": "d6290a27-62ab-449d-a7d8-5c9d54061ef1"
+                },
+                {
+                    "description": "Micro Via [U1_T7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 65.2
+                    },
+                    "uuid": "ea9e947c-ba08-4009-9c19-52b7f3c2247d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T8] of TP278 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 148.617283
+                    },
+                    "uuid": "4820c792-d3cd-4472-ba37-f8886158a13d"
+                },
+                {
+                    "description": "Micro Via [U1_T8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 65.2
+                    },
+                    "uuid": "32232cc8-d1d6-4c53-b896-230a221bbdf9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T9] of TP279 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 145.753086
+                    },
+                    "uuid": "8677ad63-51ac-4090-9a28-36a890af2012"
+                },
+                {
+                    "description": "Micro Via [U1_T9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 65.2
+                    },
+                    "uuid": "9a6a0fa0-0372-49f9-a3de-f53cd6a83ef4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T10] of TP280 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 142.888888
+                    },
+                    "uuid": "1307fc20-c37b-48ed-8a33-7da2386985be"
+                },
+                {
+                    "description": "Micro Via [U1_T10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 65.2
+                    },
+                    "uuid": "73049b09-2ca3-4423-8986-3e8498be2f88"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T11] of TP281 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 140.024691
+                    },
+                    "uuid": "7f3a55e9-0f2b-423a-abab-ae51787baf53"
+                },
+                {
+                    "description": "Micro Via [U1_T11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 65.2
+                    },
+                    "uuid": "5c43aa4e-da2f-4849-9a6c-b527a620de74"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T12] of TP282 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 137.160493
+                    },
+                    "uuid": "4f420689-5687-4d26-b2a7-76a384471632"
+                },
+                {
+                    "description": "Micro Via [U1_T12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 65.2
+                    },
+                    "uuid": "b6158eef-d6a8-49ad-b035-ee4bf9195279"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T13] of TP283 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 134.296296
+                    },
+                    "uuid": "bfb11579-9e1b-47ea-9804-c79f44bdd1a2"
+                },
+                {
+                    "description": "Micro Via [U1_T13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 65.2
+                    },
+                    "uuid": "1100f66a-f1f4-45cb-a15f-a5a2c05e5657"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T14] of TP284 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 131.432098
+                    },
+                    "uuid": "e2d6d89a-435b-4a4f-b21b-e6110e599815"
+                },
+                {
+                    "description": "Micro Via [U1_T14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 65.2
+                    },
+                    "uuid": "aa90562c-1e4b-4a74-aeee-287b92772c74"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T15] of TP285 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 128.567901
+                    },
+                    "uuid": "6c3f64b7-1f6a-4ed3-82f0-f81415851f5a"
+                },
+                {
+                    "description": "Micro Via [U1_T15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 65.2
+                    },
+                    "uuid": "4ef05058-8300-405a-b18a-188b9a526971"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T16] of TP286 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 125.703703
+                    },
+                    "uuid": "4e498646-6790-4a1f-a461-8a1734969d30"
+                },
+                {
+                    "description": "Micro Via [U1_T16] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 65.2,
+                        "y": 65.2
+                    },
+                    "uuid": "58417993-3870-4b88-a8ce-fcd07a23fec5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_T17] of TP287 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 122.839506
+                    },
+                    "uuid": "167c69df-8a57-42eb-9901-bfc8a7728e3b"
+                },
+                {
+                    "description": "Micro Via [U1_T17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 65.2
+                    },
+                    "uuid": "796b2adb-c4a1-44bf-b4fb-7a73f436ca9e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U2] of TP290 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 114.246913
+                    },
+                    "uuid": "ab32f06e-9457-4f49-9001-5b32ecbf0cbb"
+                },
+                {
+                    "description": "Micro Via [U1_U2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 66.0
+                    },
+                    "uuid": "33b83d70-eb83-4a22-b1f5-391d3ba7a1ef"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U3] of TP291 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 111.382716
+                    },
+                    "uuid": "6e3eca8b-49d7-4073-900d-e62e33b3fba0"
+                },
+                {
+                    "description": "Micro Via [U1_U3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 66.0
+                    },
+                    "uuid": "22cad0ce-07a3-445d-9b57-342cd3433b79"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U4] of TP292 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 108.518518
+                    },
+                    "uuid": "15110e8a-4450-4b3d-947b-af9cf3821aac"
+                },
+                {
+                    "description": "Micro Via [U1_U4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 66.0
+                    },
+                    "uuid": "1e017486-a078-45a7-9577-dac93cbdd64e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U5] of TP293 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 105.65432
+                    },
+                    "uuid": "148f6cea-2a7c-4d5b-a898-3e015e9c0a9c"
+                },
+                {
+                    "description": "Micro Via [U1_U5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.4,
+                        "y": 66.0
+                    },
+                    "uuid": "b40d76d1-3c1f-4fd2-89b5-173de4789fb1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U6] of TP294 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 102.790123
+                    },
+                    "uuid": "5a5b6a82-a283-4029-afbd-e861a3af8f52"
+                },
+                {
+                    "description": "Micro Via [U1_U6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 57.2,
+                        "y": 66.0
+                    },
+                    "uuid": "721af502-815e-47d0-b8e3-14471f9f3623"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U7] of TP295 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 99.925925
+                    },
+                    "uuid": "7e3dbc0b-564f-4649-a80c-afd4c84fc936"
+                },
+                {
+                    "description": "Micro Via [U1_U7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 66.0
+                    },
+                    "uuid": "8863489c-06bc-4955-b080-ed1838601222"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U8] of TP296 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 97.061728
+                    },
+                    "uuid": "010c2126-c122-45cd-8604-926508dbf606"
+                },
+                {
+                    "description": "Micro Via [U1_U8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 66.0
+                    },
+                    "uuid": "b798f710-9a87-437a-836d-7fffd4dcafc3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U9] of TP297 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 94.19753
+                    },
+                    "uuid": "58fac120-b790-4031-8615-fa28678e8d9e"
+                },
+                {
+                    "description": "Micro Via [U1_U9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 66.0
+                    },
+                    "uuid": "3eb897e1-9ab6-4c61-b350-e205d4c5c6ab"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U10] of TP298 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 91.333333
+                    },
+                    "uuid": "e2bb1ac0-7f08-4d3c-a4f2-46d50ffcfbe1"
+                },
+                {
+                    "description": "Micro Via [U1_U10] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 60.4,
+                        "y": 66.0
+                    },
+                    "uuid": "f47339a9-c611-4ba1-af02-fb5b8edb3b14"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U11] of TP299 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 88.469135
+                    },
+                    "uuid": "dcd12c25-cc95-49ca-8084-3a0f322be38f"
+                },
+                {
+                    "description": "Micro Via [U1_U11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 66.0
+                    },
+                    "uuid": "2bc9d31d-bc39-4c6a-8da4-c299963182a8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U12] of TP300 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 85.604938
+                    },
+                    "uuid": "d02e4c27-6054-4f02-9e73-d34fca3495af"
+                },
+                {
+                    "description": "Micro Via [U1_U12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 66.0
+                    },
+                    "uuid": "4c0566c3-68b6-403f-802c-8fa8ca562b25"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U13] of TP301 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 82.74074
+                    },
+                    "uuid": "0295df34-3803-4cc1-b3d9-b07ee19dbec3"
+                },
+                {
+                    "description": "Micro Via [U1_U13] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.8,
+                        "y": 66.0
+                    },
+                    "uuid": "1e165874-55a5-4c45-afa9-3588d5541c5c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U14] of TP302 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 79.876543
+                    },
+                    "uuid": "e9a5d4be-58ef-4156-9428-5a0f9591f92d"
+                },
+                {
+                    "description": "Micro Via [U1_U14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 66.0
+                    },
+                    "uuid": "825ec924-e47f-4c1a-b808-62376b21348f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U15] of TP303 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 77.012345
+                    },
+                    "uuid": "a01ed263-8d81-4745-a4ec-18eb3e55bc4b"
+                },
+                {
+                    "description": "Micro Via [U1_U15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 66.0
+                    },
+                    "uuid": "69f93604-e7ca-4d82-bdf6-541f7f4d9716"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [U1_U17] of TP305 on F.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 71.28395
+                    },
+                    "uuid": "53e51121-f442-4da6-b978-7060985cec47"
+                },
+                {
+                    "description": "Micro Via [U1_U17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 66.0
+                    },
+                    "uuid": "4ab0e396-2a52-4ee1-8ad0-1e5a38bc77ef"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N13] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 63.5,
+                        "y": 63.2
+                    },
+                    "uuid": "72815ebe-1a54-466e-8087-0a79af3693a8"
+                },
+                {
+                    "description": "Micro Via [U1_N14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 62.8
+                    },
+                    "uuid": "e54da240-8bb1-48e2-9170-be953c0272a5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N1] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.2,
+                        "y": 62.8
+                    },
+                    "uuid": "3679668d-cdc9-461b-8546-649c36bbc722"
+                },
+                {
+                    "description": "Micro Via [U1_M2] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 53.3,
+                        "y": 62.4
+                    },
+                    "uuid": "3e357742-1c35-4a45-bc7a-be0f786f26de"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F5] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.7,
+                        "y": 56.8
+                    },
+                    "uuid": "8bedaf14-91fb-42a3-a822-ab3547d794ec"
+                },
+                {
+                    "description": "Circle [U1_F4] on In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 57.2
+                    },
+                    "uuid": "e6c1fae6-8904-44fc-a718-21f8336e6cd0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0743 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 56.5
+                    },
+                    "uuid": "4a9f6497-9ad8-4f1b-8cf0-3a9af7e35f9c"
+                },
+                {
+                    "description": "Micro Via [U1_F5] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.7,
+                        "y": 56.8
+                    },
+                    "uuid": "8bedaf14-91fb-42a3-a822-ab3547d794ec"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 56.5
+                    },
+                    "uuid": "4a9f6497-9ad8-4f1b-8cf0-3a9af7e35f9c"
+                },
+                {
+                    "description": "Circle [U1_E5] on In1.Cu",
+                    "pos": {
+                        "x": 56.4,
+                        "y": 56.4
+                    },
+                    "uuid": "ba5b7fc0-9c82-48c4-a442-2ea59591496b"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0912 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G4] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 58.0
+                    },
+                    "uuid": "163806d9-7887-48df-8b9f-4f2402670872"
+                },
+                {
+                    "description": "Track [U1_J4] on In2.Cu, length 0.1414 mm",
+                    "pos": {
+                        "x": 54.9,
+                        "y": 58.1
+                    },
+                    "uuid": "c1e1ba6c-77b9-483e-af07-39ca95078bc6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0743 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D2] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 55.6
+                    },
+                    "uuid": "1e61eb41-a47d-477d-9dae-8910832b172b"
+                },
+                {
+                    "description": "Micro Via [U1_E3] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 54.3,
+                        "y": 55.9
+                    },
+                    "uuid": "3546cdb9-ec30-4d8e-8419-ed03874d7ff5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 58.0
+                    },
+                    "uuid": "c3ed18a9-a703-45ed-af79-172001f3a0c3"
+                },
+                {
+                    "description": "Micro Via [U1_G4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 57.9
+                    },
+                    "uuid": "dcf00bb2-7823-4d09-90b5-6e8b5a1d7939"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_L3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 61.2
+                    },
+                    "uuid": "84845b66-2201-4f61-88f1-ecb003e9e428"
+                },
+                {
+                    "description": "Micro Via [U1_L4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 54.9,
+                        "y": 61.6
+                    },
+                    "uuid": "fb4937d1-871b-42de-b5e6-a3bce06c8ca7"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0912 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G4] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 58.0
+                    },
+                    "uuid": "163806d9-7887-48df-8b9f-4f2402670872"
+                },
+                {
+                    "description": "Track [U1_J4] on In2.Cu, length 0.1000 mm",
+                    "pos": {
+                        "x": 54.9,
+                        "y": 58.2
+                    },
+                    "uuid": "e44e2de0-477f-480f-9e5d-865591abadb0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 62.0
+                    },
+                    "uuid": "d36f7dcf-6d58-4a6a-a0bd-17034934606f"
+                },
+                {
+                    "description": "Micro Via [U1_L4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 54.9,
+                        "y": 61.6
+                    },
+                    "uuid": "fb4937d1-871b-42de-b5e6-a3bce06c8ca7"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M14] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 64.3,
+                        "y": 62.4
+                    },
+                    "uuid": "3e32f901-1985-47d7-85e2-ac6cabffff56"
+                },
+                {
+                    "description": "Micro Via [U1_N15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 62.8
+                    },
+                    "uuid": "9d6bad05-cd55-4aae-9416-3d75fe536cae"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0106 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_D4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 55.2
+                    },
+                    "uuid": "150fda8b-a034-40c4-ab44-a30fe089c393"
+                },
+                {
+                    "description": "Micro Via [U1_J4] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 55.4,
+                        "y": 55.5
+                    },
+                    "uuid": "98200a54-8b96-450f-ae33-dfba5d0b39ae"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0106 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_H4] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 55.9,
+                        "y": 55.6
+                    },
+                    "uuid": "34e65031-69f9-4a4e-84bc-87c8189f679f"
+                },
+                {
+                    "description": "Micro Via [U1_F5] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 56.1,
+                        "y": 55.9
+                    },
+                    "uuid": "f6b16617-fb58-45a7-b420-b13f467ebb9f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0106 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E5] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 56.4,
+                        "y": 56.1
+                    },
+                    "uuid": "6997b9c3-af3f-42fa-bbb8-d445c88ff257"
+                },
+                {
+                    "description": "Micro Via [U1_F5] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 56.1,
+                        "y": 55.9
+                    },
+                    "uuid": "f6b16617-fb58-45a7-b420-b13f467ebb9f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 56.5
+                    },
+                    "uuid": "4a9f6497-9ad8-4f1b-8cf0-3a9af7e35f9c"
+                },
+                {
+                    "description": "Micro Via [U1_E5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 56.4,
+                        "y": 56.4
+                    },
+                    "uuid": "68c65a3b-86f5-44e6-b809-b8c40bb7f58a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N13] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 63.5,
+                        "y": 63.2
+                    },
+                    "uuid": "72815ebe-1a54-466e-8087-0a79af3693a8"
+                },
+                {
+                    "description": "Micro Via [U1_P14] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 63.6,
+                        "y": 63.6
+                    },
+                    "uuid": "cd25af10-3cbf-4886-9e37-48d32dee0e8e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F5] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.7,
+                        "y": 56.8
+                    },
+                    "uuid": "8bedaf14-91fb-42a3-a822-ab3547d794ec"
+                },
+                {
+                    "description": "Micro Via [U1_F4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 57.2
+                    },
+                    "uuid": "c2af625a-698f-4b74-bd5a-738780674dd8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N16] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 65.9,
+                        "y": 63.2
+                    },
+                    "uuid": "59ac9450-9cbc-42ee-99c0-e1981214e088"
+                },
+                {
+                    "description": "Micro Via [U1_N17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 62.8
+                    },
+                    "uuid": "799b6c14-d863-4a3e-9976-c1e8e2cd6630"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N17] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 62.8
+                    },
+                    "uuid": "48fa287a-85fb-43e0-ac0d-7985a8233bac"
+                },
+                {
+                    "description": "Micro Via [U1_N16] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 65.9,
+                        "y": 63.2
+                    },
+                    "uuid": "59ac9450-9cbc-42ee-99c0-e1981214e088"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_N16] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 65.9,
+                        "y": 63.2
+                    },
+                    "uuid": "59ac9450-9cbc-42ee-99c0-e1981214e088"
+                },
+                {
+                    "description": "Micro Via [U1_P17] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 63.6
+                    },
+                    "uuid": "c86bad1e-76d0-40a8-811a-8f66f5bcb8d3"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M15] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 64.4,
+                        "y": 62.0
+                    },
+                    "uuid": "0a5cab54-f479-44da-9ae5-a47772811b8c"
+                },
+                {
+                    "description": "Micro Via [U1_M14] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 64.3,
+                        "y": 62.4
+                    },
+                    "uuid": "3e32f901-1985-47d7-85e2-ac6cabffff56"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0106 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G5] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 56.6,
+                        "y": 57.8
+                    },
+                    "uuid": "8e9362b9-3708-4ed3-bffd-1d1ee3da3457"
+                },
+                {
+                    "description": "Micro Via [U1_G6] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 56.9,
+                        "y": 57.6
+                    },
+                    "uuid": "b68a0739-c255-4b7d-9128-c337dd905e9c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 57.3
+                    },
+                    "uuid": "4292d913-3a91-48be-91e4-04b669e08b04"
+                },
+                {
+                    "description": "Circle [U1_F3] on In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 57.2
+                    },
+                    "uuid": "dea870ea-2789-49dd-80eb-882ddd3d3a10"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [U1_U18] on In1.Cu, length 0.5657 mm",
+                    "pos": {
+                        "x": 67.3,
+                        "y": 66.0
+                    },
+                    "uuid": "5ac6d95a-9a35-41de-8bce-91916daf8866"
+                },
+                {
+                    "description": "Track [U1_T18] on In1.Cu, length 1.2728 mm",
+                    "pos": {
+                        "x": 66.8,
+                        "y": 65.2
+                    },
+                    "uuid": "7b45de4e-f57c-4439-8ca5-2dc5024eda6d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0972 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G8] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 59.2,
+                        "y": 57.4
+                    },
+                    "uuid": "25966b66-2fde-4318-be56-3217d3a0b229"
+                },
+                {
+                    "description": "Micro Via [U1_F8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 57.2
+                    },
+                    "uuid": "994e5b03-f7d5-4ff6-987b-3af3bada4a78"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F8] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 58.4,
+                        "y": 56.5
+                    },
+                    "uuid": "5f5b00f4-ac10-47b0-89f3-8af85f7d95fe"
+                },
+                {
+                    "description": "Micro Via [U1_E8] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 56.4
+                    },
+                    "uuid": "9bca95bb-3071-4e5d-a73b-d171d5c563ba"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0500 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F8] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 58.4,
+                        "y": 56.5
+                    },
+                    "uuid": "5f5b00f4-ac10-47b0-89f3-8af85f7d95fe"
+                },
+                {
+                    "description": "Micro Via [U1_E7] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 56.5
+                    },
+                    "uuid": "97130abf-966e-4192-8f72-5a236baef479"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 56.4
+                    },
+                    "uuid": "30fa062d-1c06-49aa-bb19-e46d20fb8a7e"
+                },
+                {
+                    "description": "Micro Via [U1_F8] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 58.4,
+                        "y": 56.5
+                    },
+                    "uuid": "5f5b00f4-ac10-47b0-89f3-8af85f7d95fe"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0578 mm)",
+            "items": [
+                {
+                    "description": "Track [U1_H6] on In2.Cu, length 0.9899 mm",
+                    "pos": {
+                        "x": 57.3,
+                        "y": 58.3
+                    },
+                    "uuid": "66f83a05-460f-40c7-baf7-59d8f7042e7f"
+                },
+                {
+                    "description": "Micro Via [U1_G7] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 58.0,
+                        "y": 58.0
+                    },
+                    "uuid": "8fc72497-ba33-4b3c-ac27-4fd8e62d995f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0972 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G8] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 59.2,
+                        "y": 57.4
+                    },
+                    "uuid": "25966b66-2fde-4318-be56-3217d3a0b229"
+                },
+                {
+                    "description": "Micro Via [U1_F9] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 59.6,
+                        "y": 57.2
+                    },
+                    "uuid": "2a5f311f-1e09-4228-9cde-41ca4912a12f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_J11] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 61.6,
+                        "y": 60.3
+                    },
+                    "uuid": "46f7aa63-549b-4209-81d7-26227ae82e3f"
+                },
+                {
+                    "description": "Micro Via [U1_K11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 60.4
+                    },
+                    "uuid": "bf81044e-fd80-480c-920b-630e0bddda8e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0743 mm)",
+            "items": [
+                {
+                    "description": "Circle [U1_D2] on In1.Cu",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 55.6
+                    },
+                    "uuid": "29c77de3-3c28-4805-ad8b-513f24fe3904"
+                },
+                {
+                    "description": "Micro Via [U1_E3] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 54.3,
+                        "y": 55.9
+                    },
+                    "uuid": "3546cdb9-ec30-4d8e-8419-ed03874d7ff5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 57.3
+                    },
+                    "uuid": "4292d913-3a91-48be-91e4-04b669e08b04"
+                },
+                {
+                    "description": "Micro Via [U1_F3] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 57.2
+                    },
+                    "uuid": "4b3cc7cd-49f2-4981-bb66-6862c945642c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0912 mm)",
+            "items": [
+                {
+                    "description": "Track [U1_F5] on In1.Cu, length 0.2000 mm",
+                    "pos": {
+                        "x": 55.9,
+                        "y": 56.8
+                    },
+                    "uuid": "356730a6-5a0f-47cb-bafa-7b0796ce8abf"
+                },
+                {
+                    "description": "Micro Via [U1_E4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 56.5
+                    },
+                    "uuid": "4a9f6497-9ad8-4f1b-8cf0-3a9af7e35f9c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0912 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_E4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 56.0,
+                        "y": 56.5
+                    },
+                    "uuid": "4a9f6497-9ad8-4f1b-8cf0-3a9af7e35f9c"
+                },
+                {
+                    "description": "Track [U1_F5] on In1.Cu, length 0.5657 mm",
+                    "pos": {
+                        "x": 56.3,
+                        "y": 57.2
+                    },
+                    "uuid": "666498be-1380-4535-9dc9-04366de1f84f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_J11] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 61.6,
+                        "y": 60.3
+                    },
+                    "uuid": "46f7aa63-549b-4209-81d7-26227ae82e3f"
+                },
+                {
+                    "description": "Micro Via [U1_K12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 60.4
+                    },
+                    "uuid": "b4b466a8-a963-4f68-b1c6-fda3be96af05"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0972 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G8] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 59.2,
+                        "y": 57.4
+                    },
+                    "uuid": "25966b66-2fde-4318-be56-3217d3a0b229"
+                },
+                {
+                    "description": "Circle [U1_F8] on In1.Cu",
+                    "pos": {
+                        "x": 58.8,
+                        "y": 57.2
+                    },
+                    "uuid": "28b8b070-2395-4d88-a6f5-a5ba2dc06970"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Circle [U1_G3] on In1.Cu",
+                    "pos": {
+                        "x": 54.8,
+                        "y": 58.0
+                    },
+                    "uuid": "24fe0141-8351-4132-b2e0-5262f9256473"
+                },
+                {
+                    "description": "Micro Via [U1_G4] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.2,
+                        "y": 57.9
+                    },
+                    "uuid": "dcf00bb2-7823-4d09-90b5-6e8b5a1d7939"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_F5] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 55.7,
+                        "y": 56.8
+                    },
+                    "uuid": "8bedaf14-91fb-42a3-a822-ab3547d794ec"
+                },
+                {
+                    "description": "Micro Via [U1_E4] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 55.6,
+                        "y": 56.4
+                    },
+                    "uuid": "e3cfd51b-ffab-4cec-90d1-5bf58b4c956a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_M2] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 53.3,
+                        "y": 62.4
+                    },
+                    "uuid": "3e357742-1c35-4a45-bc7a-be0f786f26de"
+                },
+                {
+                    "description": "Micro Via [U1_M1] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 53.2,
+                        "y": 62.0
+                    },
+                    "uuid": "c0e72c0f-adab-4018-b0b3-1b7a10b8850d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0106 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_U16] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 65.6,
+                        "y": 66.5
+                    },
+                    "uuid": "0a2802dc-327c-4e18-9475-5d078cacbacc"
+                },
+                {
+                    "description": "Micro Via [U1_M16] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 65.9,
+                        "y": 66.3
+                    },
+                    "uuid": "f2ceeb7a-c2e2-4448-ac32-cde780f40719"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_H11] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 61.6,
+                        "y": 58.1
+                    },
+                    "uuid": "b4b20b20-eb24-421d-98fc-c274aeadc316"
+                },
+                {
+                    "description": "Micro Via [U1_G11] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 58.0
+                    },
+                    "uuid": "cd1e8074-d979-4954-bb2b-ca9b6aa741c9"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_G12] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 58.0
+                    },
+                    "uuid": "16ee7887-c7e1-4e94-a25d-ef55b842195f"
+                },
+                {
+                    "description": "Micro Via [U1_H11] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 61.6,
+                        "y": 58.1
+                    },
+                    "uuid": "b4b20b20-eb24-421d-98fc-c274aeadc316"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Micro Via [U1_J11] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 61.6,
+                        "y": 60.3
+                    },
+                    "uuid": "46f7aa63-549b-4209-81d7-26227ae82e3f"
+                },
+                {
+                    "description": "Circle [U1_K12] on In1.Cu",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 60.4
+                    },
+                    "uuid": "d9ece599-fff5-477f-b2a5-64a8bf675064"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'Default' clearance 0.1000 mm; actual 0.0623 mm)",
+            "items": [
+                {
+                    "description": "Circle [U1_G11] on In1.Cu",
+                    "pos": {
+                        "x": 61.2,
+                        "y": 58.0
+                    },
+                    "uuid": "1e7b14e6-5be0-4b76-86a0-7e34a802e878"
+                },
+                {
+                    "description": "Micro Via [U1_H11] on In1.Cu - In2.Cu",
+                    "pos": {
+                        "x": 61.6,
+                        "y": 58.1
+                    },
+                    "uuid": "b4b20b20-eb24-421d-98fc-c274aeadc316"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        }
+    ]
+}

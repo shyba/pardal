@@ -1,0 +1,15 @@
+[package]
+name = "pardal_router_cli"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[[bin]]
+name = "pardal-router"
+path = "src/main.rs"
+
+[dependencies]
+pardal_router_core = { path = "../pardal_router_core" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+

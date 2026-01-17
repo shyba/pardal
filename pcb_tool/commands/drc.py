@@ -367,29 +367,37 @@ class CheckDrcCommand(Command):
             # Check each pair of pads
             for i, pad1 in enumerate(pads):
                 for pad2 in pads[i + 1 :]:
-                    # Get absolute pad positions
-                    x1, y1 = component.get_pad_position(pad1.number)
-                    x2, y2 = component.get_pad_position(pad2.number)
+                    # Use component-local, axis-aligned rectangles for a less
+                    # conservative (and more accurate) overlap/clearance check.
+                    #
+                    # This avoids false positives for packages like QFP where pad
+                    # length can exceed pitch but pads do not geometrically overlap
+                    # because the long dimension is orthogonal to pitch.
+                    x1, y1 = pad1.position_offset
+                    x2, y2 = pad2.position_offset
 
-                    # Calculate center-to-center distance
-                    center_dist = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+                    w1, h1 = pad1.size
+                    w2, h2 = pad2.size
 
-                    # Calculate pad radii (use max dimension for conservative check)
-                    r1 = max(pad1.size[0], pad1.size[1]) / 2
-                    r2 = max(pad2.size[0], pad2.size[1]) / 2
+                    dx = abs(x2 - x1)
+                    dy = abs(y2 - y1)
 
-                    # Edge-to-edge clearance
-                    edge_clearance = center_dist - r1 - r2
+                    sep_x = dx - (w1 + w2) / 2
+                    sep_y = dy - (h1 + h2) / 2
 
-                    if edge_clearance < 0:
+                    if sep_x < 0 and sep_y < 0:
+                        overlap = min(-sep_x, -sep_y)
                         issues["errors"].append(
                             f"  ERROR: Pads {pad1.number} and {pad2.number} of {comp_ref} overlap "
-                            f"by {abs(edge_clearance):.2f}mm (footprint definition error)"
+                            f"by {overlap:.2f}mm (footprint definition error)"
                         )
-                    elif edge_clearance < min_clearance:
+                        continue
+
+                    clearance = math.sqrt(max(sep_x, 0) ** 2 + max(sep_y, 0) ** 2)
+                    if clearance < min_clearance:
                         issues["warnings"].append(
                             f"  WARNING: Pads {pad1.number} and {pad2.number} of {comp_ref} "
-                            f"very close ({edge_clearance:.2f}mm < {min_clearance}mm)"
+                            f"very close ({clearance:.2f}mm < {min_clearance}mm)"
                         )
 
         return issues

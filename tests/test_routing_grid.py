@@ -227,7 +227,7 @@ class TestCellValidation:
         assert grid.get_cell_cost(100, 200, "F.Cu") == 1.0
 
     def test_get_cell_cost_clearance_zone(self):
-        """Test that clearance zones have higher cost."""
+        """Test that clearance zones are not routable by default."""
         grid = RoutingGrid(width_mm=100.0, height_mm=80.0, resolution_mm=0.1)
 
         grid.mark_obstacle(50.0, 50.0, "F.Cu", clearance_mm=1.0, size_mm=1.0)
@@ -245,7 +245,7 @@ class TestCellValidation:
                 gx, gy = cx + dx, cy + dy
                 if (gx, gy) in grid.clearance_zones["F.Cu"]:
                     cost = grid.get_cell_cost(gx, gy, "F.Cu")
-                    assert cost == 2.0  # Double cost for clearance zones
+                    assert math.isinf(cost)
                     found_clearance = True
                     break
             if found_clearance:

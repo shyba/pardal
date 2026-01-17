@@ -6,7 +6,7 @@ The grid divides the board into cells at a configurable resolution (default 0.1m
 and tracks obstacles, clearances, and costs for routing on each layer.
 """
 
-from typing import Set, Tuple, List, Optional
+from typing import Set, Tuple, List, Optional, Dict
 from dataclasses import dataclass, field
 import math
 
@@ -79,6 +79,14 @@ class RoutingGrid:
             layer: set() for layer in self.layers
         }
 
+        # For each clearance-zone cell, track which net "owns" it. Clearance is
+        # treated as a HARD BLOCK for all other nets, but the owning net is
+        # allowed to traverse its own clearance when connecting multi-point nets.
+        #
+        # Key: (gx, gy, layer) -> net_name | "__CONFLICT__"
+        self._CLEARANCE_CONFLICT = "__CONFLICT__"
+        self.clearance_owner: Dict[Tuple[int, int, str], str] = {}
+
         # Track crossing-forbidden zones (HARD BLOCK - prevents routing crossings)
         # These zones are wider than clearance zones and represent areas where
         # routing would create a crossing with an existing trace
@@ -112,6 +120,19 @@ class RoutingGrid:
             Tuple[int, int, int], Tuple[List[Tuple[int, int]], List[Tuple[int, int]]]
         ] = {}
         self._forbidden_offset_cache: dict[Tuple[int, int], List[Tuple[int, int]]] = {}
+
+    def _assign_clearance_owner(
+        self, gx: int, gy: int, layer: str, net_name: str
+    ) -> None:
+        key = (gx, gy, layer)
+        existing = self.clearance_owner.get(key)
+        if existing is None:
+            self.clearance_owner[key] = net_name
+            return
+        if existing == net_name or existing == self._CLEARANCE_CONFLICT:
+            return
+        # Clearance overlap between different nets: keep it blocked for all nets.
+        self.clearance_owner[key] = self._CLEARANCE_CONFLICT
 
     def _get_trace_offsets(
         self, width_mm: float, clearance_mm: float
@@ -286,6 +307,7 @@ class RoutingGrid:
         layer: str,
         clearance_mm: Optional[float] = None,
         size_mm: float = 0.0,
+        net_name: Optional[str] = None,
     ):
         """
         Mark a cell as an obstacle with clearance inflation.
@@ -300,6 +322,9 @@ class RoutingGrid:
         clearance = (
             clearance_mm if clearance_mm is not None else self.default_clearance_mm
         )
+        # Account for grid quantization: routing happens on cell centers, so we
+        # inflate clearance by half a cell to avoid marginal KiCad DRC misses.
+        clearance += 0.5 * self.resolution_mm
         grid_x, grid_y = self.to_grid_coords(x_mm, y_mm)
 
         # Calculate clearance radius in grid cells
@@ -328,6 +353,8 @@ class RoutingGrid:
                         dist = math.sqrt(dx * dx + dy * dy) * self.resolution_mm
                         if size_mm / 2 < dist <= (size_mm / 2 + clearance):
                             self.clearance_zones[lyr].add((gx, gy))
+                            if net_name:
+                                self._assign_clearance_owner(gx, gy, lyr, net_name)
 
         # Clear neighbor cache when obstacles change
         self._neighbor_cache.clear()
@@ -340,6 +367,7 @@ class RoutingGrid:
         y_max_mm: float,
         layer: str,
         clearance_mm: Optional[float] = None,
+        net_name: Optional[str] = None,
     ):
         """
         Mark a rectangular area as an obstacle.
@@ -355,6 +383,7 @@ class RoutingGrid:
         clearance = (
             clearance_mm if clearance_mm is not None else self.default_clearance_mm
         )
+        clearance += 0.5 * self.resolution_mm
         clearance_cells = int(math.ceil(clearance / self.resolution_mm))
 
         gx_min, gy_min = self.to_grid_coords(x_min_mm, y_min_mm)
@@ -378,6 +407,8 @@ class RoutingGrid:
                             gx_min <= gx <= gx_max and gy_min <= gy <= gy_max
                         ):
                             self.clearance_zones[lyr].add((gx, gy))
+                            if net_name:
+                                self._assign_clearance_owner(gx, gy, lyr, net_name)
 
         # Clear neighbor cache when obstacles change
         self._neighbor_cache.clear()
@@ -389,6 +420,7 @@ class RoutingGrid:
         layer: str,
         width_mm: float,
         clearance_mm: Optional[float] = None,
+        net_name: Optional[str] = None,
     ):
         """
         Mark a trace segment as an obstacle using line rasterization.
@@ -403,6 +435,7 @@ class RoutingGrid:
         clearance = (
             clearance_mm if clearance_mm is not None else self.default_clearance_mm
         )
+        clearance += 0.5 * self.resolution_mm
 
         start_grid = self.to_grid_coords(*start_mm)
         end_grid = self.to_grid_coords(*end_mm)
@@ -432,6 +465,8 @@ class RoutingGrid:
                 gx, gy = cx + dx, cy + dy
                 if 0 <= gx < gw and 0 <= gy < gh:
                     clearance_zones.add((gx, gy))
+                    if net_name:
+                        self._assign_clearance_owner(gx, gy, layer, net_name)
 
         # Clear neighbor cache when obstacles change
         self._neighbor_cache.clear()
@@ -562,6 +597,8 @@ class RoutingGrid:
         y_mm: float,
         size_mm: float = 0.8,
         via_layers: Optional[Tuple[str, ...]] = None,
+        clearance_mm: Optional[float] = None,
+        net_name: Optional[str] = None,
     ):
         """
         Mark a via location (obstacle on specified layers).
@@ -589,7 +626,14 @@ class RoutingGrid:
 
         # Mark via as obstacle on specified layers
         for layer in layers_to_mark:
-            self.mark_obstacle(x_mm, y_mm, layer, size_mm=size_mm)
+            self.mark_obstacle(
+                x_mm,
+                y_mm,
+                layer,
+                size_mm=size_mm,
+                clearance_mm=clearance_mm,
+                net_name=net_name,
+            )
 
         # Cache is cleared by mark_obstacle() call above
 
@@ -632,6 +676,12 @@ class RoutingGrid:
             # Obstacle doesn't belong to current net or no current net specified
             return False
 
+        # HARD BLOCK: Clearance zones cannot be routed through, except by the net
+        # that owns the clearance (to support multi-point nets).
+        if (grid_x, grid_y) in self.clearance_zones.get(layer, set()):
+            owner = self.clearance_owner.get((grid_x, grid_y, layer))
+            return owner is not None and owner == current_net
+
         # HARD BLOCK: Crossing-forbidden zones cannot be routed through
         # EXCEPT: Allow routing through zones created by the same net (for multi-point MST routing)
         if (grid_x, grid_y) in self.crossing_forbidden.get(layer, set()):
@@ -663,10 +713,6 @@ class RoutingGrid:
         """
         if not self.is_valid_cell(grid_x, grid_y, layer, current_net=current_net):
             return float("inf")
-
-        # Check if in clearance zone (higher cost but still routable)
-        if (grid_x, grid_y) in self.clearance_zones.get(layer, set()):
-            return 2.0  # Double cost for clearance zones
 
         # Check custom cost map
         if (grid_x, grid_y) in self.cost_map.get(layer, {}):

@@ -912,6 +912,16 @@ class AutoRouteCommand(Command):
         router = MultiNetRouter(
             grid, ground_plane_mode=self.ground_plane_mode, via_cost_map=self.via_costs
         )
+        # Propagate a conservative via size into the pathfinder so via keepouts match
+        # the vias we write back into KiCad.
+        try:
+            via_sizes = [
+                board.nets[n].via_size for n in nets_to_route if n in board.nets and board.nets[n].via_size > 0
+            ]
+            if via_sizes:
+                router.pathfinder.via_size_mm = float(min(via_sizes))
+        except Exception:
+            pass
 
         # Apply manual routes first (before auto-routing)
         if self.manual_routes:
@@ -1021,7 +1031,7 @@ class AutoRouteCommand(Command):
                 if not comp:
                     continue
                 try:
-                    pos = comp.get_pad_position(int(pin))
+                    pos = comp.get_pad_position(pin)
                     pad_positions.append((ref, pin, pos))
                 except (ValueError, KeyError):
                     pad_positions.append((ref, pin, comp.position))
@@ -1365,12 +1375,26 @@ class AutoRouteCommand(Command):
             # Add vias if present
             if routed_net.vias:
                 for vx, vy, from_layer, to_layer in routed_net.vias:
+                    # Choose via type based on layer span; this affects KiCad writeback.
+                    # - Through: outer-to-outer
+                    # - Blind: outer-to-inner (or inner-to-outer)
+                    # - Buried: inner-to-inner
+                    via_type = "through"
+                    if from_layer != to_layer:
+                        outer = {"F.Cu", "B.Cu"}
+                        if from_layer in outer and to_layer in outer:
+                            via_type = "through"
+                        elif from_layer in outer or to_layer in outer:
+                            via_type = "blind"
+                        else:
+                            via_type = "buried"
                     via = Via(
                         net_name=net_name,
                         position=(vx, vy),
-                        size=0.8,
-                        drill=0.4,
+                        size=net.via_size,
+                        drill=net.via_drill,
                         layers=(from_layer, to_layer),
+                        via_type=via_type,
                     )
                     net.add_via(via)
                     total_vias += 1

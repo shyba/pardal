@@ -23,6 +23,7 @@ fanout pass (escape routing to a first via) and a rip-up-and-reroute maze router
 from __future__ import annotations
 
 import os
+import json
 import re
 import shutil
 import subprocess
@@ -61,6 +62,10 @@ class FreeroutingRunConfig:
     router_job_timeout: str | None = None  # maps to `--router.job_timeout=HH:MM:SS`
     router_max_threads: int | None = None  # maps to `--router.max_threads=<n>`
     trace_pull_tight_accuracy: int | None = None  # maps to `--router.trace_pull_tight_accuracy=<n>`
+
+    # Post-processing
+    cleanup_dangling_tracks: bool = True
+    cleanup_max_iterations: int = 5
 
 
 def _repo_root() -> Path:
@@ -199,6 +204,15 @@ def freeroute_kicad_pcb(
     if not input_pcb.exists():
         raise FileNotFoundError(input_pcb)
 
+    # KiCad may create sibling project files next to the output board when running
+    # headlessly (e.g. `.kicad_pro`, `.kicad_prl`). Track whether those existed
+    # before routing so we can clean up only files introduced by this call.
+    extra_artifacts = [
+        output_pcb.with_suffix(".kicad_pro"),
+        output_pcb.with_suffix(".kicad_prl"),
+    ]
+    artifact_preexisting = {p: p.exists() for p in extra_artifacts}
+
     jar_path = ensure_freerouting_jar(config)
     build_dir = _build_dir()
     raw_dsn = build_dir / "freerouting_raw.dsn"
@@ -324,6 +338,97 @@ def freeroute_kicad_pcb(
             "raise SystemExit(0 if ok else 1)\n",
         ],
     )
+
+    for artifact in extra_artifacts:
+        if artifact.exists() and not artifact_preexisting.get(artifact, False):
+            artifact.unlink(missing_ok=True)
+
+    # Preserve project settings for KiCad CLI DRC: KiCad associates rules with the
+    # `.kicad_pro` matching the PCB filename stem. FreeRouting/pcbnew may generate
+    # new project files with default rules; overwrite them with the input project
+    # so DRC uses the fixture's intended constraints.
+    if output_pcb != input_pcb:
+        for ext in (".kicad_pro", ".kicad_prl"):
+            src = input_pcb.with_suffix(ext)
+            dst = output_pcb.with_suffix(ext)
+            try:
+                if src.exists():
+                    dst.write_text(
+                        src.read_text(encoding="utf-8", errors="replace"), encoding="utf-8"
+                    )
+            except Exception:
+                pass
+
+    # FreeRouting can occasionally emit tiny "dangling" track stubs (usually at
+    # inferred layer transitions). KiCad DRC flags these as warnings. For a
+    # high-confidence output we optionally remove only the specific items KiCad
+    # reports as dangling and re-check, up to a small iteration budget.
+    if config.cleanup_dangling_tracks:
+        report_json = _build_dir() / "freerouting_kicad_drc.json"
+
+        def run_drc() -> dict:
+            report_json.parent.mkdir(parents=True, exist_ok=True)
+            report_rel = os.path.relpath(report_json.resolve(), repo_root)
+            _docker_run(
+                config.kicad_docker_image,
+                workdir="/work",
+                mounts=mounts,
+                env=None,
+                args=[
+                    "kicad-cli",
+                    "pcb",
+                    "drc",
+                    "--format",
+                    "json",
+                    "-o",
+                    f"/work/{report_rel}",
+                    out_path_in_container,
+                ],
+            )
+            return json.loads(report_json.read_text(encoding="utf-8"))
+
+        def dangling_uuids(report: dict) -> set[str]:
+            uuids: set[str] = set()
+            for v in report.get("violations", []):
+                if v.get("type") not in {"track_dangling", "via_dangling"}:
+                    continue
+                if v.get("severity") != "warning":
+                    continue
+                for item in v.get("items", []):
+                    uid = item.get("uuid")
+                    if uid and uid != "00000000-0000-0000-0000-000000000000":
+                        uuids.add(uid)
+            return uuids
+
+        for _ in range(max(0, int(config.cleanup_max_iterations))):
+            report = run_drc()
+            to_remove = dangling_uuids(report)
+            if not to_remove:
+                break
+
+            _docker_run(
+                config.kicad_docker_image,
+                workdir="/work",
+                mounts=mounts,
+                env={
+                    "OUT_PCB": out_path_in_container,
+                    "REMOVE_UUIDS": ",".join(sorted(to_remove)),
+                },
+                args=[
+                    "python3",
+                    "-c",
+                    "import os, pcbnew\n"
+                    "b = pcbnew.LoadBoard(os.environ['OUT_PCB'])\n"
+                    "remove = set(filter(None, os.environ.get('REMOVE_UUIDS', '').split(',')))\n"
+                    "removed = 0\n"
+                    "for it in list(b.GetTracks()):\n"
+                    "    if it.m_Uuid.AsString() in remove:\n"
+                    "        b.RemoveNative(it)\n"
+                    "        removed += 1\n"
+                    "b.Save(os.environ['OUT_PCB'])\n"
+                    "print('removed', removed)\n",
+                ],
+            )
 
 
 def run_kicad9_drc(pcb: Path, report_json: Path) -> None:

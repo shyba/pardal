@@ -80,6 +80,7 @@ class PathFinder:
         via_cost: float = 10.0,
         allowed_via_types: Optional[List[str]] = None,
         use_fastpath: Optional[bool] = None,
+        enforce_via_keepout: bool = False,
     ):
         """
         Initialize the path finder.
@@ -100,6 +101,7 @@ class PathFinder:
             else:
                 use_fastpath = env.lower() in ("1", "true", "yes", "on")
         self.use_fastpath = bool(use_fastpath)
+        self.enforce_via_keepout = bool(enforce_via_keepout)
         legacy_max_cells = os.getenv("PARDAL_FASTPATH_MAX_CELLS")
         if legacy_max_cells is not None and legacy_max_cells != "":
             legacy_max_cells_i = int(legacy_max_cells)
@@ -124,6 +126,7 @@ class PathFinder:
         # Via cost multipliers for different via types
         # Blind/buried vias are slightly preferred (less routing congestion)
         self.via_type_costs = {"through": 1.0, "blind": 0.9, "buried": 0.85}
+        self.via_size_mm = 0.8
 
         # Track via locations from last find_path call
         # Format: [(x_mm, y_mm, from_layer, to_layer), ...]
@@ -319,25 +322,33 @@ class PathFinder:
         allow_diagonals: bool,
         net_name: Optional[str],
     ) -> Optional[List[Tuple[float, float]]]:
-        if self.grid.grid_width * self.grid.grid_height > self.max_fastpath_cells_2d:
+        # Prefer the 3D fastpath even for 2D routes: it accepts a contiguous
+        # memoryview cost grid and avoids building nested Python lists (which
+        # becomes very expensive on large boards).
+        total_cells = self.grid.grid_width * self.grid.grid_height
+        if total_cells > self.max_fastpath_cells_3d:
             return None
 
-        cost_grid = self._build_cost_grid(layer, net_name)
+        if fast_astar_path_3d is None:
+            return None
+
+        cost_grid = self._build_cost_grid_2d_mv(layer, net_name)
         if cost_grid is None:
             return None
 
-        path = fast_astar_path(
+        path3 = fast_astar_path_3d(
             cost_grid,
-            (start_cell.x, start_cell.y),
-            (goal_cell.x, goal_cell.y),
+            (start_cell.x, start_cell.y, 0),
+            (goal_cell.x, goal_cell.y, 0),
             diagonal=allow_diagonals,
+            via_cost=0.0,
         )
-        if not path:
+        if not path3:
             return None
 
-        self.last_path_cells = [GridCell(x, y, layer) for x, y in path]
+        self.last_path_cells = [GridCell(x, y, layer) for x, y, _z in path3]
         self.last_via_locations = []
-        self.last_backend = "fastpath"
+        self.last_backend = "fastpath2d_mv"
         return self._cells_to_mm_waypoints_layer_aware(self.last_path_cells)
 
     def _build_cost_grid(
@@ -431,9 +442,14 @@ class PathFinder:
                 continue
             cost[y][x] = 0.0
 
+        # Clearance zones are HARD BLOCKS for other nets. The owning net (if any)
+        # may route through its own clearance (useful for multi-point nets).
+        clearance_owner = getattr(self.grid, "clearance_owner", {})
         for x, y in self.grid.clearance_zones.get(layer, set()):
-            if cost[y][x] > 0:
-                cost[y][x] = 2.0
+            owner = clearance_owner.get((x, y, layer))
+            if owner == net_name and cost[y][x] > 0:
+                continue
+            cost[y][x] = 0.0
 
         for (x, y), value in self.grid.cost_map.get(layer, {}).items():
             if cost[y][x] > 0:
@@ -474,18 +490,34 @@ class PathFinder:
         if start_cell.layer not in layer_to_idx or goal_cell.layer not in layer_to_idx:
             return None
 
-        cost_grid = self._build_cost_grid_3d_mv(net_name)
-        if cost_grid is None:
-            return None
-
         via_cost_units = float(via_cost_mm) / float(self.grid.resolution_mm)
-        path = fast_astar_path_3d(
-            cost_grid,
-            (start_cell.x, start_cell.y, layer_to_idx[start_cell.layer]),
-            (goal_cell.x, goal_cell.y, layer_to_idx[goal_cell.layer]),
-            diagonal=allow_diagonals,
-            via_cost=via_cost_units,
-        )
+        start = (start_cell.x, start_cell.y, layer_to_idx[start_cell.layer])
+        goal = (goal_cell.x, goal_cell.y, layer_to_idx[goal_cell.layer])
+
+        # Prefer the contiguous memoryview build when supported, but fall back to nested
+        # Python lists in environments without the Cython accelerator (e.g. KiCad docker).
+        try:
+            cost_grid = self._build_cost_grid_3d_mv(net_name)
+            if cost_grid is None:
+                return None
+            path = fast_astar_path_3d(
+                cost_grid,
+                start,
+                goal,
+                diagonal=allow_diagonals,
+                via_cost=via_cost_units,
+            )
+        except NotImplementedError:
+            cost_grid = self._build_cost_grid_3d(net_name)
+            if cost_grid is None:
+                return None
+            path = fast_astar_path_3d(
+                cost_grid,
+                start,
+                goal,
+                diagonal=allow_diagonals,
+                via_cost=via_cost_units,
+            )
         if not path:
             return None
 
@@ -599,11 +631,14 @@ class PathFinder:
                     continue
                 flat[idx(layer_idx, x, y)] = 0.0
 
-            # Clearance zones (soft blocks: cost 2.0) unless already blocked.
+            # Clearance zones are hard blocks for other nets.
+            clearance_owner = getattr(self.grid, "clearance_owner", {})
             for x, y in self.grid.clearance_zones.get(layer, set()):
+                owner = clearance_owner.get((x, y, layer))
                 i = idx(layer_idx, x, y)
-                if flat[i] > 0.0:
-                    flat[i] = 2.0
+                if owner == net_name and flat[i] > 0.0:
+                    continue
+                flat[i] = 0.0
 
             # Custom cost map unless already blocked.
             for (x, y), value in self.grid.cost_map.get(layer, {}).items():
@@ -613,6 +648,108 @@ class PathFinder:
 
         mv_flat = memoryview(flat).cast("B")
         return mv_flat.cast("d", shape=(len(layers), height, width))
+
+    def _build_cost_grid_2d_mv(
+        self, layer: str, net_name: Optional[str]
+    ) -> Optional[memoryview]:
+        """Build a single-layer cost grid as a contiguous memoryview (1, y, x)."""
+        width = self.grid.grid_width
+        height = self.grid.grid_height
+        if width <= 0 or height <= 0:
+            return None
+
+        pad_net_map = getattr(self.grid, "pad_net_map", {})
+        allowed_zone = set()
+        if net_name:
+            allowed_zone = self.grid.forbidden_zones_by_net.get(net_name, set())
+
+        total = width * height
+        flat = array("d", [1.0]) * total
+
+        def idx(x: int, y: int) -> int:
+            return y * width + x
+
+        if pad_net_map:
+            keepout_mm = 0.5
+            keepout_radius = int(math.ceil(keepout_mm / self.grid.resolution_mm))
+            keepout_r2 = keepout_radius * keepout_radius
+
+            pad_cells_by_net = getattr(self.grid, "_pad_xy_cells_by_net", None)
+            if pad_cells_by_net is None:
+                pad_cells_by_net = {}
+                for (px, py, _layer), pnet in pad_net_map.items():
+                    pad_cells_by_net.setdefault(pnet, set()).add((px, py))
+                setattr(self.grid, "_pad_xy_cells_by_net", pad_cells_by_net)
+
+            keepout_offsets = getattr(self.grid, "_pad_keepout_offsets", None)
+            keepout_offsets_key = getattr(self.grid, "_pad_keepout_offsets_key", None)
+            if keepout_offsets is None or keepout_offsets_key != keepout_radius:
+                keepout_offsets = []
+                for dx in range(-keepout_radius, keepout_radius + 1):
+                    for dy in range(-keepout_radius, keepout_radius + 1):
+                        if dx * dx + dy * dy <= keepout_r2:
+                            keepout_offsets.append((dx, dy))
+                setattr(self.grid, "_pad_keepout_offsets", keepout_offsets)
+                setattr(self.grid, "_pad_keepout_offsets_key", keepout_radius)
+
+            keepout_other_cache = getattr(self.grid, "_pad_keepout_other_by_net", None)
+            if keepout_other_cache is None:
+                keepout_other_cache = {}
+                setattr(self.grid, "_pad_keepout_other_by_net", keepout_other_cache)
+
+            cache_key = (net_name, keepout_radius, layer)
+            keepout_other = keepout_other_cache.get(cache_key)
+            if keepout_other is None:
+                keepout_other = set()
+                if not net_name or net_name not in pad_cells_by_net:
+                    source_iter = pad_cells_by_net.values()
+                else:
+                    source_iter = (
+                        cells
+                        for pnet, cells in pad_cells_by_net.items()
+                        if pnet != net_name
+                    )
+
+                for cells in source_iter:
+                    for px, py in cells:
+                        for dx, dy in keepout_offsets:
+                            gx = px + dx
+                            gy = py + dy
+                            if 0 <= gx < width and 0 <= gy < height:
+                                keepout_other.add((gx, gy))
+
+                keepout_other_cache[cache_key] = keepout_other
+
+            for px, py in keepout_other:
+                flat[idx(px, py)] = 0.0
+
+        for x, y in self.grid.obstacles.get(layer, set()):
+            if net_name and pad_net_map.get((x, y, layer)) == net_name:
+                continue
+            if net_name and (x, y, layer) in allowed_zone:
+                continue
+            flat[idx(x, y)] = 0.0
+
+        for x, y in self.grid.crossing_forbidden.get(layer, set()):
+            if net_name and (x, y, layer) in allowed_zone:
+                continue
+            flat[idx(x, y)] = 0.0
+
+        clearance_owner = getattr(self.grid, "clearance_owner", {})
+        for x, y in self.grid.clearance_zones.get(layer, set()):
+            owner = clearance_owner.get((x, y, layer))
+            i = idx(x, y)
+            if owner == net_name and flat[i] > 0.0:
+                continue
+            flat[i] = 0.0
+
+        for (x, y), value in self.grid.cost_map.get(layer, {}).items():
+            i = idx(x, y)
+            if flat[i] > 0.0:
+                flat[i] = float(value)
+
+        mv_flat = memoryview(flat).cast("B")
+        return mv_flat.cast("d", shape=(1, height, width))
 
     def _nudge_via_transitions_off_pads(
         self, path_cells: List[GridCell]
@@ -936,6 +1073,20 @@ class PathFinder:
             ):
                 continue
 
+            if self.enforce_via_keepout:
+                # A layer transition implies a via whose copper and clearance occupy
+                # an area around the transition cell. The 3D A* otherwise checks only
+                # the via center cell, which can lead to via-vs-trace collisions in KiCad.
+                if not self._via_site_is_clear(
+                    grid_x=grid_x,
+                    grid_y=grid_y,
+                    from_layer=current_layer,
+                    to_layer=to_layer,
+                    via_type=via_type,
+                    net_name=current_net,
+                ):
+                    continue
+
             # Calculate cost with via type multiplier
             type_cost = self.via_type_costs.get(via_type, 1.0)
             transition_cost = effective_via_cost * type_cost
@@ -945,6 +1096,52 @@ class PathFinder:
             neighbors.append((neighbor_cell, transition_cost))
 
         return neighbors
+
+    def _via_site_is_clear(
+        self,
+        *,
+        grid_x: int,
+        grid_y: int,
+        from_layer: str,
+        to_layer: str,
+        via_type: str,
+        net_name: Optional[str],
+    ) -> bool:
+        via_layers: tuple[str, ...]
+        if via_type == "through":
+            via_layers = tuple(self.grid.layers)
+        else:
+            via_layers = tuple(self.grid.get_layers_between(from_layer, to_layer))
+
+        keepout_mm = self.via_size_mm / 2.0 + self.grid.default_clearance_mm
+        keepout_cells = int(math.ceil(keepout_mm / self.grid.resolution_mm))
+        res = self.grid.resolution_mm
+        pad_net_map = getattr(self.grid, "pad_net_map", {})
+        allowed_zone = set()
+        if net_name:
+            allowed_zone = self.grid.forbidden_zones_by_net.get(net_name, set())
+
+        for layer in via_layers:
+            for dx in range(-keepout_cells, keepout_cells + 1):
+                for dy in range(-keepout_cells, keepout_cells + 1):
+                    gx = grid_x + dx
+                    gy = grid_y + dy
+                    if not self.grid.is_within_bounds(gx, gy):
+                        continue
+                    dist = math.sqrt(dx * dx + dy * dy) * res
+                    if dist > keepout_mm:
+                        continue
+                    if (gx, gy) in self.grid.obstacles.get(layer, set()):
+                        if net_name and pad_net_map.get((gx, gy, layer)) == net_name:
+                            continue
+                        if net_name and (gx, gy, layer) in allowed_zone:
+                            continue
+                        return False
+                    if (gx, gy) in self.grid.crossing_forbidden.get(layer, set()):
+                        if net_name and (gx, gy, layer) in allowed_zone:
+                            continue
+                        return False
+        return True
 
     def _get_possible_layer_transitions(
         self, current_layer: str
@@ -1035,7 +1232,15 @@ class PathFinder:
                     self.grid.get_layers_between(current_cell.layer, next_cell.layer)
                 )
 
-                self.grid.mark_via(x_mm, y_mm, size_mm=0.8, via_layers=via_layers)
+                current_net = getattr(self, "current_net", None)
+                self.grid.mark_via(
+                    x_mm,
+                    y_mm,
+                    size_mm=self.via_size_mm,
+                    via_layers=via_layers,
+                    clearance_mm=self.grid.default_clearance_mm,
+                    net_name=current_net,
+                )
 
     def _reconstruct_path(self, goal_node: PathNode) -> List[GridCell]:
         """

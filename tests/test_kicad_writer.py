@@ -98,6 +98,7 @@ def test_write_contains_components(sample_board, tmp_path):
     assert "R1" in content
     assert "ATmega328P" in content
     assert "10k" in content
+    assert '(property "Reference"' not in content
 
 
 def test_write_contains_positions(sample_board, tmp_path):
@@ -178,3 +179,15 @@ def test_write_overwrites_existing_file(sample_board, tmp_path):
     content = output_path.read_text()
     assert "old content" not in content
     assert content.startswith("(kicad_pcb")
+
+
+def test_writer_output_loadable_by_pcbnew(sample_board, tmp_path):
+    """Regression: KicadWriter output is parseable by KiCad/pcbnew."""
+    pcbnew = pytest.importorskip("pcbnew")
+
+    writer = KicadWriter()
+    output_path = tmp_path / "output.kicad_pcb"
+    writer.write(sample_board, output_path)
+
+    board = pcbnew.LoadBoard(str(output_path))
+    assert board is not None

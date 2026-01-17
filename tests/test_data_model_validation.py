@@ -47,37 +47,37 @@ class TestComponentValidation:
             )
 
     def test_component_invalid_rotation_below_range(self):
-        """Test rotation below 0 raises ValueError."""
-        with pytest.raises(ValueError, match="Rotation must be in \\[0, 360\\)"):
-            Component(
-                ref="R1",
-                value="10k",
-                footprint="R_0805",
-                position=(0.0, 0.0),
-                rotation=-1.0,
-            )
+        """KiCad files can contain negative rotations; normalize to [0, 360)."""
+        comp = Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(0.0, 0.0),
+            rotation=-1.0,
+        )
+        assert comp.rotation == 359.0
 
     def test_component_invalid_rotation_above_range(self):
-        """Test rotation >= 360 raises ValueError."""
-        with pytest.raises(ValueError, match="Rotation must be in \\[0, 360\\)"):
-            Component(
-                ref="R1",
-                value="10k",
-                footprint="R_0805",
-                position=(0.0, 0.0),
-                rotation=360.0,
-            )
+        """Normalize rotations >= 360 to [0, 360)."""
+        comp = Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(0.0, 0.0),
+            rotation=360.0,
+        )
+        assert comp.rotation == 0.0
 
     def test_component_invalid_rotation_way_above(self):
-        """Test rotation >> 360 raises ValueError."""
-        with pytest.raises(ValueError, match="Rotation must be in \\[0, 360\\)"):
-            Component(
-                ref="R1",
-                value="10k",
-                footprint="R_0805",
-                position=(0.0, 0.0),
-                rotation=450.0,
-            )
+        """Normalize rotations >> 360 to [0, 360)."""
+        comp = Component(
+            ref="R1",
+            value="10k",
+            footprint="R_0805",
+            position=(0.0, 0.0),
+            rotation=450.0,
+        )
+        assert comp.rotation == 90.0
 
     def test_component_invalid_position_not_tuple(self):
         """Test non-tuple position raises ValueError."""

@@ -1,0 +1,3592 @@
+{
+  "backend": "pardal_router_cli",
+  "completed_specs": 324,
+  "current_spec": 191,
+  "elapsed_ms": 809960,
+  "failed_specs": 0,
+  "grid_overused_cells": 0,
+  "pass": 11,
+  "phase": "ncr",
+  "stats_by_spec": [
+    {
+      "astar": {
+        "heap_pop": 55592939,
+        "heap_push": 64615709,
+        "relax_attempts": 417658344,
+        "relax_success": 64615697
+      },
+      "elapsed_ms": 10347,
+      "net": "U1_J9",
+      "spec_idx": 0
+    },
+    {
+      "astar": {
+        "heap_pop": 95427161,
+        "heap_push": 108593199,
+        "relax_attempts": 673046257,
+        "relax_success": 108593187
+      },
+      "elapsed_ms": 18731,
+      "net": "U1_J10",
+      "spec_idx": 1
+    },
+    {
+      "astar": {
+        "heap_pop": 10038889,
+        "heap_push": 13735454,
+        "relax_attempts": 87850751,
+        "relax_success": 13735442
+      },
+      "elapsed_ms": 1815,
+      "net": "U1_K9",
+      "spec_idx": 2
+    },
+    {
+      "astar": {
+        "heap_pop": 12059456,
+        "heap_push": 16410092,
+        "relax_attempts": 105479431,
+        "relax_success": 16410080
+      },
+      "elapsed_ms": 2104,
+      "net": "U1_K10",
+      "spec_idx": 3
+    },
+    {
+      "astar": {
+        "heap_pop": 54191137,
+        "heap_push": 62660121,
+        "relax_attempts": 398689810,
+        "relax_success": 62660109
+      },
+      "elapsed_ms": 10201,
+      "net": "U1_H8",
+      "spec_idx": 4
+    },
+    {
+      "astar": {
+        "heap_pop": 23923282,
+        "heap_push": 26790457,
+        "relax_attempts": 171558886,
+        "relax_success": 26790453
+      },
+      "elapsed_ms": 4463,
+      "net": "U1_H9",
+      "spec_idx": 5
+    },
+    {
+      "astar": {
+        "heap_pop": 3972182,
+        "heap_push": 5557575,
+        "relax_attempts": 37785285,
+        "relax_success": 5557563
+      },
+      "elapsed_ms": 687,
+      "net": "U1_H10",
+      "spec_idx": 6
+    },
+    {
+      "astar": {
+        "heap_pop": 6049921,
+        "heap_push": 8254074,
+        "relax_attempts": 45003651,
+        "relax_success": 8254062
+      },
+      "elapsed_ms": 972,
+      "net": "U1_H11",
+      "spec_idx": 7
+    },
+    {
+      "astar": {
+        "heap_pop": 93941054,
+        "heap_push": 106701972,
+        "relax_attempts": 676898471,
+        "relax_success": 106701960
+      },
+      "elapsed_ms": 18290,
+      "net": "U1_J8",
+      "spec_idx": 8
+    },
+    {
+      "astar": {
+        "heap_pop": 20205398,
+        "heap_push": 26415890,
+        "relax_attempts": 154042585,
+        "relax_success": 26415878
+      },
+      "elapsed_ms": 3624,
+      "net": "U1_J11",
+      "spec_idx": 9
+    },
+    {
+      "astar": {
+        "heap_pop": 6092324,
+        "heap_push": 8315686,
+        "relax_attempts": 54651328,
+        "relax_success": 8315680
+      },
+      "elapsed_ms": 1104,
+      "net": "U1_K8",
+      "spec_idx": 10
+    },
+    {
+      "astar": {
+        "heap_pop": 8183390,
+        "heap_push": 10627209,
+        "relax_attempts": 73525284,
+        "relax_success": 10627197
+      },
+      "elapsed_ms": 1407,
+      "net": "U1_K11",
+      "spec_idx": 11
+    },
+    {
+      "astar": {
+        "heap_pop": 53109433,
+        "heap_push": 62376407,
+        "relax_attempts": 389430824,
+        "relax_success": 62376395
+      },
+      "elapsed_ms": 9977,
+      "net": "U1_L8",
+      "spec_idx": 12
+    },
+    {
+      "astar": {
+        "heap_pop": 6034101,
+        "heap_push": 8422487,
+        "relax_attempts": 55781965,
+        "relax_success": 8422475
+      },
+      "elapsed_ms": 1045,
+      "net": "U1_L9",
+      "spec_idx": 13
+    },
+    {
+      "astar": {
+        "heap_pop": 9551603,
+        "heap_push": 12849749,
+        "relax_attempts": 84093163,
+        "relax_success": 12849737
+      },
+      "elapsed_ms": 1672,
+      "net": "U1_L10",
+      "spec_idx": 14
+    },
+    {
+      "astar": {
+        "heap_pop": 8285658,
+        "heap_push": 10614179,
+        "relax_attempts": 74134014,
+        "relax_success": 10614167
+      },
+      "elapsed_ms": 1498,
+      "net": "U1_L11",
+      "spec_idx": 15
+    },
+    {
+      "astar": {
+        "heap_pop": 94537724,
+        "heap_push": 106110293,
+        "relax_attempts": 666255986,
+        "relax_success": 106110282
+      },
+      "elapsed_ms": 19434,
+      "net": "U1_H7",
+      "spec_idx": 16
+    },
+    {
+      "astar": {
+        "heap_pop": 4651676,
+        "heap_push": 6529753,
+        "relax_attempts": 44910401,
+        "relax_success": 6529741
+      },
+      "elapsed_ms": 789,
+      "net": "U1_H12",
+      "spec_idx": 17
+    },
+    {
+      "astar": {
+        "heap_pop": 81700811,
+        "heap_push": 93658995,
+        "relax_attempts": 590272182,
+        "relax_success": 93658983
+      },
+      "elapsed_ms": 15866,
+      "net": "U1_J7",
+      "spec_idx": 18
+    },
+    {
+      "astar": {
+        "heap_pop": 7754073,
+        "heap_push": 11060994,
+        "relax_attempts": 73167022,
+        "relax_success": 11060982
+      },
+      "elapsed_ms": 1345,
+      "net": "U1_J12",
+      "spec_idx": 19
+    },
+    {
+      "astar": {
+        "heap_pop": 6696554,
+        "heap_push": 9378694,
+        "relax_attempts": 54245113,
+        "relax_success": 9378682
+      },
+      "elapsed_ms": 1182,
+      "net": "U1_K7",
+      "spec_idx": 20
+    },
+    {
+      "astar": {
+        "heap_pop": 29062597,
+        "heap_push": 34664772,
+        "relax_attempts": 232402888,
+        "relax_success": 34664760
+      },
+      "elapsed_ms": 5094,
+      "net": "U1_K12",
+      "spec_idx": 21
+    },
+    {
+      "astar": {
+        "heap_pop": 7536303,
+        "heap_push": 10063302,
+        "relax_attempts": 58832213,
+        "relax_success": 10063290
+      },
+      "elapsed_ms": 1309,
+      "net": "U1_L7",
+      "spec_idx": 22
+    },
+    {
+      "astar": {
+        "heap_pop": 52382647,
+        "heap_push": 59428731,
+        "relax_attempts": 381824588,
+        "relax_success": 59428723
+      },
+      "elapsed_ms": 9930,
+      "net": "U1_L12",
+      "spec_idx": 23
+    },
+    {
+      "astar": {
+        "heap_pop": 2313974,
+        "heap_push": 3340753,
+        "relax_attempts": 22136553,
+        "relax_success": 3340741
+      },
+      "elapsed_ms": 401,
+      "net": "U1_M7",
+      "spec_idx": 24
+    },
+    {
+      "astar": {
+        "heap_pop": 7831881,
+        "heap_push": 10436218,
+        "relax_attempts": 63908156,
+        "relax_success": 10436206
+      },
+      "elapsed_ms": 1341,
+      "net": "U1_M8",
+      "spec_idx": 25
+    },
+    {
+      "astar": {
+        "heap_pop": 6562702,
+        "heap_push": 8675156,
+        "relax_attempts": 54712096,
+        "relax_success": 8675144
+      },
+      "elapsed_ms": 1160,
+      "net": "U1_M9",
+      "spec_idx": 26
+    },
+    {
+      "astar": {
+        "heap_pop": 37025685,
+        "heap_push": 42581083,
+        "relax_attempts": 261393967,
+        "relax_success": 42581071
+      },
+      "elapsed_ms": 6933,
+      "net": "U1_M10",
+      "spec_idx": 27
+    },
+    {
+      "astar": {
+        "heap_pop": 6616734,
+        "heap_push": 8588842,
+        "relax_attempts": 51921585,
+        "relax_success": 8588830
+      },
+      "elapsed_ms": 1128,
+      "net": "U1_M11",
+      "spec_idx": 28
+    },
+    {
+      "astar": {
+        "heap_pop": 4908431,
+        "heap_push": 6037099,
+        "relax_attempts": 40430185,
+        "relax_success": 6037087
+      },
+      "elapsed_ms": 842,
+      "net": "U1_M12",
+      "spec_idx": 29
+    },
+    {
+      "astar": {
+        "heap_pop": 2769058,
+        "heap_push": 3938773,
+        "relax_attempts": 26286409,
+        "relax_success": 3938761
+      },
+      "elapsed_ms": 480,
+      "net": "U1_G7",
+      "spec_idx": 30
+    },
+    {
+      "astar": {
+        "heap_pop": 702431,
+        "heap_push": 1107366,
+        "relax_attempts": 6132834,
+        "relax_success": 1107354
+      },
+      "elapsed_ms": 111,
+      "net": "U1_G8",
+      "spec_idx": 31
+    },
+    {
+      "astar": {
+        "heap_pop": 66790569,
+        "heap_push": 78902317,
+        "relax_attempts": 472003650,
+        "relax_success": 78902305
+      },
+      "elapsed_ms": 13372,
+      "net": "U1_G9",
+      "spec_idx": 32
+    },
+    {
+      "astar": {
+        "heap_pop": 53484379,
+        "heap_push": 60691584,
+        "relax_attempts": 370629016,
+        "relax_success": 60691572
+      },
+      "elapsed_ms": 10123,
+      "net": "U1_G10",
+      "spec_idx": 33
+    },
+    {
+      "astar": {
+        "heap_pop": 8423762,
+        "heap_push": 11329517,
+        "relax_attempts": 65984808,
+        "relax_success": 11329505
+      },
+      "elapsed_ms": 1428,
+      "net": "U1_G11",
+      "spec_idx": 34
+    },
+    {
+      "astar": {
+        "heap_pop": 1361901,
+        "heap_push": 2058708,
+        "relax_attempts": 12165316,
+        "relax_success": 2058696
+      },
+      "elapsed_ms": 228,
+      "net": "U1_G12",
+      "spec_idx": 35
+    },
+    {
+      "astar": {
+        "heap_pop": 53021392,
+        "heap_push": 63485437,
+        "relax_attempts": 381253384,
+        "relax_success": 63485425
+      },
+      "elapsed_ms": 10269,
+      "net": "U1_H6",
+      "spec_idx": 36
+    },
+    {
+      "astar": {
+        "heap_pop": 3110387,
+        "heap_push": 4457276,
+        "relax_attempts": 28012860,
+        "relax_success": 4457264
+      },
+      "elapsed_ms": 539,
+      "net": "U1_H13",
+      "spec_idx": 37
+    },
+    {
+      "astar": {
+        "heap_pop": 49020382,
+        "heap_push": 59841712,
+        "relax_attempts": 355642727,
+        "relax_success": 59841700
+      },
+      "elapsed_ms": 9328,
+      "net": "U1_J6",
+      "spec_idx": 38
+    },
+    {
+      "astar": {
+        "heap_pop": 5954939,
+        "heap_push": 8415915,
+        "relax_attempts": 57495547,
+        "relax_success": 8415903
+      },
+      "elapsed_ms": 1020,
+      "net": "U1_J13",
+      "spec_idx": 39
+    },
+    {
+      "astar": {
+        "heap_pop": 1012663,
+        "heap_push": 1621264,
+        "relax_attempts": 8689413,
+        "relax_success": 1621253
+      },
+      "elapsed_ms": 170,
+      "net": "U1_K6",
+      "spec_idx": 40
+    },
+    {
+      "astar": {
+        "heap_pop": 5804248,
+        "heap_push": 7085924,
+        "relax_attempts": 50596951,
+        "relax_success": 7085919
+      },
+      "elapsed_ms": 1015,
+      "net": "U1_K13",
+      "spec_idx": 41
+    },
+    {
+      "astar": {
+        "heap_pop": 1338114,
+        "heap_push": 1823769,
+        "relax_attempts": 9985310,
+        "relax_success": 1823762
+      },
+      "elapsed_ms": 218,
+      "net": "U1_L6",
+      "spec_idx": 42
+    },
+    {
+      "astar": {
+        "heap_pop": 51498294,
+        "heap_push": 59012135,
+        "relax_attempts": 371978489,
+        "relax_success": 59012123
+      },
+      "elapsed_ms": 9643,
+      "net": "U1_L13",
+      "spec_idx": 43
+    },
+    {
+      "astar": {
+        "heap_pop": 42815044,
+        "heap_push": 49815608,
+        "relax_attempts": 283540934,
+        "relax_success": 49815596
+      },
+      "elapsed_ms": 8122,
+      "net": "U1_M6",
+      "spec_idx": 44
+    },
+    {
+      "astar": {
+        "heap_pop": 39578942,
+        "heap_push": 44303770,
+        "relax_attempts": 268392778,
+        "relax_success": 44303763
+      },
+      "elapsed_ms": 7564,
+      "net": "U1_M13",
+      "spec_idx": 45
+    },
+    {
+      "astar": {
+        "heap_pop": 663654,
+        "heap_push": 977071,
+        "relax_attempts": 6179881,
+        "relax_success": 977066
+      },
+      "elapsed_ms": 111,
+      "net": "U1_N6",
+      "spec_idx": 46
+    },
+    {
+      "astar": {
+        "heap_pop": 1172938,
+        "heap_push": 1599476,
+        "relax_attempts": 9731753,
+        "relax_success": 1599464
+      },
+      "elapsed_ms": 198,
+      "net": "U1_N7",
+      "spec_idx": 47
+    },
+    {
+      "astar": {
+        "heap_pop": 11448162,
+        "heap_push": 14813559,
+        "relax_attempts": 80138482,
+        "relax_success": 14813547
+      },
+      "elapsed_ms": 2095,
+      "net": "U1_N8",
+      "spec_idx": 48
+    },
+    {
+      "astar": {
+        "heap_pop": 1524293,
+        "heap_push": 2120086,
+        "relax_attempts": 11931966,
+        "relax_success": 2120074
+      },
+      "elapsed_ms": 255,
+      "net": "U1_N9",
+      "spec_idx": 49
+    },
+    {
+      "astar": {
+        "heap_pop": 25748697,
+        "heap_push": 30258167,
+        "relax_attempts": 168061568,
+        "relax_success": 30258155
+      },
+      "elapsed_ms": 4834,
+      "net": "U1_N10",
+      "spec_idx": 50
+    },
+    {
+      "astar": {
+        "heap_pop": 928785,
+        "heap_push": 1300450,
+        "relax_attempts": 7051693,
+        "relax_success": 1300438
+      },
+      "elapsed_ms": 153,
+      "net": "U1_N11",
+      "spec_idx": 51
+    },
+    {
+      "astar": {
+        "heap_pop": 3497846,
+        "heap_push": 4601108,
+        "relax_attempts": 24638577,
+        "relax_success": 4601096
+      },
+      "elapsed_ms": 628,
+      "net": "U1_N12",
+      "spec_idx": 52
+    },
+    {
+      "astar": {
+        "heap_pop": 4163625,
+        "heap_push": 5588040,
+        "relax_attempts": 29527613,
+        "relax_success": 5588028
+      },
+      "elapsed_ms": 734,
+      "net": "U1_N13",
+      "spec_idx": 53
+    },
+    {
+      "astar": {
+        "heap_pop": 119435,
+        "heap_push": 255975,
+        "relax_attempts": 1129120,
+        "relax_success": 255963
+      },
+      "elapsed_ms": 13,
+      "net": "U1_F6",
+      "spec_idx": 54
+    },
+    {
+      "astar": {
+        "heap_pop": 274098,
+        "heap_push": 449101,
+        "relax_attempts": 1846273,
+        "relax_success": 449089
+      },
+      "elapsed_ms": 30,
+      "net": "U1_F7",
+      "spec_idx": 55
+    },
+    {
+      "astar": {
+        "heap_pop": 431689,
+        "heap_push": 689040,
+        "relax_attempts": 2951579,
+        "relax_success": 689028
+      },
+      "elapsed_ms": 56,
+      "net": "U1_F8",
+      "spec_idx": 56
+    },
+    {
+      "astar": {
+        "heap_pop": 45418959,
+        "heap_push": 53315923,
+        "relax_attempts": 306084438,
+        "relax_success": 53315911
+      },
+      "elapsed_ms": 8548,
+      "net": "U1_F9",
+      "spec_idx": 57
+    },
+    {
+      "astar": {
+        "heap_pop": 10482489,
+        "heap_push": 12571279,
+        "relax_attempts": 70996815,
+        "relax_success": 12571273
+      },
+      "elapsed_ms": 1913,
+      "net": "U1_F10",
+      "spec_idx": 58
+    },
+    {
+      "astar": {
+        "heap_pop": 30712569,
+        "heap_push": 36312988,
+        "relax_attempts": 206466238,
+        "relax_success": 36312976
+      },
+      "elapsed_ms": 5636,
+      "net": "U1_F11",
+      "spec_idx": 59
+    },
+    {
+      "astar": {
+        "heap_pop": 3708365,
+        "heap_push": 5028295,
+        "relax_attempts": 25607245,
+        "relax_success": 5028283
+      },
+      "elapsed_ms": 574,
+      "net": "U1_F12",
+      "spec_idx": 60
+    },
+    {
+      "astar": {
+        "heap_pop": 1295091,
+        "heap_push": 1725539,
+        "relax_attempts": 8974358,
+        "relax_success": 1725535
+      },
+      "elapsed_ms": 196,
+      "net": "U1_F13",
+      "spec_idx": 61
+    },
+    {
+      "astar": {
+        "heap_pop": 12011107,
+        "heap_push": 15789125,
+        "relax_attempts": 83990008,
+        "relax_success": 15789113
+      },
+      "elapsed_ms": 2169,
+      "net": "U1_G6",
+      "spec_idx": 62
+    },
+    {
+      "astar": {
+        "heap_pop": 3501095,
+        "heap_push": 4903546,
+        "relax_attempts": 30828235,
+        "relax_success": 4903534
+      },
+      "elapsed_ms": 579,
+      "net": "U1_G13",
+      "spec_idx": 63
+    },
+    {
+      "astar": {
+        "heap_pop": 14285054,
+        "heap_push": 18365350,
+        "relax_attempts": 98553849,
+        "relax_success": 18365338
+      },
+      "elapsed_ms": 2568,
+      "net": "U1_H5",
+      "spec_idx": 64
+    },
+    {
+      "astar": {
+        "heap_pop": 32082054,
+        "heap_push": 38712204,
+        "relax_attempts": 233812272,
+        "relax_success": 38712192
+      },
+      "elapsed_ms": 5860,
+      "net": "U1_H14",
+      "spec_idx": 65
+    },
+    {
+      "astar": {
+        "heap_pop": 10793596,
+        "heap_push": 12993994,
+        "relax_attempts": 73042126,
+        "relax_success": 12993989
+      },
+      "elapsed_ms": 1976,
+      "net": "U1_J5",
+      "spec_idx": 66
+    },
+    {
+      "astar": {
+        "heap_pop": 4285677,
+        "heap_push": 6134008,
+        "relax_attempts": 41437481,
+        "relax_success": 6133996
+      },
+      "elapsed_ms": 727,
+      "net": "U1_J14",
+      "spec_idx": 67
+    },
+    {
+      "astar": {
+        "heap_pop": 7208441,
+        "heap_push": 9264174,
+        "relax_attempts": 49522681,
+        "relax_success": 9264162
+      },
+      "elapsed_ms": 1268,
+      "net": "U1_K5",
+      "spec_idx": 68
+    },
+    {
+      "astar": {
+        "heap_pop": 10197379,
+        "heap_push": 13518762,
+        "relax_attempts": 90789018,
+        "relax_success": 13518750
+      },
+      "elapsed_ms": 1803,
+      "net": "U1_K14",
+      "spec_idx": 69
+    },
+    {
+      "astar": {
+        "heap_pop": 6982637,
+        "heap_push": 8935733,
+        "relax_attempts": 46945177,
+        "relax_success": 8935721
+      },
+      "elapsed_ms": 1166,
+      "net": "U1_L5",
+      "spec_idx": 70
+    },
+    {
+      "astar": {
+        "heap_pop": 10884438,
+        "heap_push": 12817414,
+        "relax_attempts": 81475808,
+        "relax_success": 12817402
+      },
+      "elapsed_ms": 1949,
+      "net": "U1_L14",
+      "spec_idx": 71
+    },
+    {
+      "astar": {
+        "heap_pop": 6839590,
+        "heap_push": 8664415,
+        "relax_attempts": 46142542,
+        "relax_success": 8664403
+      },
+      "elapsed_ms": 1174,
+      "net": "U1_M5",
+      "spec_idx": 72
+    },
+    {
+      "astar": {
+        "heap_pop": 4642588,
+        "heap_push": 5422811,
+        "relax_attempts": 33747385,
+        "relax_success": 5422799
+      },
+      "elapsed_ms": 805,
+      "net": "U1_M14",
+      "spec_idx": 73
+    },
+    {
+      "astar": {
+        "heap_pop": 992861,
+        "heap_push": 1392403,
+        "relax_attempts": 6373241,
+        "relax_success": 1392391
+      },
+      "elapsed_ms": 153,
+      "net": "U1_N5",
+      "spec_idx": 74
+    },
+    {
+      "astar": {
+        "heap_pop": 1265227,
+        "heap_push": 1793609,
+        "relax_attempts": 8849187,
+        "relax_success": 1793597
+      },
+      "elapsed_ms": 218,
+      "net": "U1_N14",
+      "spec_idx": 75
+    },
+    {
+      "astar": {
+        "heap_pop": 11923155,
+        "heap_push": 14674065,
+        "relax_attempts": 86834844,
+        "relax_success": 14674053
+      },
+      "elapsed_ms": 2114,
+      "net": "U1_P5",
+      "spec_idx": 76
+    },
+    {
+      "astar": {
+        "heap_pop": 14754792,
+        "heap_push": 18454057,
+        "relax_attempts": 104421281,
+        "relax_success": 18454045
+      },
+      "elapsed_ms": 2771,
+      "net": "U1_P6",
+      "spec_idx": 77
+    },
+    {
+      "astar": {
+        "heap_pop": 2305350,
+        "heap_push": 3286387,
+        "relax_attempts": 22225306,
+        "relax_success": 3286375
+      },
+      "elapsed_ms": 410,
+      "net": "U1_P7",
+      "spec_idx": 78
+    },
+    {
+      "astar": {
+        "heap_pop": 7709875,
+        "heap_push": 10105241,
+        "relax_attempts": 58506165,
+        "relax_success": 10105229
+      },
+      "elapsed_ms": 1346,
+      "net": "U1_P8",
+      "spec_idx": 79
+    },
+    {
+      "astar": {
+        "heap_pop": 3138286,
+        "heap_push": 4419221,
+        "relax_attempts": 28729526,
+        "relax_success": 4419209
+      },
+      "elapsed_ms": 560,
+      "net": "U1_P9",
+      "spec_idx": 80
+    },
+    {
+      "astar": {
+        "heap_pop": 8143646,
+        "heap_push": 10914326,
+        "relax_attempts": 62980855,
+        "relax_success": 10914314
+      },
+      "elapsed_ms": 1488,
+      "net": "U1_P10",
+      "spec_idx": 81
+    },
+    {
+      "astar": {
+        "heap_pop": 3430709,
+        "heap_push": 4831625,
+        "relax_attempts": 30186643,
+        "relax_success": 4831613
+      },
+      "elapsed_ms": 615,
+      "net": "U1_P11",
+      "spec_idx": 82
+    },
+    {
+      "astar": {
+        "heap_pop": 4380153,
+        "heap_push": 6098773,
+        "relax_attempts": 36307575,
+        "relax_success": 6098761
+      },
+      "elapsed_ms": 794,
+      "net": "U1_P12",
+      "spec_idx": 83
+    },
+    {
+      "astar": {
+        "heap_pop": 3034364,
+        "heap_push": 4109020,
+        "relax_attempts": 26692150,
+        "relax_success": 4109008
+      },
+      "elapsed_ms": 537,
+      "net": "U1_P13",
+      "spec_idx": 84
+    },
+    {
+      "astar": {
+        "heap_pop": 2640283,
+        "heap_push": 3591275,
+        "relax_attempts": 22787872,
+        "relax_success": 3591263
+      },
+      "elapsed_ms": 469,
+      "net": "U1_P14",
+      "spec_idx": 85
+    },
+    {
+      "astar": {
+        "heap_pop": 22520237,
+        "heap_push": 27005955,
+        "relax_attempts": 152638113,
+        "relax_success": 27005943
+      },
+      "elapsed_ms": 3779,
+      "net": "U1_E5",
+      "spec_idx": 86
+    },
+    {
+      "astar": {
+        "heap_pop": 3170860,
+        "heap_push": 4446853,
+        "relax_attempts": 30536108,
+        "relax_success": 4446841
+      },
+      "elapsed_ms": 536,
+      "net": "U1_E6",
+      "spec_idx": 87
+    },
+    {
+      "astar": {
+        "heap_pop": 14507532,
+        "heap_push": 18023000,
+        "relax_attempts": 102365120,
+        "relax_success": 18022988
+      },
+      "elapsed_ms": 2560,
+      "net": "U1_E7",
+      "spec_idx": 88
+    },
+    {
+      "astar": {
+        "heap_pop": 7431484,
+        "heap_push": 9931475,
+        "relax_attempts": 56698767,
+        "relax_success": 9931463
+      },
+      "elapsed_ms": 1284,
+      "net": "U1_E8",
+      "spec_idx": 89
+    },
+    {
+      "astar": {
+        "heap_pop": 6931353,
+        "heap_push": 8987882,
+        "relax_attempts": 52895835,
+        "relax_success": 8987870
+      },
+      "elapsed_ms": 1163,
+      "net": "U1_E9",
+      "spec_idx": 90
+    },
+    {
+      "astar": {
+        "heap_pop": 6690487,
+        "heap_push": 8712450,
+        "relax_attempts": 51926704,
+        "relax_success": 8712438
+      },
+      "elapsed_ms": 1120,
+      "net": "U1_E10",
+      "spec_idx": 91
+    },
+    {
+      "astar": {
+        "heap_pop": 11649078,
+        "heap_push": 15114202,
+        "relax_attempts": 90147949,
+        "relax_success": 15114190
+      },
+      "elapsed_ms": 1971,
+      "net": "U1_E11",
+      "spec_idx": 92
+    },
+    {
+      "astar": {
+        "heap_pop": 3671100,
+        "heap_push": 4079933,
+        "relax_attempts": 29542880,
+        "relax_success": 4079930
+      },
+      "elapsed_ms": 594,
+      "net": "U1_E12",
+      "spec_idx": 93
+    },
+    {
+      "astar": {
+        "heap_pop": 5208377,
+        "heap_push": 6379772,
+        "relax_attempts": 42622856,
+        "relax_success": 6379760
+      },
+      "elapsed_ms": 845,
+      "net": "U1_E13",
+      "spec_idx": 94
+    },
+    {
+      "astar": {
+        "heap_pop": 9073478,
+        "heap_push": 11155468,
+        "relax_attempts": 69114147,
+        "relax_success": 11155456
+      },
+      "elapsed_ms": 1489,
+      "net": "U1_E14",
+      "spec_idx": 95
+    },
+    {
+      "astar": {
+        "heap_pop": 14358197,
+        "heap_push": 18023371,
+        "relax_attempts": 97961107,
+        "relax_success": 18023359
+      },
+      "elapsed_ms": 2373,
+      "net": "U1_F5",
+      "spec_idx": 96
+    },
+    {
+      "astar": {
+        "heap_pop": 10532570,
+        "heap_push": 13478551,
+        "relax_attempts": 75783184,
+        "relax_success": 13478539
+      },
+      "elapsed_ms": 1675,
+      "net": "U1_F14",
+      "spec_idx": 97
+    },
+    {
+      "astar": {
+        "heap_pop": 9933007,
+        "heap_push": 12859232,
+        "relax_attempts": 70746546,
+        "relax_success": 12859220
+      },
+      "elapsed_ms": 1577,
+      "net": "U1_G5",
+      "spec_idx": 98
+    },
+    {
+      "astar": {
+        "heap_pop": 17538775,
+        "heap_push": 21558414,
+        "relax_attempts": 129019284,
+        "relax_success": 21558402
+      },
+      "elapsed_ms": 2965,
+      "net": "U1_G14",
+      "spec_idx": 99
+    },
+    {
+      "astar": {
+        "heap_pop": 13065650,
+        "heap_push": 15905570,
+        "relax_attempts": 98094940,
+        "relax_success": 15905558
+      },
+      "elapsed_ms": 2267,
+      "net": "U1_G15",
+      "spec_idx": 100
+    },
+    {
+      "astar": {
+        "heap_pop": 87289063,
+        "heap_push": 101175611,
+        "relax_attempts": 599546784,
+        "relax_success": 101175599
+      },
+      "elapsed_ms": 17360,
+      "net": "U1_H4",
+      "spec_idx": 101
+    },
+    {
+      "astar": {
+        "heap_pop": 39414082,
+        "heap_push": 48705804,
+        "relax_attempts": 303346806,
+        "relax_success": 48705792
+      },
+      "elapsed_ms": 7138,
+      "net": "U1_H15",
+      "spec_idx": 102
+    },
+    {
+      "astar": {
+        "heap_pop": 63627725,
+        "heap_push": 76293268,
+        "relax_attempts": 458177841,
+        "relax_success": 76293258
+      },
+      "elapsed_ms": 12660,
+      "net": "U1_J4",
+      "spec_idx": 103
+    },
+    {
+      "astar": {
+        "heap_pop": 2812899,
+        "heap_push": 4153114,
+        "relax_attempts": 27192866,
+        "relax_success": 4153102
+      },
+      "elapsed_ms": 491,
+      "net": "U1_J15",
+      "spec_idx": 104
+    },
+    {
+      "astar": {
+        "heap_pop": 36830361,
+        "heap_push": 45754162,
+        "relax_attempts": 278960216,
+        "relax_success": 45754150
+      },
+      "elapsed_ms": 6997,
+      "net": "U1_K4",
+      "spec_idx": 105
+    },
+    {
+      "astar": {
+        "heap_pop": 101893500,
+        "heap_push": 113154367,
+        "relax_attempts": 729578983,
+        "relax_success": 113154355
+      },
+      "elapsed_ms": 20183,
+      "net": "U1_K15",
+      "spec_idx": 106
+    },
+    {
+      "astar": {
+        "heap_pop": 15983766,
+        "heap_push": 21177071,
+        "relax_attempts": 135316696,
+        "relax_success": 21177059
+      },
+      "elapsed_ms": 2861,
+      "net": "U1_L4",
+      "spec_idx": 107
+    },
+    {
+      "astar": {
+        "heap_pop": 48506124,
+        "heap_push": 53939668,
+        "relax_attempts": 341479285,
+        "relax_success": 53939662
+      },
+      "elapsed_ms": 9240,
+      "net": "U1_L15",
+      "spec_idx": 108
+    },
+    {
+      "astar": {
+        "heap_pop": 9569001,
+        "heap_push": 12654826,
+        "relax_attempts": 75944514,
+        "relax_success": 12654816
+      },
+      "elapsed_ms": 1701,
+      "net": "U1_M4",
+      "spec_idx": 109
+    },
+    {
+      "astar": {
+        "heap_pop": 58418993,
+        "heap_push": 66188294,
+        "relax_attempts": 399297425,
+        "relax_success": 66188282
+      },
+      "elapsed_ms": 11255,
+      "net": "U1_M15",
+      "spec_idx": 110
+    },
+    {
+      "astar": {
+        "heap_pop": 3332945,
+        "heap_push": 4351073,
+        "relax_attempts": 24916126,
+        "relax_success": 4351061
+      },
+      "elapsed_ms": 562,
+      "net": "U1_N4",
+      "spec_idx": 111
+    },
+    {
+      "astar": {
+        "heap_pop": 12955306,
+        "heap_push": 16023780,
+        "relax_attempts": 86802608,
+        "relax_success": 16023768
+      },
+      "elapsed_ms": 2475,
+      "net": "U1_N15",
+      "spec_idx": 112
+    },
+    {
+      "astar": {
+        "heap_pop": 14601869,
+        "heap_push": 16921986,
+        "relax_attempts": 97910903,
+        "relax_success": 16921974
+      },
+      "elapsed_ms": 2631,
+      "net": "U1_P4",
+      "spec_idx": 113
+    },
+    {
+      "astar": {
+        "heap_pop": 2861208,
+        "heap_push": 3935934,
+        "relax_attempts": 25507500,
+        "relax_success": 3935922
+      },
+      "elapsed_ms": 509,
+      "net": "U1_P15",
+      "spec_idx": 114
+    },
+    {
+      "astar": {
+        "heap_pop": 2020191,
+        "heap_push": 2764537,
+        "relax_attempts": 19518148,
+        "relax_success": 2764532
+      },
+      "elapsed_ms": 356,
+      "net": "U1_R4",
+      "spec_idx": 115
+    },
+    {
+      "astar": {
+        "heap_pop": 2186030,
+        "heap_push": 3146504,
+        "relax_attempts": 20890285,
+        "relax_success": 3146492
+      },
+      "elapsed_ms": 389,
+      "net": "U1_R5",
+      "spec_idx": 116
+    },
+    {
+      "astar": {
+        "heap_pop": 11674146,
+        "heap_push": 14556223,
+        "relax_attempts": 80535490,
+        "relax_success": 14556211
+      },
+      "elapsed_ms": 2071,
+      "net": "U1_R6",
+      "spec_idx": 117
+    },
+    {
+      "astar": {
+        "heap_pop": 1936189,
+        "heap_push": 2749316,
+        "relax_attempts": 18617555,
+        "relax_success": 2749304
+      },
+      "elapsed_ms": 343,
+      "net": "U1_R7",
+      "spec_idx": 118
+    },
+    {
+      "astar": {
+        "heap_pop": 1669380,
+        "heap_push": 2385615,
+        "relax_attempts": 16029622,
+        "relax_success": 2385603
+      },
+      "elapsed_ms": 291,
+      "net": "U1_R8",
+      "spec_idx": 119
+    },
+    {
+      "astar": {
+        "heap_pop": 1839347,
+        "heap_push": 2597098,
+        "relax_attempts": 17059970,
+        "relax_success": 2597086
+      },
+      "elapsed_ms": 326,
+      "net": "U1_R9",
+      "spec_idx": 120
+    },
+    {
+      "astar": {
+        "heap_pop": 1873707,
+        "heap_push": 2620421,
+        "relax_attempts": 17115694,
+        "relax_success": 2620409
+      },
+      "elapsed_ms": 331,
+      "net": "U1_R10",
+      "spec_idx": 121
+    },
+    {
+      "astar": {
+        "heap_pop": 2133096,
+        "heap_push": 3029267,
+        "relax_attempts": 19026126,
+        "relax_success": 3029255
+      },
+      "elapsed_ms": 372,
+      "net": "U1_R11",
+      "spec_idx": 122
+    },
+    {
+      "astar": {
+        "heap_pop": 5071769,
+        "heap_push": 7210940,
+        "relax_attempts": 40364734,
+        "relax_success": 7210928
+      },
+      "elapsed_ms": 934,
+      "net": "U1_R12",
+      "spec_idx": 123
+    },
+    {
+      "astar": {
+        "heap_pop": 8064022,
+        "heap_push": 10645093,
+        "relax_attempts": 59822053,
+        "relax_success": 10645081
+      },
+      "elapsed_ms": 1480,
+      "net": "U1_R13",
+      "spec_idx": 124
+    },
+    {
+      "astar": {
+        "heap_pop": 2030058,
+        "heap_push": 2780027,
+        "relax_attempts": 16976678,
+        "relax_success": 2780015
+      },
+      "elapsed_ms": 356,
+      "net": "U1_R14",
+      "spec_idx": 125
+    },
+    {
+      "astar": {
+        "heap_pop": 2033003,
+        "heap_push": 2837558,
+        "relax_attempts": 16771746,
+        "relax_success": 2837546
+      },
+      "elapsed_ms": 358,
+      "net": "U1_R15",
+      "spec_idx": 126
+    },
+    {
+      "astar": {
+        "heap_pop": 2630295,
+        "heap_push": 3693422,
+        "relax_attempts": 25418783,
+        "relax_success": 3693410
+      },
+      "elapsed_ms": 438,
+      "net": "U1_D4",
+      "spec_idx": 127
+    },
+    {
+      "astar": {
+        "heap_pop": 18652788,
+        "heap_push": 22728585,
+        "relax_attempts": 127135807,
+        "relax_success": 22728573
+      },
+      "elapsed_ms": 3201,
+      "net": "U1_D5",
+      "spec_idx": 128
+    },
+    {
+      "astar": {
+        "heap_pop": 19596888,
+        "heap_push": 22733496,
+        "relax_attempts": 132497823,
+        "relax_success": 22733484
+      },
+      "elapsed_ms": 3412,
+      "net": "U1_D6",
+      "spec_idx": 129
+    },
+    {
+      "astar": {
+        "heap_pop": 1230853,
+        "heap_push": 1757714,
+        "relax_attempts": 11550067,
+        "relax_success": 1757702
+      },
+      "elapsed_ms": 206,
+      "net": "U1_D7",
+      "spec_idx": 130
+    },
+    {
+      "astar": {
+        "heap_pop": 1202793,
+        "heap_push": 1704456,
+        "relax_attempts": 11254737,
+        "relax_success": 1704444
+      },
+      "elapsed_ms": 197,
+      "net": "U1_D8",
+      "spec_idx": 131
+    },
+    {
+      "astar": {
+        "heap_pop": 1197356,
+        "heap_push": 1692620,
+        "relax_attempts": 11156467,
+        "relax_success": 1692608
+      },
+      "elapsed_ms": 195,
+      "net": "U1_D9",
+      "spec_idx": 132
+    },
+    {
+      "astar": {
+        "heap_pop": 1166003,
+        "heap_push": 1644488,
+        "relax_attempts": 10783786,
+        "relax_success": 1644476
+      },
+      "elapsed_ms": 189,
+      "net": "U1_D10",
+      "spec_idx": 133
+    },
+    {
+      "astar": {
+        "heap_pop": 1179389,
+        "heap_push": 1663848,
+        "relax_attempts": 10845470,
+        "relax_success": 1663836
+      },
+      "elapsed_ms": 192,
+      "net": "U1_D11",
+      "spec_idx": 134
+    },
+    {
+      "astar": {
+        "heap_pop": 1177124,
+        "heap_push": 1660616,
+        "relax_attempts": 10742971,
+        "relax_success": 1660604
+      },
+      "elapsed_ms": 190,
+      "net": "U1_D12",
+      "spec_idx": 135
+    },
+    {
+      "astar": {
+        "heap_pop": 1161474,
+        "heap_push": 1636910,
+        "relax_attempts": 10526890,
+        "relax_success": 1636898
+      },
+      "elapsed_ms": 187,
+      "net": "U1_D13",
+      "spec_idx": 136
+    },
+    {
+      "astar": {
+        "heap_pop": 20278723,
+        "heap_push": 25416584,
+        "relax_attempts": 144250881,
+        "relax_success": 25416572
+      },
+      "elapsed_ms": 3654,
+      "net": "U1_D14",
+      "spec_idx": 137
+    },
+    {
+      "astar": {
+        "heap_pop": 4684533,
+        "heap_push": 6368536,
+        "relax_attempts": 39609417,
+        "relax_success": 6368524
+      },
+      "elapsed_ms": 744,
+      "net": "U1_D15",
+      "spec_idx": 138
+    },
+    {
+      "astar": {
+        "heap_pop": 2505319,
+        "heap_push": 3488567,
+        "relax_attempts": 21935541,
+        "relax_success": 3488555
+      },
+      "elapsed_ms": 413,
+      "net": "U1_E4",
+      "spec_idx": 139
+    },
+    {
+      "astar": {
+        "heap_pop": 21427375,
+        "heap_push": 26165208,
+        "relax_attempts": 151536285,
+        "relax_success": 26165196
+      },
+      "elapsed_ms": 3725,
+      "net": "U1_E15",
+      "spec_idx": 140
+    },
+    {
+      "astar": {
+        "heap_pop": 10950367,
+        "heap_push": 13434114,
+        "relax_attempts": 73347205,
+        "relax_success": 13434102
+      },
+      "elapsed_ms": 1785,
+      "net": "U1_F4",
+      "spec_idx": 141
+    },
+    {
+      "astar": {
+        "heap_pop": 38192134,
+        "heap_push": 44709675,
+        "relax_attempts": 264759823,
+        "relax_success": 44709663
+      },
+      "elapsed_ms": 7089,
+      "net": "U1_F15",
+      "spec_idx": 142
+    },
+    {
+      "astar": {
+        "heap_pop": 21468542,
+        "heap_push": 26483169,
+        "relax_attempts": 153797995,
+        "relax_success": 26483157
+      },
+      "elapsed_ms": 3791,
+      "net": "U1_G4",
+      "spec_idx": 143
+    },
+    {
+      "astar": {
+        "heap_pop": 66786584,
+        "heap_push": 74544538,
+        "relax_attempts": 466957899,
+        "relax_success": 74544526
+      },
+      "elapsed_ms": 12569,
+      "net": "U1_G16",
+      "spec_idx": 144
+    },
+    {
+      "astar": {
+        "heap_pop": 61929196,
+        "heap_push": 71948666,
+        "relax_attempts": 431059967,
+        "relax_success": 71948654
+      },
+      "elapsed_ms": 12054,
+      "net": "U1_H3",
+      "spec_idx": 145
+    },
+    {
+      "astar": {
+        "heap_pop": 45441009,
+        "heap_push": 54527409,
+        "relax_attempts": 337683807,
+        "relax_success": 54527397
+      },
+      "elapsed_ms": 8321,
+      "net": "U1_H16",
+      "spec_idx": 146
+    },
+    {
+      "astar": {
+        "heap_pop": 93942984,
+        "heap_push": 108614959,
+        "relax_attempts": 673755670,
+        "relax_success": 108614947
+      },
+      "elapsed_ms": 18570,
+      "net": "U1_J3",
+      "spec_idx": 147
+    },
+    {
+      "astar": {
+        "heap_pop": 3354952,
+        "heap_push": 4891393,
+        "relax_attempts": 32437758,
+        "relax_success": 4891381
+      },
+      "elapsed_ms": 572,
+      "net": "U1_J16",
+      "spec_idx": 148
+    },
+    {
+      "astar": {
+        "heap_pop": 20309267,
+        "heap_push": 26452631,
+        "relax_attempts": 186572247,
+        "relax_success": 26452619
+      },
+      "elapsed_ms": 3670,
+      "net": "U1_K3",
+      "spec_idx": 149
+    },
+    {
+      "astar": {
+        "heap_pop": 20968297,
+        "heap_push": 23130630,
+        "relax_attempts": 152054792,
+        "relax_success": 23130627
+      },
+      "elapsed_ms": 3960,
+      "net": "U1_K16",
+      "spec_idx": 150
+    },
+    {
+      "astar": {
+        "heap_pop": 5899808,
+        "heap_push": 8186193,
+        "relax_attempts": 48773989,
+        "relax_success": 8186181
+      },
+      "elapsed_ms": 1045,
+      "net": "U1_L3",
+      "spec_idx": 151
+    },
+    {
+      "astar": {
+        "heap_pop": 77375135,
+        "heap_push": 86348993,
+        "relax_attempts": 542807757,
+        "relax_success": 86348982
+      },
+      "elapsed_ms": 15032,
+      "net": "U1_L16",
+      "spec_idx": 152
+    },
+    {
+      "astar": {
+        "heap_pop": 6048848,
+        "heap_push": 8108773,
+        "relax_attempts": 46029688,
+        "relax_success": 8108761
+      },
+      "elapsed_ms": 1058,
+      "net": "U1_M3",
+      "spec_idx": 153
+    },
+    {
+      "astar": {
+        "heap_pop": 73697505,
+        "heap_push": 82851170,
+        "relax_attempts": 491886565,
+        "relax_success": 82851158
+      },
+      "elapsed_ms": 14250,
+      "net": "U1_M16",
+      "spec_idx": 154
+    },
+    {
+      "astar": {
+        "heap_pop": 9103222,
+        "heap_push": 11595927,
+        "relax_attempts": 64634716,
+        "relax_success": 11595915
+      },
+      "elapsed_ms": 1647,
+      "net": "U1_N3",
+      "spec_idx": 155
+    },
+    {
+      "astar": {
+        "heap_pop": 50741029,
+        "heap_push": 59061989,
+        "relax_attempts": 336532657,
+        "relax_success": 59061977
+      },
+      "elapsed_ms": 10317,
+      "net": "U1_N16",
+      "spec_idx": 156
+    },
+    {
+      "astar": {
+        "heap_pop": 25640618,
+        "heap_push": 30128330,
+        "relax_attempts": 170050746,
+        "relax_success": 30128318
+      },
+      "elapsed_ms": 4939,
+      "net": "U1_P3",
+      "spec_idx": 157
+    },
+    {
+      "astar": {
+        "heap_pop": 5115391,
+        "heap_push": 7055413,
+        "relax_attempts": 38158677,
+        "relax_success": 7055401
+      },
+      "elapsed_ms": 949,
+      "net": "U1_P16",
+      "spec_idx": 158
+    },
+    {
+      "astar": {
+        "heap_pop": 1632224,
+        "heap_push": 2298479,
+        "relax_attempts": 14073099,
+        "relax_success": 2298467
+      },
+      "elapsed_ms": 283,
+      "net": "U1_R3",
+      "spec_idx": 159
+    },
+    {
+      "astar": {
+        "heap_pop": 2684789,
+        "heap_push": 3518751,
+        "relax_attempts": 20673758,
+        "relax_success": 3518746
+      },
+      "elapsed_ms": 479,
+      "net": "U1_R16",
+      "spec_idx": 160
+    },
+    {
+      "astar": {
+        "heap_pop": 1838515,
+        "heap_push": 2654458,
+        "relax_attempts": 17492292,
+        "relax_success": 2654446
+      },
+      "elapsed_ms": 323,
+      "net": "U1_T3",
+      "spec_idx": 161
+    },
+    {
+      "astar": {
+        "heap_pop": 844899,
+        "heap_push": 1163299,
+        "relax_attempts": 8141804,
+        "relax_success": 1163296
+      },
+      "elapsed_ms": 148,
+      "net": "U1_T4",
+      "spec_idx": 162
+    },
+    {
+      "astar": {
+        "heap_pop": 940115,
+        "heap_push": 1318936,
+        "relax_attempts": 9052046,
+        "relax_success": 1318930
+      },
+      "elapsed_ms": 161,
+      "net": "U1_T5",
+      "spec_idx": 163
+    },
+    {
+      "astar": {
+        "heap_pop": 1078698,
+        "heap_push": 1563633,
+        "relax_attempts": 10384659,
+        "relax_success": 1563621
+      },
+      "elapsed_ms": 179,
+      "net": "U1_T6",
+      "spec_idx": 164
+    },
+    {
+      "astar": {
+        "heap_pop": 2577201,
+        "heap_push": 3628637,
+        "relax_attempts": 21092887,
+        "relax_success": 3628625
+      },
+      "elapsed_ms": 459,
+      "net": "U1_T7",
+      "spec_idx": 165
+    },
+    {
+      "astar": {
+        "heap_pop": 6175522,
+        "heap_push": 8465296,
+        "relax_attempts": 46808955,
+        "relax_success": 8465284
+      },
+      "elapsed_ms": 1175,
+      "net": "U1_T8",
+      "spec_idx": 166
+    },
+    {
+      "astar": {
+        "heap_pop": 2188887,
+        "heap_push": 2978727,
+        "relax_attempts": 18301713,
+        "relax_success": 2978715
+      },
+      "elapsed_ms": 380,
+      "net": "U1_T9",
+      "spec_idx": 167
+    },
+    {
+      "astar": {
+        "heap_pop": 9780336,
+        "heap_push": 12603675,
+        "relax_attempts": 69711384,
+        "relax_success": 12603663
+      },
+      "elapsed_ms": 1837,
+      "net": "U1_T10",
+      "spec_idx": 168
+    },
+    {
+      "astar": {
+        "heap_pop": 8512283,
+        "heap_push": 10916848,
+        "relax_attempts": 61813088,
+        "relax_success": 10916836
+      },
+      "elapsed_ms": 1614,
+      "net": "U1_T11",
+      "spec_idx": 169
+    },
+    {
+      "astar": {
+        "heap_pop": 7993780,
+        "heap_push": 10484318,
+        "relax_attempts": 58125126,
+        "relax_success": 10484306
+      },
+      "elapsed_ms": 1502,
+      "net": "U1_T12",
+      "spec_idx": 170
+    },
+    {
+      "astar": {
+        "heap_pop": 4994701,
+        "heap_push": 6523969,
+        "relax_attempts": 36406647,
+        "relax_success": 6523957
+      },
+      "elapsed_ms": 901,
+      "net": "U1_T13",
+      "spec_idx": 171
+    },
+    {
+      "astar": {
+        "heap_pop": 6716437,
+        "heap_push": 8934021,
+        "relax_attempts": 48520949,
+        "relax_success": 8934009
+      },
+      "elapsed_ms": 1224,
+      "net": "U1_T14",
+      "spec_idx": 172
+    },
+    {
+      "astar": {
+        "heap_pop": 8449846,
+        "heap_push": 10786477,
+        "relax_attempts": 59730090,
+        "relax_success": 10786465
+      },
+      "elapsed_ms": 1568,
+      "net": "U1_T15",
+      "spec_idx": 173
+    },
+    {
+      "astar": {
+        "heap_pop": 9470987,
+        "heap_push": 11965638,
+        "relax_attempts": 66436485,
+        "relax_success": 11965626
+      },
+      "elapsed_ms": 1728,
+      "net": "U1_T16",
+      "spec_idx": 174
+    },
+    {
+      "astar": {
+        "heap_pop": 1775632,
+        "heap_push": 2474746,
+        "relax_attempts": 17152731,
+        "relax_success": 2474734
+      },
+      "elapsed_ms": 291,
+      "net": "U1_C3",
+      "spec_idx": 175
+    },
+    {
+      "astar": {
+        "heap_pop": 554222,
+        "heap_push": 812679,
+        "relax_attempts": 5301384,
+        "relax_success": 812667
+      },
+      "elapsed_ms": 89,
+      "net": "U1_C4",
+      "spec_idx": 176
+    },
+    {
+      "astar": {
+        "heap_pop": 551701,
+        "heap_push": 800090,
+        "relax_attempts": 5230966,
+        "relax_success": 800078
+      },
+      "elapsed_ms": 89,
+      "net": "U1_C5",
+      "spec_idx": 177
+    },
+    {
+      "astar": {
+        "heap_pop": 566528,
+        "heap_push": 825603,
+        "relax_attempts": 5310420,
+        "relax_success": 825591
+      },
+      "elapsed_ms": 89,
+      "net": "U1_C6",
+      "spec_idx": 178
+    },
+    {
+      "astar": {
+        "heap_pop": 579032,
+        "heap_push": 838743,
+        "relax_attempts": 5348078,
+        "relax_success": 838731
+      },
+      "elapsed_ms": 91,
+      "net": "U1_C7",
+      "spec_idx": 179
+    },
+    {
+      "astar": {
+        "heap_pop": 565478,
+        "heap_push": 818389,
+        "relax_attempts": 5129322,
+        "relax_success": 818377
+      },
+      "elapsed_ms": 86,
+      "net": "U1_C8",
+      "spec_idx": 180
+    },
+    {
+      "astar": {
+        "heap_pop": 569225,
+        "heap_push": 821229,
+        "relax_attempts": 5130585,
+        "relax_success": 821217
+      },
+      "elapsed_ms": 87,
+      "net": "U1_C9",
+      "spec_idx": 181
+    },
+    {
+      "astar": {
+        "heap_pop": 566023,
+        "heap_push": 814581,
+        "relax_attempts": 5108769,
+        "relax_success": 814570
+      },
+      "elapsed_ms": 87,
+      "net": "U1_C10",
+      "spec_idx": 182
+    },
+    {
+      "astar": {
+        "heap_pop": 1318812,
+        "heap_push": 1864086,
+        "relax_attempts": 10274759,
+        "relax_success": 1864074
+      },
+      "elapsed_ms": 215,
+      "net": "U1_C11",
+      "spec_idx": 183
+    },
+    {
+      "astar": {
+        "heap_pop": 594937,
+        "heap_push": 859567,
+        "relax_attempts": 5282666,
+        "relax_success": 859555
+      },
+      "elapsed_ms": 90,
+      "net": "U1_C12",
+      "spec_idx": 184
+    },
+    {
+      "astar": {
+        "heap_pop": 560845,
+        "heap_push": 812477,
+        "relax_attempts": 4932302,
+        "relax_success": 812465
+      },
+      "elapsed_ms": 83,
+      "net": "U1_C13",
+      "spec_idx": 185
+    },
+    {
+      "astar": {
+        "heap_pop": 552039,
+        "heap_push": 797879,
+        "relax_attempts": 4821295,
+        "relax_success": 797867
+      },
+      "elapsed_ms": 81,
+      "net": "U1_C14",
+      "spec_idx": 186
+    },
+    {
+      "astar": {
+        "heap_pop": 6023728,
+        "heap_push": 8077584,
+        "relax_attempts": 46051668,
+        "relax_success": 8077572
+      },
+      "elapsed_ms": 940,
+      "net": "U1_C15",
+      "spec_idx": 187
+    },
+    {
+      "astar": {
+        "heap_pop": 907769,
+        "heap_push": 1420131,
+        "relax_attempts": 7667652,
+        "relax_success": 1420119
+      },
+      "elapsed_ms": 149,
+      "net": "U1_C16",
+      "spec_idx": 188
+    },
+    {
+      "astar": {
+        "heap_pop": 1029223,
+        "heap_push": 1525338,
+        "relax_attempts": 8757516,
+        "relax_success": 1525326
+      },
+      "elapsed_ms": 167,
+      "net": "U1_D3",
+      "spec_idx": 189
+    },
+    {
+      "astar": {
+        "heap_pop": 2527781,
+        "heap_push": 3431057,
+        "relax_attempts": 18597310,
+        "relax_success": 3431045
+      },
+      "elapsed_ms": 406,
+      "net": "U1_D16",
+      "spec_idx": 190
+    },
+    {
+      "astar": {
+        "heap_pop": 4122665,
+        "heap_push": 5247010,
+        "relax_attempts": 30998432,
+        "relax_success": 5246998
+      },
+      "elapsed_ms": 682,
+      "net": "U1_E3",
+      "spec_idx": 191
+    },
+    {
+      "astar": {
+        "heap_pop": 36283377,
+        "heap_push": 41479890,
+        "relax_attempts": 253553321,
+        "relax_success": 41479879
+      },
+      "elapsed_ms": 6540,
+      "net": "U1_E16",
+      "spec_idx": 192
+    },
+    {
+      "astar": {
+        "heap_pop": 17288107,
+        "heap_push": 20239897,
+        "relax_attempts": 115555363,
+        "relax_success": 20239889
+      },
+      "elapsed_ms": 2966,
+      "net": "U1_F3",
+      "spec_idx": 193
+    },
+    {
+      "astar": {
+        "heap_pop": 42203157,
+        "heap_push": 48294509,
+        "relax_attempts": 289371199,
+        "relax_success": 48294498
+      },
+      "elapsed_ms": 7730,
+      "net": "U1_F16",
+      "spec_idx": 194
+    },
+    {
+      "astar": {
+        "heap_pop": 28141733,
+        "heap_push": 33751517,
+        "relax_attempts": 198065970,
+        "relax_success": 33751509
+      },
+      "elapsed_ms": 5161,
+      "net": "U1_G3",
+      "spec_idx": 195
+    },
+    {
+      "astar": {
+        "heap_pop": 35628285,
+        "heap_push": 40459367,
+        "relax_attempts": 253030686,
+        "relax_success": 40459356
+      },
+      "elapsed_ms": 6565,
+      "net": "U1_G17",
+      "spec_idx": 196
+    },
+    {
+      "astar": {
+        "heap_pop": 46993409,
+        "heap_push": 56836583,
+        "relax_attempts": 334295167,
+        "relax_success": 56836572
+      },
+      "elapsed_ms": 8990,
+      "net": "U1_H2",
+      "spec_idx": 197
+    },
+    {
+      "astar": {
+        "heap_pop": 48021813,
+        "heap_push": 56363322,
+        "relax_attempts": 352197155,
+        "relax_success": 56363311
+      },
+      "elapsed_ms": 8967,
+      "net": "U1_H17",
+      "spec_idx": 198
+    },
+    {
+      "astar": {
+        "heap_pop": 26117670,
+        "heap_push": 31648915,
+        "relax_attempts": 188208763,
+        "relax_success": 31648904
+      },
+      "elapsed_ms": 5126,
+      "net": "U1_J2",
+      "spec_idx": 199
+    },
+    {
+      "astar": {
+        "heap_pop": 3455466,
+        "heap_push": 5014202,
+        "relax_attempts": 30341926,
+        "relax_success": 5014191
+      },
+      "elapsed_ms": 600,
+      "net": "U1_J17",
+      "spec_idx": 200
+    },
+    {
+      "astar": {
+        "heap_pop": 13026311,
+        "heap_push": 16714917,
+        "relax_attempts": 95960063,
+        "relax_success": 16714906
+      },
+      "elapsed_ms": 2414,
+      "net": "U1_K2",
+      "spec_idx": 201
+    },
+    {
+      "astar": {
+        "heap_pop": 86866016,
+        "heap_push": 96333095,
+        "relax_attempts": 609545938,
+        "relax_success": 96333084
+      },
+      "elapsed_ms": 16782,
+      "net": "U1_K17",
+      "spec_idx": 202
+    },
+    {
+      "astar": {
+        "heap_pop": 13772310,
+        "heap_push": 17615635,
+        "relax_attempts": 102085771,
+        "relax_success": 17615624
+      },
+      "elapsed_ms": 2508,
+      "net": "U1_L2",
+      "spec_idx": 203
+    },
+    {
+      "astar": {
+        "heap_pop": 92174808,
+        "heap_push": 103062924,
+        "relax_attempts": 638381741,
+        "relax_success": 103062913
+      },
+      "elapsed_ms": 17720,
+      "net": "U1_L17",
+      "spec_idx": 204
+    },
+    {
+      "astar": {
+        "heap_pop": 18743197,
+        "heap_push": 22957735,
+        "relax_attempts": 135936384,
+        "relax_success": 22957724
+      },
+      "elapsed_ms": 3580,
+      "net": "U1_M2",
+      "spec_idx": 205
+    },
+    {
+      "astar": {
+        "heap_pop": 60727778,
+        "heap_push": 69018828,
+        "relax_attempts": 413149191,
+        "relax_success": 69018817
+      },
+      "elapsed_ms": 11651,
+      "net": "U1_M17",
+      "spec_idx": 206
+    },
+    {
+      "astar": {
+        "heap_pop": 69717834,
+        "heap_push": 79250139,
+        "relax_attempts": 463376920,
+        "relax_success": 79250128
+      },
+      "elapsed_ms": 13852,
+      "net": "U1_N2",
+      "spec_idx": 207
+    },
+    {
+      "astar": {
+        "heap_pop": 56997319,
+        "heap_push": 64998022,
+        "relax_attempts": 375987859,
+        "relax_success": 64998011
+      },
+      "elapsed_ms": 11404,
+      "net": "U1_N17",
+      "spec_idx": 208
+    },
+    {
+      "astar": {
+        "heap_pop": 13074483,
+        "heap_push": 15459204,
+        "relax_attempts": 86365066,
+        "relax_success": 15459193
+      },
+      "elapsed_ms": 2420,
+      "net": "U1_P2",
+      "spec_idx": 209
+    },
+    {
+      "astar": {
+        "heap_pop": 4207650,
+        "heap_push": 5487592,
+        "relax_attempts": 29614541,
+        "relax_success": 5487581
+      },
+      "elapsed_ms": 781,
+      "net": "U1_P17",
+      "spec_idx": 210
+    },
+    {
+      "astar": {
+        "heap_pop": 1292635,
+        "heap_push": 1796987,
+        "relax_attempts": 9757220,
+        "relax_success": 1796976
+      },
+      "elapsed_ms": 214,
+      "net": "U1_R2",
+      "spec_idx": 211
+    },
+    {
+      "astar": {
+        "heap_pop": 16038437,
+        "heap_push": 19880771,
+        "relax_attempts": 110848746,
+        "relax_success": 19880760
+      },
+      "elapsed_ms": 3052,
+      "net": "U1_R17",
+      "spec_idx": 212
+    },
+    {
+      "astar": {
+        "heap_pop": 843541,
+        "heap_push": 1189964,
+        "relax_attempts": 6852129,
+        "relax_success": 1189953
+      },
+      "elapsed_ms": 140,
+      "net": "U1_T2",
+      "spec_idx": 213
+    },
+    {
+      "astar": {
+        "heap_pop": 2592682,
+        "heap_push": 3578195,
+        "relax_attempts": 19446070,
+        "relax_success": 3578184
+      },
+      "elapsed_ms": 470,
+      "net": "U1_T17",
+      "spec_idx": 214
+    },
+    {
+      "astar": {
+        "heap_pop": 951932,
+        "heap_push": 1434408,
+        "relax_attempts": 8864742,
+        "relax_success": 1434397
+      },
+      "elapsed_ms": 156,
+      "net": "U1_U2",
+      "spec_idx": 215
+    },
+    {
+      "astar": {
+        "heap_pop": 683855,
+        "heap_push": 1060880,
+        "relax_attempts": 6439198,
+        "relax_success": 1060869
+      },
+      "elapsed_ms": 111,
+      "net": "U1_U3",
+      "spec_idx": 216
+    },
+    {
+      "astar": {
+        "heap_pop": 666980,
+        "heap_push": 1035979,
+        "relax_attempts": 6291793,
+        "relax_success": 1035968
+      },
+      "elapsed_ms": 110,
+      "net": "U1_U4",
+      "spec_idx": 217
+    },
+    {
+      "astar": {
+        "heap_pop": 451001,
+        "heap_push": 694270,
+        "relax_attempts": 4162762,
+        "relax_success": 694265
+      },
+      "elapsed_ms": 74,
+      "net": "U1_U5",
+      "spec_idx": 218
+    },
+    {
+      "astar": {
+        "heap_pop": 766451,
+        "heap_push": 1250618,
+        "relax_attempts": 6922421,
+        "relax_success": 1250607
+      },
+      "elapsed_ms": 123,
+      "net": "U1_U6",
+      "spec_idx": 219
+    },
+    {
+      "astar": {
+        "heap_pop": 2646599,
+        "heap_push": 3885411,
+        "relax_attempts": 20444370,
+        "relax_success": 3885400
+      },
+      "elapsed_ms": 476,
+      "net": "U1_U7",
+      "spec_idx": 220
+    },
+    {
+      "astar": {
+        "heap_pop": 3795684,
+        "heap_push": 4931865,
+        "relax_attempts": 26346198,
+        "relax_success": 4931854
+      },
+      "elapsed_ms": 673,
+      "net": "U1_U8",
+      "spec_idx": 221
+    },
+    {
+      "astar": {
+        "heap_pop": 5971477,
+        "heap_push": 7901983,
+        "relax_attempts": 42986688,
+        "relax_success": 7901972
+      },
+      "elapsed_ms": 1102,
+      "net": "U1_U9",
+      "spec_idx": 222
+    },
+    {
+      "astar": {
+        "heap_pop": 2510115,
+        "heap_push": 3555695,
+        "relax_attempts": 19397681,
+        "relax_success": 3555684
+      },
+      "elapsed_ms": 447,
+      "net": "U1_U10",
+      "spec_idx": 223
+    },
+    {
+      "astar": {
+        "heap_pop": 4254050,
+        "heap_push": 5853598,
+        "relax_attempts": 31526324,
+        "relax_success": 5853587
+      },
+      "elapsed_ms": 787,
+      "net": "U1_U11",
+      "spec_idx": 224
+    },
+    {
+      "astar": {
+        "heap_pop": 3401595,
+        "heap_push": 4800114,
+        "relax_attempts": 25752628,
+        "relax_success": 4800103
+      },
+      "elapsed_ms": 617,
+      "net": "U1_U12",
+      "spec_idx": 225
+    },
+    {
+      "astar": {
+        "heap_pop": 6022766,
+        "heap_push": 7912544,
+        "relax_attempts": 42559278,
+        "relax_success": 7912533
+      },
+      "elapsed_ms": 1094,
+      "net": "U1_U13",
+      "spec_idx": 226
+    },
+    {
+      "astar": {
+        "heap_pop": 9550898,
+        "heap_push": 12305194,
+        "relax_attempts": 67529844,
+        "relax_success": 12305183
+      },
+      "elapsed_ms": 1756,
+      "net": "U1_U14",
+      "spec_idx": 227
+    },
+    {
+      "astar": {
+        "heap_pop": 1280588,
+        "heap_push": 1886968,
+        "relax_attempts": 9467078,
+        "relax_success": 1886957
+      },
+      "elapsed_ms": 229,
+      "net": "U1_U15",
+      "spec_idx": 228
+    },
+    {
+      "astar": {
+        "heap_pop": 6608190,
+        "heap_push": 8797883,
+        "relax_attempts": 47383202,
+        "relax_success": 8797872
+      },
+      "elapsed_ms": 1200,
+      "net": "U1_U16",
+      "spec_idx": 229
+    },
+    {
+      "astar": {
+        "heap_pop": 5345532,
+        "heap_push": 7141217,
+        "relax_attempts": 37804470,
+        "relax_success": 7141206
+      },
+      "elapsed_ms": 954,
+      "net": "U1_U17",
+      "spec_idx": 230
+    },
+    {
+      "astar": {
+        "heap_pop": 189856,
+        "heap_push": 283112,
+        "relax_attempts": 1765647,
+        "relax_success": 283108
+      },
+      "elapsed_ms": 30,
+      "net": "U1_B2",
+      "spec_idx": 231
+    },
+    {
+      "astar": {
+        "heap_pop": 198300,
+        "heap_push": 323482,
+        "relax_attempts": 1906441,
+        "relax_success": 323471
+      },
+      "elapsed_ms": 31,
+      "net": "U1_B3",
+      "spec_idx": 232
+    },
+    {
+      "astar": {
+        "heap_pop": 73946,
+        "heap_push": 147002,
+        "relax_attempts": 680976,
+        "relax_success": 146991
+      },
+      "elapsed_ms": 7,
+      "net": "U1_B4",
+      "spec_idx": 233
+    },
+    {
+      "astar": {
+        "heap_pop": 106516,
+        "heap_push": 189857,
+        "relax_attempts": 903681,
+        "relax_success": 189846
+      },
+      "elapsed_ms": 11,
+      "net": "U1_B5",
+      "spec_idx": 234
+    },
+    {
+      "astar": {
+        "heap_pop": 229875,
+        "heap_push": 381565,
+        "relax_attempts": 1820841,
+        "relax_success": 381554
+      },
+      "elapsed_ms": 34,
+      "net": "U1_B6",
+      "spec_idx": 235
+    },
+    {
+      "astar": {
+        "heap_pop": 651184,
+        "heap_push": 942604,
+        "relax_attempts": 6240738,
+        "relax_success": 942593
+      },
+      "elapsed_ms": 103,
+      "net": "U1_B7",
+      "spec_idx": 236
+    },
+    {
+      "astar": {
+        "heap_pop": 257255,
+        "heap_push": 407963,
+        "relax_attempts": 2425569,
+        "relax_success": 407952
+      },
+      "elapsed_ms": 33,
+      "net": "U1_B8",
+      "spec_idx": 237
+    },
+    {
+      "astar": {
+        "heap_pop": 334028,
+        "heap_push": 543164,
+        "relax_attempts": 3051370,
+        "relax_success": 543153
+      },
+      "elapsed_ms": 50,
+      "net": "U1_B9",
+      "spec_idx": 238
+    },
+    {
+      "astar": {
+        "heap_pop": 226024,
+        "heap_push": 371908,
+        "relax_attempts": 2153260,
+        "relax_success": 371897
+      },
+      "elapsed_ms": 31,
+      "net": "U1_B10",
+      "spec_idx": 239
+    },
+    {
+      "astar": {
+        "heap_pop": 650479,
+        "heap_push": 962967,
+        "relax_attempts": 6274186,
+        "relax_success": 962956
+      },
+      "elapsed_ms": 103,
+      "net": "U1_B11",
+      "spec_idx": 240
+    },
+    {
+      "astar": {
+        "heap_pop": 112206,
+        "heap_push": 212080,
+        "relax_attempts": 948953,
+        "relax_success": 212075
+      },
+      "elapsed_ms": 16,
+      "net": "U1_B12",
+      "spec_idx": 241
+    },
+    {
+      "astar": {
+        "heap_pop": 181868,
+        "heap_push": 339068,
+        "relax_attempts": 1478122,
+        "relax_success": 339057
+      },
+      "elapsed_ms": 27,
+      "net": "U1_B13",
+      "spec_idx": 242
+    },
+    {
+      "astar": {
+        "heap_pop": 357540,
+        "heap_push": 584537,
+        "relax_attempts": 2911479,
+        "relax_success": 584526
+      },
+      "elapsed_ms": 51,
+      "net": "U1_B14",
+      "spec_idx": 243
+    },
+    {
+      "astar": {
+        "heap_pop": 328257,
+        "heap_push": 547062,
+        "relax_attempts": 3145283,
+        "relax_success": 547051
+      },
+      "elapsed_ms": 53,
+      "net": "U1_B15",
+      "spec_idx": 244
+    },
+    {
+      "astar": {
+        "heap_pop": 240825,
+        "heap_push": 359328,
+        "relax_attempts": 2256108,
+        "relax_success": 359323
+      },
+      "elapsed_ms": 37,
+      "net": "U1_B16",
+      "spec_idx": 245
+    },
+    {
+      "astar": {
+        "heap_pop": 1332959,
+        "heap_push": 1753878,
+        "relax_attempts": 9695000,
+        "relax_success": 1753875
+      },
+      "elapsed_ms": 219,
+      "net": "U1_B17",
+      "spec_idx": 246
+    },
+    {
+      "astar": {
+        "heap_pop": 424058,
+        "heap_push": 582752,
+        "relax_attempts": 2949201,
+        "relax_success": 582748
+      },
+      "elapsed_ms": 65,
+      "net": "U1_C2",
+      "spec_idx": 247
+    },
+    {
+      "astar": {
+        "heap_pop": 6919342,
+        "heap_push": 8992704,
+        "relax_attempts": 51875028,
+        "relax_success": 8992693
+      },
+      "elapsed_ms": 1171,
+      "net": "U1_C17",
+      "spec_idx": 248
+    },
+    {
+      "astar": {
+        "heap_pop": 1394939,
+        "heap_push": 1785388,
+        "relax_attempts": 9435484,
+        "relax_success": 1785380
+      },
+      "elapsed_ms": 222,
+      "net": "U1_D2",
+      "spec_idx": 249
+    },
+    {
+      "astar": {
+        "heap_pop": 4034910,
+        "heap_push": 5148570,
+        "relax_attempts": 28566318,
+        "relax_success": 5148567
+      },
+      "elapsed_ms": 686,
+      "net": "U1_D17",
+      "spec_idx": 250
+    },
+    {
+      "astar": {
+        "heap_pop": 2879599,
+        "heap_push": 3685791,
+        "relax_attempts": 19270852,
+        "relax_success": 3685785
+      },
+      "elapsed_ms": 467,
+      "net": "U1_E2",
+      "spec_idx": 251
+    },
+    {
+      "astar": {
+        "heap_pop": 37584139,
+        "heap_push": 43710926,
+        "relax_attempts": 261452313,
+        "relax_success": 43710915
+      },
+      "elapsed_ms": 6942,
+      "net": "U1_E17",
+      "spec_idx": 252
+    },
+    {
+      "astar": {
+        "heap_pop": 13933461,
+        "heap_push": 15994669,
+        "relax_attempts": 92958719,
+        "relax_success": 15994665
+      },
+      "elapsed_ms": 2475,
+      "net": "U1_F2",
+      "spec_idx": 253
+    },
+    {
+      "astar": {
+        "heap_pop": 47774297,
+        "heap_push": 54667876,
+        "relax_attempts": 330359074,
+        "relax_success": 54667865
+      },
+      "elapsed_ms": 8927,
+      "net": "U1_F17",
+      "spec_idx": 254
+    },
+    {
+      "astar": {
+        "heap_pop": 40327801,
+        "heap_push": 47046623,
+        "relax_attempts": 279027751,
+        "relax_success": 47046617
+      },
+      "elapsed_ms": 8021,
+      "net": "U1_G2",
+      "spec_idx": 255
+    },
+    {
+      "astar": {
+        "heap_pop": 21240236,
+        "heap_push": 23631406,
+        "relax_attempts": 148210214,
+        "relax_success": 23631403
+      },
+      "elapsed_ms": 3984,
+      "net": "U1_G18",
+      "spec_idx": 256
+    },
+    {
+      "astar": {
+        "heap_pop": 18698902,
+        "heap_push": 20865067,
+        "relax_attempts": 130382333,
+        "relax_success": 20865065
+      },
+      "elapsed_ms": 3596,
+      "net": "U1_H1",
+      "spec_idx": 257
+    },
+    {
+      "astar": {
+        "heap_pop": 22613840,
+        "heap_push": 25730674,
+        "relax_attempts": 165990637,
+        "relax_success": 25730670
+      },
+      "elapsed_ms": 4237,
+      "net": "U1_H18",
+      "spec_idx": 258
+    },
+    {
+      "astar": {
+        "heap_pop": 17590582,
+        "heap_push": 19487972,
+        "relax_attempts": 126540294,
+        "relax_success": 19487970
+      },
+      "elapsed_ms": 3405,
+      "net": "U1_J1",
+      "spec_idx": 259
+    },
+    {
+      "astar": {
+        "heap_pop": 317700,
+        "heap_push": 486602,
+        "relax_attempts": 2810029,
+        "relax_success": 486600
+      },
+      "elapsed_ms": 54,
+      "net": "U1_J18",
+      "spec_idx": 260
+    },
+    {
+      "astar": {
+        "heap_pop": 5388312,
+        "heap_push": 7046394,
+        "relax_attempts": 40036861,
+        "relax_success": 7046392
+      },
+      "elapsed_ms": 990,
+      "net": "U1_K1",
+      "spec_idx": 261
+    },
+    {
+      "astar": {
+        "heap_pop": 5413663,
+        "heap_push": 6117062,
+        "relax_attempts": 39491083,
+        "relax_success": 6117061
+      },
+      "elapsed_ms": 1002,
+      "net": "U1_K18",
+      "spec_idx": 262
+    },
+    {
+      "astar": {
+        "heap_pop": 9202238,
+        "heap_push": 10616509,
+        "relax_attempts": 65078103,
+        "relax_success": 10616507
+      },
+      "elapsed_ms": 1715,
+      "net": "U1_L1",
+      "spec_idx": 263
+    },
+    {
+      "astar": {
+        "heap_pop": 8125058,
+        "heap_push": 8894081,
+        "relax_attempts": 55810187,
+        "relax_success": 8894080
+      },
+      "elapsed_ms": 1545,
+      "net": "U1_L18",
+      "spec_idx": 264
+    },
+    {
+      "astar": {
+        "heap_pop": 16466119,
+        "heap_push": 18245078,
+        "relax_attempts": 112203776,
+        "relax_success": 18245076
+      },
+      "elapsed_ms": 3152,
+      "net": "U1_M1",
+      "spec_idx": 265
+    },
+    {
+      "astar": {
+        "heap_pop": 10683568,
+        "heap_push": 11980474,
+        "relax_attempts": 71084081,
+        "relax_success": 11980472
+      },
+      "elapsed_ms": 1983,
+      "net": "U1_M18",
+      "spec_idx": 266
+    },
+    {
+      "astar": {
+        "heap_pop": 12121499,
+        "heap_push": 13747105,
+        "relax_attempts": 80912423,
+        "relax_success": 13747103
+      },
+      "elapsed_ms": 2285,
+      "net": "U1_N1",
+      "spec_idx": 267
+    },
+    {
+      "astar": {
+        "heap_pop": 4719955,
+        "heap_push": 5337325,
+        "relax_attempts": 31018236,
+        "relax_success": 5337324
+      },
+      "elapsed_ms": 900,
+      "net": "U1_N18",
+      "spec_idx": 268
+    },
+    {
+      "astar": {
+        "heap_pop": 8335870,
+        "heap_push": 9533261,
+        "relax_attempts": 55092095,
+        "relax_success": 9533259
+      },
+      "elapsed_ms": 1522,
+      "net": "U1_P1",
+      "spec_idx": 269
+    },
+    {
+      "astar": {
+        "heap_pop": 12325559,
+        "heap_push": 15542063,
+        "relax_attempts": 86251717,
+        "relax_success": 15542055
+      },
+      "elapsed_ms": 2329,
+      "net": "U1_P18",
+      "spec_idx": 270
+    },
+    {
+      "astar": {
+        "heap_pop": 1327377,
+        "heap_push": 1695363,
+        "relax_attempts": 9042502,
+        "relax_success": 1695361
+      },
+      "elapsed_ms": 224,
+      "net": "U1_R1",
+      "spec_idx": 271
+    },
+    {
+      "astar": {
+        "heap_pop": 11243760,
+        "heap_push": 13809774,
+        "relax_attempts": 79821575,
+        "relax_success": 13809769
+      },
+      "elapsed_ms": 2134,
+      "net": "U1_R18",
+      "spec_idx": 272
+    },
+    {
+      "astar": {
+        "heap_pop": 1387873,
+        "heap_push": 1736460,
+        "relax_attempts": 9523581,
+        "relax_success": 1736458
+      },
+      "elapsed_ms": 236,
+      "net": "U1_T1",
+      "spec_idx": 273
+    },
+    {
+      "astar": {
+        "heap_pop": 2516629,
+        "heap_push": 3154488,
+        "relax_attempts": 17651683,
+        "relax_success": 3154486
+      },
+      "elapsed_ms": 473,
+      "net": "U1_T18",
+      "spec_idx": 274
+    },
+    {
+      "astar": {
+        "heap_pop": 971539,
+        "heap_push": 1215178,
+        "relax_attempts": 6918489,
+        "relax_success": 1215176
+      },
+      "elapsed_ms": 162,
+      "net": "U1_U1",
+      "spec_idx": 275
+    },
+    {
+      "astar": {
+        "heap_pop": 6054349,
+        "heap_push": 8115910,
+        "relax_attempts": 43020009,
+        "relax_success": 8115899
+      },
+      "elapsed_ms": 1113,
+      "net": "U1_U18",
+      "spec_idx": 276
+    },
+    {
+      "astar": {
+        "heap_pop": 434663,
+        "heap_push": 552018,
+        "relax_attempts": 3050005,
+        "relax_success": 552016
+      },
+      "elapsed_ms": 65,
+      "net": "U1_V1",
+      "spec_idx": 277
+    },
+    {
+      "astar": {
+        "heap_pop": 999646,
+        "heap_push": 1372713,
+        "relax_attempts": 7052086,
+        "relax_success": 1372706
+      },
+      "elapsed_ms": 150,
+      "net": "U1_V2",
+      "spec_idx": 278
+    },
+    {
+      "astar": {
+        "heap_pop": 496195,
+        "heap_push": 637458,
+        "relax_attempts": 3327352,
+        "relax_success": 637456
+      },
+      "elapsed_ms": 75,
+      "net": "U1_V3",
+      "spec_idx": 279
+    },
+    {
+      "astar": {
+        "heap_pop": 1370275,
+        "heap_push": 1837155,
+        "relax_attempts": 9523762,
+        "relax_success": 1837151
+      },
+      "elapsed_ms": 229,
+      "net": "U1_V4",
+      "spec_idx": 280
+    },
+    {
+      "astar": {
+        "heap_pop": 2080182,
+        "heap_push": 2866734,
+        "relax_attempts": 14752697,
+        "relax_success": 2866727
+      },
+      "elapsed_ms": 348,
+      "net": "U1_V5",
+      "spec_idx": 281
+    },
+    {
+      "astar": {
+        "heap_pop": 3130831,
+        "heap_push": 4166130,
+        "relax_attempts": 22232512,
+        "relax_success": 4166125
+      },
+      "elapsed_ms": 565,
+      "net": "U1_V6",
+      "spec_idx": 282
+    },
+    {
+      "astar": {
+        "heap_pop": 1481891,
+        "heap_push": 2050867,
+        "relax_attempts": 10830423,
+        "relax_success": 2050862
+      },
+      "elapsed_ms": 244,
+      "net": "U1_V7",
+      "spec_idx": 283
+    },
+    {
+      "astar": {
+        "heap_pop": 779344,
+        "heap_push": 1044631,
+        "relax_attempts": 5607382,
+        "relax_success": 1044627
+      },
+      "elapsed_ms": 123,
+      "net": "U1_V8",
+      "spec_idx": 284
+    },
+    {
+      "astar": {
+        "heap_pop": 873023,
+        "heap_push": 1156506,
+        "relax_attempts": 6416391,
+        "relax_success": 1156502
+      },
+      "elapsed_ms": 138,
+      "net": "U1_V9",
+      "spec_idx": 285
+    },
+    {
+      "astar": {
+        "heap_pop": 1314488,
+        "heap_push": 1768052,
+        "relax_attempts": 9322474,
+        "relax_success": 1768049
+      },
+      "elapsed_ms": 227,
+      "net": "U1_V10",
+      "spec_idx": 286
+    },
+    {
+      "astar": {
+        "heap_pop": 1642413,
+        "heap_push": 2264011,
+        "relax_attempts": 12367221,
+        "relax_success": 2264007
+      },
+      "elapsed_ms": 289,
+      "net": "U1_V11",
+      "spec_idx": 287
+    },
+    {
+      "astar": {
+        "heap_pop": 2196201,
+        "heap_push": 3029949,
+        "relax_attempts": 16349799,
+        "relax_success": 3029944
+      },
+      "elapsed_ms": 383,
+      "net": "U1_V12",
+      "spec_idx": 288
+    },
+    {
+      "astar": {
+        "heap_pop": 2332213,
+        "heap_push": 3197849,
+        "relax_attempts": 17067119,
+        "relax_success": 3197844
+      },
+      "elapsed_ms": 408,
+      "net": "U1_V13",
+      "spec_idx": 289
+    },
+    {
+      "astar": {
+        "heap_pop": 2225330,
+        "heap_push": 3057347,
+        "relax_attempts": 15965163,
+        "relax_success": 3057342
+      },
+      "elapsed_ms": 386,
+      "net": "U1_V14",
+      "spec_idx": 290
+    },
+    {
+      "astar": {
+        "heap_pop": 4197139,
+        "heap_push": 5525343,
+        "relax_attempts": 29687636,
+        "relax_success": 5525338
+      },
+      "elapsed_ms": 772,
+      "net": "U1_V15",
+      "spec_idx": 291
+    },
+    {
+      "astar": {
+        "heap_pop": 1683001,
+        "heap_push": 2292992,
+        "relax_attempts": 12163793,
+        "relax_success": 2292986
+      },
+      "elapsed_ms": 285,
+      "net": "U1_V16",
+      "spec_idx": 292
+    },
+    {
+      "astar": {
+        "heap_pop": 1617854,
+        "heap_push": 2162894,
+        "relax_attempts": 11635526,
+        "relax_success": 2162891
+      },
+      "elapsed_ms": 289,
+      "net": "U1_V17",
+      "spec_idx": 293
+    },
+    {
+      "astar": {
+        "heap_pop": 2189246,
+        "heap_push": 2894463,
+        "relax_attempts": 15838309,
+        "relax_success": 2894460
+      },
+      "elapsed_ms": 388,
+      "net": "U1_V18",
+      "spec_idx": 294
+    },
+    {
+      "astar": {
+        "heap_pop": 370980,
+        "heap_push": 474145,
+        "relax_attempts": 2679162,
+        "relax_success": 474144
+      },
+      "elapsed_ms": 61,
+      "net": "U1_A1",
+      "spec_idx": 295
+    },
+    {
+      "astar": {
+        "heap_pop": 558130,
+        "heap_push": 752035,
+        "relax_attempts": 4472714,
+        "relax_success": 752034
+      },
+      "elapsed_ms": 92,
+      "net": "U1_A2",
+      "spec_idx": 296
+    },
+    {
+      "astar": {
+        "heap_pop": 594052,
+        "heap_push": 771040,
+        "relax_attempts": 4544750,
+        "relax_success": 771039
+      },
+      "elapsed_ms": 97,
+      "net": "U1_A3",
+      "spec_idx": 297
+    },
+    {
+      "astar": {
+        "heap_pop": 654409,
+        "heap_push": 814992,
+        "relax_attempts": 4825876,
+        "relax_success": 814991
+      },
+      "elapsed_ms": 107,
+      "net": "U1_A4",
+      "spec_idx": 298
+    },
+    {
+      "astar": {
+        "heap_pop": 1047710,
+        "heap_push": 1319801,
+        "relax_attempts": 7712984,
+        "relax_success": 1319799
+      },
+      "elapsed_ms": 176,
+      "net": "U1_A5",
+      "spec_idx": 299
+    },
+    {
+      "astar": {
+        "heap_pop": 669290,
+        "heap_push": 832710,
+        "relax_attempts": 4867740,
+        "relax_success": 832709
+      },
+      "elapsed_ms": 115,
+      "net": "U1_A6",
+      "spec_idx": 300
+    },
+    {
+      "astar": {
+        "heap_pop": 614658,
+        "heap_push": 773159,
+        "relax_attempts": 4447420,
+        "relax_success": 773158
+      },
+      "elapsed_ms": 102,
+      "net": "U1_A7",
+      "spec_idx": 301
+    },
+    {
+      "astar": {
+        "heap_pop": 698825,
+        "heap_push": 851421,
+        "relax_attempts": 4923400,
+        "relax_success": 851420
+      },
+      "elapsed_ms": 118,
+      "net": "U1_A8",
+      "spec_idx": 302
+    },
+    {
+      "astar": {
+        "heap_pop": 673012,
+        "heap_push": 826930,
+        "relax_attempts": 4696204,
+        "relax_success": 826929
+      },
+      "elapsed_ms": 112,
+      "net": "U1_A9",
+      "spec_idx": 303
+    },
+    {
+      "astar": {
+        "heap_pop": 721321,
+        "heap_push": 882216,
+        "relax_attempts": 4998813,
+        "relax_success": 882215
+      },
+      "elapsed_ms": 121,
+      "net": "U1_A10",
+      "spec_idx": 304
+    },
+    {
+      "astar": {
+        "heap_pop": 540209,
+        "heap_push": 683075,
+        "relax_attempts": 3708416,
+        "relax_success": 683074
+      },
+      "elapsed_ms": 91,
+      "net": "U1_A11",
+      "spec_idx": 305
+    },
+    {
+      "astar": {
+        "heap_pop": 1059667,
+        "heap_push": 1421103,
+        "relax_attempts": 7447713,
+        "relax_success": 1421100
+      },
+      "elapsed_ms": 184,
+      "net": "U1_A12",
+      "spec_idx": 306
+    },
+    {
+      "astar": {
+        "heap_pop": 1533838,
+        "heap_push": 2083996,
+        "relax_attempts": 10831729,
+        "relax_success": 2083992
+      },
+      "elapsed_ms": 276,
+      "net": "U1_A13",
+      "spec_idx": 307
+    },
+    {
+      "astar": {
+        "heap_pop": 1479421,
+        "heap_push": 2061399,
+        "relax_attempts": 10591856,
+        "relax_success": 2061395
+      },
+      "elapsed_ms": 265,
+      "net": "U1_A14",
+      "spec_idx": 308
+    },
+    {
+      "astar": {
+        "heap_pop": 877719,
+        "heap_push": 1176514,
+        "relax_attempts": 6145093,
+        "relax_success": 1176512
+      },
+      "elapsed_ms": 153,
+      "net": "U1_A15",
+      "spec_idx": 309
+    },
+    {
+      "astar": {
+        "heap_pop": 676899,
+        "heap_push": 911875,
+        "relax_attempts": 4693554,
+        "relax_success": 911873
+      },
+      "elapsed_ms": 118,
+      "net": "U1_A16",
+      "spec_idx": 310
+    },
+    {
+      "astar": {
+        "heap_pop": 935966,
+        "heap_push": 1236278,
+        "relax_attempts": 6527853,
+        "relax_success": 1236276
+      },
+      "elapsed_ms": 163,
+      "net": "U1_A17",
+      "spec_idx": 311
+    },
+    {
+      "astar": {
+        "heap_pop": 939244,
+        "heap_push": 1239147,
+        "relax_attempts": 6538699,
+        "relax_success": 1239145
+      },
+      "elapsed_ms": 166,
+      "net": "U1_A18",
+      "spec_idx": 312
+    },
+    {
+      "astar": {
+        "heap_pop": 509458,
+        "heap_push": 638654,
+        "relax_attempts": 3476129,
+        "relax_success": 638653
+      },
+      "elapsed_ms": 87,
+      "net": "U1_B1",
+      "spec_idx": 313
+    },
+    {
+      "astar": {
+        "heap_pop": 635856,
+        "heap_push": 879881,
+        "relax_attempts": 4741972,
+        "relax_success": 879879
+      },
+      "elapsed_ms": 109,
+      "net": "U1_B18",
+      "spec_idx": 314
+    },
+    {
+      "astar": {
+        "heap_pop": 778308,
+        "heap_push": 970355,
+        "relax_attempts": 5370420,
+        "relax_success": 970354
+      },
+      "elapsed_ms": 134,
+      "net": "U1_C1",
+      "spec_idx": 315
+    },
+    {
+      "astar": {
+        "heap_pop": 1470044,
+        "heap_push": 1839128,
+        "relax_attempts": 11136745,
+        "relax_success": 1839127
+      },
+      "elapsed_ms": 258,
+      "net": "U1_C18",
+      "spec_idx": 316
+    },
+    {
+      "astar": {
+        "heap_pop": 2408128,
+        "heap_push": 3006025,
+        "relax_attempts": 16107780,
+        "relax_success": 3006023
+      },
+      "elapsed_ms": 414,
+      "net": "U1_D1",
+      "spec_idx": 317
+    },
+    {
+      "astar": {
+        "heap_pop": 2329384,
+        "heap_push": 2764169,
+        "relax_attempts": 16501254,
+        "relax_success": 2764168
+      },
+      "elapsed_ms": 407,
+      "net": "U1_D18",
+      "spec_idx": 318
+    },
+    {
+      "astar": {
+        "heap_pop": 4995692,
+        "heap_push": 6091506,
+        "relax_attempts": 32778885,
+        "relax_success": 6091503
+      },
+      "elapsed_ms": 841,
+      "net": "U1_E1",
+      "spec_idx": 319
+    },
+    {
+      "astar": {
+        "heap_pop": 3636394,
+        "heap_push": 4125297,
+        "relax_attempts": 24752539,
+        "relax_success": 4125296
+      },
+      "elapsed_ms": 651,
+      "net": "U1_E18",
+      "spec_idx": 320
+    },
+    {
+      "astar": {
+        "heap_pop": 10622622,
+        "heap_push": 12187553,
+        "relax_attempts": 71002083,
+        "relax_success": 12187550
+      },
+      "elapsed_ms": 1884,
+      "net": "U1_F1",
+      "spec_idx": 321
+    },
+    {
+      "astar": {
+        "heap_pop": 4647097,
+        "heap_push": 5220176,
+        "relax_attempts": 31958782,
+        "relax_success": 5220175
+      },
+      "elapsed_ms": 834,
+      "net": "U1_F18",
+      "spec_idx": 322
+    },
+    {
+      "astar": {
+        "heap_pop": 12854511,
+        "heap_push": 14651567,
+        "relax_attempts": 87721939,
+        "relax_success": 14651565
+      },
+      "elapsed_ms": 2468,
+      "net": "U1_G1",
+      "spec_idx": 323
+    }
+  ],
+  "stats_total": {
+    "astar": {
+      "heap_pop": 4300340705,
+      "heap_push": 5122269931,
+      "rej_base_blocked": 7900463,
+      "rej_bounds": 1675348996,
+      "rej_forbidden": 0,
+      "rej_ko_track": 0,
+      "rej_ko_via": 0,
+      "rej_occ_other": 159884006,
+      "relax_attempts": 30946180472,
+      "relax_success": 5122266933
+    },
+    "elapsed_ms": 809960
+  },
+  "total_specs": 324
+}

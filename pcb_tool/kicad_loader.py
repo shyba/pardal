@@ -7,6 +7,7 @@ Provides bidirectional conversion between:
 """
 
 from pcb_tool.data_model import Board, Component, Net, Pad, TraceSegment, Via
+from pcb_tool.data_model import NetClass
 
 
 def _get_layer_map():
@@ -51,12 +52,52 @@ def load_board_from_kicad(kicad_board) -> Board:
 
     board = Board()
 
+    # Extract net classes (design rules).
+    # KiCad exposes net classes on the BOARD; we keep a lightweight mirror so the router
+    # can use correct widths/clearances/via sizes for DRC-clean writeback.
+    try:
+        kicad_net_classes = kicad_board.GetAllNetClasses()
+    except Exception:
+        kicad_net_classes = {}
+
+    for name, nc in dict(kicad_net_classes).items():
+        try:
+            board.add_net_class(
+                NetClass(
+                    name=str(name),
+                    track_width=pcbnew.ToMM(nc.GetTrackWidth()),
+                    clearance=pcbnew.ToMM(nc.GetClearance()),
+                    via_size=pcbnew.ToMM(nc.GetViaDiameter()),
+                    via_drill=pcbnew.ToMM(nc.GetViaDrill()),
+                )
+            )
+        except Exception:
+            # Keep going; net class API differs slightly across KiCad builds.
+            continue
+
+    default_net_class = board.net_classes.get("Default")
+
     # Extract nets
     for i in range(kicad_board.GetNetCount()):
         net_info = kicad_board.GetNetInfo().GetNetItem(i)
         net_name = net_info.GetNetname()
         if net_name:
             net = Net(name=net_name, code=str(i))
+            try:
+                class_name = str(net_info.GetNetClassName())
+                if class_name:
+                    net.net_class = class_name
+            except Exception:
+                pass
+            if net.net_class and net.net_class in board.net_classes:
+                nc = board.net_classes[net.net_class]
+                net.track_width = nc.track_width
+                net.via_size = nc.via_size
+                net.via_drill = nc.via_drill
+            elif default_net_class is not None:
+                net.track_width = default_net_class.track_width
+                net.via_size = default_net_class.via_size
+                net.via_drill = default_net_class.via_drill
             board.add_net(net)
 
     # Extract footprints as components
@@ -142,8 +183,28 @@ def write_traces_to_kicad(board: Board, kicad_board):
                     pcbnew.FromMM(via.position[0]), pcbnew.FromMM(via.position[1])
                 )
             )
-            pcb_via.SetWidth(pcbnew.FromMM(via.diameter))
+            pcb_via.SetWidth(pcbnew.FromMM(via.size))
             pcb_via.SetDrill(pcbnew.FromMM(via.drill))
+
+            # Set via type and span.
+            # - "through": spans outer layers
+            # - "blind"/"buried": use layer pairs
+            # - "micro": KiCad microvia
+            layers = tuple(via.layers)
+            if layers:
+                try:
+                    layer0 = _get_pcbnew_layer(layers[0])
+                    layer1 = _get_pcbnew_layer(layers[-1])
+                    if via.via_type == "micro":
+                        pcb_via.SetViaType(pcbnew.VIATYPE_MICROVIA)
+                        pcb_via.SetLayerPair(layer0, layer1)
+                    elif via.via_type in ("blind", "buried"):
+                        pcb_via.SetViaType(pcbnew.VIATYPE_BLIND_BURIED)
+                        pcb_via.SetLayerPair(layer0, layer1)
+                    else:
+                        pcb_via.SetViaType(pcbnew.VIATYPE_THROUGH)
+                except Exception:
+                    pass
             if net_info:
                 pcb_via.SetNet(net_info)
             kicad_board.Add(pcb_via)

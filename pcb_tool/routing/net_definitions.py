@@ -91,7 +91,7 @@ def extract_net_definitions(
             if not comp:
                 continue
             try:
-                pos = comp.get_pad_position(int(pin))
+                pos = comp.get_pad_position(pin)
                 pad_positions.append((ref, pin, pos))
             except (ValueError, KeyError):
                 pad_positions.append((ref, pin, comp.position))

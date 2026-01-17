@@ -182,31 +182,31 @@ class KicadWriter:
             comp: Component to write
             board: Board for net lookups
         """
-        f.write(f'\n  (footprint "{comp.footprint}" (layer "F.Cu")\n')
+        footprint_layer = getattr(comp, "layer", "F.Cu") or "F.Cu"
+        f.write(f'\n  (footprint "{comp.footprint}" (layer "{footprint_layer}")\n')
         f.write("    (tedit 0) (tstamp 00000000-0000-0000-0000-000000000000)\n")
         f.write(f"    (at {comp.position[0]} {comp.position[1]} {comp.rotation})\n")
 
-        # Properties
-        #
-        # KiCad's .kicad_pcb footprint properties use the simple `property "k" "v"`
-        # form (no `(at ...)`, `(layer ...)`, or `(effects ...)` blocks). Reference
-        # and value are represented as `fp_text` elements below.
-        f.write(f'    (property "Reference" "{comp.ref}")\n')
-        f.write(f'    (property "Value" "{comp.value}")\n')
-        f.write(f'    (property "Footprint" "{comp.footprint}")\n')
+        # Note: KiCad's `(property ...)` blocks have a richer schema (with `(at ...)`,
+        # `(layer ...)`, UUIDs, and `(effects ...)`). Minimal router-only boards do not
+        # need these properties, and emitting the simplified 2-atom form breaks KiCad's
+        # parser. We keep `fp_text reference/value` below for readability.
 
         # UUID path
         f.write('    (path "/00000000-0000-0000-0000-000000000000")\n')
 
-        # Reference text
+        # Reference/value text: keep it off silkscreen so KiCad DRC does not
+        # warn about silkscreen-over-copper for minimal router outputs.
+        ref_layer = "F.Fab" if footprint_layer == "F.Cu" else "B.Fab"
         f.write(
-            f'    (fp_text reference "{comp.ref}" (at 0 0 {comp.rotation}) (layer "F.SilkS")\n'
+            f'    (fp_text reference "{comp.ref}" (at 0 0 {comp.rotation}) (layer "{ref_layer}") hide\n'
         )
         f.write("      (effects (font (size 1 1) (thickness 0.15))))\n")
 
         # Value text
+        value_layer = "F.Fab" if footprint_layer == "F.Cu" else "B.Fab"
         f.write(
-            f'    (fp_text value "{comp.value}" (at 0 0 {comp.rotation}) (layer "F.Fab")\n'
+            f'    (fp_text value "{comp.value}" (at 0 0 {comp.rotation}) (layer "{value_layer}") hide\n'
         )
         f.write("      (effects (font (size 1 1) (thickness 0.15))))\n")
 
@@ -247,6 +247,7 @@ class KicadWriter:
             board: Board object for net lookups
         """
         # Write pads from component's pad list
+        footprint_layer = getattr(comp, "layer", "F.Cu") or "F.Cu"
         for pad in comp.pads:
             # Get net assignment for this pad
             net_code, net_name = self._get_pad_net(comp, pad.number, board)
@@ -260,7 +261,10 @@ class KicadWriter:
             else:
                 # SMD pad
                 pad_type = "smd"
-                layers = '"F.Cu" "F.Paste" "F.Mask"'
+                if footprint_layer == "B.Cu":
+                    layers = '"B.Cu" "B.Paste" "B.Mask"'
+                else:
+                    layers = '"F.Cu" "F.Paste" "F.Mask"'
                 drill_spec = ""
 
             # Get pad position offset
@@ -327,15 +331,18 @@ class KicadWriter:
         first_layer = via.layers[0]
         last_layer = via.layers[-1]
 
-        # Determine via type for KiCad (if not through-hole, add type attribute)
-        via_type_str = ""
+        # KiCad S-expression uses a via type token after `via`, e.g.:
+        # - `(via ...)` (through)
+        # - `(via blind ...)` (blind/buried; layers determine which)
+        # - `(via micro ...)` (microvia)
+        via_type_token = ""
         if via.via_type == "blind":
-            via_type_str = " (type blind)"
+            via_type_token = " blind"
         elif via.via_type == "buried":
-            via_type_str = " (type micro)"  # KiCad uses "micro" for buried vias
+            via_type_token = " buried"
 
         f.write(
-            f"\n  (via{via_type_str} (at {x} {y}) (size {via.size}) (drill {via.drill}) "
+            f"\n  (via{via_type_token} (at {x} {y}) (size {via.size}) (drill {via.drill}) "
             f'(layers "{first_layer}" "{last_layer}") (net {net_code}))\n'
         )
 

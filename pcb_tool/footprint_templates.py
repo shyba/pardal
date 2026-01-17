@@ -44,6 +44,10 @@ def generate_qfp_pads(
     if pin_count % 4 != 0:
         raise ValueError(f"QFP pin count must be divisible by 4, got {pin_count}")
 
+    # Note: For QFPs, users typically specify pad size as (pad_width, pad_length),
+    # where pad_length is the dimension extending away from the body.
+    pad_width, pad_length = pad_size
+
     pads = []
     pins_per_side = pin_count // 4
     half_body_w = body_size[0] / 2
@@ -56,12 +60,12 @@ def generate_qfp_pads(
     for i in range(pins_per_side):
         pin_num = i + 1
         y_offset = start_offset + i * pitch
-        x_offset = -half_body_w - pad_size[1] / 2 + 0.3  # Slight inward offset
+        x_offset = -half_body_w - pad_length / 2 + 0.3  # Slight inward offset
         pads.append(
             Pad(
                 number=pin_num,
                 position_offset=(x_offset, y_offset),
-                size=pad_size,
+                size=(pad_length, pad_width),
                 shape="rect",
             )
         )
@@ -70,12 +74,12 @@ def generate_qfp_pads(
     for i in range(pins_per_side):
         pin_num = pins_per_side + i + 1
         x_offset = start_offset + i * pitch
-        y_offset = half_body_h + pad_size[1] / 2 - 0.3
+        y_offset = half_body_h + pad_length / 2 - 0.3
         pads.append(
             Pad(
                 number=pin_num,
                 position_offset=(x_offset, y_offset),
-                size=(pad_size[1], pad_size[0]),  # Rotated 90 degrees
+                size=(pad_width, pad_length),
                 shape="rect",
             )
         )
@@ -84,12 +88,12 @@ def generate_qfp_pads(
     for i in range(pins_per_side):
         pin_num = 2 * pins_per_side + i + 1
         y_offset = start_offset + (pins_per_side - 1 - i) * pitch  # Reverse order
-        x_offset = half_body_w + pad_size[1] / 2 - 0.3
+        x_offset = half_body_w + pad_length / 2 - 0.3
         pads.append(
             Pad(
                 number=pin_num,
                 position_offset=(x_offset, -y_offset),
-                size=pad_size,
+                size=(pad_length, pad_width),
                 shape="rect",
             )
         )
@@ -98,12 +102,12 @@ def generate_qfp_pads(
     for i in range(pins_per_side):
         pin_num = 3 * pins_per_side + i + 1
         x_offset = start_offset + (pins_per_side - 1 - i) * pitch  # Reverse order
-        y_offset = -half_body_h - pad_size[1] / 2 + 0.3
+        y_offset = -half_body_h - pad_length / 2 + 0.3
         pads.append(
             Pad(
                 number=pin_num,
                 position_offset=(-x_offset, y_offset),
-                size=(pad_size[1], pad_size[0]),  # Rotated 90 degrees
+                size=(pad_width, pad_length),
                 shape="rect",
             )
         )

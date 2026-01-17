@@ -13,7 +13,12 @@ import fnmatch
 
 from pcb_tool.routing.grid import RoutingGrid, GridCell
 from pcb_tool.routing.pathfinder import PathFinder
-from pcb_tool.routing.layer_optimizer import LayerOptimizer, NetPath, LayerAssignment
+try:
+    from pcb_tool.routing.layer_optimizer import LayerOptimizer, NetPath, LayerAssignment
+except Exception:  # pragma: no cover - optional dependency (z3)
+    LayerOptimizer = None  # type: ignore[assignment]
+    NetPath = None  # type: ignore[assignment]
+    LayerAssignment = None  # type: ignore[assignment]
 
 
 @dataclass
@@ -60,7 +65,7 @@ class MultiNetRouter:
         self,
         grid: RoutingGrid,
         pathfinder: Optional[PathFinder] = None,
-        optimizer: Optional[LayerOptimizer] = None,
+        optimizer: Optional[object] = None,
         ground_plane_mode: bool = False,
         via_cost_map: Optional[Dict[str, float]] = None,
     ):
@@ -79,7 +84,12 @@ class MultiNetRouter:
         # Cost of 0.5mm means vias are preferred over long detours or being blocked
         via_cost = 0.5 if ground_plane_mode else 10.0
         self.pathfinder = pathfinder or PathFinder(grid, via_cost=via_cost)
-        self.optimizer = optimizer or LayerOptimizer(grid)
+        if optimizer is not None:
+            self.optimizer = optimizer
+        elif LayerOptimizer is not None:
+            self.optimizer = LayerOptimizer(grid)
+        else:
+            self.optimizer = None
         self.ground_plane_mode = ground_plane_mode
         self.via_cost_map = via_cost_map or {}
         self.manually_routed_nets: Set[str] = set()
@@ -134,6 +144,7 @@ class MultiNetRouter:
                 layer=layer,
                 width_mm=width_mm,
                 clearance_mm=0.2,  # Default clearance
+                net_name=net_name,
             )
 
             # Mark crossing-forbidden zone (HARD BLOCK - prevents crossings)
@@ -303,6 +314,11 @@ class MultiNetRouter:
         Returns:
             Dictionary mapping net names to RoutedNet objects with optimized layers
         """
+        if self.optimizer is None:
+            if LayerOptimizer is None or NetPath is None:
+                raise RuntimeError("Z3 (z3-solver) is required for layer optimization")
+            self.optimizer = LayerOptimizer(self.grid)
+
         # First, route all nets without marking as obstacles
         # (allows overlapping paths for optimization)
         initial_routes = {}
@@ -479,6 +495,7 @@ class MultiNetRouter:
                 layer=layer,
                 width_mm=trace_width_mm,
                 clearance_mm=clearance_mm,
+                net_name=net_name,
             )
 
             # Mark crossing-forbidden zone
@@ -517,6 +534,7 @@ class MultiNetRouter:
                 layer=layer,
                 width_mm=0.25,  # Default trace width
                 clearance_mm=0.2,  # Default clearance
+                net_name=net_name,
             )
 
             # Mark crossing-forbidden zone (HARD BLOCK - prevents crossings)

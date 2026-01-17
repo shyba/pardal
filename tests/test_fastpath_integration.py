@@ -15,7 +15,7 @@ def test_fastpath_used_for_forced_single_layer():
     )
 
     assert path
-    assert finder.last_backend == "fastpath"
+    assert finder.last_backend in {"fastpath", "fastpath2d_mv"}
 
 
 def test_fastpath_skipped_when_vias_allowed():
