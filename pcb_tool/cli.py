@@ -457,17 +457,23 @@ def cmd_route(args) -> int:
 
 
 def cmd_rust_route(args) -> int:
-    """Route a KiCad PCB via docker pcbnew extraction + Rust router + docker apply."""
-    from pcb_tool.api.rust_route_kicad_docker import rust_route_kicad_via_docker
+    """Deprecated: route via docker pcbnew extraction + host backend router.
+
+    Kept for backwards compatibility. Prefer `pardal backend-route`.
+    """
+    print("warning: `pardal rust-route` is deprecated; use `pardal backend-route`", file=sys.stderr)
+    return cmd_backend_route(args)
+
+
+def cmd_backend_route(args) -> int:
+    """Route a KiCad PCB via docker pcbnew extraction + host router + docker apply (Mojo)."""
+    from pcb_tool.api.route_kicad_docker import route_kicad_via_docker
 
     if not args.pcb.exists():
         print(f"Error: PCB file not found: {args.pcb}", file=sys.stderr)
         return 1
-    if args.output is None:
-        print("Error: --output is required for rust-route", file=sys.stderr)
-        return 1
 
-    rust_route_kicad_via_docker(
+    route_kicad_via_docker(
         in_pcb=args.pcb,
         out_pcb=args.output,
         docker_image=str(args.docker_image),
@@ -721,11 +727,57 @@ Examples:
         help="Number of copper layers (2, 4, 6, or 8). Default: infer from PCB when possible",
     )
 
+    # pardal backend-route (docker pcbnew I/O + Mojo router)
+    backend_route_parser = subparsers.add_parser(
+        "backend-route",
+        help="Autoroute via backend router (docker pcbnew I/O)",
+        description="Extract routing problem via pcbnew in docker, route with host backend (Mojo), apply via pcbnew.",
+    )
+    backend_route_parser.add_argument("pcb", type=Path, help="Input PCB file (.kicad_pcb)")
+    backend_route_parser.add_argument(
+        "-o", "--output", type=Path, required=True, help="Output PCB file (.kicad_pcb)"
+    )
+    backend_route_parser.add_argument(
+        "--docker-image",
+        default="kicad/kicad:9.0.6-full",
+        help="KiCad docker image to use for pcbnew",
+    )
+    backend_route_parser.add_argument(
+        "--resolution",
+        type=float,
+        default=0.2,
+        help="Grid resolution (mm) for routing problem extraction",
+    )
+    backend_route_parser.add_argument(
+        "--inflate",
+        type=float,
+        default=None,
+        help="Optional extra obstacle inflation (mm) for extraction (default: derived from netclass)",
+    )
+    backend_route_parser.add_argument(
+        "--cfg",
+        type=Path,
+        default=None,
+        help="Optional Mojo router config JSON",
+    )
+    backend_route_parser.add_argument(
+        "--routes-json",
+        type=Path,
+        default=None,
+        help="Optional path to write routes JSON (default: alongside output)",
+    )
+    backend_route_parser.add_argument(
+        "--problem-json",
+        type=Path,
+        default=None,
+        help="Optional path to write extracted problem JSON (default: alongside output)",
+    )
+
     # pardal rust-route (experimental Rust backend via docker + pcbnew)
     rust_route_parser = subparsers.add_parser(
         "rust-route",
-        help="Autoroute via Rust backend (experimental, docker pcbnew I/O)",
-        description="Extract a compact routing problem via pcbnew in docker, route with Rust, apply via pcbnew.",
+        help="Deprecated: alias for backend-route",
+        description="Deprecated: use `pardal backend-route`.",
     )
     rust_route_parser.add_argument("pcb", type=Path, help="Input PCB file (.kicad_pcb)")
     rust_route_parser.add_argument(
@@ -740,7 +792,7 @@ Examples:
         "--resolution",
         type=float,
         default=0.2,
-        help="Grid resolution (mm) for the Rust router prototype",
+        help="Grid resolution (mm) for routing problem extraction",
     )
     rust_route_parser.add_argument(
         "--inflate",
@@ -752,7 +804,7 @@ Examples:
         "--cfg",
         type=Path,
         default=None,
-        help="Optional Rust router config JSON (margin/via_penalty/etc)",
+        help="Optional Mojo router config JSON",
     )
     rust_route_parser.add_argument(
         "--routes-json",
@@ -789,6 +841,8 @@ Examples:
         return cmd_place(args)
     elif args.command == "route":
         return cmd_route(args)
+    elif args.command == "backend-route":
+        return cmd_backend_route(args)
     elif args.command == "rust-route":
         return cmd_rust_route(args)
     elif args.command == "repl":

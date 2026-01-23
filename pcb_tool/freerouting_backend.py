@@ -82,8 +82,8 @@ def _require_docker() -> None:
         raise RuntimeError("docker not found in PATH; required for KiCad 9/Java containers")
 
 
-def _run(cmd: list[str], *, cwd: Path | None = None) -> None:
-    subprocess.run(cmd, cwd=str(cwd) if cwd else None, check=True)
+def _run(cmd: list[str], *, cwd: Path | None = None, check: bool = True) -> subprocess.CompletedProcess:
+    return subprocess.run(cmd, cwd=str(cwd) if cwd else None, check=check)
 
 
 def _docker_run(
@@ -93,6 +93,7 @@ def _docker_run(
     mounts: Iterable[tuple[Path, str]],
     env: dict[str, str] | None,
     args: list[str],
+    check: bool = True,
 ) -> None:
     cmd = ["docker", "run", "--rm", "--user", f"{os.getuid()}:{os.getgid()}"]
     for host_path, container_path in mounts:
@@ -103,7 +104,7 @@ def _docker_run(
             cmd.extend(["-e", f"{k}={v}"])
     cmd.append(image)
     cmd.extend(args)
-    _run(cmd)
+    _run(cmd, check=check)
 
 
 def ensure_freerouting_jar(config: FreeroutingRunConfig) -> Path:
@@ -384,6 +385,7 @@ def freeroute_kicad_pcb(
                     f"/work/{report_rel}",
                     out_path_in_container,
                 ],
+                check=False,
             )
             return json.loads(report_json.read_text(encoding="utf-8"))
 
@@ -467,7 +469,11 @@ def run_kicad9_drc(pcb: Path, report_json: Path) -> None:
             report_in_container,
             pcb_in_container,
         ],
+        # KiCad returns a non-zero exit code when violations exist; we still want the JSON.
+        check=False,
     )
+    if not report_json.exists() or report_json.stat().st_size == 0:
+        raise RuntimeError(f"KiCad DRC report not produced: {report_json}")
 
 
 def freeroute_dsn(

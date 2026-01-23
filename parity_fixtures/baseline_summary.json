@@ -1,0 +1,794 @@
+{
+  "rows": [
+    {
+      "fixture_id": "BBD_Mars-64.dsn",
+      "fixture_relpath": "freerouting/tests/BBD_Mars-64.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 106,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue006-LPC18XX_43XX_SCH.dsn",
+      "fixture_relpath": "freerouting/tests/Issue006-LPC18XX_43XX_SCH.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue006-LPC18XX_43XX_SCH.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/parity_fixtures/baselines/Issue006-LPC18XX_43XX_SCH.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:00:05']' returned non-zero exit status 1.",
+      "oracle_ok": false,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue015-StackOverflow.dsn",
+      "fixture_relpath": "freerouting/tests/Issue015-StackOverflow.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 144,
+      "violations": 1076
+    },
+    {
+      "fixture_id": "Issue022-AutoRouter_interrupted.dsn",
+      "fixture_relpath": "freerouting/tests/Issue022-AutoRouter_interrupted.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 228,
+      "violations": 1094
+    },
+    {
+      "fixture_id": "Issue026-J2_reference.dsn",
+      "fixture_relpath": "freerouting/tests/Issue026-J2_reference.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 33,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue027-zMRETestFixture.dsn",
+      "fixture_relpath": "freerouting/tests/Issue027-zMRETestFixture.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 937,
+      "violations": 2276
+    },
+    {
+      "fixture_id": "Issue029-hw48na.dsn",
+      "fixture_relpath": "freerouting/tests/Issue029-hw48na.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 190,
+      "violations": 956
+    },
+    {
+      "fixture_id": "Issue034-Green14SegLED.dsn",
+      "fixture_relpath": "freerouting/tests/Issue034-Green14SegLED.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue034-Green14SegLED.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/parity_fixtures/baselines/Issue034-Green14SegLED.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:01:00']' returned non-zero exit status 1.",
+      "oracle_ok": false,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue035-ReadPlaceScope.dsn",
+      "fixture_relpath": "freerouting/tests/Issue035-ReadPlaceScope.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 366,
+      "violations": 304
+    },
+    {
+      "fixture_id": "Issue039-bug-design.dsn",
+      "fixture_relpath": "freerouting/tests/Issue039-bug-design.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 204,
+      "violations": 50
+    },
+    {
+      "fixture_id": "Issue054-tairakb.dsn",
+      "fixture_relpath": "freerouting/tests/Issue054-tairakb.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 257,
+      "violations": 10
+    },
+    {
+      "fixture_id": "Issue066-Project_GP8B.dsn",
+      "fixture_relpath": "freerouting/tests/Issue066-Project_GP8B.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 733,
+      "violations": 46
+    },
+    {
+      "fixture_id": "Issue069-TestSensel__TestSensel-KiCad6.dsn",
+      "fixture_relpath": "freerouting/tests/Issue069-TestSensel/TestSensel-KiCad6.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 12,
+      "violations": 18
+    },
+    {
+      "fixture_id": "Issue069-TestSensel__TestSensel.dsn",
+      "fixture_relpath": "freerouting/tests/Issue069-TestSensel/TestSensel.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 12,
+      "violations": 18
+    },
+    {
+      "fixture_id": "Issue069-TestSensel__TestSensel.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue069-TestSensel/TestSensel.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 3,
+      "violations": 6
+    },
+    {
+      "fixture_id": "Issue070-Autorouter_FQ101_PCB_2022-05-13.dsn",
+      "fixture_relpath": "freerouting/tests/Issue070-Autorouter_FQ101_PCB_2022-05-13.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 246,
+      "violations": 76
+    },
+    {
+      "fixture_id": "Issue093-interf_u.dsn",
+      "fixture_relpath": "freerouting/tests/Issue093-interf_u.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 39,
+      "violations": 386
+    },
+    {
+      "fixture_id": "Issue102-Mars-64-revE-rot00.dsn",
+      "fixture_relpath": "freerouting/tests/Issue102-Mars-64-revE-rot00.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 107,
+      "violations": 128
+    },
+    {
+      "fixture_id": "Issue103-Board-Routed.dsn",
+      "fixture_relpath": "freerouting/tests/Issue103-Board-Routed.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue103-Board-Unrouted.dsn",
+      "fixture_relpath": "freerouting/tests/Issue103-Board-Unrouted.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 702,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue107-freq_teiler_200kHz_kicad.dsn",
+      "fixture_relpath": "freerouting/tests/Issue107-freq_teiler_200kHz_kicad.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 165,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue107-freq_teiler_200kHz_kicad_bad.dsn",
+      "fixture_relpath": "freerouting/tests/Issue107-freq_teiler_200kHz_kicad_bad.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 173,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue110-Pajalnaja_stancija.dsn",
+      "fixture_relpath": "freerouting/tests/Issue110-Pajalnaja_stancija.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 109,
+      "violations": 24
+    },
+    {
+      "fixture_id": "Issue110-RelayModule.dsn",
+      "fixture_relpath": "freerouting/tests/Issue110-RelayModule.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 110,
+      "violations": 8
+    },
+    {
+      "fixture_id": "Issue110-testPCBSpecctraFile.dsn",
+      "fixture_relpath": "freerouting/tests/Issue110-testPCBSpecctraFile.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 16,
+      "violations": 80
+    },
+    {
+      "fixture_id": "Issue110-testProjectFromFreeroutingBugTest.dsn",
+      "fixture_relpath": "freerouting/tests/Issue110-testProjectFromFreeroutingBugTest.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 4,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue110-testProjectFromFreeroutingBugTest01.dsn",
+      "fixture_relpath": "freerouting/tests/Issue110-testProjectFromFreeroutingBugTest01.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 4,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue110-\u041f\u0430\u044f\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u043d\u0446\u0438\u044f.dsn",
+      "fixture_relpath": "freerouting/tests/Issue110-\u041f\u0430\u044f\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u043d\u0446\u0438\u044f.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 109,
+      "violations": 24
+    },
+    {
+      "fixture_id": "Issue113-Protein.dsn",
+      "fixture_relpath": "freerouting/tests/Issue113-Protein.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 357,
+      "violations": 2
+    },
+    {
+      "fixture_id": "Issue143-rpi_splitter.dsn",
+      "fixture_relpath": "freerouting/tests/Issue143-rpi_splitter.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 5,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue143-rpi_splitter_mod.dsn",
+      "fixture_relpath": "freerouting/tests/Issue143-rpi_splitter_mod.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 1,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue145-smoothieboard.dsn",
+      "fixture_relpath": "freerouting/tests/Issue145-smoothieboard.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue145-smoothieboard.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/parity_fixtures/baselines/Issue145-smoothieboard.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:01:00']' returned non-zero exit status 1.",
+      "oracle_ok": false,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue153-wavefolder.dsn",
+      "fixture_relpath": "freerouting/tests/Issue153-wavefolder.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 26,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue155-CH376_MCP795_Module.dsn",
+      "fixture_relpath": "freerouting/tests/Issue155-CH376_MCP795_Module.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 53,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue157-TeamAdapt-LinePCB.dsn",
+      "fixture_relpath": "freerouting/tests/Issue157-TeamAdapt-LinePCB.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 234,
+      "violations": 40
+    },
+    {
+      "fixture_id": "Issue159-setonix_2hp-pcb.dsn",
+      "fixture_relpath": "freerouting/tests/Issue159-setonix_2hp-pcb.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 23,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue163-pic_programmer.dsn",
+      "fixture_relpath": "freerouting/tests/Issue163-pic_programmer.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 17,
+      "violations": 16
+    },
+    {
+      "fixture_id": "Issue178-KeebMaker_Sofle_Choc.dsn",
+      "fixture_relpath": "freerouting/tests/Issue178-KeebMaker_Sofle_Choc.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue178-KeebMaker_Sofle_Choc.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/parity_fixtures/baselines/Issue178-KeebMaker_Sofle_Choc.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:01:00']' returned non-zero exit status 1.",
+      "oracle_ok": false,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue179-Autorouter_PCB1_2023-3-24.dsn",
+      "fixture_relpath": "freerouting/tests/Issue179-Autorouter_PCB1_2023-3-24.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue179-Autorouter_PCB1_2023-3-24.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/parity_fixtures/baselines/Issue179-Autorouter_PCB1_2023-3-24.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:01:00']' returned non-zero exit status 1.",
+      "oracle_ok": false,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue180-Test__Test.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue180-Test/Test.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 25
+    },
+    {
+      "fixture_id": "Issue184-motorizedopener__motorizedopener.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue184-motorizedopener/motorizedopener.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 79,
+      "violations": 110
+    },
+    {
+      "fixture_id": "Issue187-processor.Z80.dsn",
+      "fixture_relpath": "freerouting/tests/Issue187-processor.Z80.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue190-processor.Z80.dsn",
+      "fixture_relpath": "freerouting/tests/Issue190-processor.Z80.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 13,
+      "violations": 2852
+    },
+    {
+      "fixture_id": "Issue191-processor.Z80__processor.Z80.dsn",
+      "fixture_relpath": "freerouting/tests/Issue191-processor.Z80/processor.Z80.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue191-processor.Z80__processor.Z80.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue191-processor.Z80/processor.Z80.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 146
+    },
+    {
+      "fixture_id": "Issue199-StackOverflow__Signale_Vor+Block.dsn",
+      "fixture_relpath": "freerouting/tests/Issue199-StackOverflow/Signale_Vor+Block.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 84,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue208-freerouting.dsn",
+      "fixture_relpath": "freerouting/tests/Issue208-freerouting.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue208-freerouting.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/parity_fixtures/baselines/Issue208-freerouting.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:01:00']' returned non-zero exit status 1.",
+      "oracle_ok": false,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue209-split05.dsn",
+      "fixture_relpath": "freerouting/tests/Issue209-split05.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 272,
+      "violations": 364
+    },
+    {
+      "fixture_id": "Issue209-split10.dsn",
+      "fixture_relpath": "freerouting/tests/Issue209-split10.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 272,
+      "violations": 364
+    },
+    {
+      "fixture_id": "Issue214-freerouting.dsn",
+      "fixture_relpath": "freerouting/tests/Issue214-freerouting.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 166,
+      "violations": 398
+    },
+    {
+      "fixture_id": "Issue217-8088sbc.dsn",
+      "fixture_relpath": "freerouting/tests/Issue217-8088sbc.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 235,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue219-LogicBoard_smt.dsn",
+      "fixture_relpath": "freerouting/tests/Issue219-LogicBoard_smt.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue219-LogicBoard_smt.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/parity_fixtures/baselines/Issue219-LogicBoard_smt.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:01:00']' returned non-zero exit status 1.",
+      "oracle_ok": false,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue229-display-8-digit-hc595.dsn",
+      "fixture_relpath": "freerouting/tests/Issue229-display-8-digit-hc595.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 12,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue230-CNH_Functional_Tester__CNH_Functional_Tester_1.dsn",
+      "fixture_relpath": "freerouting/tests/Issue230-CNH_Functional_Tester/CNH_Functional_Tester_1.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 149,
+      "violations": 32
+    },
+    {
+      "fixture_id": "Issue230-CNH_Functional_Tester__CNH_Functional_Tester_1.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue230-CNH_Functional_Tester/CNH_Functional_Tester_1.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 7,
+      "violations": 196
+    },
+    {
+      "fixture_id": "Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.dsn",
+      "fixture_relpath": "freerouting/tests/Issue269-NoViasOnPowerPlanes/Issue269-NoViasOnPowerPlanes.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 9,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue269-NoViasOnPowerPlanes/Issue269-NoViasOnPowerPlanes.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 3
+    },
+    {
+      "fixture_id": "Issue269-NoWiresOnPowerLayers__proba.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue269-NoWiresOnPowerLayers/proba.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 1,
+      "violations": 39
+    },
+    {
+      "fixture_id": "Issue269-caniot-tiny-arm.dsn",
+      "fixture_relpath": "freerouting/tests/Issue269-caniot-tiny-arm.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 109,
+      "violations": 148
+    },
+    {
+      "fixture_id": "Issue269-min_fr_test__min_fr_test.dsn",
+      "fixture_relpath": "freerouting/tests/Issue269-min_fr_test/min_fr_test.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 3,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue269-min_fr_test__min_fr_test.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue269-min_fr_test/min_fr_test.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 1
+    },
+    {
+      "fixture_id": "Issue269-min_fr_test__min_fr_test_no_quotes.dsn",
+      "fixture_relpath": "freerouting/tests/Issue269-min_fr_test/min_fr_test_no_quotes.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 3,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue269-z10_module.dsn",
+      "fixture_relpath": "freerouting/tests/Issue269-z10_module.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 115,
+      "violations": 18
+    },
+    {
+      "fixture_id": "Issue270-non-ansi_bracket.dsn",
+      "fixture_relpath": "freerouting/tests/Issue270-non-ansi_bracket.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 5,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue283-UnconnectedTracesUnderPads__Test.dsn",
+      "fixture_relpath": "freerouting/tests/Issue283-UnconnectedTracesUnderPads/Test.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 230,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue283-UnconnectedTracesUnderPads__Test.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue283-UnconnectedTracesUnderPads/Test.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 28,
+      "violations": 127
+    },
+    {
+      "fixture_id": "Issue289-Autorouter_PCB_FHT-8086_2024-03-08.dsn",
+      "fixture_relpath": "freerouting/tests/Issue289-Autorouter_PCB_FHT-8086_2024-03-08.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 637,
+      "violations": 336
+    },
+    {
+      "fixture_id": "Issue289-Autorouter_PCB_FHT-VGA_2024-03-25.dsn",
+      "fixture_relpath": "freerouting/tests/Issue289-Autorouter_PCB_FHT-VGA_2024-03-25.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 747,
+      "violations": 180
+    },
+    {
+      "fixture_id": "Issue297-myboard.dsn",
+      "fixture_relpath": "freerouting/tests/Issue297-myboard.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 161,
+      "violations": 2
+    },
+    {
+      "fixture_id": "Issue313-FastTest.dsn",
+      "fixture_relpath": "freerouting/tests/Issue313-FastTest.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 3,
+      "violations": 82
+    },
+    {
+      "fixture_id": "Issue326-Mars-64-revE.dsn",
+      "fixture_relpath": "freerouting/tests/Issue326-Mars-64-revE.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 107,
+      "violations": 128
+    },
+    {
+      "fixture_id": "Issue367-Charger.dsn",
+      "fixture_relpath": "freerouting/tests/Issue367-Charger.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 15,
+      "violations": 14
+    },
+    {
+      "fixture_id": "Issue367-UltraFlactyl__UltraFlactyl.dsn",
+      "fixture_relpath": "freerouting/tests/Issue367-UltraFlactyl/UltraFlactyl.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 25,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue367-UltraFlactyl__UltraFlactyl.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue367-UltraFlactyl/UltraFlactyl.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 74
+    },
+    {
+      "fixture_id": "Issue368-CorneyIslandWireless__corney_island_wireless.dsn",
+      "fixture_relpath": "freerouting/tests/Issue368-CorneyIslandWireless/corney_island_wireless.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 3,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue368-CorneyIslandWireless__corney_island_wireless.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue368-CorneyIslandWireless/corney_island_wireless.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 4
+    },
+    {
+      "fixture_id": "Issue413-test.dsn",
+      "fixture_relpath": "freerouting/tests/Issue413-test.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 1,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue420-contribution-board.dsn",
+      "fixture_relpath": "freerouting/tests/Issue420-contribution-board.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue420-contribution-board.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/parity_fixtures/baselines/Issue420-contribution-board.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:01:00']' returned non-zero exit status 1.",
+      "oracle_ok": false,
+      "unconnected": 0,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue433-my-board.dsn",
+      "fixture_relpath": "freerouting/tests/Issue433-my-board.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 9,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue555-BBD_Mars-64.dsn",
+      "fixture_relpath": "freerouting/tests/Issue555-BBD_Mars-64.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 106,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue555-CNH_Functional_Tester_1.dsn",
+      "fixture_relpath": "freerouting/tests/Issue555-CNH_Functional_Tester_1.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 149,
+      "violations": 32
+    },
+    {
+      "fixture_id": "Issue558-dev-board-autoroute-demo__dev-board.kicad_pcb",
+      "fixture_relpath": "freerouting/tests/Issue558-dev-board-autoroute-demo/dev-board.kicad_pcb",
+      "fixture_type": "kicad",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 13
+    },
+    {
+      "fixture_id": "Issue558-dev-board.dsn",
+      "fixture_relpath": "freerouting/tests/Issue558-dev-board.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 94,
+      "violations": 4
+    },
+    {
+      "fixture_id": "Issue575-drc_BBD_Mars-64_6_track_1_hole_clearance_violations.dsn",
+      "fixture_relpath": "freerouting/tests/Issue575-drc_BBD_Mars-64_6_track_1_hole_clearance_violations.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 174
+    },
+    {
+      "fixture_id": "Issue575-drc_Natural_Tone_Preamp_7_unconnected_items.dsn",
+      "fixture_relpath": "freerouting/tests/Issue575-drc_Natural_Tone_Preamp_7_unconnected_items.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 155,
+      "violations": 0
+    },
+    {
+      "fixture_id": "Issue575-drc_dev-board_4_hole_clearance_violations.dsn",
+      "fixture_relpath": "freerouting/tests/Issue575-drc_dev-board_4_hole_clearance_violations.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 9,
+      "violations": 4
+    },
+    {
+      "fixture_id": "empty_board.dsn",
+      "fixture_relpath": "freerouting/tests/empty_board.dsn",
+      "fixture_type": "dsn",
+      "oracle_error": null,
+      "oracle_ok": true,
+      "unconnected": 0,
+      "violations": 0
+    }
+  ],
+  "summary": {
+    "dsn": 75,
+    "fail": 8,
+    "kicad": 12,
+    "ok": 79,
+    "total": 87
+  }
+}

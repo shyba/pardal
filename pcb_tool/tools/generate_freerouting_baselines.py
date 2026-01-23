@@ -69,10 +69,13 @@ class Baseline:
     fixture_type: str  # "dsn" | "kicad"
     fixture_relpath: str
     fixture_id: str
+    oracle_ok: bool
+    oracle_error: str | None
     seed: int | None
     max_passes: int
     fanout: bool
     strip_planes: bool
+    job_timeout: str | None
     generated_at_unix_s: int
     runtime_s: float
     outputs: dict[str, str]
@@ -138,6 +141,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--max-passes", type=int, default=50)
     ap.add_argument("--no-fanout", action="store_true")
     ap.add_argument("--strip-planes", action="store_true")
+    ap.add_argument("--job-timeout", type=str, default="00:05:00", help="FreeRouting job timeout (HH:MM:SS).")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--only", choices=["dsn", "kicad", "all"], default="all")
     ap.add_argument(
@@ -167,6 +171,7 @@ def main(argv: list[str] | None = None) -> int:
         fanout=not bool(args.no_fanout),
         strip_planes=bool(args.strip_planes),
         random_seed=int(args.seed),
+        router_job_timeout=str(args.job_timeout) if args.job_timeout else None,
     )
 
     out_root: Path = args.out_root
@@ -194,16 +199,22 @@ def main(argv: list[str] | None = None) -> int:
         outputs: dict[str, str] = {}
         hashes: dict[str, str] = {}
         drc: dict[str, Any] = {}
+        oracle_ok = True
+        oracle_error: str | None = None
 
         if kind == "dsn":
-            _run_freerouting_oracle_dsn(
-                input_dsn=path,
-                out_dir=out_dir,
-                seed=int(args.seed),
-                max_passes=int(args.max_passes),
-                fanout=not bool(args.no_fanout),
-                job_timeout="00:05:00",
-            )
+            try:
+                _run_freerouting_oracle_dsn(
+                    input_dsn=path,
+                    out_dir=out_dir,
+                    seed=int(args.seed),
+                    max_passes=int(args.max_passes),
+                    fanout=not bool(args.no_fanout),
+                    job_timeout=str(args.job_timeout),
+                )
+            except subprocess.CalledProcessError as e:
+                oracle_ok = False
+                oracle_error = f"freerouting oracleBaseline failed: {e}"
 
             ses = out_dir / "routed.ses"
             fr_drc = out_dir / "freerouting_drc.json"
@@ -232,10 +243,19 @@ def main(argv: list[str] | None = None) -> int:
 
         elif kind == "kicad":
             routed_pcb = out_dir / "routed.kicad_pcb"
-            freeroute_kicad_pcb(path, routed_pcb, config=cfg)
+            try:
+                freeroute_kicad_pcb(path, routed_pcb, config=cfg)
+            except Exception as e:
+                oracle_ok = False
+                oracle_error = f"freeroute_kicad_pcb failed: {e}"
 
             kicad_drc = out_dir / "kicad_drc.json"
-            run_kicad9_drc(routed_pcb, kicad_drc)
+            if oracle_ok and routed_pcb.exists():
+                try:
+                    run_kicad9_drc(routed_pcb, kicad_drc)
+                except Exception as e:
+                    oracle_ok = False
+                    oracle_error = f"kicad drc failed: {e}"
 
             outputs["routed_pcb"] = str(routed_pcb)
             outputs["kicad_drc_json"] = str(kicad_drc)
@@ -254,10 +274,13 @@ def main(argv: list[str] | None = None) -> int:
             fixture_type=kind,
             fixture_relpath=fixture_rel,
             fixture_id=fixture_id,
+            oracle_ok=oracle_ok,
+            oracle_error=oracle_error,
             seed=int(args.seed),
             max_passes=int(args.max_passes),
             fanout=not bool(args.no_fanout),
             strip_planes=bool(args.strip_planes),
+            job_timeout=str(args.job_timeout) if args.job_timeout else None,
             generated_at_unix_s=generated_at,
             runtime_s=float(runtime_s),
             outputs={k: _rel_to_workspace(Path(v)) for k, v in outputs.items()},
