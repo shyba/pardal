@@ -1,0 +1,8 @@
+[
+  {
+    "name": "tier_a_issue283_unconnected_under_pads",
+    "pcb": "freerouting/tests/Issue283-UnconnectedTracesUnderPads/Test.kicad_pcb",
+    "freerouting_max_passes": 1,
+    "mojo_resolution": 0.2
+  }
+]

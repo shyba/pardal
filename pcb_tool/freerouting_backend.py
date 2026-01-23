@@ -94,7 +94,7 @@ def _docker_run(
     env: dict[str, str] | None,
     args: list[str],
 ) -> None:
-    cmd = ["docker", "run", "--rm"]
+    cmd = ["docker", "run", "--rm", "--user", f"{os.getuid()}:{os.getgid()}"]
     for host_path, container_path in mounts:
         cmd.extend(["-v", f"{host_path}:{container_path}"])
     cmd.extend(["-w", workdir])
@@ -468,3 +468,140 @@ def run_kicad9_drc(pcb: Path, report_json: Path) -> None:
             pcb_in_container,
         ],
     )
+
+
+def freeroute_dsn(
+    input_dsn: Path,
+    *,
+    output_dsn: Path,
+    drc_json: Path | None = None,
+    config: FreeroutingRunConfig | None = None,
+) -> None:
+    """Route a Specctra DSN directly (no KiCad IO).
+
+    This is primarily used for oracle baseline generation over FreeRouting's DSN
+    fixture corpus.
+    """
+    if config is None:
+        config = FreeroutingRunConfig()
+
+    _require_docker()
+    repo_root = _repo_root()
+
+    input_dsn = input_dsn.resolve()
+    output_dsn = output_dsn.resolve()
+    if not input_dsn.exists():
+        raise FileNotFoundError(input_dsn)
+
+    output_dsn.parent.mkdir(parents=True, exist_ok=True)
+    if drc_json is not None:
+        drc_json = drc_json.resolve()
+        drc_json.parent.mkdir(parents=True, exist_ok=True)
+
+    jar_path = ensure_freerouting_jar(config)
+
+    build_dir = _build_dir()
+    raw = build_dir / "freerouting_input_raw.dsn"
+    cleaned = build_dir / "freerouting_input_cleaned.dsn"
+    raw.unlink(missing_ok=True)
+    cleaned.unlink(missing_ok=True)
+
+    # Copy into build dir to keep container mounts simple and allow sanitization.
+    raw.write_text(input_dsn.read_text(encoding="utf-8", errors="replace"), encoding="utf-8")
+    sanitize_dsn(raw, cleaned, pcb_name=input_dsn.name, strip_planes=config.strip_planes)
+
+    jar_rel = os.path.relpath(jar_path.resolve(), repo_root)
+    cleaned_rel = os.path.relpath(cleaned.resolve(), repo_root)
+
+    # We want routed DSN (stable for hashing) rather than SES; FreeRouting can
+    # only emit one `-do` output per run.
+    output_rel = os.path.relpath(output_dsn.resolve(), repo_root) if output_dsn.is_relative_to(repo_root) else None
+    if output_rel is None:
+        raise ValueError(
+            f"output_dsn must live under the repo root for docker mounts: {output_dsn}"
+        )
+
+    fr_args: list[str] = [
+        "java",
+        "-jar",
+        f"/work/{jar_rel}",
+        "-de",
+        f"/work/{cleaned_rel}",
+        "-do",
+        f"/work/{output_rel}",
+        "-host",
+        "pardal",
+    ]
+
+    if config.disable_analytics:
+        fr_args.append("-da")
+    if config.disable_logging:
+        fr_args.append("-dl")
+    if config.log_level is not None:
+        fr_args.extend(["-ll", str(config.log_level)])
+
+    fr_args.extend(["-mp", str(config.max_passes)])
+    if config.threads is not None:
+        fr_args.extend(["-mt", str(config.threads)])
+    if config.optimizer_improvement_threshold is not None:
+        fr_args.extend(["-oit", str(config.optimizer_improvement_threshold)])
+    if config.save_intermediate:
+        fr_args.append("-im")
+    if config.random_seed is not None:
+        fr_args.extend(["-random_seed", str(config.random_seed)])
+    if config.ignore_net_classes:
+        fr_args.extend(["-inc", ",".join(config.ignore_net_classes)])
+
+    fr_args.append("--gui.enabled=false")
+    if config.router_job_timeout is not None:
+        fr_args.append(f"--router.job_timeout={config.router_job_timeout}")
+    if config.router_max_threads is not None:
+        fr_args.append(f"--router.max_threads={config.router_max_threads}")
+    if config.trace_pull_tight_accuracy is not None:
+        fr_args.append(f"--router.trace_pull_tight_accuracy={config.trace_pull_tight_accuracy}")
+    fr_args.append(f"--router.scoring.via_costs={config.via_costs}")
+    fr_args.append(f"--router.scoring.start_ripup_costs={config.start_ripup_costs}")
+    if config.fanout:
+        fr_args.append("--router.fanout.enabled=true")
+        fr_args.append(f"--router.fanout.max_passes={config.fanout_max_passes}")
+    else:
+        fr_args.append("--router.fanout.enabled=false")
+
+    _docker_run(
+        config.java_docker_image,
+        workdir="/work",
+        mounts=[(repo_root, "/work")],
+        env=None,
+        args=fr_args,
+    )
+
+    if not output_dsn.exists():
+        raise RuntimeError(f"FreeRouting did not produce output DSN: {output_dsn}")
+
+    if drc_json is not None:
+        drc_rel = os.path.relpath(drc_json.resolve(), repo_root)
+        drc_args: list[str] = [
+            "java",
+            "-jar",
+            f"/work/{jar_rel}",
+            "-de",
+            f"/work/{output_rel}",
+            "-drc",
+            f"/work/{drc_rel}",
+            "-host",
+            "pardal",
+            "--gui.enabled=false",
+        ]
+        if config.disable_analytics:
+            drc_args.append("-da")
+        if config.disable_logging:
+            drc_args.append("-dl")
+        if config.log_level is not None:
+            drc_args.extend(["-ll", str(config.log_level)])
+        _docker_run(
+            config.java_docker_image,
+            workdir="/work",
+            mounts=[(repo_root, "/work")],
+            env=None,
+            args=drc_args,
+        )

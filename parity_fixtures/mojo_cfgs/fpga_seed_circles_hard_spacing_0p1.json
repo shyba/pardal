@@ -1,0 +1,16 @@
+{
+  "attempts": 12,
+  "margin_init": 256,
+  "margin_step": 128,
+  "margin_max": 512,
+  "enforce_spacing": true,
+  "enforce_touch": true,
+  "seed_circle_keepouts": true,
+  "ncr_allow_overlaps": false,
+  "ncr_iters": 6,
+  "legalize_passes": 6,
+  "pull_tight_enable": true,
+  "shove_enable": true,
+  "shove_max_rips": 8
+}
+

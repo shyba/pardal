@@ -1,0 +1,22 @@
+{
+  "attempts": 12,
+  "margin_init": 256,
+  "margin_step": 128,
+  "margin_max": 512,
+  "precommit_drc_enable": false,
+  "precommit_shorts_enable": true,
+  "pull_tight_enable": true,
+  "enforce_spacing": false,
+  "enforce_touch": true,
+  "ripup_passes": 4,
+  "ripup_k": 16,
+  "ripup_progressive": true,
+  "ncr_iters": 6,
+  "ncr_allow_overlaps": false,
+  "ncr_present_cost": 120,
+  "ncr_history_cost": 40,
+  "ncr_history_inc": 2,
+  "shove_enable": true,
+  "shove_max_rips": 8
+}
+

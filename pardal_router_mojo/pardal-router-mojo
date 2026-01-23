@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+PIXI="${PIXI:-$HOME/.pixi/bin/pixi}"
+
+if [[ ! -x "$PIXI" ]]; then
+  echo "pixi not found/executable at: $PIXI" >&2
+  echo "Set PIXI=/path/to/pixi or install Pixi (https://pixi.sh)" >&2
+  exit 2
+fi
+
+exec "$PIXI" run mojo run -I "$ROOT" "$ROOT/main.mojo" "$@"
+

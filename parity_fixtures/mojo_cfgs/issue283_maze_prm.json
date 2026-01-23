@@ -1,0 +1,18 @@
+{
+  "commit_routes": true,
+  "ncr_iters": 0,
+  "ripup_passes": 0,
+  "attempts": 3,
+  "margin_init": 80,
+  "margin_step": 80,
+  "margin_max": 320,
+  "astar_max_expansions": 200000,
+  "max_time_ms": 120000,
+  "maze_fallback_enable": true,
+  "maze_samples": 12000,
+  "maze_k_neigh": 28,
+  "seed_circle_keepouts": true,
+  "enforce_spacing": true,
+  "enforce_touch": true
+}
+

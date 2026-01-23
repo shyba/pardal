@@ -1,0 +1,18 @@
+{
+  "attempts": 12,
+  "margin_init": 256,
+  "margin_step": 128,
+  "margin_max": 0,
+  "enforce_spacing": true,
+  "enforce_touch": true,
+  "seed_circle_keepouts": true,
+  "ncr_allow_overlaps": true,
+  "spacing_present_cost": 24000,
+  "spacing_present_cap": 250,
+  "ncr_iters": 8,
+  "legalize_passes": 8,
+  "pull_tight_enable": true,
+  "shove_enable": true,
+  "shove_max_rips": 12
+}
+
