@@ -82,8 +82,19 @@ def _require_docker() -> None:
         raise RuntimeError("docker not found in PATH; required for KiCad 9/Java containers")
 
 
-def _run(cmd: list[str], *, cwd: Path | None = None, check: bool = True) -> subprocess.CompletedProcess:
-    return subprocess.run(cmd, cwd=str(cwd) if cwd else None, check=check)
+def _run(
+    cmd: list[str],
+    *,
+    cwd: Path | None = None,
+    check: bool = True,
+    timeout_s: float | None = None,
+) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        cmd,
+        cwd=str(cwd) if cwd else None,
+        check=check,
+        timeout=None if timeout_s is None else float(timeout_s),
+    )
 
 
 def _docker_run(
@@ -94,6 +105,7 @@ def _docker_run(
     env: dict[str, str] | None,
     args: list[str],
     check: bool = True,
+    timeout_s: float | None = None,
 ) -> None:
     cmd = ["docker", "run", "--rm", "--user", f"{os.getuid()}:{os.getgid()}"]
     for host_path, container_path in mounts:
@@ -104,7 +116,7 @@ def _docker_run(
             cmd.extend(["-e", f"{k}={v}"])
     cmd.append(image)
     cmd.extend(args)
-    _run(cmd, check=check)
+    _run(cmd, check=check, timeout_s=timeout_s)
 
 
 def ensure_freerouting_jar(config: FreeroutingRunConfig) -> Path:
@@ -433,7 +445,7 @@ def freeroute_kicad_pcb(
             )
 
 
-def run_kicad9_drc(pcb: Path, report_json: Path) -> None:
+def run_kicad9_drc(pcb: Path, report_json: Path, *, timeout_s: float | None = None) -> None:
     """Run KiCad 9 DRC in docker and write JSON report."""
     _require_docker()
     repo_root = _repo_root()
@@ -471,6 +483,7 @@ def run_kicad9_drc(pcb: Path, report_json: Path) -> None:
         ],
         # KiCad returns a non-zero exit code when violations exist; we still want the JSON.
         check=False,
+        timeout_s=timeout_s,
     )
     if not report_json.exists() or report_json.stat().st_size == 0:
         raise RuntimeError(f"KiCad DRC report not produced: {report_json}")

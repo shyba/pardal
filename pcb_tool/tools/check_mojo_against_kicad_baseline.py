@@ -9,12 +9,12 @@ from __future__ import annotations
 
 import argparse
 import json
-import subprocess
 import time
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
 from pcb_tool.freerouting_backend import run_kicad9_drc
+from pcb_tool.api.route_kicad_docker import route_kicad_via_docker
 
 
 @dataclass(frozen=True)
@@ -63,6 +63,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--mojo-resolution", type=float, default=0.2)
     ap.add_argument("--docker-image", type=str, default="kicad/kicad:9.0.6-full")
     ap.add_argument("--timeout-s", type=float, default=60.0)
+    ap.add_argument("--drc-timeout-s", type=float, default=60.0)
     args = ap.parse_args(argv)
 
     repo_root = Path(__file__).resolve().parents[2]
@@ -106,26 +107,16 @@ def main(argv: list[str] | None = None) -> int:
     out_pcb = out_dir / "mojo_routed.kicad_pcb"
     drc_json = out_dir / "mojo_kicad_drc.json"
 
-    cmd = [
-        str(repo_root / "venv" / "bin" / "python"),
-        "-m",
-        "pcb_tool.cli",
-        "backend-route",
-        str(pcb),
-        "-o",
-        str(out_pcb),
-        "--docker-image",
-        str(args.docker_image),
-        "--resolution",
-        str(float(args.mojo_resolution)),
-    ]
-    if args.mojo_cfg is not None:
-        cmd += ["--cfg", str(args.mojo_cfg)]
-
     t0 = time.perf_counter()
     try:
-        subprocess.run(cmd, cwd=str(repo_root), check=True, timeout=float(args.timeout_s))
-    except subprocess.TimeoutExpired:
+        route_kicad_via_docker(
+            in_pcb=pcb,
+            out_pcb=out_pcb,
+            docker_image=str(args.docker_image),
+            resolution_mm=float(args.mojo_resolution),
+            cfg_json=args.mojo_cfg,
+        )
+    except Exception as e:
         rep = Report(
             fixture_pcb=str(pcb),
             baseline_dir=str(baseline_dir),
@@ -134,14 +125,14 @@ def main(argv: list[str] | None = None) -> int:
             mojo_counts=None,
             mojo_runtime_s=float(time.perf_counter() - t0),
             ok=False,
-            note=f"mojo backend-route timed out after {args.timeout_s}s",
+            note=f"mojo backend-route failed: {e}",
         )
         (out_dir / "report.json").write_text(json.dumps(asdict(rep), indent=2, sort_keys=True) + "\n", encoding="utf-8")
         print(json.dumps(asdict(rep), indent=2, sort_keys=True))
         return 3
 
     mojo_runtime = time.perf_counter() - t0
-    run_kicad9_drc(out_pcb, drc_json)
+    run_kicad9_drc(out_pcb, drc_json, timeout_s=float(args.drc_timeout_s))
     mojo_counts = _counts_from_kicad_json(drc_json)
 
     ok = (mojo_counts.violations == baseline_counts.violations) and (mojo_counts.unconnected == baseline_counts.unconnected)
@@ -162,4 +153,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
