@@ -244,6 +244,65 @@ Tools (implemented in `pardal-pcb`):
 - Baseline generator: `python -m pcb_tool.tools.generate_freerouting_baselines --job-timeout 00:01:00`
 - Baseline summary: `python -m pcb_tool.tools.summarize_freerouting_baselines --out parity_fixtures/baseline_summary.json`
 - Fast Mojo check: `python -m pcb_tool.tools.check_mojo_against_kicad_baseline <fixture.kicad_pcb>`
+- Suite runner (12 KiCad fixtures): `python -m pcb_tool.tools.run_mojo_vs_kicad_baseline_suite --timeout-s 60 --drc-timeout-s 60 --fixture-timeout-s 150`
+- Suite report: `python -m pcb_tool.tools.render_mojo_vs_baseline_suite` → `parity_out/mojo_vs_baseline_suite.md`
+
+---
+
+## “What’s left” decomposed into small chunks (driven by suite failures)
+
+We now have an objective picture of the remaining work from:
+- `pardal-pcb/parity_out/mojo_vs_baseline_suite.json`
+- `pardal-pcb/parity_out/mojo_vs_baseline_suite.md`
+
+This section decomposes the remaining parity gap into **small, mechanically verifiable chunks**. Each chunk has:
+- a tight scope (one FreeRouting subsystem)
+- the fixtures it most impacts
+- a definition of done that is measurable via the baseline suite
+
+### Current observed failure modes (Mojo vs KiCad baseline)
+
+1. **Timeouts / wedges** (killed at `--fixture-timeout-s 150`):
+   - `Issue191-processor.Z80/processor.Z80.kicad_pcb`
+   - `Issue230-CNH_Functional_Tester/CNH_Functional_Tester_1.kicad_pcb`
+   - `Issue269-NoWiresOnPowerLayers/proba.kicad_pcb`
+   - `Issue367-UltraFlactyl/UltraFlactyl.kicad_pcb`
+2. **Massive “unconnected” deltas**:
+   - `Issue283-UnconnectedTracesUnderPads/Test.kicad_pcb` (oracle-regressed; still must match baseline counts)
+   - `Issue558-dev-board-autoroute-demo/dev-board.kicad_pcb`
+3. **Massive “violations” deltas** (clearance/geometry legality gap):
+   - `Issue180-Test/Test.kicad_pcb`
+4. **Smaller deltas (still important)**:
+   - `Issue269-NoViasOnPowerPlanes/Issue269-NoViasOnPowerPlanes.kicad_pcb`
+   - `Issue368-CorneyIslandWireless/corney_island_wireless.kicad_pcb`
+   - `Issue069-TestSensel/TestSensel.kicad_pcb`
+   - `Issue184-motorizedopener/motorizedopener.kicad_pcb`
+
+### Chunk table (implement in order; stop only if blocked)
+
+| Chunk | Goal | Primary fixtures | FreeRouting anchors (port target) | DoD (objective) |
+|---:|---|---|---|---|
+| C1 | Make suite runs reliable (no wedging) | the 4 timed-out fixtures | n/a (harness/tooling) | Suite completes with **0 killed** at `--fixture-timeout-s 150` (even if outputs still differ) |
+| C2 | Correct KiCad-compat DRC accounting (baseline match) | all KiCad fixtures | `app/freerouting/drc/*` + stats | For each KiCad fixture, Mojo report JSON is produced and parsed; counts are always present |
+| C3 | Deterministic “route request” selection order | dev-board, motorizedopener | `app/freerouting/autoroute/*` (selection strategy) | Repeated suite runs produce identical Mojo counts (same inputs/seed/config) |
+| C4 | Layer/keepout rule semantics parity | Issue269-NoViasOnPowerPlanes, proba | `app/freerouting/rules/*`, DSN layer_rule, via rules | Baseline-match for Issue269-NoViasOnPowerPlanes and proba (counts) |
+| C5 | Exact clearance expansion + collision checks (stop illegal routes early) | Issue180-Test, dev-board | `geometry/planar/*`, `board/ShapeSearchTree*`, `rules/*` | Violations drop to baseline on Issue180-Test (or match baseline deltas if oracle differs) |
+| C6 | Negotiation routing (ripup/reroute over passes) | Issue283 (baseline-match), dev-board | `autoroute/AutorouteControl`, negotiation router classes | Unconnected counts converge toward baseline on Issue283 and dev-board |
+| C7 | Shove routing (geometric push to open channels) | Issue283, UltraFlactyl, processor.Z80 | shove router classes | Removes “stuck under pads / tight corridors” class failures; suite no longer has huge unconnected deltas on these |
+| C8 | Pull-tight + post-processing legalization | Issue180, TestSensel | pull-tight / optimization codepaths | Violations converge to baseline without increasing unconnected |
+| C9 | Fanout / escape behavior parity | CNH_Functional_Tester, UltraFlactyl | fanout router classes | Eliminates long-running escapes; reduces timeouts; improves completion |
+
+**Rule:** if you discover a missing primitive while implementing any chunk, add a minimal unit test for it and mark it done in the primitive checklist (Appendix C) before continuing.
+
+### How to execute chunks mechanically
+
+For each chunk:
+1. Add/extend tests (fast, isolated) that exercise just the missing behavior.
+2. Implement the minimal port needed (one Java file → one Mojo module).
+3. Re-run the suite:
+   - `python -m pcb_tool.tools.run_mojo_vs_kicad_baseline_suite ...`
+   - `python -m pcb_tool.tools.render_mojo_vs_baseline_suite`
+4. Only move to the next chunk if the DoD row is satisfied (or explicitly update the DoD).
 
 ## Phase 1 — Generate a port manifest and enforce “no missing files”
 
