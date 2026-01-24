@@ -115,6 +115,9 @@ def main(argv: list[str] | None = None) -> int:
             docker_image=str(args.docker_image),
             resolution_mm=float(args.mojo_resolution),
             cfg_json=args.mojo_cfg,
+            extract_timeout_s=float(args.timeout_s),
+            route_timeout_s=float(args.timeout_s),
+            apply_timeout_s=float(args.timeout_s),
         )
     except Exception as e:
         rep = Report(
@@ -129,6 +132,11 @@ def main(argv: list[str] | None = None) -> int:
         )
         (out_dir / "report.json").write_text(json.dumps(asdict(rep), indent=2, sort_keys=True) + "\n", encoding="utf-8")
         print(json.dumps(asdict(rep), indent=2, sort_keys=True))
+        # Return 3 for time budget exceeded to let the suite count timeouts.
+        if isinstance(e, TimeoutError) or "TimeoutExpired" in type(e).__name__:
+            return 3
+        if "TimeoutExpired" in repr(e):
+            return 3
         return 3
 
     mojo_runtime = time.perf_counter() - t0

@@ -138,6 +138,9 @@ def route_kicad_via_docker(
     cfg_json: Path | None = None,
     routes_json: Path | None = None,
     problem_json: Path | None = None,
+    extract_timeout_s: float | None = None,
+    route_timeout_s: float | None = None,
+    apply_timeout_s: float | None = None,
 ) -> RouteViaDockerResult:
     """Route a KiCad PCB via: pcbnew extractor (docker) -> router (host) -> pcbnew apply (docker).
 
@@ -202,9 +205,11 @@ def route_kicad_via_docker(
     ]
     if inflate_mm is not None:
         extract_cmd.extend(["--inflate", str(float(inflate_mm))])
-    _run(
+    subprocess.run(
         extract_cmd,
         cwd=mount_root,
+        check=True,
+        timeout=None if extract_timeout_s is None else float(extract_timeout_s),
     )
 
     # 2) Route on the host using the selected router binary.
@@ -212,10 +217,15 @@ def route_kicad_via_docker(
     cmd = [str(router_bin), str(problem_json_docker), str(routes_json_docker)]
     if cfg_json is not None:
         cmd.append(str(cfg_json.resolve()))
-    _run(cmd, cwd=mount_root)
+    subprocess.run(
+        cmd,
+        cwd=mount_root,
+        check=True,
+        timeout=None if route_timeout_s is None else float(route_timeout_s),
+    )
 
     # 3) Apply routes using pcbnew in docker.
-    _run(
+    subprocess.run(
         [
             "docker",
             "run",
@@ -237,6 +247,8 @@ def route_kicad_via_docker(
             f"/work/{routes_json_rel.as_posix()}",
         ],
         cwd=mount_root,
+        check=True,
+        timeout=None if apply_timeout_s is None else float(apply_timeout_s),
     )
 
     # Basic sanity check: the router records failures.
