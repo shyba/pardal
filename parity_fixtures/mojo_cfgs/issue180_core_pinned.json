@@ -1,0 +1,11 @@
+{
+  "attempts": 6,
+  "commit_routes": true,
+  "diagonal": true,
+  "margin_init": 128,
+  "margin_max": 0,
+  "margin_step": 128,
+  "route_power_last": false,
+  "seed": 1,
+  "via_penalty": 40
+}

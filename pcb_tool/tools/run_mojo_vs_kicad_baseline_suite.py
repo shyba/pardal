@@ -18,6 +18,13 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 
 
+TIER_TO_FILE: dict[str, str] = {
+    "fast": "parity_fixtures/fr_tiers/tier_fast.json",
+    "medium": "parity_fixtures/fr_tiers/tier_medium.json",
+    "nightly": "parity_fixtures/fr_tiers/tier_nightly.json",
+}
+
+
 @dataclass(frozen=True)
 class SuiteRow:
     fixture: str
@@ -74,6 +81,42 @@ def _load_manifest(path: Path) -> list[dict]:
     return data
 
 
+def _resolve_fixture_path(*, workspace_root: Path, repo_root: Path, raw: str) -> Path:
+    p = Path(raw)
+    if p.is_absolute():
+        return p.resolve()
+    cand = (workspace_root / p).resolve()
+    if cand.exists():
+        return cand
+    return (repo_root / p).resolve()
+
+
+def _load_tier_fixtures(*, workspace_root: Path, repo_root: Path, tier_file: Path) -> list[Path]:
+    payload = json.loads(tier_file.read_text(encoding="utf-8"))
+    if not isinstance(payload, list):
+        raise ValueError(f"tier file must be a JSON list: {tier_file}")
+
+    fixtures: list[Path] = []
+    seen: set[str] = set()
+    for i, item in enumerate(payload):
+        raw: str | None = None
+        if isinstance(item, str):
+            raw = item
+        elif isinstance(item, dict):
+            maybe = item.get("path")
+            if isinstance(maybe, str):
+                raw = maybe
+        if not raw:
+            raise ValueError(f"tier[{i}] in {tier_file} must be a path string or object with 'path'")
+        resolved = _resolve_fixture_path(workspace_root=workspace_root, repo_root=repo_root, raw=raw)
+        key = str(resolved)
+        if key in seen:
+            continue
+        seen.add(key)
+        fixtures.append(resolved)
+    return fixtures
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument(
@@ -89,6 +132,17 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--mojo-resolution", type=float, default=0.2)
     ap.add_argument("--drc-timeout-s", type=float, default=60.0)
     ap.add_argument(
+        "--tier",
+        choices=["fast", "medium", "nightly", "all"],
+        default="all",
+        help="Use a curated tier from parity_fixtures/fr_tiers instead of all KiCad fixtures from manifest.",
+    )
+    ap.add_argument(
+        "--fail-fast",
+        action="store_true",
+        help="Stop the suite at the first non-zero fixture exit code.",
+    )
+    ap.add_argument(
         "--fixture-timeout-s",
         type=float,
         default=150.0,
@@ -99,12 +153,23 @@ def main(argv: list[str] | None = None) -> int:
     repo_root = Path(__file__).resolve().parents[2]
     workspace_root = repo_root.parent
 
-    manifest = _load_manifest(repo_root / args.manifest)
-    fixtures = [
-        (workspace_root / Path(it["path"])).resolve()
-        for it in manifest
-        if isinstance(it, dict) and it.get("type") == "kicad"
-    ]
+    if str(args.tier) == "all":
+        manifest = _load_manifest(repo_root / args.manifest)
+        fixtures = [
+            (workspace_root / Path(it["path"])).resolve()
+            for it in manifest
+            if isinstance(it, dict) and it.get("type") == "kicad"
+        ]
+    else:
+        tier_rel = TIER_TO_FILE[str(args.tier)]
+        tier_file = (repo_root / tier_rel).resolve()
+        if not tier_file.exists():
+            raise SystemExit(f"missing tier file: {tier_file}")
+        fixtures = _load_tier_fixtures(
+            workspace_root=workspace_root,
+            repo_root=repo_root,
+            tier_file=tier_file,
+        )
     if args.only_match:
         fixtures = [p for p in fixtures if args.only_match in str(p)]
     if args.limit and args.limit > 0:
@@ -194,10 +259,18 @@ def main(argv: list[str] | None = None) -> int:
 
         # Write incremental progress so long runs can be resumed/inspected.
         partial = {
-            "summary": {"completed": len(rows), "total": len(fixtures), "runtime_s": time.perf_counter() - started},
+            "summary": {
+                "completed": len(rows),
+                "total": len(fixtures),
+                "runtime_s": time.perf_counter() - started,
+                "tier": str(args.tier),
+            },
             "rows": [asdict(r) for r in rows],
         }
         out_path.write_text(json.dumps(partial, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        if bool(args.fail_fast) and rc != 0:
+            print(f"fail-fast: stopping after fixture {pcb} (exit_code={rc})")
+            break
 
     total_s = time.perf_counter() - started
     ok = sum(1 for r in rows if r.exit_code == 0)
@@ -213,6 +286,9 @@ def main(argv: list[str] | None = None) -> int:
             "baseline_fail": basefail,
             "timeout": timeout,
             "runtime_s": total_s,
+            "tier": str(args.tier),
+            "stopped_early": bool(args.fail_fast) and len(rows) < len(fixtures),
+            "selected_total": len(fixtures),
         },
         "rows": [asdict(r) for r in rows],
     }

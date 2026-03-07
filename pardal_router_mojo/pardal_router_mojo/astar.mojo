@@ -1,15 +1,13 @@
 from collections import List
 
-from python import Python
+from time import perf_counter
 
 from .grid import Grid
 from .heap import MinHeap
 
-comptime py = Python
 
-fn _now_s() raises -> Float64:
-    var time = py.import_module("time")
-    return Float64(py=time.perf_counter())
+fn _now_s() -> Float64:
+    return perf_counter()
 
 
 fn abs_i(a: Int) -> Int:
@@ -33,6 +31,7 @@ fn idx_to_coords(idx: Int, width: Int, height: Int) -> Coords:
     var y = rem // width
     var x = rem - y * width
     return Coords(layer, x, y)
+
 
 struct AStarWorkspace:
     var n: Int
@@ -113,6 +112,7 @@ fn layer_penalty_for_layer(
         return layer_penalty_in1
     return layer_penalty_inner
 
+
 fn reconstruct_path(prev: List[Int], start_idx: Int, goal_idx: Int) -> List[Int]:
     var out = List[Int]()
     var cur = goal_idx
@@ -166,7 +166,19 @@ fn route_a_star(
     # Bounding box restriction in x/y only (layer unrestricted).
     var start = idx_to_coords(start_idx, grid.width, grid.height)
     var goal = idx_to_coords(goal_idx, grid.width, grid.height)
-    var mask = allowed_layers_mask
+    var raw_mask = allowed_layers_mask
+    var mask = raw_mask
+    var via_mask = raw_mask
+    # Split-mask encoding (router side):
+    # - low 16 bits: track-layer mask
+    # - high 16 bits: via-endpoint-layer mask
+    # If high-half is zero, keep legacy single-mask behavior.
+    if grid.layers <= 16:
+        var lo = raw_mask & UInt32(0x0000_FFFF)
+        var hi = (raw_mask >> UInt32(16)) & UInt32(0x0000_FFFF)
+        if hi != UInt32(0):
+            mask = lo
+            via_mask = hi
     if mask == UInt32(0):
         var m = UInt32(0)
         var li = 0
@@ -174,6 +186,8 @@ fn route_a_star(
             m = m | (UInt32(1) << UInt32(li))
             li += 1
         mask = m
+    if via_mask == UInt32(0):
+        via_mask = mask
     if (mask & (UInt32(1) << UInt32(start.layer))) == UInt32(0):
         return List[Int]()
     if (mask & (UInt32(1) << UInt32(goal.layer))) == UInt32(0):
@@ -216,7 +230,10 @@ fn route_a_star(
 
     while not ws.heap.is_empty():
         expansions = expansions + UInt32(1)
-        if deadline_s > 0.0 and (expansions & UInt32(0x0FFF)) == UInt32(0):
+        # Deadline checks must be frequent enough to cap worst-case runtime on
+        # large boards. Coarse checks can miss a 60s wall budget by minutes if
+        # each expansion is expensive (touch/spacing/history queries).
+        if deadline_s > 0.0 and (expansions & UInt32(0x00FF)) == UInt32(0):
             if _now_s() > deadline_s:
                 return List[Int]()
         if max_expansions != UInt32(0) and expansions > max_expansions:
@@ -278,15 +295,26 @@ fn route_a_star(
                     var oy1 = cy
                     var ox2 = cx
                     var oy2 = ny
-                    if not grid.in_bounds(cur_layer, ox1, oy1) or not grid.in_bounds(cur_layer, ox2, oy2):
+                    if not grid.in_bounds(cur_layer, ox1, oy1) or not grid.in_bounds(
+                        cur_layer, ox2, oy2
+                    ):
                         i += 1
                         continue
-                    if not grid.base_allows(cur_layer, ox1, oy1, net_id) or not grid.base_allows(cur_layer, ox2, oy2, net_id):
+                    if not grid.base_allows(
+                        cur_layer, ox1, oy1, net_id
+                    ) or not grid.base_allows(cur_layer, ox2, oy2, net_id):
                         i += 1
                         continue
                     var oidx1 = grid.idx(cur_layer, ox1, oy1)
                     var oidx2 = grid.idx(cur_layer, ox2, oy2)
-                    if grid.occ_other_at_idx(oidx1, net_id) != UInt16(0) or grid.occ_other_at_idx(oidx2, net_id) != UInt16(0):
+                    if (
+                        grid.occ_other_at_idx(oidx1, net_id) != UInt16(0)
+                        or grid.occ_other_at_idx(oidx2, net_id) != UInt16(0)
+                    ):
+                        # Keep diagonal corner occupancy as a hard block even in
+                        # overlap mode. Allowing this creates many KiCad
+                        # tracks_crossing violations that postroute cleanup does
+                        # not reliably remove.
                         i += 1
                         continue
                     if enforce_touch and (
@@ -295,41 +323,55 @@ fn route_a_star(
                         or grid.touch_via_other_at_idx(oidx1, net_id) != UInt16(0)
                         or grid.touch_via_other_at_idx(oidx2, net_id) != UInt16(0)
                     ):
-                        i += 1
-                        continue
+                        if not ncr_allow_overlaps:
+                            i += 1
+                            continue
                     if enforce_spacing and (
                         grid.ko_track_other_at_idx(oidx1, net_id) != UInt16(0)
                         or grid.ko_track_other_at_idx(oidx2, net_id) != UInt16(0)
                         or grid.ko_via_other_at_idx(oidx1, net_id) != UInt16(0)
                         or grid.ko_via_other_at_idx(oidx2, net_id) != UInt16(0)
                     ):
-                        i += 1
-                        continue
+                        if not ncr_allow_overlaps:
+                            i += 1
+                            continue
                 if not grid.base_allows(cur_layer, nx, ny, net_id):
                     i += 1
                     continue
 
                 var ni = grid.idx(cur_layer, nx, ny)
-                # Never allow true overlaps with other nets. When doing NCR, "overlaps" only applies
-                # to spacing/clearance as a soft constraint; shorts/crossings are always illegal.
+                # In NCR mode, allow overlaps with a cost (PathFinder-style).
                 if grid.occ_other_at_idx(ni, net_id) != UInt16(0):
-                    i += 1
-                    continue
+                    if not ncr_allow_overlaps:
+                        i += 1
+                        continue
                 var spacing_penalty = UInt32(0)
-                if enforce_spacing:
-                    if enforce_touch:
-                        if grid.touch_track_other_at_idx(ni, net_id) != UInt16(0):
+                if enforce_touch:
+                    if (
+                        grid.touch_track_other_at_idx(ni, net_id) != UInt16(0)
+                        or grid.touch_via_other_at_idx(ni, net_id) != UInt16(0)
+                    ):
+                        if not ncr_allow_overlaps:
                             i += 1
                             continue
+                if enforce_spacing:
                     if not ncr_allow_overlaps:
-                        if grid.ko_track_other_at_idx(ni, net_id) != UInt16(0):
+                        if (
+                            grid.ko_track_other_at_idx(ni, net_id) != UInt16(0)
+                            or grid.ko_via_other_at_idx(ni, net_id) != UInt16(0)
+                        ):
                             i += 1
                             continue
                     else:
                         var k = grid.ko_track_other_at_idx(ni, net_id)
+                        var t = grid.touch_track_other_at_idx(ni, net_id)
+                        if grid.touch_via_other_at_idx(ni, net_id) > t:
+                            t = grid.touch_via_other_at_idx(ni, net_id)
                         if k > spacing_present_cap:
                             k = spacing_present_cap
-                        spacing_penalty = UInt32(k) * spacing_present_cost
+                        if t > spacing_present_cap:
+                            t = spacing_present_cap
+                        spacing_penalty = UInt32(k + t) * spacing_present_cost
                 var step = UInt32(1) + layer_penalty_for_layer(
                     cur_layer,
                     grid.layers,
@@ -337,7 +379,9 @@ fn route_a_star(
                     layer_penalty_in1,
                     layer_penalty_inner,
                 )
-                var extra = grid.step_cost(ni, net_id, present_cost, history_cost, ignore_congestion)
+                var extra = grid.step_cost(
+                    ni, net_id, present_cost, history_cost, ignore_congestion
+                )
                 var ng = best_g + step + extra + spacing_penalty
                 if ng < ws.get_g(ni, inf):
                     ws.set_g(ni, ng, cur_idx)
@@ -354,27 +398,84 @@ fn route_a_star(
                     ws.heap.push(f, ng, ni)
                 i += 1
 
-        # Via transitions (adjacent layers).
+        # Via transitions (nearest allowed layers; can skip masked internal layers).
         if via_penalty > 0:
+            # A via occupies copper on both layers. We must ensure the current cell is
+            # also base-legal, not just the destination layer; otherwise the search can
+            # emit vias that overlap fixed copper on the current layer (KiCad DRC).
+            if not grid.base_allows(cur_layer, cx, cy, net_id):
+                continue
+            if (via_mask & (UInt32(1) << UInt32(cur_layer))) == UInt32(0):
+                continue
             var nl0 = cur_layer - 1
-            if nl0 >= 0 and (mask & (UInt32(1) << UInt32(nl0))) != UInt32(0):
+            while nl0 >= 0 and (via_mask & (UInt32(1) << UInt32(nl0))) == UInt32(0):
+                nl0 -= 1
+            if nl0 >= 0 and (via_mask & (UInt32(1) << UInt32(nl0))) != UInt32(0):
                 if grid.base_allows(nl0, cx, cy, net_id):
                     var ni0 = grid.idx(nl0, cx, cy)
-                    if grid.occ_other_at_idx(ni0, net_id) == UInt16(0):
+                    if (
+                        grid.occ_other_at_idx(ni0, net_id) == UInt16(0)
+                        or (ncr_allow_overlaps and (not forbid_stacked_vias))
+                    ):
                         var ok0 = True
                         var spacing_penalty0 = UInt32(0)
-                        if forbid_stacked_vias and len(existing_via_any) == xy_len and existing_via_any[xy] == net_id:
+                        var stack_ext_penalty0 = UInt32(0)
+                        if (
+                            forbid_stacked_vias
+                            and len(existing_via_any) == xy_len
+                            and existing_via_any[xy] == net_id
+                        ):
                             var bi0 = nl0 * xy_len + xy
-                            if not (len(existing_via_seg) == seg_len and bi0 >= 0 and bi0 < len(existing_via_seg) and existing_via_seg[bi0] == net_id):
-                                ok0 = False
+                            var seg_ok = (
+                                len(existing_via_seg) == seg_len
+                                and bi0 >= 0
+                                and bi0 < len(existing_via_seg)
+                                and existing_via_seg[bi0] == net_id
+                            )
+                            if not seg_ok:
+                                var ext_ok = False
+                                if len(existing_via_seg) == seg_len:
+                                    var bi_dn = bi0 - xy_len
+                                    var bi_up = bi0 + xy_len
+                                    if bi_dn >= 0 and bi_dn < len(existing_via_seg) and existing_via_seg[bi_dn] == net_id:
+                                        ext_ok = True
+                                    if bi_up >= 0 and bi_up < len(existing_via_seg) and existing_via_seg[bi_up] == net_id:
+                                        ext_ok = True
+                                if not ext_ok:
+                                    ok0 = False
+                                else:
+                                    stack_ext_penalty0 = via_penalty * UInt32(4)
+                        if (
+                            forbid_stacked_vias
+                            and len(existing_via_any) == xy_len
+                            and existing_via_any[xy] != UInt32(0)
+                            and existing_via_any[xy] != net_id
+                        ):
+                            ok0 = False
+                        var idx0 = grid.idx(cur_layer, cx, cy)
+                        var idx1 = ni0
+                        if enforce_touch:
+                            var tv0 = grid.touch_via_other_at_idx(idx0, net_id)
+                            var tv1 = grid.touch_via_other_at_idx(idx1, net_id)
+                            var tt0 = grid.touch_track_other_at_idx(idx0, net_id)
+                            var tt1 = grid.touch_track_other_at_idx(idx1, net_id)
+                            if tv0 != UInt16(0) or tv1 != UInt16(0) or tt0 != UInt16(0) or tt1 != UInt16(0):
+                                if (not ncr_allow_overlaps) or forbid_stacked_vias:
+                                    ok0 = False
+                                elif not enforce_spacing:
+                                    var t0 = tv0
+                                    var t1 = tv1
+                                    if tt0 > t0:
+                                        t0 = tt0
+                                    if tt1 > t1:
+                                        t1 = tt1
+                                    var t = t0
+                                    if t1 > t:
+                                        t = t1
+                                    if t > UInt16(spacing_present_cap):
+                                        t = UInt16(spacing_present_cap)
+                                    spacing_penalty0 = UInt32(t) * spacing_present_cost
                         if enforce_spacing:
-                            var idx0 = grid.idx(cur_layer, cx, cy)
-                            var idx1 = ni0
-                            if enforce_touch and (
-                                grid.touch_via_other_at_idx(idx0, net_id) != UInt16(0)
-                                or grid.touch_via_other_at_idx(idx1, net_id) != UInt16(0)
-                            ):
-                                ok0 = False
                             if ok0:
                                 var using_existing0 = (
                                     grid.via_usage[idx0] != UInt16(0)
@@ -392,14 +493,52 @@ fn route_a_star(
                                 if not ncr_allow_overlaps:
                                     if k0 != UInt16(0) or k1 != UInt16(0):
                                         ok0 = False
+                                    if (
+                                        grid.ko_track_other_at_idx(idx0, net_id)
+                                        != UInt16(0)
+                                        or grid.ko_track_other_at_idx(idx1, net_id)
+                                        != UInt16(0)
+                                    ):
+                                        ok0 = False
                                 else:
-                                    var k = UInt32(k0) + UInt32(k1)
-                                    if k > UInt32(spacing_present_cap):
-                                        k = UInt32(spacing_present_cap)
-                                    spacing_penalty0 = k * spacing_present_cost
+                                    if forbid_stacked_vias:
+                                        if (
+                                            k0 != UInt16(0)
+                                            or k1 != UInt16(0)
+                                            or grid.ko_track_other_at_idx(idx0, net_id) != UInt16(0)
+                                            or grid.ko_track_other_at_idx(idx1, net_id) != UInt16(0)
+                                        ):
+                                            ok0 = False
+                                    else:
+                                        var k = UInt32(k0) + UInt32(k1)
+                                        if k > UInt32(spacing_present_cap):
+                                            k = UInt32(spacing_present_cap)
+                                        var t = UInt32(0)
+                                        var tv0 = grid.touch_via_other_at_idx(idx0, net_id)
+                                        var tv1 = grid.touch_via_other_at_idx(idx1, net_id)
+                                        var tt0 = grid.touch_track_other_at_idx(idx0, net_id)
+                                        var tt1 = grid.touch_track_other_at_idx(idx1, net_id)
+                                        if tv0 < tt0:
+                                            tv0 = tt0
+                                        if tv1 < tt1:
+                                            tv1 = tt1
+                                        if tv0 > tv1:
+                                            t = UInt32(tv0)
+                                        else:
+                                            t = UInt32(tv1)
+                                        if t > UInt32(spacing_present_cap):
+                                            t = UInt32(spacing_present_cap)
+                                        spacing_penalty0 = (k + t) * spacing_present_cost
                         if ok0:
-                            var extra0 = grid.step_cost(ni0, net_id, present_cost, history_cost, ignore_congestion)
+                            var extra0 = grid.step_cost(
+                                ni0,
+                                net_id,
+                                present_cost,
+                                history_cost,
+                                ignore_congestion,
+                            )
                             var ng0 = best_g + via_penalty + extra0 + spacing_penalty0
+                            ng0 = ng0 + stack_ext_penalty0
                             if ng0 < ws.get_g(ni0, inf):
                                 ws.set_g(ni0, ng0, cur_idx)
                                 var h0 = heuristic_idx(
@@ -411,27 +550,79 @@ fn route_a_star(
                                     grid.height,
                                     via_penalty,
                                 )
-                                var f0 = ng0 + UInt32((UInt64(h0) * UInt64(w)) // UInt64(100))
+                                var f0 = ng0 + UInt32(
+                                    (UInt64(h0) * UInt64(w)) // UInt64(100)
+                                )
                                 ws.heap.push(f0, ng0, ni0)
             var nl1 = cur_layer + 1
-            if nl1 < grid.layers and (mask & (UInt32(1) << UInt32(nl1))) != UInt32(0):
+            while nl1 < grid.layers and (via_mask & (UInt32(1) << UInt32(nl1))) == UInt32(0):
+                nl1 += 1
+            if nl1 < grid.layers and (via_mask & (UInt32(1) << UInt32(nl1))) != UInt32(0):
                 if grid.base_allows(nl1, cx, cy, net_id):
                     var ni1 = grid.idx(nl1, cx, cy)
-                    if grid.occ_other_at_idx(ni1, net_id) == UInt16(0):
+                    if (
+                        grid.occ_other_at_idx(ni1, net_id) == UInt16(0)
+                        or (ncr_allow_overlaps and (not forbid_stacked_vias))
+                    ):
                         var ok1 = True
                         var spacing_penalty1 = UInt32(0)
-                        if forbid_stacked_vias and len(existing_via_any) == xy_len and existing_via_any[xy] == net_id:
+                        var stack_ext_penalty1 = UInt32(0)
+                        if (
+                            forbid_stacked_vias
+                            and len(existing_via_any) == xy_len
+                            and existing_via_any[xy] == net_id
+                        ):
                             var bi1 = cur_layer * xy_len + xy
-                            if not (len(existing_via_seg) == seg_len and bi1 >= 0 and bi1 < len(existing_via_seg) and existing_via_seg[bi1] == net_id):
-                                ok1 = False
+                            var seg_ok = (
+                                len(existing_via_seg) == seg_len
+                                and bi1 >= 0
+                                and bi1 < len(existing_via_seg)
+                                and existing_via_seg[bi1] == net_id
+                            )
+                            if not seg_ok:
+                                var ext_ok = False
+                                if len(existing_via_seg) == seg_len:
+                                    var bi_dn = bi1 - xy_len
+                                    var bi_up = bi1 + xy_len
+                                    if bi_dn >= 0 and bi_dn < len(existing_via_seg) and existing_via_seg[bi_dn] == net_id:
+                                        ext_ok = True
+                                    if bi_up >= 0 and bi_up < len(existing_via_seg) and existing_via_seg[bi_up] == net_id:
+                                        ext_ok = True
+                                if not ext_ok:
+                                    ok1 = False
+                                else:
+                                    stack_ext_penalty1 = via_penalty * UInt32(4)
+                        if (
+                            forbid_stacked_vias
+                            and len(existing_via_any) == xy_len
+                            and existing_via_any[xy] != UInt32(0)
+                            and existing_via_any[xy] != net_id
+                        ):
+                            ok1 = False
+                        var idx0 = grid.idx(cur_layer, cx, cy)
+                        var idx1 = ni1
+                        if enforce_touch:
+                            var tv0 = grid.touch_via_other_at_idx(idx0, net_id)
+                            var tv1 = grid.touch_via_other_at_idx(idx1, net_id)
+                            var tt0 = grid.touch_track_other_at_idx(idx0, net_id)
+                            var tt1 = grid.touch_track_other_at_idx(idx1, net_id)
+                            if tv0 != UInt16(0) or tv1 != UInt16(0) or tt0 != UInt16(0) or tt1 != UInt16(0):
+                                if (not ncr_allow_overlaps) or forbid_stacked_vias:
+                                    ok1 = False
+                                elif not enforce_spacing:
+                                    var t0 = tv0
+                                    var t1 = tv1
+                                    if tt0 > t0:
+                                        t0 = tt0
+                                    if tt1 > t1:
+                                        t1 = tt1
+                                    var t = t0
+                                    if t1 > t:
+                                        t = t1
+                                    if t > UInt16(spacing_present_cap):
+                                        t = UInt16(spacing_present_cap)
+                                    spacing_penalty1 = UInt32(t) * spacing_present_cost
                         if enforce_spacing:
-                            var idx0 = grid.idx(cur_layer, cx, cy)
-                            var idx1 = ni1
-                            if enforce_touch and (
-                                grid.touch_via_other_at_idx(idx0, net_id) != UInt16(0)
-                                or grid.touch_via_other_at_idx(idx1, net_id) != UInt16(0)
-                            ):
-                                ok1 = False
                             if ok1:
                                 var using_existing1 = (
                                     grid.via_usage[idx0] != UInt16(0)
@@ -447,14 +638,52 @@ fn route_a_star(
                                 if not ncr_allow_overlaps:
                                     if k0 != UInt16(0) or k1 != UInt16(0):
                                         ok1 = False
+                                    if (
+                                        grid.ko_track_other_at_idx(idx0, net_id)
+                                        != UInt16(0)
+                                        or grid.ko_track_other_at_idx(idx1, net_id)
+                                        != UInt16(0)
+                                    ):
+                                        ok1 = False
                                 else:
-                                    var k = UInt32(k0) + UInt32(k1)
-                                    if k > UInt32(spacing_present_cap):
-                                        k = UInt32(spacing_present_cap)
-                                    spacing_penalty1 = k * spacing_present_cost
+                                    if forbid_stacked_vias:
+                                        if (
+                                            k0 != UInt16(0)
+                                            or k1 != UInt16(0)
+                                            or grid.ko_track_other_at_idx(idx0, net_id) != UInt16(0)
+                                            or grid.ko_track_other_at_idx(idx1, net_id) != UInt16(0)
+                                        ):
+                                            ok1 = False
+                                    else:
+                                        var k = UInt32(k0) + UInt32(k1)
+                                        if k > UInt32(spacing_present_cap):
+                                            k = UInt32(spacing_present_cap)
+                                        var t = UInt32(0)
+                                        var tv0 = grid.touch_via_other_at_idx(idx0, net_id)
+                                        var tv1 = grid.touch_via_other_at_idx(idx1, net_id)
+                                        var tt0 = grid.touch_track_other_at_idx(idx0, net_id)
+                                        var tt1 = grid.touch_track_other_at_idx(idx1, net_id)
+                                        if tv0 < tt0:
+                                            tv0 = tt0
+                                        if tv1 < tt1:
+                                            tv1 = tt1
+                                        if tv0 > tv1:
+                                            t = UInt32(tv0)
+                                        else:
+                                            t = UInt32(tv1)
+                                        if t > UInt32(spacing_present_cap):
+                                            t = UInt32(spacing_present_cap)
+                                        spacing_penalty1 = (k + t) * spacing_present_cost
                         if ok1:
-                            var extra1 = grid.step_cost(ni1, net_id, present_cost, history_cost, ignore_congestion)
+                            var extra1 = grid.step_cost(
+                                ni1,
+                                net_id,
+                                present_cost,
+                                history_cost,
+                                ignore_congestion,
+                            )
                             var ng1 = best_g + via_penalty + extra1 + spacing_penalty1
+                            ng1 = ng1 + stack_ext_penalty1
                             if ng1 < ws.get_g(ni1, inf):
                                 ws.set_g(ni1, ng1, cur_idx)
                                 var h1 = heuristic_idx(
@@ -466,7 +695,9 @@ fn route_a_star(
                                     grid.height,
                                     via_penalty,
                                 )
-                                var f1 = ng1 + UInt32((UInt64(h1) * UInt64(w)) // UInt64(100))
+                                var f1 = ng1 + UInt32(
+                                    (UInt64(h1) * UInt64(w)) // UInt64(100)
+                                )
                                 ws.heap.push(f1, ng1, ni1)
     return List[Int]()
 
@@ -511,7 +742,15 @@ fn route_a_star_bounded(
 
     var start = idx_to_coords(start_idx, grid.width, grid.height)
     var goal = idx_to_coords(goal_idx, grid.width, grid.height)
-    var mask = allowed_layers_mask
+    var raw_mask = allowed_layers_mask
+    var mask = raw_mask
+    var via_mask = raw_mask
+    if grid.layers <= 16:
+        var lo = raw_mask & UInt32(0x0000_FFFF)
+        var hi = (raw_mask >> UInt32(16)) & UInt32(0x0000_FFFF)
+        if hi != UInt32(0):
+            mask = lo
+            via_mask = hi
     if mask == UInt32(0):
         var m = UInt32(0)
         var li = 0
@@ -519,6 +758,8 @@ fn route_a_star_bounded(
             m = m | (UInt32(1) << UInt32(li))
             li += 1
         mask = m
+    if via_mask == UInt32(0):
+        via_mask = mask
     if (mask & (UInt32(1) << UInt32(start.layer))) == UInt32(0):
         return List[Int]()
     if (mask & (UInt32(1) << UInt32(goal.layer))) == UInt32(0):
@@ -637,15 +878,26 @@ fn route_a_star_bounded(
                     var oy1 = cy
                     var ox2 = cx
                     var oy2 = ny
-                    if not grid.in_bounds(cur_layer, ox1, oy1) or not grid.in_bounds(cur_layer, ox2, oy2):
+                    if not grid.in_bounds(cur_layer, ox1, oy1) or not grid.in_bounds(
+                        cur_layer, ox2, oy2
+                    ):
                         i += 1
                         continue
-                    if not grid.base_allows(cur_layer, ox1, oy1, net_id) or not grid.base_allows(cur_layer, ox2, oy2, net_id):
+                    if not grid.base_allows(
+                        cur_layer, ox1, oy1, net_id
+                    ) or not grid.base_allows(cur_layer, ox2, oy2, net_id):
                         i += 1
                         continue
                     var oidx1 = grid.idx(cur_layer, ox1, oy1)
                     var oidx2 = grid.idx(cur_layer, ox2, oy2)
-                    if grid.occ_other_at_idx(oidx1, net_id) != UInt16(0) or grid.occ_other_at_idx(oidx2, net_id) != UInt16(0):
+                    if (
+                        grid.occ_other_at_idx(oidx1, net_id) != UInt16(0)
+                        or grid.occ_other_at_idx(oidx2, net_id) != UInt16(0)
+                    ):
+                        # Keep diagonal corner occupancy as a hard block even in
+                        # overlap mode. Allowing this creates many KiCad
+                        # tracks_crossing violations that postroute cleanup does
+                        # not reliably remove.
                         i += 1
                         continue
                     if enforce_touch and (
@@ -654,39 +906,54 @@ fn route_a_star_bounded(
                         or grid.touch_via_other_at_idx(oidx1, net_id) != UInt16(0)
                         or grid.touch_via_other_at_idx(oidx2, net_id) != UInt16(0)
                     ):
-                        i += 1
-                        continue
+                        if not ncr_allow_overlaps:
+                            i += 1
+                            continue
                     if enforce_spacing and (
                         grid.ko_track_other_at_idx(oidx1, net_id) != UInt16(0)
                         or grid.ko_track_other_at_idx(oidx2, net_id) != UInt16(0)
                         or grid.ko_via_other_at_idx(oidx1, net_id) != UInt16(0)
                         or grid.ko_via_other_at_idx(oidx2, net_id) != UInt16(0)
                     ):
-                        i += 1
-                        continue
+                        if not ncr_allow_overlaps:
+                            i += 1
+                            continue
                 if not grid.base_allows(cur_layer, nx, ny, net_id):
                     i += 1
                     continue
 
                 var ni = grid.idx(cur_layer, nx, ny)
                 if grid.occ_other_at_idx(ni, net_id) != UInt16(0):
-                    i += 1
-                    continue
+                    if not ncr_allow_overlaps:
+                        i += 1
+                        continue
                 var spacing_penalty = UInt32(0)
-                if enforce_spacing:
-                    if enforce_touch:
-                        if grid.touch_track_other_at_idx(ni, net_id) != UInt16(0):
+                if enforce_touch:
+                    if (
+                        grid.touch_track_other_at_idx(ni, net_id) != UInt16(0)
+                        or grid.touch_via_other_at_idx(ni, net_id) != UInt16(0)
+                    ):
+                        if not ncr_allow_overlaps:
                             i += 1
                             continue
+                if enforce_spacing:
                     if not ncr_allow_overlaps:
-                        if grid.ko_track_other_at_idx(ni, net_id) != UInt16(0):
+                        if (
+                            grid.ko_track_other_at_idx(ni, net_id) != UInt16(0)
+                            or grid.ko_via_other_at_idx(ni, net_id) != UInt16(0)
+                        ):
                             i += 1
                             continue
                     else:
                         var k = grid.ko_track_other_at_idx(ni, net_id)
+                        var t = grid.touch_track_other_at_idx(ni, net_id)
+                        if grid.touch_via_other_at_idx(ni, net_id) > t:
+                            t = grid.touch_via_other_at_idx(ni, net_id)
                         if k > spacing_present_cap:
                             k = spacing_present_cap
-                        spacing_penalty = UInt32(k) * spacing_present_cost
+                        if t > spacing_present_cap:
+                            t = spacing_present_cap
+                        spacing_penalty = UInt32(k + t) * spacing_present_cost
                 var step = UInt32(1) + layer_penalty_for_layer(
                     cur_layer,
                     grid.layers,
@@ -694,7 +961,9 @@ fn route_a_star_bounded(
                     layer_penalty_in1,
                     layer_penalty_inner,
                 )
-                var extra = grid.step_cost(ni, net_id, present_cost, history_cost, ignore_congestion)
+                var extra = grid.step_cost(
+                    ni, net_id, present_cost, history_cost, ignore_congestion
+                )
                 var ng = best_g + step + extra + spacing_penalty
                 if ng < ws.get_g(ni, inf):
                     ws.set_g(ni, ng, cur_idx)
@@ -711,27 +980,79 @@ fn route_a_star_bounded(
                     ws.heap.push(f, ng, ni)
                 i += 1
 
-        # Via transitions (adjacent layers).
+        # Via transitions (nearest allowed layers; can skip masked internal layers).
         if via_penalty > 0:
+            if (via_mask & (UInt32(1) << UInt32(cur_layer))) == UInt32(0):
+                continue
             var nl0 = cur_layer - 1
-            if nl0 >= 0 and (mask & (UInt32(1) << UInt32(nl0))) != UInt32(0):
+            while nl0 >= 0 and (via_mask & (UInt32(1) << UInt32(nl0))) == UInt32(0):
+                nl0 -= 1
+            if nl0 >= 0 and (via_mask & (UInt32(1) << UInt32(nl0))) != UInt32(0):
                 if grid.base_allows(nl0, cx, cy, net_id):
                     var ni0 = grid.idx(nl0, cx, cy)
-                    if grid.occ_other_at_idx(ni0, net_id) == UInt16(0):
+                    if (
+                        grid.occ_other_at_idx(ni0, net_id) == UInt16(0)
+                        or (ncr_allow_overlaps and (not forbid_stacked_vias))
+                    ):
                         var ok0 = True
                         var spacing_penalty0 = UInt32(0)
-                        if forbid_stacked_vias and len(existing_via_any) == xy_len and existing_via_any[xy] == net_id:
+                        var stack_ext_penalty0 = UInt32(0)
+                        if (
+                            forbid_stacked_vias
+                            and len(existing_via_any) == xy_len
+                            and existing_via_any[xy] == net_id
+                        ):
                             var bi0 = nl0 * xy_len + xy
-                            if not (len(existing_via_seg) == seg_len and bi0 >= 0 and bi0 < len(existing_via_seg) and existing_via_seg[bi0] == net_id):
-                                ok0 = False
+                            var seg_ok = (
+                                len(existing_via_seg) == seg_len
+                                and bi0 >= 0
+                                and bi0 < len(existing_via_seg)
+                                and existing_via_seg[bi0] == net_id
+                            )
+                            if not seg_ok:
+                                var ext_ok = False
+                                if len(existing_via_seg) == seg_len:
+                                    var bi_dn = bi0 - xy_len
+                                    var bi_up = bi0 + xy_len
+                                    if bi_dn >= 0 and bi_dn < len(existing_via_seg) and existing_via_seg[bi_dn] == net_id:
+                                        ext_ok = True
+                                    if bi_up >= 0 and bi_up < len(existing_via_seg) and existing_via_seg[bi_up] == net_id:
+                                        ext_ok = True
+                                if not ext_ok:
+                                    ok0 = False
+                                else:
+                                    stack_ext_penalty0 = via_penalty * UInt32(4)
+                        if (
+                            forbid_stacked_vias
+                            and len(existing_via_any) == xy_len
+                            and existing_via_any[xy] != UInt32(0)
+                            and existing_via_any[xy] != net_id
+                        ):
+                            ok0 = False
+                        var idx0 = grid.idx(cur_layer, cx, cy)
+                        var idx1 = ni0
+                        if enforce_touch:
+                            var tv0 = grid.touch_via_other_at_idx(idx0, net_id)
+                            var tv1 = grid.touch_via_other_at_idx(idx1, net_id)
+                            var tt0 = grid.touch_track_other_at_idx(idx0, net_id)
+                            var tt1 = grid.touch_track_other_at_idx(idx1, net_id)
+                            if tv0 != UInt16(0) or tv1 != UInt16(0) or tt0 != UInt16(0) or tt1 != UInt16(0):
+                                if (not ncr_allow_overlaps) or forbid_stacked_vias:
+                                    ok0 = False
+                                elif not enforce_spacing:
+                                    var t0 = tv0
+                                    var t1 = tv1
+                                    if tt0 > t0:
+                                        t0 = tt0
+                                    if tt1 > t1:
+                                        t1 = tt1
+                                    var t = t0
+                                    if t1 > t:
+                                        t = t1
+                                    if t > UInt16(spacing_present_cap):
+                                        t = UInt16(spacing_present_cap)
+                                    spacing_penalty0 = UInt32(t) * spacing_present_cost
                         if enforce_spacing:
-                            var idx0 = grid.idx(cur_layer, cx, cy)
-                            var idx1 = ni0
-                            if enforce_touch and (
-                                grid.touch_via_other_at_idx(idx0, net_id) != UInt16(0)
-                                or grid.touch_via_other_at_idx(idx1, net_id) != UInt16(0)
-                            ):
-                                ok0 = False
                             if ok0:
                                 var using_existing0 = (
                                     grid.via_usage[idx0] != UInt16(0)
@@ -747,14 +1068,52 @@ fn route_a_star_bounded(
                                 if not ncr_allow_overlaps:
                                     if k0 != UInt16(0) or k1 != UInt16(0):
                                         ok0 = False
+                                    if (
+                                        grid.ko_track_other_at_idx(idx0, net_id)
+                                        != UInt16(0)
+                                        or grid.ko_track_other_at_idx(idx1, net_id)
+                                        != UInt16(0)
+                                    ):
+                                        ok0 = False
                                 else:
-                                    var k = UInt32(k0) + UInt32(k1)
-                                    if k > UInt32(spacing_present_cap):
-                                        k = UInt32(spacing_present_cap)
-                                    spacing_penalty0 = k * spacing_present_cost
+                                    if forbid_stacked_vias:
+                                        if (
+                                            k0 != UInt16(0)
+                                            or k1 != UInt16(0)
+                                            or grid.ko_track_other_at_idx(idx0, net_id) != UInt16(0)
+                                            or grid.ko_track_other_at_idx(idx1, net_id) != UInt16(0)
+                                        ):
+                                            ok0 = False
+                                    else:
+                                        var k = UInt32(k0) + UInt32(k1)
+                                        if k > UInt32(spacing_present_cap):
+                                            k = UInt32(spacing_present_cap)
+                                        var t = UInt32(0)
+                                        var tv0 = grid.touch_via_other_at_idx(idx0, net_id)
+                                        var tv1 = grid.touch_via_other_at_idx(idx1, net_id)
+                                        var tt0 = grid.touch_track_other_at_idx(idx0, net_id)
+                                        var tt1 = grid.touch_track_other_at_idx(idx1, net_id)
+                                        if tv0 < tt0:
+                                            tv0 = tt0
+                                        if tv1 < tt1:
+                                            tv1 = tt1
+                                        if tv0 > tv1:
+                                            t = UInt32(tv0)
+                                        else:
+                                            t = UInt32(tv1)
+                                        if t > UInt32(spacing_present_cap):
+                                            t = UInt32(spacing_present_cap)
+                                        spacing_penalty0 = (k + t) * spacing_present_cost
                         if ok0:
-                            var extra0 = grid.step_cost(ni0, net_id, present_cost, history_cost, ignore_congestion)
+                            var extra0 = grid.step_cost(
+                                ni0,
+                                net_id,
+                                present_cost,
+                                history_cost,
+                                ignore_congestion,
+                            )
                             var ng0 = best_g + via_penalty + extra0 + spacing_penalty0
+                            ng0 = ng0 + stack_ext_penalty0
                             if ng0 < ws.get_g(ni0, inf):
                                 ws.set_g(ni0, ng0, cur_idx)
                                 var h0 = heuristic_idx(
@@ -766,27 +1125,79 @@ fn route_a_star_bounded(
                                     grid.height,
                                     via_penalty,
                                 )
-                                var f0 = ng0 + UInt32((UInt64(h0) * UInt64(w)) // UInt64(100))
+                                var f0 = ng0 + UInt32(
+                                    (UInt64(h0) * UInt64(w)) // UInt64(100)
+                                )
                                 ws.heap.push(f0, ng0, ni0)
             var nl1 = cur_layer + 1
-            if nl1 < grid.layers and (mask & (UInt32(1) << UInt32(nl1))) != UInt32(0):
+            while nl1 < grid.layers and (via_mask & (UInt32(1) << UInt32(nl1))) == UInt32(0):
+                nl1 += 1
+            if nl1 < grid.layers and (via_mask & (UInt32(1) << UInt32(nl1))) != UInt32(0):
                 if grid.base_allows(nl1, cx, cy, net_id):
                     var ni1 = grid.idx(nl1, cx, cy)
-                    if grid.occ_other_at_idx(ni1, net_id) == UInt16(0):
+                    if (
+                        grid.occ_other_at_idx(ni1, net_id) == UInt16(0)
+                        or (ncr_allow_overlaps and (not forbid_stacked_vias))
+                    ):
                         var ok1 = True
                         var spacing_penalty1 = UInt32(0)
-                        if forbid_stacked_vias and len(existing_via_any) == xy_len and existing_via_any[xy] == net_id:
+                        var stack_ext_penalty1 = UInt32(0)
+                        if (
+                            forbid_stacked_vias
+                            and len(existing_via_any) == xy_len
+                            and existing_via_any[xy] == net_id
+                        ):
                             var bi1 = cur_layer * xy_len + xy
-                            if not (len(existing_via_seg) == seg_len and bi1 >= 0 and bi1 < len(existing_via_seg) and existing_via_seg[bi1] == net_id):
-                                ok1 = False
+                            var seg_ok = (
+                                len(existing_via_seg) == seg_len
+                                and bi1 >= 0
+                                and bi1 < len(existing_via_seg)
+                                and existing_via_seg[bi1] == net_id
+                            )
+                            if not seg_ok:
+                                var ext_ok = False
+                                if len(existing_via_seg) == seg_len:
+                                    var bi_dn = bi1 - xy_len
+                                    var bi_up = bi1 + xy_len
+                                    if bi_dn >= 0 and bi_dn < len(existing_via_seg) and existing_via_seg[bi_dn] == net_id:
+                                        ext_ok = True
+                                    if bi_up >= 0 and bi_up < len(existing_via_seg) and existing_via_seg[bi_up] == net_id:
+                                        ext_ok = True
+                                if not ext_ok:
+                                    ok1 = False
+                                else:
+                                    stack_ext_penalty1 = via_penalty * UInt32(4)
+                        if (
+                            forbid_stacked_vias
+                            and len(existing_via_any) == xy_len
+                            and existing_via_any[xy] != UInt32(0)
+                            and existing_via_any[xy] != net_id
+                        ):
+                            ok1 = False
+                        var idx0 = grid.idx(cur_layer, cx, cy)
+                        var idx1 = ni1
+                        if enforce_touch:
+                            var tv0 = grid.touch_via_other_at_idx(idx0, net_id)
+                            var tv1 = grid.touch_via_other_at_idx(idx1, net_id)
+                            var tt0 = grid.touch_track_other_at_idx(idx0, net_id)
+                            var tt1 = grid.touch_track_other_at_idx(idx1, net_id)
+                            if tv0 != UInt16(0) or tv1 != UInt16(0) or tt0 != UInt16(0) or tt1 != UInt16(0):
+                                if (not ncr_allow_overlaps) or forbid_stacked_vias:
+                                    ok1 = False
+                                elif not enforce_spacing:
+                                    var t0 = tv0
+                                    var t1 = tv1
+                                    if tt0 > t0:
+                                        t0 = tt0
+                                    if tt1 > t1:
+                                        t1 = tt1
+                                    var t = t0
+                                    if t1 > t:
+                                        t = t1
+                                    if t > UInt16(spacing_present_cap):
+                                        t = UInt16(spacing_present_cap)
+                                    spacing_penalty1 = UInt32(t) * spacing_present_cost
                         if enforce_spacing:
-                            var idx0 = grid.idx(cur_layer, cx, cy)
-                            var idx1 = ni1
-                            if enforce_touch and (
-                                grid.touch_via_other_at_idx(idx0, net_id) != UInt16(0)
-                                or grid.touch_via_other_at_idx(idx1, net_id) != UInt16(0)
-                            ):
-                                ok1 = False
                             if ok1:
                                 var using_existing1 = (
                                     grid.via_usage[idx0] != UInt16(0)
@@ -802,14 +1213,52 @@ fn route_a_star_bounded(
                                 if not ncr_allow_overlaps:
                                     if k0 != UInt16(0) or k1 != UInt16(0):
                                         ok1 = False
+                                    if (
+                                        grid.ko_track_other_at_idx(idx0, net_id)
+                                        != UInt16(0)
+                                        or grid.ko_track_other_at_idx(idx1, net_id)
+                                        != UInt16(0)
+                                    ):
+                                        ok1 = False
                                 else:
-                                    var k = UInt32(k0) + UInt32(k1)
-                                    if k > UInt32(spacing_present_cap):
-                                        k = UInt32(spacing_present_cap)
-                                    spacing_penalty1 = k * spacing_present_cost
+                                    if forbid_stacked_vias:
+                                        if (
+                                            k0 != UInt16(0)
+                                            or k1 != UInt16(0)
+                                            or grid.ko_track_other_at_idx(idx0, net_id) != UInt16(0)
+                                            or grid.ko_track_other_at_idx(idx1, net_id) != UInt16(0)
+                                        ):
+                                            ok1 = False
+                                    else:
+                                        var k = UInt32(k0) + UInt32(k1)
+                                        if k > UInt32(spacing_present_cap):
+                                            k = UInt32(spacing_present_cap)
+                                        var t = UInt32(0)
+                                        var tv0 = grid.touch_via_other_at_idx(idx0, net_id)
+                                        var tv1 = grid.touch_via_other_at_idx(idx1, net_id)
+                                        var tt0 = grid.touch_track_other_at_idx(idx0, net_id)
+                                        var tt1 = grid.touch_track_other_at_idx(idx1, net_id)
+                                        if tv0 < tt0:
+                                            tv0 = tt0
+                                        if tv1 < tt1:
+                                            tv1 = tt1
+                                        if tv0 > tv1:
+                                            t = UInt32(tv0)
+                                        else:
+                                            t = UInt32(tv1)
+                                        if t > UInt32(spacing_present_cap):
+                                            t = UInt32(spacing_present_cap)
+                                        spacing_penalty1 = (k + t) * spacing_present_cost
                         if ok1:
-                            var extra1 = grid.step_cost(ni1, net_id, present_cost, history_cost, ignore_congestion)
+                            var extra1 = grid.step_cost(
+                                ni1,
+                                net_id,
+                                present_cost,
+                                history_cost,
+                                ignore_congestion,
+                            )
                             var ng1 = best_g + via_penalty + extra1 + spacing_penalty1
+                            ng1 = ng1 + stack_ext_penalty1
                             if ng1 < ws.get_g(ni1, inf):
                                 ws.set_g(ni1, ng1, cur_idx)
                                 var h1 = heuristic_idx(
@@ -821,6 +1270,8 @@ fn route_a_star_bounded(
                                     grid.height,
                                     via_penalty,
                                 )
-                                var f1 = ng1 + UInt32((UInt64(h1) * UInt64(w)) // UInt64(100))
+                                var f1 = ng1 + UInt32(
+                                    (UInt64(h1) * UInt64(w)) // UInt64(100)
+                                )
                                 ws.heap.push(f1, ng1, ni1)
     return List[Int]()

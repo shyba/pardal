@@ -1,0 +1,21 @@
+{
+  "width": 40,
+  "height": 20,
+  "layers": 1,
+  "net_id": 7,
+  "allowed_mask": 1,
+  "start": { "layer": 0, "x": 2, "y": 10 },
+  "goal": { "layer": 0, "x": 37, "y": 10 },
+  "blocked_rects": [
+    { "layer": 0, "x0": 8, "y0": 0, "x1": 32, "y1": 9 },
+    { "layer": 0, "x0": 8, "y0": 11, "x1": 32, "y1": 20 }
+  ],
+  "diagonal": true,
+  "via_penalty": 40,
+  "layer_penalty_outer": 0,
+  "layer_penalty_in1": 0,
+  "layer_penalty_inner": 0,
+  "margin": 200,
+  "astar_max_expansions": 0,
+  "heuristic_weight_pct": 100
+}

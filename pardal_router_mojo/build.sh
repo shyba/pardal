@@ -7,5 +7,5 @@ OUT_DIR="${OUT_DIR:-$ROOT/build}"
 OUT_BIN="${OUT_BIN:-$OUT_DIR/pardal-router-mojo}"
 
 mkdir -p "$OUT_DIR"
+cd "$ROOT"
 exec "$PIXI" run mojo build -o "$OUT_BIN" "$ROOT/main.mojo"
-

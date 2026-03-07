@@ -18,9 +18,9 @@ def test_check_circle_segment_clearance():
 
 def test_check_segment_clearance_simple():
     var idx = SpatialSegmentIndex(origin_x=0.0, origin_y=0.0, cols=20, rows=20, cell_size=1.0)
-    _ = idx.add_segment(Segment(Vec2(0.0, 0.0), Vec2(10.0, 0.0)), UInt32(1), 0.2)  # id 0
-    _ = idx.add_segment(Segment(Vec2(0.0, 2.0), Vec2(10.0, 2.0)), UInt32(2), 0.2)  # id 1
-    _ = idx.add_segment(Segment(Vec2(0.0, 0.2), Vec2(10.0, 0.2)), UInt32(3), 0.2)  # id 2
+    _ = idx.add_segment(Segment(Vec2(0.0, 0.0), Vec2(10.0, 0.0)), layer_id=0, net_id=UInt32(1), width_mm=0.2)  # id 0
+    _ = idx.add_segment(Segment(Vec2(0.0, 2.0), Vec2(10.0, 2.0)), layer_id=0, net_id=UInt32(2), width_mm=0.2)  # id 1
+    _ = idx.add_segment(Segment(Vec2(0.0, 0.2), Vec2(10.0, 0.2)), layer_id=0, net_id=UInt32(3), width_mm=0.2)  # id 2
 
     # Segment 2 is within 0.5mm of segment 0 -> violation; segment 1 is not.
     var viol = check_segment_clearance(index=idx, seg=idx.segs[2], clearance=0.5, self_id=2)

@@ -40,6 +40,39 @@ def _run(cmd: list[str], *, cwd: Path | None = None) -> None:
         raise
 
 
+def _copy_kicad_sidecars(src_pcb: Path, dst_pcb: Path) -> None:
+    """Copy matching .kicad_pro/.kicad_prl files if present."""
+    exts = (".kicad_pro", ".kicad_prl")
+    for ext in exts:
+        src = src_pcb.with_suffix(ext)
+        dst = dst_pcb.with_suffix(ext)
+        if src.exists():
+            shutil.copyfile(src, dst)
+
+
+def _apply_supports_clear_nets(*, repo_root: Path, image: str) -> bool:
+    """Check whether apply_routes_pcbnew.py supports clear-net arguments."""
+    cmd = [
+        "docker",
+        "run",
+        "--rm",
+        "-v",
+        f"{repo_root}:/work",
+        "-w",
+        "/work",
+        image,
+        "python3",
+        "pardal-pcb/pcb_tool/tools/apply_routes_pcbnew.py",
+        "--help",
+    ]
+    try:
+        res = subprocess.run(cmd, check=True, capture_output=True, text=True)
+    except Exception:
+        return False
+    txt = (res.stdout or "") + "\n" + (res.stderr or "")
+    return "--clear-nets-file" in txt
+
+
 def _kicad_drc_json(*, repo_root: Path, in_pcb: Path, out_json: Path, image: str) -> dict:
     out_json.parent.mkdir(parents=True, exist_ok=True)
     _run(
@@ -63,6 +96,63 @@ def _kicad_drc_json(*, repo_root: Path, in_pcb: Path, out_json: Path, image: str
         ]
     )
     return json.loads(out_json.read_text(encoding="utf-8", errors="replace"))
+
+
+def _drc_sort_key(drc: dict) -> tuple[int, int, tuple[tuple[str, int], ...]]:
+    # KiCad may omit list payloads on failures; treat unknowns as very bad for ordering.
+    bad = 10**9
+    viol_n, unconn_n = _drc_counts(drc)
+    type_counts = _drc_type_counts(drc)
+    return (
+        int(viol_n if viol_n >= 0 else bad),
+        int(unconn_n if unconn_n >= 0 else bad),
+        tuple(sorted((str(k), int(v)) for k, v in type_counts.items())),
+    )
+
+
+def _median_drc(drc_samples: list[dict]) -> dict:
+    if not drc_samples:
+        return {}
+    ordered = sorted(drc_samples, key=_drc_sort_key)
+    return ordered[len(ordered) // 2]
+
+
+def _kicad_drc_json_median(
+    *,
+    repo_root: Path,
+    in_pcb: Path,
+    out_json: Path,
+    image: str,
+    samples: int,
+) -> dict:
+    n = max(1, int(samples))
+    if n == 1:
+        return _kicad_drc_json(repo_root=repo_root, in_pcb=in_pcb, out_json=out_json, image=image)
+
+    out_json.parent.mkdir(parents=True, exist_ok=True)
+    drc_samples: list[dict] = []
+    sample_meta: list[dict] = []
+    for i in range(n):
+        sample_out = out_json.with_name(f"{out_json.stem}.sample{i+1}{out_json.suffix}")
+        d = _kicad_drc_json(repo_root=repo_root, in_pcb=in_pcb, out_json=sample_out, image=image)
+        drc_samples.append(d)
+        viol_n, unconn_n = _drc_counts(d)
+        sample_meta.append(
+            {
+                "sample": i + 1,
+                "violations": viol_n,
+                "unconnected": unconn_n,
+                "types": _drc_type_counts(d),
+            }
+        )
+
+    median = _median_drc(drc_samples)
+    out_json.write_text(json.dumps(median, indent=2, sort_keys=True), encoding="utf-8")
+    out_json.with_name(f"{out_json.stem}.samples.json").write_text(
+        json.dumps(sample_meta, indent=2, sort_keys=True), encoding="utf-8"
+    )
+    return median
+
 
 def _drc_counts(drc: dict) -> tuple[int, int]:
     violations = drc.get("violations")
@@ -331,6 +421,45 @@ def _nets_from_drc(drc: dict) -> set[str]:
     return nets
 
 
+def _nets_from_unconnected(drc: dict) -> set[str]:
+    nets: set[str] = set()
+    for it in drc.get("unconnected_items") or []:
+        descs = [str(it.get("description") or "")]
+        for sub in it.get("items") or []:
+            descs.append(str(sub.get("description") or ""))
+        for desc in descs:
+            for m2 in _BRACKET_NET_RE.finditer(desc):
+                tok = m2.group(1).strip()
+                if tok:
+                    nets.add(tok)
+            for m3 in _WORD_NET_RE.finditer(desc):
+                tok = m3.group(1).strip()
+                if tok:
+                    nets.add(tok)
+    return nets
+
+
+def _unconnected_net_hist(drc: dict) -> dict[str, int]:
+    hist: dict[str, int] = {}
+    for it in drc.get("unconnected_items") or []:
+        descs = [str(it.get("description") or "")]
+        for sub in it.get("items") or []:
+            descs.append(str(sub.get("description") or ""))
+        local: set[str] = set()
+        for desc in descs:
+            for m2 in _BRACKET_NET_RE.finditer(desc):
+                tok = m2.group(1).strip()
+                if tok:
+                    local.add(tok)
+            for m3 in _WORD_NET_RE.finditer(desc):
+                tok = m3.group(1).strip()
+                if tok:
+                    local.add(tok)
+        for n in local:
+            hist[n] = hist.get(n, 0) + 1
+    return hist
+
+
 def _nets_from_violation(v: dict) -> set[str]:
     nets: set[str] = set()
     desc = str(v.get("description") or "")
@@ -351,6 +480,28 @@ def _nets_from_violation(v: dict) -> set[str]:
             if tok:
                 nets.add(tok)
     return nets
+
+
+def _violation_net_hist(drc: dict, *, types: set[str] | None = None) -> dict[str, int]:
+    hist: dict[str, int] = {}
+    for v in drc.get("violations") or []:
+        vtype = str(v.get("type") or "")
+        if types is not None and vtype not in types:
+            continue
+        for n in _nets_from_violation(v):
+            if not n or n == "<no net>":
+                continue
+            hist[n] = hist.get(n, 0) + 1
+    return hist
+
+
+def _types_non_regressed(*, before: dict[str, int], after: dict[str, int], no_regress_types: set[str]) -> bool:
+    if not no_regress_types:
+        return True
+    for t in no_regress_types:
+        if int(after.get(t, 0)) > int(before.get(t, 0)):
+            return False
+    return True
 
 
 def _pick_violation_for_chunk(drc: dict, *, chunk_nets: set[str], types: set[str] | None) -> dict | None:
@@ -559,6 +710,18 @@ def main() -> int:
         help="Allow total violation count to increase by at most this amount when pass3 achieves the accept-types improvement.",
     )
     ap.add_argument(
+        "--pass3-no-regress-types",
+        type=str,
+        default="shorting_items,hole_clearance",
+        help="Comma-separated violation types that are not allowed to increase in accepted pass3 candidates.",
+    )
+    ap.add_argument(
+        "--pass3-drc-samples",
+        type=int,
+        default=3,
+        help="Number of KiCad DRC runs used for pass3 accept/regression decisions; median sample is used.",
+    )
+    ap.add_argument(
         "--pass3-clear-nets",
         action="store_true",
         help="Before applying pass3 chunk routes, clear existing tracks (not vias) for the chunk net set.",
@@ -580,6 +743,12 @@ def main() -> int:
         _run([str(repo_root / "pardal-pcb" / "pardal_router_mojo" / "build.sh")], cwd=repo_root / "pardal-pcb" / "pardal_router_mojo")
     if not router_bin.exists():
         raise SystemExit(f"Missing router binary: {router_bin}")
+
+    supports_apply_clear = _apply_supports_clear_nets(repo_root=repo_root, image=args.kicad_image)
+    clear_pass2_nets = bool(args.clear_pass2_nets and supports_apply_clear)
+    clear_pass3_nets = bool(args.pass3_clear_nets and supports_apply_clear)
+    if (args.clear_pass2_nets or args.pass3_clear_nets) and not supports_apply_clear:
+        print("warning: apply_routes_pcbnew.py has no --clear-nets-file support; disabling clear-nets options")
 
     pcb1 = out_dir / "pass1.kicad_pcb"
     prob1 = out_dir / "pass1.problem.json"
@@ -636,6 +805,10 @@ def main() -> int:
                 failed_nets.add(n2)
                 if len(failed_nets) >= int(args.pass2_max_nets):
                     break
+        # Enforce an absolute cap after all expansion sources are merged. Without this,
+        # a large initial failed set can ignore the cap and create very long chunk loops.
+        if int(args.pass2_max_nets) > 0 and len(failed_nets) > int(args.pass2_max_nets):
+            failed_nets = set(sorted(failed_nets)[: int(args.pass2_max_nets)])
     else:
         # Start from an already-routed board (typically the output of a prior run).
         pcb1 = args.start_pcb
@@ -698,7 +871,7 @@ def main() -> int:
             nets_file2.write_text("\n".join(sorted(selected)) + "\n", encoding="utf-8")
 
             clear_file = None
-            if args.clear_pass2_nets:
+            if clear_pass2_nets:
                 clear_file = chunk_dir / "clear_nets.txt"
                 clear_file.write_text(nets_file2.read_text(encoding="utf-8", errors="replace"), encoding="utf-8")
 
@@ -772,19 +945,34 @@ def main() -> int:
         round_idx += 1
 
     # Final output for compatibility with earlier runs.
-    shutil.copyfile(current_pcb, out_dir / "pass2.kicad_pcb")
-    # The project files (.kicad_pro/.kicad_prl) are already copied per-apply.
+    pass2_out = out_dir / "pass2.kicad_pcb"
+    shutil.copyfile(current_pcb, pass2_out)
+    _copy_kicad_sidecars(current_pcb, pass2_out)
     (out_dir / "pass2.drc.json").write_text(json.dumps(current_drc, indent=2, sort_keys=True), encoding="utf-8")
 
     # Pass 3: cleanup. Reroute nets mentioned in DRC and accept only if DRC improves.
     if args.cfg_pass3 is not None and int(args.pass3_rounds) > 0:
+        pass3_drc_samples = max(1, int(args.pass3_drc_samples))
         pass3_round = 0
         while pass3_round < int(args.pass3_rounds):
             round_dir = out_dir / f"pass3_round{pass3_round+1}"
             round_dir.mkdir(parents=True, exist_ok=True)
+            # Re-sample baseline each round to dampen KiCad DRC jitter before acceptance logic.
+            current_drc = _kicad_drc_json_median(
+                repo_root=repo_root,
+                in_pcb=current_pcb,
+                out_json=(round_dir / "round_start.drc.json"),
+                image=args.kicad_image,
+                samples=pass3_drc_samples,
+            )
+            round_start_pcb = current_pcb
+            round_start_drc = current_drc
             viol0, unconn0 = _drc_counts(current_drc)
             type0 = _drc_type_counts(current_drc)
+            round_start_viol, round_start_unconn = viol0, unconn0
+            round_start_type = dict(type0)
             accept_types = {t.strip() for t in str(args.pass3_accept_types).split(",") if t.strip()}
+            no_regress_types = {t.strip() for t in str(args.pass3_no_regress_types).split(",") if t.strip()}
 
             chunks: list[list[str]] = []
             if args.pass3_mode == "violations":
@@ -803,7 +991,21 @@ def main() -> int:
                 drc_nets = sorted(_nets_from_drc(current_drc))
                 if not drc_nets:
                     break
-                drc_nets = drc_nets[: int(args.pass3_max_nets)]
+                # Rank nets by DRC contribution instead of alphabetical order.
+                rank_types = {t.strip() for t in str(args.pass3_focus_types).split(",") if t.strip()}
+                net_hist = _violation_net_hist(current_drc, types=rank_types if rank_types else None)
+                unconnected_hist = _unconnected_net_hist(current_drc)
+
+                def _score(n: str) -> tuple[int, int, str]:
+                    # Primary: nets mentioned in unconnected-items.
+                    # Secondary: nets with more violation mentions.
+                    return (
+                        -int(unconnected_hist.get(n, 0)),
+                        -int(net_hist.get(n, 0)),
+                        n,
+                    )
+
+                drc_nets = sorted(drc_nets, key=_score)[: int(args.pass3_max_nets)]
                 chunks = [
                     drc_nets[i : i + int(args.pass3_chunk_size)]
                     for i in range(0, len(drc_nets), int(args.pass3_chunk_size))
@@ -906,17 +1108,25 @@ def main() -> int:
                         out_pcb=pcb3,
                         routes_json=routes3,
                         image=args.kicad_image,
-                        clear_nets_file=(nets_file3 if args.pass3_clear_nets else None),
+                        clear_nets_file=(nets_file3 if clear_pass3_nets else None),
                     )
 
-                    cand_drc = _kicad_drc_json(repo_root=repo_root, in_pcb=pcb3, out_json=drc3, image=args.kicad_image)
+                    cand_drc = _kicad_drc_json_median(
+                        repo_root=repo_root,
+                        in_pcb=pcb3,
+                        out_json=drc3,
+                        image=args.kicad_image,
+                        samples=pass3_drc_samples,
+                    )
                     cand_viol, cand_unconn = _drc_counts(cand_drc)
                     type1 = _drc_type_counts(cand_drc)
 
                     accept = True
-                    if b_unconn0 >= 0 and cand_unconn >= 0 and cand_unconn > b_unconn0:
+                    if not _types_non_regressed(before=b_type0, after=type1, no_regress_types=no_regress_types):
                         accept = False
-                    else:
+                    if accept and b_unconn0 >= 0 and cand_unconn >= 0 and cand_unconn > b_unconn0:
+                        accept = False
+                    if accept:
                         if b_unconn0 >= 0 and cand_unconn >= 0 and cand_unconn < b_unconn0:
                             if b_viol0 >= 0 and cand_viol >= 0 and cand_viol > b_viol0 + int(args.pass3_bundle_accept_eps):
                                 accept = False
@@ -953,16 +1163,25 @@ def main() -> int:
 
                     bundle_no += 1
 
-                current_drc = _kicad_drc_json(
+                current_drc = _kicad_drc_json_median(
                     repo_root=repo_root,
                     in_pcb=current_pcb,
                     out_json=(round_dir / "round.drc.json"),
                     image=args.kicad_image,
+                    samples=pass3_drc_samples,
                 )
                 viol1, unconn1 = _drc_counts(current_drc)
-                if viol0 >= 0 and viol1 >= 0 and viol1 >= viol0:
-                    break
-                if unconn0 >= 0 and unconn1 >= 0 and unconn1 > unconn0:
+                type_round = _drc_type_counts(current_drc)
+                regress = False
+                if not _types_non_regressed(before=round_start_type, after=type_round, no_regress_types=no_regress_types):
+                    regress = True
+                if round_start_viol >= 0 and viol1 >= 0 and viol1 > round_start_viol:
+                    regress = True
+                if round_start_unconn >= 0 and unconn1 >= 0 and unconn1 > round_start_unconn:
+                    regress = True
+                if regress:
+                    current_pcb = round_start_pcb
+                    current_drc = round_start_drc
                     break
                 pass3_round += 1
                 continue
@@ -1063,7 +1282,7 @@ def main() -> int:
                     out_pcb=pcb3,
                     routes_json=routes3,
                     image=args.kicad_image,
-                    clear_nets_file=(nets_file3 if args.pass3_clear_nets else None),
+                    clear_nets_file=(nets_file3 if clear_pass3_nets else None),
                 )
 
                 # Apply candidate without immediate DRC evaluation when bundling.
@@ -1073,14 +1292,22 @@ def main() -> int:
 
                 do_eval = bool(args.pass3_eval_drc) and (bundle_idx >= bundle_size or chunk_idx >= len(chunks))
                 if do_eval:
-                    cand_drc = _kicad_drc_json(repo_root=repo_root, in_pcb=current_pcb, out_json=drc3, image=args.kicad_image)
+                    cand_drc = _kicad_drc_json_median(
+                        repo_root=repo_root,
+                        in_pcb=current_pcb,
+                        out_json=drc3,
+                        image=args.kicad_image,
+                        samples=pass3_drc_samples,
+                    )
                     cand_viol, cand_unconn = _drc_counts(cand_drc)
                     type1 = _drc_type_counts(cand_drc)
 
                     accept = True
-                    if b_unconn0 >= 0 and cand_unconn >= 0 and cand_unconn > b_unconn0:
+                    if not _types_non_regressed(before=b_type0, after=type1, no_regress_types=no_regress_types):
                         accept = False
-                    else:
+                    if accept and b_unconn0 >= 0 and cand_unconn >= 0 and cand_unconn > b_unconn0:
+                        accept = False
+                    if accept:
                         # If connectivity improves, allow small violation regression.
                         if b_unconn0 >= 0 and cand_unconn >= 0 and cand_unconn < b_unconn0:
                             if b_viol0 >= 0 and cand_viol >= 0 and cand_viol > b_viol0 + int(args.pass3_bundle_accept_eps):
@@ -1119,15 +1346,31 @@ def main() -> int:
 
                     bundle_idx = 0
 
-            current_drc = _kicad_drc_json(repo_root=repo_root, in_pcb=current_pcb, out_json=(round_dir / "round.drc.json"), image=args.kicad_image)
+            current_drc = _kicad_drc_json_median(
+                repo_root=repo_root,
+                in_pcb=current_pcb,
+                out_json=(round_dir / "round.drc.json"),
+                image=args.kicad_image,
+                samples=pass3_drc_samples,
+            )
             viol1, unconn1 = _drc_counts(current_drc)
-            if viol0 >= 0 and viol1 >= 0 and viol1 >= viol0:
-                break
-            if unconn0 >= 0 and unconn1 >= 0 and unconn1 > unconn0:
+            type_round = _drc_type_counts(current_drc)
+            regress = False
+            if not _types_non_regressed(before=round_start_type, after=type_round, no_regress_types=no_regress_types):
+                regress = True
+            if round_start_viol >= 0 and viol1 >= 0 and viol1 > round_start_viol:
+                regress = True
+            if round_start_unconn >= 0 and unconn1 >= 0 and unconn1 > round_start_unconn:
+                regress = True
+            if regress:
+                current_pcb = round_start_pcb
+                current_drc = round_start_drc
                 break
             pass3_round += 1
 
-        shutil.copyfile(current_pcb, out_dir / "pass3.kicad_pcb")
+        pass3_out = out_dir / "pass3.kicad_pcb"
+        shutil.copyfile(current_pcb, pass3_out)
+        _copy_kicad_sidecars(current_pcb, pass3_out)
         (out_dir / "pass3.drc.json").write_text(json.dumps(current_drc, indent=2, sort_keys=True), encoding="utf-8")
 
     print(out_dir)

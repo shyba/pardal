@@ -42,6 +42,7 @@ examples/*.kicad_pcb
 # Parity/oracle outputs
 parity_out/
 parity_latest/
+parity_progress.txt
 parity_fixtures/**/out/
 parity_fixtures/**/work/
 parity_fixtures/baselines/
@@ -75,3 +76,8 @@ fpga_large/mojo_cfg*.json
 fpga_large/**/tmp/
 fpga_large/**/parity_out/
 fpga_large/**/parity_latest/
+
+# Local scratch outputs
+tmp_*.json
+*_drc.json
+z/

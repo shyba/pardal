@@ -11,6 +11,7 @@ Provides subcommands for PCB operations:
 """
 
 import argparse
+import subprocess
 import sys
 from pathlib import Path
 
@@ -473,16 +474,26 @@ def cmd_backend_route(args) -> int:
         print(f"Error: PCB file not found: {args.pcb}", file=sys.stderr)
         return 1
 
-    route_kicad_via_docker(
-        in_pcb=args.pcb,
-        out_pcb=args.output,
-        docker_image=str(args.docker_image),
-        resolution_mm=float(args.resolution),
-        inflate_mm=None if args.inflate is None else float(args.inflate),
-        cfg_json=args.cfg,
-        routes_json=args.routes_json,
-        problem_json=args.problem_json,
-    )
+    try:
+        route_kicad_via_docker(
+            in_pcb=args.pcb,
+            out_pcb=args.output,
+            docker_image=str(args.docker_image),
+            resolution_mm=float(args.resolution),
+            inflate_mm=None if args.inflate is None else float(args.inflate),
+            cfg_json=args.cfg,
+            routes_json=args.routes_json,
+            problem_json=args.problem_json,
+            extract_timeout_s=args.extract_timeout_s,
+            route_timeout_s=args.route_timeout_s,
+            apply_timeout_s=args.apply_timeout_s,
+        )
+    except subprocess.TimeoutExpired as e:
+        print(f"Error: backend-route timed out: {e}", file=sys.stderr)
+        return 2
+    except Exception as e:
+        print(f"Error: backend-route failed: {type(e).__name__}: {e}", file=sys.stderr)
+        return 1
     print(f"Saved routed board to {args.output}")
     return 0
 
@@ -772,6 +783,24 @@ Examples:
         default=None,
         help="Optional path to write extracted problem JSON (default: alongside output)",
     )
+    backend_route_parser.add_argument(
+        "--extract-timeout-s",
+        type=float,
+        default=None,
+        help="Timeout for pcbnew extraction step inside docker (seconds)",
+    )
+    backend_route_parser.add_argument(
+        "--route-timeout-s",
+        type=float,
+        default=None,
+        help="Timeout for backend routing step on host (seconds)",
+    )
+    backend_route_parser.add_argument(
+        "--apply-timeout-s",
+        type=float,
+        default=None,
+        help="Timeout for pcbnew apply step inside docker (seconds)",
+    )
 
     # pardal rust-route (experimental Rust backend via docker + pcbnew)
     rust_route_parser = subparsers.add_parser(
@@ -817,6 +846,24 @@ Examples:
         type=Path,
         default=None,
         help="Optional path to write extracted problem JSON (default: alongside output)",
+    )
+    rust_route_parser.add_argument(
+        "--extract-timeout-s",
+        type=float,
+        default=None,
+        help="Timeout for pcbnew extraction step inside docker (seconds)",
+    )
+    rust_route_parser.add_argument(
+        "--route-timeout-s",
+        type=float,
+        default=None,
+        help="Timeout for backend routing step on host (seconds)",
+    )
+    rust_route_parser.add_argument(
+        "--apply-timeout-s",
+        type=float,
+        default=None,
+        help="Timeout for pcbnew apply step inside docker (seconds)",
     )
 
     # pardal repl

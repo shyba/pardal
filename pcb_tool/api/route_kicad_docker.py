@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import subprocess
+import time
 import uuid
 from dataclasses import dataclass
 from pathlib import Path
@@ -83,6 +84,94 @@ def _run(cmd: list[str], *, cwd: Path) -> None:
     subprocess.run(cmd, cwd=cwd, check=True)
 
 
+def _cleanup_dangling_tracks_via_docker(
+    *,
+    docker_image: str,
+    mount_root: Path,
+    out_pcb_rel: Path,
+    max_iterations: int = 3,
+) -> None:
+    """Remove only KiCad-DRC-reported dangling track/via warnings by UUID."""
+    report_json = (_repo_root() / "build" / "mojo_kicad_drc.json").resolve()
+    report_json.parent.mkdir(parents=True, exist_ok=True)
+
+    def run_drc() -> dict:
+        subprocess.run(
+            [
+                "docker",
+                "run",
+                "--rm",
+                "-v",
+                f"{mount_root}:/work",
+                "-w",
+                "/work",
+                docker_image,
+                "kicad-cli",
+                "pcb",
+                "drc",
+                "--format",
+                "json",
+                "-o",
+                f"/work/{report_json.relative_to(mount_root).as_posix()}",
+                f"/work/{out_pcb_rel.as_posix()}",
+            ],
+            cwd=mount_root,
+            check=False,
+        )
+        return json.loads(report_json.read_text(encoding="utf-8", errors="replace"))
+
+    def dangling_uuids(report: dict) -> set[str]:
+        uuids: set[str] = set()
+        for v in report.get("violations", []):
+            if v.get("type") not in {"track_dangling", "via_dangling"}:
+                continue
+            if v.get("severity") != "warning":
+                continue
+            for item in v.get("items", []):
+                uid = item.get("uuid")
+                if uid and uid != "00000000-0000-0000-0000-000000000000":
+                    uuids.add(uid)
+        return uuids
+
+    for _ in range(max(0, int(max_iterations))):
+        report = run_drc()
+        to_remove = dangling_uuids(report)
+        if not to_remove:
+            break
+
+        subprocess.run(
+            [
+                "docker",
+                "run",
+                "--rm",
+                "-v",
+                f"{mount_root}:/work",
+                "-w",
+                "/work",
+                "-e",
+                f"PCB=/work/{out_pcb_rel.as_posix()}",
+                "-e",
+                f"REMOVE_UUIDS={','.join(sorted(to_remove))}",
+                docker_image,
+                "python3",
+                "-c",
+                "import os, pcbnew\n"
+                "pcb = os.environ['PCB']\n"
+                "remove = set(filter(None, os.environ.get('REMOVE_UUIDS', '').split(',')))\n"
+                "b = pcbnew.LoadBoard(pcb)\n"
+                "removed = 0\n"
+                "for it in list(b.GetTracks()):\n"
+                "    if it.m_Uuid.AsString() in remove:\n"
+                "        b.RemoveNative(it)\n"
+                "        removed += 1\n"
+                "b.Save(pcb)\n"
+                "print('removed', removed)\n",
+            ],
+            cwd=mount_root,
+            check=True,
+        )
+
+
 def _ensure_under_mount(
     *,
     mount_root: Path,
@@ -141,6 +230,8 @@ def route_kicad_via_docker(
     extract_timeout_s: float | None = None,
     route_timeout_s: float | None = None,
     apply_timeout_s: float | None = None,
+    cleanup_dangling_tracks: bool = True,
+    cleanup_max_iterations: int = 3,
 ) -> RouteViaDockerResult:
     """Route a KiCad PCB via: pcbnew extractor (docker) -> router (host) -> pcbnew apply (docker).
 
@@ -155,12 +246,15 @@ def route_kicad_via_docker(
     if problem_json is None:
         problem_json = out_pcb_abs.with_suffix(".problem.json")
 
+    routes_json_abs = routes_json.resolve()
+    problem_json_abs = problem_json.resolve()
+
     stage_dir, in_pcb_docker, out_pcb_docker, routes_json_docker, problem_json_docker = _ensure_under_mount(
         mount_root=mount_root,
         in_pcb_abs=in_pcb_abs,
         out_pcb_abs=out_pcb_abs,
-        routes_json_abs=routes_json.resolve(),
-        problem_json_abs=problem_json.resolve(),
+        routes_json_abs=routes_json_abs,
+        problem_json_abs=problem_json_abs,
     )
 
     try:
@@ -217,12 +311,69 @@ def route_kicad_via_docker(
     cmd = [str(router_bin), str(problem_json_docker), str(routes_json_docker)]
     if cfg_json is not None:
         cmd.append(str(cfg_json.resolve()))
-    subprocess.run(
-        cmd,
-        cwd=mount_root,
-        check=True,
-        timeout=None if route_timeout_s is None else float(route_timeout_s),
-    )
+    route_started = time.perf_counter()
+    try:
+        subprocess.run(
+            cmd,
+            cwd=mount_root,
+            check=True,
+            timeout=None if route_timeout_s is None else float(route_timeout_s),
+        )
+    except subprocess.TimeoutExpired:
+        # Budgeted runs: ensure downstream tools still have artifacts to inspect.
+        # - Write a minimal routes.json
+        # - Copy input PCB to output PCB (unrouted), so KiCad DRC can run
+        route_elapsed_s = time.perf_counter() - route_started
+        perf_mode = str(os.environ.get("PARDAL_PERF_MODE", "safe")).strip().lower()
+        if perf_mode != "fast":
+            perf_mode = "safe"
+        perf_payload = {
+            "mode": perf_mode,
+            "adaptive_time_budget": False,
+            "phase_times": {
+                "load_problem_s": 0.0,
+                "read_problem_s": 0.0,
+                "json_decode_s": 0.0,
+                "build_problem_state_s": 0.0,
+                "route_s": float(route_elapsed_s),
+                "flatten_s": 0.0,
+                "json_encode_s": 0.0,
+                "write_routes_s": 0.0,
+                "emit_s": 0.0,
+                "total_s": float(route_elapsed_s),
+            },
+            "operation_counts": {
+                "nets_total": 0,
+                "nets_failed": 1,
+                "tracks_emitted": 0,
+                "vias_emitted": 0,
+                "attempts": 0,
+                "ripup_k": 0,
+            },
+        }
+        payload = {
+            "backend": "pardal_router_mojo",
+            "problem": str(problem_json_docker),
+            "tracks": [],
+            "vias": [],
+            "failed_nets": ["__timeout__"],
+            "perf": perf_payload,
+        }
+        routes_json_docker.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+        perf_json_path = os.environ.get("PARDAL_PERF_JSON", "").strip()
+        if perf_json_path:
+            perf_json = Path(perf_json_path)
+            perf_json.parent.mkdir(parents=True, exist_ok=True)
+            perf_json.write_text(
+                json.dumps({"problem": str(problem_json_docker), "perf": perf_payload}, indent=2, sort_keys=True),
+                encoding="utf-8",
+            )
+        copy2(in_pcb_docker, out_pcb_docker)
+        if stage_dir is not None:
+            copy2(out_pcb_docker, out_pcb_abs)
+            copy2(routes_json_docker, routes_json_abs)
+            copy2(problem_json_docker, problem_json_abs)
+        return RouteViaDockerResult(routes_json=routes_json_abs, out_pcb=out_pcb_abs, problem_json=problem_json_abs)
 
     # 3) Apply routes using pcbnew in docker.
     subprocess.run(
@@ -250,6 +401,14 @@ def route_kicad_via_docker(
         check=True,
         timeout=None if apply_timeout_s is None else float(apply_timeout_s),
     )
+
+    if cleanup_dangling_tracks:
+        _cleanup_dangling_tracks_via_docker(
+            docker_image=docker_image,
+            mount_root=mount_root,
+            out_pcb_rel=out_pcb_rel,
+            max_iterations=cleanup_max_iterations,
+        )
 
     # Basic sanity check: the router records failures.
     try:

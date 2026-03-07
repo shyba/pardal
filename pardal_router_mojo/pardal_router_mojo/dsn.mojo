@@ -98,6 +98,21 @@ fn _find_all_direct_children_with_head(parent: PythonObject, head: String) raise
             out.append(child)
     return out^
 
+fn _find_all_lists_with_head(root: PythonObject, head: String) raises -> List[PythonObject]:
+    # DFS returning all lists whose head atom matches `head`.
+    var out = List[PythonObject]()
+    var stack = List[PythonObject]()
+    stack.append(root)
+    while len(stack) > 0:
+        var n = stack.pop()
+        if _is_list(n) and _len(n) > 0:
+            if _head_symbol(n) == head:
+                out.append(n)
+            for child in n:
+                if _is_list(child):
+                    stack.append(child)
+    return out^
+
 
 fn _extract_layers_from_structure(structure: PythonObject) raises -> Tuple[PythonObject, PythonObject]:
     var names = py.list()
@@ -778,13 +793,23 @@ fn parse_dsn_pin_positions_mm(src: String) raises -> PythonObject:
             var x0 = Float64(py=prec[PythonObject(String("x"))])
             var y0 = Float64(py=prec[PythonObject(String("y"))])
             var rot_deg = Float64(py=prec[PythonObject(String("rot"))])
+            var side_obj = prec[PythonObject(String("side"))]
+            var side_lower = String(py=side_obj)
+            try:
+                side_lower = String(py=side_obj.lower())
+            except:
+                side_lower = String(py=side_obj)
             var ang = Float64(py=math.radians(PythonObject(rot_deg)))
             var c = Float64(py=math.cos(PythonObject(ang)))
             var s = Float64(py=math.sin(PythonObject(ang)))
             var lx = Float64(py=dx)
             var ly = Float64(py=dy)
-            var ax = x0 + (lx * c - ly * s)
-            var ay = y0 + (lx * s + ly * c)
+            var x_local = (lx * c - ly * s)
+            var y_local = (lx * s + ly * c)
+            if side_lower == String("back"):
+                x_local = -x_local
+            var ax = x0 + x_local
+            var ay = y0 + y_local
 
             out[p] = py.tuple(
                 PythonObject(dsn_coord_to_mm(ax, unit_name, div)),
@@ -960,6 +985,73 @@ fn parse_dsn_structure_rules(src: String) raises -> PythonObject:
     rec[PythonObject(String("clearance"))] = clearance
     rec[PythonObject(String("clearance_by_type"))] = by_type
     return rec
+
+
+fn parse_dsn_keepout_circles_mm(src: String) raises -> PythonObject:
+    """Return keepout circles as a Python list of `(layer, x_mm, y_mm, r_mm)` tuples."""
+    var unit_name, div = parse_dsn_resolution(src)
+    var xs = parse_sexpr(src)
+    if _len(xs) != 1:
+        raise Error("dsn: expected 1 top-level form, got " + String(_len(xs)))
+    var top = xs[PythonObject(Int(0))]
+    var structure = _find_first_list_with_head(top, String("structure"))
+    var out = py.list()
+    var keepouts = _find_all_lists_with_head(structure, String("keepout"))
+    for ko in keepouts:
+        for child in ko:
+            if not _is_list(child) or _len(child) < 1:
+                continue
+            var h = _head_symbol(child)
+            if h == String("circ") and _len(child) >= 5:
+                var layer = child[PythonObject(Int(1))]
+                var r = _as_f64(child[PythonObject(Int(2))])
+                if r < 0.0:
+                    r = -r
+                var x = _as_f64(child[PythonObject(Int(3))])
+                var y = _as_f64(child[PythonObject(Int(4))])
+                out.append(
+                    py.tuple(
+                        layer,
+                        PythonObject(dsn_coord_to_mm(x, unit_name, div)),
+                        PythonObject(dsn_coord_to_mm(y, unit_name, div)),
+                        PythonObject(dsn_coord_to_mm(r, unit_name, div)),
+                    )
+                )
+    return out
+
+
+fn parse_dsn_keepout_polygons_mm(src: String) raises -> PythonObject:
+    """Return keepout polygons as `[(layer, [(x_mm,y_mm)...]), ...]`."""
+    var unit_name, div = parse_dsn_resolution(src)
+    var xs = parse_sexpr(src)
+    if _len(xs) != 1:
+        raise Error("dsn: expected 1 top-level form, got " + String(_len(xs)))
+    var top = xs[PythonObject(Int(0))]
+    var structure = _find_first_list_with_head(top, String("structure"))
+    var out = py.list()
+    var keepouts = _find_all_lists_with_head(structure, String("keepout"))
+    for ko in keepouts:
+        for child in ko:
+            if not _is_list(child) or _len(child) < 1:
+                continue
+            if _head_symbol(child) != String("polygon") or _len(child) < 5:
+                continue
+            var layer = child[PythonObject(Int(1))]
+            var pts = py.list()
+            var i = 3
+            while i + 1 < _len(child):
+                var x = _as_f64(child[PythonObject(Int(i))])
+                var y = _as_f64(child[PythonObject(Int(i + 1))])
+                pts.append(
+                    py.tuple(
+                        PythonObject(dsn_coord_to_mm(x, unit_name, div)),
+                        PythonObject(dsn_coord_to_mm(y, unit_name, div)),
+                    )
+                )
+                i += 2
+            if Int(py=pts.__len__()) >= 3:
+                out.append(py.tuple(layer, pts))
+    return out
 
 
 fn parse_dsn_wiring_summary(src: String) raises -> PythonObject:

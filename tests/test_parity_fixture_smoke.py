@@ -20,8 +20,11 @@ def test_parity_fixture_fpga_small_smoke(tmp_path: Path):
     tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
 
-    out_dir = tmp_path / "out"
+    out_dir = repo_root / "build" / "pytest_parity" / tmp_path.name / "fpga_small_smoke"
     out_dir.mkdir(parents=True, exist_ok=True)
+    cfg = repo_root / "fpga" / "mojo_cfg_fpga_small_overlap.json"
+    if not cfg.exists():
+        pytest.skip("mojo cfg missing")
 
     cmd = [
         str(repo_root / "venv" / "bin" / "python"),
@@ -33,8 +36,13 @@ def test_parity_fixture_fpga_small_smoke(tmp_path: Path):
         "--out-dir",
         str(out_dir),
         "--skip-freerouting",
+        "--mojo-cfg",
+        str(cfg),
         "--mojo-resolution",
         "0.2",
+        "--mojo-route-timeout-s",
+        "30",
+        "--normalize-footprint-libs",
     ]
     env = dict(os.environ)
     subprocess.run(cmd, cwd=str(repo_root), env=env, check=True)
@@ -89,7 +97,7 @@ def test_parity_fixture_fpga_large_mojo_only_smoke(tmp_path: Path):
     tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
 
-    out_dir = tmp_path / "out"
+    out_dir = repo_root / "build" / "pytest_parity" / tmp_path.name / "fpga_large_smoke"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     cfg = repo_root / "fpga_large" / "mojo_cfg_ncr_fast.json"
@@ -110,6 +118,7 @@ def test_parity_fixture_fpga_large_mojo_only_smoke(tmp_path: Path):
         str(cfg),
         "--mojo-resolution",
         "0.2",
+        "--normalize-footprint-libs",
     ]
     env = dict(os.environ)
     subprocess.run(cmd, cwd=str(repo_root), env=env, check=True, timeout=20 * 60)

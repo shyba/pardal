@@ -1,0 +1,38 @@
+[
+  {
+    "name": "issue180_core",
+    "mode": "routing_only_zero"
+  },
+  {
+    "name": "fpga_small_core",
+    "mode": "routing_only_zero"
+  },
+  {
+    "name": "issue269_power_planes_core",
+    "mode": "fr_exact_routing_only"
+  },
+  {
+    "pcb": "freerouting/tests/Issue269-min_fr_test/min_fr_test.kicad_pcb",
+    "mode": "baseline_exact"
+  },
+  {
+    "pcb": "freerouting/tests/Issue180-Test/Test.kicad_pcb",
+    "mode": "baseline_exact"
+  },
+  {
+    "pcb": "freerouting/tests/Issue269-NoViasOnPowerPlanes/Issue269-NoViasOnPowerPlanes.kicad_pcb",
+    "mode": "baseline_exact"
+  },
+  {
+    "pcb": "freerouting/tests/Issue191-processor.Z80/processor.Z80.kicad_pcb",
+    "mode": "baseline_exact"
+  },
+  {
+    "pcb": "freerouting/tests/Issue230-CNH_Functional_Tester/CNH_Functional_Tester_1.kicad_pcb",
+    "mode": "baseline_exact"
+  },
+  {
+    "pcb": "freerouting/tests/Issue269-NoWiresOnPowerLayers/proba.kicad_pcb",
+    "mode": "baseline_exact"
+  }
+]

@@ -26,6 +26,7 @@ import os
 import json
 import re
 import shutil
+import shlex
 import subprocess
 import zipfile
 from dataclasses import dataclass
@@ -58,10 +59,29 @@ class FreeroutingRunConfig:
 
     disable_analytics: bool = True
     disable_logging: bool = True
+    enable_logging: bool | None = None  # if set, overrides disable_logging
     log_level: str | int | None = None  # maps to `-ll` (requires disable_logging=False)
     router_job_timeout: str | None = None  # maps to `--router.job_timeout=HH:MM:SS`
     router_max_threads: int | None = None  # maps to `--router.max_threads=<n>`
     trace_pull_tight_accuracy: int | None = None  # maps to `--router.trace_pull_tight_accuracy=<n>`
+
+    # Optional JVM/runtime controls for instrumentation.
+    java_tmpdir_relpath: str | None = None  # mounted under /work in docker
+    capture_stdout_path: Path | None = None
+    capture_stderr_path: Path | None = None
+    jar_override: Path | None = None  # use local FR jar instead of plugin zip jar
+    jvm_props: tuple[str, ...] = ()
+
+    # Execution control:
+    #
+    # FreeRouting's `--router.job_timeout` does not always terminate the JVM in
+    # practice. We used to wrap the Java invocation with a container-level
+    # `timeout` to guarantee termination. That wrapper can prematurely kill runs
+    # and makes oracle triage confusing (you lose the distinction between
+    # "router chose to stop" vs "wrapper killed it"). For parity work we keep the
+    # wrapper opt-in and rely on the Python subprocess timeout by default.
+    enforce_container_timeout: bool = False
+    container_timeout_slack_s: int = 15
 
     # Post-processing
     cleanup_dangling_tracks: bool = True
@@ -88,12 +108,16 @@ def _run(
     cwd: Path | None = None,
     check: bool = True,
     timeout_s: float | None = None,
+    stdout=None,
+    stderr=None,
 ) -> subprocess.CompletedProcess:
     return subprocess.run(
         cmd,
         cwd=str(cwd) if cwd else None,
         check=check,
         timeout=None if timeout_s is None else float(timeout_s),
+        stdout=stdout,
+        stderr=stderr,
     )
 
 
@@ -106,6 +130,8 @@ def _docker_run(
     args: list[str],
     check: bool = True,
     timeout_s: float | None = None,
+    stdout_path: Path | None = None,
+    stderr_path: Path | None = None,
 ) -> None:
     cmd = ["docker", "run", "--rm", "--user", f"{os.getuid()}:{os.getgid()}"]
     for host_path, container_path in mounts:
@@ -116,12 +142,82 @@ def _docker_run(
             cmd.extend(["-e", f"{k}={v}"])
     cmd.append(image)
     cmd.extend(args)
-    _run(cmd, check=check, timeout_s=timeout_s)
+    stdout_handle = None
+    stderr_handle = None
+    try:
+        if stdout_path is not None:
+            stdout_path.parent.mkdir(parents=True, exist_ok=True)
+            stdout_handle = stdout_path.open("ab")
+        if stderr_path is not None:
+            stderr_path.parent.mkdir(parents=True, exist_ok=True)
+            stderr_handle = stderr_path.open("ab")
+        _run(
+            cmd,
+            check=check,
+            timeout_s=timeout_s,
+            stdout=stdout_handle,
+            stderr=stderr_handle,
+        )
+    finally:
+        if stdout_handle is not None:
+            stdout_handle.close()
+        if stderr_handle is not None:
+            stderr_handle.close()
+
+
+def _parse_hms_to_seconds(hms: str) -> int:
+    parts = hms.strip().split(":")
+    if len(parts) != 3:
+        raise ValueError(f"Expected HH:MM:SS, got {hms!r}")
+    h, m, s = (int(p) for p in parts)
+    if h < 0 or m < 0 or s < 0 or m >= 60 or s >= 60:
+        raise ValueError(f"Invalid HH:MM:SS: {hms!r}")
+    return h * 3600 + m * 60 + s
+
+
+def _resolve_optional_repo_path(repo_root: Path, maybe_path: Path | None) -> Path | None:
+    if maybe_path is None:
+        return None
+    p = Path(maybe_path)
+    if p.is_absolute():
+        return p.resolve()
+    return (repo_root / p).resolve()
+
+
+def _logging_enabled(config: FreeroutingRunConfig) -> bool:
+    if config.enable_logging is not None:
+        return bool(config.enable_logging)
+    if config.log_level is not None:
+        return True
+    return not bool(config.disable_logging)
+
+
+def _java_invocation_prefix(config: FreeroutingRunConfig, repo_root: Path) -> list[str]:
+    java_prefix: list[str] = ["java"]
+    for prop in config.jvm_props:
+        prop_text = str(prop).strip()
+        if prop_text:
+            java_prefix.append(prop_text)
+    if config.java_tmpdir_relpath:
+        rel = str(config.java_tmpdir_relpath).strip().replace("\\", "/").lstrip("/")
+        if rel:
+            tmp_host_dir = (repo_root / rel).resolve()
+            tmp_host_dir.mkdir(parents=True, exist_ok=True)
+            java_prefix.append(f"-Djava.io.tmpdir=/work/{rel}")
+    return java_prefix
 
 
 def ensure_freerouting_jar(config: FreeroutingRunConfig) -> Path:
     """Extract FreeRouting jar from the vendored KiCad plugin zip into build/."""
     repo_root = _repo_root()
+    jar_override = _resolve_optional_repo_path(repo_root, config.jar_override)
+    if jar_override is not None:
+        if not jar_override.exists():
+            raise FileNotFoundError(jar_override)
+        if jar_override.stat().st_size <= 0:
+            raise RuntimeError(f"Jar override is empty: {jar_override}")
+        return jar_override
+
     zip_path = repo_root / config.freerouting_zip_relpath
     if not zip_path.exists():
         raise FileNotFoundError(zip_path)
@@ -273,8 +369,9 @@ def freeroute_kicad_pcb(
     dsn_rel = os.path.relpath(dsn.resolve(), repo_root)
     ses_rel = os.path.relpath(ses.resolve(), repo_root)
 
+    java_prefix = _java_invocation_prefix(config, repo_root)
     fr_args: list[str] = [
-        "java",
+        *java_prefix,
         "-jar",
         f"/work/{jar_rel}",
         "-de",
@@ -287,9 +384,9 @@ def freeroute_kicad_pcb(
 
     if config.disable_analytics:
         fr_args.append("-da")
-    if config.disable_logging:
+    if not _logging_enabled(config):
         fr_args.append("-dl")
-    if config.log_level is not None:
+    elif config.log_level is not None:
         fr_args.extend(["-ll", str(config.log_level)])
 
     fr_args.extend(["-mp", str(config.max_passes)])
@@ -320,12 +417,34 @@ def freeroute_kicad_pcb(
     else:
         fr_args.append("--router.fanout.enabled=false")
 
+    java_args: list[str] = fr_args
+    docker_timeout_s: float | None = None
+    if config.router_job_timeout is not None:
+        # Always apply a python-level timeout so "job_timeout" cannot hang the harness.
+        try:
+            job_timeout_s = _parse_hms_to_seconds(config.router_job_timeout)
+        except ValueError:
+            job_timeout_s = None
+        if job_timeout_s is not None:
+            docker_timeout_s = float(job_timeout_s) + float(
+                max(0, int(config.container_timeout_slack_s))
+            )
+            if config.enforce_container_timeout:
+                java_args = [
+                    "bash",
+                    "-lc",
+                    f"timeout {int(job_timeout_s)}s {shlex.join(fr_args)}",
+                ]
+
     _docker_run(
         config.java_docker_image,
         workdir="/work",
         mounts=[(repo_root, "/work")],
         env=None,
-        args=fr_args,
+        args=java_args,
+        timeout_s=docker_timeout_s,
+        stdout_path=_resolve_optional_repo_path(repo_root, config.capture_stdout_path),
+        stderr_path=_resolve_optional_repo_path(repo_root, config.capture_stderr_path),
     )
 
     if not ses.exists():
@@ -540,8 +659,9 @@ def freeroute_dsn(
             f"output_dsn must live under the repo root for docker mounts: {output_dsn}"
         )
 
+    java_prefix = _java_invocation_prefix(config, repo_root)
     fr_args: list[str] = [
-        "java",
+        *java_prefix,
         "-jar",
         f"/work/{jar_rel}",
         "-de",
@@ -554,9 +674,9 @@ def freeroute_dsn(
 
     if config.disable_analytics:
         fr_args.append("-da")
-    if config.disable_logging:
+    if not _logging_enabled(config):
         fr_args.append("-dl")
-    if config.log_level is not None:
+    elif config.log_level is not None:
         fr_args.extend(["-ll", str(config.log_level)])
 
     fr_args.extend(["-mp", str(config.max_passes)])
@@ -592,6 +712,8 @@ def freeroute_dsn(
         mounts=[(repo_root, "/work")],
         env=None,
         args=fr_args,
+        stdout_path=_resolve_optional_repo_path(repo_root, config.capture_stdout_path),
+        stderr_path=_resolve_optional_repo_path(repo_root, config.capture_stderr_path),
     )
 
     if not output_dsn.exists():
@@ -600,7 +722,7 @@ def freeroute_dsn(
     if drc_json is not None:
         drc_rel = os.path.relpath(drc_json.resolve(), repo_root)
         drc_args: list[str] = [
-            "java",
+            *java_prefix,
             "-jar",
             f"/work/{jar_rel}",
             "-de",
@@ -613,9 +735,9 @@ def freeroute_dsn(
         ]
         if config.disable_analytics:
             drc_args.append("-da")
-        if config.disable_logging:
+        if not _logging_enabled(config):
             drc_args.append("-dl")
-        if config.log_level is not None:
+        elif config.log_level is not None:
             drc_args.extend(["-ll", str(config.log_level)])
         _docker_run(
             config.java_docker_image,
@@ -623,4 +745,6 @@ def freeroute_dsn(
             mounts=[(repo_root, "/work")],
             env=None,
             args=drc_args,
+            stdout_path=_resolve_optional_repo_path(repo_root, config.capture_stdout_path),
+            stderr_path=_resolve_optional_repo_path(repo_root, config.capture_stderr_path),
         )

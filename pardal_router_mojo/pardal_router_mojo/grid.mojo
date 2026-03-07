@@ -264,6 +264,9 @@ struct Grid:
     fn stamp_circle_base(mut self, layer: Int, cx: Int, cy: Int, r: Int, net_id: UInt32):
         if not self.in_bounds(layer, cx, cy):
             return
+        var base_id = net_id
+        if net_id == UInt32(0):
+            base_id = self.blocked_value
         var r2 = r * r
         var x0 = max(cx - r, 0)
         var x1 = min(cx + r, self.width - 1)
@@ -280,7 +283,7 @@ struct Grid:
                     var i = self.idx(layer, x, y)
                     var cur = self.base_occ[i]
                     if cur == UInt32(0) or cur == net_id:
-                        self.base_occ[i] = net_id
+                        self.base_occ[i] = base_id
                     else:
                         self.base_occ[i] = self.blocked_value
                 x += 1
@@ -290,6 +293,9 @@ struct Grid:
         var out = List[Int]()
         if not self.in_bounds(layer, cx, cy):
             return out^
+        var base_id = net_id
+        if net_id == UInt32(0):
+            base_id = self.blocked_value
         var r2 = r * r
         var x0 = max(cx - r, 0)
         var x1 = min(cx + r, self.width - 1)
@@ -306,13 +312,93 @@ struct Grid:
                     var i = self.idx(layer, x, y)
                     var cur = self.base_occ[i]
                     if cur == UInt32(0) or cur == net_id:
-                        self.base_occ[i] = net_id
+                        self.base_occ[i] = base_id
                     else:
                         self.base_occ[i] = self.blocked_value
                     out.append(i)
                 x += 1
             y += 1
         return out^
+
+    fn stamp_circle_touch_via(mut self, layer: Int, cx: Int, cy: Int, r: Int, net_id: UInt32, delta: Int):
+        if not self.in_bounds(layer, cx, cy):
+            return
+        var r2 = r * r
+        var x0 = max(cx - r, 0)
+        var x1 = min(cx + r, self.width - 1)
+        var y0 = max(cy - r, 0)
+        var y1 = min(cy + r, self.height - 1)
+        var y = y0
+        while y <= y1:
+            var dy = y - cy
+            var dy2 = dy * dy
+            var x = x0
+            while x <= x1:
+                var dx = x - cx
+                if dx * dx + dy2 <= r2:
+                    self.stamp_touch_via_at(self.idx(layer, x, y), net_id, delta)
+                x += 1
+            y += 1
+
+    fn stamp_circle_touch_track(mut self, layer: Int, cx: Int, cy: Int, r: Int, net_id: UInt32, delta: Int):
+        if not self.in_bounds(layer, cx, cy):
+            return
+        var r2 = r * r
+        var x0 = max(cx - r, 0)
+        var x1 = min(cx + r, self.width - 1)
+        var y0 = max(cy - r, 0)
+        var y1 = min(cy + r, self.height - 1)
+        var y = y0
+        while y <= y1:
+            var dy = y - cy
+            var dy2 = dy * dy
+            var x = x0
+            while x <= x1:
+                var dx = x - cx
+                if dx * dx + dy2 <= r2:
+                    self.stamp_touch_track_at(self.idx(layer, x, y), net_id, delta)
+                x += 1
+            y += 1
+
+    fn stamp_circle_ko_via(mut self, layer: Int, cx: Int, cy: Int, r: Int, net_id: UInt32, delta: Int):
+        if not self.in_bounds(layer, cx, cy):
+            return
+        var r2 = r * r
+        var x0 = max(cx - r, 0)
+        var x1 = min(cx + r, self.width - 1)
+        var y0 = max(cy - r, 0)
+        var y1 = min(cy + r, self.height - 1)
+        var y = y0
+        while y <= y1:
+            var dy = y - cy
+            var dy2 = dy * dy
+            var x = x0
+            while x <= x1:
+                var dx = x - cx
+                if dx * dx + dy2 <= r2:
+                    self.stamp_ko_via_at(self.idx(layer, x, y), net_id, delta)
+                x += 1
+            y += 1
+
+    fn stamp_circle_ko_track(mut self, layer: Int, cx: Int, cy: Int, r: Int, net_id: UInt32, delta: Int):
+        if not self.in_bounds(layer, cx, cy):
+            return
+        var r2 = r * r
+        var x0 = max(cx - r, 0)
+        var x1 = min(cx + r, self.width - 1)
+        var y0 = max(cy - r, 0)
+        var y1 = min(cy + r, self.height - 1)
+        var y = y0
+        while y <= y1:
+            var dy = y - cy
+            var dy2 = dy * dy
+            var x = x0
+            while x <= x1:
+                var dx = x - cx
+                if dx * dx + dy2 <= r2:
+                    self.stamp_ko_track_at(self.idx(layer, x, y), net_id, delta)
+                x += 1
+            y += 1
 
     fn clear_dynamic(mut self):
         for idx in self.touched:
@@ -365,6 +451,8 @@ struct Grid:
         via_indices: List[Int],
         spacing: SpacingBundle,
         delta: Int,
+        stamp_clear: Bool,
+        stamp_touch: Bool,
     ):
         var w = self.width
         var h = self.height
@@ -373,74 +461,87 @@ struct Grid:
             var layer = p.layer
             var x = p.x
             var y = p.y
-            var oi = 0
-            while oi + 1 < len(spacing.clear.track_vs_track):
-                var nx = x + spacing.clear.track_vs_track[oi]
-                var ny = y + spacing.clear.track_vs_track[oi + 1]
-                if nx < 0 or ny < 0 or nx >= w or ny >= h:
+            if stamp_clear:
+                var oi = 0
+                while oi + 1 < len(spacing.clear.track_vs_track):
+                    var nx = x + spacing.clear.track_vs_track[oi]
+                    var ny = y + spacing.clear.track_vs_track[oi + 1]
+                    if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                        oi += 2
+                        continue
+                    self.stamp_ko_track_at(self.idx(layer, nx, ny), net_id, delta)
                     oi += 2
-                    continue
-                self.stamp_ko_track_at(self.idx(layer, nx, ny), net_id, delta)
-                oi += 2
-            oi = 0
-            while oi + 1 < len(spacing.clear.track_vs_via):
-                var nx = x + spacing.clear.track_vs_via[oi]
-                var ny = y + spacing.clear.track_vs_via[oi + 1]
-                if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                oi = 0
+                while oi + 1 < len(spacing.clear.track_vs_via):
+                    var nx = x + spacing.clear.track_vs_via[oi]
+                    var ny = y + spacing.clear.track_vs_via[oi + 1]
+                    if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                        oi += 2
+                        continue
+                    self.stamp_ko_via_at(self.idx(layer, nx, ny), net_id, delta)
                     oi += 2
-                    continue
-                self.stamp_ko_via_at(self.idx(layer, nx, ny), net_id, delta)
-                oi += 2
-            oi = 0
-            while oi + 1 < len(spacing.touch.track_vs_via):
-                var nx = x + spacing.touch.track_vs_via[oi]
-                var ny = y + spacing.touch.track_vs_via[oi + 1]
-                if nx < 0 or ny < 0 or nx >= w or ny >= h:
+            if stamp_touch:
+                var oi = 0
+                while oi + 1 < len(spacing.touch.track_vs_track):
+                    var nx = x + spacing.touch.track_vs_track[oi]
+                    var ny = y + spacing.touch.track_vs_track[oi + 1]
+                    if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                        oi += 2
+                        continue
+                    self.stamp_touch_track_at(self.idx(layer, nx, ny), net_id, delta)
                     oi += 2
-                    continue
-                self.stamp_touch_via_at(self.idx(layer, nx, ny), net_id, delta)
-                oi += 2
+                oi = 0
+                while oi + 1 < len(spacing.touch.track_vs_via):
+                    var nx = x + spacing.touch.track_vs_via[oi]
+                    var ny = y + spacing.touch.track_vs_via[oi + 1]
+                    if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                        oi += 2
+                        continue
+                    self.stamp_touch_via_at(self.idx(layer, nx, ny), net_id, delta)
+                    oi += 2
         for idx in via_indices:
             var p = idx_to_coords(idx, w, h)
             var layer = p.layer
             var x = p.x
             var y = p.y
-            var oi = 0
-            while oi + 1 < len(spacing.clear.via_vs_track):
-                var nx = x + spacing.clear.via_vs_track[oi]
-                var ny = y + spacing.clear.via_vs_track[oi + 1]
-                if nx < 0 or ny < 0 or nx >= w or ny >= h:
+            if stamp_clear:
+                var oi = 0
+                while oi + 1 < len(spacing.clear.via_vs_track):
+                    var nx = x + spacing.clear.via_vs_track[oi]
+                    var ny = y + spacing.clear.via_vs_track[oi + 1]
+                    if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                        oi += 2
+                        continue
+                    self.stamp_ko_track_at(self.idx(layer, nx, ny), net_id, delta)
                     oi += 2
-                    continue
-                self.stamp_ko_track_at(self.idx(layer, nx, ny), net_id, delta)
-                oi += 2
-            oi = 0
-            while oi + 1 < len(spacing.clear.via_vs_via):
-                var nx = x + spacing.clear.via_vs_via[oi]
-                var ny = y + spacing.clear.via_vs_via[oi + 1]
-                if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                oi = 0
+                while oi + 1 < len(spacing.clear.via_vs_via):
+                    var nx = x + spacing.clear.via_vs_via[oi]
+                    var ny = y + spacing.clear.via_vs_via[oi + 1]
+                    if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                        oi += 2
+                        continue
+                    self.stamp_ko_via_at(self.idx(layer, nx, ny), net_id, delta)
                     oi += 2
-                    continue
-                self.stamp_ko_via_at(self.idx(layer, nx, ny), net_id, delta)
-                oi += 2
-            oi = 0
-            while oi + 1 < len(spacing.touch.via_vs_track):
-                var nx = x + spacing.touch.via_vs_track[oi]
-                var ny = y + spacing.touch.via_vs_track[oi + 1]
-                if nx < 0 or ny < 0 or nx >= w or ny >= h:
+            if stamp_touch:
+                var oi = 0
+                while oi + 1 < len(spacing.touch.via_vs_track):
+                    var nx = x + spacing.touch.via_vs_track[oi]
+                    var ny = y + spacing.touch.via_vs_track[oi + 1]
+                    if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                        oi += 2
+                        continue
+                    self.stamp_touch_track_at(self.idx(layer, nx, ny), net_id, delta)
                     oi += 2
-                    continue
-                self.stamp_touch_track_at(self.idx(layer, nx, ny), net_id, delta)
-                oi += 2
-            oi = 0
-            while oi + 1 < len(spacing.touch.via_vs_via):
-                var nx = x + spacing.touch.via_vs_via[oi]
-                var ny = y + spacing.touch.via_vs_via[oi + 1]
-                if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                oi = 0
+                while oi + 1 < len(spacing.touch.via_vs_via):
+                    var nx = x + spacing.touch.via_vs_via[oi]
+                    var ny = y + spacing.touch.via_vs_via[oi + 1]
+                    if nx < 0 or ny < 0 or nx >= w or ny >= h:
+                        oi += 2
+                        continue
+                    self.stamp_touch_via_at(self.idx(layer, nx, ny), net_id, delta)
                     oi += 2
-                    continue
-                self.stamp_touch_via_at(self.idx(layer, nx, ny), net_id, delta)
-                oi += 2
 
     fn path_violates_keepouts(
         self,
@@ -497,15 +598,17 @@ struct Grid:
             var a = idx_to_coords(a_idx, self.width, self.height)
             var b = idx_to_coords(b_idx, self.width, self.height)
             if a.x == b.x and a.y == b.y and a.layer != b.layer:
-                # via endpoints on both layers
-                if (self.scratch_mark[a_idx] & UInt16(2)) == UInt16(0):
-                    self.scratch_mark[a_idx] = self.scratch_mark[a_idx] | UInt16(2)
-                    self.scratch_touched.append(a_idx)
-                    vias.append(a_idx)
-                if (self.scratch_mark[b_idx] & UInt16(2)) == UInt16(0):
-                    self.scratch_mark[b_idx] = self.scratch_mark[b_idx] | UInt16(2)
-                    self.scratch_touched.append(b_idx)
-                    vias.append(b_idx)
+                # Via occupancy spans all crossed layers at this (x, y), not just endpoints.
+                var lo = a.layer if a.layer <= b.layer else b.layer
+                var hi = b.layer if a.layer <= b.layer else a.layer
+                var l = lo
+                while l <= hi:
+                    var vidx = self.idx(l, a.x, a.y)
+                    if (self.scratch_mark[vidx] & UInt16(2)) == UInt16(0):
+                        self.scratch_mark[vidx] = self.scratch_mark[vidx] | UInt16(2)
+                        self.scratch_touched.append(vidx)
+                        vias.append(vidx)
+                    l += 1
             else:
                 # Rasterize the segment between a and b into unit steps so higher-level
                 # algorithms (e.g. pull-tight) can safely emit long straight segments.
@@ -582,8 +685,15 @@ struct Grid:
             self._bump_track(idx, net_id)
         for idx in vias:
             self._bump_via(idx, net_id)
-        if enforce_spacing:
-            self.stamp_keepout_for_route(net_id, tracks, vias, spacing, 1)
+        self.stamp_keepout_for_route(
+            net_id,
+            tracks,
+            vias,
+            spacing,
+            1,
+            stamp_clear=enforce_spacing,
+            stamp_touch=True,
+        )
         return
 
     fn uncommit_path(
@@ -615,14 +725,16 @@ struct Grid:
             var a = idx_to_coords(a_idx, self.width, self.height)
             var b = idx_to_coords(b_idx, self.width, self.height)
             if a.x == b.x and a.y == b.y and a.layer != b.layer:
-                if (self.scratch_mark[a_idx] & UInt16(2)) == UInt16(0):
-                    self.scratch_mark[a_idx] = self.scratch_mark[a_idx] | UInt16(2)
-                    self.scratch_touched.append(a_idx)
-                    vias.append(a_idx)
-                if (self.scratch_mark[b_idx] & UInt16(2)) == UInt16(0):
-                    self.scratch_mark[b_idx] = self.scratch_mark[b_idx] | UInt16(2)
-                    self.scratch_touched.append(b_idx)
-                    vias.append(b_idx)
+                var lo = a.layer if a.layer <= b.layer else b.layer
+                var hi = b.layer if a.layer <= b.layer else a.layer
+                var l = lo
+                while l <= hi:
+                    var vidx = self.idx(l, a.x, a.y)
+                    if (self.scratch_mark[vidx] & UInt16(2)) == UInt16(0):
+                        self.scratch_mark[vidx] = self.scratch_mark[vidx] | UInt16(2)
+                        self.scratch_touched.append(vidx)
+                        vias.append(vidx)
+                    l += 1
             else:
                 var dx0 = b.x - a.x
                 var dy0 = b.y - a.y
@@ -706,8 +818,15 @@ struct Grid:
             self._bump_track(idx, net_id)
         for idx in via_indices:
             self._bump_via(idx, net_id)
-        if enforce_spacing:
-            self.stamp_keepout_for_route(net_id, track_indices, via_indices, spacing, 1)
+        self.stamp_keepout_for_route(
+            net_id,
+            track_indices,
+            via_indices,
+            spacing,
+            1,
+            stamp_clear=enforce_spacing,
+            stamp_touch=True,
+        )
 
     fn uncommit(
         mut self,
@@ -729,8 +848,15 @@ struct Grid:
                 self.via_owner[idx] = UInt32(0)
             elif self.via_owner[idx] != net_id:
                 self.via_owner[idx] = u32_max()
-        if enforce_spacing:
-            self.stamp_keepout_for_route(net_id, track_indices, via_indices, spacing, -1)
+        self.stamp_keepout_for_route(
+            net_id,
+            track_indices,
+            via_indices,
+            spacing,
+            -1,
+            stamp_clear=enforce_spacing,
+            stamp_touch=True,
+        )
 
     fn overused_cells(self) -> Int:
         var over = 0

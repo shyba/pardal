@@ -39,6 +39,7 @@ def test_parity_fpga_small_oracle(tmp_path: Path):
         "0.2",
         "--mojo-dsn-dump",
         "--mojo-dsn-ir",
+        "--normalize-footprint-libs",
     ]
     subprocess.run(cmd, cwd=str(repo_root), env=dict(os.environ), check=True, timeout=30 * 60)
 

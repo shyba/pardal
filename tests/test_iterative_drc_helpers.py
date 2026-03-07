@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import importlib.util
 from pathlib import Path
 
@@ -65,3 +66,47 @@ def test_uuids_from_violation():
     it = _load_iterative_module()
     v = {"items": [{"uuid": "a"}, {"uuid": "b"}, {"uuid": ""}, {"pos": {"x": 1, "y": 2}}]}
     assert it._uuids_from_violation(v) == {"a", "b"}
+
+
+def test_median_drc_picks_middle_by_violation_and_unconnected():
+    it = _load_iterative_module()
+    low = {"violations": [{}], "unconnected_items": [{}]}
+    mid = {"violations": [{}, {}], "unconnected_items": [{}]}
+    high = {"violations": [{}, {}, {}], "unconnected_items": [{}, {}]}
+    assert it._median_drc([high, mid, low]) == mid
+
+
+def test_kicad_drc_json_median_writes_summary(tmp_path):
+    it = _load_iterative_module()
+    seq = [
+        {"violations": [{}, {}, {}], "unconnected_items": [{}, {}]},
+        {"violations": [{}, {}], "unconnected_items": [{}]},
+        {"violations": [{}, {}, {}, {}], "unconnected_items": [{}, {}, {}]},
+    ]
+    calls = {"i": 0}
+
+    def fake_kicad_drc_json(*, repo_root, in_pcb, out_json, image):
+        i = calls["i"]
+        calls["i"] += 1
+        payload = seq[i]
+        out_json.parent.mkdir(parents=True, exist_ok=True)
+        out_json.write_text(json.dumps(payload), encoding="utf-8")
+        return payload
+
+    old = it._kicad_drc_json
+    it._kicad_drc_json = fake_kicad_drc_json
+    try:
+        out = tmp_path / "cand.drc.json"
+        drc = it._kicad_drc_json_median(
+            repo_root=tmp_path,
+            in_pcb=tmp_path / "x.kicad_pcb",
+            out_json=out,
+            image="kicad/kicad:9.0.6-full",
+            samples=3,
+        )
+    finally:
+        it._kicad_drc_json = old
+
+    assert it._drc_counts(drc) == (3, 2)
+    assert out.exists()
+    assert out.with_name("cand.drc.samples.json").exists()

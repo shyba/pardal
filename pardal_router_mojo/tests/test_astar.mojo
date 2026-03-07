@@ -23,19 +23,21 @@ def test_astar_finds_straight_path():
         UInt32(0),
         UInt32(0),
         0,
+        UInt32(0),
         UInt32(100),
+        Float64(0.0),
         False,
         False,
-        False,
-        UInt32(0),
-        UInt16(0),
-        UInt32(0),
-        UInt32(0),
-        False,
-        List[UInt32](),
-        List[UInt32](),
-        False,
-        UInt32(0),
+        ncr_allow_overlaps=False,
+        spacing_present_cost=UInt32(0),
+        spacing_present_cap=UInt16(0),
+        present_cost=UInt32(0),
+        history_cost=UInt32(0),
+        ignore_congestion=False,
+        existing_via_any=List[UInt32](),
+        existing_via_seg=List[UInt32](),
+        forbid_stacked_vias=False,
+        allowed_layers_mask=UInt32(0),
     )
     assert_true(len(path) >= 2)
     var a = idx_to_coords(path[0], g.width, g.height)
@@ -65,19 +67,21 @@ def test_astar_avoids_blocked_circle():
         UInt32(0),
         UInt32(0),
         3,
+        UInt32(0),
         UInt32(100),
+        Float64(0.0),
         False,
         False,
-        False,
-        UInt32(0),
-        UInt16(0),
-        UInt32(0),
-        UInt32(0),
-        False,
-        List[UInt32](),
-        List[UInt32](),
-        False,
-        UInt32(0),
+        ncr_allow_overlaps=False,
+        spacing_present_cost=UInt32(0),
+        spacing_present_cap=UInt16(0),
+        present_cost=UInt32(0),
+        history_cost=UInt32(0),
+        ignore_congestion=False,
+        existing_via_any=List[UInt32](),
+        existing_via_seg=List[UInt32](),
+        forbid_stacked_vias=False,
+        allowed_layers_mask=UInt32(0),
     )
     assert_true(len(path) > 0)
     # No point should go through the blocked circle's center.
@@ -108,25 +112,68 @@ def test_astar_can_use_via_transition():
         UInt32(0),
         UInt32(0),
         0,
+        UInt32(0),
         UInt32(100),
+        Float64(0.0),
         False,
         False,
-        False,
-        UInt32(0),
-        UInt16(0),
-        UInt32(0),
-        UInt32(0),
-        False,
-        List[UInt32](),
-        List[UInt32](),
-        False,
-        UInt32(0),
+        ncr_allow_overlaps=False,
+        spacing_present_cost=UInt32(0),
+        spacing_present_cap=UInt16(0),
+        present_cost=UInt32(0),
+        history_cost=UInt32(0),
+        ignore_congestion=False,
+        existing_via_any=List[UInt32](),
+        existing_via_seg=List[UInt32](),
+        forbid_stacked_vias=False,
+        allowed_layers_mask=UInt32(0),
     )
     assert_true(len(path) >= 2)
     var a = idx_to_coords(path[0], g.width, g.height)
     var b = idx_to_coords(path[len(path) - 1], g.width, g.height)
     assert_equal(a.layer, 0)
     assert_equal(b.layer, 1)
+
+def test_astar_can_skip_masked_internal_layers():
+    var g = Grid(4, 3, 3)
+    var ws = AStarWorkspace(g.layers * g.width * g.height)
+    var start = g.idx(0, 1, 1)
+    var goal = g.idx(3, 1, 1)
+    var mask = (UInt32(1) << UInt32(0)) | (UInt32(1) << UInt32(3))
+    var path = route_a_star(
+        ws,
+        g,
+        start,
+        goal,
+        UInt32(1),
+        UInt64(0),
+        False,
+        UInt32(5),
+        UInt32(0),
+        UInt32(0),
+        UInt32(0),
+        0,
+        UInt32(0),
+        UInt32(100),
+        Float64(0.0),
+        False,
+        False,
+        ncr_allow_overlaps=False,
+        spacing_present_cost=UInt32(0),
+        spacing_present_cap=UInt16(0),
+        present_cost=UInt32(0),
+        history_cost=UInt32(0),
+        ignore_congestion=False,
+        existing_via_any=List[UInt32](),
+        existing_via_seg=List[UInt32](),
+        forbid_stacked_vias=False,
+        allowed_layers_mask=mask,
+    )
+    assert_true(len(path) >= 2)
+    var a = idx_to_coords(path[0], g.width, g.height)
+    var b = idx_to_coords(path[len(path) - 1], g.width, g.height)
+    assert_equal(a.layer, 0)
+    assert_equal(b.layer, 3)
 
 
 def main():
