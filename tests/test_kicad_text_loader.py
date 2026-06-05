@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from pcb_tool.data_model import Component, Pad
-from pcb_tool.kicad_text_loader import load_board_kicad_pcb
+from pardal.data_model import Component, Pad
+from pardal.kicad_text_loader import load_board_kicad_pcb
 
 
 def test_pad_numbers_are_stringly_typed():
@@ -24,7 +24,7 @@ def test_pad_numbers_are_stringly_typed():
 
 def test_kicad_text_loader_parses_fpga_large_fixture():
     repo_root = Path(__file__).resolve().parents[1]
-    fixture = repo_root / "fpga_large" / "fpga_large_csg324_breakout.kicad_pcb"
+    fixture = repo_root / "examples" / "fpga_large" / "fpga_large_csg324_breakout.kicad_pcb"
     result = load_board_kicad_pcb(fixture)
     board = result.board
 
@@ -41,7 +41,7 @@ def test_kicad_text_loader_parses_fpga_large_fixture():
 
 def test_kicad_text_loader_parses_segments_and_vias():
     repo_root = Path(__file__).resolve().parents[1]
-    fixture = repo_root / "fpga" / "fpga_routed_with_widths.kicad_pcb"
+    fixture = repo_root / "examples" / "fpga" / "fpga_routed_with_widths.kicad_pcb"
     result = load_board_kicad_pcb(fixture)
     board = result.board
 

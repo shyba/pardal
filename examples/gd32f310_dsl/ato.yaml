@@ -1,0 +1,9 @@
+requires-atopile: ^0.10.0
+
+paths:
+  src: ./
+  layout: ./layout
+
+builds:
+  default:
+    entry: gd32f310c8t6.ato:GD32F310C8T6Breakout

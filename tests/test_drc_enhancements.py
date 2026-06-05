@@ -1,8 +1,8 @@
 """Tests for DRC enhancements: track-pad clearance, pad-pad clearance, SDK DRC."""
 
 import pytest
-from pcb_tool.data_model import Board, Component, Pad, Net, TraceSegment
-from pcb_tool.commands.drc import CheckDrcCommand
+from pardal.data_model import Board, Component, Pad, Net, TraceSegment
+from pardal.commands.drc import CheckDrcCommand
 
 
 class TestPointToSegmentDistance:
@@ -282,14 +282,14 @@ class TestSdkDrc:
 
     def test_sdk_drc_import(self):
         """Verify SDK DRC function is importable."""
-        from pcb_tool.drc import run_sdk_drc
+        from pardal.drc import run_sdk_drc
 
         assert callable(run_sdk_drc)
 
     def test_sdk_drc_fallback(self, tmp_path):
         """SDK DRC should work (either via SDK or fallback to kicad-cli)."""
-        from pcb_tool.drc import run_sdk_drc
-        from pcb_tool.kicad_writer import KicadWriter
+        from pardal.drc import run_sdk_drc
+        from pardal.kicad_writer import KicadWriter
 
         # Create a minimal board
         board = Board()

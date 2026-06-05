@@ -1,7 +1,7 @@
 """Tests for data model validation."""
 
 import pytest
-from pcb_tool.data_model import Component, Net, Board
+from pardal.data_model import Component, Net, Board
 
 
 class TestComponentValidation:

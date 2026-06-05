@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 def _load_iterative_module():
-    path = Path(__file__).resolve().parents[1] / "pcb_tool" / "tools" / "iterative_backend_route_fpga_large.py"
+    path = Path(__file__).resolve().parents[1] / "pardal" / "tools" / "iterative_backend_route_fpga_large.py"
     spec = importlib.util.spec_from_file_location("iterative_backend_route_fpga_large", path)
     assert spec and spec.loader
     mod = importlib.util.module_from_spec(spec)

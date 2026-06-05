@@ -2,7 +2,7 @@
 """Tests for multi-layer and net class data model extensions."""
 
 import pytest
-from pcb_tool.data_model import (
+from pardal.data_model import (
     LayerConfig,
     NetClass,
     Board,

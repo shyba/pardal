@@ -1,0 +1,44 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:24:47.353917331-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "processor.Z80.dsn",
+      "unconnected_items": [],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 0,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue191-processor.Z80__processor.Z80.dsn",
+  "fixture_relpath": "freerouting/tests/Issue191-processor.Z80/processor.Z80.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207082,
+  "hashes": {
+    "board_statistics_sha256": "18da3aac964e9791d0a21592b4054f7a65eb7a0b7d9b86d8cb2595d2362cde79",
+    "freerouting_drc_sha256": "67142e549eaa95c8ec97098d734471680427ee057494c904a7761b74abcaf8d2",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue191-processor.Z80__processor.Z80.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue191-processor.Z80__processor.Z80.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue191-processor.Z80__processor.Z80.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue191-processor.Z80__processor.Z80.dsn/routed.ses"
+  },
+  "runtime_s": 5.439280444988981,
+  "seed": 12345,
+  "strip_planes": false
+}

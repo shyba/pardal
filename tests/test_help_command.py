@@ -1,7 +1,7 @@
 # tests/test_help_command.py
 import pytest
-from pcb_tool.commands import HelpCommand
-from pcb_tool.data_model import Board
+from pardal.commands import HelpCommand
+from pardal.data_model import Board
 
 
 def test_help_command_instantiation():

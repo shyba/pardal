@@ -1,0 +1,12 @@
+schema: pardal.project/v1
+requires-pardal: "^0.1.0"
+
+project:
+  type: board
+  name: gd32f310-12v-adc
+
+builds:
+  default:
+    entry: boards/gd32f310_12v_adc.pardal.yaml
+    profiles:
+      - acme/gd32f310-support:gd32f310_adc_12v

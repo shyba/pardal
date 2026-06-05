@@ -13,9 +13,9 @@ Run with: pytest tests/test_production_routing.py -v
 
 import pytest
 import math
-from pcb_tool.data_model import Board, Net, Component, Pad, STANDARD_LAYER_STACKS
-from pcb_tool.commands.routing import AutoRouteCommand
-from pcb_tool.routing import RoutingGrid, PathFinder
+from pardal.data_model import Board, Net, Component, Pad, STANDARD_LAYER_STACKS
+from pardal.commands.routing import AutoRouteCommand
+from pardal.routing import RoutingGrid, PathFinder
 
 
 class TestPadObstacleMarking:
@@ -445,7 +445,7 @@ class TestTraceSegmentObstacles:
         board.add_net(net1)
 
         # Add a horizontal trace from (5, 15) to (25, 15)
-        from pcb_tool.data_model import TraceSegment
+        from pardal.data_model import TraceSegment
 
         net1.segments.append(
             TraceSegment(

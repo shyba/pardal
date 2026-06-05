@@ -1,0 +1,197 @@
+{
+  "drc": {
+    "kicad_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T22:33:15+0000",
+      "kicad_version": "9.0.6",
+      "schematic_parity": [],
+      "source": "routed.kicad_pcb",
+      "unconnected_items": [
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [/Row_1] of J3 on F.Cu",
+              "pos": {
+                "x": 128.375,
+                "y": 58.375
+              },
+              "uuid": "87148986-aa70-4f3a-84ed-38fd8a96c1c3"
+            },
+            {
+              "description": "Track [/Row_1] on F.Cu, length 4.9052 mm",
+              "pos": {
+                "x": 123.0,
+                "y": 58.5
+              },
+              "uuid": "055150cf-04d5-4a68-b0e7-08b6f8dab42b"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [/Col_1] of R1 on F.Cu",
+              "pos": {
+                "x": 126.4125,
+                "y": 50.7
+              },
+              "uuid": "4ccb17f1-a324-4018-95a6-8ee75d27b14c"
+            },
+            {
+              "description": "Track [/Col_1] on F.Cu, length 0.0667 mm",
+              "pos": {
+                "x": 117.63,
+                "y": 53.6299
+              },
+              "uuid": "16a4f5e4-95df-443b-aa3e-4c0b158deb28"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Track [/Row_2] on B.Cu, length 5.6762 mm",
+              "pos": {
+                "x": 118.8363,
+                "y": 60.1293
+              },
+              "uuid": "e2db91f4-3c7b-4719-b971-39bb39e04d0c"
+            },
+            {
+              "description": "Pad 1 [/Row_2] of J4 on F.Cu",
+              "pos": {
+                "x": 128.375,
+                "y": 64.375
+              },
+              "uuid": "0992325b-67d3-4f2b-aa1d-c3c390dde371"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        }
+      ],
+      "violations": [
+        {
+          "description": "The current configuration does not include the footprint library 'MyLibs'.",
+          "items": [
+            {
+              "description": "Footprint J3",
+              "pos": {
+                "x": 123.5,
+                "y": 53.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000616b70da"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'MyLibs'.",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 117.5,
+                "y": 53.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000616b70e0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'MyLibs'.",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 117.5,
+                "y": 59.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000616b70e6"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'MyLibs'.",
+          "items": [
+            {
+              "description": "Footprint J4",
+              "pos": {
+                "x": 123.5,
+                "y": 59.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000616b70ec"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Footprint 'R_0603_1608Metric' does not match copy in library 'Resistor_SMD'.",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 127.2,
+                "y": 50.7
+              },
+              "uuid": "00000000-0000-0000-0000-0000616b7485"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_0603_1608Metric' does not match copy in library 'Resistor_SMD'.",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 118.9736,
+                "y": 50.6886
+              },
+              "uuid": "00000000-0000-0000-0000-0000616b74d7"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        }
+      ]
+    },
+    "unconnected": 3,
+    "violations": 6
+  },
+  "fanout": true,
+  "fixture_id": "Issue069-TestSensel__TestSensel.kicad_pcb",
+  "fixture_relpath": "freerouting/tests/Issue069-TestSensel/TestSensel.kicad_pcb",
+  "fixture_type": "kicad",
+  "generated_at_unix_s": 1769207569,
+  "hashes": {
+    "kicad_drc_sha256": "b520b8196ea936b55071f1be634d958da528b418346715322ada316a3488df7b",
+    "routed_pcb_sha256": "60ea9045b7fb3d9c65ad83c8056d32349a0b1094608bc3417d05f1ee90cf088f"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "kicad_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue069-TestSensel__TestSensel.kicad_pcb/kicad_drc.json",
+    "routed_pcb": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue069-TestSensel__TestSensel.kicad_pcb/routed.kicad_pcb"
+  },
+  "runtime_s": 25.89247964200331,
+  "seed": 12345,
+  "strip_planes": false
+}

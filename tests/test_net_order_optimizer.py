@@ -6,7 +6,7 @@ using Z3 constraint solving, with graceful fallback when Z3 is unavailable.
 """
 
 import pytest
-from pcb_tool.routing.net_order_optimizer import NetOrderOptimizer, Z3_AVAILABLE
+from pardal.routing.net_order_optimizer import NetOrderOptimizer, Z3_AVAILABLE
 
 
 def test_optimize_order_by_length():

@@ -1,0 +1,97 @@
+{
+  "drc": {
+    "kicad_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T22:41:05+0000",
+      "kicad_version": "9.0.6",
+      "schematic_parity": [],
+      "source": "routed.kicad_pcb",
+      "unconnected_items": [],
+      "violations": [
+        {
+          "description": "The current configuration does not include the footprint library 'ceoloide'.",
+          "items": [
+            {
+              "description": "Footprint D16",
+              "pos": {
+                "x": 202.4,
+                "y": 96.3
+              },
+              "uuid": "14104a24-aa69-45a2-87f6-38f101fdc446"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ceoloide'.",
+          "items": [
+            {
+              "description": "Footprint D17",
+              "pos": {
+                "x": 202.4,
+                "y": 77.3
+              },
+              "uuid": "1eff3eac-7c11-4ab8-9843-23115efe6084"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ceoloide'.",
+          "items": [
+            {
+              "description": "Footprint S16",
+              "pos": {
+                "x": 195.0,
+                "y": 97.625
+              },
+              "uuid": "365fff8d-5473-4b6e-8cb0-6644882c51bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ceoloide'.",
+          "items": [
+            {
+              "description": "Footprint S17",
+              "pos": {
+                "x": 195.0,
+                "y": 78.625
+              },
+              "uuid": "81c2bf5b-ef53-4fd3-9c96-cec46a511d59"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        }
+      ]
+    },
+    "unconnected": 0,
+    "violations": 4
+  },
+  "fanout": true,
+  "fixture_id": "Issue368-CorneyIslandWireless__corney_island_wireless.kicad_pcb",
+  "fixture_relpath": "freerouting/tests/Issue368-CorneyIslandWireless/corney_island_wireless.kicad_pcb",
+  "fixture_type": "kicad",
+  "generated_at_unix_s": 1769208058,
+  "hashes": {
+    "kicad_drc_sha256": "a2f18b8f7992fa1a39e835d8f8317112ab972a8d4cbdee43d36b36782a663e95",
+    "routed_pcb_sha256": "2adb75bf6c62c6a9aa573784650c133f6c716757def4191a17fcac226e9c1f8c"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "kicad_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue368-CorneyIslandWireless__corney_island_wireless.kicad_pcb/kicad_drc.json",
+    "routed_pcb": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue368-CorneyIslandWireless__corney_island_wireless.kicad_pcb/routed.kicad_pcb"
+  },
+  "runtime_s": 7.040831452002749,
+  "seed": 12345,
+  "strip_planes": false
+}

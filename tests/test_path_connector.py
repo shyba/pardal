@@ -5,9 +5,9 @@ Tests connecting Z3 waypoints using A* pathfinding.
 """
 
 import pytest
-from pcb_tool.routing.path_connector import PathConnector, ConnectedPath
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.multi_net_router import NetDefinition, RoutedNet
+from pardal.routing.path_connector import PathConnector, ConnectedPath
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.multi_net_router import NetDefinition, RoutedNet
 
 
 def test_connect_simple_two_nets():

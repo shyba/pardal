@@ -1,0 +1,71 @@
+{
+  "host": "null,null",
+  "unit": "mm",
+  "board": {
+    "bounding_box": {
+      "x": 2151.38,
+      "y": 25.4,
+      "width": -25.4,
+      "height": -5016.5
+    },
+    "size": {
+      "x": 0.0,
+      "y": 0.0,
+      "width": 2176.78,
+      "height": 5041.9
+    }
+  },
+  "layers": {
+    "total_count": 2,
+    "signal_count": 2
+  },
+  "items": {
+    "total_count": 220,
+    "trace_count": 91,
+    "via_count": 20,
+    "conduction_area_count": 0,
+    "drill_item_count": 108,
+    "pin_count": 0,
+    "component_count": 0,
+    "other_count": 1
+  },
+  "components": {
+    "total_count": 1
+  },
+  "pads": {
+    "total_count": 108
+  },
+  "nets": {
+    "total_count": 20,
+    "class_count": 21
+  },
+  "connections": {
+    "maximum_count": 194,
+    "incomplete_count": 3
+  },
+  "traces": {
+    "total_count": 91,
+    "total_segment_count": 267,
+    "total_length": 61750.98,
+    "total_weighted_length": 0.0,
+    "average_length": 678.5822,
+    "total_vertical_length": 29605.174,
+    "total_horizontal_length": 11634.444,
+    "total_angled_length": 20302.36
+  },
+  "bends": {
+    "total_count": 176,
+    "90_degree_count": 13,
+    "45_degree_count": 163,
+    "other_angle_count": 0
+  },
+  "vias": {
+    "total_count": 20,
+    "through_hole_count": 20,
+    "blind_count": 0,
+    "buried_count": 0
+  },
+  "clearance_violations": {
+    "total_count": 1
+  }
+}

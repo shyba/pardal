@@ -1,8 +1,8 @@
 # tests/test_command_pattern.py
 import pytest
-from pcb_tool.commands import Command
-from pcb_tool.data_model import Board, Component
-from pcb_tool.command_parser import CommandParser
+from pardal.commands import Command
+from pardal.data_model import Board, Component
+from pardal.command_parser import CommandParser
 
 
 def test_command_base_class_is_abstract():

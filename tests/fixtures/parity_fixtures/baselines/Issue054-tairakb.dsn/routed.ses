@@ -1,0 +1,154 @@
+(session "Issue054-tairakb"
+  (base_design "Issue054-tairakb")
+  (placement
+    (resolution um 10)
+    (component tairakb:Choc_Hotswap
+      (place SW33 2072880 -1532250 front 330)
+      (place SW32 2168130 -1367270 front 330)
+      (place SW31 2003150 -1272020 front 330)
+      (place SW30 1907900 -1437000 front 330)
+      (place SW29 1822450 -1127440 front 180)
+      (place SW28 1822450 -936940 front 180)
+      (place SW27 1822450 -746440 front 180)
+      (place SW26 1822450 -555940 front 180)
+      (place SW25 1742920 -1341750 front 330)
+      (place SW24 1631950 -1103630 front 180)
+      (place SW23 1631950 -913130 front 180)
+      (place SW22 1631950 -722630 front 180)
+      (place SW21 1631950 -532130 front 180)
+      (place SW20 1441450 -1270320 front 180)
+      (place SW19 1441450 -1079820 front 180)
+      (place SW18 1441450 -889320 front 180)
+      (place SW17 1441450 -698820 front 180)
+      (place SW16 1441450 -508320 front 180)
+      (place SW15 1250950 -1294130 front 180)
+      (place SW14 1250950 -1103630 front 180)
+      (place SW13 1250950 -913130 front 180)
+      (place SW12 1250950 -722630 front 180)
+      (place SW11 1250950 -532130 front 180)
+      (place SW10 1060450 -1341750 front 180)
+      (place SW9 1060450 -1151250 front 180)
+      (place SW8 1060450 -960750 front 180)
+      (place SW7 1060450 -770250 front 180)
+      (place SW6 1060450 -579750 front 180)
+      (place SW5 869950 -1341750 front 180)
+      (place SW4 869950 -1151250 front 180)
+      (place SW3 869950 -960750 front 180)
+      (place SW2 869950 -770250 front 180)
+    )
+    (component tairakb:Choc_Hotswap::1
+      (place SW1 869950 -579750 front 180)
+    )
+    (component tairakb:nicenano
+      (place U3 2044700 -660400 front 0)
+    )
+    (component kbd:D3_SMD
+      (place D33 1995170 -1498600 front 60)
+      (place D32 2081020 -1345950 front 60)
+      (place D31 1917950 -1248660 front 60)
+      (place D30 1829820 -1403600 front 60)
+      (place D29 1740400 -1097190 front 90)
+      (place D28 1740400 -906690 front 90)
+      (place D27 1740400 -716190 front 90)
+      (place D26 1740400 -525690 front 90)
+      (place D25 1665220 -1308610 front 60)
+      (place D24 1714000 -1073380 front 90)
+      (place D23 1714000 -882880 front 90)
+      (place D22 1714000 -692380 front 90)
+      (place D21 1714000 -501880 front 90)
+      (place D20 1523500 -1240070 front 90)
+      (place D19 1523500 -1049570 front 90)
+      (place D18 1523500 -859070 front 90)
+      (place D17 1523500 -668570 front 90)
+      (place D16 1523500 -478070 front 90)
+      (place D15 1333000 -1263880 front 90)
+      (place D14 1333000 -1073380 front 90)
+      (place D13 1333000 -882880 front 90)
+      (place D12 1333000 -692380 front 90)
+      (place D11 1333000 -501880 front 90)
+      (place D10 1142500 -1311500 front 90)
+      (place D9 1142500 -1121000 front 90)
+      (place D8 1142500 -930500 front 90)
+      (place D7 1142500 -740000 front 90)
+      (place D6 1142500 -549500 front 90)
+      (place D5 952000 -1311500 front 90)
+      (place D4 952000 -1121000 front 90)
+      (place D3 952000 -930500 front 90)
+      (place D2 952000 -740000 front 90)
+      (place D1 952000 -549500 front 90)
+    )
+    (component tairakb:Battery_Wire_Connector
+      (place BT1 1975300 -877000 front 0)
+    )
+    (component "tairakb:SS-12D00"
+      (place BSW1 1977300 -939600 front 0)
+    )
+    (component kbd:ResetSW
+      (place RSW1 2106900 -878500 front 90)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "(5.1.9-0-10_14)")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net /row4
+        (via "Via[0-1]_800:400_um" 2117370 -1452650
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            2117370 -1452650
+            2158930 -1494210
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            2158930 -1494210
+            2158930 -1539210
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2500
+            2022960 -1460710
+            2031020 -1452650
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2500
+            2031020 -1452650
+            2117370 -1452650
+          )
+          (type protect)
+        )
+      )
+    )
+  )
+)

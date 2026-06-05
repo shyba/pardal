@@ -1,7 +1,7 @@
 """Tests for message formatting module."""
 
 import pytest
-from pcb_tool.messages import success, error
+from pardal.messages import success, error
 
 
 def test_success_message_format():

@@ -3,8 +3,8 @@ Tests for via collision detection in ViaCommand and CheckDrcCommand.
 """
 
 import pytest
-from pcb_tool.data_model import Board, Net, Component, Pad
-from pcb_tool.commands import ViaCommand
+from pardal.data_model import Board, Net, Component, Pad
+from pardal.commands import ViaCommand
 
 
 def test_via_command_rejects_via_on_pad_exact_position():
@@ -148,7 +148,7 @@ def test_via_command_allows_via_on_same_net():
 
 def test_check_drc_detects_via_pad_collision():
     """CheckDrcCommand should detect via-pad collisions."""
-    from pcb_tool.commands import CheckDrcCommand
+    from pardal.commands import CheckDrcCommand
 
     board = Board()
 
@@ -166,7 +166,7 @@ def test_check_drc_detects_via_pad_collision():
 
     # Manually add a via at the exact pad position (bypassing validation)
     # This simulates a board that was created before collision detection was added
-    from pcb_tool.data_model import Via
+    from pardal.data_model import Via
 
     board.nets["TEST_NET"].vias.append(
         Via(
@@ -188,7 +188,7 @@ def test_check_drc_detects_via_pad_collision():
 
 def test_check_drc_detects_via_via_collision():
     """CheckDrcCommand should detect via-via collisions."""
-    from pcb_tool.commands import CheckDrcCommand
+    from pardal.commands import CheckDrcCommand
 
     board = Board()
 
@@ -197,7 +197,7 @@ def test_check_drc_detects_via_via_collision():
     board.add_net(Net(name="NET2", code="2"))
 
     # Manually add two vias at the same position (bypassing validation)
-    from pcb_tool.data_model import Via
+    from pardal.data_model import Via
 
     board.nets["NET1"].vias.append(
         Via(
@@ -228,7 +228,7 @@ def test_check_drc_detects_via_via_collision():
 
 def test_check_drc_passes_with_no_collisions():
     """CheckDrcCommand should pass when there are no via collisions."""
-    from pcb_tool.commands import CheckDrcCommand
+    from pardal.commands import CheckDrcCommand
 
     board = Board()
 

@@ -7,33 +7,32 @@ from pathlib import Path
 def test_cli_help():
     """Test that --help flag works and shows basic usage"""
     result = subprocess.run(
-        [sys.executable, "-m", "pcb_tool", "--help"],
+        [sys.executable, "-m", "pardal", "--help"],
         capture_output=True,
         text=True,
         cwd=Path(__file__).parent.parent,
     )
     assert result.returncode == 0, f"CLI failed with: {result.stderr}"
-    assert "PCB Place & Route Tool" in result.stdout
+    assert "PCB layout tool with placement, autorouting, and DRC" in result.stdout
     assert "usage:" in result.stdout.lower() or "Usage:" in result.stdout
 
 
 def test_cli_version():
     """Test that --version flag works and shows version"""
     result = subprocess.run(
-        [sys.executable, "-m", "pcb_tool", "--version"],
+        [sys.executable, "-m", "pardal", "--version"],
         capture_output=True,
         text=True,
         cwd=Path(__file__).parent.parent,
     )
     assert result.returncode == 0, f"CLI failed with: {result.stderr}"
     assert "0.1.1" in result.stdout
-    assert "MVP1" in result.stdout
 
 
 def test_cli_runs_without_args():
     """Test that CLI can be invoked without crashing"""
     result = subprocess.run(
-        [sys.executable, "-m", "pcb_tool"],
+        [sys.executable, "-m", "pardal"],
         capture_output=True,
         text=True,
         cwd=Path(__file__).parent.parent,

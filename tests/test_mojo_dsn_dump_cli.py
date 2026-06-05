@@ -14,7 +14,7 @@ def test_mojo_dsn_dump_cli_smoke(tmp_path: Path):
         pytest.skip("pixi not available; skipping Mojo DSN dump CLI smoke test")
 
     repo_root = Path(__file__).resolve().parents[1]
-    mojo_root = repo_root / "pardal_router_mojo"
+    mojo_root = repo_root / "routing" / "mojo_router"
     dsn = repo_root / "freerouting" / "tests" / "Issue269-min_fr_test" / "min_fr_test.dsn"
     if not dsn.exists():
         pytest.skip("freerouting fixture missing")
@@ -52,7 +52,7 @@ def test_mojo_dsn_ir_cli_smoke(tmp_path: Path):
         pytest.skip("pixi not available; skipping Mojo DSN IR CLI smoke test")
 
     repo_root = Path(__file__).resolve().parents[1]
-    mojo_root = repo_root / "pardal_router_mojo"
+    mojo_root = repo_root / "routing" / "mojo_router"
     dsn = repo_root / "freerouting" / "tests" / "Issue269-min_fr_test" / "min_fr_test.dsn"
     if not dsn.exists():
         pytest.skip("freerouting fixture missing")

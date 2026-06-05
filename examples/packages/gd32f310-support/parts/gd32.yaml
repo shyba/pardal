@@ -1,0 +1,13 @@
+schema: pardal.parts/v1
+
+parts:
+  GD32F310K8T6:
+    manufacturer: GigaDevice
+    mpn: GD32F310K8T6
+    package: LQFP-32
+    pins: 32
+    lcsc: C112130
+    footprint: acme/gd32f310-support:gd32f310_lqfp32
+    attributes:
+      mcu.family: GD32F310
+      adc.channels: [ADC0, ADC1, ADC2, ADC3, ADC4, ADC5, ADC6, ADC7, ADC8, ADC9]

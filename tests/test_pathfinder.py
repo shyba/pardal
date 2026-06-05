@@ -7,8 +7,8 @@ and path statistics calculation.
 
 import pytest
 import math
-from pcb_tool.routing.grid import RoutingGrid, GridCell
-from pcb_tool.routing.pathfinder import PathFinder, PathNode
+from pardal.routing.grid import RoutingGrid, GridCell
+from pardal.routing.pathfinder import PathFinder, PathNode
 
 
 class TestPathFinderInitialization:

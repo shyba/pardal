@@ -1,8 +1,8 @@
 import pytest
 from pathlib import Path
-from pcb_tool.commands import SaveCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Component
+from pardal.commands import SaveCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Component
 
 
 @pytest.fixture

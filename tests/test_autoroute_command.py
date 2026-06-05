@@ -1,9 +1,9 @@
 """Tests for AutoRouteCommand and OptimizeRoutingCommand."""
 
 import pytest
-from pcb_tool.data_model import Board, Component, Net, Pad
-from pcb_tool.commands import AutoRouteCommand, OptimizeRoutingCommand
-from pcb_tool.command_parser import CommandParser
+from pardal.data_model import Board, Component, Net, Pad
+from pardal.commands import AutoRouteCommand, OptimizeRoutingCommand
+from pardal.command_parser import CommandParser
 
 
 def create_test_board_with_nets():
@@ -168,7 +168,7 @@ def test_autoroute_unrouted_only():
     board = create_test_board_with_nets()
 
     # First route GND net manually (add a dummy segment)
-    from pcb_tool.data_model import TraceSegment
+    from pardal.data_model import TraceSegment
 
     board.nets["GND"].add_segment(TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25))
 
@@ -247,7 +247,7 @@ def test_optimize_validate_net_not_found():
     """Test OptimizeRoutingCommand validation fails when net doesn't exist."""
     board = create_test_board_with_nets()
     # Add routing to at least one net so board has routing
-    from pcb_tool.data_model import TraceSegment
+    from pardal.data_model import TraceSegment
 
     board.nets["GND"].add_segment(TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25))
 
@@ -261,7 +261,7 @@ def test_optimize_validate_net_not_routed():
     """Test OptimizeRoutingCommand validation fails when specified net is not routed."""
     board = create_test_board_with_nets()
     # Add routing to VCC but not GND
-    from pcb_tool.data_model import TraceSegment
+    from pardal.data_model import TraceSegment
 
     board.nets["VCC"].add_segment(TraceSegment("VCC", (20, 10), (10, 20), "F.Cu", 0.25))
 
@@ -276,7 +276,7 @@ def test_optimize_routing_all_nets():
     board = create_test_board_with_nets()
 
     # Add some routing first
-    from pcb_tool.data_model import TraceSegment
+    from pardal.data_model import TraceSegment
 
     board.nets["GND"].add_segment(TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25))
     board.nets["VCC"].add_segment(TraceSegment("VCC", (20, 10), (10, 20), "F.Cu", 0.25))
@@ -295,7 +295,7 @@ def test_optimize_routing_single_net():
     board = create_test_board_with_nets()
 
     # Add routing to GND
-    from pcb_tool.data_model import TraceSegment
+    from pardal.data_model import TraceSegment
 
     board.nets["GND"].add_segment(TraceSegment("GND", (10, 10), (15, 10), "F.Cu", 0.25))
     board.nets["GND"].add_segment(TraceSegment("GND", (15, 10), (20, 10), "F.Cu", 0.25))
@@ -313,7 +313,7 @@ def test_optimize_undo():
     board = create_test_board_with_nets()
 
     # Add routing
-    from pcb_tool.data_model import TraceSegment
+    from pardal.data_model import TraceSegment
 
     segment = TraceSegment("GND", (10, 10), (20, 10), "F.Cu", 0.25)
     board.nets["GND"].add_segment(segment)

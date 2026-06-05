@@ -6,8 +6,8 @@ from pathlib import Path
 
 def test_mojo_fr_grid_rooms_keepout_smoke() -> None:
     root = Path(__file__).resolve().parents[1]
-    bin_path = root / "pardal_router_mojo" / "build" / "pardal-router-mojo"
-    assert bin_path.exists(), f"missing mojo router binary at {bin_path} (run pardal_router_mojo/build.sh)"
+    bin_path = root / "routing" / "mojo_router" / "build" / "pardal-router-mojo"
+    assert bin_path.exists(), f"missing mojo router binary at {bin_path} (run routing/mojo_router/build.sh)"
     proc = subprocess.run(
         [str(bin_path), "fr-grid-rooms-keepout-smoke"],
         check=False,

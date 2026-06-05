@@ -1,7 +1,7 @@
 import pytest
-from pcb_tool.commands import MoveCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Component
+from pardal.commands import MoveCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Component
 
 
 @pytest.fixture

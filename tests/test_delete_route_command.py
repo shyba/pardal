@@ -1,7 +1,7 @@
 import pytest
-from pcb_tool.commands import DeleteRouteCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Net, TraceSegment
+from pardal.commands import DeleteRouteCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Net, TraceSegment
 
 
 @pytest.fixture

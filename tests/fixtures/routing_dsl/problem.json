@@ -1,0 +1,25 @@
+{
+  "schema": "mojo.problem",
+  "version": "1.0",
+  "backend": {
+    "id": "mojo",
+    "version": "1.0"
+  },
+  "board": {
+    "board_ir_id": "board-ir-demo-v001",
+    "frozen_board_snapshot_id": "board-snapshot-demo-v001",
+    "stackup": [],
+    "nets": [],
+    "components": [],
+    "pads": [],
+    "obstacles": []
+  },
+  "route_plan": {
+    "route_plan_id": "route-plan-demo",
+    "route_plan_hash": "sha256:demo",
+    "frozen_board_snapshot_id": "board-snapshot-demo-v001",
+    "route_groups": []
+  },
+  "unsupported_features": [],
+  "problem_hash": "sha256:demo"
+}

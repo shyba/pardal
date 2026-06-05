@@ -1,0 +1,68 @@
+{
+  "run_id": "oracle-run-001",
+  "route_plan_id": "route-plan-001",
+  "route_plan_hash": "hash-001",
+  "output_board_copy_path": "/tmp/out/routed-copy.kicad_pcb",
+  "command": {
+    "argv": ["kicad-cli", "pcb", "drc", "/tmp/out/routed-copy.kicad_pcb"],
+    "cwd": "/tmp/out",
+    "tool": "kicad-cli",
+    "board_copy_path": "/tmp/out/routed-copy.kicad_pcb"
+  },
+  "apply_report": {
+    "candidate_id": "cand-backend-0",
+    "candidate_index": 1
+  },
+  "failures": [
+    {
+      "route_group_id": "rg_board",
+      "candidate_id": "cand-board-0",
+      "candidate_index": 2,
+      "failed_stage": "apply",
+      "code": "apply_rejected",
+      "message": "candidate patch rejected on output copy",
+      "source_span": {
+        "path": "apply-report.json",
+        "line": 9,
+        "column": 3
+      },
+      "net": "SIG_A",
+      "layer": "F.Cu",
+      "object_id": "U1.A1",
+      "source": "apply-report.json",
+      "provenance": {
+        "apply_report_id": "apply-001"
+      }
+    },
+    {
+      "route_group_id": "rg_board",
+      "candidate_id": "cand-board-0",
+      "candidate_index": 2,
+      "failed_stage": "drc",
+      "code": "drc_violation",
+      "message": "clearance violation on routed copy",
+      "source_span": {
+        "path": "drc-report.json",
+        "line": 22,
+        "column": 5
+      },
+      "net": "SIG_A",
+      "layer": "F.Cu",
+      "counterparty": "J1.1",
+      "distance_mm": 0.08,
+      "required_clearance_mm": 0.20,
+      "source": "drc-report.json",
+      "drc_evidence": {
+        "route_group_id": "rg_board",
+        "candidate_id": "cand-board-0",
+        "candidate_index": 2,
+        "source": "kicad-cli pcb drc",
+        "output_board_copy_path": "/tmp/out/routed-copy.kicad_pcb"
+      },
+      "provenance": {
+        "driven_by": "kicad-cli",
+        "board_copy_path": "/tmp/out/routed-copy.kicad_pcb"
+      }
+    }
+  ]
+}

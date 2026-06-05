@@ -1,8 +1,9 @@
 # tests/test_kicad_writer.py
 import pytest
 from pathlib import Path
-from pcb_tool.kicad_writer import KicadWriter
-from pcb_tool.data_model import Board, Component, Net
+from pardal.kicad_writer import KicadWriter
+from pardal.data_model import Board, Component, Net
+from pardal.kicad_text_loader import load_board_kicad_pcb
 
 
 @pytest.fixture
@@ -191,3 +192,15 @@ def test_writer_output_loadable_by_pcbnew(sample_board, tmp_path):
 
     board = pcbnew.LoadBoard(str(output_path))
     assert board is not None
+
+
+def test_writer_uses_declared_board_dimensions_for_edge_cuts(sample_board, tmp_path):
+    sample_board.width = 40.0
+    sample_board.height = 30.0
+    output_path = tmp_path / "output.kicad_pcb"
+
+    KicadWriter().write(sample_board, output_path)
+
+    loaded = load_board_kicad_pcb(output_path).board
+    assert loaded.width == pytest.approx(40.0)
+    assert loaded.height == pytest.approx(30.0)

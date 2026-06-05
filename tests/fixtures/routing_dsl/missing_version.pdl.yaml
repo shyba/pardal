@@ -1,0 +1,4 @@
+schema: pardal.routes
+board:
+  board_ir_id: dspic-dev-board-ir-v001
+  frozen_board_snapshot_id: dspic-dev-board-snapshot-v001

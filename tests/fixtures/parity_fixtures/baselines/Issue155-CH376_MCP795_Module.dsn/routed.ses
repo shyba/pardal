@@ -1,0 +1,78 @@
+(session "Issue155-CH376_MCP795_Module"
+  (base_design "Issue155-CH376_MCP795_Module")
+  (placement
+    (resolution um 10)
+    (component Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm
+      (place C2 1353350 -1123950 front 0)
+      (place C1 1524400 -1123950 front 0)
+      (place C0 1593850 -1358100 front 90)
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical
+      (place R0 1371600 -1416050 front 270)
+    )
+    (component LED_THT:LED_D4.0mm
+      (place D0 1600150 -1047750 front 0)
+    )
+    (component Connector_PinSocket_2.54mm:PinSocket_2x06_P2.54mm_Vertical
+      (place J2 1422400 -1422400 front 90)
+    )
+    (component "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+      (place U0 1534750 -1343050 front 0)
+    )
+    (component "Crystal:Crystal_C26-LF_D2.1mm_L6.5mm_Horizontal_1EP_style1"
+      (place Y0 1477600 -1304950 front 270)
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical::1
+      (place R1 1339850 -1416050 front 270)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical
+      (place J0 1625600 -1308100 front 0)
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical::2
+      (place R2 1562100 -1073150 front 90)
+    )
+    (component "Crystal:Resonator-2Pin_W10.0mm_H5.0mm"
+      (place Y1 1612900 -1231500 front 90)
+    )
+    (component "Package_SO:SOIC-28W_7.5x17.9mm_P1.27mm"
+      (place U1 1466850 -1206500 front 270)
+    )
+    (component SamacSys_Parts:101
+      (place BT0 1565150 -1206500 back 0)
+    )
+    (component "Connector_USB:USB_A_CONNFLY_DS1095-WNR0"
+      (place J1 1393750 -1073150 back 180)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "(6.0.4)")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

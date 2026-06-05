@@ -1,0 +1,25 @@
+{
+  "backend": {
+    "id": "mojo",
+    "version": "1.0"
+  },
+  "board": {
+    "board_ir_id": "gd32f310c8t6-lqfp48-breakout-v001",
+    "components": [],
+    "frozen_board_snapshot_id": "",
+    "nets": [],
+    "obstacles": [],
+    "pads": [],
+    "stackup": []
+  },
+  "problem_hash": "sha256:gd32f310c8t6-staged-empty-problem",
+  "route_plan": {
+    "frozen_board_snapshot_id": "",
+    "route_groups": [],
+    "route_plan_hash": "",
+    "route_plan_id": ""
+  },
+  "schema": "mojo.problem",
+  "unsupported_features": [],
+  "version": "1.0"
+}

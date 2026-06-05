@@ -1,8 +1,8 @@
 # tests/test_command_parser_registration.py
 import pytest
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.commands import Command
-from pcb_tool.data_model import Board
+from pardal.command_parser import CommandParser
+from pardal.commands import Command
+from pardal.data_model import Board
 
 
 class DummyCommand(Command):

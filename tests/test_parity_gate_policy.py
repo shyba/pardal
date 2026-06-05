@@ -34,7 +34,7 @@ def _tier_paths(relpath: str) -> list[str]:
 
 
 def _policy_maps() -> tuple[dict[str, str], dict[str, str]]:
-    payload = _load_json("parity_fixtures/parity_gate_policy.json")
+    payload = _load_json("tests/fixtures/parity_fixtures/parity_gate_policy.json")
     assert isinstance(payload, list)
     by_name: dict[str, str] = {}
     by_pcb: dict[str, str] = {}
@@ -61,8 +61,8 @@ def test_parity_gate_policy_required_modes_for_applicable_now() -> None:
 
 def test_parity_gate_policy_covers_fast_and_medium_tiers() -> None:
     _by_name, by_pcb = _policy_maps()
-    fast = _tier_paths("parity_fixtures/fr_tiers/tier_fast.json")
-    medium = _tier_paths("parity_fixtures/fr_tiers/tier_medium.json")
+    fast = _tier_paths("tests/fixtures/parity_fixtures/fr_tiers/tier_fast.json")
+    medium = _tier_paths("tests/fixtures/parity_fixtures/fr_tiers/tier_medium.json")
     for pcb in fast + medium:
         assert pcb in by_pcb, f"missing gate policy for tier fixture: {pcb}"
         assert by_pcb[pcb] == "baseline_exact", f"unexpected mode for {pcb}: {by_pcb[pcb]}"

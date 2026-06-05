@@ -1,0 +1,3795 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:30:34.775661598-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue297-myboard.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1309.223,
+                "y": -1034.117
+              },
+              "uuid": "761"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1320.0230000000001,
+                "y": -1033.917
+              },
+              "uuid": "320"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1365.223,
+                "y": -1036.017
+              },
+              "uuid": "725"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1353.323,
+                "y": -1033.917
+              },
+              "uuid": "491"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1286.401,
+                "y": -1107.0
+              },
+              "uuid": "426"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1286.401,
+                "y": -1090.0
+              },
+              "uuid": "400"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1286.401,
+                "y": -1107.0
+              },
+              "uuid": "426"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1286.401,
+                "y": -1125.0
+              },
+              "uuid": "413"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1269.401,
+                "y": -1177.5
+              },
+              "uuid": "192"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1289.401,
+                "y": -1173.0
+              },
+              "uuid": "821"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1410.223,
+                "y": -1438.917
+              },
+              "uuid": "630"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1394.5230000000001,
+                "y": -1457.9170000000001
+              },
+              "uuid": "472"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1320.0230000000001,
+                "y": -1033.917
+              },
+              "uuid": "320"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1353.323,
+                "y": -1033.917
+              },
+              "uuid": "491"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1286.401,
+                "y": -1125.0
+              },
+              "uuid": "413"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1289.401,
+                "y": -1173.0
+              },
+              "uuid": "821"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1286.401,
+                "y": -1090.0
+              },
+              "uuid": "400"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1309.223,
+                "y": -1034.117
+              },
+              "uuid": "761"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1140.223,
+                "y": -400.91700000000003
+              },
+              "uuid": "749"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1072.223,
+                "y": -400.91700000000003
+              },
+              "uuid": "737"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1673.738,
+                "y": -808.806
+              },
+              "uuid": "88"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1621.348,
+                "y": -878.217
+              },
+              "uuid": "267"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1189.223,
+                "y": -988.917
+              },
+              "uuid": "526"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1309.223,
+                "y": -1034.117
+              },
+              "uuid": "761"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1410.223,
+                "y": -1438.917
+              },
+              "uuid": "630"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1488.0,
+                "y": -1259.375
+              },
+              "uuid": "444"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1289.401,
+                "y": -1173.0
+              },
+              "uuid": "821"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1488.0,
+                "y": -1259.375
+              },
+              "uuid": "444"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1621.348,
+                "y": -878.217
+              },
+              "uuid": "267"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1365.223,
+                "y": -1036.017
+              },
+              "uuid": "725"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1724.223,
+                "y": -396.91700000000003
+              },
+              "uuid": "337"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1673.738,
+                "y": -808.806
+              },
+              "uuid": "88"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1724.223,
+                "y": -396.91700000000003
+              },
+              "uuid": "337"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1140.223,
+                "y": -400.91700000000003
+              },
+              "uuid": "749"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(Q3-G2)] and Pin [Net-(Q3-G2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(Q3-G2)]",
+              "pos": {
+                "x": 1088.998,
+                "y": -1316.917
+              },
+              "uuid": "105"
+            },
+            {
+              "description": "Pin [Net-(Q3-G2)]",
+              "pos": {
+                "x": 1023.2230000000001,
+                "y": -1314.917
+              },
+              "uuid": "141"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U3-VM)] and Pin [Net-(U3-VM)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U3-VM)]",
+              "pos": {
+                "x": 1097.223,
+                "y": -1252.217
+              },
+              "uuid": "130"
+            },
+            {
+              "description": "Pin [Net-(U3-VM)]",
+              "pos": {
+                "x": 1098.498,
+                "y": -1316.917
+              },
+              "uuid": "106"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [NFC_SCL] and Pin [NFC_SCL]",
+          "items": [
+            {
+              "description": "Pin [NFC_SCL]",
+              "pos": {
+                "x": 1141.223,
+                "y": -1269.917
+              },
+              "uuid": "353"
+            },
+            {
+              "description": "Pin [NFC_SCL]",
+              "pos": {
+                "x": 1621.223,
+                "y": -1112.517
+              },
+              "uuid": "290"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [NFC_SCL] and Pin [NFC_SCL]",
+          "items": [
+            {
+              "description": "Pin [NFC_SCL]",
+              "pos": {
+                "x": 1621.223,
+                "y": -1112.517
+              },
+              "uuid": "290"
+            },
+            {
+              "description": "Pin [NFC_SCL]",
+              "pos": {
+                "x": 1729.223,
+                "y": -383.91700000000003
+              },
+              "uuid": "334"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [NFC_SDA] and Pin [NFC_SDA]",
+          "items": [
+            {
+              "description": "Pin [NFC_SDA]",
+              "pos": {
+                "x": 1729.223,
+                "y": -396.91700000000003
+              },
+              "uuid": "336"
+            },
+            {
+              "description": "Pin [NFC_SDA]",
+              "pos": {
+                "x": 1621.348,
+                "y": -700.417
+              },
+              "uuid": "260"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [NFC_SDA] and Pin [NFC_SDA]",
+          "items": [
+            {
+              "description": "Pin [NFC_SDA]",
+              "pos": {
+                "x": 1621.348,
+                "y": -700.417
+              },
+              "uuid": "260"
+            },
+            {
+              "description": "Pin [NFC_SDA]",
+              "pos": {
+                "x": 1141.223,
+                "y": -1304.917
+              },
+              "uuid": "365"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/LA] and Pin [/LA]",
+          "items": [
+            {
+              "description": "Pin [/LA]",
+              "pos": {
+                "x": 1719.223,
+                "y": -383.91700000000003
+              },
+              "uuid": "332"
+            },
+            {
+              "description": "Pin [/LA]",
+              "pos": {
+                "x": 1533.223,
+                "y": -377.517
+              },
+              "uuid": "240"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [NFC_FD] and Pin [NFC_FD]",
+          "items": [
+            {
+              "description": "Pin [NFC_FD]",
+              "pos": {
+                "x": 1730.223,
+                "y": -390.41700000000003
+              },
+              "uuid": "335"
+            },
+            {
+              "description": "Pin [NFC_FD]",
+              "pos": {
+                "x": 1621.223,
+                "y": -1137.917
+              },
+              "uuid": "291"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PD2] and Pin [PD2]",
+          "items": [
+            {
+              "description": "Pin [PD2]",
+              "pos": {
+                "x": 1518.0,
+                "y": -1243.375
+              },
+              "uuid": "454"
+            },
+            {
+              "description": "Pin [PD2]",
+              "pos": {
+                "x": 1621.223,
+                "y": -1036.317
+              },
+              "uuid": "287"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PD2] and Pin [PD2]",
+          "items": [
+            {
+              "description": "Pin [PD2]",
+              "pos": {
+                "x": 1518.0,
+                "y": -1243.375
+              },
+              "uuid": "454"
+            },
+            {
+              "description": "Pin [PD2]",
+              "pos": {
+                "x": 1189.223,
+                "y": -1008.917
+              },
+              "uuid": "527"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(JP1-A)] and Pin [Net-(JP1-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(JP1-A)]",
+              "pos": {
+                "x": 1288.5,
+                "y": -1319.0
+              },
+              "uuid": "784"
+            },
+            {
+              "description": "Pin [Net-(JP1-A)]",
+              "pos": {
+                "x": 1288.3,
+                "y": -1249.0
+              },
+              "uuid": "693"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(JP1-A)] and Pin [Net-(JP1-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(JP1-A)]",
+              "pos": {
+                "x": 1141.223,
+                "y": -1281.867
+              },
+              "uuid": "352"
+            },
+            {
+              "description": "Pin [Net-(JP1-A)]",
+              "pos": {
+                "x": 1288.3,
+                "y": -1249.0
+              },
+              "uuid": "693"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(JP2-A)] and Pin [Net-(JP2-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(JP2-A)]",
+              "pos": {
+                "x": 1271.5,
+                "y": -1341.0
+              },
+              "uuid": "782"
+            },
+            {
+              "description": "Pin [Net-(JP2-A)]",
+              "pos": {
+                "x": 1384.223,
+                "y": -1401.117
+              },
+              "uuid": "309"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(JP2-A)] and Pin [Net-(JP2-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(JP2-A)]",
+              "pos": {
+                "x": 1271.5,
+                "y": -1341.0
+              },
+              "uuid": "782"
+            },
+            {
+              "description": "Pin [Net-(JP2-A)]",
+              "pos": {
+                "x": 1141.223,
+                "y": -1316.867
+              },
+              "uuid": "364"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [INT1] and Pin [INT1]",
+          "items": [
+            {
+              "description": "Pin [INT1]",
+              "pos": {
+                "x": 1040.498,
+                "y": -1163.017
+              },
+              "uuid": "830"
+            },
+            {
+              "description": "Pin [INT1]",
+              "pos": {
+                "x": 1065.723,
+                "y": -900.917
+              },
+              "uuid": "158"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [INT1] and Pin [INT1]",
+          "items": [
+            {
+              "description": "Pin [INT1]",
+              "pos": {
+                "x": 1511.0,
+                "y": -1236.375
+              },
+              "uuid": "453"
+            },
+            {
+              "description": "Pin [INT1]",
+              "pos": {
+                "x": 1040.498,
+                "y": -1163.017
+              },
+              "uuid": "830"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U3-VCC)] and Pin [Net-(U3-VCC)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U3-VCC)]",
+              "pos": {
+                "x": 1352.22,
+                "y": -1369.3
+              },
+              "uuid": "213"
+            },
+            {
+              "description": "Pin [Net-(U3-VCC)]",
+              "pos": {
+                "x": 1380.0,
+                "y": -1360.0
+              },
+              "uuid": "179"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U3-VCC)] and Pin [Net-(U3-VCC)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U3-VCC)]",
+              "pos": {
+                "x": 1098.498,
+                "y": -1339.917
+              },
+              "uuid": "109"
+            },
+            {
+              "description": "Pin [Net-(U3-VCC)]",
+              "pos": {
+                "x": 1352.22,
+                "y": -1369.3
+              },
+              "uuid": "213"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1499.0,
+                "y": -1266.375
+              },
+              "uuid": "442"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1495.0,
+                "y": -1266.375
+              },
+              "uuid": "443"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1322.0230000000001,
+                "y": -1596.5420000000001
+              },
+              "uuid": "665"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1333.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "674"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1408.423,
+                "y": -1596.5420000000001
+              },
+              "uuid": "664"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1397.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "668"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1488.0,
+                "y": -1255.375
+              },
+              "uuid": "445"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1503.0,
+                "y": -1251.375
+              },
+              "uuid": "459"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1499.0,
+                "y": -1266.375
+              },
+              "uuid": "442"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1503.0,
+                "y": -1251.375
+              },
+              "uuid": "459"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1710.508,
+                "y": -839.66
+              },
+              "uuid": "91"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1720.7925,
+                "y": -827.403
+              },
+              "uuid": "92"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1272.401,
+                "y": -1125.0
+              },
+              "uuid": "414"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1271.401,
+                "y": -1141.7
+              },
+              "uuid": "223"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1272.401,
+                "y": -1090.0
+              },
+              "uuid": "401"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1272.401,
+                "y": -1107.0
+              },
+              "uuid": "427"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1272.401,
+                "y": -1107.0
+              },
+              "uuid": "427"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1272.401,
+                "y": -1125.0
+              },
+              "uuid": "414"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1042.223,
+                "y": -1341.917
+              },
+              "uuid": "138"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1023.2230000000001,
+                "y": -1341.917
+              },
+              "uuid": "140"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1429.223,
+                "y": -1640.4170000000001
+              },
+              "uuid": "149"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1437.717,
+                "y": -1659.484
+              },
+              "uuid": "515"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1384.223,
+                "y": -1410.717
+              },
+              "uuid": "308"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1410.223,
+                "y": -1424.917
+              },
+              "uuid": "629"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1360.223,
+                "y": -1433.517
+              },
+              "uuid": "379"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1384.223,
+                "y": -1410.717
+              },
+              "uuid": "308"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1345.22,
+                "y": -1338.0
+              },
+              "uuid": "388"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1325.0,
+                "y": -1367.0
+              },
+              "uuid": "617"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1408.423,
+                "y": -1638.342
+              },
+              "uuid": "666"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1437.717,
+                "y": -1659.484
+              },
+              "uuid": "515"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1273.223,
+                "y": -1514.4170000000001
+              },
+              "uuid": "249"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1283.223,
+                "y": -1478.9170000000001
+              },
+              "uuid": "642"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1384.223,
+                "y": -1410.717
+              },
+              "uuid": "308"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1380.0,
+                "y": -1371.0
+              },
+              "uuid": "178"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1322.0230000000001,
+                "y": -1638.342
+              },
+              "uuid": "667"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1322.0230000000001,
+                "y": -1596.5420000000001
+              },
+              "uuid": "665"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1408.423,
+                "y": -1638.342
+              },
+              "uuid": "666"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1408.423,
+                "y": -1596.5420000000001
+              },
+              "uuid": "664"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1325.0,
+                "y": -1367.0
+              },
+              "uuid": "617"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1288.5,
+                "y": -1341.0
+              },
+              "uuid": "785"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1042.223,
+                "y": -1341.917
+              },
+              "uuid": "138"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1088.998,
+                "y": -1339.917
+              },
+              "uuid": "110"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1269.401,
+                "y": -1188.5
+              },
+              "uuid": "191"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1271.401,
+                "y": -1141.7
+              },
+              "uuid": "223"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1380.0,
+                "y": -1371.0
+              },
+              "uuid": "178"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1345.22,
+                "y": -1338.0
+              },
+              "uuid": "388"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1321.723,
+                "y": -1520.4170000000001
+              },
+              "uuid": "850"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1273.223,
+                "y": -1514.4170000000001
+              },
+              "uuid": "249"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1028.223,
+                "y": -948.917
+              },
+              "uuid": "539"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1046.723,
+                "y": -900.917
+              },
+              "uuid": "159"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.223,
+                "y": -960.1170000000001
+              },
+              "uuid": "284"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1562.893,
+                "y": -968.567
+              },
+              "uuid": "24"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1397.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "668"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1333.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "674"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1278.7,
+                "y": -1249.0
+              },
+              "uuid": "692"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1343.723,
+                "y": -1220.917
+              },
+              "uuid": "169"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1333.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "674"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1321.723,
+                "y": -1520.4170000000001
+              },
+              "uuid": "850"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1040.498,
+                "y": -1196.817
+              },
+              "uuid": "831"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1097.223,
+                "y": -1243.617
+              },
+              "uuid": "129"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1283.223,
+                "y": -1478.9170000000001
+              },
+              "uuid": "642"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1360.223,
+                "y": -1433.517
+              },
+              "uuid": "379"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1710.508,
+                "y": -839.66
+              },
+              "uuid": "91"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.348,
+                "y": -852.817
+              },
+              "uuid": "266"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1288.5,
+                "y": -1341.0
+              },
+              "uuid": "785"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1278.7,
+                "y": -1249.0
+              },
+              "uuid": "692"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1028.223,
+                "y": -1088.917
+              },
+              "uuid": "532"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1040.498,
+                "y": -1196.817
+              },
+              "uuid": "831"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1088.998,
+                "y": -1339.917
+              },
+              "uuid": "110"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1150.0,
+                "y": -1440.0
+              },
+              "uuid": "564"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1787.8715,
+                "y": -284.948
+              },
+              "uuid": "37"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1724.223,
+                "y": -383.91700000000003
+              },
+              "uuid": "333"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1271.5,
+                "y": -1319.0
+              },
+              "uuid": "783"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1269.401,
+                "y": -1188.5
+              },
+              "uuid": "191"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1343.723,
+                "y": -1220.917
+              },
+              "uuid": "169"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1272.401,
+                "y": -1107.0
+              },
+              "uuid": "427"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1028.223,
+                "y": -1088.917
+              },
+              "uuid": "532"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1028.223,
+                "y": -948.917
+              },
+              "uuid": "539"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1273.223,
+                "y": -1514.4170000000001
+              },
+              "uuid": "249"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1150.0,
+                "y": -1440.0
+              },
+              "uuid": "564"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1272.401,
+                "y": -1090.0
+              },
+              "uuid": "401"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1189.223,
+                "y": -968.917
+              },
+              "uuid": "525"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1343.723,
+                "y": -1220.917
+              },
+              "uuid": "169"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1488.0,
+                "y": -1255.375
+              },
+              "uuid": "445"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.223,
+                "y": -960.1170000000001
+              },
+              "uuid": "284"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1710.508,
+                "y": -839.66
+              },
+              "uuid": "91"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1430.959,
+                "y": -1044.3995
+              },
+              "uuid": "5"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1562.893,
+                "y": -968.567
+              },
+              "uuid": "24"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1189.223,
+                "y": -968.917
+              },
+              "uuid": "525"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1046.723,
+                "y": -900.917
+              },
+              "uuid": "159"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1570.0,
+                "y": -1440.0
+              },
+              "uuid": "591"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1410.223,
+                "y": -1424.917
+              },
+              "uuid": "629"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1189.223,
+                "y": -968.917
+              },
+              "uuid": "525"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1350.746,
+                "y": -923.758
+              },
+              "uuid": "30"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1430.959,
+                "y": -1044.3995
+              },
+              "uuid": "5"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1272.401,
+                "y": -1107.0
+              },
+              "uuid": "427"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.348,
+                "y": -675.017
+              },
+              "uuid": "259"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.348,
+                "y": -852.817
+              },
+              "uuid": "266"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1446.4745,
+                "y": -721.0185
+              },
+              "uuid": "72"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.348,
+                "y": -675.017
+              },
+              "uuid": "259"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.223,
+                "y": -1163.317
+              },
+              "uuid": "292"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.223,
+                "y": -960.1170000000001
+              },
+              "uuid": "284"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1621.348,
+                "y": -675.017
+              },
+              "uuid": "259"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1724.223,
+                "y": -383.91700000000003
+              },
+              "uuid": "333"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC0] and Pin [PC0]",
+          "items": [
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1446.4745,
+                "y": -721.0185
+              },
+              "uuid": "72"
+            },
+            {
+              "description": "Pin [PC0]",
+              "pos": {
+                "x": 1226.07,
+                "y": -502.29200000000003
+              },
+              "uuid": "52"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1350.223,
+                "y": -1421.917
+              },
+              "uuid": "376"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1350.223,
+                "y": -1433.517
+              },
+              "uuid": "381"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1302.623,
+                "y": -1400.917
+              },
+              "uuid": "717"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1350.223,
+                "y": -1421.917
+              },
+              "uuid": "376"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1263.5,
+                "y": -1440.0
+              },
+              "uuid": "562"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1302.623,
+                "y": -1400.917
+              },
+              "uuid": "717"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1352.22,
+                "y": -1360.7
+              },
+              "uuid": "214"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1350.223,
+                "y": -1421.917
+              },
+              "uuid": "376"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1456.5,
+                "y": -1440.0
+              },
+              "uuid": "590"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1350.223,
+                "y": -1433.517
+              },
+              "uuid": "381"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1352.22,
+                "y": -1360.7
+              },
+              "uuid": "214"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1231.757,
+                "y": -1258.998
+              },
+              "uuid": "655"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1290.823,
+                "y": -1645.9170000000001
+              },
+              "uuid": "504"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1263.5,
+                "y": -1440.0
+              },
+              "uuid": "562"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1036.5,
+                "y": -1440.0
+              },
+              "uuid": "563"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1263.5,
+                "y": -1440.0
+              },
+              "uuid": "562"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VDD] and Pin [VDD]",
+          "items": [
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1456.5,
+                "y": -1440.0
+              },
+              "uuid": "590"
+            },
+            {
+              "description": "Pin [VDD]",
+              "pos": {
+                "x": 1683.5,
+                "y": -1440.0
+              },
+              "uuid": "589"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D4-C)] and Pin [Net-(D4-C)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1306.723,
+                "y": -1525.4170000000001
+              },
+              "uuid": "848"
+            },
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1306.723,
+                "y": -1520.4170000000001
+              },
+              "uuid": "849"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D4-C)] and Pin [Net-(D4-C)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1306.923,
+                "y": -1487.9170000000001
+              },
+              "uuid": "557"
+            },
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1283.223,
+                "y": -1489.9170000000001
+              },
+              "uuid": "643"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D4-C)] and Pin [Net-(D4-C)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1306.723,
+                "y": -1520.4170000000001
+              },
+              "uuid": "849"
+            },
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1306.923,
+                "y": -1487.9170000000001
+              },
+              "uuid": "557"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D4-C)] and Pin [Net-(D4-C)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1306.923,
+                "y": -1487.9170000000001
+              },
+              "uuid": "557"
+            },
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1361.3,
+                "y": -1320.0
+              },
+              "uuid": "773"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D4-C)] and Pin [Net-(D4-C)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1361.3,
+                "y": -1320.0
+              },
+              "uuid": "773"
+            },
+            {
+              "description": "Pin [Net-(D4-C)]",
+              "pos": {
+                "x": 1655.301,
+                "y": -1336.156
+              },
+              "uuid": "704"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U4-FB)] and Pin [Net-(U4-FB)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U4-FB)]",
+              "pos": {
+                "x": 1289.401,
+                "y": -1153.0
+              },
+              "uuid": "822"
+            },
+            {
+              "description": "Pin [Net-(U4-FB)]",
+              "pos": {
+                "x": 1271.401,
+                "y": -1150.3
+              },
+              "uuid": "222"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U4-FB)] and Pin [Net-(U4-FB)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U4-FB)]",
+              "pos": {
+                "x": 1289.401,
+                "y": -1153.0
+              },
+              "uuid": "822"
+            },
+            {
+              "description": "Pin [Net-(U4-FB)]",
+              "pos": {
+                "x": 1360.223,
+                "y": -1421.917
+              },
+              "uuid": "378"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/LB] and Pin [/LB]",
+          "items": [
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1616.623,
+                "y": -407.91700000000003
+              },
+              "uuid": "117"
+            },
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1611.223,
+                "y": -407.91700000000003
+              },
+              "uuid": "116"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/LB] and Pin [/LB]",
+          "items": [
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1718.223,
+                "y": -390.41700000000003
+              },
+              "uuid": "339"
+            },
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1733.223,
+                "y": -482.91700000000003
+              },
+              "uuid": "67"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/LB] and Pin [/LB]",
+          "items": [
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1718.223,
+                "y": -390.41700000000003
+              },
+              "uuid": "339"
+            },
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1616.623,
+                "y": -407.91700000000003
+              },
+              "uuid": "117"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D4-A)] and Pin [Net-(D4-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D4-A)]",
+              "pos": {
+                "x": 1348.7,
+                "y": -1320.0
+              },
+              "uuid": "774"
+            },
+            {
+              "description": "Pin [Net-(D4-A)]",
+              "pos": {
+                "x": 1719.223,
+                "y": -396.91700000000003
+              },
+              "uuid": "338"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [INT2] and Pin [INT2]",
+          "items": [
+            {
+              "description": "Pin [INT2]",
+              "pos": {
+                "x": 1488.0,
+                "y": -1251.375
+              },
+              "uuid": "446"
+            },
+            {
+              "description": "Pin [INT2]",
+              "pos": {
+                "x": 1362.723,
+                "y": -1220.917
+              },
+              "uuid": "168"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(Q3-G1)] and Pin [Net-(Q3-G1)]",
+          "items": [
+            {
+              "description": "Pin [Net-(Q3-G1)]",
+              "pos": {
+                "x": 1107.998,
+                "y": -1316.917
+              },
+              "uuid": "107"
+            },
+            {
+              "description": "Pin [Net-(Q3-G1)]",
+              "pos": {
+                "x": 1042.223,
+                "y": -1314.917
+              },
+              "uuid": "143"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [DPU] and Pin [DPU]",
+          "items": [
+            {
+              "description": "Pin [DPU]",
+              "pos": {
+                "x": 1582.0,
+                "y": -1254.3
+              },
+              "uuid": "231"
+            },
+            {
+              "description": "Pin [DPU]",
+              "pos": {
+                "x": 1518.0,
+                "y": -1255.375
+              },
+              "uuid": "457"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [D-] and Pin [D-]",
+          "items": [
+            {
+              "description": "Pin [D-]",
+              "pos": {
+                "x": 1362.723,
+                "y": -1590.5420000000001
+              },
+              "uuid": "672"
+            },
+            {
+              "description": "Pin [D-]",
+              "pos": {
+                "x": 1372.723,
+                "y": -1590.5420000000001
+              },
+              "uuid": "678"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [D-] and Pin [D-]",
+          "items": [
+            {
+              "description": "Pin [D-]",
+              "pos": {
+                "x": 1518.0,
+                "y": -1251.375
+              },
+              "uuid": "456"
+            },
+            {
+              "description": "Pin [D-]",
+              "pos": {
+                "x": 1582.0,
+                "y": -1245.7
+              },
+              "uuid": "232"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [D-] and Pin [D-]",
+          "items": [
+            {
+              "description": "Pin [D-]",
+              "pos": {
+                "x": 1372.723,
+                "y": -1590.5420000000001
+              },
+              "uuid": "678"
+            },
+            {
+              "description": "Pin [D-]",
+              "pos": {
+                "x": 1518.0,
+                "y": -1251.375
+              },
+              "uuid": "456"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D2-A)] and Pin [Net-(D2-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D2-A)]",
+              "pos": {
+                "x": 1338.046,
+                "y": -945.755
+              },
+              "uuid": "31"
+            },
+            {
+              "description": "Pin [Net-(D2-A)]",
+              "pos": {
+                "x": 1309.223,
+                "y": -1023.917
+              },
+              "uuid": "762"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D3-A)] and Pin [Net-(D3-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D3-A)]",
+              "pos": {
+                "x": 1365.223,
+                "y": -1025.817
+              },
+              "uuid": "726"
+            },
+            {
+              "description": "Pin [Net-(D3-A)]",
+              "pos": {
+                "x": 1546.566,
+                "y": -949.109
+              },
+              "uuid": "25"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U4-SW)] and Pin [Net-(U4-SW)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U4-SW)]",
+              "pos": {
+                "x": 1355.223,
+                "y": -1433.517
+              },
+              "uuid": "380"
+            },
+            {
+              "description": "Pin [Net-(U4-SW)]",
+              "pos": {
+                "x": 1377.923,
+                "y": -1457.9170000000001
+              },
+              "uuid": "473"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(LED2-A)] and Pin [Net-(LED2-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(LED2-A)]",
+              "pos": {
+                "x": 1220.376,
+                "y": -523.542
+              },
+              "uuid": "51"
+            },
+            {
+              "description": "Pin [Net-(LED2-A)]",
+              "pos": {
+                "x": 1330.223,
+                "y": -1033.917
+              },
+              "uuid": "321"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+5V] and Pin [+5V]",
+          "items": [
+            {
+              "description": "Pin [+5V]",
+              "pos": {
+                "x": 1389.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "669"
+            },
+            {
+              "description": "Pin [+5V]",
+              "pos": {
+                "x": 1341.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "675"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+5V] and Pin [+5V]",
+          "items": [
+            {
+              "description": "Pin [+5V]",
+              "pos": {
+                "x": 1341.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "675"
+            },
+            {
+              "description": "Pin [+5V]",
+              "pos": {
+                "x": 1295.223,
+                "y": -1611.617
+              },
+              "uuid": "794"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+5V] and Pin [+5V]",
+          "items": [
+            {
+              "description": "Pin [+5V]",
+              "pos": {
+                "x": 1389.223,
+                "y": -1590.5420000000001
+              },
+              "uuid": "669"
+            },
+            {
+              "description": "Pin [+5V]",
+              "pos": {
+                "x": 1621.223,
+                "y": -934.717
+              },
+              "uuid": "283"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC7] and Pin [PC7]",
+          "items": [
+            {
+              "description": "Pin [PC7]",
+              "pos": {
+                "x": 1621.348,
+                "y": -725.817
+              },
+              "uuid": "261"
+            },
+            {
+              "description": "Pin [PC7]",
+              "pos": {
+                "x": 1700.2235,
+                "y": -851.9165
+              },
+              "uuid": "90"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC7] and Pin [PC7]",
+          "items": [
+            {
+              "description": "Pin [PC7]",
+              "pos": {
+                "x": 1507.0,
+                "y": -1236.375
+              },
+              "uuid": "452"
+            },
+            {
+              "description": "Pin [PC7]",
+              "pos": {
+                "x": 1700.2235,
+                "y": -851.9165
+              },
+              "uuid": "90"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC7] and Pin [PC7]",
+          "items": [
+            {
+              "description": "Pin [PC7]",
+              "pos": {
+                "x": 1507.0,
+                "y": -1236.375
+              },
+              "uuid": "452"
+            },
+            {
+              "description": "Pin [PC7]",
+              "pos": {
+                "x": 1028.223,
+                "y": -988.917
+              },
+              "uuid": "537"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC5] and Pin [PC5]",
+          "items": [
+            {
+              "description": "Pin [PC5]",
+              "pos": {
+                "x": 1499.0,
+                "y": -1236.375
+              },
+              "uuid": "450"
+            },
+            {
+              "description": "Pin [PC5]",
+              "pos": {
+                "x": 1621.348,
+                "y": -776.617
+              },
+              "uuid": "263"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC5] and Pin [PC5]",
+          "items": [
+            {
+              "description": "Pin [PC5]",
+              "pos": {
+                "x": 1028.223,
+                "y": -1028.917
+              },
+              "uuid": "535"
+            },
+            {
+              "description": "Pin [PC5]",
+              "pos": {
+                "x": 1499.0,
+                "y": -1236.375
+              },
+              "uuid": "450"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PA1] and Pin [PA1]",
+          "items": [
+            {
+              "description": "Pin [PA1]",
+              "pos": {
+                "x": 1621.223,
+                "y": -985.517
+              },
+              "uuid": "285"
+            },
+            {
+              "description": "Pin [PA1]",
+              "pos": {
+                "x": 1507.0,
+                "y": -1266.375
+              },
+              "uuid": "440"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PA1] and Pin [PA1]",
+          "items": [
+            {
+              "description": "Pin [PA1]",
+              "pos": {
+                "x": 1507.0,
+                "y": -1266.375
+              },
+              "uuid": "440"
+            },
+            {
+              "description": "Pin [PA1]",
+              "pos": {
+                "x": 1189.223,
+                "y": -1088.917
+              },
+              "uuid": "531"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PD6] and Pin [PD6]",
+          "items": [
+            {
+              "description": "Pin [PD6]",
+              "pos": {
+                "x": 1518.0,
+                "y": -1259.375
+              },
+              "uuid": "458"
+            },
+            {
+              "description": "Pin [PD6]",
+              "pos": {
+                "x": 1621.223,
+                "y": -1061.717
+              },
+              "uuid": "288"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC4] and Pin [PC4]",
+          "items": [
+            {
+              "description": "Pin [PC4]",
+              "pos": {
+                "x": 1495.0,
+                "y": -1236.375
+              },
+              "uuid": "449"
+            },
+            {
+              "description": "Pin [PC4]",
+              "pos": {
+                "x": 1189.223,
+                "y": -1048.917
+              },
+              "uuid": "529"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC4] and Pin [PC4]",
+          "items": [
+            {
+              "description": "Pin [PC4]",
+              "pos": {
+                "x": 1495.0,
+                "y": -1236.375
+              },
+              "uuid": "449"
+            },
+            {
+              "description": "Pin [PC4]",
+              "pos": {
+                "x": 1621.348,
+                "y": -802.017
+              },
+              "uuid": "264"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PA2] and Pin [PA2]",
+          "items": [
+            {
+              "description": "Pin [PA2]",
+              "pos": {
+                "x": 1621.223,
+                "y": -1010.917
+              },
+              "uuid": "286"
+            },
+            {
+              "description": "Pin [PA2]",
+              "pos": {
+                "x": 1503.0,
+                "y": -1266.375
+              },
+              "uuid": "441"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PA2] and Pin [PA2]",
+          "items": [
+            {
+              "description": "Pin [PA2]",
+              "pos": {
+                "x": 1189.223,
+                "y": -1028.917
+              },
+              "uuid": "528"
+            },
+            {
+              "description": "Pin [PA2]",
+              "pos": {
+                "x": 1503.0,
+                "y": -1266.375
+              },
+              "uuid": "441"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [D+] and Pin [D+]",
+          "items": [
+            {
+              "description": "Pin [D+]",
+              "pos": {
+                "x": 1367.723,
+                "y": -1590.5420000000001
+              },
+              "uuid": "671"
+            },
+            {
+              "description": "Pin [D+]",
+              "pos": {
+                "x": 1357.723,
+                "y": -1590.5420000000001
+              },
+              "uuid": "677"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [D+] and Pin [D+]",
+          "items": [
+            {
+              "description": "Pin [D+]",
+              "pos": {
+                "x": 1367.723,
+                "y": -1590.5420000000001
+              },
+              "uuid": "671"
+            },
+            {
+              "description": "Pin [D+]",
+              "pos": {
+                "x": 1518.0,
+                "y": -1247.375
+              },
+              "uuid": "455"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC6] and Pin [PC6]",
+          "items": [
+            {
+              "description": "Pin [PC6]",
+              "pos": {
+                "x": 1621.348,
+                "y": -751.217
+              },
+              "uuid": "262"
+            },
+            {
+              "description": "Pin [PC6]",
+              "pos": {
+                "x": 1503.0,
+                "y": -1236.375
+              },
+              "uuid": "451"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PD7] and Pin [PD7]",
+          "items": [
+            {
+              "description": "Pin [PD7]",
+              "pos": {
+                "x": 1621.223,
+                "y": -1087.117
+              },
+              "uuid": "289"
+            },
+            {
+              "description": "Pin [PD7]",
+              "pos": {
+                "x": 1511.0,
+                "y": -1266.375
+              },
+              "uuid": "439"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PD7] and Pin [PD7]",
+          "items": [
+            {
+              "description": "Pin [PD7]",
+              "pos": {
+                "x": 1511.0,
+                "y": -1266.375
+              },
+              "uuid": "439"
+            },
+            {
+              "description": "Pin [PD7]",
+              "pos": {
+                "x": 1028.223,
+                "y": -1008.917
+              },
+              "uuid": "536"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(LED4-K)] and Pin [Net-(LED4-K)]",
+          "items": [
+            {
+              "description": "Pin [Net-(LED4-K)]",
+              "pos": {
+                "x": 1056.223,
+                "y": -880.917
+              },
+              "uuid": "160"
+            },
+            {
+              "description": "Pin [Net-(LED4-K)]",
+              "pos": {
+                "x": 1055.223,
+                "y": -328.91700000000003
+              },
+              "uuid": "802"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC3] and Pin [PC3]",
+          "items": [
+            {
+              "description": "Pin [PC3]",
+              "pos": {
+                "x": 1488.0,
+                "y": -1243.375
+              },
+              "uuid": "448"
+            },
+            {
+              "description": "Pin [PC3]",
+              "pos": {
+                "x": 1621.348,
+                "y": -827.417
+              },
+              "uuid": "265"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [PC3] and Pin [PC3]",
+          "items": [
+            {
+              "description": "Pin [PC3]",
+              "pos": {
+                "x": 1028.223,
+                "y": -968.917
+              },
+              "uuid": "538"
+            },
+            {
+              "description": "Pin [PC3]",
+              "pos": {
+                "x": 1488.0,
+                "y": -1243.375
+              },
+              "uuid": "448"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(Q1-C)] and Pin [Net-(Q1-C)]",
+          "items": [
+            {
+              "description": "Pin [Net-(Q1-C)]",
+              "pos": {
+                "x": 1119.848,
+                "y": -329.91700000000003
+              },
+              "uuid": "477"
+            },
+            {
+              "description": "Pin [Net-(Q1-C)]",
+              "pos": {
+                "x": 1353.223,
+                "y": -1200.917
+              },
+              "uuid": "170"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(LED4-A)] and Pin [Net-(LED4-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(LED4-A)]",
+              "pos": {
+                "x": 1071.223,
+                "y": -328.91700000000003
+              },
+              "uuid": "803"
+            },
+            {
+              "description": "Pin [Net-(LED4-A)]",
+              "pos": {
+                "x": 1072.223,
+                "y": -390.717
+              },
+              "uuid": "738"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(LED3-A)] and Pin [Net-(LED3-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(LED3-A)]",
+              "pos": {
+                "x": 1778.5745,
+                "y": -304.886
+              },
+              "uuid": "36"
+            },
+            {
+              "description": "Pin [Net-(LED3-A)]",
+              "pos": {
+                "x": 1655.301,
+                "y": -1346.356
+              },
+              "uuid": "705"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U2-FB)] and Pin [Net-(U2-FB)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U2-FB)]",
+              "pos": {
+                "x": 1306.723,
+                "y": -1530.4170000000001
+              },
+              "uuid": "847"
+            },
+            {
+              "description": "Pin [Net-(U2-FB)]",
+              "pos": {
+                "x": 1311.223,
+                "y": -1545.4170000000001
+              },
+              "uuid": "204"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U2-FB)] and Pin [Net-(U2-FB)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U2-FB)]",
+              "pos": {
+                "x": 1306.723,
+                "y": -1530.4170000000001
+              },
+              "uuid": "847"
+            },
+            {
+              "description": "Pin [Net-(U2-FB)]",
+              "pos": {
+                "x": 1273.223,
+                "y": -1529.4170000000001
+              },
+              "uuid": "250"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U2-SW)] and Pin [Net-(U2-SW)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U2-SW)]",
+              "pos": {
+                "x": 1321.723,
+                "y": -1525.4170000000001
+              },
+              "uuid": "851"
+            },
+            {
+              "description": "Pin [Net-(U2-SW)]",
+              "pos": {
+                "x": 1323.5230000000001,
+                "y": -1487.9170000000001
+              },
+              "uuid": "558"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(L1-Pad1)] and Pin [Net-(L1-Pad1)]",
+          "items": [
+            {
+              "description": "Pin [Net-(L1-Pad1)]",
+              "pos": {
+                "x": 1533.223,
+                "y": -368.91700000000003
+              },
+              "uuid": "241"
+            },
+            {
+              "description": "Pin [Net-(L1-Pad1)]",
+              "pos": {
+                "x": 1765.223,
+                "y": -430.91700000000003
+              },
+              "uuid": "66"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U5-A)] and Pin [Net-(U5-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U5-A)]",
+              "pos": {
+                "x": 1138.598,
+                "y": -329.91700000000003
+              },
+              "uuid": "478"
+            },
+            {
+              "description": "Pin [Net-(U5-A)]",
+              "pos": {
+                "x": 1140.223,
+                "y": -390.717
+              },
+              "uuid": "750"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U8-+)] and Pin [Net-(U8-+)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U8-+)]",
+              "pos": {
+                "x": 1425.487,
+                "y": -1059.4345
+              },
+              "uuid": "6"
+            },
+            {
+              "description": "Pin [Net-(U8-+)]",
+              "pos": {
+                "x": 1343.123,
+                "y": -1033.917
+              },
+              "uuid": "492"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D6-A)] and Pin [Net-(D6-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D6-A)]",
+              "pos": {
+                "x": 1319.823,
+                "y": -1545.4170000000001
+              },
+              "uuid": "205"
+            },
+            {
+              "description": "Pin [Net-(D6-A)]",
+              "pos": {
+                "x": 1321.723,
+                "y": -1530.4170000000001
+              },
+              "uuid": "852"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D6-A)] and Pin [Net-(D6-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D6-A)]",
+              "pos": {
+                "x": 1359.22,
+                "y": -1338.0
+              },
+              "uuid": "387"
+            },
+            {
+              "description": "Pin [Net-(D6-A)]",
+              "pos": {
+                "x": 1325.0,
+                "y": -1353.0
+              },
+              "uuid": "616"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D6-A)] and Pin [Net-(D6-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D6-A)]",
+              "pos": {
+                "x": 1325.0,
+                "y": -1353.0
+              },
+              "uuid": "616"
+            },
+            {
+              "description": "Pin [Net-(D6-A)]",
+              "pos": {
+                "x": 1244.357,
+                "y": -1258.998
+              },
+              "uuid": "656"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D6-A)] and Pin [Net-(D6-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D6-A)]",
+              "pos": {
+                "x": 1321.723,
+                "y": -1530.4170000000001
+              },
+              "uuid": "852"
+            },
+            {
+              "description": "Pin [Net-(D6-A)]",
+              "pos": {
+                "x": 1325.0,
+                "y": -1353.0
+              },
+              "uuid": "616"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(LED1-DO)] and Pin [Net-(LED1-DO)]",
+          "items": [
+            {
+              "description": "Pin [Net-(LED1-DO)]",
+              "pos": {
+                "x": 1447.8690000000001,
+                "y": -736.9575
+              },
+              "uuid": "71"
+            },
+            {
+              "description": "Pin [Net-(LED1-DO)]",
+              "pos": {
+                "x": 1663.4535,
+                "y": -821.063
+              },
+              "uuid": "89"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U10-ANT{slash}NC)] and Pin [Net-(U10-ANT{slash}NC)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U10-ANT{slash}NC)]",
+              "pos": {
+                "x": 1621.348,
+                "y": -649.617
+              },
+              "uuid": "258"
+            },
+            {
+              "description": "Pin [Net-(U10-ANT{slash}NC)]",
+              "pos": {
+                "x": 1189.223,
+                "y": -948.917
+              },
+              "uuid": "524"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(LED1-BO)] and Pin [Net-(LED1-BO)]",
+          "items": [
+            {
+              "description": "Pin [Net-(LED1-BO)]",
+              "pos": {
+                "x": 1684.0225,
+                "y": -796.5495
+              },
+              "uuid": "87"
+            },
+            {
+              "description": "Pin [Net-(LED1-BO)]",
+              "pos": {
+                "x": 1445.08,
+                "y": -705.0795
+              },
+              "uuid": "73"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U4-PG)] and Pin [Net-(U4-PG)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U4-PG)]",
+              "pos": {
+                "x": 1311.223,
+                "y": -1400.917
+              },
+              "uuid": "716"
+            },
+            {
+              "description": "Pin [Net-(U4-PG)]",
+              "pos": {
+                "x": 1355.223,
+                "y": -1421.917
+              },
+              "uuid": "377"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D5-C)] and Pin [Net-(D5-C)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D5-C)]",
+              "pos": {
+                "x": 1295.223,
+                "y": -1624.217
+              },
+              "uuid": "793"
+            },
+            {
+              "description": "Pin [Net-(D5-C)]",
+              "pos": {
+                "x": 1301.0230000000001,
+                "y": -1645.9170000000001
+              },
+              "uuid": "503"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U12-CC2)] and Pin [Net-(U12-CC2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U12-CC2)]",
+              "pos": {
+                "x": 1429.223,
+                "y": -1625.4170000000001
+              },
+              "uuid": "150"
+            },
+            {
+              "description": "Pin [Net-(U12-CC2)]",
+              "pos": {
+                "x": 1347.723,
+                "y": -1590.5420000000001
+              },
+              "uuid": "676"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U12-CC1)] and Pin [Net-(U12-CC1)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U12-CC1)]",
+              "pos": {
+                "x": 1422.717,
+                "y": -1659.484
+              },
+              "uuid": "516"
+            },
+            {
+              "description": "Pin [Net-(U12-CC1)]",
+              "pos": {
+                "x": 1377.723,
+                "y": -1590.5420000000001
+              },
+              "uuid": "670"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": [
+        {
+          "description": "Clearance violation between Pin [/LB] and Pin [/LB] (expected: 2.0000 mm, actual: 1.7000 mm)",
+          "items": [
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1616.623,
+                "y": -407.91700000000003
+              },
+              "uuid": "117"
+            },
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1611.223,
+                "y": -407.91700000000003
+              },
+              "uuid": "116"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/LB] and Pin [/LB] (expected: 2.0000 mm, actual: 1.7000 mm)",
+          "items": [
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1611.223,
+                "y": -407.91700000000003
+              },
+              "uuid": "116"
+            },
+            {
+              "description": "Pin [/LB]",
+              "pos": {
+                "x": 1616.623,
+                "y": -407.91700000000003
+              },
+              "uuid": "117"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ]
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 161,
+    "violations": 2
+  },
+  "fanout": true,
+  "fixture_id": "Issue297-myboard.dsn",
+  "fixture_relpath": "freerouting/tests/Issue297-myboard.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207423,
+  "hashes": {
+    "board_statistics_sha256": "487aed34f6228e6e3e660591ce9f03628530702787c1083dea092c99f621c164",
+    "freerouting_drc_sha256": "dfcdf335ee7021eb9fa5e7ef86604a1e63e5051ff10615c48928c0d60af5ba57",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "55e380f8a993e1f112e86911f4adc2a84bd2daf7ff9f7d8893970ecc23a98c32"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue297-myboard.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue297-myboard.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue297-myboard.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue297-myboard.dsn/routed.ses"
+  },
+  "runtime_s": 11.63496843201574,
+  "seed": 12345,
+  "strip_planes": false
+}

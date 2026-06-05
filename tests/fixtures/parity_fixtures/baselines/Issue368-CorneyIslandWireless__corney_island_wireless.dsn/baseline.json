@@ -1,0 +1,114 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:30:54.004851774-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "corney_island_wireless.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [C5] and Pin [C5]",
+          "items": [
+            {
+              "description": "Pin [C5]",
+              "pos": {
+                "x": 1879.15,
+                "y": -950.85
+              },
+              "uuid": "2"
+            },
+            {
+              "description": "Pin [C5]",
+              "pos": {
+                "x": 1879.15,
+                "y": -760.85
+              },
+              "uuid": "14"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [inner_bottom_B] and Pin [inner_bottom_B]",
+          "items": [
+            {
+              "description": "Pin [inner_bottom_B]",
+              "pos": {
+                "x": 2024.0,
+                "y": -946.5
+              },
+              "uuid": "26"
+            },
+            {
+              "description": "Pin [inner_bottom_B]",
+              "pos": {
+                "x": 2008.42,
+                "y": -925.45
+              },
+              "uuid": "3"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [inner_home_B] and Pin [inner_home_B]",
+          "items": [
+            {
+              "description": "Pin [inner_home_B]",
+              "pos": {
+                "x": 2008.42,
+                "y": -735.45
+              },
+              "uuid": "15"
+            },
+            {
+              "description": "Pin [inner_home_B]",
+              "pos": {
+                "x": 2024.0,
+                "y": -756.5
+              },
+              "uuid": "35"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 3,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue368-CorneyIslandWireless__corney_island_wireless.dsn",
+  "fixture_relpath": "freerouting/tests/Issue368-CorneyIslandWireless/corney_island_wireless.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207451,
+  "hashes": {
+    "board_statistics_sha256": "40c86c3b69e2042cc8125ba475f6165c75729b178fd298a4c1ec84a7dc921ef2",
+    "freerouting_drc_sha256": "b37f9e5d45e710e7552838e023b257148284e744fff5c1177960d60edc86aba7",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "de5709a16a1f83a9350bed1c60b171a14ef0133c7f8d97bc58011dbcccdf5664"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue368-CorneyIslandWireless__corney_island_wireless.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue368-CorneyIslandWireless__corney_island_wireless.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue368-CorneyIslandWireless__corney_island_wireless.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue368-CorneyIslandWireless__corney_island_wireless.dsn/routed.ses"
+  },
+  "runtime_s": 2.6091808829805814,
+  "seed": 12345,
+  "strip_planes": false
+}

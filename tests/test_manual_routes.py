@@ -7,10 +7,10 @@ work around them.
 
 import pytest
 from dataclasses import dataclass
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition
-from pcb_tool.commands import AutoRouteCommand
-from pcb_tool.data_model import Board, Component, Net
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.multi_net_router import MultiNetRouter, NetDefinition
+from pardal.commands import AutoRouteCommand
+from pardal.data_model import Board, Component, Net
 
 
 def test_manual_route_creates_forbidden_zones():

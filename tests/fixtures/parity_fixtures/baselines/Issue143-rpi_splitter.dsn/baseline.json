@@ -1,0 +1,160 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:20:39.678976786-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue143-rpi_splitter.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [D+] and Pin [D+]",
+          "items": [
+            {
+              "description": "Pin [D+]",
+              "pos": {
+                "x": 28346.399999999998,
+                "y": 20375.879999999997
+              },
+              "uuid": "2"
+            },
+            {
+              "description": "Pin [D+]",
+              "pos": {
+                "x": 25806.399999999998,
+                "y": 83972.4
+              },
+              "uuid": "21"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [D-] and Pin [D-]",
+          "items": [
+            {
+              "description": "Pin [D-]",
+              "pos": {
+                "x": 27838.399999999998,
+                "y": 83972.4
+              },
+              "uuid": "22"
+            },
+            {
+              "description": "Pin [D-]",
+              "pos": {
+                "x": 23266.399999999998,
+                "y": 20375.879999999997
+              },
+              "uuid": "3"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [N$5] and Pin [N$5]",
+          "items": [
+            {
+              "description": "Pin [N$5]",
+              "pos": {
+                "x": 18488.66,
+                "y": 55999.38
+              },
+              "uuid": "10"
+            },
+            {
+              "description": "Pin [N$5]",
+              "pos": {
+                "x": 21742.399999999998,
+                "y": 83972.4
+              },
+              "uuid": "23"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [N$5] and Pin [N$5]",
+          "items": [
+            {
+              "description": "Pin [N$5]",
+              "pos": {
+                "x": 34696.4,
+                "y": 20375.879999999997
+              },
+              "uuid": "4"
+            },
+            {
+              "description": "Pin [N$5]",
+              "pos": {
+                "x": 18488.66,
+                "y": 55999.38
+              },
+              "uuid": "10"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 16916.399999999998,
+                "y": 20375.879999999997
+              },
+              "uuid": "7"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 18488.66,
+                "y": 47871.38
+              },
+              "uuid": "16"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 5,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue143-rpi_splitter.dsn",
+  "fixture_relpath": "freerouting/tests/Issue143-rpi_splitter.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769206837,
+  "hashes": {
+    "board_statistics_sha256": "1417a14080a9dfcd23fbefc61c688bc109d4dd912e042cc45b5f9f984aebe589",
+    "freerouting_drc_sha256": "a1cb264375eba545c75d5a99bfaab7a2d2d8cabb8ef303b6175a2e0321b2c8b8",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "a02e82fb71990adac2ed084a808b007ae1ac4de985c72f0b9ebe5217528bc636"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue143-rpi_splitter.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue143-rpi_splitter.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue143-rpi_splitter.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue143-rpi_splitter.dsn/routed.ses"
+  },
+  "runtime_s": 2.626962081005331,
+  "seed": 12345,
+  "strip_planes": false
+}

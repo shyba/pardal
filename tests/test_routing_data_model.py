@@ -2,7 +2,7 @@
 """Tests for MVP2 routing data model extensions."""
 
 import pytest
-from pcb_tool.data_model import Net, TraceSegment, Via
+from pardal.data_model import Net, TraceSegment, Via
 
 
 class TestTraceSegment:

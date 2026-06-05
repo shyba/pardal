@@ -6,8 +6,8 @@ allowing re-routing with different parameters.
 """
 
 import pytest
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.multi_net_router import MultiNetRouter, NetDefinition
 
 
 def test_remove_net_clears_forbidden_zones():

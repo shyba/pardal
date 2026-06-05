@@ -1,8 +1,8 @@
 import pytest
 import math
-from pcb_tool.commands import ArrangeCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Component
+from pardal.commands import ArrangeCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Component
 
 
 @pytest.fixture

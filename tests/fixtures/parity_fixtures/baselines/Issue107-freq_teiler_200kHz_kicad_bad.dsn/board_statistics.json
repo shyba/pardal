@@ -1,0 +1,71 @@
+{
+  "host": "KiCad's Pcbnew,(5.1.5)-3",
+  "unit": "mm",
+  "board": {
+    "bounding_box": {
+      "x": 2223.25,
+      "y": -252.492,
+      "width": 623.586,
+      "height": -1254.24
+    },
+    "size": {
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1599.664,
+      "height": 1001.748
+    }
+  },
+  "layers": {
+    "total_count": 2,
+    "signal_count": 2
+  },
+  "items": {
+    "total_count": 1797,
+    "trace_count": 9,
+    "via_count": 0,
+    "conduction_area_count": 0,
+    "drill_item_count": 257,
+    "pin_count": 0,
+    "component_count": 1522,
+    "other_count": 9
+  },
+  "components": {
+    "total_count": 86
+  },
+  "pads": {
+    "total_count": 257
+  },
+  "nets": {
+    "total_count": 59,
+    "class_count": 3
+  },
+  "connections": {
+    "maximum_count": 186,
+    "incomplete_count": 173
+  },
+  "traces": {
+    "total_count": 9,
+    "total_segment_count": 9,
+    "total_length": 325.39078,
+    "total_weighted_length": 0.0,
+    "average_length": 36.15453,
+    "total_vertical_length": 0.012,
+    "total_horizontal_length": 298.45,
+    "total_angled_length": 26.949251
+  },
+  "bends": {
+    "total_count": 0,
+    "90_degree_count": 0,
+    "45_degree_count": 0,
+    "other_angle_count": 0
+  },
+  "vias": {
+    "total_count": 0,
+    "through_hole_count": 0,
+    "blind_count": 0,
+    "buried_count": 0
+  },
+  "clearance_violations": {
+    "total_count": 0
+  }
+}

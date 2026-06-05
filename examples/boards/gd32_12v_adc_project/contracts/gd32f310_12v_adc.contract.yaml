@@ -1,0 +1,24 @@
+schema: pardal.source_contract/v1
+
+profiles:
+  manufacturer: jlcpcb/lcsc:jlcpcb_smt
+
+part_aliases:
+  MCU: acme/gd32f310-support:GD32F310K8T6
+
+components:
+  U1:
+    part_id: MCU
+    footprint_id: acme/gd32f310-support:gd32f310_lqfp32
+
+supply_rails:
+  VIN_12V:
+    voltage: 12 V
+  3V3:
+    voltage: 3.3 V
+
+adc_frontends:
+  ADC0:
+    net: SENSE_0
+    resistor: R1
+    capacitor: C1

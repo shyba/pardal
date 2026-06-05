@@ -1,0 +1,301 @@
+(session CNH_Functional_Tester_1
+  (base_design CNH_Functional_Tester_1)
+  (placement
+    (resolution um 10)
+    (component Groz_KiCad_Libs:INA219_CURRENT_SENSOR
+      (place SENSOR_2 1497330 -2019300 front 90)
+      (place SENSOR_1 1904230 -1758958 front 90)
+    )
+    (component "Groz_KiCad_Libs:SIP-20_PERF"
+      (place PR13 1403350 -685800 front 180)
+      (place PR17 1403350 -584200 front 180)
+      (place PR31 2101850 -685800 front 0)
+      (place PR20 1403350 -508000 front 180)
+      (place PR19 1403350 -533400 front 180)
+      (place PR33 2101850 -736600 front 0)
+      (place PR10 895350 -508000 front 180)
+      (place PR2 895350 -711200 front 180)
+      (place PR14 1403350 -660400 front 180)
+      (place PR16 1403350 -609600 front 180)
+      (place PR25 2101850 -533400 front 0)
+      (place PR6 895350 -609600 front 180)
+      (place PR8 895350 -558800 front 180)
+      (place PR11 1403350 -736600 front 180)
+      (place PR18 1403350 -558800 front 180)
+      (place PR12 1403350 -711200 front 180)
+      (place PR32 2101850 -711200 front 0)
+      (place PR22 889000 -2012950 front 0)
+      (place PR23 889000 -2038350 front 0)
+      (place PR24 2101850 -508000 front 0)
+      (place PR28 2101850 -609600 front 0)
+      (place PR1 895350 -736600 front 180)
+      (place PR29 2101850 -635000 front 0)
+      (place PR9 895350 -533400 front 180)
+      (place PR15 1403350 -635000 front 180)
+      (place PR4 895350 -660400 front 180)
+      (place PR30 2101850 -660400 front 0)
+      (place PR7 895350 -584200 front 180)
+      (place PR5 895350 -635000 front 180)
+      (place PR21 889000 -2063750 front 0)
+      (place PR3 895350 -685800 front 180)
+      (place PR26 2101850 -558800 front 0)
+      (place PR27 2101850 -584200 front 0)
+    )
+    (component "Groz_KiCad_Libs:CONN-TH_EDSTLZ1555-9"
+      (place J2 2476500 -1397000 front 270)
+    )
+    (component "Groz_KiCad_Libs:D_DO-41_SOD81_P10.16mm_Horizontal"
+      (place D1 895350 -1581150 front 180)
+      (place Z1 2146300 -1212850 front 0)
+      (place Z2 1036320 -1534160 front 0)
+    )
+    (component Groz_KiCad_Libs:R_Axial_DIN0207_L6.3mm_D2.5mm_P11.43mm_Horizontal_0.25W
+      (place R3 1993900 -1212850 front 0)
+      (place R5 2108200 -1270000 front 180)
+      (place R1 2025650 -1568450 front 0)
+      (place R8 1035050 -1478280 front 0)
+      (place R6 1993900 -1327150 front 0)
+      (place R2 1390650 -1479550 front 0)
+      (place R4 1828800 -1212850 front 0)
+      (place R7 2286000 -1327150 front 90)
+    )
+    (component Groz_KiCad_Libs:C_Axial_L170mil_D100mil_P370mil_Horizontal
+      (place C3 895350 -1479550 front 0)
+      (place C5 1853438 -1758950 front 90)
+      (place C2 660316 -1581150 front 0)
+      (place C6 1446530 -2019300 front 90)
+      (place C4 1968500 -1164420 front 90)
+    )
+    (component Groz_KiCad_Libs:CP_Radial_D5.0mm_P2.00mm
+      (place C1 660400 -1638300 front 0)
+    )
+    (component Groz_KiCad_Libs:SA20CA_P12.70mm_Horizontal
+      (place TVS1 1619250 -1479550 front 270)
+      (place TVS2 1212850 -1860550 front 180)
+    )
+    (component "Groz_KiCad_Libs:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
+      (place JP1 660400 -1511450 front 90)
+    )
+    (component "Groz_KiCad_Libs:MTH 6-32_NPTH"
+      (place MTH2 2482850 -2051050 front 0)
+      (place MTH4 565150 -514350 front 0)
+      (place MTH1 565150 -2051050 front 0)
+      (place MTH3 2482850 -514350 front 0)
+    )
+    (component Groz_KiCad_Libs:1727010_2PIN_3.81mm_CONN
+      (place PSENSE_1 1619750 -1714500 front 90)
+      (place PSENSE_2 1212850 -1974850 front 90)
+    )
+    (component "Groz_KiCad_Libs:Relay_DPDT_Omron_G5V-2"
+      (place RLY3 1314450 -1676400 front 90)
+      (place RLY8 2184400 -1701800 front 90)
+      (place RLY11 2184400 -2044700 front 90)
+      (place RLY5 1721175 -1955325 front 90)
+      (place RLY4 1314450 -1790700 front 90)
+      (place RLY9 2184400 -1816100 front 90)
+      (place RLY10 2184400 -1930400 front 90)
+      (place RLY2 1035050 -1676400 front 90)
+      (place RLY1 1035050 -1790704 front 90)
+      (place RLY6 2184400 -1473200 front 90)
+      (place RLY7 2184400 -1587500 front 90)
+    )
+    (component Groz_KiCad_Libs:R78_9V_1A_SIP_TH
+      (place PS1 742950 -1469750 front 0)
+    )
+    (component "Groz_KiCad_Libs:DIP-14_W7.62mm_LongPads"
+      (place U3 2032000 -1155700 front 90)
+    )
+    (component "Groz_KiCad_Libs:CONN-TH_EDSTLZ1555-8"
+      (place J3 2476500 -875825 front 270)
+      (place J1 570484 -1790700 front 90)
+    )
+    (component Groz_KiCad_Libs:Arduino_Mega2560_Shield
+      (place XA1 401320 -1383030 front 0)
+    )
+    (component "Groz_KiCad_Libs:DIP-16_W7.62mm_LongPads"
+      (place U1 1644650 -901700 front 0)
+      (place U2 1644650 -1149350 front 0)
+    )
+    (component "Groz_KiCad_Libs:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm::1"
+      (place JP2 895350 -1530500 front 270)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "7.0.4")
+    )
+    (library_out 
+      (padstack "Via[0-3]_635:304.8_um"
+        (shape
+          (circle F.Cu 6350 0 0)
+        )
+        (shape
+          (circle In1.Cu 6350 0 0)
+        )
+        (shape
+          (circle In2.Cu 6350 0 0)
+        )
+        (shape
+          (circle B.Cu 6350 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1143:381_um"
+        (shape
+          (circle F.Cu 11430 0 0)
+        )
+        (shape
+          (circle In1.Cu 11430 0 0)
+        )
+        (shape
+          (circle In2.Cu 11430 0 0)
+        )
+        (shape
+          (circle B.Cu 11430 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1066.8:304.8_um"
+        (shape
+          (circle F.Cu 10668 0 0)
+        )
+        (shape
+          (circle In1.Cu 10668 0 0)
+        )
+        (shape
+          (circle In2.Cu 10668 0 0)
+        )
+        (shape
+          (circle B.Cu 10668 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_635:304.8_um"
+        (shape
+          (circle F.Cu 6350 0 0)
+        )
+        (shape
+          (circle In1.Cu 6350 0 0)
+        )
+        (shape
+          (circle In2.Cu 6350 0 0)
+        )
+        (shape
+          (circle B.Cu 6350 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1143:381_um"
+        (shape
+          (circle F.Cu 11430 0 0)
+        )
+        (shape
+          (circle In1.Cu 11430 0 0)
+        )
+        (shape
+          (circle In2.Cu 11430 0 0)
+        )
+        (shape
+          (circle B.Cu 11430 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1143:381_um"
+        (shape
+          (circle F.Cu 11430 0 0)
+        )
+        (shape
+          (circle In1.Cu 11430 0 0)
+        )
+        (shape
+          (circle In2.Cu 11430 0 0)
+        )
+        (shape
+          (circle B.Cu 11430 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1143:381_um"
+        (shape
+          (circle F.Cu 11430 0 0)
+        )
+        (shape
+          (circle In1.Cu 11430 0 0)
+        )
+        (shape
+          (circle In2.Cu 11430 0 0)
+        )
+        (shape
+          (circle B.Cu 11430 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1143:381_um"
+        (shape
+          (circle F.Cu 11430 0 0)
+        )
+        (shape
+          (circle In1.Cu 11430 0 0)
+        )
+        (shape
+          (circle In2.Cu 11430 0 0)
+        )
+        (shape
+          (circle B.Cu 11430 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1066.8:304.8_um"
+        (shape
+          (circle F.Cu 10668 0 0)
+        )
+        (shape
+          (circle In1.Cu 10668 0 0)
+        )
+        (shape
+          (circle In2.Cu 10668 0 0)
+        )
+        (shape
+          (circle B.Cu 10668 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1066.8:304.8_um"
+        (shape
+          (circle F.Cu 10668 0 0)
+        )
+        (shape
+          (circle In1.Cu 10668 0 0)
+        )
+        (shape
+          (circle In2.Cu 10668 0 0)
+        )
+        (shape
+          (circle B.Cu 10668 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_1066.8:304.8_um"
+        (shape
+          (circle F.Cu 10668 0 0)
+        )
+        (shape
+          (circle In1.Cu 10668 0 0)
+        )
+        (shape
+          (circle In2.Cu 10668 0 0)
+        )
+        (shape
+          (circle B.Cu 10668 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

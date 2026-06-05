@@ -4,12 +4,12 @@ from pathlib import Path
 
 import pytest
 
-from pcb_tool.api.io import load_kicad_pcb, save_kicad_pcb
+from pardal.api.io import load_kicad_pcb, save_kicad_pcb
 
 
 def test_api_load_kicad_pcb_uses_text_loader_for_kicad9_fixture():
     repo_root = Path(__file__).resolve().parents[1]
-    fixture = repo_root / "fpga_large" / "fpga_large_csg324_breakout.kicad_pcb"
+    fixture = repo_root / "examples" / "fpga_large" / "fpga_large_csg324_breakout.kicad_pcb"
     summary = load_kicad_pcb(fixture, prefer_pcbnew=True)
     assert summary.backend in {"pcbnew", "text"}
     assert "U1" in summary.board.components
@@ -25,7 +25,7 @@ def test_api_load_kicad_pcb_uses_text_loader_for_kicad9_fixture():
 
 def test_api_save_kicad_pcb_roundtrip(tmp_path: Path):
     repo_root = Path(__file__).resolve().parents[1]
-    fixture = repo_root / "fpga_large" / "fpga_large_csg324_breakout.kicad_pcb"
+    fixture = repo_root / "examples" / "fpga_large" / "fpga_large_csg324_breakout.kicad_pcb"
     summary = load_kicad_pcb(fixture, prefer_pcbnew=False)
     out = tmp_path / "out.kicad_pcb"
     save_kicad_pcb(summary.board, out)

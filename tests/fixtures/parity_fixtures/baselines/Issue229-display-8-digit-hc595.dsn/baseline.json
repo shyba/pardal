@@ -1,0 +1,318 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T15:22:37.425681809-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue229-display-8-digit-hc595.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Trace [/E] and Trace [/E]",
+          "items": [
+            {
+              "description": "Trace [/E]",
+              "pos": {
+                "x": 350.95,
+                "y": -630.1785
+              },
+              "uuid": "300"
+            },
+            {
+              "description": "Trace [/E]",
+              "pos": {
+                "x": 384.2875,
+                "y": -681.1375
+              },
+              "uuid": "509"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/E] and Trace [/E]",
+          "items": [
+            {
+              "description": "Trace [/E]",
+              "pos": {
+                "x": 541.45,
+                "y": -439.83750000000003
+              },
+              "uuid": "299"
+            },
+            {
+              "description": "Trace [/E]",
+              "pos": {
+                "x": 668.45,
+                "y": -443.0125
+              },
+              "uuid": "309"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/D] and Trace [/D]",
+          "items": [
+            {
+              "description": "Trace [/D]",
+              "pos": {
+                "x": 439.85,
+                "y": -703.3625000000001
+              },
+              "uuid": "321"
+            },
+            {
+              "description": "Trace [/D]",
+              "pos": {
+                "x": 376.35,
+                "y": -643.9110000000001
+              },
+              "uuid": "318"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/D] and Trace [/D]",
+          "items": [
+            {
+              "description": "Trace [/D]",
+              "pos": {
+                "x": 439.85,
+                "y": -703.3625000000001
+              },
+              "uuid": "321"
+            },
+            {
+              "description": "Trace [/D]",
+              "pos": {
+                "x": 566.85,
+                "y": -684.3125
+              },
+              "uuid": "313"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/D] and Pin [/D]",
+          "items": [
+            {
+              "description": "Pin [/D]",
+              "pos": {
+                "x": 376.35,
+                "y": -450.95
+              },
+              "uuid": "245"
+            },
+            {
+              "description": "Pin [/D]",
+              "pos": {
+                "x": 376.34950000000003,
+                "y": -431.90000000000003
+              },
+              "uuid": "176"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/D] and Pin [/D]",
+          "items": [
+            {
+              "description": "Pin [/D]",
+              "pos": {
+                "x": 376.35,
+                "y": -450.95
+              },
+              "uuid": "245"
+            },
+            {
+              "description": "Pin [/D]",
+              "pos": {
+                "x": 503.35,
+                "y": -450.95
+              },
+              "uuid": "200"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/C] and Trace [/C]",
+          "items": [
+            {
+              "description": "Trace [/C]",
+              "pos": {
+                "x": 490.65000000000003,
+                "y": -692.25
+              },
+              "uuid": "334"
+            },
+            {
+              "description": "Trace [/C]",
+              "pos": {
+                "x": 433.1825,
+                "y": -587.475
+              },
+              "uuid": "328"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/C] and Trace [/C]",
+          "items": [
+            {
+              "description": "Trace [/C]",
+              "pos": {
+                "x": 617.65,
+                "y": -703.3625000000001
+              },
+              "uuid": "326"
+            },
+            {
+              "description": "Trace [/C]",
+              "pos": {
+                "x": 490.65000000000003,
+                "y": -692.25
+              },
+              "uuid": "334"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/C] and Trace [/C]",
+          "items": [
+            {
+              "description": "Trace [/C]",
+              "pos": {
+                "x": 620.5075,
+                "y": -470.0
+              },
+              "uuid": "335"
+            },
+            {
+              "description": "Trace [/C]",
+              "pos": {
+                "x": 744.65,
+                "y": -439.83750000000003
+              },
+              "uuid": "327"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/B] and Trace [/B]",
+          "items": [
+            {
+              "description": "Trace [/B]",
+              "pos": {
+                "x": 598.2825,
+                "y": -428.725
+              },
+              "uuid": "519"
+            },
+            {
+              "description": "Trace [/B]",
+              "pos": {
+                "x": 579.5500000000001,
+                "y": -554.1375
+              },
+              "uuid": "358"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/B] and Trace [/B]",
+          "items": [
+            {
+              "description": "Trace [/B]",
+              "pos": {
+                "x": 643.0500000000001,
+                "y": -309.6625
+              },
+              "uuid": "356"
+            },
+            {
+              "description": "Trace [/B]",
+              "pos": {
+                "x": 770.0500000000001,
+                "y": -287.4375
+              },
+              "uuid": "359"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/G] and Trace [/G]",
+          "items": [
+            {
+              "description": "Trace [/G]",
+              "pos": {
+                "x": 350.95,
+                "y": -531.7535
+              },
+              "uuid": "396"
+            },
+            {
+              "description": "Trace [/G]",
+              "pos": {
+                "x": 477.95,
+                "y": -543.025
+              },
+              "uuid": "406"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 12,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue229-display-8-digit-hc595.dsn",
+  "fixture_relpath": "freerouting/tests/Issue229-display-8-digit-hc595.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769192544,
+  "hashes": {
+    "board_statistics_sha256": "502c872242ff9bdc59867ccf806e3c174d14236763ad7cc3461c49e3d148f7d4",
+    "freerouting_drc_sha256": "1ad99b614bb54360ad7a4708ef17e475ef3dd52d471d80a54a6fc6cb3e8d8a5e",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "685bb36959fe819baf27511a3094b34cd792b0da2b755b2363be442a8e80ceaf"
+  },
+  "max_passes": 50,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue229-display-8-digit-hc595.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue229-display-8-digit-hc595.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue229-display-8-digit-hc595.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue229-display-8-digit-hc595.dsn/routed.ses"
+  },
+  "runtime_s": 12.669505855999887,
+  "seed": 12345,
+  "strip_planes": false
+}

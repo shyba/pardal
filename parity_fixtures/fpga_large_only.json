@@ -1,8 +1,0 @@
-[
-  {
-    "name": "fpga_large_core",
-    "pcb": "fpga_large/fpga_large_rust_strict_fast_0p2.kicad_pcb",
-    "mojo_cfg": "fpga_large/mojo_cfg_ncr_fast_keepouts_nooverlap.json",
-    "mojo_resolution": 0.2
-  }
-]

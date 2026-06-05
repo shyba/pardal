@@ -1,0 +1,4059 @@
+{
+  "drc": {
+    "kicad_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T22:38:25+0000",
+      "kicad_version": "9.0.6",
+      "schematic_parity": [],
+      "source": "routed.kicad_pcb",
+      "unconnected_items": [
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Track [+12V] on F.Cu, length 2.5400 mm",
+              "pos": {
+                "x": 113.665,
+                "y": 60.96
+              },
+              "uuid": "7a8bee84-f390-4d05-a245-ff61d8dc1c75"
+            },
+            {
+              "description": "Track [+12V] on F.Cu, length 2.5400 mm",
+              "pos": {
+                "x": 113.665,
+                "y": 55.88
+              },
+              "uuid": "07ab7f13-82cf-441d-a2b6-bf8c059cd970"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Track [+12V] on F.Cu, length 2.5400 mm",
+              "pos": {
+                "x": 113.665,
+                "y": 66.04
+              },
+              "uuid": "28b7b894-9d9a-4f6c-b78c-886274b974f3"
+            },
+            {
+              "description": "Track [+12V] on F.Cu, length 2.5400 mm",
+              "pos": {
+                "x": 113.665,
+                "y": 71.12
+              },
+              "uuid": "12315813-ada4-4f9e-99e0-ff4d152c9561"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Track [+12V] on F.Cu, length 2.5400 mm",
+              "pos": {
+                "x": 113.665,
+                "y": 71.12
+              },
+              "uuid": "12315813-ada4-4f9e-99e0-ff4d152c9561"
+            },
+            {
+              "description": "PTH pad 1 [+12V] of PR1",
+              "pos": {
+                "x": 113.665,
+                "y": 73.66
+              },
+              "uuid": "44f4f1b9-4579-44be-8e0c-4f6b4af04fce"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Track [+12V] on B.Cu, length 2.1542 mm",
+              "pos": {
+                "x": 172.085,
+                "y": 107.95
+              },
+              "uuid": "a71b7672-8d12-4ddc-a8b7-a0333dfb9b82"
+            },
+            {
+              "description": "PTH pad 1 [+12V] of PR1",
+              "pos": {
+                "x": 113.665,
+                "y": 73.66
+              },
+              "uuid": "44f4f1b9-4579-44be-8e0c-4f6b4af04fce"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Track [+5V] on F.Cu, length 2.5400 mm",
+              "pos": {
+                "x": 65.405,
+                "y": 68.58
+              },
+              "uuid": "f0cb4838-f76c-45ee-893d-70060f85cdb6"
+            },
+            {
+              "description": "Track [+5V] on F.Cu, length 2.5400 mm",
+              "pos": {
+                "x": 65.405,
+                "y": 73.66
+              },
+              "uuid": "8dd5fbd2-9e53-4a37-879b-65ed35d2b556"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 20 [+5V] of PR16",
+              "pos": {
+                "x": 116.205,
+                "y": 60.96
+              },
+              "uuid": "03a435ff-d456-4787-b79f-e4bd81f706ae"
+            },
+            {
+              "description": "Track [+5V] on F.Cu, length 2.5400 mm",
+              "pos": {
+                "x": 116.205,
+                "y": 58.42
+              },
+              "uuid": "aebb042f-4d55-4402-a409-5329dd843bb9"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Track [+5V] on F.Cu, length 8.2003 mm",
+              "pos": {
+                "x": 122.0035,
+                "y": 79.6457
+              },
+              "uuid": "d838d62d-1881-499f-b4c7-ade16bffaa58"
+            },
+            {
+              "description": "Track [+5V] on F.Cu, length 13.1395 mm",
+              "pos": {
+                "x": 83.6787,
+                "y": 99.9097
+              },
+              "uuid": "163bd64c-ca19-496a-b1b6-8135d5dfb42c"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        }
+      ],
+      "violations": [
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY2] on F.Cu - B.Cu",
+              "pos": {
+                "x": 169.8089,
+                "y": 156.4902
+              },
+              "uuid": "3480188d-c959-4202-89f2-6c8e8650af18"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 146.4736,
+                "y": 131.3957
+              },
+              "uuid": "2d59a09f-3e0a-4435-b028-6b63d7586fce"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/CAN_GND] on F.Cu - B.Cu",
+              "pos": {
+                "x": 124.2386,
+                "y": 165.6959
+              },
+              "uuid": "6de498ac-1b9a-4f2b-8594-e2aaa1357acf"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (netclass '+5V' clearance 0.6350 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [+5V] on F.Cu - B.Cu",
+              "pos": {
+                "x": 193.02,
+                "y": 191.4757
+              },
+              "uuid": "73ffa86f-9ca6-4a3f-bbe2-076c5f077131"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U2-I1)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 139.8851,
+                "y": 100.8387
+              },
+              "uuid": "4bc26623-6086-4fd2-84e7-84423e9ebe6b"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY9] on F.Cu - B.Cu",
+              "pos": {
+                "x": 173.9423,
+                "y": 175.7853
+              },
+              "uuid": "bcd2868f-fbde-42e7-be4c-e3553f7cd4d3"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY1] on F.Cu - B.Cu",
+              "pos": {
+                "x": 140.1496,
+                "y": 90.5778
+              },
+              "uuid": "59e21a47-7040-4801-a2f7-44b339456b8f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (netclass '+12V' clearance 0.6350 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [+12V] on F.Cu - B.Cu",
+              "pos": {
+                "x": 174.3074,
+                "y": 153.813
+              },
+              "uuid": "41a34231-ecfe-441a-81f0-4a0f951d5cb0"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I4)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 161.7453,
+                "y": 94.5843
+              },
+              "uuid": "d1c78440-09e7-4408-92ed-b1d1085c577f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(J2-Pad3)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 244.1332,
+                "y": 152.9013
+              },
+              "uuid": "d2facb55-f75c-49d4-a9b3-97771b6e3da7"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY6] on F.Cu - B.Cu",
+              "pos": {
+                "x": 216.6448,
+                "y": 106.0296
+              },
+              "uuid": "eb4c1c5a-872c-4b7d-89b9-17087dceef66"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(R3-Pad1)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 233.7641,
+                "y": 128.2691
+              },
+              "uuid": "858a23cd-f288-4580-9a75-b18bbff89048"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/DIR-] on F.Cu - B.Cu",
+              "pos": {
+                "x": 240.0227,
+                "y": 85.4803
+              },
+              "uuid": "c484ba0e-73ad-4923-9217-102127238cd2"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SIG_GND] on F.Cu - B.Cu",
+              "pos": {
+                "x": 180.8533,
+                "y": 155.8595
+              },
+              "uuid": "6bb1caf9-7067-47a2-8f05-3344f7cddb80"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY2] on F.Cu - B.Cu",
+              "pos": {
+                "x": 169.8089,
+                "y": 156.4902
+              },
+              "uuid": "3480188d-c959-4202-89f2-6c8e8650af18"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 146.4736,
+                "y": 131.3957
+              },
+              "uuid": "2d59a09f-3e0a-4435-b028-6b63d7586fce"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/CAN_GND] on F.Cu - B.Cu",
+              "pos": {
+                "x": 124.2386,
+                "y": 165.6959
+              },
+              "uuid": "6de498ac-1b9a-4f2b-8594-e2aaa1357acf"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U2-I1)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 139.8851,
+                "y": 100.8387
+              },
+              "uuid": "4bc26623-6086-4fd2-84e7-84423e9ebe6b"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I4)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 161.7453,
+                "y": 94.5843
+              },
+              "uuid": "d1c78440-09e7-4408-92ed-b1d1085c577f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [+5V] on F.Cu - B.Cu",
+              "pos": {
+                "x": 193.02,
+                "y": 191.4757
+              },
+              "uuid": "73ffa86f-9ca6-4a3f-bbe2-076c5f077131"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY1] on F.Cu - B.Cu",
+              "pos": {
+                "x": 140.1496,
+                "y": 90.5778
+              },
+              "uuid": "59e21a47-7040-4801-a2f7-44b339456b8f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY9] on F.Cu - B.Cu",
+              "pos": {
+                "x": 173.9423,
+                "y": 175.7853
+              },
+              "uuid": "bcd2868f-fbde-42e7-be4c-e3553f7cd4d3"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY6] on F.Cu - B.Cu",
+              "pos": {
+                "x": 216.6448,
+                "y": 106.0296
+              },
+              "uuid": "eb4c1c5a-872c-4b7d-89b9-17087dceef66"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [+12V] on F.Cu - B.Cu",
+              "pos": {
+                "x": 174.3074,
+                "y": 153.813
+              },
+              "uuid": "41a34231-ecfe-441a-81f0-4a0f951d5cb0"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(R3-Pad1)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 233.7641,
+                "y": 128.2691
+              },
+              "uuid": "858a23cd-f288-4580-9a75-b18bbff89048"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(J2-Pad3)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 244.1332,
+                "y": 152.9013
+              },
+              "uuid": "d2facb55-f75c-49d4-a9b3-97771b6e3da7"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/DIR-] on F.Cu - B.Cu",
+              "pos": {
+                "x": 240.0227,
+                "y": 85.4803
+              },
+              "uuid": "c484ba0e-73ad-4923-9217-102127238cd2"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY2] on F.Cu - B.Cu",
+              "pos": {
+                "x": 169.8089,
+                "y": 156.4902
+              },
+              "uuid": "3480188d-c959-4202-89f2-6c8e8650af18"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I4)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 161.7453,
+                "y": 94.5843
+              },
+              "uuid": "d1c78440-09e7-4408-92ed-b1d1085c577f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(R3-Pad1)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 233.7641,
+                "y": 128.2691
+              },
+              "uuid": "858a23cd-f288-4580-9a75-b18bbff89048"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (netclass '+5V' clearance 0.6350 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [+5V] on F.Cu - B.Cu",
+              "pos": {
+                "x": 193.02,
+                "y": 191.4757
+              },
+              "uuid": "73ffa86f-9ca6-4a3f-bbe2-076c5f077131"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (netclass '+12V' clearance 0.6350 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [+12V] on F.Cu - B.Cu",
+              "pos": {
+                "x": 174.3074,
+                "y": 153.813
+              },
+              "uuid": "41a34231-ecfe-441a-81f0-4a0f951d5cb0"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/CAN_GND] on F.Cu - B.Cu",
+              "pos": {
+                "x": 124.2386,
+                "y": 165.6959
+              },
+              "uuid": "6de498ac-1b9a-4f2b-8594-e2aaa1357acf"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/DIR-] on F.Cu - B.Cu",
+              "pos": {
+                "x": 240.0227,
+                "y": 85.4803
+              },
+              "uuid": "c484ba0e-73ad-4923-9217-102127238cd2"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SIG_GND] on F.Cu - B.Cu",
+              "pos": {
+                "x": 180.8533,
+                "y": 155.8595
+              },
+              "uuid": "6bb1caf9-7067-47a2-8f05-3344f7cddb80"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U2-I1)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 139.8851,
+                "y": 100.8387
+              },
+              "uuid": "4bc26623-6086-4fd2-84e7-84423e9ebe6b"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(J2-Pad3)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 244.1332,
+                "y": 152.9013
+              },
+              "uuid": "d2facb55-f75c-49d4-a9b3-97771b6e3da7"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 146.4736,
+                "y": 131.3957
+              },
+              "uuid": "2d59a09f-3e0a-4435-b028-6b63d7586fce"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY9] on F.Cu - B.Cu",
+              "pos": {
+                "x": 173.9423,
+                "y": 175.7853
+              },
+              "uuid": "bcd2868f-fbde-42e7-be4c-e3553f7cd4d3"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY1] on F.Cu - B.Cu",
+              "pos": {
+                "x": 140.1496,
+                "y": 90.5778
+              },
+              "uuid": "59e21a47-7040-4801-a2f7-44b339456b8f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY2] on F.Cu - B.Cu",
+              "pos": {
+                "x": 169.8089,
+                "y": 156.4902
+              },
+              "uuid": "3480188d-c959-4202-89f2-6c8e8650af18"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY6] on F.Cu - B.Cu",
+              "pos": {
+                "x": 216.6448,
+                "y": 106.0296
+              },
+              "uuid": "eb4c1c5a-872c-4b7d-89b9-17087dceef66"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I4)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 161.7453,
+                "y": 94.5843
+              },
+              "uuid": "d1c78440-09e7-4408-92ed-b1d1085c577f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(R3-Pad1)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 233.7641,
+                "y": 128.2691
+              },
+              "uuid": "858a23cd-f288-4580-9a75-b18bbff89048"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [+5V] on F.Cu - B.Cu",
+              "pos": {
+                "x": 193.02,
+                "y": 191.4757
+              },
+              "uuid": "73ffa86f-9ca6-4a3f-bbe2-076c5f077131"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/DIR-] on F.Cu - B.Cu",
+              "pos": {
+                "x": 240.0227,
+                "y": 85.4803
+              },
+              "uuid": "c484ba0e-73ad-4923-9217-102127238cd2"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U2-I1)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 139.8851,
+                "y": 100.8387
+              },
+              "uuid": "4bc26623-6086-4fd2-84e7-84423e9ebe6b"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [+12V] on F.Cu - B.Cu",
+              "pos": {
+                "x": 174.3074,
+                "y": 153.813
+              },
+              "uuid": "41a34231-ecfe-441a-81f0-4a0f951d5cb0"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/CAN_GND] on F.Cu - B.Cu",
+              "pos": {
+                "x": 124.2386,
+                "y": 165.6959
+              },
+              "uuid": "6de498ac-1b9a-4f2b-8594-e2aaa1357acf"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(J2-Pad3)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 244.1332,
+                "y": 152.9013
+              },
+              "uuid": "d2facb55-f75c-49d4-a9b3-97771b6e3da7"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY6] on F.Cu - B.Cu",
+              "pos": {
+                "x": 216.6448,
+                "y": 106.0296
+              },
+              "uuid": "eb4c1c5a-872c-4b7d-89b9-17087dceef66"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY1] on F.Cu - B.Cu",
+              "pos": {
+                "x": 140.1496,
+                "y": 90.5778
+              },
+              "uuid": "59e21a47-7040-4801-a2f7-44b339456b8f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY9] on F.Cu - B.Cu",
+              "pos": {
+                "x": 173.9423,
+                "y": 175.7853
+              },
+              "uuid": "bcd2868f-fbde-42e7-be4c-e3553f7cd4d3"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 146.4736,
+                "y": 131.3957
+              },
+              "uuid": "2d59a09f-3e0a-4435-b028-6b63d7586fce"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/PULSE_COUNT] on F.Cu - B.Cu",
+              "pos": {
+                "x": 186.8246,
+                "y": 85.7225
+              },
+              "uuid": "89249d43-3465-40b4-88f9-0fe4b3e15bf0"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SIG_GND] on F.Cu - B.Cu",
+              "pos": {
+                "x": 180.8533,
+                "y": 155.8595
+              },
+              "uuid": "6bb1caf9-7067-47a2-8f05-3344f7cddb80"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I5)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 138.8318,
+                "y": 97.6984
+              },
+              "uuid": "ba133d37-7779-4822-86b9-813884963352"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(J2-Pad6)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 243.2957,
+                "y": 148.7565
+              },
+              "uuid": "92746f49-ba73-4bba-90d1-a48cc5649f50"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY7] on F.Cu - B.Cu",
+              "pos": {
+                "x": 186.032,
+                "y": 156.3392
+              },
+              "uuid": "21b9129b-d204-42f0-8c52-a96ee182c583"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/+VL_SW] on F.Cu - B.Cu",
+              "pos": {
+                "x": 152.4023,
+                "y": 168.4311
+              },
+              "uuid": "12869cd1-32c7-44fa-9357-9c3bd8e6ef40"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 150.6833,
+                "y": 171.5864
+              },
+              "uuid": "35511a05-8c18-4bf8-8ddf-9d5affc6fded"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY9] on F.Cu - B.Cu",
+              "pos": {
+                "x": 169.8575,
+                "y": 118.9124
+              },
+              "uuid": "fd89d941-acd2-445b-b267-b2c641d55d0a"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SIG_GND] on F.Cu - B.Cu",
+              "pos": {
+                "x": 180.8533,
+                "y": 155.8595
+              },
+              "uuid": "6bb1caf9-7067-47a2-8f05-3344f7cddb80"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY7] on F.Cu - B.Cu",
+              "pos": {
+                "x": 186.032,
+                "y": 156.3392
+              },
+              "uuid": "21b9129b-d204-42f0-8c52-a96ee182c583"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(J2-Pad6)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 243.2957,
+                "y": 148.7565
+              },
+              "uuid": "92746f49-ba73-4bba-90d1-a48cc5649f50"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 150.6833,
+                "y": 171.5864
+              },
+              "uuid": "35511a05-8c18-4bf8-8ddf-9d5affc6fded"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/PULSE_COUNT] on F.Cu - B.Cu",
+              "pos": {
+                "x": 186.8246,
+                "y": 85.7225
+              },
+              "uuid": "89249d43-3465-40b4-88f9-0fe4b3e15bf0"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY9] on F.Cu - B.Cu",
+              "pos": {
+                "x": 169.8575,
+                "y": 118.9124
+              },
+              "uuid": "fd89d941-acd2-445b-b267-b2c641d55d0a"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY7] on F.Cu - B.Cu",
+              "pos": {
+                "x": 186.032,
+                "y": 156.3392
+              },
+              "uuid": "21b9129b-d204-42f0-8c52-a96ee182c583"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I5)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 138.8318,
+                "y": 97.6984
+              },
+              "uuid": "ba133d37-7779-4822-86b9-813884963352"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(J2-Pad6)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 243.2957,
+                "y": 148.7565
+              },
+              "uuid": "92746f49-ba73-4bba-90d1-a48cc5649f50"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 150.6833,
+                "y": 171.5864
+              },
+              "uuid": "35511a05-8c18-4bf8-8ddf-9d5affc6fded"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/+VL_SW] on F.Cu - B.Cu",
+              "pos": {
+                "x": 152.4023,
+                "y": 168.4311
+              },
+              "uuid": "12869cd1-32c7-44fa-9357-9c3bd8e6ef40"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY7] on F.Cu - B.Cu",
+              "pos": {
+                "x": 186.032,
+                "y": 156.3392
+              },
+              "uuid": "21b9129b-d204-42f0-8c52-a96ee182c583"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(J2-Pad6)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 243.2957,
+                "y": 148.7565
+              },
+              "uuid": "92746f49-ba73-4bba-90d1-a48cc5649f50"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 150.6833,
+                "y": 171.5864
+              },
+              "uuid": "35511a05-8c18-4bf8-8ddf-9d5affc6fded"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY9] on F.Cu - B.Cu",
+              "pos": {
+                "x": 169.8575,
+                "y": 118.9124
+              },
+              "uuid": "fd89d941-acd2-445b-b267-b2c641d55d0a"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/PULSE_COUNT] on F.Cu - B.Cu",
+              "pos": {
+                "x": 186.8246,
+                "y": 85.7225
+              },
+              "uuid": "89249d43-3465-40b4-88f9-0fe4b3e15bf0"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY8] on F.Cu - B.Cu",
+              "pos": {
+                "x": 173.0982,
+                "y": 169.8779
+              },
+              "uuid": "88d04504-48ca-430e-a78b-7db42dd8c766"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 149.273,
+                "y": 174.2496
+              },
+              "uuid": "6f38018e-44ea-460e-9612-ca61b6e828b4"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY9] on F.Cu - B.Cu",
+              "pos": {
+                "x": 169.8575,
+                "y": 118.9124
+              },
+              "uuid": "fd89d941-acd2-445b-b267-b2c641d55d0a"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I5)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 138.8318,
+                "y": 97.6984
+              },
+              "uuid": "ba133d37-7779-4822-86b9-813884963352"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/+VL_SW] on F.Cu - B.Cu",
+              "pos": {
+                "x": 152.4023,
+                "y": 168.4311
+              },
+              "uuid": "12869cd1-32c7-44fa-9357-9c3bd8e6ef40"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY8] on F.Cu - B.Cu",
+              "pos": {
+                "x": 173.0982,
+                "y": 169.8779
+              },
+              "uuid": "88d04504-48ca-430e-a78b-7db42dd8c766"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/PULSE_COUNT] on F.Cu - B.Cu",
+              "pos": {
+                "x": 186.8246,
+                "y": 85.7225
+              },
+              "uuid": "89249d43-3465-40b4-88f9-0fe4b3e15bf0"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 149.273,
+                "y": 174.2496
+              },
+              "uuid": "6f38018e-44ea-460e-9612-ca61b6e828b4"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY10] on F.Cu - B.Cu",
+              "pos": {
+                "x": 183.3707,
+                "y": 190.6178
+              },
+              "uuid": "063cc733-ce13-4510-b242-4d1a1296c1a2"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY8] on F.Cu - B.Cu",
+              "pos": {
+                "x": 173.0982,
+                "y": 169.8779
+              },
+              "uuid": "88d04504-48ca-430e-a78b-7db42dd8c766"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 149.273,
+                "y": 174.2496
+              },
+              "uuid": "6f38018e-44ea-460e-9612-ca61b6e828b4"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY10] on F.Cu - B.Cu",
+              "pos": {
+                "x": 183.3707,
+                "y": 190.6178
+              },
+              "uuid": "063cc733-ce13-4510-b242-4d1a1296c1a2"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I5)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 138.8318,
+                "y": 97.6984
+              },
+              "uuid": "ba133d37-7779-4822-86b9-813884963352"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/+VL_SW] on F.Cu - B.Cu",
+              "pos": {
+                "x": 152.4023,
+                "y": 168.4311
+              },
+              "uuid": "12869cd1-32c7-44fa-9357-9c3bd8e6ef40"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY8] on F.Cu - B.Cu",
+              "pos": {
+                "x": 173.0982,
+                "y": 169.8779
+              },
+              "uuid": "88d04504-48ca-430e-a78b-7db42dd8c766"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SCL] on F.Cu - B.Cu",
+              "pos": {
+                "x": 149.273,
+                "y": 174.2496
+              },
+              "uuid": "6f38018e-44ea-460e-9612-ca61b6e828b4"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY10] on F.Cu - B.Cu",
+              "pos": {
+                "x": 183.3707,
+                "y": 190.6178
+              },
+              "uuid": "063cc733-ce13-4510-b242-4d1a1296c1a2"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I6)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 139.8851,
+                "y": 97.5687
+              },
+              "uuid": "5071a784-05cc-4679-9a44-bda7bc37b86f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY10] on F.Cu - B.Cu",
+              "pos": {
+                "x": 183.3707,
+                "y": 190.6178
+              },
+              "uuid": "063cc733-ce13-4510-b242-4d1a1296c1a2"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SDA] on F.Cu - B.Cu",
+              "pos": {
+                "x": 158.5015,
+                "y": 171.7458
+              },
+              "uuid": "b9f9ff60-3b3e-49a1-bec3-16078d2c494b"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I6)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 139.8851,
+                "y": 97.5687
+              },
+              "uuid": "5071a784-05cc-4679-9a44-bda7bc37b86f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY11] on F.Cu - B.Cu",
+              "pos": {
+                "x": 189.766,
+                "y": 200.2051
+              },
+              "uuid": "e0dce89b-8d33-4434-a673-cc0f233273e5"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SDA] on F.Cu - B.Cu",
+              "pos": {
+                "x": 158.5015,
+                "y": 171.7458
+              },
+              "uuid": "b9f9ff60-3b3e-49a1-bec3-16078d2c494b"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I6)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 139.8851,
+                "y": 97.5687
+              },
+              "uuid": "5071a784-05cc-4679-9a44-bda7bc37b86f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY11] on F.Cu - B.Cu",
+              "pos": {
+                "x": 189.766,
+                "y": 200.2051
+              },
+              "uuid": "e0dce89b-8d33-4434-a673-cc0f233273e5"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SDA] on F.Cu - B.Cu",
+              "pos": {
+                "x": 158.5015,
+                "y": 171.7458
+              },
+              "uuid": "b9f9ff60-3b3e-49a1-bec3-16078d2c494b"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [Net-(U1-I6)] on F.Cu - B.Cu",
+              "pos": {
+                "x": 139.8851,
+                "y": 97.5687
+              },
+              "uuid": "5071a784-05cc-4679-9a44-bda7bc37b86f"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY11] on F.Cu - B.Cu",
+              "pos": {
+                "x": 189.766,
+                "y": 200.2051
+              },
+              "uuid": "e0dce89b-8d33-4434-a673-cc0f233273e5"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SDA] on F.Cu - B.Cu",
+              "pos": {
+                "x": 158.5015,
+                "y": 171.7458
+              },
+              "uuid": "b9f9ff60-3b3e-49a1-bec3-16078d2c494b"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/RLY11] on F.Cu - B.Cu",
+              "pos": {
+                "x": 189.766,
+                "y": 200.2051
+              },
+              "uuid": "e0dce89b-8d33-4434-a673-cc0f233273e5"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SDA] on F.Cu - B.Cu",
+              "pos": {
+                "x": 158.6482,
+                "y": 119.8457
+              },
+              "uuid": "e60d04a9-9b83-4fb0-87fd-3a162064d07c"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SDA] on F.Cu - B.Cu",
+              "pos": {
+                "x": 158.6482,
+                "y": 119.8457
+              },
+              "uuid": "e60d04a9-9b83-4fb0-87fd-3a162064d07c"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (zone clearance 0.5080 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SDA] on F.Cu - B.Cu",
+              "pos": {
+                "x": 158.6482,
+                "y": 119.8457
+              },
+              "uuid": "e60d04a9-9b83-4fb0-87fd-3a162064d07c"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.3810 mm; actual 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [/SDA] on F.Cu - B.Cu",
+              "pos": {
+                "x": 158.6482,
+                "y": 119.8457
+              },
+              "uuid": "e60d04a9-9b83-4fb0-87fd-3a162064d07c"
+            },
+            {
+              "description": "Zone [GND] on In1.Cu and In2.Cu, priority 0",
+              "pos": {
+                "x": 50.8,
+                "y": 45.72
+              },
+              "uuid": "8137b799-b567-42d1-a04b-d47893d1f75c"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Clearance violation (netclass '+12V' clearance 0.6350 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "PTH pad 1 [+12V] of C1",
+              "pos": {
+                "x": 66.04,
+                "y": 163.83
+              },
+              "uuid": "4eeeeb6f-db15-4859-9bf9-7c80e413fcc2"
+            },
+            {
+              "description": "PTH pad 2 [GND] of C1",
+              "pos": {
+                "x": 68.04,
+                "y": 163.83
+              },
+              "uuid": "998491fe-38fa-4b32-9951-e0c9d0cc877f"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (netclass '+12V' clearance 0.6350 mm; actual 0.3000 mm)",
+          "items": [
+            {
+              "description": "Pad 1 [+12V] of JP1 on F.Cu",
+              "pos": {
+                "x": 66.04,
+                "y": 151.795
+              },
+              "uuid": "267d1108-9aea-42ad-8483-1c024d9a7d74"
+            },
+            {
+              "description": "Pad 2 [/12IN] of JP1 on F.Cu",
+              "pos": {
+                "x": 66.04,
+                "y": 150.495
+              },
+              "uuid": "3aa7d7b2-b94b-4375-a5f3-f70ff9a4c8da"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation (netclass '+9V' clearance 0.6350 mm; actual 0.3000 mm)",
+          "items": [
+            {
+              "description": "Pad 1 [/Vin_Atmega] of JP2 on F.Cu",
+              "pos": {
+                "x": 89.535,
+                "y": 152.4
+              },
+              "uuid": "16c0a5e9-3589-46a3-b903-31a07bf24a41"
+            },
+            {
+              "description": "Pad 2 [/9DIO] of JP2 on F.Cu",
+              "pos": {
+                "x": 89.535,
+                "y": 153.7
+              },
+              "uuid": "ddb45c92-b568-442d-a254-ad528fede8cf"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint SENSOR_2",
+              "pos": {
+                "x": 149.733,
+                "y": 201.93
+              },
+              "uuid": "09e58612-9fb8-4cf4-9f83-acfe06f776a8"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR13",
+              "pos": {
+                "x": 140.335,
+                "y": 68.58
+              },
+              "uuid": "10d3e9c3-87a4-4a8a-a013-2f18bd9c9ab1"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 247.65,
+                "y": 139.7
+              },
+              "uuid": "15024fa5-1d8f-4854-a39b-5e2188dc44b2"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR17",
+              "pos": {
+                "x": 140.335,
+                "y": 58.42
+              },
+              "uuid": "19273ca4-0019-4fae-9967-a6235a51cb5d"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 89.535,
+                "y": 158.115
+              },
+              "uuid": "192ec292-a622-4fd2-a7a2-03be6195c110"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R3",
+              "pos": {
+                "x": 199.39,
+                "y": 121.285
+              },
+              "uuid": "1c42260e-e383-462f-9877-2d115d7832de"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR31",
+              "pos": {
+                "x": 210.185,
+                "y": 68.58
+              },
+              "uuid": "1ea11384-1e55-4f8c-8b09-a07e84f44540"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR20",
+              "pos": {
+                "x": 140.335,
+                "y": 50.8
+              },
+              "uuid": "1f049edd-33b5-441e-986c-12a72298e02c"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR19",
+              "pos": {
+                "x": 140.335,
+                "y": 53.34
+              },
+              "uuid": "207c98a4-a007-4813-8b76-d0c6f52ded42"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint C3",
+              "pos": {
+                "x": 89.535,
+                "y": 147.955
+              },
+              "uuid": "2b0d820c-efef-41f9-a218-6d26e6ff3a7e"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint Z1",
+              "pos": {
+                "x": 214.63,
+                "y": 121.285
+              },
+              "uuid": "2c492afe-3173-42c1-8262-26b4b00c88da"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 66.04,
+                "y": 163.83
+              },
+              "uuid": "2e09a2fc-0ae9-4cb9-8319-e02acbe6dfd4"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint TVS1",
+              "pos": {
+                "x": 161.925,
+                "y": 147.955
+              },
+              "uuid": "2f0731be-fe20-4ca6-908c-ee016eda494f"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint JP1",
+              "pos": {
+                "x": 66.04,
+                "y": 151.145
+              },
+              "uuid": "2f829edf-b5f8-4f61-8765-09ac8123e706"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint MTH2",
+              "pos": {
+                "x": 248.285,
+                "y": 205.105
+              },
+              "uuid": "30f42c6e-7061-45c2-b87e-8bb1bc6dba4b"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint C5",
+              "pos": {
+                "x": 185.3438,
+                "y": 175.895
+              },
+              "uuid": "30f69bdf-adfa-48e9-97e6-69f28e3bc847"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R5",
+              "pos": {
+                "x": 210.82,
+                "y": 127.0
+              },
+              "uuid": "386e9ba9-4968-4e59-a8d4-1281c1ec24b4"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR33",
+              "pos": {
+                "x": 210.185,
+                "y": 73.66
+              },
+              "uuid": "3927b6fc-037e-42d6-990f-8cead82a4733"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR10",
+              "pos": {
+                "x": 89.535,
+                "y": 50.8
+              },
+              "uuid": "3d10c34a-ece7-40b8-82b7-8b4ce248852a"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR2",
+              "pos": {
+                "x": 89.535,
+                "y": 71.12
+              },
+              "uuid": "3ef8851c-5cc1-4d35-85ec-06832471da59"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint SENSOR_1",
+              "pos": {
+                "x": 190.423,
+                "y": 175.8958
+              },
+              "uuid": "41e2c17b-e3ac-4478-b9e4-5d8500979d0c"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR14",
+              "pos": {
+                "x": 140.335,
+                "y": 66.04
+              },
+              "uuid": "42bf51e5-d987-42aa-9802-70dcb28923a6"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR16",
+              "pos": {
+                "x": 140.335,
+                "y": 60.96
+              },
+              "uuid": "4419431a-297c-48a5-8b47-b1a24b90d426"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR25",
+              "pos": {
+                "x": 210.185,
+                "y": 53.34
+              },
+              "uuid": "448606d6-1678-487a-83f7-05eb67a0b881"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PSENSE_1",
+              "pos": {
+                "x": 161.975,
+                "y": 171.45
+              },
+              "uuid": "455a356a-a64c-423e-b443-95d8b9ddc044"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR6",
+              "pos": {
+                "x": 89.535,
+                "y": 60.96
+              },
+              "uuid": "45d66937-a748-455e-8869-6ca533666318"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY3",
+              "pos": {
+                "x": 131.445,
+                "y": 167.64
+              },
+              "uuid": "47c2770b-8e89-40b4-b436-5bf7914131be"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR8",
+              "pos": {
+                "x": 89.535,
+                "y": 55.88
+              },
+              "uuid": "4d746821-aaef-480f-81f4-a4724e544534"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY8",
+              "pos": {
+                "x": 218.44,
+                "y": 170.18
+              },
+              "uuid": "4e20d40e-fcef-4bce-bbac-0024da1b7140"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR11",
+              "pos": {
+                "x": 140.335,
+                "y": 73.66
+              },
+              "uuid": "52cc2c20-24cc-4bbc-ac17-a88ec0f2d453"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PS1",
+              "pos": {
+                "x": 74.295,
+                "y": 146.975
+              },
+              "uuid": "5781663d-40a1-42be-aad9-2d890ecf98fa"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR18",
+              "pos": {
+                "x": 140.335,
+                "y": 55.88
+              },
+              "uuid": "5906f68c-1a87-4d08-bd6f-4d1352c01f64"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY11",
+              "pos": {
+                "x": 218.44,
+                "y": 204.47
+              },
+              "uuid": "5e414182-eacc-4ec5-a791-2aec6300d7cc"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 202.565,
+                "y": 156.845
+              },
+              "uuid": "5e72ccf2-eb61-4d32-a565-7dbbd5b90525"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint MTH4",
+              "pos": {
+                "x": 56.515,
+                "y": 51.435
+              },
+              "uuid": "621bb612-239f-4c07-8cbd-b0d7da511d39"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY5",
+              "pos": {
+                "x": 172.1175,
+                "y": 195.5325
+              },
+              "uuid": "6f0f4458-1381-4f95-817d-07829e209efe"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR12",
+              "pos": {
+                "x": 140.335,
+                "y": 71.12
+              },
+              "uuid": "704756d1-da95-46cd-9e9e-fcc1c5ca1574"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint Z2",
+              "pos": {
+                "x": 103.632,
+                "y": 153.416
+              },
+              "uuid": "8082005e-ce03-4a73-8cb4-b7f0e381066f"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint MTH1",
+              "pos": {
+                "x": 56.515,
+                "y": 205.105
+              },
+              "uuid": "84e7a3e9-4490-47e3-bf43-47c0a201ff87"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R8",
+              "pos": {
+                "x": 103.505,
+                "y": 147.828
+              },
+              "uuid": "85a2bc18-1638-41e6-be2f-cb59925c9cb2"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 66.0316,
+                "y": 158.115
+              },
+              "uuid": "89a70139-f972-4afe-ad8b-39afe393830c"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY4",
+              "pos": {
+                "x": 131.445,
+                "y": 179.07
+              },
+              "uuid": "8a31cbd3-d0e0-4df1-88a4-2c179c3ae904"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR32",
+              "pos": {
+                "x": 210.185,
+                "y": 71.12
+              },
+              "uuid": "8dd81eb3-4a1b-4713-952a-050237c084a2"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR22",
+              "pos": {
+                "x": 88.9,
+                "y": 201.295
+              },
+              "uuid": "98396366-a986-4532-8a2f-9d2e60ccdd98"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR23",
+              "pos": {
+                "x": 88.9,
+                "y": 203.835
+              },
+              "uuid": "a3f5dcf1-89ae-4f7c-b358-d2c137f263db"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR24",
+              "pos": {
+                "x": 210.185,
+                "y": 50.8
+              },
+              "uuid": "a6565416-c41f-4571-853e-5dbe46013d12"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PSENSE_2",
+              "pos": {
+                "x": 121.285,
+                "y": 197.485
+              },
+              "uuid": "a7076ac2-01f0-4186-83e5-dc483de93386"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R6",
+              "pos": {
+                "x": 199.39,
+                "y": 132.715
+              },
+              "uuid": "a7e9c9d2-cf35-4284-bc1c-8b8c35d12517"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR28",
+              "pos": {
+                "x": 210.185,
+                "y": 60.96
+              },
+              "uuid": "ae603d48-32f3-4842-bf95-153268927b73"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY9",
+              "pos": {
+                "x": 218.44,
+                "y": 181.61
+              },
+              "uuid": "aeadf75b-16d9-4772-afc0-5913f9f5acc2"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR1",
+              "pos": {
+                "x": 89.535,
+                "y": 73.66
+              },
+              "uuid": "af9f46e4-8ef3-4de4-9e33-fdb2b3968679"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR29",
+              "pos": {
+                "x": 210.185,
+                "y": 63.5
+              },
+              "uuid": "b1a69f11-9f7d-4a74-95ff-bd1519a6fcf7"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR9",
+              "pos": {
+                "x": 89.535,
+                "y": 53.34
+              },
+              "uuid": "b2e746c1-e8c5-4b36-bca7-5a5ac9b88a61"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR15",
+              "pos": {
+                "x": 140.335,
+                "y": 63.5
+              },
+              "uuid": "b4f995c1-5093-42cb-921f-a367420d3d5d"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint TVS2",
+              "pos": {
+                "x": 121.285,
+                "y": 186.055
+              },
+              "uuid": "b75c9c6f-92a6-45f4-87bd-8bada25ae745"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY10",
+              "pos": {
+                "x": 218.44,
+                "y": 193.04
+              },
+              "uuid": "ba681067-da8c-405c-9d99-418b757e834f"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint U3",
+              "pos": {
+                "x": 203.2,
+                "y": 115.57
+              },
+              "uuid": "bade7ba3-79d3-4bda-ba39-b60272d5daf0"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J3",
+              "pos": {
+                "x": 247.65,
+                "y": 87.5825
+              },
+              "uuid": "c224a905-ce38-4540-9bb5-e53eaf702075"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY2",
+              "pos": {
+                "x": 103.505,
+                "y": 167.64
+              },
+              "uuid": "c58587f1-fa3a-448c-bafd-d7a02f6726d0"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint C6",
+              "pos": {
+                "x": 144.653,
+                "y": 201.93
+              },
+              "uuid": "c61115d6-b65f-42f1-b04b-b93ebe7cb067"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR4",
+              "pos": {
+                "x": 89.535,
+                "y": 66.04
+              },
+              "uuid": "c6627c86-2ca2-47d8-8176-c9c823e4af58"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint XA1",
+              "pos": {
+                "x": 40.132,
+                "y": 138.303
+              },
+              "uuid": "c78dca19-f112-4e00-ab4f-845f532b4f6e"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 139.065,
+                "y": 147.955
+              },
+              "uuid": "c7bf6881-0be7-4441-a124-8995d92e34cc"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR30",
+              "pos": {
+                "x": 210.185,
+                "y": 66.04
+              },
+              "uuid": "cf1824dc-7e40-467e-b134-0692019c22bf"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 164.465,
+                "y": 90.17
+              },
+              "uuid": "d1da39a4-9e6f-4b37-b4ca-46495fb7d1d1"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R4",
+              "pos": {
+                "x": 182.88,
+                "y": 121.285
+              },
+              "uuid": "d3a3f3f6-7ba8-466c-b733-3befa11b95ef"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR7",
+              "pos": {
+                "x": 89.535,
+                "y": 58.42
+              },
+              "uuid": "dd775383-354f-4bb0-ae70-9e168471e5a2"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 164.465,
+                "y": 114.935
+              },
+              "uuid": "e1cf79c2-5d33-4897-8160-a6da255645e2"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR5",
+              "pos": {
+                "x": 89.535,
+                "y": 63.5
+              },
+              "uuid": "e6759d8a-52a2-4bfd-a599-0a51ce13baf8"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint MTH3",
+              "pos": {
+                "x": 248.285,
+                "y": 51.435
+              },
+              "uuid": "e7440678-ab9d-4727-9150-ba3a21018065"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR21",
+              "pos": {
+                "x": 88.9,
+                "y": 206.375
+              },
+              "uuid": "e8567962-b905-411d-abfd-283576094e9d"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY1",
+              "pos": {
+                "x": 103.505,
+                "y": 179.0704
+              },
+              "uuid": "ec347297-0d34-4e3b-aecd-ef0f58f2ac33"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R7",
+              "pos": {
+                "x": 228.6,
+                "y": 132.715
+              },
+              "uuid": "ec87f098-3b1e-4f8c-8bbd-516c6109a0ad"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR3",
+              "pos": {
+                "x": 89.535,
+                "y": 68.58
+              },
+              "uuid": "ed1ac711-d33a-470a-a19c-8552961dd373"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint JP2",
+              "pos": {
+                "x": 89.535,
+                "y": 153.05
+              },
+              "uuid": "eea23e48-149a-4f36-a224-eee871c2dffb"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY6",
+              "pos": {
+                "x": 218.44,
+                "y": 147.32
+              },
+              "uuid": "f1d0fa5b-cb08-4f03-8c89-1daf9cd049ef"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR26",
+              "pos": {
+                "x": 210.185,
+                "y": 55.88
+              },
+              "uuid": "f6c06d59-627b-40a5-8834-2f6080cfc811"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint C4",
+              "pos": {
+                "x": 196.85,
+                "y": 116.442
+              },
+              "uuid": "f77b845f-b9b2-4d7a-b4bb-59ed68a73090"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint RLY7",
+              "pos": {
+                "x": 218.44,
+                "y": 158.75
+              },
+              "uuid": "fa112cd6-152e-465f-9afd-ed9f229402df"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint PR27",
+              "pos": {
+                "x": 210.185,
+                "y": 58.42
+              },
+              "uuid": "fa189d9f-1250-4aae-b7e4-2bcecdc3f7f0"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 57.0484,
+                "y": 179.07
+              },
+              "uuid": "fa47957a-836c-43e1-91f8-9080c2050e09"
+            }
+          ],
+          "severity": "error",
+          "type": "lib_footprint_issues"
+        }
+      ]
+    },
+    "unconnected": 7,
+    "violations": 196
+  },
+  "fanout": true,
+  "fixture_id": "Issue230-CNH_Functional_Tester__CNH_Functional_Tester_1.kicad_pcb",
+  "fixture_relpath": "freerouting/tests/Issue230-CNH_Functional_Tester/CNH_Functional_Tester_1.kicad_pcb",
+  "fixture_type": "kicad",
+  "generated_at_unix_s": 1769207819,
+  "hashes": {
+    "kicad_drc_sha256": "c2f3db3a815961bf207d3d5a1227beaf0625708218cff1aee456140974693a57",
+    "routed_pcb_sha256": "0226c39bcff4030b22f8c6d8de1593b5c280794d9efad45144173db4cad2eba8"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "kicad_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue230-CNH_Functional_Tester__CNH_Functional_Tester_1.kicad_pcb/kicad_drc.json",
+    "routed_pcb": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue230-CNH_Functional_Tester__CNH_Functional_Tester_1.kicad_pcb/routed.kicad_pcb"
+  },
+  "runtime_s": 85.90757391700754,
+  "seed": 12345,
+  "strip_planes": false
+}

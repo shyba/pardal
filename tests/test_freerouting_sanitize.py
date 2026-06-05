@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from pcb_tool.freerouting_backend import sanitize_dsn
+from pardal.freerouting_backend import sanitize_dsn
 
 
 def test_sanitize_dsn_rewrites_first_line_and_strips_chars(tmp_path: Path) -> None:

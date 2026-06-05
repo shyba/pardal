@@ -7,9 +7,9 @@ the router to use vias or alternative paths.
 """
 
 import pytest
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.pathfinder import PathFinder
-from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.pathfinder import PathFinder
+from pardal.routing.multi_net_router import MultiNetRouter, NetDefinition
 
 
 class TestCrossingForbidden:

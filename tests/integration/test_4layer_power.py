@@ -18,12 +18,12 @@ from typing import Dict, List, Tuple, Set, Optional
 # Add pardal-pcb to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from pcb_tool.data_model import Board, Net, Component, TraceSegment, Pad, Via, NetClass
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.pathfinder import PathFinder
-from pcb_tool.routing.crossing_detector import CrossingDetector
-from pcb_tool.kicad_writer import KicadWriter
-from pcb_tool.footprint_library import get_footprint_pads
+from pardal.data_model import Board, Net, Component, TraceSegment, Pad, Via, NetClass
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.pathfinder import PathFinder
+from pardal.routing.crossing_detector import CrossingDetector
+from pardal.kicad_writer import KicadWriter
+from pardal.footprint_library import get_footprint_pads
 
 # Import from existing test infrastructure
 from tests.integration.test_routing_scenarios import (
@@ -305,7 +305,7 @@ class Test4LayerPowerDistribution:
 
     def test_4layer_layer_stack_standard(self, tmp_path):
         """Test that standard 4-layer stack is recognized."""
-        from pcb_tool.data_model import STANDARD_LAYER_STACKS
+        from pardal.data_model import STANDARD_LAYER_STACKS
 
         layers = STANDARD_LAYER_STACKS[4]
         assert layers == ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
@@ -341,7 +341,7 @@ class Test4LayerPowerDistribution:
 
     def test_inner_layer_kicad_indices(self, tmp_path):
         """Test that inner layers have correct KiCad layer indices."""
-        from pcb_tool.kicad_writer import KicadWriter
+        from pardal.kicad_writer import KicadWriter
 
         layers = ["F.Cu", "In1.Cu", "In2.Cu", "B.Cu"]
         test = MultiLayerTestCase("4layer_indices", layers)

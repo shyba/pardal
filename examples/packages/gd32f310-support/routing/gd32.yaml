@@ -1,0 +1,13 @@
+schema: pardal.route_policy/v1
+
+policies:
+  gd32f310_12v_adc:
+    backend: pardal-routing-dsl
+    layer_stack: four_layer
+    net_patterns:
+      - ADC*
+      - SENSE_*
+    rules:
+      power_width_mm: 0.2
+      signal_width_mm: 0.15
+      ground_plane_required: true

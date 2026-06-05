@@ -7,7 +7,7 @@ and neighbor generation for pathfinding.
 
 import pytest
 import math
-from pcb_tool.routing.grid import RoutingGrid, GridCell
+from pardal.routing.grid import RoutingGrid, GridCell
 
 
 class TestRoutingGridInitialization:

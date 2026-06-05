@@ -1,0 +1,114 @@
+profiles:
+  dfm: jlcpcb_4_layer_smt
+  assembly: jlcpcb_smt
+  lcsc_policy: require_or_exception
+  design: gd32f310_adc_12v
+
+enable_checks:
+  - release.archive_not_uploadable
+  - power.rail_budget_missing
+  - power.linear_regulator_drop_too_high
+  - power.rail_width_policy_missing
+  - validation.only_visual_inspection
+
+waive_checks:
+  assembly.manual_part_present:
+    refs: [J12V]
+    reason: "J12V is an intentional hand-installed 12V screw terminal."
+
+validation:
+  erc_like_policy: true
+  measured_tests: true
+  fabrication_margin_reviewed: true
+  decoupling_locality_reviewed: true
+  lcsc_availability_checked: true
+
+rails:
+  3V3:
+    source_ref: U2
+    regulator: linear
+    input_net: 12V_PROT
+    output_net: 3V3
+    input_voltage_v: 12.0
+    output_voltage_v: 3.3
+    max_load_ma: 50
+    max_ambient_c: 50
+    max_regulator_dissipation_mw: 500
+    min_trace_width_mm: 0.20
+
+inputs:
+  12V_IN:
+    external: true
+    required_protection: [reverse_polarity]
+
+adc_filters:
+  ADC0:
+    input_net: ADC0_IN
+    filtered_net: ADC0_FILT
+    resistor_ref: RAD0
+    capacitor_ref: CAD0
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC1:
+    input_net: ADC1_IN
+    filtered_net: ADC1_FILT
+    resistor_ref: RAD1
+    capacitor_ref: CAD1
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC2:
+    input_net: ADC2_IN
+    filtered_net: ADC2_FILT
+    resistor_ref: RAD2
+    capacitor_ref: CAD2
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC3:
+    input_net: ADC3_IN
+    filtered_net: ADC3_FILT
+    resistor_ref: RAD3
+    capacitor_ref: CAD3
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC4:
+    input_net: ADC4_IN
+    filtered_net: ADC4_FILT
+    resistor_ref: RAD4
+    capacitor_ref: CAD4
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC5:
+    input_net: ADC5_IN
+    filtered_net: ADC5_FILT
+    resistor_ref: RAD5
+    capacitor_ref: CAD5
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC6:
+    input_net: ADC6_IN
+    filtered_net: ADC6_FILT
+    resistor_ref: RAD6
+    capacitor_ref: CAD6
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC7:
+    input_net: ADC7_IN
+    filtered_net: ADC7_FILT
+    resistor_ref: RAD7
+    capacitor_ref: CAD7
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC8:
+    input_net: ADC8_IN
+    filtered_net: ADC8_FILT
+    resistor_ref: RAD8
+    capacitor_ref: CAD8
+    max_bandwidth_hz: 500
+    exposed_input: true
+  ADC9:
+    input_net: ADC9_IN
+    filtered_net: ADC9_FILT
+    resistor_ref: RAD9
+    capacitor_ref: CAD9
+    max_bandwidth_hz: 500
+    exposed_input: true

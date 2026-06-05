@@ -1,0 +1,7 @@
+schema: pardal.examples/v1
+
+examples:
+  starter:
+    description: GD32F310 12V ADC starter board
+    mode: documentation_only
+    path: templates/gd32f310_12v_adc

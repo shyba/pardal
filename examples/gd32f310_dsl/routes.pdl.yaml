@@ -1,0 +1,1310 @@
+schema: pardal.routes
+version: 0.1
+board:
+  board_ir_id: gd32f310c8t6-lqfp48-breakout-v001
+  frozen_board_snapshot_id: gd32f310c8t6-lqfp48-breakout-v001-snapshot-sha256:dff38504a3b480eb26638348fb3767eef8c8b14249ab0bc6df980faef6d3ae08
+defaults:
+  units:
+    length: mm
+  search:
+    candidate_order: lexical
+    max_candidates: 4
+  diagnostics:
+    emit_best_failed_candidate: true
+route_groups:
+  - id: rg_pin_01_vbat
+    name: route_pin_01_vbat
+    select:
+      nets: [3V3]
+      endpoints:
+        - ref: U1
+          pads: ["1"]
+        - ref: J01
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [3V3]
+      existing_route_groups: [rg_pin_01_vbat]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]
+  - id: rg_pin_02_pc13
+    name: route_pin_02_pc13
+    select:
+      nets: [PIN_02_PC13]
+      endpoints:
+        - ref: U1
+          pads: ["2"]
+        - ref: J02
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_02_PC13]
+      existing_route_groups: [rg_pin_02_pc13]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_03_pc14
+    name: route_pin_03_pc14
+    select:
+      nets: [PIN_03_PC14]
+      endpoints:
+        - ref: U1
+          pads: ["3"]
+        - ref: J03
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_03_PC14]
+      existing_route_groups: [rg_pin_03_pc14]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_04_pc15
+    name: route_pin_04_pc15
+    select:
+      nets: [PIN_04_PC15]
+      endpoints:
+        - ref: U1
+          pads: ["4"]
+        - ref: J04
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_04_PC15]
+      existing_route_groups: [rg_pin_04_pc15]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_05_pf0
+    name: route_pin_05_pf0
+    select:
+      nets: [PIN_05_PF0]
+      endpoints:
+        - ref: U1
+          pads: ["5"]
+        - ref: J05
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_05_PF0]
+      existing_route_groups: [rg_pin_05_pf0]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_06_pf1
+    name: route_pin_06_pf1
+    select:
+      nets: [PIN_06_PF1]
+      endpoints:
+        - ref: U1
+          pads: ["6"]
+        - ref: J06
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_06_PF1]
+      existing_route_groups: [rg_pin_06_pf1]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_07_nrst
+    name: route_pin_07_nrst
+    select:
+      nets: [PIN_07_NRST]
+      endpoints:
+        - ref: U1
+          pads: ["7"]
+        - ref: J07
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_07_NRST]
+      existing_route_groups: [rg_pin_07_nrst]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]
+  - id: rg_pin_08_vssa
+    name: route_pin_08_vssa
+    select:
+      nets: [GND]
+      endpoints:
+        - ref: U1
+          pads: ["8"]
+        - ref: J08
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [GND]
+      existing_route_groups: [rg_pin_08_vssa]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]
+  - id: rg_pin_09_vdda
+    name: route_pin_09_vdda
+    select:
+      nets: [3V3]
+      endpoints:
+        - ref: U1
+          pads: ["9"]
+        - ref: J09
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [3V3]
+      existing_route_groups: [rg_pin_09_vdda]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]
+  - id: rg_pin_10_pa0
+    name: route_pin_10_pa0
+    select:
+      nets: [ADC0_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["10"]
+        - ref: J10
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC0_FILT]
+      existing_route_groups: [rg_pin_10_pa0]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_11_pa1
+    name: route_pin_11_pa1
+    select:
+      nets: [ADC1_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["11"]
+        - ref: J11
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC1_FILT]
+      existing_route_groups: [rg_pin_11_pa1]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_12_pa2
+    name: route_pin_12_pa2
+    select:
+      nets: [ADC2_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["12"]
+        - ref: J12
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC2_FILT]
+      existing_route_groups: [rg_pin_12_pa2]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_13_pa3
+    name: route_pin_13_pa3
+    select:
+      nets: [ADC3_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["13"]
+        - ref: J13
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC3_FILT]
+      existing_route_groups: [rg_pin_13_pa3]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_14_pa4
+    name: route_pin_14_pa4
+    select:
+      nets: [ADC4_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["14"]
+        - ref: J14
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC4_FILT]
+      existing_route_groups: [rg_pin_14_pa4]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_15_pa5
+    name: route_pin_15_pa5
+    select:
+      nets: [ADC5_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["15"]
+        - ref: J15
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC5_FILT]
+      existing_route_groups: [rg_pin_15_pa5]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_16_pa6
+    name: route_pin_16_pa6
+    select:
+      nets: [ADC6_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["16"]
+        - ref: J16
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC6_FILT]
+      existing_route_groups: [rg_pin_16_pa6]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_17_pa7
+    name: route_pin_17_pa7
+    select:
+      nets: [ADC7_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["17"]
+        - ref: J17
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC7_FILT]
+      existing_route_groups: [rg_pin_17_pa7]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_18_pb0
+    name: route_pin_18_pb0
+    select:
+      nets: [ADC8_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["18"]
+        - ref: J18
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC8_FILT]
+      existing_route_groups: [rg_pin_18_pb0]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_19_pb1
+    name: route_pin_19_pb1
+    select:
+      nets: [ADC9_FILT]
+      endpoints:
+        - ref: U1
+          pads: ["19"]
+        - ref: J19
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [ADC9_FILT]
+      existing_route_groups: [rg_pin_19_pb1]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_20_pb2
+    name: route_pin_20_pb2
+    select:
+      nets: [PIN_20_PB2]
+      endpoints:
+        - ref: U1
+          pads: ["20"]
+        - ref: J20
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_20_PB2]
+      existing_route_groups: [rg_pin_20_pb2]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_21_pb10
+    name: route_pin_21_pb10
+    select:
+      nets: [PIN_21_PB10]
+      endpoints:
+        - ref: U1
+          pads: ["21"]
+        - ref: J21
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_21_PB10]
+      existing_route_groups: [rg_pin_21_pb10]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_22_pb11
+    name: route_pin_22_pb11
+    select:
+      nets: [PIN_22_PB11]
+      endpoints:
+        - ref: U1
+          pads: ["22"]
+        - ref: J22
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_22_PB11]
+      existing_route_groups: [rg_pin_22_pb11]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_23_vss
+    name: route_pin_23_vss
+    select:
+      nets: [GND]
+      endpoints:
+        - ref: U1
+          pads: ["23"]
+        - ref: J23
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [GND]
+      existing_route_groups: [rg_pin_23_vss]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]
+  - id: rg_pin_24_vdd
+    name: route_pin_24_vdd
+    select:
+      nets: [3V3]
+      endpoints:
+        - ref: U1
+          pads: ["24"]
+        - ref: J24
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [3V3]
+      existing_route_groups: [rg_pin_24_vdd]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]
+  - id: rg_pin_25_pb12
+    name: route_pin_25_pb12
+    select:
+      nets: [PIN_25_PB12]
+      endpoints:
+        - ref: U1
+          pads: ["25"]
+        - ref: J25
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_25_PB12]
+      existing_route_groups: [rg_pin_25_pb12]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_26_pb13
+    name: route_pin_26_pb13
+    select:
+      nets: [PIN_26_PB13]
+      endpoints:
+        - ref: U1
+          pads: ["26"]
+        - ref: J26
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_26_PB13]
+      existing_route_groups: [rg_pin_26_pb13]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_27_pb14
+    name: route_pin_27_pb14
+    select:
+      nets: [PIN_27_PB14]
+      endpoints:
+        - ref: U1
+          pads: ["27"]
+        - ref: J27
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_27_PB14]
+      existing_route_groups: [rg_pin_27_pb14]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_28_pb15
+    name: route_pin_28_pb15
+    select:
+      nets: [PIN_28_PB15]
+      endpoints:
+        - ref: U1
+          pads: ["28"]
+        - ref: J28
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_28_PB15]
+      existing_route_groups: [rg_pin_28_pb15]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_29_pa8
+    name: route_pin_29_pa8
+    select:
+      nets: [PIN_29_PA8]
+      endpoints:
+        - ref: U1
+          pads: ["29"]
+        - ref: J29
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_29_PA8]
+      existing_route_groups: [rg_pin_29_pa8]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_30_pa9
+    name: route_pin_30_pa9
+    select:
+      nets: [PIN_30_PA9]
+      endpoints:
+        - ref: U1
+          pads: ["30"]
+        - ref: J30
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_30_PA9]
+      existing_route_groups: [rg_pin_30_pa9]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_31_pa10
+    name: route_pin_31_pa10
+    select:
+      nets: [PIN_31_PA10]
+      endpoints:
+        - ref: U1
+          pads: ["31"]
+        - ref: J31
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_31_PA10]
+      existing_route_groups: [rg_pin_31_pa10]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_32_pa11
+    name: route_pin_32_pa11
+    select:
+      nets: [PIN_32_PA11]
+      endpoints:
+        - ref: U1
+          pads: ["32"]
+        - ref: J32
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_32_PA11]
+      existing_route_groups: [rg_pin_32_pa11]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_33_pa12
+    name: route_pin_33_pa12
+    select:
+      nets: [PIN_33_PA12]
+      endpoints:
+        - ref: U1
+          pads: ["33"]
+        - ref: J33
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_33_PA12]
+      existing_route_groups: [rg_pin_33_pa12]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_34_pa13
+    name: route_pin_34_pa13
+    select:
+      nets: [PIN_34_PA13]
+      endpoints:
+        - ref: U1
+          pads: ["34"]
+        - ref: J34
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_34_PA13]
+      existing_route_groups: [rg_pin_34_pa13]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_35_pf6
+    name: route_pin_35_pf6
+    select:
+      nets: [PIN_35_PF6]
+      endpoints:
+        - ref: U1
+          pads: ["35"]
+        - ref: J35
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_35_PF6]
+      existing_route_groups: [rg_pin_35_pf6]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_36_pf7
+    name: route_pin_36_pf7
+    select:
+      nets: [PIN_36_PF7]
+      endpoints:
+        - ref: U1
+          pads: ["36"]
+        - ref: J36
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_36_PF7]
+      existing_route_groups: [rg_pin_36_pf7]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_37_pa14
+    name: route_pin_37_pa14
+    select:
+      nets: [PIN_37_PA14]
+      endpoints:
+        - ref: U1
+          pads: ["37"]
+        - ref: J37
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_37_PA14]
+      existing_route_groups: [rg_pin_37_pa14]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_38_pa15
+    name: route_pin_38_pa15
+    select:
+      nets: [PIN_38_PA15]
+      endpoints:
+        - ref: U1
+          pads: ["38"]
+        - ref: J38
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_38_PA15]
+      existing_route_groups: [rg_pin_38_pa15]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_39_pb3
+    name: route_pin_39_pb3
+    select:
+      nets: [PIN_39_PB3]
+      endpoints:
+        - ref: U1
+          pads: ["39"]
+        - ref: J39
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_39_PB3]
+      existing_route_groups: [rg_pin_39_pb3]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_40_pb4
+    name: route_pin_40_pb4
+    select:
+      nets: [PIN_40_PB4]
+      endpoints:
+        - ref: U1
+          pads: ["40"]
+        - ref: J40
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_40_PB4]
+      existing_route_groups: [rg_pin_40_pb4]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_41_pb5
+    name: route_pin_41_pb5
+    select:
+      nets: [PIN_41_PB5]
+      endpoints:
+        - ref: U1
+          pads: ["41"]
+        - ref: J41
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_41_PB5]
+      existing_route_groups: [rg_pin_41_pb5]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_42_pb6
+    name: route_pin_42_pb6
+    select:
+      nets: [PIN_42_PB6]
+      endpoints:
+        - ref: U1
+          pads: ["42"]
+        - ref: J42
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_42_PB6]
+      existing_route_groups: [rg_pin_42_pb6]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_43_pb7
+    name: route_pin_43_pb7
+    select:
+      nets: [PIN_43_PB7]
+      endpoints:
+        - ref: U1
+          pads: ["43"]
+        - ref: J43
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_43_PB7]
+      existing_route_groups: [rg_pin_43_pb7]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_44_boot0
+    name: route_pin_44_boot0
+    select:
+      nets: [PIN_44_BOOT0]
+      endpoints:
+        - ref: U1
+          pads: ["44"]
+        - ref: J44
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_44_BOOT0]
+      existing_route_groups: [rg_pin_44_boot0]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]
+  - id: rg_pin_45_pb8
+    name: route_pin_45_pb8
+    select:
+      nets: [PIN_45_PB8]
+      endpoints:
+        - ref: U1
+          pads: ["45"]
+        - ref: J45
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_45_PB8]
+      existing_route_groups: [rg_pin_45_pb8]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_46_pb9
+    name: route_pin_46_pb9
+    select:
+      nets: [PIN_46_PB9]
+      endpoints:
+        - ref: U1
+          pads: ["46"]
+        - ref: J46
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [PIN_46_PB9]
+      existing_route_groups: [rg_pin_46_pb9]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+  - id: rg_pin_47_vss
+    name: route_pin_47_vss
+    select:
+      nets: [GND]
+      endpoints:
+        - ref: U1
+          pads: ["47"]
+        - ref: J47
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [GND]
+      existing_route_groups: [rg_pin_47_vss]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]
+  - id: rg_pin_48_vdd
+    name: route_pin_48_vdd
+    select:
+      nets: [3V3]
+      endpoints:
+        - ref: U1
+          pads: ["48"]
+        - ref: J48
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-mcu-courtyard
+          mode: soft
+    replacement:
+      mode: scoped
+      nets: [3V3]
+      existing_route_groups: [rg_pin_48_vdd]
+      allow_power: true
+      allow_planes: false
+      max_removed_segments: 8
+      max_removed_vias: 4
+    variables:
+      escape_layer:
+        values: [F.Cu, B.Cu]

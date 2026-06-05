@@ -12,9 +12,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from pcb_tool.board_builder import simple_board
-from pcb_tool.routing_strategies import route_board
-from pcb_tool.kicad_writer import KicadWriter
+from pardal.board_builder import simple_board
+from pardal.routing_strategies import route_board
+from pardal.kicad_writer import KicadWriter
 
 
 def main():

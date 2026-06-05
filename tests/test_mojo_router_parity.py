@@ -11,11 +11,11 @@ def _repo_root() -> Path:
 
 
 def _mojo_router_bin() -> Path:
-    return _repo_root() / "pardal_router_mojo" / "build" / "pardal-router-mojo"
+    return _repo_root() / "routing" / "mojo_router" / "build" / "pardal-router-mojo"
 
 
 def _build_mojo_router() -> Path:
-    build_script = _repo_root() / "pardal_router_mojo" / "build.sh"
+    build_script = _repo_root() / "routing" / "mojo_router" / "build.sh"
     if not build_script.exists():
         raise FileNotFoundError(build_script)
     subprocess.run([str(build_script)], cwd=build_script.parent, check=True)
@@ -43,7 +43,7 @@ def _run_router(problem_json: Path, cfg_json: Path | None = None) -> dict:
 
 @pytest.mark.slow
 def test_fpga_large_smoke_runs():
-    problem = _repo_root() / "fpga_large" / "fpga_large_csg324_breakout_mojo.problem.json"
+    problem = _repo_root() / "examples" / "fpga_large" / "fpga_large_csg324_breakout_mojo.problem.json"
     assert problem.exists()
 
     out = _run_router(problem)
@@ -52,7 +52,7 @@ def test_fpga_large_smoke_runs():
 
 @pytest.mark.slow
 def test_small_fpga_routes_all_nets():
-    problem = _repo_root() / "fpga" / "fpga_unrouted_mojo_drc23.problem.json"
+    problem = _repo_root() / "examples" / "fpga" / "fpga_unrouted_mojo_drc23.problem.json"
     assert problem.exists()
 
     out = _run_router(problem)

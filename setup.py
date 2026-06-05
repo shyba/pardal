@@ -3,8 +3,8 @@ from Cython.Build import cythonize
 
 extensions = [
     Extension(
-        "pcb_tool.fastpath._astar",
-        ["pcb_tool/fastpath/_astar.pyx"],
+        "pardal.fastpath._astar",
+        ["pardal/fastpath/_astar.pyx"],
     )
 ]
 

@@ -1,0 +1,734 @@
+(session "Issue035-ReadPlaceScope"
+  (base_design "Issue035-ReadPlaceScope")
+  (placement
+    (resolution um 10)
+    (component Connector_USB:USB_C_Receptacle_GCT_USB4085
+      (place P1 2517780 -522288 front 0)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_2.00u_PCB
+      (place SW15 2762250 -595312 front 0)
+    )
+    (component Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder
+      (place R3 2559050 -638900 back 270)
+      (place C1 2451100 -1111250 back 0)
+      (place C3 2476500 -1352550 back 180)
+      (place C5 2838450 -1168400 back 180)
+      (place C6 2476500 -1390650 back 180)
+      (place R1 1771650 -1371600 back 180)
+      (place R2 2599600 -628650 back 0)
+    )
+    (component "Package_QFP:TQFP-44_10x10mm_P0.8mm"
+      (place U1 2457450 -1212850 back 90)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB
+      (place SW54 2333620 -1166810 front 0)
+      (place SW9 1524000 -595312 front 0)
+      (place SW25 2000250 -785812 front 0)
+      (place SW5 762000 -595312 front 0)
+      (place SW7 1143000 -595312 front 0)
+      (place SW8 1333500 -595312 front 0)
+      (place SW10 1714500 -595312 front 0)
+      (place SW23 1619250 -785812 front 0)
+      (place SW26 2190750 -785812 front 0)
+      (place SW27 2381250 -785812 front 0)
+      (place SW28 2571750 -785812 front 0)
+      (place SW34 1095380 -976312 front 0)
+      (place SW35 1285880 -976312 front 0)
+      (place SW36 1476380 -976312 front 0)
+      (place SW37 1666880 -976312 front 0)
+      (place SW42 2619380 -976312 front 0)
+      (place SW44 428625 -1166810 front 0)
+      (place SW45 619125 -1166810 front 0)
+      (place SW46 809625 -1166810 front 0)
+      (place SW47 1000120 -1166810 front 0)
+      (place SW48 1190620 -1166810 front 0)
+      (place SW51 1762120 -1166810 front 0)
+      (place SW52 1952620 -1166810 front 0)
+      (place SW53 2143120 -1166810 front 0)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_1.25u_PCB
+      (place SW60 2119310 -1357310 front 0)
+      (place SW57 452438 -1357310 front 0)
+      (place SW56 214312 -1357310 front 0)
+      (place SW62 2597150 -1357310 front 0)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB::1
+      (place SW31 523875 -976312 front 0)
+      (place SW33 904875 -976312 front 0)
+      (place SW39 2047880 -976312 front 0)
+      (place SW41 2428880 -976312 front 0)
+      (place SW19 857250 -785812 front 0)
+      (place SW18 666750 -785812 front 0)
+      (place SW6 952500 -595312 front 0)
+      (place SW38 1857380 -976312 front 0)
+      (place SW14 2476500 -595312 front 0)
+      (place SW2 190500 -595312 front 0)
+      (place SW3 381000 -595312 front 0)
+      (place SW4 571500 -595312 front 0)
+      (place SW11 1905000 -595312 front 0)
+      (place SW12 2095500 -595312 front 0)
+      (place SW13 2286000 -595312 front 0)
+      (place SW17 476250 -785812 front 0)
+      (place SW20 1047750 -785812 front 0)
+      (place SW21 1238250 -785812 front 0)
+      (place SW22 1428750 -785812 front 0)
+      (place SW24 1809750 -785812 front 0)
+      (place SW32 714375 -976312 front 0)
+      (place SW40 2238380 -976312 front 0)
+      (place SW49 1381120 -1166810 front 0)
+      (place SW50 1571620 -1166810 front 0)
+    )
+    (component "Diode_SMD:D_SOD-123"
+      (place D40 2184400 -976312 front 0)
+      (place D2 142875 -595312 front 0)
+      (place D8 1285880 -595312 front 0)
+      (place D9 1476380 -595312 front 0)
+      (place D10 1666880 -595312 front 0)
+      (place D13 2238380 -595312 front 0)
+      (place D16 190500 -785812 front 0)
+      (place D24 1762120 -785812 front 0)
+      (place D31 469900 -981350 front 0)
+      (place D32 660400 -981350 front 0)
+      (place D33 853450 -976312 front 0)
+      (place D37 1616700 -976312 front 0)
+      (place D38 1803400 -976312 front 0)
+      (place D39 1992940 -976312 front 0)
+      (place D41 2374900 -976312 front 0)
+      (place D42 2565400 -976312 front 0)
+      (place D43 166688 -1166810 front 0)
+      (place D44 374650 -1166810 front 0)
+      (place D45 565150 -1166810 front 0)
+      (place D46 759450 -1166810 front 0)
+      (place D47 946150 -1166810 front 0)
+      (place D48 1136650 -1166810 front 0)
+      (place D50 1521450 -1166810 front 0)
+      (place D52 1898650 -1166810 front 0)
+      (place D53 2089150 -1166810 front 0)
+      (place D54 2279650 -1166810 front 0)
+      (place D58 637550 -1357310 front 0)
+      (place D59 1352550 -1357310 front 0)
+      (place D60 2063750 -1357310 front 0)
+      (place D61 2305050 -1357310 front 0)
+      (place D62 2547940 -1357310 front 0)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_ISOEnter_PCB
+      (place SW29 2833690 -881062 front 0)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_1.50u_PCB
+      (place SW16 238125 -785812 front 0)
+    )
+    (component "Diode_SMD:D_SOD-123::1"
+      (place D4 523875 -595312 front 0)
+      (place D3 333375 -595312 front 0)
+      (place D5 714375 -595312 front 0)
+      (place D6 904875 -595312 front 0)
+      (place D7 1095380 -595312 front 0)
+      (place D11 1857380 -595312 front 0)
+      (place D12 2047880 -595312 front 0)
+      (place D14 2428880 -595312 front 0)
+      (place D15 2714620 -595312 front 0)
+      (place D17 428625 -785812 front 0)
+      (place D18 619125 -785812 front 0)
+      (place D19 809625 -785812 front 0)
+      (place D20 1000120 -785812 front 0)
+      (place D21 1190620 -785812 front 0)
+      (place D22 1381120 -785812 front 0)
+      (place D23 1571620 -785812 front 0)
+      (place D25 1952620 -785812 front 0)
+      (place D26 2143120 -785812 front 0)
+      (place D27 2333620 -785812 front 0)
+      (place D28 2524120 -785812 front 0)
+      (place D29 2781300 -881062 front 0)
+      (place D30 214312 -976312 front 0)
+      (place D34 1041400 -976312 front 0)
+      (place D35 1231900 -976312 front 0)
+      (place D36 1424950 -976312 front 0)
+      (place D49 1327150 -1166810 front 0)
+      (place D51 1708150 -1166810 front 0)
+      (place D55 2635250 -1166810 front 0)
+      (place D56 158750 -1357310 front 0)
+      (place D57 400050 -1357310 front 0)
+      (place D63 2786060 -1357310 front 0)
+    )
+    (component "Crystal:Crystal_SMD_SeikoEpson_FA238-4Pin_3.2x2.5mm_HandSoldering"
+      (place Y1 2838450 -1219200 back 180)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_6.25u_PCB
+      (place SW59 1404940 -1357310 front 0)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_2.75u_PCB
+      (place SW55 2690810 -1166810 front 0)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_1.25u_PCB::1
+      (place SW61 2357440 -1357310 front 0)
+      (place SW43 214312 -1166810 front 0)
+      (place SW58 690562 -1357310 front 0)
+      (place SW63 2833690 -1357310 front 0)
+    )
+    (component Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder
+      (place C2 2476500 -1333500 back 180)
+      (place C4 2476500 -1371600 back 180)
+      (place C7 2476500 -1409700 back 180)
+      (place C8 2895600 -1219200 back 270)
+      (place R4 2540000 -638900 back 270)
+      (place R5 2425700 -1342300 back 270)
+    )
+    (component Button_Switch_SMD:SW_SPST_TL3342
+      (place SW1 1797050 -1422400 back 180)
+    )
+    (component Button_Switch_Keyboard:SW_Cherry_MX_1.75u_PCB
+      (place SW30 261938 -976312 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "(5.1.2)-2")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net /ROW0
+        (via "Via[0-1]_800:400_um" 2698750 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2413000 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2222500 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2032000 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1841500 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1651000 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1460500 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1270000 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1079500 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 889000 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 698500 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 508000 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 317500 -596900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 127000 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D2-Pad2)"
+        (via "Via[0-1]_800:400_um" 158750 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D3-Pad2)"
+        (via "Via[0-1]_800:400_um" 349250 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D4-Pad2)"
+        (via "Via[0-1]_800:400_um" 539750 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D5-Pad2)"
+        (via "Via[0-1]_800:400_um" 730250 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D6-Pad2)"
+        (via "Via[0-1]_800:400_um" 920750 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D7-Pad2)"
+        (via "Via[0-1]_800:400_um" 1111250 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D8-Pad2)"
+        (via "Via[0-1]_800:400_um" 1301750 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D9-Pad2)"
+        (via "Via[0-1]_800:400_um" 1492250 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D10-Pad2)"
+        (via "Via[0-1]_800:400_um" 1682750 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D11-Pad2)"
+        (via "Via[0-1]_800:400_um" 1873250 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D12-Pad2)"
+        (via "Via[0-1]_800:400_um" 2063750 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D13-Pad2)"
+        (via "Via[0-1]_800:400_um" 2254250 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D14-Pad2)"
+        (via "Via[0-1]_800:400_um" 2444750 -596900
+          (type protect)
+        )
+      )
+      (net "Net-(D15-Pad2)"
+        (via "Via[0-1]_800:400_um" 2730500 -596900
+          (type protect)
+        )
+      )
+      (net /ROW1
+        (via "Via[0-1]_800:400_um" 171450 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 412750 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 603250 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 793750 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 984250 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1174750 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1365250 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1555750 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1746250 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1936750 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2127250 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2317750 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2508250 -787400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2762250 -882650
+          (type protect)
+        )
+      )
+      (net "Net-(D16-Pad2)"
+        (via "Via[0-1]_800:400_um" 209550 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D17-Pad2)"
+        (via "Via[0-1]_800:400_um" 444500 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D18-Pad2)"
+        (via "Via[0-1]_800:400_um" 635000 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D19-Pad2)"
+        (via "Via[0-1]_800:400_um" 825500 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D20-Pad2)"
+        (via "Via[0-1]_800:400_um" 1016000 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D21-Pad2)"
+        (via "Via[0-1]_800:400_um" 1206500 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D22-Pad2)"
+        (via "Via[0-1]_800:400_um" 1397000 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D23-Pad2)"
+        (via "Via[0-1]_800:400_um" 1587500 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D24-Pad2)"
+        (via "Via[0-1]_800:400_um" 1778000 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D25-Pad2)"
+        (via "Via[0-1]_800:400_um" 1968500 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D26-Pad2)"
+        (via "Via[0-1]_800:400_um" 2159000 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D27-Pad2)"
+        (via "Via[0-1]_800:400_um" 2349500 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D28-Pad2)"
+        (via "Via[0-1]_800:400_um" 2540000 -787400
+          (type protect)
+        )
+      )
+      (net "Net-(D29-Pad2)"
+        (via "Via[0-1]_800:400_um" 2800350 -882650
+          (type protect)
+        )
+      )
+      (net "Net-(D30-Pad2)"
+        (via "Via[0-1]_800:400_um" 228600 -977900
+          (type protect)
+        )
+      )
+      (net /ROW2
+        (via "Via[0-1]_800:400_um" 2546350 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2355850 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2165350 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1974850 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1784350 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1600200 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1409700 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 450850 -984250
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 196850 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 641350 -984250
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 838200 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1022350 -977900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1212850 -977900
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2500
+            650250 -981350
+            643250 -981350
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2500
+            840750 -976312
+            833750 -976312
+          )
+          (type protect)
+        )
+      )
+      (net "Net-(D31-Pad2)"
+        (via "Via[0-1]_800:400_um" 482600 -984250
+          (type protect)
+        )
+      )
+      (net "Net-(D32-Pad2)"
+        (via "Via[0-1]_800:400_um" 679450 -984250
+          (type protect)
+        )
+      )
+      (net "Net-(D33-Pad2)"
+        (via "Via[0-1]_800:400_um" 869950 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D34-Pad2)"
+        (via "Via[0-1]_800:400_um" 1060450 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D35-Pad2)"
+        (via "Via[0-1]_800:400_um" 1250950 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D36-Pad2)"
+        (via "Via[0-1]_800:400_um" 1441450 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D37-Pad2)"
+        (via "Via[0-1]_800:400_um" 1631950 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D38-Pad2)"
+        (via "Via[0-1]_800:400_um" 1822450 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D39-Pad2)"
+        (via "Via[0-1]_800:400_um" 2006600 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D40-Pad2)"
+        (via "Via[0-1]_800:400_um" 2203450 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D41-Pad2)"
+        (via "Via[0-1]_800:400_um" 2393950 -977900
+          (type protect)
+        )
+      )
+      (net "Net-(D42-Pad2)"
+        (via "Via[0-1]_800:400_um" 2584450 -977900
+          (type protect)
+        )
+      )
+      (net /ROW3
+        (via "Via[0-1]_800:400_um" 146050 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 355600 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 546100 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 742950 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 927100 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1117600 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1308100 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1504950 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1689100 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1879600 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2070100 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2260600 -1168400
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2616200 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D43-Pad2)"
+        (via "Via[0-1]_800:400_um" 184150 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D44-Pad2)"
+        (via "Via[0-1]_800:400_um" 393700 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D45-Pad2)"
+        (via "Via[0-1]_800:400_um" 584200 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D46-Pad2)"
+        (via "Via[0-1]_800:400_um" 774700 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D47-Pad2)"
+        (via "Via[0-1]_800:400_um" 965200 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D48-Pad2)"
+        (via "Via[0-1]_800:400_um" 1155700 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D49-Pad2)"
+        (via "Via[0-1]_800:400_um" 1346200 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D50-Pad2)"
+        (via "Via[0-1]_800:400_um" 1536700 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D51-Pad2)"
+        (via "Via[0-1]_800:400_um" 1720850 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D52-Pad2)"
+        (via "Via[0-1]_800:400_um" 1917700 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D53-Pad2)"
+        (via "Via[0-1]_800:400_um" 2101850 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D54-Pad2)"
+        (via "Via[0-1]_800:400_um" 2298700 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D55-Pad2)"
+        (via "Via[0-1]_800:400_um" 2654300 -1168400
+          (type protect)
+        )
+      )
+      (net "Net-(D56-Pad2)"
+        (via "Via[0-1]_800:400_um" 171450 -1358900
+          (type protect)
+        )
+      )
+      (net /ROW4
+        (via "Via[0-1]_800:400_um" 2768600 -1358900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2533650 -1358900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2286000 -1358900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 2044700 -1358900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1333500 -1358900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 622300 -1358900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 387350 -1358900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 139700 -1358900
+          (type protect)
+        )
+      )
+      (net "Net-(D57-Pad2)"
+        (via "Via[0-1]_800:400_um" 412750 -1358900
+          (type protect)
+        )
+      )
+      (net "Net-(D58-Pad2)"
+        (via "Via[0-1]_800:400_um" 654050 -1358900
+          (type protect)
+        )
+      )
+      (net "Net-(D59-Pad2)"
+        (via "Via[0-1]_800:400_um" 1371600 -1358900
+          (type protect)
+        )
+      )
+      (net "Net-(D60-Pad2)"
+        (via "Via[0-1]_800:400_um" 2082800 -1358900
+          (type protect)
+        )
+      )
+      (net "Net-(D61-Pad2)"
+        (via "Via[0-1]_800:400_um" 2324100 -1358900
+          (type protect)
+        )
+      )
+      (net "Net-(D62-Pad2)"
+        (via "Via[0-1]_800:400_um" 2565400 -1358900
+          (type protect)
+        )
+      )
+      (net "Net-(D63-Pad2)"
+        (via "Via[0-1]_800:400_um" 2800350 -1358900
+          (type protect)
+        )
+      )
+    )
+  )
+)

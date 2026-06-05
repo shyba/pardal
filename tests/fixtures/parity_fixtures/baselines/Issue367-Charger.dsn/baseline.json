@@ -1,0 +1,713 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:30:46.39973835-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue367-Charger.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Conduction Area [BAT-] and Conduction Area [BAT-]",
+          "items": [
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 578.995,
+                "y": -253.13
+              },
+              "uuid": "4"
+            },
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 572.4065,
+                "y": -255.7235
+              },
+              "uuid": "17"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [BAT-] and Conduction Area [BAT-]",
+          "items": [
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 574.089,
+                "y": -249.7875
+              },
+              "uuid": "8"
+            },
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 578.995,
+                "y": -253.13
+              },
+              "uuid": "4"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [BAT-] and Conduction Area [BAT-]",
+          "items": [
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 571.867,
+                "y": -242.583
+              },
+              "uuid": "14"
+            },
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 574.089,
+                "y": -249.7875
+              },
+              "uuid": "8"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [BAT-] and Conduction Area [BAT-]",
+          "items": [
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 567.087,
+                "y": -238.10500000000002
+              },
+              "uuid": "13"
+            },
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 570.113,
+                "y": -238.10500000000002
+              },
+              "uuid": "11"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [BAT-] and Conduction Area [BAT-]",
+          "items": [
+            {
+              "description": "Pin [BAT-]",
+              "pos": {
+                "x": 564.7815,
+                "y": -268.63
+              },
+              "uuid": "537"
+            },
+            {
+              "description": "Conduction Area [BAT-]",
+              "pos": {
+                "x": 572.4065,
+                "y": -255.7235
+              },
+              "uuid": "17"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [ILIM] and Pin [ILIM]",
+          "items": [
+            {
+              "description": "Pin [ILIM]",
+              "pos": {
+                "x": 480.875,
+                "y": -258.375
+              },
+              "uuid": "562"
+            },
+            {
+              "description": "Pin [ILIM]",
+              "pos": {
+                "x": 397.32,
+                "y": -332.47
+              },
+              "uuid": "52"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [VIN] and Conduction Area [VIN]",
+          "items": [
+            {
+              "description": "Conduction Area [VIN]",
+              "pos": {
+                "x": 342.5585,
+                "y": -214.3085
+              },
+              "uuid": "21"
+            },
+            {
+              "description": "Conduction Area [VIN]",
+              "pos": {
+                "x": 336.005,
+                "y": -211.75
+              },
+              "uuid": "7"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [VIN] and Conduction Area [VIN]",
+          "items": [
+            {
+              "description": "Conduction Area [VIN]",
+              "pos": {
+                "x": 495.0495,
+                "y": -245.9815
+              },
+              "uuid": "12"
+            },
+            {
+              "description": "Conduction Area [VIN]",
+              "pos": {
+                "x": 492.503,
+                "y": -252.458
+              },
+              "uuid": "19"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [VIN] and Conduction Area [VIN]",
+          "items": [
+            {
+              "description": "Conduction Area [VIN]",
+              "pos": {
+                "x": 343.995,
+                "y": -211.75
+              },
+              "uuid": "6"
+            },
+            {
+              "description": "Conduction Area [VIN]",
+              "pos": {
+                "x": 342.5585,
+                "y": -214.3085
+              },
+              "uuid": "21"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Via [VIN] and Pin [VIN]",
+          "items": [
+            {
+              "description": "Via [VIN]",
+              "pos": {
+                "x": 437.48,
+                "y": -289.592
+              },
+              "uuid": "711"
+            },
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 380.0,
+                "y": -256.2
+              },
+              "uuid": "341"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [CHG] and Conduction Area [CHG]",
+          "items": [
+            {
+              "description": "Conduction Area [CHG]",
+              "pos": {
+                "x": 452.0165,
+                "y": -229.93550000000002
+              },
+              "uuid": "22"
+            },
+            {
+              "description": "Conduction Area [CHG]",
+              "pos": {
+                "x": 449.166,
+                "y": -224.0415
+              },
+              "uuid": "9"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [TMR] and Conduction Area [TMR]",
+          "items": [
+            {
+              "description": "Conduction Area [TMR]",
+              "pos": {
+                "x": 505.887,
+                "y": -259.47700000000003
+              },
+              "uuid": "23"
+            },
+            {
+              "description": "Conduction Area [TMR]",
+              "pos": {
+                "x": 510.286,
+                "y": -255.0635
+              },
+              "uuid": "10"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [PGOOD] and Conduction Area [PGOOD]",
+          "items": [
+            {
+              "description": "Conduction Area [PGOOD]",
+              "pos": {
+                "x": 441.735,
+                "y": -229.404
+              },
+              "uuid": "20"
+            },
+            {
+              "description": "Conduction Area [PGOOD]",
+              "pos": {
+                "x": 446.76550000000003,
+                "y": -199.6245
+              },
+              "uuid": "18"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [BAT+] and Pin [BAT+]",
+          "items": [
+            {
+              "description": "Trace [BAT+]",
+              "pos": {
+                "x": 473.245,
+                "y": -301.94350000000003
+              },
+              "uuid": "631"
+            },
+            {
+              "description": "Pin [BAT+]",
+              "pos": {
+                "x": 470.875,
+                "y": -287.125
+              },
+              "uuid": "553"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [OUT+] and Trace [OUT+]",
+          "items": [
+            {
+              "description": "Pin [OUT+]",
+              "pos": {
+                "x": 475.875,
+                "y": -258.375
+              },
+              "uuid": "561"
+            },
+            {
+              "description": "Trace [OUT+]",
+              "pos": {
+                "x": 475.25,
+                "y": -250.934
+              },
+              "uuid": "595"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": [
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [BAT-] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 574.875,
+                "y": -268.63
+              },
+              "uuid": "538"
+            },
+            {
+              "description": "Pin [BAT-]",
+              "pos": {
+                "x": 564.7815,
+                "y": -268.63
+              },
+              "uuid": "537"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [BAT-] and Pin [GND] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [BAT-]",
+              "pos": {
+                "x": 564.7815,
+                "y": -268.63
+              },
+              "uuid": "537"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 574.875,
+                "y": -268.63
+              },
+              "uuid": "538"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [TS] and Pin [TS] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [TS]",
+              "pos": {
+                "x": 409.0,
+                "y": -297.25
+              },
+              "uuid": "396"
+            },
+            {
+              "description": "Pin [TS]",
+              "pos": {
+                "x": 409.0,
+                "y": -288.25
+              },
+              "uuid": "395"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [TS] and Pin [TS] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [TS]",
+              "pos": {
+                "x": 409.0,
+                "y": -288.25
+              },
+              "uuid": "395"
+            },
+            {
+              "description": "Pin [TS]",
+              "pos": {
+                "x": 409.0,
+                "y": -297.25
+              },
+              "uuid": "396"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 409.0,
+                "y": -256.4
+              },
+              "uuid": "394"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 409.0,
+                "y": -247.25
+              },
+              "uuid": "393"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 409.0,
+                "y": -247.25
+              },
+              "uuid": "393"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 409.0,
+                "y": -256.4
+              },
+              "uuid": "394"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 347.67,
+                "y": -240.45000000000002
+              },
+              "uuid": "174"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 347.67,
+                "y": -240.32500000000002
+              },
+              "uuid": "159"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VIN] and Pin [VIN] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 347.67,
+                "y": -248.425
+              },
+              "uuid": "173"
+            },
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 347.67,
+                "y": -248.45000000000002
+              },
+              "uuid": "160"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VIN] and Pin [VIN] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 347.67,
+                "y": -296.55
+              },
+              "uuid": "168"
+            },
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 347.67,
+                "y": -296.55
+              },
+              "uuid": "165"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 347.67,
+                "y": -304.55
+              },
+              "uuid": "167"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 347.67,
+                "y": -304.55
+              },
+              "uuid": "166"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 347.67,
+                "y": -304.55
+              },
+              "uuid": "166"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 347.67,
+                "y": -304.55
+              },
+              "uuid": "167"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VIN] and Pin [VIN] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 347.67,
+                "y": -296.55
+              },
+              "uuid": "165"
+            },
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 347.67,
+                "y": -296.55
+              },
+              "uuid": "168"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VIN] and Pin [VIN] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 347.67,
+                "y": -248.45000000000002
+              },
+              "uuid": "160"
+            },
+            {
+              "description": "Pin [VIN]",
+              "pos": {
+                "x": 347.67,
+                "y": -248.425
+              },
+              "uuid": "173"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 1.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 347.67,
+                "y": -240.32500000000002
+              },
+              "uuid": "159"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 347.67,
+                "y": -240.45000000000002
+              },
+              "uuid": "174"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ]
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 15,
+    "violations": 14
+  },
+  "fanout": true,
+  "fixture_id": "Issue367-Charger.dsn",
+  "fixture_relpath": "freerouting/tests/Issue367-Charger.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207442,
+  "hashes": {
+    "board_statistics_sha256": "e6275fca422a3b68217f280e9abb08756758b856b2f2b2fea6870c10adef9bcf",
+    "freerouting_drc_sha256": "3d9081dffe8cbbcc07b29bfd15e69d32f181003235e8c54ece40b535da4216ec",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "3635a25829543ed31a429007f29f5ec7a194613927b7671865762726c9558201"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue367-Charger.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue367-Charger.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue367-Charger.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue367-Charger.dsn/routed.ses"
+  },
+  "runtime_s": 3.932077670004219,
+  "seed": 12345,
+  "strip_planes": false
+}

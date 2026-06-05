@@ -9,7 +9,7 @@ class TestFootprintLibsMappings:
 
     def test_common_footprints_mapped(self):
         """Verify common footprints have mappings."""
-        from pcb_tool.finalize import FOOTPRINT_LIBS
+        from pardal.finalize import FOOTPRINT_LIBS
 
         expected = [
             "R_0805_2012Metric",
@@ -23,7 +23,7 @@ class TestFootprintLibsMappings:
 
     def test_all_mappings_have_valid_lib_names(self):
         """Verify all library paths follow naming convention."""
-        from pcb_tool.finalize import FOOTPRINT_LIBS
+        from pardal.finalize import FOOTPRINT_LIBS
 
         for fp_name, lib_path in FOOTPRINT_LIBS.items():
             assert lib_path.endswith(
@@ -39,13 +39,13 @@ class TestFinalizeImports:
 
     def test_finalize_function_exists(self):
         """Verify finalize_board function exists."""
-        from pcb_tool.finalize import finalize_board
+        from pardal.finalize import finalize_board
 
         assert callable(finalize_board)
 
     def test_footprint_libs_exists(self):
         """Verify FOOTPRINT_LIBS dict exists and has entries."""
-        from pcb_tool.finalize import FOOTPRINT_LIBS
+        from pardal.finalize import FOOTPRINT_LIBS
 
         assert isinstance(FOOTPRINT_LIBS, dict)
         assert len(FOOTPRINT_LIBS) > 10  # Should have many footprints
@@ -56,13 +56,13 @@ class TestKicadLoaderImports:
 
     def test_load_board_function_exists(self):
         """Verify load_board_from_kicad function exists."""
-        from pcb_tool.kicad_loader import load_board_from_kicad
+        from pardal.kicad_loader import load_board_from_kicad
 
         assert callable(load_board_from_kicad)
 
     def test_write_traces_function_exists(self):
         """Verify write_traces_to_kicad function exists."""
-        from pcb_tool.kicad_loader import write_traces_to_kicad
+        from pardal.kicad_loader import write_traces_to_kicad
 
         assert callable(write_traces_to_kicad)
 
@@ -72,7 +72,7 @@ class TestFootprintLibraryTupleReturn:
 
     def test_returns_tuple_for_known_footprint(self):
         """Verify tuple return for known footprint."""
-        from pcb_tool.footprint_library import get_footprint_pads
+        from pardal.footprint_library import get_footprint_pads
 
         result = get_footprint_pads("R_0805_2012Metric")
         assert isinstance(result, tuple)
@@ -84,7 +84,7 @@ class TestFootprintLibraryTupleReturn:
 
     def test_returns_tuple_for_unknown_footprint(self):
         """Verify tuple return with error for unknown footprint."""
-        from pcb_tool.footprint_library import get_footprint_pads
+        from pardal.footprint_library import get_footprint_pads
 
         result = get_footprint_pads("NonExistent:Unknown_Footprint")
         assert isinstance(result, tuple)
@@ -97,7 +97,7 @@ class TestFootprintLibraryTupleReturn:
 
     def test_suffix_map_resolves_atopile_footprints(self):
         """Test SUFFIX_MAP resolves atopile footprint names."""
-        from pcb_tool.footprint_library import get_footprint_pads, SUFFIX_MAP
+        from pardal.footprint_library import get_footprint_pads, SUFFIX_MAP
 
         assert "C0805" in SUFFIX_MAP
         assert SUFFIX_MAP["C0805"] == "C_0805_2012Metric"
@@ -114,7 +114,7 @@ class TestCLIFinalizeFlag:
     def test_finalize_flag_in_argparse(self):
         """Verify --finalize is accepted by argparse."""
         import argparse
-        from pcb_tool.cli import main
+        from pardal.cli import main
 
         # This shouldn't raise even if it errors later
         import sys
@@ -125,7 +125,7 @@ class TestCLIFinalizeFlag:
         sys.stdout = StringIO()
         try:
             # Parse just to check the argument exists
-            from pcb_tool.cli import main as cli_main
+            from pardal.cli import main as cli_main
 
             # If we get here without argparse errors, the flag exists
         finally:
@@ -136,10 +136,10 @@ class TestCLIFinalizeFlag:
         import subprocess
 
         result = subprocess.run(
-            ["python3", "-m", "pcb_tool.cli", "build", "--help"],
+            ["python3", "-m", "pardal.cli", "build", "--help"],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
         assert "--finalize" in result.stdout
 
@@ -149,8 +149,8 @@ class TestPreFlightValidation:
 
     def test_autoroute_validates_pads(self):
         """Verify AutoRouteCommand checks for pad count."""
-        from pcb_tool.data_model import Board, Component, Net
-        from pcb_tool.commands import AutoRouteCommand
+        from pardal.data_model import Board, Component, Net
+        from pardal.commands import AutoRouteCommand
 
         board = Board()
 
@@ -182,8 +182,8 @@ class TestListComponentsPadCount:
 
     def test_list_shows_pad_count(self):
         """Verify LIST COMPONENTS includes pad info."""
-        from pcb_tool.data_model import Board, Component, Pad
-        from pcb_tool.commands import ListComponentsCommand
+        from pardal.data_model import Board, Component, Pad
+        from pardal.commands import ListComponentsCommand
 
         board = Board()
 
@@ -215,8 +215,8 @@ class TestListComponentsPadCount:
 
     def test_list_shows_no_pads_warning(self):
         """Verify LIST COMPONENTS warns about 0 pads."""
-        from pcb_tool.data_model import Board, Component
-        from pcb_tool.commands import ListComponentsCommand
+        from pardal.data_model import Board, Component
+        from pardal.commands import ListComponentsCommand
 
         board = Board()
 

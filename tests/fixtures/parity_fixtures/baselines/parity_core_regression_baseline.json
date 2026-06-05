@@ -1,0 +1,20 @@
+{
+  "fixtures": {
+    "issue180_core": {
+      "freerouting_ok": true,
+      "mojo_unconnected": 0,
+      "mojo_unconnected_routing_only": 0,
+      "mojo_violations": 0,
+      "mojo_violations_routing_only": 0
+    },
+    "fpga_small_core": {
+      "freerouting_ok": true,
+      "mojo_failed_nets": 0,
+      "mojo_unconnected": 0,
+      "mojo_unconnected_routing_only": 0,
+      "mojo_violations": 0,
+      "mojo_violations_routing_only": 0
+    }
+  },
+  "version": 1
+}

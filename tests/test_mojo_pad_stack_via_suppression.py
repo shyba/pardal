@@ -9,7 +9,7 @@ import pytest
 @pytest.mark.slow
 def test_mojo_suppresses_via_on_pad_stack(tmp_path: Path):
     ee_root = Path(__file__).resolve().parents[2]
-    mojo_root = ee_root / "pardal-pcb" / "pardal_router_mojo"
+    mojo_root = ee_root / "pardal-pcb" / "routing" / "mojo_router"
     bin_path = mojo_root / "build" / "pardal-router-mojo"
     pixi = shutil.which("pixi") or str(Path.home() / ".pixi" / "bin" / "pixi")
     if not bin_path.exists():

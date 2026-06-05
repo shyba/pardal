@@ -1,7 +1,7 @@
 import pytest
-from pcb_tool.commands import UnlockCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Component
+from pardal.commands import UnlockCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Component
 
 
 @pytest.fixture
@@ -93,7 +93,7 @@ def test_unlock_command_full_workflow(sample_board):
 
 def test_unlock_then_move_workflow(sample_board):
     """Test that unlocking allows subsequent moves"""
-    from pcb_tool.commands import MoveCommand
+    from pardal.commands import MoveCommand
 
     parser = CommandParser()
 

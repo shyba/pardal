@@ -1,6 +1,6 @@
 import pytest
 
-from pcb_tool.fastpath import astar_path, astar_path_3d
+from pardal.fastpath import astar_path, astar_path_3d
 
 
 def _assert_path_valid(path, grid):

@@ -13,7 +13,7 @@ def test_mojo_freerouting_fixture_parser_smoke():
         pytest.skip("pixi not available; skipping Mojo fixture parser smoke test")
 
     repo_root = Path(__file__).resolve().parents[1]
-    mojo_root = repo_root / "pardal_router_mojo"
+    mojo_root = repo_root / "routing" / "mojo_router"
     test_file = mojo_root / "tests" / "test_freerouting_fixtures.mojo"
     if not test_file.exists():
         raise FileNotFoundError(test_file)
@@ -34,7 +34,7 @@ def test_mojo_dsn_typed_extraction_smoke():
         pytest.skip("pixi not available; skipping Mojo DSN typed extraction test")
 
     repo_root = Path(__file__).resolve().parents[1]
-    mojo_root = repo_root / "pardal_router_mojo"
+    mojo_root = repo_root / "routing" / "mojo_router"
     test_file = mojo_root / "tests" / "test_dsn_extract.mojo"
     if not test_file.exists():
         raise FileNotFoundError(test_file)

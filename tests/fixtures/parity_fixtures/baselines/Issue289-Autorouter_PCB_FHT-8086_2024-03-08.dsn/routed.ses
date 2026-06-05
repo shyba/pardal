@@ -1,0 +1,2900 @@
+(session "Issue289-Autorouter_PCB_FHT-8086_2024-03-08"
+  (base_design "Issue289-Autorouter_PCB_FHT-8086_2024-03-08")
+  (placement
+    (resolution mil 1000)
+    (component u1
+      (place u1 0 0 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution mil 1000)
+    (parser
+    )
+    (library_out 
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via1
+        (shape
+          (circle "1" 2442 0 0)
+        )
+        (shape
+          (circle "2" 2442 0 0)
+        )
+        (shape
+          (circle "21" 2442 0 0)
+        )
+        (shape
+          (circle "22" 2442 0 0)
+        )
+        (shape
+          (circle "23" 2442 0 0)
+        )
+        (shape
+          (circle "24" 2442 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+      (padstack via0
+        (shape
+          (circle "1" 2402 0 0)
+        )
+        (shape
+          (circle "2" 2402 0 0)
+        )
+        (shape
+          (circle "21" 2402 0 0)
+        )
+        (shape
+          (circle "22" 2402 0 0)
+        )
+        (shape
+          (circle "23" 2402 0 0)
+        )
+        (shape
+          (circle "24" 2402 0 0)
+        )
+      )
+    )
+    (network_out 
+    )
+  )
+)

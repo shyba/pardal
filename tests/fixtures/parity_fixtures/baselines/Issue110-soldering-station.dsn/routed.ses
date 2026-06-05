@@ -1,0 +1,121 @@
+(session "Issue110-soldering-station"
+  (base_design "Issue110-soldering-station")
+  (placement
+    (resolution um 10)
+    (component Capacitors_ThroughHole:C_Disc_D3_P2.5
+      (place C1 965200 -990600 front 0)
+      (place C2 1676400 -1549400 front 0)
+      (place C3 850900 -838200 front 0)
+      (place C4 1130300 -1549400 front 0)
+      (place C5 1739900 -1549400 front 0)
+      (place C7 965200 -1054100 front 0)
+    )
+    (component Discret:CP36V
+      (place C6 1790700 -1054100 front 0)
+      (place C8 1206500 -1054100 front 0)
+      (place C9 698500 -622300 front 0)
+    )
+    (component "Diodes_ThroughHole:Diode_DO-41_SOD81_Horizontal_RM10"
+      (place D1 1765300 -723900 front 0)
+      (place D2 1905000 -736600 front 0)
+      (place D3 1905000 -660400 front 0)
+      (place D4 1054100 -698500 front 0)
+    )
+    (component "Housings_DIP:DIP-6_W7.62mm"
+      (place IC1 1600200 -774700 front 0)
+    )
+    (component Pin_Headers:Pin_Header_Straight_1x02
+      (place JP1 1612900 -1549400 front 0)
+      (place P1 1917700 -800100 front 0)
+      (place P3 711200 -838200 front 0)
+    )
+    (component Pin_Headers:Pin_Header_Straight_1x03
+      (place JP2 1308100 -1371600 front 0)
+      (place JP3 1308100 -1270000 front 0)
+    )
+    (component Pin_Headers:Pin_Header_Straight_1x08
+      (place P2 1422400 -685800 front 0)
+    )
+    (component Pin_Headers:Pin_Header_Straight_1x05
+      (place P4 1346200 -736600 front 0)
+    )
+    (component Resistors_ThroughHole:Resistor_Horizontal_RM10mm
+      (place R1 1663700 -1397000 front 0)
+      (place R2 1739900 -1270000 front 0)
+      (place R3 1524000 -1409700 front 0)
+      (place R4 1193800 -1308100 front 0)
+      (place R5 1295400 -635000 front 0)
+      (place R6 1778000 -647700 front 0)
+      (place R7 1054100 -1346200 front 0)
+      (place R8 1524000 -1485900 front 0)
+      (place R9 965200 -838200 front 0)
+      (place R10 1054100 -1270000 front 0)
+      (place R11 1384300 -1549400 front 0)
+      (place R12 1193800 -1384300 front 0)
+      (place R13 1244600 -1473200 front 0)
+      (place R14 1104900 -1473200 front 0)
+      (place R15 1016000 -762000 front 0)
+      (place R16 1384300 -1473200 front 0)
+      (place R17 1104900 -838200 front 0)
+      (place R18 1244600 -1549400 front 0)
+      (place R19 1524000 -1562100 front 0)
+      (place R20 965200 -685800 front 0)
+      (place R21 939800 -914400 front 0)
+      (place R22 1663700 -1473200 front 0)
+    )
+    (component "Potentiometers:Potentiometer_VishaySpectrol-Econtrim-Type36X"
+      (place RV1 1104900 -774700 front 0)
+      (place RV2 1828800 -812800 front 0)
+    )
+    (component Pin_Headers:Pin_Header_Straight_1x04
+      (place S1 1612900 -1270000 front 0)
+    )
+    (component Pin_Headers:Pin_Header_Straight_1x07
+      (place S2 1384300 -1270000 front 0)
+    )
+    (component Pin_Headers:Pin_Header_Straight_2x17
+      (place U1 1498600 -952500 front 0)
+    )
+    (component "Housings_DIP:DIP-8_W7.62mm_LongPads"
+      (place U2 1485900 -774700 front 0)
+    )
+    (component "TO_SOT_Packages_THT:TO-220_Neutral123_Vertical_LargePads"
+      (place U3 1752600 -812800 front 0)
+      (place U4 1231900 -723900 front 0)
+      (place U5 1651000 -673100 front 0)
+      (place VT1 1536700 -673100 front 0)
+      (place VT2 1231900 -825500 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "4.0.1-2.201512121406+6195~38~ubuntu14.04.1-stable")
+    )
+    (library_out 
+      (padstack "Via[0-1]_600:400_um"
+        (shape
+          (circle "Верхний_сигнальный" 6000 0 0)
+        )
+        (shape
+          (circle "Нижний_сигнальный" 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:400_um"
+        (shape
+          (circle "Верхний_сигнальный" 6000 0 0)
+        )
+        (shape
+          (circle "Нижний_сигнальный" 6000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

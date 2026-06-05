@@ -1,0 +1,739 @@
+{
+  "adc_filters": [
+    {
+      "channel": "ADC_IN0",
+      "filtered_net": "ADC0_FILT",
+      "input_net": "ADC0_IN",
+      "parts": [
+        "TPADC0",
+        "RAD0",
+        "CAD0"
+      ],
+      "pin": "PA0"
+    },
+    {
+      "channel": "ADC_IN1",
+      "filtered_net": "ADC1_FILT",
+      "input_net": "ADC1_IN",
+      "parts": [
+        "TPADC1",
+        "RAD1",
+        "CAD1"
+      ],
+      "pin": "PA1"
+    },
+    {
+      "channel": "ADC_IN2",
+      "filtered_net": "ADC2_FILT",
+      "input_net": "ADC2_IN",
+      "parts": [
+        "TPADC2",
+        "RAD2",
+        "CAD2"
+      ],
+      "pin": "PA2"
+    },
+    {
+      "channel": "ADC_IN3",
+      "filtered_net": "ADC3_FILT",
+      "input_net": "ADC3_IN",
+      "parts": [
+        "TPADC3",
+        "RAD3",
+        "CAD3"
+      ],
+      "pin": "PA3"
+    },
+    {
+      "channel": "ADC_IN4",
+      "filtered_net": "ADC4_FILT",
+      "input_net": "ADC4_IN",
+      "parts": [
+        "TPADC4",
+        "RAD4",
+        "CAD4"
+      ],
+      "pin": "PA4"
+    },
+    {
+      "channel": "ADC_IN5",
+      "filtered_net": "ADC5_FILT",
+      "input_net": "ADC5_IN",
+      "parts": [
+        "TPADC5",
+        "RAD5",
+        "CAD5"
+      ],
+      "pin": "PA5"
+    },
+    {
+      "channel": "ADC_IN6",
+      "filtered_net": "ADC6_FILT",
+      "input_net": "ADC6_IN",
+      "parts": [
+        "TPADC6",
+        "RAD6",
+        "CAD6"
+      ],
+      "pin": "PA6"
+    },
+    {
+      "channel": "ADC_IN7",
+      "filtered_net": "ADC7_FILT",
+      "input_net": "ADC7_IN",
+      "parts": [
+        "TPADC7",
+        "RAD7",
+        "CAD7"
+      ],
+      "pin": "PA7"
+    },
+    {
+      "channel": "ADC_IN8",
+      "filtered_net": "ADC8_FILT",
+      "input_net": "ADC8_IN",
+      "parts": [
+        "TPADC8",
+        "RAD8",
+        "CAD8"
+      ],
+      "pin": "PB0"
+    },
+    {
+      "channel": "ADC_IN9",
+      "filtered_net": "ADC9_FILT",
+      "input_net": "ADC9_IN",
+      "parts": [
+        "TPADC9",
+        "RAD9",
+        "CAD9"
+      ],
+      "pin": "PB1"
+    }
+  ],
+  "board": {
+    "copper_layers": [
+      "F.Cu",
+      "In1.Cu",
+      "In2.Cu",
+      "B.Cu"
+    ],
+    "height_mm": 100.0,
+    "width_mm": 100.0
+  },
+  "coverage": {
+    "adc_channels": {
+      "PA0": "ADC_IN0",
+      "PA1": "ADC_IN1",
+      "PA2": "ADC_IN2",
+      "PA3": "ADC_IN3",
+      "PA4": "ADC_IN4",
+      "PA5": "ADC_IN5",
+      "PA6": "ADC_IN6",
+      "PA7": "ADC_IN7",
+      "PB0": "ADC_IN8",
+      "PB1": "ADC_IN9"
+    },
+    "adc_filter_count": 10,
+    "adc_pin_count": 10,
+    "package_pin_count": 48,
+    "production_part_count": 27,
+    "represented_pin_count": 48
+  },
+  "jlc_parts": {
+    "AMS1117_3V3_SOT89": "C5120796",
+    "C_100NF_0603": "C14663",
+    "C_10UF_0805": "C15850",
+    "C_1UF_0603": "C15849",
+    "GD32F310C8T6": "C3009902",
+    "J_2P_5_08": "C8465",
+    "R_1K_0603": "C21190",
+    "R_3K3_0603": "C22978",
+    "SS14_SMA": "C7420316"
+  },
+  "package": "LQFP48",
+  "part": "GD32F310C8T6",
+  "pins": [
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "power",
+      "name": "VBAT",
+      "net": "3V3",
+      "pin": 1
+    },
+    {
+      "adc": null,
+      "functions": [
+        "RTC_TAMP0",
+        "RTC_TS",
+        "RTC_OUT",
+        "WKUP1"
+      ],
+      "kind": "gpio",
+      "name": "PC13",
+      "net": "PIN_02_PC13",
+      "pin": 2
+    },
+    {
+      "adc": null,
+      "functions": [
+        "OSC32IN"
+      ],
+      "kind": "gpio",
+      "name": "PC14",
+      "net": "PIN_03_PC14",
+      "pin": 3
+    },
+    {
+      "adc": null,
+      "functions": [
+        "OSC32OUT"
+      ],
+      "kind": "gpio",
+      "name": "PC15",
+      "net": "PIN_04_PC15",
+      "pin": 4
+    },
+    {
+      "adc": null,
+      "functions": [
+        "OSCIN",
+        "CTC_SYNC"
+      ],
+      "kind": "gpio",
+      "name": "PF0",
+      "net": "PIN_05_PF0",
+      "pin": 5
+    },
+    {
+      "adc": null,
+      "functions": [
+        "OSCOUT"
+      ],
+      "kind": "gpio",
+      "name": "PF1",
+      "net": "PIN_06_PF1",
+      "pin": 6
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "reset",
+      "name": "NRST",
+      "net": "PIN_07_NRST",
+      "pin": 7
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "power",
+      "name": "VSSA",
+      "net": "GND",
+      "pin": 8
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "power",
+      "name": "VDDA",
+      "net": "3V3",
+      "pin": 9
+    },
+    {
+      "adc": "ADC_IN0",
+      "functions": [
+        "ADC_IN0",
+        "USART1_CTS",
+        "I2C1_SCL",
+        "RTC_TAMP1",
+        "WKUP0"
+      ],
+      "kind": "gpio",
+      "name": "PA0",
+      "net": "ADC0_FILT",
+      "pin": 10
+    },
+    {
+      "adc": "ADC_IN1",
+      "functions": [
+        "ADC_IN1",
+        "USART1_RTS",
+        "I2C1_SDA",
+        "EVENTOUT"
+      ],
+      "kind": "gpio",
+      "name": "PA1",
+      "net": "ADC1_FILT",
+      "pin": 11
+    },
+    {
+      "adc": "ADC_IN2",
+      "functions": [
+        "ADC_IN2",
+        "USART1_TX",
+        "TIMER14_CH0"
+      ],
+      "kind": "gpio",
+      "name": "PA2",
+      "net": "ADC2_FILT",
+      "pin": 12
+    },
+    {
+      "adc": "ADC_IN3",
+      "functions": [
+        "ADC_IN3",
+        "USART1_RX",
+        "TIMER14_CH1"
+      ],
+      "kind": "gpio",
+      "name": "PA3",
+      "net": "ADC3_FILT",
+      "pin": 13
+    },
+    {
+      "adc": "ADC_IN4",
+      "functions": [
+        "ADC_IN4",
+        "SPI0_NSS",
+        "I2S0_WS",
+        "USART1_CK",
+        "TIMER13_CH0",
+        "SPI1_NSS"
+      ],
+      "kind": "gpio",
+      "name": "PA4",
+      "net": "ADC4_FILT",
+      "pin": 14
+    },
+    {
+      "adc": "ADC_IN5",
+      "functions": [
+        "ADC_IN5",
+        "SPI0_SCK",
+        "I2S0_CK"
+      ],
+      "kind": "gpio",
+      "name": "PA5",
+      "net": "ADC5_FILT",
+      "pin": 15
+    },
+    {
+      "adc": "ADC_IN6",
+      "functions": [
+        "ADC_IN6",
+        "SPI0_MISO",
+        "I2S0_MCK",
+        "TIMER2_CH0",
+        "TIMER0_BRKIN",
+        "TIMER15_CH0",
+        "EVENTOUT"
+      ],
+      "kind": "gpio",
+      "name": "PA6",
+      "net": "ADC6_FILT",
+      "pin": 16
+    },
+    {
+      "adc": "ADC_IN7",
+      "functions": [
+        "ADC_IN7",
+        "SPI0_MOSI",
+        "I2S0_SD",
+        "TIMER2_CH1",
+        "TIMER13_CH0",
+        "TIMER0_CH0_ON",
+        "TIMER16_CH0",
+        "EVENTOUT"
+      ],
+      "kind": "gpio",
+      "name": "PA7",
+      "net": "ADC7_FILT",
+      "pin": 17
+    },
+    {
+      "adc": "ADC_IN8",
+      "functions": [
+        "ADC_IN8",
+        "TIMER2_CH2",
+        "TIMER0_CH1_ON",
+        "USART1_RX",
+        "EVENTOUT"
+      ],
+      "kind": "gpio",
+      "name": "PB0",
+      "net": "ADC8_FILT",
+      "pin": 18
+    },
+    {
+      "adc": "ADC_IN9",
+      "functions": [
+        "ADC_IN9",
+        "TIMER2_CH3",
+        "TIMER13_CH0",
+        "TIMER0_CH2_ON",
+        "SPI1_SCK"
+      ],
+      "kind": "gpio",
+      "name": "PB1",
+      "net": "ADC9_FILT",
+      "pin": 19
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "gpio",
+      "name": "PB2",
+      "net": "PIN_20_PB2",
+      "pin": 20
+    },
+    {
+      "adc": null,
+      "functions": [
+        "I2C1_SCL",
+        "SPI1_IO2"
+      ],
+      "kind": "gpio",
+      "name": "PB10",
+      "net": "PIN_21_PB10",
+      "pin": 21
+    },
+    {
+      "adc": null,
+      "functions": [
+        "I2C1_SDA",
+        "EVENTOUT",
+        "SPI1_IO3"
+      ],
+      "kind": "gpio",
+      "name": "PB11",
+      "net": "PIN_22_PB11",
+      "pin": 22
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "power",
+      "name": "VSS",
+      "net": "GND",
+      "pin": 23
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "power",
+      "name": "VDD",
+      "net": "3V3",
+      "pin": 24
+    },
+    {
+      "adc": null,
+      "functions": [
+        "SPI1_NSS",
+        "TIMER0_BRKIN",
+        "I2C1_SMBA",
+        "EVENTOUT"
+      ],
+      "kind": "gpio",
+      "name": "PB12",
+      "net": "PIN_25_PB12",
+      "pin": 25
+    },
+    {
+      "adc": null,
+      "functions": [
+        "SPI1_SCK",
+        "TIMER0_CH0_ON"
+      ],
+      "kind": "gpio",
+      "name": "PB13",
+      "net": "PIN_26_PB13",
+      "pin": 26
+    },
+    {
+      "adc": null,
+      "functions": [
+        "SPI1_MISO",
+        "TIMER0_CH1_ON",
+        "TIMER14_CH0"
+      ],
+      "kind": "gpio",
+      "name": "PB14",
+      "net": "PIN_27_PB14",
+      "pin": 27
+    },
+    {
+      "adc": null,
+      "functions": [
+        "SPI1_MOSI",
+        "TIMER0_CH2_ON",
+        "TIMER14_CH0_ON",
+        "TIMER14_CH1",
+        "RTC_REFIN",
+        "WKUP6"
+      ],
+      "kind": "gpio",
+      "name": "PB15",
+      "net": "PIN_28_PB15",
+      "pin": 28
+    },
+    {
+      "adc": null,
+      "functions": [
+        "USART0_CK",
+        "TIMER0_CH0",
+        "CK_OUT",
+        "USART1_TX",
+        "EVENTOUT",
+        "CTC_SYNC"
+      ],
+      "kind": "gpio",
+      "name": "PA8",
+      "net": "PIN_29_PA8",
+      "pin": 29
+    },
+    {
+      "adc": null,
+      "functions": [
+        "USART0_TX",
+        "TIMER0_CH1",
+        "TIMER14_BRKIN",
+        "I2C0_SCL"
+      ],
+      "kind": "gpio",
+      "name": "PA9",
+      "net": "PIN_30_PA9",
+      "pin": 30
+    },
+    {
+      "adc": null,
+      "functions": [
+        "USART0_RX",
+        "TIMER0_CH2",
+        "TIMER16_BRKIN",
+        "I2C0_SDA"
+      ],
+      "kind": "gpio",
+      "name": "PA10",
+      "net": "PIN_31_PA10",
+      "pin": 31
+    },
+    {
+      "adc": null,
+      "functions": [
+        "USART0_CTS",
+        "TIMER0_CH3",
+        "EVENTOUT",
+        "SPI1_IO2"
+      ],
+      "kind": "gpio",
+      "name": "PA11",
+      "net": "PIN_32_PA11",
+      "pin": 32
+    },
+    {
+      "adc": null,
+      "functions": [
+        "USART0_RTS",
+        "TIMER0_ETI",
+        "EVENTOUT",
+        "SPI1_IO3"
+      ],
+      "kind": "gpio",
+      "name": "PA12",
+      "net": "PIN_33_PA12",
+      "pin": 33
+    },
+    {
+      "adc": null,
+      "functions": [
+        "IFRP_OUT",
+        "SWDIO",
+        "SPI1_MISO"
+      ],
+      "kind": "gpio",
+      "name": "PA13",
+      "net": "PIN_34_PA13",
+      "pin": 34
+    },
+    {
+      "adc": null,
+      "functions": [
+        "I2C1_SCL"
+      ],
+      "kind": "gpio",
+      "name": "PF6",
+      "net": "PIN_35_PF6",
+      "pin": 35
+    },
+    {
+      "adc": null,
+      "functions": [
+        "I2C1_SDA"
+      ],
+      "kind": "gpio",
+      "name": "PF7",
+      "net": "PIN_36_PF7",
+      "pin": 36
+    },
+    {
+      "adc": null,
+      "functions": [
+        "USART1_TX",
+        "SWCLK",
+        "SPI1_MOSI"
+      ],
+      "kind": "gpio",
+      "name": "PA14",
+      "net": "PIN_37_PA14",
+      "pin": 37
+    },
+    {
+      "adc": null,
+      "functions": [
+        "SPI0_NSS",
+        "I2S0_WS",
+        "USART1_RX",
+        "SPI1_NSS",
+        "EVENTOUT"
+      ],
+      "kind": "gpio",
+      "name": "PA15",
+      "net": "PIN_38_PA15",
+      "pin": 38
+    },
+    {
+      "adc": null,
+      "functions": [
+        "SPI0_SCK",
+        "I2S0_CK",
+        "EVENTOUT"
+      ],
+      "kind": "gpio",
+      "name": "PB3",
+      "net": "PIN_39_PB3",
+      "pin": 39
+    },
+    {
+      "adc": null,
+      "functions": [
+        "SPI0_MISO",
+        "I2S0_MCK",
+        "TIMER2_CH0",
+        "EVENTOUT"
+      ],
+      "kind": "gpio",
+      "name": "PB4",
+      "net": "PIN_40_PB4",
+      "pin": 40
+    },
+    {
+      "adc": null,
+      "functions": [
+        "SPI0_MOSI",
+        "I2S0_SD",
+        "I2C0_SMBA",
+        "TIMER15_BRKIN",
+        "TIMER2_CH1",
+        "WKUP5"
+      ],
+      "kind": "gpio",
+      "name": "PB5",
+      "net": "PIN_41_PB5",
+      "pin": 41
+    },
+    {
+      "adc": null,
+      "functions": [
+        "I2C0_SCL",
+        "USART0_TX",
+        "TIMER15_CH0_ON"
+      ],
+      "kind": "gpio",
+      "name": "PB6",
+      "net": "PIN_42_PB6",
+      "pin": 42
+    },
+    {
+      "adc": null,
+      "functions": [
+        "I2C0_SDA",
+        "USART0_RX",
+        "TIMER16_CH0_ON"
+      ],
+      "kind": "gpio",
+      "name": "PB7",
+      "net": "PIN_43_PB7",
+      "pin": 43
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "boot",
+      "name": "BOOT0",
+      "net": "PIN_44_BOOT0",
+      "pin": 44
+    },
+    {
+      "adc": null,
+      "functions": [
+        "I2C0_SCL",
+        "TIMER15_CH0"
+      ],
+      "kind": "gpio",
+      "name": "PB8",
+      "net": "PIN_45_PB8",
+      "pin": 45
+    },
+    {
+      "adc": null,
+      "functions": [
+        "I2C0_SDA",
+        "IFRP_OUT",
+        "TIMER16_CH0",
+        "EVENTOUT",
+        "I2S0_MCK"
+      ],
+      "kind": "gpio",
+      "name": "PB9",
+      "net": "PIN_46_PB9",
+      "pin": 46
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "power",
+      "name": "VSS",
+      "net": "GND",
+      "pin": 47
+    },
+    {
+      "adc": null,
+      "functions": [],
+      "kind": "power",
+      "name": "VDD",
+      "net": "3V3",
+      "pin": 48
+    }
+  ],
+  "power": {
+    "input_voltage": "12V",
+    "parts": [
+      "J12V",
+      "D1",
+      "U2",
+      "CIN1",
+      "COUT1",
+      "COUT2"
+    ],
+    "rails": [
+      "12V_IN",
+      "12V_PROT",
+      "3V3",
+      "GND"
+    ]
+  },
+  "schema": "pardal.gd32f310_source_manifest",
+  "source": "GigaDevice GD32F310xx Datasheet Rev2.2 Table 2-4",
+  "version": "0.1"
+}

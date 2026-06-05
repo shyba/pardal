@@ -1,0 +1,68 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:20:42.34920872-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue143-rpi_splitter_mod.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 18488.66,
+                "y": 47871.38
+              },
+              "uuid": "16"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 16916.399999999998,
+                "y": 20375.879999999997
+              },
+              "uuid": "7"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 1,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue143-rpi_splitter_mod.dsn",
+  "fixture_relpath": "freerouting/tests/Issue143-rpi_splitter_mod.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769206839,
+  "hashes": {
+    "board_statistics_sha256": "383017845bff6377845d8dd0959da9b01bea4899607fe852399dcd4dad3f6473",
+    "freerouting_drc_sha256": "5e8f86f8e45c0d4ebc87214814102e3974f48e42afa0540c913ea87b3087ed0b",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "877b404dc7fa18a93d7d3928b7b59903cea03a1f81f93d3931e50990b76c6aeb"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue143-rpi_splitter_mod.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue143-rpi_splitter_mod.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue143-rpi_splitter_mod.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue143-rpi_splitter_mod.dsn/routed.ses"
+  },
+  "runtime_s": 2.656595145992469,
+  "seed": 12345,
+  "strip_planes": false
+}

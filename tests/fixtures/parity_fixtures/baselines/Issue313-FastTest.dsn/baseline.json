@@ -1,0 +1,2001 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:30:37.835109328-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue313-FastTest.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1776.4125,
+                "y": -2146.2873
+              },
+              "uuid": "12"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1776.4125,
+                "y": -2552.6873
+              },
+              "uuid": "20"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+5V] and Pin [+5V]",
+          "items": [
+            {
+              "description": "Pin [+5V]",
+              "pos": {
+                "x": 974.3820999999999,
+                "y": -3543.2999999999997
+              },
+              "uuid": "14"
+            },
+            {
+              "description": "Pin [+5V]",
+              "pos": {
+                "x": 1162.05,
+                "y": -1155.6873
+              },
+              "uuid": "47"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [R6_2] and Pin [R6_2]",
+          "items": [
+            {
+              "description": "Pin [R6_2]",
+              "pos": {
+                "x": 969.7212,
+                "y": -2400.2999999999997
+              },
+              "uuid": "37"
+            },
+            {
+              "description": "Pin [R6_2]",
+              "pos": {
+                "x": 1265.4787999999999,
+                "y": -2641.6
+              },
+              "uuid": "34"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": [
+        {
+          "description": "Clearance violation between Via [D3_1] and Pin [D3_1] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [D3_1]",
+              "pos": {
+                "x": 1681.3783999999998,
+                "y": -1511.3
+              },
+              "uuid": "256"
+            },
+            {
+              "description": "Pin [D3_1]",
+              "pos": {
+                "x": 1681.3783999999998,
+                "y": -1511.3
+              },
+              "uuid": "107"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [D3_1] and Pin [D3_1] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [D3_1]",
+              "pos": {
+                "x": 1681.3783999999998,
+                "y": -1511.3
+              },
+              "uuid": "256"
+            },
+            {
+              "description": "Pin [D3_1]",
+              "pos": {
+                "x": 1681.3783999999998,
+                "y": -1511.3
+              },
+              "uuid": "107"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [D3_1] and Pin [D3_1] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [D3_1]",
+              "pos": {
+                "x": 986.3582,
+                "y": -1483.4615999999999
+              },
+              "uuid": "255"
+            },
+            {
+              "description": "Pin [D3_1]",
+              "pos": {
+                "x": 986.3582,
+                "y": -1483.4615999999999
+              },
+              "uuid": "106"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [D3_1] and Pin [D3_1] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [D3_1]",
+              "pos": {
+                "x": 986.3582,
+                "y": -1483.4615999999999
+              },
+              "uuid": "255"
+            },
+            {
+              "description": "Pin [D3_1]",
+              "pos": {
+                "x": 986.3582,
+                "y": -1483.4615999999999
+              },
+              "uuid": "106"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R1_2] and Pin [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1284.7066,
+                "y": -4385.0814
+              },
+              "uuid": "254"
+            },
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1284.7066,
+                "y": -4385.0814
+              },
+              "uuid": "105"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R1_2] and Pin [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1284.7066,
+                "y": -4385.0814
+              },
+              "uuid": "254"
+            },
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1284.7066,
+                "y": -4385.0814
+              },
+              "uuid": "105"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R1_2] and Pin [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1511.4524,
+                "y": -4190.9238
+              },
+              "uuid": "253"
+            },
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1511.4524,
+                "y": -4190.9238
+              },
+              "uuid": "104"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R1_2] and Pin [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1511.4524,
+                "y": -4190.9238
+              },
+              "uuid": "253"
+            },
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1511.4524,
+                "y": -4190.9238
+              },
+              "uuid": "104"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R1_2] and Pin [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1495.425,
+                "y": -3474.1612
+              },
+              "uuid": "252"
+            },
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1495.425,
+                "y": -3474.1612
+              },
+              "uuid": "103"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R1_2] and Pin [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1495.425,
+                "y": -3474.1612
+              },
+              "uuid": "252"
+            },
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1495.425,
+                "y": -3474.1612
+              },
+              "uuid": "103"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R7_2] and Pin [R7_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R7_2]",
+              "pos": {
+                "x": 793.1658,
+                "y": -2500.9856
+              },
+              "uuid": "251"
+            },
+            {
+              "description": "Pin [R7_2]",
+              "pos": {
+                "x": 793.1658,
+                "y": -2500.9856
+              },
+              "uuid": "102"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R7_2] and Pin [R7_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R7_2]",
+              "pos": {
+                "x": 793.1658,
+                "y": -2500.9856
+              },
+              "uuid": "251"
+            },
+            {
+              "description": "Pin [R7_2]",
+              "pos": {
+                "x": 793.1658,
+                "y": -2500.9856
+              },
+              "uuid": "102"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R7_2] and Pin [R7_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R7_2]",
+              "pos": {
+                "x": 1093.724,
+                "y": -2540.889
+              },
+              "uuid": "250"
+            },
+            {
+              "description": "Pin [R7_2]",
+              "pos": {
+                "x": 1093.724,
+                "y": -2540.889
+              },
+              "uuid": "101"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R7_2] and Pin [R7_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R7_2]",
+              "pos": {
+                "x": 1093.724,
+                "y": -2540.889
+              },
+              "uuid": "250"
+            },
+            {
+              "description": "Pin [R7_2]",
+              "pos": {
+                "x": 1093.724,
+                "y": -2540.889
+              },
+              "uuid": "101"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [L5_2] and Pin [L5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [L5_2]",
+              "pos": {
+                "x": 498.34799999999996,
+                "y": -1650.3142
+              },
+              "uuid": "249"
+            },
+            {
+              "description": "Pin [L5_2]",
+              "pos": {
+                "x": 498.34799999999996,
+                "y": -1650.3142
+              },
+              "uuid": "100"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [L5_2] and Pin [L5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [L5_2]",
+              "pos": {
+                "x": 498.34799999999996,
+                "y": -1650.3142
+              },
+              "uuid": "249"
+            },
+            {
+              "description": "Pin [L5_2]",
+              "pos": {
+                "x": 498.34799999999996,
+                "y": -1650.3142
+              },
+              "uuid": "100"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [U9_5] and Pin [U9_5] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [U9_5]",
+              "pos": {
+                "x": 1661.3124,
+                "y": -4009.6693999999998
+              },
+              "uuid": "248"
+            },
+            {
+              "description": "Pin [U9_5]",
+              "pos": {
+                "x": 1661.3124,
+                "y": -4009.6693999999998
+              },
+              "uuid": "99"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [U9_5] and Pin [U9_5] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [U9_5]",
+              "pos": {
+                "x": 1661.3124,
+                "y": -4009.6693999999998
+              },
+              "uuid": "248"
+            },
+            {
+              "description": "Pin [U9_5]",
+              "pos": {
+                "x": 1661.3124,
+                "y": -4009.6693999999998
+              },
+              "uuid": "99"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [U9_5] and Pin [U9_5] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [U9_5]",
+              "pos": {
+                "x": 1604.8228,
+                "y": -3009.9762
+              },
+              "uuid": "247"
+            },
+            {
+              "description": "Pin [U9_5]",
+              "pos": {
+                "x": 1604.8228,
+                "y": -3009.9762
+              },
+              "uuid": "98"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [U9_5] and Pin [U9_5] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [U9_5]",
+              "pos": {
+                "x": 1604.8228,
+                "y": -3009.9762
+              },
+              "uuid": "247"
+            },
+            {
+              "description": "Pin [U9_5]",
+              "pos": {
+                "x": 1604.8228,
+                "y": -3009.9762
+              },
+              "uuid": "98"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [RIN] and Pin [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1949.3483999999999,
+                "y": -2698.3181999999997
+              },
+              "uuid": "246"
+            },
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1949.3483999999999,
+                "y": -2698.3181999999997
+              },
+              "uuid": "97"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [RIN] and Pin [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1949.3483999999999,
+                "y": -2698.3181999999997
+              },
+              "uuid": "246"
+            },
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1949.3483999999999,
+                "y": -2698.3181999999997
+              },
+              "uuid": "97"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [RIN] and Pin [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1193.5206,
+                "y": -1761.49
+              },
+              "uuid": "245"
+            },
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1193.5206,
+                "y": -1761.49
+              },
+              "uuid": "96"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [RIN] and Pin [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1193.5206,
+                "y": -1761.49
+              },
+              "uuid": "245"
+            },
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1193.5206,
+                "y": -1761.49
+              },
+              "uuid": "96"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [RIN] and Pin [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1134.0846,
+                "y": -2688.2598
+              },
+              "uuid": "244"
+            },
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1134.0846,
+                "y": -2688.2598
+              },
+              "uuid": "95"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [RIN] and Pin [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1134.0846,
+                "y": -2688.2598
+              },
+              "uuid": "244"
+            },
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1134.0846,
+                "y": -2688.2598
+              },
+              "uuid": "95"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R5_2] and Pin [R5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R5_2]",
+              "pos": {
+                "x": 1109.2688,
+                "y": -2050.669
+              },
+              "uuid": "243"
+            },
+            {
+              "description": "Pin [R5_2]",
+              "pos": {
+                "x": 1109.2688,
+                "y": -2050.669
+              },
+              "uuid": "94"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R5_2] and Pin [R5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R5_2]",
+              "pos": {
+                "x": 1109.2688,
+                "y": -2050.669
+              },
+              "uuid": "243"
+            },
+            {
+              "description": "Pin [R5_2]",
+              "pos": {
+                "x": 1109.2688,
+                "y": -2050.669
+              },
+              "uuid": "94"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R5_2] and Pin [R5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R5_2]",
+              "pos": {
+                "x": 1469.7964,
+                "y": -1462.3796
+              },
+              "uuid": "242"
+            },
+            {
+              "description": "Pin [R5_2]",
+              "pos": {
+                "x": 1469.7964,
+                "y": -1462.3796
+              },
+              "uuid": "93"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [R5_2] and Pin [R5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [R5_2]",
+              "pos": {
+                "x": 1469.7964,
+                "y": -1462.3796
+              },
+              "uuid": "242"
+            },
+            {
+              "description": "Pin [R5_2]",
+              "pos": {
+                "x": 1469.7964,
+                "y": -1462.3796
+              },
+              "uuid": "93"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [CIN] and Pin [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 1599.5904,
+                "y": -2706.0906
+              },
+              "uuid": "241"
+            },
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 1599.5904,
+                "y": -2706.0906
+              },
+              "uuid": "92"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [CIN] and Pin [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 1599.5904,
+                "y": -2706.0906
+              },
+              "uuid": "241"
+            },
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 1599.5904,
+                "y": -2706.0906
+              },
+              "uuid": "92"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [CIN] and Pin [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 605.9424,
+                "y": -2748.1022
+              },
+              "uuid": "240"
+            },
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 605.9424,
+                "y": -2748.1022
+              },
+              "uuid": "91"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [CIN] and Pin [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 605.9424,
+                "y": -2748.1022
+              },
+              "uuid": "240"
+            },
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 605.9424,
+                "y": -2748.1022
+              },
+              "uuid": "91"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [CIN] and Pin [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 1457.4012,
+                "y": -3837.9654
+              },
+              "uuid": "239"
+            },
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 1457.4012,
+                "y": -3837.9654
+              },
+              "uuid": "90"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [CIN] and Pin [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 1457.4012,
+                "y": -3837.9654
+              },
+              "uuid": "239"
+            },
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 1457.4012,
+                "y": -3837.9654
+              },
+              "uuid": "90"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [VCC] and Pin [VCC] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [VCC]",
+              "pos": {
+                "x": 1143.4063999999998,
+                "y": -3527.1964
+              },
+              "uuid": "238"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1143.4063999999998,
+                "y": -3527.1964
+              },
+              "uuid": "89"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [VCC] and Pin [VCC] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [VCC]",
+              "pos": {
+                "x": 1143.4063999999998,
+                "y": -3527.1964
+              },
+              "uuid": "238"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1143.4063999999998,
+                "y": -3527.1964
+              },
+              "uuid": "89"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [VCC] and Pin [VCC] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [VCC]",
+              "pos": {
+                "x": 1530.0452,
+                "y": -910.1328
+              },
+              "uuid": "237"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1530.0452,
+                "y": -910.1328
+              },
+              "uuid": "88"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [VCC] and Pin [VCC] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Via [VCC]",
+              "pos": {
+                "x": 1530.0452,
+                "y": -910.1328
+              },
+              "uuid": "237"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1530.0452,
+                "y": -910.1328
+              },
+              "uuid": "88"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [D3_1] and Via [D3_1] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [D3_1]",
+              "pos": {
+                "x": 1681.3783999999998,
+                "y": -1511.3
+              },
+              "uuid": "107"
+            },
+            {
+              "description": "Via [D3_1]",
+              "pos": {
+                "x": 1681.3783999999998,
+                "y": -1511.3
+              },
+              "uuid": "256"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [D3_1] and Via [D3_1] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [D3_1]",
+              "pos": {
+                "x": 1681.3783999999998,
+                "y": -1511.3
+              },
+              "uuid": "107"
+            },
+            {
+              "description": "Via [D3_1]",
+              "pos": {
+                "x": 1681.3783999999998,
+                "y": -1511.3
+              },
+              "uuid": "256"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [D3_1] and Via [D3_1] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [D3_1]",
+              "pos": {
+                "x": 986.3582,
+                "y": -1483.4615999999999
+              },
+              "uuid": "106"
+            },
+            {
+              "description": "Via [D3_1]",
+              "pos": {
+                "x": 986.3582,
+                "y": -1483.4615999999999
+              },
+              "uuid": "255"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [D3_1] and Via [D3_1] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [D3_1]",
+              "pos": {
+                "x": 986.3582,
+                "y": -1483.4615999999999
+              },
+              "uuid": "106"
+            },
+            {
+              "description": "Via [D3_1]",
+              "pos": {
+                "x": 986.3582,
+                "y": -1483.4615999999999
+              },
+              "uuid": "255"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R1_2] and Via [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1284.7066,
+                "y": -4385.0814
+              },
+              "uuid": "105"
+            },
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1284.7066,
+                "y": -4385.0814
+              },
+              "uuid": "254"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R1_2] and Via [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1284.7066,
+                "y": -4385.0814
+              },
+              "uuid": "105"
+            },
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1284.7066,
+                "y": -4385.0814
+              },
+              "uuid": "254"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R1_2] and Via [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1511.4524,
+                "y": -4190.9238
+              },
+              "uuid": "104"
+            },
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1511.4524,
+                "y": -4190.9238
+              },
+              "uuid": "253"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R1_2] and Via [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1511.4524,
+                "y": -4190.9238
+              },
+              "uuid": "104"
+            },
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1511.4524,
+                "y": -4190.9238
+              },
+              "uuid": "253"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R1_2] and Via [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1495.425,
+                "y": -3474.1612
+              },
+              "uuid": "103"
+            },
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1495.425,
+                "y": -3474.1612
+              },
+              "uuid": "252"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R1_2] and Via [R1_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R1_2]",
+              "pos": {
+                "x": 1495.425,
+                "y": -3474.1612
+              },
+              "uuid": "103"
+            },
+            {
+              "description": "Via [R1_2]",
+              "pos": {
+                "x": 1495.425,
+                "y": -3474.1612
+              },
+              "uuid": "252"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R7_2] and Via [R7_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R7_2]",
+              "pos": {
+                "x": 793.1658,
+                "y": -2500.9856
+              },
+              "uuid": "102"
+            },
+            {
+              "description": "Via [R7_2]",
+              "pos": {
+                "x": 793.1658,
+                "y": -2500.9856
+              },
+              "uuid": "251"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R7_2] and Via [R7_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R7_2]",
+              "pos": {
+                "x": 793.1658,
+                "y": -2500.9856
+              },
+              "uuid": "102"
+            },
+            {
+              "description": "Via [R7_2]",
+              "pos": {
+                "x": 793.1658,
+                "y": -2500.9856
+              },
+              "uuid": "251"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R7_2] and Via [R7_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R7_2]",
+              "pos": {
+                "x": 1093.724,
+                "y": -2540.889
+              },
+              "uuid": "101"
+            },
+            {
+              "description": "Via [R7_2]",
+              "pos": {
+                "x": 1093.724,
+                "y": -2540.889
+              },
+              "uuid": "250"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R7_2] and Via [R7_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R7_2]",
+              "pos": {
+                "x": 1093.724,
+                "y": -2540.889
+              },
+              "uuid": "101"
+            },
+            {
+              "description": "Via [R7_2]",
+              "pos": {
+                "x": 1093.724,
+                "y": -2540.889
+              },
+              "uuid": "250"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [L5_2] and Via [L5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [L5_2]",
+              "pos": {
+                "x": 498.34799999999996,
+                "y": -1650.3142
+              },
+              "uuid": "100"
+            },
+            {
+              "description": "Via [L5_2]",
+              "pos": {
+                "x": 498.34799999999996,
+                "y": -1650.3142
+              },
+              "uuid": "249"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [L5_2] and Via [L5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [L5_2]",
+              "pos": {
+                "x": 498.34799999999996,
+                "y": -1650.3142
+              },
+              "uuid": "100"
+            },
+            {
+              "description": "Via [L5_2]",
+              "pos": {
+                "x": 498.34799999999996,
+                "y": -1650.3142
+              },
+              "uuid": "249"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [U9_5] and Via [U9_5] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [U9_5]",
+              "pos": {
+                "x": 1661.3124,
+                "y": -4009.6693999999998
+              },
+              "uuid": "99"
+            },
+            {
+              "description": "Via [U9_5]",
+              "pos": {
+                "x": 1661.3124,
+                "y": -4009.6693999999998
+              },
+              "uuid": "248"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [U9_5] and Via [U9_5] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [U9_5]",
+              "pos": {
+                "x": 1661.3124,
+                "y": -4009.6693999999998
+              },
+              "uuid": "99"
+            },
+            {
+              "description": "Via [U9_5]",
+              "pos": {
+                "x": 1661.3124,
+                "y": -4009.6693999999998
+              },
+              "uuid": "248"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [U9_5] and Via [U9_5] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [U9_5]",
+              "pos": {
+                "x": 1604.8228,
+                "y": -3009.9762
+              },
+              "uuid": "98"
+            },
+            {
+              "description": "Via [U9_5]",
+              "pos": {
+                "x": 1604.8228,
+                "y": -3009.9762
+              },
+              "uuid": "247"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [U9_5] and Via [U9_5] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [U9_5]",
+              "pos": {
+                "x": 1604.8228,
+                "y": -3009.9762
+              },
+              "uuid": "98"
+            },
+            {
+              "description": "Via [U9_5]",
+              "pos": {
+                "x": 1604.8228,
+                "y": -3009.9762
+              },
+              "uuid": "247"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [RIN] and Via [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1949.3483999999999,
+                "y": -2698.3181999999997
+              },
+              "uuid": "97"
+            },
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1949.3483999999999,
+                "y": -2698.3181999999997
+              },
+              "uuid": "246"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [RIN] and Via [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1949.3483999999999,
+                "y": -2698.3181999999997
+              },
+              "uuid": "97"
+            },
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1949.3483999999999,
+                "y": -2698.3181999999997
+              },
+              "uuid": "246"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [RIN] and Via [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1193.5206,
+                "y": -1761.49
+              },
+              "uuid": "96"
+            },
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1193.5206,
+                "y": -1761.49
+              },
+              "uuid": "245"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [RIN] and Via [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1193.5206,
+                "y": -1761.49
+              },
+              "uuid": "96"
+            },
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1193.5206,
+                "y": -1761.49
+              },
+              "uuid": "245"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [RIN] and Via [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1134.0846,
+                "y": -2688.2598
+              },
+              "uuid": "95"
+            },
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1134.0846,
+                "y": -2688.2598
+              },
+              "uuid": "244"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [RIN] and Via [RIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [RIN]",
+              "pos": {
+                "x": 1134.0846,
+                "y": -2688.2598
+              },
+              "uuid": "95"
+            },
+            {
+              "description": "Via [RIN]",
+              "pos": {
+                "x": 1134.0846,
+                "y": -2688.2598
+              },
+              "uuid": "244"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R5_2] and Via [R5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R5_2]",
+              "pos": {
+                "x": 1109.2688,
+                "y": -2050.669
+              },
+              "uuid": "94"
+            },
+            {
+              "description": "Via [R5_2]",
+              "pos": {
+                "x": 1109.2688,
+                "y": -2050.669
+              },
+              "uuid": "243"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R5_2] and Via [R5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R5_2]",
+              "pos": {
+                "x": 1109.2688,
+                "y": -2050.669
+              },
+              "uuid": "94"
+            },
+            {
+              "description": "Via [R5_2]",
+              "pos": {
+                "x": 1109.2688,
+                "y": -2050.669
+              },
+              "uuid": "243"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R5_2] and Via [R5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R5_2]",
+              "pos": {
+                "x": 1469.7964,
+                "y": -1462.3796
+              },
+              "uuid": "93"
+            },
+            {
+              "description": "Via [R5_2]",
+              "pos": {
+                "x": 1469.7964,
+                "y": -1462.3796
+              },
+              "uuid": "242"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [R5_2] and Via [R5_2] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [R5_2]",
+              "pos": {
+                "x": 1469.7964,
+                "y": -1462.3796
+              },
+              "uuid": "93"
+            },
+            {
+              "description": "Via [R5_2]",
+              "pos": {
+                "x": 1469.7964,
+                "y": -1462.3796
+              },
+              "uuid": "242"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [CIN] and Via [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 1599.5904,
+                "y": -2706.0906
+              },
+              "uuid": "92"
+            },
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 1599.5904,
+                "y": -2706.0906
+              },
+              "uuid": "241"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [CIN] and Via [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 1599.5904,
+                "y": -2706.0906
+              },
+              "uuid": "92"
+            },
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 1599.5904,
+                "y": -2706.0906
+              },
+              "uuid": "241"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [CIN] and Via [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 605.9424,
+                "y": -2748.1022
+              },
+              "uuid": "91"
+            },
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 605.9424,
+                "y": -2748.1022
+              },
+              "uuid": "240"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [CIN] and Via [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 605.9424,
+                "y": -2748.1022
+              },
+              "uuid": "91"
+            },
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 605.9424,
+                "y": -2748.1022
+              },
+              "uuid": "240"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [CIN] and Via [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 1457.4012,
+                "y": -3837.9654
+              },
+              "uuid": "90"
+            },
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 1457.4012,
+                "y": -3837.9654
+              },
+              "uuid": "239"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [CIN] and Via [CIN] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [CIN]",
+              "pos": {
+                "x": 1457.4012,
+                "y": -3837.9654
+              },
+              "uuid": "90"
+            },
+            {
+              "description": "Via [CIN]",
+              "pos": {
+                "x": 1457.4012,
+                "y": -3837.9654
+              },
+              "uuid": "239"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VCC] and Via [VCC] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1143.4063999999998,
+                "y": -3527.1964
+              },
+              "uuid": "89"
+            },
+            {
+              "description": "Via [VCC]",
+              "pos": {
+                "x": 1143.4063999999998,
+                "y": -3527.1964
+              },
+              "uuid": "238"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VCC] and Via [VCC] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1143.4063999999998,
+                "y": -3527.1964
+              },
+              "uuid": "89"
+            },
+            {
+              "description": "Via [VCC]",
+              "pos": {
+                "x": 1143.4063999999998,
+                "y": -3527.1964
+              },
+              "uuid": "238"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VCC] and Via [VCC] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1530.0452,
+                "y": -910.1328
+              },
+              "uuid": "88"
+            },
+            {
+              "description": "Via [VCC]",
+              "pos": {
+                "x": 1530.0452,
+                "y": -910.1328
+              },
+              "uuid": "237"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VCC] and Via [VCC] (expected: 23.2156 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1530.0452,
+                "y": -910.1328
+              },
+              "uuid": "88"
+            },
+            {
+              "description": "Via [VCC]",
+              "pos": {
+                "x": 1530.0452,
+                "y": -910.1328
+              },
+              "uuid": "237"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [CN1_4] and BoardOutline (expected: 23.3172 mm, actual: 14.3256 mm)",
+          "items": [
+            {
+              "description": "Pin [CN1_4]",
+              "pos": {
+                "x": 116.8908,
+                "y": -2768.6
+              },
+              "uuid": "70"
+            },
+            {
+              "description": "BoardOutline",
+              "pos": {
+                "x": 1062.99,
+                "y": -2495.5499999999997
+              },
+              "uuid": "1"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between BoardOutline and Pin [CN1_4] (expected: 23.3172 mm, actual: 14.3256 mm)",
+          "items": [
+            {
+              "description": "BoardOutline",
+              "pos": {
+                "x": 1062.99,
+                "y": -2495.5499999999997
+              },
+              "uuid": "1"
+            },
+            {
+              "description": "Pin [CN1_4]",
+              "pos": {
+                "x": 116.8908,
+                "y": -2768.6
+              },
+              "uuid": "70"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ]
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 3,
+    "violations": 82
+  },
+  "fanout": true,
+  "fixture_id": "Issue313-FastTest.dsn",
+  "fixture_relpath": "freerouting/tests/Issue313-FastTest.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207434,
+  "hashes": {
+    "board_statistics_sha256": "0f09557331b9ad283cd12883788c1cb791d09b33577a7da37cd5c05099b3a391",
+    "freerouting_drc_sha256": "94fa977e94b1edca39eace1f808f222f0e47718e01f858743fe65dbf71241d7d",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "5b8b8aad4a738786e045360300edde864c214f8418b87d88a4e0a52ea2fe744b"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue313-FastTest.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue313-FastTest.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue313-FastTest.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue313-FastTest.dsn/routed.ses"
+  },
+  "runtime_s": 2.9908891179948114,
+  "seed": 12345,
+  "strip_planes": false
+}

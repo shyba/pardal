@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from pcb_tool.tools.routes_json_to_ses import routes_to_ses
+from pardal.tools.routes_json_to_ses import routes_to_ses
 
 
 @pytest.mark.slow
@@ -21,7 +21,7 @@ def test_routes_json_to_ses_can_be_imported_by_kicad(tmp_path: Path):
         pytest.skip("min_fr_test fixture not present")
 
     repo_root = Path(__file__).resolve().parents[1]
-    tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
+    tool = repo_root / "pardal" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
 
     # Step 1: generate an importable SES template via FreeRouting.

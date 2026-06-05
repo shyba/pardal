@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def test_convert_dsn_to_problem_smoke(tmp_path: Path):
-    from pcb_tool.tools.convert_dsn_to_problem import convert_dsn_to_problem
+    from pardal.tools.convert_dsn_to_problem import convert_dsn_to_problem
 
     # repo layout: ee/pardal-pcb and ee/freerouting
     ee_root = Path(__file__).resolve().parents[2]
@@ -25,7 +25,7 @@ def test_convert_dsn_to_problem_smoke(tmp_path: Path):
 
 
 def test_convert_dsn_keepout_smoke(tmp_path: Path):
-    from pcb_tool.tools.convert_dsn_to_problem import convert_dsn_to_problem
+    from pardal.tools.convert_dsn_to_problem import convert_dsn_to_problem
 
     ee_root = Path(__file__).resolve().parents[2]
     dsn = ee_root / "freerouting" / "tests" / "Issue229-display-8-digit-hc595.dsn"

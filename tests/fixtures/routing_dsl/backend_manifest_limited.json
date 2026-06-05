@@ -1,0 +1,26 @@
+{
+  "backend": {
+    "id": "freerouting",
+    "version": "1.0"
+  },
+  "capabilities": {
+    "supported_layers": ["F.Cu"],
+    "vias": {
+      "types": ["through"],
+      "max_count": 0
+    },
+    "differential_pairs": false,
+    "zones": false,
+    "keepouts": false,
+    "width_mm": {
+      "min": 0.2,
+      "max": 0.3
+    },
+    "clearance_mm": {
+      "min": 0.2,
+      "max": 0.3
+    },
+    "unsupported_features": ["keepouts", "differential_pairs", "zones"]
+  }
+}
+

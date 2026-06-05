@@ -1,0 +1,30 @@
+schema: pardal.profile/v1
+
+profiles:
+  jlcpcb_4_layer_smt:
+    imports:
+      - pardal/core:four_layer_fab_ready
+    enable_checks:
+      - jlcpcb.smt_required_artifacts
+  jlcpcb_full_pcba:
+    imports:
+      - jlcpcb/lcsc:jlcpcb_smt
+    enable_checks:
+      - assembly.manual_part_present
+      - assembly.manual_part_exported_to_jlc
+    severity:
+      assembly.manual_part_present: error
+  jlcpcb_smt:
+    enable_checks:
+      - jlcpcb.smt_required_artifacts
+      - assembly.manual_part_present
+      - assembly.manual_part_exported_to_jlc
+  require_or_exception:
+    enable_checks:
+      - bom.lcsc_missing
+      - lcsc.parts_require_mapping_or_exception
+  basic_parts_preferred:
+    imports:
+      - jlcpcb/lcsc:require_or_exception
+    enable_checks:
+      - bom.lcsc_live_availability_stale

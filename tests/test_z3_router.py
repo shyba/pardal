@@ -10,9 +10,9 @@ Tests the Z3 router with progressively complex scenarios:
 import pytest
 from pathlib import Path
 
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.z3_router import Z3Router, Z3RoutingConfig, RoutingError
-from pcb_tool.routing.multi_net_router import NetDefinition
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.z3_router import Z3Router, Z3RoutingConfig, RoutingError
+from pardal.routing.multi_net_router import NetDefinition
 
 
 class TestZ3RouterBasic:
@@ -179,8 +179,8 @@ class TestZ3RouterInjectorBoard:
     @pytest.mark.slow
     def test_z3_routes_injector_board(self, netlist_path):
         """Test Z3 router on full injector board - TARGET: 8/8 nets, 0 DRC errors."""
-        from pcb_tool.data_model import Board
-        from pcb_tool.commands import LoadCommand, MoveCommand
+        from pardal.data_model import Board
+        from pardal.commands import LoadCommand, MoveCommand
 
         # Load board
         board = Board()
@@ -209,7 +209,7 @@ class TestZ3RouterInjectorBoard:
             move_cmd.execute(board)
 
         # Create routing grid
-        from pcb_tool.routing.grid import RoutingGrid
+        from pardal.routing.grid import RoutingGrid
 
         grid = RoutingGrid(
             width_mm=120.0,
@@ -218,7 +218,7 @@ class TestZ3RouterInjectorBoard:
         )
 
         # Extract net definitions
-        from pcb_tool.commands import AutoRouteCommand
+        from pardal.commands import AutoRouteCommand
 
         auto_cmd = AutoRouteCommand(net_name="ALL")
         net_definitions = auto_cmd._extract_net_definitions(

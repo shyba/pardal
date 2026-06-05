@@ -6,7 +6,7 @@ import pytest
 
 
 def test_build_kicad_cli_docker_cmd(tmp_path: Path):
-    from pcb_tool.kicad_docker import build_kicad_cli_docker_cmd
+    from pardal.kicad_docker import build_kicad_cli_docker_cmd
 
     cmd = build_kicad_cli_docker_cmd(
         image="kicad/kicad:9.0.6-full",
@@ -21,7 +21,7 @@ def test_build_kicad_cli_docker_cmd(tmp_path: Path):
 
 
 def test_run_drc_when_cli_unsupported_returns_helpful_error(tmp_path: Path, monkeypatch):
-    from pcb_tool import drc as drc_mod
+    from pardal import drc as drc_mod
 
     pcb_file = tmp_path / "test.kicad_pcb"
     pcb_file.write_text("(kicad_pcb (version 20221018) (generator test) (net 0 \"\"))\n")
@@ -37,8 +37,8 @@ def test_run_drc_when_cli_unsupported_returns_helpful_error(tmp_path: Path, monk
 
 
 def test_run_drc_uses_docker_when_env_set(tmp_path: Path, monkeypatch):
-    from pcb_tool import drc as drc_mod
-    from pcb_tool.drc import DrcResult
+    from pardal import drc as drc_mod
+    from pardal.drc import DrcResult
 
     pcb_file = tmp_path / "test.kicad_pcb"
     pcb_file.write_text("(kicad_pcb (version 20221018) (generator test) (net 0 \"\"))\n")

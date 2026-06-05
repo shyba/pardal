@@ -1,0 +1,49 @@
+(session "Issue433-my-board"
+  (base_design "Issue433-my-board")
+  (placement
+    (resolution um 10)
+    (component simple_resistor:1.6000x0.6000_mm
+      (place R1_source_component_2 -63569 -85004 front 0)
+    )
+    (component simple_chip:18.9150x18.1020_mm
+      (place XI_source_component_3 20423 48840 front 0)
+    )
+    (component simple_pin_header:1.5000x3.5000_mm
+      (place batt_source_component_0 36886 -99642 front 0)
+    )
+    (component simple_pin_header:1.5000x12.0000_mm
+      (place conn_source_component_1 -107274 -63295 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version )
+    )
+    (library_out 
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

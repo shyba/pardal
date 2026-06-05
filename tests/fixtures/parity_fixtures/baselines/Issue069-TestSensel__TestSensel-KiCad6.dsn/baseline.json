@@ -1,0 +1,736 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:18:32.734256647-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "TestSensel-KiCad6.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [/Col_2] and Trace [/Col_2]",
+          "items": [
+            {
+              "description": "Pin [/Col_2]",
+              "pos": {
+                "x": 1260.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "27"
+            },
+            {
+              "description": "Trace [/Col_2]",
+              "pos": {
+                "x": 1236.3,
+                "y": -566.2955000000001
+              },
+              "uuid": "34"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Col_2] and Trace [/Col_2]",
+          "items": [
+            {
+              "description": "Pin [/Col_2]",
+              "pos": {
+                "x": 1260.1435000000001,
+                "y": -560.0
+              },
+              "uuid": "33"
+            },
+            {
+              "description": "Trace [/Col_2]",
+              "pos": {
+                "x": 1236.3,
+                "y": -566.2955000000001
+              },
+              "uuid": "34"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Col_2] and Trace [/Col_2]",
+          "items": [
+            {
+              "description": "Pin [/Col_2]",
+              "pos": {
+                "x": 1279.875,
+                "y": -507.0
+              },
+              "uuid": "15"
+            },
+            {
+              "description": "Trace [/Col_2]",
+              "pos": {
+                "x": 1236.3,
+                "y": -566.2955000000001
+              },
+              "uuid": "34"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Row_1] and Trace [/Row_1]",
+          "items": [
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "30"
+            },
+            {
+              "description": "Trace [/Row_1]",
+              "pos": {
+                "x": 1223.67,
+                "y": -586.2235000000001
+              },
+              "uuid": "36"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/Row_1] and Pin [/Row_1]",
+          "items": [
+            {
+              "description": "Trace [/Row_1]",
+              "pos": {
+                "x": 1226.835,
+                "y": -561.8875
+              },
+              "uuid": "37"
+            },
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1197.611,
+                "y": -506.886
+              },
+              "uuid": "2"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Row_1] and Pin [/Row_1]",
+          "items": [
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1262.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "32"
+            },
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "30"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/Col_1] and Pin [/Col_1]",
+          "items": [
+            {
+              "description": "Trace [/Col_1]",
+              "pos": {
+                "x": 1176.3,
+                "y": -566.2955000000001
+              },
+              "uuid": "38"
+            },
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "29"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Col_1] and Trace [/Col_1]",
+          "items": [
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -560.0
+              },
+              "uuid": "31"
+            },
+            {
+              "description": "Trace [/Col_1]",
+              "pos": {
+                "x": 1176.3,
+                "y": -566.2955000000001
+              },
+              "uuid": "38"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Col_1] and Trace [/Col_1]",
+          "items": [
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1264.125,
+                "y": -507.0
+              },
+              "uuid": "14"
+            },
+            {
+              "description": "Trace [/Col_1]",
+              "pos": {
+                "x": 1176.3,
+                "y": -566.2955000000001
+              },
+              "uuid": "38"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Row_2] and Trace [/Row_2]",
+          "items": [
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -622.3435000000001
+              },
+              "uuid": "28"
+            },
+            {
+              "description": "Trace [/Row_2]",
+              "pos": {
+                "x": 1224.9750000000001,
+                "y": -643.698
+              },
+              "uuid": "40"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Row_2] and Via [/Row_2]",
+          "items": [
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1262.4065,
+                "y": -622.3435000000001
+              },
+              "uuid": "26"
+            },
+            {
+              "description": "Via [/Row_2]",
+              "pos": {
+                "x": 1228.5,
+                "y": -641.4300000000001
+              },
+              "uuid": "42"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/Row_2] and Via [/Row_2]",
+          "items": [
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1181.861,
+                "y": -506.886
+              },
+              "uuid": "3"
+            },
+            {
+              "description": "Via [/Row_2]",
+              "pos": {
+                "x": 1228.5,
+                "y": -641.4300000000001
+              },
+              "uuid": "42"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": [
+        {
+          "description": "Clearance violation between Via [/Row_2] and Pin [/Col_1] (expected: 1.5260 mm, actual: 0.4430 mm)",
+          "items": [
+            {
+              "description": "Via [/Row_2]",
+              "pos": {
+                "x": 1228.5,
+                "y": -641.4300000000001
+              },
+              "uuid": "42"
+            },
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "29"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [/Row_2] and Pin [/Row_2] (expected: 1.5260 mm, actual: 0.0300 mm)",
+          "items": [
+            {
+              "description": "Via [/Row_2]",
+              "pos": {
+                "x": 1228.5,
+                "y": -641.4300000000001
+              },
+              "uuid": "42"
+            },
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -622.3435000000001
+              },
+              "uuid": "28"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Via [/Row_1] and Pin [/Row_1] (expected: 1.5260 mm, actual: 0.3180 mm)",
+          "items": [
+            {
+              "description": "Via [/Row_1]",
+              "pos": {
+                "x": 1223.67,
+                "y": -588.775
+              },
+              "uuid": "41"
+            },
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "30"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Trace [/Row_2] and Pin [/Col_1] (expected: 1.5260 mm, actual: 0.8950 mm)",
+          "items": [
+            {
+              "description": "Trace [/Row_2]",
+              "pos": {
+                "x": 1224.9750000000001,
+                "y": -643.698
+              },
+              "uuid": "40"
+            },
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "29"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Trace [/Row_1] and Pin [/Col_1] (expected: 1.5260 mm, actual: 0.8420 mm)",
+          "items": [
+            {
+              "description": "Trace [/Row_1]",
+              "pos": {
+                "x": 1223.67,
+                "y": -586.2235000000001
+              },
+              "uuid": "36"
+            },
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -560.0
+              },
+              "uuid": "31"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Col_2] and Pin [/Row_1] (expected: 1.5260 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/Col_2]",
+              "pos": {
+                "x": 1260.1435000000001,
+                "y": -560.0
+              },
+              "uuid": "33"
+            },
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1262.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "32"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Row_1] and Pin [/Col_2] (expected: 1.5260 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1262.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "32"
+            },
+            {
+              "description": "Pin [/Col_2]",
+              "pos": {
+                "x": 1260.1435000000001,
+                "y": -560.0
+              },
+              "uuid": "33"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Col_1] and Trace [/Row_1] (expected: 1.5260 mm, actual: 0.8420 mm)",
+          "items": [
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -560.0
+              },
+              "uuid": "31"
+            },
+            {
+              "description": "Trace [/Row_1]",
+              "pos": {
+                "x": 1223.67,
+                "y": -586.2235000000001
+              },
+              "uuid": "36"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Col_1] and Pin [/Row_1] (expected: 1.5260 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -560.0
+              },
+              "uuid": "31"
+            },
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "30"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Row_1] and Via [/Row_1] (expected: 1.5260 mm, actual: 0.3180 mm)",
+          "items": [
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "30"
+            },
+            {
+              "description": "Via [/Row_1]",
+              "pos": {
+                "x": 1223.67,
+                "y": -588.775
+              },
+              "uuid": "41"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Row_1] and Pin [/Col_1] (expected: 1.5260 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/Row_1]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -562.3435000000001
+              },
+              "uuid": "30"
+            },
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -560.0
+              },
+              "uuid": "31"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Col_1] and Via [/Row_2] (expected: 1.5260 mm, actual: 0.4430 mm)",
+          "items": [
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "29"
+            },
+            {
+              "description": "Via [/Row_2]",
+              "pos": {
+                "x": 1228.5,
+                "y": -641.4300000000001
+              },
+              "uuid": "42"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Col_1] and Trace [/Row_2] (expected: 1.5260 mm, actual: 0.8950 mm)",
+          "items": [
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "29"
+            },
+            {
+              "description": "Trace [/Row_2]",
+              "pos": {
+                "x": 1224.9750000000001,
+                "y": -643.698
+              },
+              "uuid": "40"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Col_1] and Pin [/Row_2] (expected: 1.5260 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "29"
+            },
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -622.3435000000001
+              },
+              "uuid": "28"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Row_2] and Via [/Row_2] (expected: 1.5260 mm, actual: 0.0300 mm)",
+          "items": [
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -622.3435000000001
+              },
+              "uuid": "28"
+            },
+            {
+              "description": "Via [/Row_2]",
+              "pos": {
+                "x": 1228.5,
+                "y": -641.4300000000001
+              },
+              "uuid": "42"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Row_2] and Pin [/Col_1] (expected: 1.5260 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1202.4065,
+                "y": -622.3435000000001
+              },
+              "uuid": "28"
+            },
+            {
+              "description": "Pin [/Col_1]",
+              "pos": {
+                "x": 1200.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "29"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Col_2] and Pin [/Row_2] (expected: 1.5260 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/Col_2]",
+              "pos": {
+                "x": 1260.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "27"
+            },
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1262.4065,
+                "y": -622.3435000000001
+              },
+              "uuid": "26"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/Row_2] and Pin [/Col_2] (expected: 1.5260 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/Row_2]",
+              "pos": {
+                "x": 1262.4065,
+                "y": -622.3435000000001
+              },
+              "uuid": "26"
+            },
+            {
+              "description": "Pin [/Col_2]",
+              "pos": {
+                "x": 1260.1435000000001,
+                "y": -620.0
+              },
+              "uuid": "27"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ]
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 12,
+    "violations": 18
+  },
+  "fanout": true,
+  "fixture_id": "Issue069-TestSensel__TestSensel-KiCad6.dsn",
+  "fixture_relpath": "freerouting/tests/Issue069-TestSensel/TestSensel-KiCad6.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769206710,
+  "hashes": {
+    "board_statistics_sha256": "4a3958867052a45d321a004e4380e098406f0668a3d6b03080384216ef1f73be",
+    "freerouting_drc_sha256": "d8334bd25c85f30cade1e9804330372d1a0e24df7609bc84488755d231197085",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "fc065a9a4d2c609c38a55320c750407738d776c3e3a5bc40d3b6eb31278e4567"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue069-TestSensel__TestSensel-KiCad6.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue069-TestSensel__TestSensel-KiCad6.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue069-TestSensel__TestSensel-KiCad6.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue069-TestSensel__TestSensel-KiCad6.dsn/routed.ses"
+  },
+  "runtime_s": 2.765985278005246,
+  "seed": 12345,
+  "strip_planes": false
+}

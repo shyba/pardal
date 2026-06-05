@@ -18,7 +18,7 @@ def test_parity_tier_a_issue269_min_fr_test_smoke(tmp_path: Path):
     if not fixture_in.exists():
         pytest.skip("FreeRouting min_fr_test fixture not present")
 
-    tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
+    tool = repo_root / "pardal" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
 
     # Keep outputs inside the repo tree so docker-mounted tools can access them.

@@ -4,9 +4,9 @@ Tests for MEASURE commands (MEASURE DISTANCE and MEASURE NET LENGTH).
 
 import math
 import pytest
-from pcb_tool.commands import MeasureDistanceCommand, MeasureNetLengthCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Component, Net, TraceSegment, Via
+from pardal.commands import MeasureDistanceCommand, MeasureNetLengthCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Component, Net, TraceSegment, Via
 
 
 class TestMeasureDistanceCommandCreation:

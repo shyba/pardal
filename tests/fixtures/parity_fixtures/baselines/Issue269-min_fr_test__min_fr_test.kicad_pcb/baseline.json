@@ -1,0 +1,49 @@
+{
+  "drc": {
+    "kicad_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T18:21:22+0000",
+      "kicad_version": "9.0.6",
+      "schematic_parity": [],
+      "source": "routed.kicad_pcb",
+      "unconnected_items": [],
+      "violations": [
+        {
+          "description": "Isolated copper fill",
+          "items": [
+            {
+              "description": "Zone [GND] on In2.Cu, priority 0",
+              "pos": {
+                "x": 150.0,
+                "y": 80.0
+              },
+              "uuid": "e16eaada-fa30-407d-9328-c3ceea86fafd"
+            }
+          ],
+          "severity": "warning",
+          "type": "isolated_copper"
+        }
+      ]
+    },
+    "unconnected": 0,
+    "violations": 1
+  },
+  "fanout": false,
+  "fixture_id": "Issue269-min_fr_test__min_fr_test.kicad_pcb",
+  "fixture_relpath": "freerouting/tests/Issue269-min_fr_test/min_fr_test.kicad_pcb",
+  "fixture_type": "kicad",
+  "generated_at_unix_s": 1769192471,
+  "hashes": {
+    "kicad_drc_sha256": "9f1273ae8f9649a80234c3fe15b820f300c917d259caf2489bfe8ccd5962930a",
+    "routed_pcb_sha256": "0558385e0b61e0c8711c290e1463d1f40b77894c2e296e35bafea66525bf5314"
+  },
+  "max_passes": 1,
+  "outputs": {
+    "kicad_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-min_fr_test__min_fr_test.kicad_pcb/kicad_drc.json",
+    "routed_pcb": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-min_fr_test__min_fr_test.kicad_pcb/routed.kicad_pcb"
+  },
+  "runtime_s": 10.65594725398114,
+  "seed": 12345,
+  "strip_planes": false
+}

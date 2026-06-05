@@ -1,0 +1,112 @@
+{
+  "schema": "pardal.route_candidates",
+  "version": "0.1",
+  "route_plan_id": "route-plan-2d6b5c1f",
+  "route_plan_hash": "sha256:2d6b5c1f4dbd2a0f9d56f9f4a9d7ddc33f0d8da6c9d4c0f9b1b772b0e3f5c1a0",
+  "frozen_board_snapshot_id": "board-snapshot-demo-v001",
+  "backend": {
+    "id": "mojo",
+    "version": "1.0"
+  },
+  "candidates": [
+    {
+      "candidate_id": "cand_rg_fpc_escape_a_0002",
+      "candidate_index": 1,
+      "route_group_id": "rg_fpc_escape_a",
+      "assignment_hash": "sha256:7d893f55c3a4c2ff9eb9d6e5f4f3b4c52f4df5ef0db3b6b6f3d5f71a1bca7f10",
+      "assignment": {
+        "fanout_side": "west",
+        "lane_order": ["MCU_IO_02", "MCU_IO_01"]
+      },
+      "patch": {
+        "remove_objects": [],
+        "move_components": [
+          {
+            "component_id": "comp-j1",
+            "ref": "J1",
+            "position": {
+              "x": 40.5,
+              "y": 20.0
+            },
+            "layer": "F.Cu",
+            "rotation": 180.0
+          }
+        ],
+        "add_tracks": [
+          {
+            "net": "MCU_IO_02",
+            "layer": "F.Cu",
+            "width": 0.18,
+            "points": [
+              {"x": 12.0, "y": 12.0},
+              {"x": 14.0, "y": 14.0}
+            ]
+          }
+        ],
+        "add_vias": [
+          {
+            "net": "MCU_IO_02",
+            "position": {
+              "x": 12.5,
+              "y": 13.5
+            },
+            "from_layer": "F.Cu",
+            "to_layer": "B.Cu",
+            "type": "through",
+            "drill": 0.3
+          }
+        ],
+        "add_arcs": [],
+        "add_zones": [],
+        "set_net_ties": []
+      },
+      "diagnostics": []
+    },
+    {
+      "candidate_id": "cand_rg_fpc_escape_a_0001",
+      "candidate_index": 0,
+      "route_group_id": "rg_fpc_escape_a",
+      "assignment_hash": "sha256:5d5a1a2a1e3de9c3f6bfcc5a79a8fa0e9d66d0c6ed68b9ecfbc40a2b8bb2cf4b",
+      "assignment": {
+        "fanout_side": "east",
+        "lane_order": ["MCU_IO_01", "MCU_IO_02"]
+      },
+      "patch": {
+        "remove_objects": ["trk-old-1"],
+        "move_components": [],
+        "add_tracks": [
+          {
+            "net": "MCU_IO_01",
+            "layer": "F.Cu",
+            "width": 0.18,
+            "points": [
+              {"x": 11.0, "y": 11.0},
+              {"x": 13.0, "y": 13.0}
+            ]
+          }
+        ],
+        "add_vias": [
+          {
+            "net": "MCU_IO_01",
+            "position": {
+              "x": 13.0,
+              "y": 14.0
+            },
+            "from_layer": "F.Cu",
+            "to_layer": "B.Cu",
+            "type": "through",
+            "drill": 0.3
+          }
+        ],
+        "add_arcs": [],
+        "add_zones": [],
+        "set_net_ties": []
+      },
+      "diagnostics": [
+        {
+          "id": "diag-routing-001"
+        }
+      ]
+    }
+  ]
+}

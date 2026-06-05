@@ -1,0 +1,25 @@
+schema: pardal.profile/v1
+
+profiles:
+  gd32f310_adc_12v:
+    imports:
+      - acme/gd32f310-support:gd32_12v_input
+      - acme/gd32f310-support:gd32_adc_frontend
+  gd32_12v_input:
+    enable_checks:
+      - gd32.12v_input
+      - power.rail_budget_missing
+      - power.linear_regulator_drop_too_high
+    severity:
+      gd32.12v_input: error
+    requires_contract:
+      supply_rails: true
+  gd32_adc_frontend:
+    imports:
+      - pardal/core:analog_rc_filters
+    enable_checks:
+      - gd32.adc_frontend
+    severity:
+      gd32.adc_frontend: error
+    requires_contract:
+      adc_frontends: true

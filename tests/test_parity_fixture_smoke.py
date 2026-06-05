@@ -13,16 +13,16 @@ def test_parity_fixture_fpga_small_smoke(tmp_path: Path):
         pytest.skip("docker not available")
 
     repo_root = Path(__file__).resolve().parents[1]
-    fixture_in = repo_root / "fpga" / "fpga_unrouted.kicad_pcb"
+    fixture_in = repo_root / "examples" / "fpga" / "fpga_unrouted.kicad_pcb"
     if not fixture_in.exists():
         pytest.skip("fpga fixture not present")
 
-    tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
+    tool = repo_root / "pardal" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
 
     out_dir = repo_root / "build" / "pytest_parity" / tmp_path.name / "fpga_small_smoke"
     out_dir.mkdir(parents=True, exist_ok=True)
-    cfg = repo_root / "fpga" / "mojo_cfg_fpga_small_overlap.json"
+    cfg = repo_root / "examples" / "fpga" / "mojo_cfg_fpga_small_overlap.json"
     if not cfg.exists():
         pytest.skip("mojo cfg missing")
 
@@ -90,17 +90,17 @@ def test_parity_fixture_fpga_large_mojo_only_smoke(tmp_path: Path):
         pytest.skip("docker not available")
 
     repo_root = Path(__file__).resolve().parents[1]
-    fixture_in = repo_root / "fpga_large" / "fpga_large_csg324_breakout.kicad_pcb"
+    fixture_in = repo_root / "examples" / "fpga_large" / "fpga_large_csg324_breakout.kicad_pcb"
     if not fixture_in.exists():
         pytest.skip("fpga_large fixture not present")
 
-    tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
+    tool = repo_root / "pardal" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
 
     out_dir = repo_root / "build" / "pytest_parity" / tmp_path.name / "fpga_large_smoke"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    cfg = repo_root / "fpga_large" / "mojo_cfg_ncr_fast.json"
+    cfg = repo_root / "examples" / "fpga_large" / "mojo_cfg_ncr_fast.json"
     if not cfg.exists():
         pytest.skip("mojo cfg missing")
 

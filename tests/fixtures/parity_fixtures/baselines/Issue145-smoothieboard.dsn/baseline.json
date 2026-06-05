@@ -1,0 +1,26 @@
+{
+  "drc": {
+    "freerouting_drc": {},
+    "unconnected": 0,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue145-smoothieboard.dsn",
+  "fixture_relpath": "freerouting/tests/Issue145-smoothieboard.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769206842,
+  "hashes": {},
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": "freerouting oracleBaseline failed: Command '['./gradlew', '-q', 'oracleBaseline', '-Pinput=/home/user/repos/ee/freerouting/tests/Issue145-smoothieboard.dsn', '-Pout=/home/user/repos/ee/pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue145-smoothieboard.dsn', '-Pseed=12345', '-PmaxPasses=1', '-Pfanout=true', '-PjobTimeout=00:01:00']' returned non-zero exit status 1.",
+  "oracle_ok": false,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue145-smoothieboard.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue145-smoothieboard.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue145-smoothieboard.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue145-smoothieboard.dsn/routed.ses"
+  },
+  "runtime_s": 62.48964994697599,
+  "seed": 12345,
+  "strip_planes": false
+}

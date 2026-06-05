@@ -1,0 +1,11 @@
+schema: pardal.routes
+version: 0.1
+board:
+  board_ir_id: dspic-dev-board-ir-v001
+  frozen_board_snapshot_id: dspic-dev-board-snapshot-v001
+route_groups:
+  - id: rg_missing_mode
+    select:
+      nets: [TEST]
+    replacement:
+      existing_route_groups: [rg_missing_mode]

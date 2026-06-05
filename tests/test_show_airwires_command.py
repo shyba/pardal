@@ -1,8 +1,8 @@
 # tests/test_show_airwires_command.py
 import pytest
-from pcb_tool.commands import ShowAirwiresCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Component, Net, TraceSegment
+from pardal.commands import ShowAirwiresCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Component, Net, TraceSegment
 
 
 @pytest.fixture

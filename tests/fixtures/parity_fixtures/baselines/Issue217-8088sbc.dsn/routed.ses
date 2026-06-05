@@ -1,0 +1,137 @@
+(session "Issue217-8088sbc"
+  (base_design "Issue217-8088sbc")
+  (placement
+    (resolution um 10)
+    (component "Package_DIP:DIP-14_W7.62mm"
+      (place U8 1829200 -558800 front 0)
+      (place U9 2006600 -1244550 front 0)
+    )
+    (component "Package_DIP:DIP-24_W15.24mm"
+      (place U5 1219200 -889000 front 0)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical
+      (place J1 1320700 -1447800 front 90)
+      (place J3 1777900 -1447800 front 90)
+      (place J2 1549300 -1447800 front 90)
+    )
+    (component "Package_DIP:DIP-40_W15.24mm"
+      (place U1 1955800 -584200 front 0)
+    )
+    (component "Package_DIP:DIP-28_W15.24mm"
+      (place U2 1422750 -685800 front 0)
+      (place U3 1625600 -685800 front 0)
+    )
+    (component "Package_DIP:DIP-40_W15.24mm::1"
+      (place U4 1320700 -1371650 front 90)
+    )
+    (component "Package_DIP:DIP-16_W7.62mm"
+      (place U7 1777900 -1092200 front 270)
+    )
+    (component Capacitor_THT:C_Disc_D3.0mm_W2.0mm_P2.50mm
+      (place C2 1574400 -635000 front 180)
+      (place C3 1777600 -635000 front 180)
+      (place C4 1854100 -1193800 front 90)
+      (place C5 1371600 -838200 front 90)
+      (place C6 1829200 -1041400 front 0)
+      (place C7 1828700 -1143000 front 90)
+      (place C1 2031600 -533400 front 180)
+      (place C10 1498600 -533400 front 0)
+      (place C101 2133500 -1193000 front 90)
+      (place C9 2133600 -1244600 front 270)
+      (place C8 1930800 -533400 front 0)
+    )
+    (component Crystal:Crystal_Round_D3.0mm_Vertical
+      (place Y2 1259600 -825500 front 0)
+    )
+    (component LED_THT:LED_D3.0mm
+      (place D1 1219200 -1244600 front 270)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+      (place JP1 1422400 -635000 front 90)
+      (place JP3 1219200 -1371600 front 180)
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+      (place R11 1270000 -1371600 front 90)
+      (place R3 1244600 -711200 front 0)
+      (place R4 1244600 -660400 front 0)
+      (place R10 1549400 -584200 front 180)
+    )
+    (component "Ken:USB Micro power"
+      (place J5 1727200 -584200 front 180)
+    )
+    (component Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
+      (place C12 1244600 -749300 front 270)
+      (place C13 1295400 -749300 front 270)
+    )
+    (component MountingHole:MountingHole_2.5mm_Pad
+      (place H1 1206500 -520700 front 0)
+      (place H2 2120900 -520700 front 0)
+      (place H3 1206500 -1435100 front 0)
+      (place H4 2120900 -1435100 front 0)
+    )
+    (component "Package_DIP:DIP-20_W7.62mm"
+      (place U6 1905400 -990600 front 180)
+    )
+    (component Capacitor_THT:CP_Radial_Tantal_D5.0mm_P2.50mm
+      (place C11 1803000 -533400 front 180)
+    )
+    (component "Ken:Oscillator_DIP-8-14"
+      (place X1 1955700 -1397000 front 90)
+    )
+    (component "Package_DIP:DIP-14_W7.62mm::1"
+      (place U101 2082700 -1117600 front 270)
+    )
+    (component "Crystal:Crystal_HC49-4H_Vertical"
+      (place Y1 1244600 -825500 front 0)
+    )
+    (component Button_Switch_THT:SW_PUSH_6mm_H5mm
+      (place SW1 1323700 -591300 front 90)
+    )
+    (component Resistor_THT:R_Array_SIP9
+      (place RN1 2032000 -990600 back 270)
+    )
+    (component "Jumper:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm"
+      (place JP2 2000150 -1155700 back 180)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "7.0.1")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

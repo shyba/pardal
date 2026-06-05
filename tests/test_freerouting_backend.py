@@ -4,9 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from pcb_tool.data_model import Board, Component, Net, Pad, STANDARD_LAYER_STACKS
-from pcb_tool.freerouting_backend import FreeroutingRunConfig, freeroute_kicad_pcb
-from pcb_tool.kicad_writer import KicadWriter
+from pardal.data_model import Board, Component, Net, Pad, STANDARD_LAYER_STACKS
+from pardal.freerouting_backend import FreeroutingRunConfig, freeroute_kicad_pcb
+from pardal.kicad_writer import KicadWriter
 
 
 pytestmark = pytest.mark.slow

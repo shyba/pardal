@@ -5,9 +5,9 @@ Tests hybrid Z3 + A* router with lazy constraint iteration.
 """
 
 import pytest
-from pcb_tool.routing.iterative_router import IterativeRouter
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.multi_net_router import NetDefinition
+from pardal.routing.iterative_router import IterativeRouter
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.multi_net_router import NetDefinition
 
 
 def test_simple_two_net_case_converges_immediately():

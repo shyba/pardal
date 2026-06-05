@@ -8,7 +8,7 @@ from pathlib import Path
 def test_mojo_dsn_dump_handles_issue230_decimal_tokens(tmp_path: Path) -> None:
     """Regression: Issue230 DSN contains tokens like '304.8' in via-name decoding paths."""
     repo_root = Path(__file__).resolve().parents[1]
-    router = repo_root / "pardal_router_mojo" / "build" / "pardal-router-mojo"
+    router = repo_root / "routing" / "mojo_router" / "build" / "pardal-router-mojo"
     if not router.exists():
         # Keep unit suite usable even if Mojo binary isn't built in this environment.
         return
@@ -32,7 +32,7 @@ def test_mojo_dsn_dump_handles_issue230_decimal_tokens(tmp_path: Path) -> None:
 
 def test_mojo_dsn_dump_includes_placement_and_library(tmp_path: Path) -> None:
     repo_root = Path(__file__).resolve().parents[1]
-    router = repo_root / "pardal_router_mojo" / "build" / "pardal-router-mojo"
+    router = repo_root / "routing" / "mojo_router" / "build" / "pardal-router-mojo"
     if not router.exists():
         return
 

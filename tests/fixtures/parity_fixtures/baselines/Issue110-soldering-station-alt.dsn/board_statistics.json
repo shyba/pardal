@@ -1,0 +1,71 @@
+{
+  "host": "KiCad's Pcbnew,4.0.1-2.201512121406+6195~38~ubuntu14.04.1-stable",
+  "unit": "mm",
+  "board": {
+    "bounding_box": {
+      "x": 2020.3,
+      "y": -634.0,
+      "width": 710.2,
+      "height": -1626.6
+    },
+    "size": {
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1310.1,
+      "height": 992.6
+    }
+  },
+  "layers": {
+    "total_count": 2,
+    "signal_count": 2
+  },
+  "items": {
+    "total_count": 627,
+    "trace_count": 0,
+    "via_count": 0,
+    "conduction_area_count": 0,
+    "drill_item_count": 175,
+    "pin_count": 0,
+    "component_count": 451,
+    "other_count": 1
+  },
+  "components": {
+    "total_count": 54
+  },
+  "pads": {
+    "total_count": 175
+  },
+  "nets": {
+    "total_count": 64,
+    "class_count": 2
+  },
+  "connections": {
+    "maximum_count": 109,
+    "incomplete_count": 109
+  },
+  "traces": {
+    "total_count": 0,
+    "total_segment_count": 0,
+    "total_length": 0.0,
+    "total_weighted_length": 0.0,
+    "average_length": 0.0,
+    "total_vertical_length": 0.0,
+    "total_horizontal_length": 0.0,
+    "total_angled_length": 0.0
+  },
+  "bends": {
+    "total_count": 0,
+    "90_degree_count": 0,
+    "45_degree_count": 0,
+    "other_angle_count": 0
+  },
+  "vias": {
+    "total_count": 0,
+    "through_hole_count": 0,
+    "blind_count": 0,
+    "buried_count": 0
+  },
+  "clearance_violations": {
+    "total_count": 12
+  }
+}

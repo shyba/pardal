@@ -1,4 +1,5 @@
 *pyc
+*.pyo
 __pycache__/
 .pytest_cache/
 .mypy_cache/
@@ -9,12 +10,16 @@ htmlcov/
 venv/
 .venv/
 .env
+_tmp/
 *.log
 *.tmp
 *.swp
 .DS_Store
+aidocs/
+.aidocs/
 
 # Build artifacts
+.pardal/
 dist/
 build/
 **/build/
@@ -22,6 +27,7 @@ build/
 *.egg-info/
 
 # DRC reports (test outputs)
+*.rpt
 *-drc.rpt
 *-drc.json
 
@@ -31,9 +37,19 @@ examples/*.kicad_pcb
 *.kicad_pro
 *.kicad_sch
 *.kicad_wks
+*.kicad_pcb.bak
 *.kicad_pcb-bak
 *.kicad_prl-bak
 *.kicad_pro-bak
+
+# Pardal production/package-manager generated artifacts
+package-resolution.json
+profile-resolution.json
+production-checks.json
+build-summary.json
+manufacturing-package.zip
+examples/gd32f310_dsl/artifacts/
+examples/parallel_modules/generated/
 
 # Rust router artifacts (docker pcbnew extraction + routes)
 *.problem.json
@@ -43,9 +59,8 @@ examples/*.kicad_pcb
 parity_out/
 parity_latest/
 parity_progress.txt
-parity_fixtures/**/out/
-parity_fixtures/**/work/
-parity_fixtures/baselines/
+tests/fixtures/parity_fixtures/**/out/
+tests/fixtures/parity_fixtures/**/work/
 
 # Benchmark scratch outputs
 bench/**/_tmp_*
@@ -59,23 +74,23 @@ bench/**/*.routed.kicad_pcb
 bench/**/*.routed.kicad_pro
 bench/**/*.routed.kicad_prl
 
-# FPGA scratch outputs
-fpga/**/_tmp_*
-fpga/**/*.kicad_pcb
-fpga/**/*.kicad_pro
-fpga/**/*.kicad_prl
-fpga/mojo_cfg*.json
-fpga/**/*.routed.kicad_pcb
-fpga/**/*.routed.kicad_pro
-fpga/**/*.routed.kicad_prl
-fpga_large/**/_tmp_*
-fpga_large/**/*.kicad_pcb
-fpga_large/**/*.kicad_pro
-fpga_large/**/*.kicad_prl
-fpga_large/mojo_cfg*.json
-fpga_large/**/tmp/
-fpga_large/**/parity_out/
-fpga_large/**/parity_latest/
+# FPGA example scratch outputs
+examples/fpga/**/_tmp_*
+examples/fpga/**/*.kicad_pcb
+examples/fpga/**/*.kicad_pro
+examples/fpga/**/*.kicad_prl
+examples/fpga/mojo_cfg*.json
+examples/fpga/**/*.routed.kicad_pcb
+examples/fpga/**/*.routed.kicad_pro
+examples/fpga/**/*.routed.kicad_prl
+examples/fpga_large/**/_tmp_*
+examples/fpga_large/**/*.kicad_pcb
+examples/fpga_large/**/*.kicad_pro
+examples/fpga_large/**/*.kicad_prl
+examples/fpga_large/mojo_cfg*.json
+examples/fpga_large/**/tmp/
+examples/fpga_large/**/parity_out/
+examples/fpga_large/**/parity_latest/
 
 # Local scratch outputs
 tmp_*.json

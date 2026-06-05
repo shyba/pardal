@@ -1,0 +1,2347 @@
+{
+  "drc": {
+    "kicad_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T22:36:59+0000",
+      "kicad_version": "9.0.6",
+      "schematic_parity": [],
+      "source": "routed.kicad_pcb",
+      "unconnected_items": [],
+      "violations": [
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2030 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on F.Cu, length 11.1330 mm",
+              "pos": {
+                "x": 165.247,
+                "y": 213.753
+              },
+              "uuid": "4eb99388-d150-43ba-9c50-8790d334d5ae"
+            },
+            {
+              "description": "NPTH pad of H4",
+              "pos": {
+                "x": 157.5,
+                "y": 212.0
+              },
+              "uuid": "5179789f-f506-403e-9c56-73745a2ad199"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2446 mm)",
+          "items": [
+            {
+              "description": "Track [GND] on B.Cu, length 11.2300 mm",
+              "pos": {
+                "x": 144.295,
+                "y": 91.7946
+              },
+              "uuid": "e3bd84fd-9de8-4da7-b9b2-271b4c42979b"
+            },
+            {
+              "description": "NPTH pad of H3",
+              "pos": {
+                "x": 152.0,
+                "y": 90.0
+              },
+              "uuid": "d535e82d-3cef-48e7-954e-98b79a49fe76"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Hole clearance violation (board setup constraints hole clearance 0.2500 mm; actual 0.2030 mm)",
+          "items": [
+            {
+              "description": "Track [CPU-A11] on F.Cu, length 10.0710 mm",
+              "pos": {
+                "x": 160.073,
+                "y": 210.622
+              },
+              "uuid": "0d24f3e8-74b2-4928-b05c-47770f4c001f"
+            },
+            {
+              "description": "NPTH pad of H4",
+              "pos": {
+                "x": 157.5,
+                "y": 212.0
+              },
+              "uuid": "5179789f-f506-403e-9c56-73745a2ad199"
+            }
+          ],
+          "severity": "error",
+          "type": "hole_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P1 on F.Silkscreen",
+              "pos": {
+                "x": 41.83,
+                "y": 236.39
+              },
+              "uuid": "8529c04a-cb4e-4e6f-bbcb-ce61e953b45e"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P1 on F.Silkscreen",
+              "pos": {
+                "x": 75.47,
+                "y": 227.27
+              },
+              "uuid": "2228f984-9176-46ed-b101-8867137d374a"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P1 on F.Silkscreen",
+              "pos": {
+                "x": 79.57,
+                "y": 227.27
+              },
+              "uuid": "9e077a4c-d8e7-4bc2-a854-3bb272fc7d4b"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P1 on F.Silkscreen",
+              "pos": {
+                "x": 113.21,
+                "y": 227.27
+              },
+              "uuid": "ebedfedd-8bf0-41b9-bccd-270925210eab"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P2 on F.Silkscreen",
+              "pos": {
+                "x": 115.83,
+                "y": 236.39
+              },
+              "uuid": "d841bc4d-e7f8-4bc3-b0a0-79d20be43881"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P2 on F.Silkscreen",
+              "pos": {
+                "x": 149.47,
+                "y": 227.27
+              },
+              "uuid": "2fe6ac26-7f82-4ae1-8861-2dbc7740e826"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P2 on F.Silkscreen",
+              "pos": {
+                "x": 153.57,
+                "y": 227.27
+              },
+              "uuid": "e04ec939-0981-4ca6-83f8-d13e11b4a7de"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P2 on F.Silkscreen",
+              "pos": {
+                "x": 187.21,
+                "y": 227.27
+              },
+              "uuid": "075630b5-a746-44cf-9c10-2122a3d07cba"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P3 on F.Silkscreen",
+              "pos": {
+                "x": 191.83,
+                "y": 236.39
+              },
+              "uuid": "4ab78ecd-acaf-4097-b6ed-80cf0855826d"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P3 on F.Silkscreen",
+              "pos": {
+                "x": 225.47,
+                "y": 227.27
+              },
+              "uuid": "e1d07e73-e45e-452f-8bbc-ce108c2a1e29"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P3 on F.Silkscreen",
+              "pos": {
+                "x": 229.57,
+                "y": 227.27
+              },
+              "uuid": "292e67f9-cf59-4374-815a-4c048d579e2f"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 40.0,
+                "y": 230.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006404d59d"
+            },
+            {
+              "description": "Segment of P3 on F.Silkscreen",
+              "pos": {
+                "x": 263.21,
+                "y": 227.27
+              },
+              "uuid": "7e57b816-b477-443f-891f-04f93dba6b8e"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 124.0,
+                "y": 208.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83d5d"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C3",
+              "pos": {
+                "x": 239.125,
+                "y": 149.8
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83d72"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C4",
+              "pos": {
+                "x": 157.75,
+                "y": 159.55
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83d87"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C5",
+              "pos": {
+                "x": 77.075,
+                "y": 190.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83d9c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C6",
+              "pos": {
+                "x": 43.0,
+                "y": 158.2
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83db1"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C8",
+              "pos": {
+                "x": 166.0,
+                "y": 208.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83ddb"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C9",
+              "pos": {
+                "x": 200.075,
+                "y": 195.25
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83df0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C10",
+              "pos": {
+                "x": 43.0,
+                "y": 173.2
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83e05"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C11",
+              "pos": {
+                "x": 43.375,
+                "y": 122.75
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83e1a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C14",
+              "pos": {
+                "x": 239.25,
+                "y": 123.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83e59"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C15",
+              "pos": {
+                "x": 137.25,
+                "y": 134.4
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83e6e"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'CP_Radial_D5.0mm_P2.50mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C25",
+              "pos": {
+                "x": 42.9296,
+                "y": 218.75
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83f07"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'CP_Radial_D5.0mm_P2.50mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C26",
+              "pos": {
+                "x": 68.0199,
+                "y": 164.9
+              },
+              "uuid": "00000000-0000-0000-0000-000063e83f8b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C17",
+              "pos": {
+                "x": 87.75,
+                "y": 135.39
+              },
+              "uuid": "00000000-0000-0000-0000-000063e8412c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C20",
+              "pos": {
+                "x": 124.0,
+                "y": 195.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063e8416b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C21",
+              "pos": {
+                "x": 77.075,
+                "y": 175.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84180"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C22",
+              "pos": {
+                "x": 165.825,
+                "y": 195.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84195"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C23",
+              "pos": {
+                "x": 117.5,
+                "y": 159.55
+              },
+              "uuid": "00000000-0000-0000-0000-000063e841aa"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'CP_Radial_D5.0mm_P2.50mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C27",
+              "pos": {
+                "x": 117.0,
+                "y": 218.75
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84282"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'CP_Radial_D5.0mm_P2.50mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C28",
+              "pos": {
+                "x": 192.8847,
+                "y": 218.75
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84306"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'CP_Radial_D5.0mm_P2.50mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C29",
+              "pos": {
+                "x": 188.0449,
+                "y": 111.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e8439a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D4",
+              "pos": {
+                "x": 81.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e843cc"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D5",
+              "pos": {
+                "x": 61.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e843df"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D6",
+              "pos": {
+                "x": 71.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e843f2"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 91.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84470"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D2",
+              "pos": {
+                "x": 101.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84483"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R5",
+              "pos": {
+                "x": 76.0,
+                "y": 89.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e847fc"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R6",
+              "pos": {
+                "x": 56.0,
+                "y": 89.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84813"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN2",
+              "pos": {
+                "x": 42.075,
+                "y": 199.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e849bb"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U4",
+              "pos": {
+                "x": 48.0,
+                "y": 163.2
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84bd3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U5",
+              "pos": {
+                "x": 129.0,
+                "y": 213.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84bfb"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U6",
+              "pos": {
+                "x": 81.575,
+                "y": 180.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84c1f"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U8",
+              "pos": {
+                "x": 129.0,
+                "y": 200.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84c83"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-16_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U15",
+              "pos": {
+                "x": 48.0,
+                "y": 193.2
+              },
+              "uuid": "00000000-0000-0000-0000-000063e84d7b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 81.575,
+                "y": 195.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063e85ffb"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN1",
+              "pos": {
+                "x": 81.8,
+                "y": 201.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063e91882"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U11",
+              "pos": {
+                "x": 87.075,
+                "y": 213.025
+              },
+              "uuid": "00000000-0000-0000-0000-000063e963d4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U16",
+              "pos": {
+                "x": 205.075,
+                "y": 213.05
+              },
+              "uuid": "00000000-0000-0000-0000-000063e96644"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_2x08_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint J3",
+              "pos": {
+                "x": 83.5,
+                "y": 94.5
+              },
+              "uuid": "00000000-0000-0000-0000-000063e96a3b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_2x08_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 103.5,
+                "y": 94.5
+              },
+              "uuid": "00000000-0000-0000-0000-000063e979bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C19",
+              "pos": {
+                "x": 43.0,
+                "y": 188.2
+              },
+              "uuid": "00000000-0000-0000-0000-000063e9b748"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C18",
+              "pos": {
+                "x": 43.125,
+                "y": 143.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063eb9c3b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C12",
+              "pos": {
+                "x": 77.25,
+                "y": 159.55
+              },
+              "uuid": "00000000-0000-0000-0000-000063eb9c77"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C16",
+              "pos": {
+                "x": 82.575,
+                "y": 208.025
+              },
+              "uuid": "00000000-0000-0000-0000-000063eb9cb3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U3",
+              "pos": {
+                "x": 48.0,
+                "y": 178.2
+              },
+              "uuid": "00000000-0000-0000-0000-000063eba9b0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D7",
+              "pos": {
+                "x": 51.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063f0ecc8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U13",
+              "pos": {
+                "x": 48.375,
+                "y": 127.75
+              },
+              "uuid": "00000000-0000-0000-0000-000063f10d56"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C36",
+              "pos": {
+                "x": 188.0,
+                "y": 97.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063f57444"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C38",
+              "pos": {
+                "x": 124.075,
+                "y": 182.05
+              },
+              "uuid": "00000000-0000-0000-0000-000063f5746a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'CP_Radial_D5.0mm_P2.50mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C46",
+              "pos": {
+                "x": 114.5449,
+                "y": 113.25
+              },
+              "uuid": "00000000-0000-0000-0000-000063f57573"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D8",
+              "pos": {
+                "x": 121.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063f576b1"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D10",
+              "pos": {
+                "x": 131.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063f57705"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_2x06_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint JP4",
+              "pos": {
+                "x": 173.25,
+                "y": 179.8
+              },
+              "uuid": "00000000-0000-0000-0000-000063f5797f"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R21",
+              "pos": {
+                "x": 126.0,
+                "y": 89.0
+              },
+              "uuid": "00000000-0000-0000-0000-000063f57f2f"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN3",
+              "pos": {
+                "x": 170.825,
+                "y": 187.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063f57fce"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U17",
+              "pos": {
+                "x": 244.125,
+                "y": 167.8
+              },
+              "uuid": "00000000-0000-0000-0000-000063f583d6"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U21",
+              "pos": {
+                "x": 170.825,
+                "y": 200.3
+              },
+              "uuid": "00000000-0000-0000-0000-000063f5848e"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_2x08_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint J4",
+              "pos": {
+                "x": 73.5,
+                "y": 94.5
+              },
+              "uuid": "00000000-0000-0000-0000-000063fbfb22"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_2x08_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 93.5,
+                "y": 94.5
+              },
+              "uuid": "00000000-0000-0000-0000-000063fbfc0c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'CP_Radial_D5.0mm_P2.50mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 231.7949,
+                "y": 126.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006400fbbb"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint J5",
+              "pos": {
+                "x": 246.5,
+                "y": 104.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000640445ae"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint J6",
+              "pos": {
+                "x": 246.5,
+                "y": 93.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000640445d0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-16_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint J7",
+              "pos": {
+                "x": 222.5,
+                "y": 104.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000640445f4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-16_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint J8",
+              "pos": {
+                "x": 222.5,
+                "y": 93.5
+              },
+              "uuid": "00000000-0000-0000-0000-000064044618"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D9",
+              "pos": {
+                "x": 141.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000064054408"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D11",
+              "pos": {
+                "x": 111.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000064055069"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'LED_D3.0mm_Horizontal_O3.81mm_Z2.0mm' does not match copy in library 'LED_THT'.",
+          "items": [
+            {
+              "description": "Footprint D12",
+              "pos": {
+                "x": 151.0,
+                "y": 81.0
+              },
+              "uuid": "00000000-0000-0000-0000-000064055093"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U24",
+              "pos": {
+                "x": 244.125,
+                "y": 154.8
+              },
+              "uuid": "00000000-0000-0000-0000-0000640564d9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_2x04_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint JP7",
+              "pos": {
+                "x": 69.7,
+                "y": 213.025
+              },
+              "uuid": "00000000-0000-0000-0000-000064056eab"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN4",
+              "pos": {
+                "x": 42.075,
+                "y": 204.25
+              },
+              "uuid": "00000000-0000-0000-0000-0000640653c7"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R10",
+              "pos": {
+                "x": 137.25,
+                "y": 130.9
+              },
+              "uuid": "00000000-0000-0000-0000-0000640ab7d4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN5",
+              "pos": {
+                "x": 193.0,
+                "y": 106.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000640aba65"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U31",
+              "pos": {
+                "x": 193.0,
+                "y": 102.0
+              },
+              "uuid": "00000000-0000-0000-0000-0000640ac3a7"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_1x04_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint JP8",
+              "pos": {
+                "x": 167.0,
+                "y": 182.3
+              },
+              "uuid": "00000000-0000-0000-0000-0000640e75a6"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN6",
+              "pos": {
+                "x": 129.5,
+                "y": 173.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000640e7dbe"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-24_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U34",
+              "pos": {
+                "x": 162.725,
+                "y": 164.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000640e84cc"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U35",
+              "pos": {
+                "x": 129.075,
+                "y": 187.05
+              },
+              "uuid": "00000000-0000-0000-0000-0000640e84f4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-24_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U36",
+              "pos": {
+                "x": 122.5,
+                "y": 164.55
+              },
+              "uuid": "00000000-0000-0000-0000-0000640e8520"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U33",
+              "pos": {
+                "x": 159.0,
+                "y": 102.0
+              },
+              "uuid": "00000000-0000-0000-0000-0000640e9188"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-24_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U37",
+              "pos": {
+                "x": 81.75,
+                "y": 164.55
+              },
+              "uuid": "00000000-0000-0000-0000-0000640e946b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-16_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U20",
+              "pos": {
+                "x": 48.125,
+                "y": 148.3
+              },
+              "uuid": "00000000-0000-0000-0000-0000640e9573"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_1x03_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint JP9",
+              "pos": {
+                "x": 226.0,
+                "y": 181.025
+              },
+              "uuid": "00000000-0000-0000-0000-0000640ebed9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C37",
+              "pos": {
+                "x": 200.075,
+                "y": 208.05
+              },
+              "uuid": "00000000-0000-0000-0000-000064109a9e"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint J9",
+              "pos": {
+                "x": 43.0,
+                "y": 113.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006411b51a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint J10",
+              "pos": {
+                "x": 43.0,
+                "y": 102.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006411b58f"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_2x04_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint JP10",
+              "pos": {
+                "x": 207.5,
+                "y": 179.775
+              },
+              "uuid": "00000000-0000-0000-0000-00006413cb86"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN7",
+              "pos": {
+                "x": 241.34,
+                "y": 186.8
+              },
+              "uuid": "00000000-0000-0000-0000-00006413d3d4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN8",
+              "pos": {
+                "x": 205.075,
+                "y": 187.25
+              },
+              "uuid": "00000000-0000-0000-0000-00006413d3f0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-16_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U9",
+              "pos": {
+                "x": 244.125,
+                "y": 199.8
+              },
+              "uuid": "00000000-0000-0000-0000-00006413d6c8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U10",
+              "pos": {
+                "x": 244.125,
+                "y": 141.8
+              },
+              "uuid": "00000000-0000-0000-0000-00006413d6ea"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U12",
+              "pos": {
+                "x": 205.075,
+                "y": 200.25
+              },
+              "uuid": "00000000-0000-0000-0000-00006413d760"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-16_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U22",
+              "pos": {
+                "x": 244.125,
+                "y": 180.8
+              },
+              "uuid": "00000000-0000-0000-0000-00006413da68"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U23",
+              "pos": {
+                "x": 171.0,
+                "y": 213.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006413da90"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-8_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U32",
+              "pos": {
+                "x": 244.25,
+                "y": 128.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006413ff4b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C30",
+              "pos": {
+                "x": 239.125,
+                "y": 175.8
+              },
+              "uuid": "00000000-0000-0000-0000-000064144a16"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C31",
+              "pos": {
+                "x": 154.0,
+                "y": 97.0
+              },
+              "uuid": "00000000-0000-0000-0000-000064144a2b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C32",
+              "pos": {
+                "x": 239.125,
+                "y": 194.8
+              },
+              "uuid": "00000000-0000-0000-0000-000064144a40"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C33",
+              "pos": {
+                "x": 239.125,
+                "y": 136.8
+              },
+              "uuid": "00000000-0000-0000-0000-000064144a55"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C34",
+              "pos": {
+                "x": 239.125,
+                "y": 162.8
+              },
+              "uuid": "00000000-0000-0000-0000-000064144a6a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-24_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U26",
+              "pos": {
+                "x": 227.0,
+                "y": 115.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000641c96d0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C7",
+              "pos": {
+                "x": 221.5,
+                "y": 110.5
+              },
+              "uuid": "00000000-0000-0000-0000-0000641c973a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C35",
+              "pos": {
+                "x": 136.5,
+                "y": 89.0
+              },
+              "uuid": "00000000-0000-0000-0000-0000641dc8ee"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-14_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 160.0,
+                "y": 115.0
+              },
+              "uuid": "00000000-0000-0000-0000-0000641e3af5"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-24_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U25",
+              "pos": {
+                "x": 202.5,
+                "y": 164.55
+              },
+              "uuid": "00000000-0000-0000-0000-0000641e4137"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_1x02_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint JP13",
+              "pos": {
+                "x": 183.0,
+                "y": 110.0
+              },
+              "uuid": "00000000-0000-0000-0000-0000641e5e55"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'D_DO-35_SOD27_P7.62mm_Horizontal' does not match copy in library 'Diode_THT'.",
+          "items": [
+            {
+              "description": "Footprint D3",
+              "pos": {
+                "x": 225.5,
+                "y": 141.81
+              },
+              "uuid": "00000000-0000-0000-0000-0000641e6b15"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R4",
+              "pos": {
+                "x": 225.5,
+                "y": 129.81
+              },
+              "uuid": "00000000-0000-0000-0000-0000641e6b67"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'SW_Tactile_SPST_Angled_PTS645Vx58-2LFS' does not match copy in library 'Button_Switch_THT'.",
+          "items": [
+            {
+              "description": "Footprint SW1",
+              "pos": {
+                "x": 250.225,
+                "y": 75.9625
+              },
+              "uuid": "00000000-0000-0000-0000-0000641e6bb8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C39",
+              "pos": {
+                "x": 155.0,
+                "y": 110.0
+              },
+              "uuid": "00000000-0000-0000-0000-0000641e71e2"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Array_SIP9' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint RN9",
+              "pos": {
+                "x": 88.5,
+                "y": 89.0
+              },
+              "uuid": "00000000-0000-0000-0000-0000641ea860"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 258.25,
+                "y": 128.0
+              },
+              "uuid": "00000000-0000-0000-0000-0000641fe8e8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_1x04_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint JP6",
+              "pos": {
+                "x": 196.75,
+                "y": 182.3
+              },
+              "uuid": "00000000-0000-0000-0000-000064200fed"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C13",
+              "pos": {
+                "x": 197.5,
+                "y": 159.55
+              },
+              "uuid": "00000000-0000-0000-0000-000064201038"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C24",
+              "pos": {
+                "x": 186.75,
+                "y": 134.4
+              },
+              "uuid": "00000000-0000-0000-0000-000064201074"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_1x04_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint P4",
+              "pos": {
+                "x": 52.018,
+                "y": 218.5
+              },
+              "uuid": "00000000-0000-0000-0000-00006422959d"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'NetTie-2_THT_Pad0.3mm' does not match copy in library 'NetTie'.",
+          "items": [
+            {
+              "description": "Footprint NT2",
+              "pos": {
+                "x": 216.25,
+                "y": 136.25
+              },
+              "uuid": "345b7505-d5c2-4f9e-8150-21adf1940bb9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R3",
+              "pos": {
+                "x": 233.25,
+                "y": 191.5
+              },
+              "uuid": "369c44e8-cc90-4995-8d15-5cb85101b0d8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'NetTie-2_THT_Pad0.3mm' does not match copy in library 'NetTie'.",
+          "items": [
+            {
+              "description": "Footprint NT4",
+              "pos": {
+                "x": 200.5,
+                "y": 187.85
+              },
+              "uuid": "3c2fb42d-686c-4261-828e-825c3723c4b1"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'NetTie-2_THT_Pad0.3mm' does not match copy in library 'NetTie'.",
+          "items": [
+            {
+              "description": "Footprint NT3",
+              "pos": {
+                "x": 148.5,
+                "y": 99.35
+              },
+              "uuid": "4d251149-9662-4678-853d-291698be8bbe"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'DIP-20_W7.62mm' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U27",
+              "pos": {
+                "x": 239.075,
+                "y": 213.05
+              },
+              "uuid": "617222ca-df22-4d8d-b560-f4f72e4c2903"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'NetTie-2_THT_Pad0.3mm' does not match copy in library 'NetTie'.",
+          "items": [
+            {
+              "description": "Footprint NT1",
+              "pos": {
+                "x": 166.75,
+                "y": 136.25
+              },
+              "uuid": "628f21a6-f5b6-409f-8844-4a9e879429c0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'C_Disc_D5.0mm_W2.5mm_P5.00mm' does not match copy in library 'Capacitor_THT'.",
+          "items": [
+            {
+              "description": "Footprint C40",
+              "pos": {
+                "x": 234.075,
+                "y": 208.05
+              },
+              "uuid": "6d0da7c8-0587-4f8b-85ba-84d21fffee0c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R7",
+              "pos": {
+                "x": 233.0,
+                "y": 141.81
+              },
+              "uuid": "81e51270-9871-4b2a-9b3c-88e5d489122a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_1x03_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint JP14",
+              "pos": {
+                "x": 93.475,
+                "y": 218.5
+              },
+              "uuid": "dd33798e-707c-4f06-be0d-f37cc60a3af5"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal' does not match copy in library 'Resistor_THT'.",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 233.25,
+                "y": 180.75
+              },
+              "uuid": "de1f7030-aeca-4200-a49e-3c26813b0c30"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Footprint 'PinHeader_2x09_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint J12",
+              "pos": {
+                "x": 43.05,
+                "y": 213.025
+              },
+              "uuid": "fd529c05-9249-4a29-b116-188dc991f13a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "PCB text '~{IEI}' on F.Silkscreen",
+              "pos": {
+                "x": 54.558,
+                "y": 221.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006422a748"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "PCB text '~{BAO}' on F.Silkscreen",
+              "pos": {
+                "x": 57.098,
+                "y": 221.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006422a74b"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "PCB text '~{BAI}' on F.Silkscreen",
+              "pos": {
+                "x": 59.638,
+                "y": 221.0
+              },
+              "uuid": "00000000-0000-0000-0000-00006422a7e4"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "PCB text '~{IEO}' on F.Silkscreen",
+              "pos": {
+                "x": 52.0,
+                "y": 221.0
+              },
+              "uuid": "3030220e-88d4-427f-97dd-13d1a75b50e2"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Non-Mirrored text on back layer",
+          "items": [
+            {
+              "description": "Footprint text of U6 (U6)",
+              "pos": {
+                "x": 93.005,
+                "y": 176.49
+              },
+              "uuid": "ddf6163b-f577-48c4-b775-59af3e60b491"
+            }
+          ],
+          "severity": "warning",
+          "type": "nonmirrored_text_on_back_layer"
+        }
+      ]
+    },
+    "unconnected": 0,
+    "violations": 146
+  },
+  "fanout": true,
+  "fixture_id": "Issue191-processor.Z80__processor.Z80.kicad_pcb",
+  "fixture_relpath": "freerouting/tests/Issue191-processor.Z80/processor.Z80.kicad_pcb",
+  "fixture_type": "kicad",
+  "generated_at_unix_s": 1769207746,
+  "hashes": {
+    "kicad_drc_sha256": "91ffaab02dbe385c876e9d30b1dac07e5e8a4288740156a5b1c43724139d7ca5",
+    "routed_pcb_sha256": "a8ddc6fe3cbdc6a9e2ebf3b612e80a71aa99532bb0e2d3b533a723da74719cc2"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "kicad_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue191-processor.Z80__processor.Z80.kicad_pcb/kicad_drc.json",
+    "routed_pcb": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue191-processor.Z80__processor.Z80.kicad_pcb/routed.kicad_pcb"
+  },
+  "runtime_s": 73.70843782299198,
+  "seed": 12345,
+  "strip_planes": false
+}

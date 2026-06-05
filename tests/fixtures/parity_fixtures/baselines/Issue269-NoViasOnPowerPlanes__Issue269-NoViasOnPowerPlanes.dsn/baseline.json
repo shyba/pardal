@@ -1,0 +1,252 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:28:08.292264799-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue269-NoViasOnPowerPlanes.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [GNDREF] and Pin [GNDREF]",
+          "items": [
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1106.8055,
+                "y": -761.3145000000001
+              },
+              "uuid": "15"
+            },
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1136.805,
+                "y": -808.315
+              },
+              "uuid": "16"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GNDREF] and Pin [GNDREF]",
+          "items": [
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1676.4,
+                "y": -787.4
+              },
+              "uuid": "81"
+            },
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1524.0,
+                "y": -990.6
+              },
+              "uuid": "3"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GNDREF] and Pin [GNDREF]",
+          "items": [
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1676.4,
+                "y": -787.4
+              },
+              "uuid": "81"
+            },
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1843.532,
+                "y": -991.1080000000001
+              },
+              "uuid": "57"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GNDREF] and Pin [GNDREF]",
+          "items": [
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1143.0,
+                "y": -1168.4
+              },
+              "uuid": "115"
+            },
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1136.805,
+                "y": -808.315
+              },
+              "uuid": "16"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GNDREF] and Pin [GNDREF]",
+          "items": [
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1524.0,
+                "y": -990.6
+              },
+              "uuid": "3"
+            },
+            {
+              "description": "Pin [GNDREF]",
+              "pos": {
+                "x": 1143.0,
+                "y": -1168.4
+              },
+              "uuid": "115"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3V3] and Pin [+3V3]",
+          "items": [
+            {
+              "description": "Pin [+3V3]",
+              "pos": {
+                "x": 1280.0,
+                "y": -838.2
+              },
+              "uuid": "69"
+            },
+            {
+              "description": "Pin [+3V3]",
+              "pos": {
+                "x": 1207.864,
+                "y": -934.212
+              },
+              "uuid": "45"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3V3] and Pin [+3V3]",
+          "items": [
+            {
+              "description": "Pin [+3V3]",
+              "pos": {
+                "x": 1280.0,
+                "y": -838.2
+              },
+              "uuid": "69"
+            },
+            {
+              "description": "Pin [+3V3]",
+              "pos": {
+                "x": 1494.5,
+                "y": -990.6
+              },
+              "uuid": "2"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3V3] and Pin [+3V3]",
+          "items": [
+            {
+              "description": "Pin [+3V3]",
+              "pos": {
+                "x": 1494.5,
+                "y": -990.6
+              },
+              "uuid": "2"
+            },
+            {
+              "description": "Pin [+3V3]",
+              "pos": {
+                "x": 1676.4,
+                "y": -762.0
+              },
+              "uuid": "80"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/FPGA_DONE] and Pin [/FPGA_DONE]",
+          "items": [
+            {
+              "description": "Pin [/FPGA_DONE]",
+              "pos": {
+                "x": 1143.0,
+                "y": -1148.4
+              },
+              "uuid": "116"
+            },
+            {
+              "description": "Pin [/FPGA_DONE]",
+              "pos": {
+                "x": 1274.9,
+                "y": -990.6
+              },
+              "uuid": "101"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 9,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.dsn",
+  "fixture_relpath": "freerouting/tests/Issue269-NoViasOnPowerPlanes/Issue269-NoViasOnPowerPlanes.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207285,
+  "hashes": {
+    "board_statistics_sha256": "ef27bd90bd4bef1d392f445515c1fb9e66d545ee949e0e0febbbd9e6ba2d455f",
+    "freerouting_drc_sha256": "a8aed962fd76e4c33f378b81ea605bf1381267cae894f61a6a6fb0cc98b49af7",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "f6d0ccbe3c25c5efc0f4b0899d070c622aa9c58f70f9ab419cb5cd9ad476cdc7"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.dsn/routed.ses"
+  },
+  "runtime_s": 2.706913210975472,
+  "seed": 12345,
+  "strip_planes": false
+}

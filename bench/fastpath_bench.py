@@ -2,9 +2,9 @@ import argparse
 import random
 import time
 
-from pcb_tool.fastpath import astar_path
-from pcb_tool.fastpath import _py_astar
-import pcb_tool.fastpath as fastpath_mod
+from pardal.fastpath import astar_path
+from pardal.fastpath import _py_astar
+import pardal.fastpath as fastpath_mod
 
 
 def build_cost_grid(width, height, obstacle_ratio, seed):

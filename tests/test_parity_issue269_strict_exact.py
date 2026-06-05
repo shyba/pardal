@@ -28,9 +28,9 @@ def test_issue269_strict_exact_parity(tmp_path: Path):
     if not fixture_in.exists():
         pytest.skip(f"fixture missing: {fixture_in}")
 
-    tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
+    tool = repo_root / "pardal" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
-    mojo_cfg = repo_root / "parity_fixtures" / "mojo_cfgs" / "issue269_strict_parity.json"
+    mojo_cfg = repo_root / "tests/fixtures/parity_fixtures" / "mojo_cfgs" / "issue269_strict_parity.json"
     assert mojo_cfg.exists()
 
     out_dir = repo_root / "build" / "pytest_parity" / tmp_path.name / "issue269_strict_exact"

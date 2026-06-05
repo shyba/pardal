@@ -1,7 +1,7 @@
 import pytest
-from pcb_tool.commands import DeleteViaCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Net, Via
+from pardal.commands import DeleteViaCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Net, Via
 
 
 @pytest.fixture

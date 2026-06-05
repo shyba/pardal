@@ -136,7 +136,7 @@ def main() -> int:
     cmd = [
         str(repo_root / "pardal-pcb" / "venv" / "bin" / "python"),
         "-m",
-        "pcb_tool.cli",
+        "pardal.cli",
         "rust-route",
         str(pcb),
         "-o",

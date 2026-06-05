@@ -1,0 +1,128 @@
+(session "Issue039-bug-design"
+  (base_design "Issue039-bug-design")
+  (placement
+    (resolution um 10)
+    (component "00_xyz:CA064_KEM"
+      (place CA1 1498600 -914400 back 0)
+      (place CA4 1451360 -977900 back 180)
+      (place CA3 1447800 -914400 back 180)
+      (place CA2 1498600 -977900 back 180)
+    )
+    (component Connector_PinSocket_2.54mm:PinSocket_2x09_P2.54mm_Vertical
+      (place J2 1574800 -685800 front 0)
+    )
+    (component "00_xyz:RES_CTS74X_6P4X1P6_CTS"
+      (place RN5 1473200 -698500 back 270)
+      (place RN4 1473200 -800100 back 270)
+      (place RN3 1473200 -749300 back 270)
+      (place RN2 1473200 -850900 back 270)
+      (place RN1 1533520 -633095 back 90)
+    )
+    (component Connector_PinSocket_2.54mm:PinSocket_2x08_P2.54mm_Vertical
+      (place J3 1397000 -711200 front 0)
+    )
+    (component "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
+      (place JP15 1737000 -915500 front 270)
+      (place JP18 1803400 -997100 front 270)
+      (place JP16 1787000 -916500 front 270)
+      (place JP17 1701800 -1016000 front 270)
+      (place JP14 1801500 -854225 front 270)
+      (place JP13 1724660 -666900 front 90)
+      (place JP11 1640840 -632460 front 90)
+      (place JP3 1689100 -891540 front 90)
+      (place JP1 1607820 -688340 front 270)
+    )
+    (component "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm::1"
+      (place JP12 1726420 -635000 front 0)
+      (place JP2 1449700 -641350 front 0)
+      (place JP10 1644500 -1016000 front 180)
+      (place JP9 1697840 -853440 front 180)
+      (place JP8 1656080 -734060 front 180)
+      (place JP7 1649580 -947420 front 180)
+      (place JP6 1755140 -873760 front 180)
+      (place JP5 1633220 -881380 front 180)
+      (place JP4 1668780 -688340 front 180)
+    )
+    (component Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder
+      (place C22 1562100 -939800 front 180)
+      (place C21 1752600 -1005620 front 270)
+      (place C20 1775240 -960120 front 0)
+      (place C19 1729740 -960120 front 0)
+      (place C10 1795560 -821690 front 0)
+      (place C9 1792600 -668870 front 90)
+      (place C8 1792600 -628015 front 270)
+      (place C7 1680210 -634150 front 90)
+    )
+    (component Capacitor_SMD:CP_Elec_4x5.4
+      (place C4 1747520 -711200 front 180)
+      (place C6 1666340 -788264 front 90)
+      (place C5 1735330 -809092 front 270)
+    )
+    (component "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+      (place U5 1562100 -965200 back 90)
+      (place U4 1384300 -965200 back 270)
+      (place U3 1772280 -986790 back 90)
+      (place U2 1643380 -989330 back 270)
+    )
+    (component Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+      (place C3 1691640 -918845 back 0)
+      (place C2 1694440 -767715 back 0)
+      (place C1 1786740 -789280 back 90)
+    )
+    (component "Package_SO:TSSOP-28-1EP_4.4x9.7mm_P0.65mm"
+      (place U1 1685920 -835025 back 90)
+    )
+    (component Connector_PinHeader_1.27mm:PinHeader_1x03_P1.27mm_Vertical
+      (place J1 1803400 -751840 front 270)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "5.1.8")
+    )
+    (library_out 
+      (padstack "Via[0-1]_500:300_um"
+        (shape
+          (circle F.Cu 5000 0 0)
+        )
+        (shape
+          (circle B.Cu 5000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:400_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_500:300_um"
+        (shape
+          (circle F.Cu 5000 0 0)
+        )
+        (shape
+          (circle B.Cu 5000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:400_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

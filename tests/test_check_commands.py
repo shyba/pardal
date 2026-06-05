@@ -3,14 +3,14 @@ Tests for CHECK commands (DRC, AIRWIRES, CLEARANCE, CONNECTIVITY)
 """
 
 import pytest
-from pcb_tool.commands import (
+from pardal.commands import (
     CheckDrcCommand,
     CheckAirwiresCommand,
     CheckClearanceCommand,
     CheckConnectivityCommand,
 )
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Component, Net, TraceSegment
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Component, Net, TraceSegment
 
 
 @pytest.fixture

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from pcb_tool.tools.run_parity_fixture import (
+from pardal.tools.run_parity_fixture import (
     DrcStats,
     FixtureSummary,
     IrStats,

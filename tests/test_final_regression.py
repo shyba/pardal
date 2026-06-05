@@ -7,11 +7,11 @@ Validates backward compatibility across the entire system.
 import pytest
 import time
 from pathlib import Path
-from pcb_tool.data_model import Board, Component, Net, Pad
-from pcb_tool.routing import RoutingGrid, PathFinder, MultiNetRouter, NetDefinition
-from pcb_tool.routing import LayerOptimizer, NetPath
-from pcb_tool.commands import AutoRouteCommand, OptimizeRoutingCommand
-from pcb_tool.footprint_library import get_footprint_pads
+from pardal.data_model import Board, Component, Net, Pad
+from pardal.routing import RoutingGrid, PathFinder, MultiNetRouter, NetDefinition
+from pardal.routing import LayerOptimizer, NetPath
+from pardal.commands import AutoRouteCommand, OptimizeRoutingCommand
+from pardal.footprint_library import get_footprint_pads
 
 
 def _create_component(

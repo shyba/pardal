@@ -1,7 +1,7 @@
 import pytest
 from io import StringIO
-from pcb_tool.repl import REPL
-from pcb_tool.data_model import Board
+from pardal.repl import REPL
+from pardal.data_model import Board
 
 
 def test_repl_creation():

@@ -1,0 +1,12 @@
+(footprint "GD32F310K8_LQFP32"
+  (version 20240108)
+  (generator "pardal")
+  (attr smd)
+  (fp_text reference "REF**" (at 0 -6) (layer "F.SilkS")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value "GD32F310K8_LQFP32" (at 0 6) (layer "F.Fab")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (pad "1" smd rect (at -3.5 -3.5) (size 0.35 1.0) (layers "F.Cu" "F.Paste" "F.Mask"))
+)

@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from pcb_tool.commands import (
+from pardal.commands import (
     Command,
     MoveCommand,
     RotateCommand,
@@ -8,9 +8,9 @@ from pcb_tool.commands import (
     RedoCommand,
     HistoryCommand,
 )
-from pcb_tool.command_history import CommandHistory
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Component
+from pardal.command_history import CommandHistory
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Component
 
 
 @pytest.fixture

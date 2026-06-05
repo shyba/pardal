@@ -1,0 +1,1037 @@
+source:
+  netlist: gd32f310c8t6.net
+board:
+  width: 100mm
+  height: 100mm
+  stackup: four_layer
+  copper_layers: [F.Cu, In1.Cu, In2.Cu, B.Cu]
+layer_roles:
+  F.Cu: signal
+  In1.Cu: signal
+  In2.Cu: signal
+  B.Cu: signal
+rules:
+  default_clearance: 0.10mm
+  default_width: 0.10mm
+  netclasses:
+    Power:
+      width: 0.20mm
+      clearance: 0.10mm
+      via:
+        diameter: 0.50mm
+        drill: 0.30mm
+    FinePitch:
+      width: 0.10mm
+      clearance: 0.10mm
+      via:
+        diameter: 0.50mm
+        drill: 0.30mm
+netclasses:
+  Power: [3V3, 12V_PROT]
+  FinePitch: ["*"]
+parts:
+  U1:
+    footprint: Package_QFP:LQFP-48_7x7mm_P0.5mm
+    at: [50mm, 50mm]
+    rotation: 0
+  J12V:
+    footprint: TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal
+    at: [84mm, 18mm]
+    rotation: 0
+  D1:
+    footprint: Diode_SMD:D_SMA
+    at: [72mm, 18mm]
+    rotation: 0
+  U2:
+    footprint: Package_TO_SOT_SMD:SOT-89-3
+    at: [72mm, 30mm]
+    rotation: 0
+  CIN1:
+    footprint: Capacitor_SMD:C_0805_2012Metric
+    at: [78mm, 22mm]
+    rotation: 0
+  COUT1:
+    footprint: Capacitor_SMD:C_0805_2012Metric
+    at: [88mm, 38mm]
+    rotation: 0
+  COUT2:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [88mm, 34mm]
+    rotation: 0
+  TPADC0:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [8.000mm, 36.000mm]
+    rotation: 0
+  RAD0:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [20.000mm, 36.000mm]
+    rotation: 0
+  CAD0:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [30.000mm, 34.000mm]
+    rotation: 90
+  TPADC1:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [8.000mm, 42.000mm]
+    rotation: 0
+  RAD1:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [20.000mm, 42.000mm]
+    rotation: 0
+  CAD1:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [30.000mm, 40.000mm]
+    rotation: 90
+  TPADC2:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [8.000mm, 48.000mm]
+    rotation: 0
+  RAD2:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [20.000mm, 48.000mm]
+    rotation: 0
+  CAD2:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [30.000mm, 46.000mm]
+    rotation: 90
+  TPADC3:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [20.000mm, 72.000mm]
+    rotation: 0
+  RAD3:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [20.000mm, 68.000mm]
+    rotation: 90
+  CAD3:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [20.000mm, 62.000mm]
+    rotation: 90
+  TPADC4:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [30.000mm, 72.000mm]
+    rotation: 0
+  RAD4:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [30.000mm, 68.000mm]
+    rotation: 90
+  CAD4:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [30.000mm, 62.000mm]
+    rotation: 90
+  TPADC5:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [40.000mm, 72.000mm]
+    rotation: 0
+  RAD5:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [40.000mm, 68.000mm]
+    rotation: 90
+  CAD5:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [40.000mm, 62.000mm]
+    rotation: 90
+  TPADC6:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [50.000mm, 72.000mm]
+    rotation: 0
+  RAD6:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [50.000mm, 68.000mm]
+    rotation: 90
+  CAD6:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [50.000mm, 62.000mm]
+    rotation: 90
+  TPADC7:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [60.000mm, 72.000mm]
+    rotation: 0
+  RAD7:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [60.000mm, 68.000mm]
+    rotation: 90
+  CAD7:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [60.000mm, 62.000mm]
+    rotation: 90
+  TPADC8:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [70.000mm, 72.000mm]
+    rotation: 0
+  RAD8:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [70.000mm, 68.000mm]
+    rotation: 90
+  CAD8:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [70.000mm, 62.000mm]
+    rotation: 90
+  TPADC9:
+    footprint: TestPoint:TestPoint_Pad_1.0mm
+    at: [80.000mm, 72.000mm]
+    rotation: 0
+  RAD9:
+    footprint: Resistor_SMD:R_0603_1608Metric
+    at: [80.000mm, 68.000mm]
+    rotation: 90
+  CAD9:
+    footprint: Capacitor_SMD:C_0603_1608Metric
+    at: [80.000mm, 62.000mm]
+    rotation: 90
+routes:
+  - name: stitch_3v3_package_pins
+    kind: manual_polyline
+    net: 3V3
+    width: 0.20mm
+    layer: F.Cu
+    group: power_stitch
+    points:
+      - U1.48
+      - [47.2500mm, 40.0000mm]
+      - [60.0000mm, 40.0000mm]
+      - [60.0000mm, 58.0000mm]
+      - [52.7500mm, 58.0000mm]
+      - U1.24
+  - name: stitch_3v3_vbat_pin
+    kind: manual_polyline
+    net: 3V3
+    width: 0.20mm
+    layer: F.Cu
+    group: power_stitch
+    points:
+      - U1.1
+      - [44.0000mm, 47.2500mm]
+      - via: [44.0000mm, 47.2500mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [44.0000mm, 40.0000mm]
+      - [47.2500mm, 40.0000mm]
+      - via: [47.2500mm, 40.0000mm]
+        to: F.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+  - name: stitch_3v3_analog_pin
+    kind: manual_polyline
+    net: 3V3
+    width: 0.20mm
+    layer: F.Cu
+    group: power_stitch
+    points:
+      - U1.9
+      - [44.0000mm, 51.2500mm]
+      - via: [44.0000mm, 51.2500mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [42.0000mm, 51.2500mm]
+      - [42.0000mm, 42.0000mm]
+      - via: [42.0000mm, 42.0000mm]
+        to: F.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [47.2500mm, 40.0000mm]
+  - name: stitch_gnd_package_pins
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: power_stitch
+    points:
+      - U1.47
+      - [47.7500mm, 43.0000mm]
+      - via: [47.7500mm, 43.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [50.0000mm, 43.0000mm]
+      - [50.0000mm, 50.7500mm]
+      - [43.5000mm, 50.7500mm]
+      - via: [43.5000mm, 50.7500mm]
+        to: F.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - U1.8
+  - name: stitch_gnd_bottom_pin
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: power_stitch
+    points:
+      - U1.23
+      - [52.2500mm, 57.0000mm]
+      - via: [52.2500mm, 57.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [52.2500mm, 43.0000mm]
+      - [47.7500mm, 43.0000mm]
+  - name: route_12v_input_protection
+    kind: manual_polyline
+    net: 12V_IN
+    layer: F.Cu
+    group: power_input
+    points:
+      - J12V.1
+      - [84.0000mm, 12.0000mm]
+      - [72.0000mm, 12.0000mm]
+      - D1.1
+  - name: route_12v_protected_to_regulator
+    kind: manual_polyline
+    net: 12V_PROT
+    width: 0.20mm
+    layer: F.Cu
+    group: power_input
+    points:
+      - D1.2
+      - [76.0000mm, 18.0000mm]
+      - [76.0000mm, 22.0000mm]
+      - CIN1.1
+  - name: route_12v_protected_to_regulator
+    kind: manual_polyline
+    net: 12V_PROT
+    width: 0.20mm
+    layer: F.Cu
+    group: power_input
+    points:
+      - D1.2
+      - [74.0000mm, 24.0000mm]
+      - [86.0000mm, 24.0000mm]
+      - [86.0000mm, 31.5000mm]
+      - [70.0500mm, 31.5000mm]
+      - U2.3
+  - name: route_regulator_3v3_output
+    kind: manual_polyline
+    net: 3V3
+    width: 0.20mm
+    layer: F.Cu
+    group: power_output
+    points:
+      - U2.2
+      - [72.8000mm, 30.0000mm]
+      - via: [72.8000mm, 30.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [87.0500mm, 38.0000mm]
+      - via: [87.0500mm, 38.0000mm]
+        to: F.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - COUT1.1
+      - COUT2.1
+      - via: [87.2250mm, 34.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [60.0000mm, 40.0000mm]
+      - via: [60.0000mm, 40.0000mm]
+        to: F.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [60.0000mm, 40.0000mm]
+  - name: route_power_ground
+    kind: manual_polyline
+    net: GND
+    layer: B.Cu
+    group: power_return
+    points:
+      - J12V.2
+      - [89.0800mm, 10.0000mm]
+      - [90.0000mm, 10.0000mm]
+      - [90.0000mm, 43.0000mm]
+      - [50.0000mm, 43.0000mm]
+  - name: route_input_cap_ground
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: power_return
+    points:
+      - CIN1.2
+      - [78.9500mm, 22.0000mm]
+      - [79.8000mm, 21.2000mm]
+      - via: [79.8000mm, 21.2000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [79.8000mm, 10.0000mm]
+      - [90.0000mm, 10.0000mm]
+  - name: route_regulator_ground
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: power_return
+    points:
+      - U2.1
+      - [68.8000mm, 30.0000mm]
+      - [68.8000mm, 28.8000mm]
+      - via: [68.8000mm, 28.8000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [68.8000mm, 10.0000mm]
+      - [90.0000mm, 10.0000mm]
+  - name: route_output_cap_ground
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: power_return
+    points:
+      - COUT1.2
+      - [88.9500mm, 38.0000mm]
+      - [89.8000mm, 38.8000mm]
+      - via: [89.8000mm, 38.8000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [89.8000mm, 10.0000mm]
+  - name: route_output_decoupler_ground
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: power_return
+    points:
+      - COUT2.2
+      - [88.7750mm, 34.0000mm]
+      - [89.8000mm, 33.2000mm]
+      - via: [89.8000mm, 33.2000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [89.8000mm, 10.0000mm]
+  - name: route_adc_in0_input
+    kind: manual_polyline
+    net: ADC0_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC0.1
+      - [8.0000mm, 36.0000mm]
+      - RAD0.1
+  - name: route_adc_in0_filtered
+    kind: manual_polyline
+    net: ADC0_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD0.2
+      - [23.0000mm, 36.0000mm]
+      - via: [23.0000mm, 36.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [23.0000mm, 51.7500mm]
+      - via: [23.0000mm, 51.7500mm]
+        to: F.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [43.8375mm, 51.7500mm]
+      - U1.10
+  - name: route_adc_in0_filter_cap_tap
+    kind: manual_polyline
+    net: ADC0_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD0.1
+      - [23.0000mm, 36.0000mm]
+  - name: route_adc_in0_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD0.2
+      - [34.0000mm, 34.0000mm]
+      - via: [34.0000mm, 34.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [34.0000mm, 60.0000mm]
+      - [50.0000mm, 60.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in1_input
+    kind: manual_polyline
+    net: ADC1_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC1.1
+      - [8.0000mm, 42.0000mm]
+      - RAD1.1
+  - name: route_adc_in1_filtered
+    kind: manual_polyline
+    net: ADC1_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD1.2
+      - [27.0000mm, 42.0000mm]
+      - via: [27.0000mm, 42.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [27.0000mm, 52.2500mm]
+      - via: [27.0000mm, 52.2500mm]
+        to: F.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [43.8375mm, 52.2500mm]
+      - U1.11
+  - name: route_adc_in1_filter_cap_tap
+    kind: manual_polyline
+    net: ADC1_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD1.1
+      - [27.0000mm, 42.0000mm]
+  - name: route_adc_in1_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD1.2
+      - [34.0000mm, 40.0000mm]
+      - via: [34.0000mm, 40.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [34.0000mm, 62.0000mm]
+      - [50.0000mm, 62.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in2_input
+    kind: manual_polyline
+    net: ADC2_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC2.1
+      - [8.0000mm, 48.0000mm]
+      - RAD2.1
+  - name: route_adc_in2_filtered
+    kind: manual_polyline
+    net: ADC2_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD2.2
+      - [31.0000mm, 48.0000mm]
+      - via: [31.0000mm, 48.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [31.0000mm, 52.7500mm]
+      - via: [31.0000mm, 52.7500mm]
+        to: F.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [43.8375mm, 52.7500mm]
+      - U1.12
+  - name: route_adc_in2_filter_cap_tap
+    kind: manual_polyline
+    net: ADC2_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD2.1
+      - [31.0000mm, 48.0000mm]
+  - name: route_adc_in2_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD2.2
+      - [34.0000mm, 46.0000mm]
+      - via: [34.0000mm, 46.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [34.0000mm, 64.0000mm]
+      - [50.0000mm, 64.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in3_input
+    kind: manual_polyline
+    net: ADC3_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC3.1
+      - RAD3.1
+  - name: route_adc_in3_filtered
+    kind: manual_polyline
+    net: ADC3_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD3.2
+      - [20.0000mm, 66.0000mm]
+      - via: [20.0000mm, 66.0000mm]
+        to: In1.Cu
+        layers: [F.Cu, In1.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [20.0000mm, 56.0000mm]
+      - [47.2500mm, 56.0000mm]
+      - via: [47.2500mm, 56.0000mm]
+        to: F.Cu
+        layers: [F.Cu, In1.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [47.2500mm, 56.1625mm]
+      - U1.13
+  - name: route_adc_in3_filter_cap_tap
+    kind: manual_polyline
+    net: ADC3_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD3.1
+      - [20.0000mm, 66.0000mm]
+  - name: route_adc_in3_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD3.2
+      - [23.0000mm, 64.0000mm]
+      - via: [23.0000mm, 64.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [23.0000mm, 60.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in4_input
+    kind: manual_polyline
+    net: ADC4_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC4.1
+      - RAD4.1
+  - name: route_adc_in4_filtered
+    kind: manual_polyline
+    net: ADC4_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD4.2
+      - [30.0000mm, 66.0000mm]
+      - via: [30.0000mm, 66.0000mm]
+        to: In2.Cu
+        layers: [F.Cu, In2.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [30.0000mm, 57.5000mm]
+      - [47.7500mm, 57.5000mm]
+      - via: [47.7500mm, 57.5000mm]
+        to: F.Cu
+        layers: [F.Cu, In2.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [47.7500mm, 56.1625mm]
+      - U1.14
+  - name: route_adc_in4_filter_cap_tap
+    kind: manual_polyline
+    net: ADC4_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD4.1
+      - [30.0000mm, 66.0000mm]
+  - name: route_adc_in4_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD4.2
+      - [33.0000mm, 64.0000mm]
+      - via: [33.0000mm, 64.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [33.0000mm, 60.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in5_input
+    kind: manual_polyline
+    net: ADC5_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC5.1
+      - RAD5.1
+  - name: route_adc_in5_filtered
+    kind: manual_polyline
+    net: ADC5_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD5.2
+      - [40.0000mm, 66.0000mm]
+      - via: [40.0000mm, 66.0000mm]
+        to: In1.Cu
+        layers: [F.Cu, In1.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [40.0000mm, 59.0000mm]
+      - [48.2500mm, 59.0000mm]
+      - via: [48.2500mm, 59.0000mm]
+        to: F.Cu
+        layers: [F.Cu, In1.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [48.2500mm, 56.1625mm]
+      - U1.15
+  - name: route_adc_in5_filter_cap_tap
+    kind: manual_polyline
+    net: ADC5_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD5.1
+      - [40.0000mm, 66.0000mm]
+  - name: route_adc_in5_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD5.2
+      - [43.0000mm, 64.0000mm]
+      - via: [43.0000mm, 64.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [43.0000mm, 60.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in6_input
+    kind: manual_polyline
+    net: ADC6_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC6.1
+      - RAD6.1
+  - name: route_adc_in6_filtered
+    kind: manual_polyline
+    net: ADC6_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD6.2
+      - [50.0000mm, 66.0000mm]
+      - via: [50.0000mm, 66.0000mm]
+        to: In2.Cu
+        layers: [F.Cu, In2.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [50.0000mm, 60.5000mm]
+      - [48.7500mm, 60.5000mm]
+      - via: [48.7500mm, 60.5000mm]
+        to: F.Cu
+        layers: [F.Cu, In2.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [48.7500mm, 56.1625mm]
+      - U1.16
+  - name: route_adc_in6_filter_cap_tap
+    kind: manual_polyline
+    net: ADC6_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD6.1
+      - [50.0000mm, 66.0000mm]
+  - name: route_adc_in6_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD6.2
+      - [53.0000mm, 64.0000mm]
+      - via: [53.0000mm, 64.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [53.0000mm, 60.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in7_input
+    kind: manual_polyline
+    net: ADC7_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC7.1
+      - RAD7.1
+  - name: route_adc_in7_filtered
+    kind: manual_polyline
+    net: ADC7_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD7.2
+      - [60.0000mm, 66.0000mm]
+      - via: [60.0000mm, 66.0000mm]
+        to: In1.Cu
+        layers: [F.Cu, In1.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [60.0000mm, 62.0000mm]
+      - [49.2500mm, 62.0000mm]
+      - via: [49.2500mm, 62.0000mm]
+        to: F.Cu
+        layers: [F.Cu, In1.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [49.2500mm, 56.1625mm]
+      - U1.17
+  - name: route_adc_in7_filter_cap_tap
+    kind: manual_polyline
+    net: ADC7_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD7.1
+      - [60.0000mm, 66.0000mm]
+  - name: route_adc_in7_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD7.2
+      - [63.0000mm, 64.0000mm]
+      - via: [63.0000mm, 64.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [63.0000mm, 60.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in8_input
+    kind: manual_polyline
+    net: ADC8_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC8.1
+      - RAD8.1
+  - name: route_adc_in8_filtered
+    kind: manual_polyline
+    net: ADC8_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD8.2
+      - [70.0000mm, 66.0000mm]
+      - via: [70.0000mm, 66.0000mm]
+        to: In1.Cu
+        layers: [F.Cu, In1.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [70.0000mm, 59.5000mm]
+      - [49.7500mm, 59.5000mm]
+      - via: [49.7500mm, 59.5000mm]
+        to: F.Cu
+        layers: [F.Cu, In1.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [49.7500mm, 56.1625mm]
+      - U1.18
+  - name: route_adc_in8_filter_cap_tap
+    kind: manual_polyline
+    net: ADC8_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD8.1
+      - [70.0000mm, 66.0000mm]
+  - name: route_adc_in8_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD8.2
+      - [73.0000mm, 64.0000mm]
+      - via: [73.0000mm, 64.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [73.0000mm, 60.0000mm]
+      - [50.0000mm, 50.7500mm]
+  - name: route_adc_in9_input
+    kind: manual_polyline
+    net: ADC9_IN
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - TPADC9.1
+      - RAD9.1
+  - name: route_adc_in9_filtered
+    kind: manual_polyline
+    net: ADC9_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - RAD9.2
+      - [80.0000mm, 66.0000mm]
+      - via: [80.0000mm, 66.0000mm]
+        to: In2.Cu
+        layers: [F.Cu, In2.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [80.0000mm, 55.5000mm]
+      - [50.2500mm, 55.5000mm]
+      - via: [50.2500mm, 55.5000mm]
+        to: F.Cu
+        layers: [F.Cu, In2.Cu]
+        diameter: 0.55mm
+        drill: 0.30mm
+      - [50.2500mm, 56.1625mm]
+      - U1.19
+  - name: route_adc_in9_filter_cap_tap
+    kind: manual_polyline
+    net: ADC9_FILT
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD9.1
+      - [80.0000mm, 66.0000mm]
+  - name: route_adc_in9_capacitor_return
+    kind: manual_polyline
+    net: GND
+    layer: F.Cu
+    group: adc_filters
+    points:
+      - CAD9.2
+      - [83.0000mm, 64.0000mm]
+      - via: [83.0000mm, 64.0000mm]
+        to: B.Cu
+        layers: [F.Cu, B.Cu]
+        diameter: 0.50mm
+        drill: 0.30mm
+      - [83.0000mm, 60.0000mm]
+      - [50.0000mm, 50.7500mm]
+dfm:
+  profile: jlcpcb_4_layer_smt
+  lcsc_policy: require_or_exception
+  max_lcsc_exceptions: 0
+  lcsc_database:
+    path: ../../../jlcpcb-parts-database/db_build/jlcpcb-components.sqlite3
+    strict: true
+  assembly_methods:
+    U1: jlc_smt
+    J12V: manual_tht
+    D1: jlc_smt
+    U2: jlc_smt
+    CIN1: jlc_smt
+    COUT1: jlc_smt
+    COUT2: jlc_smt
+    RAD0: jlc_smt
+    CAD0: jlc_smt
+    RAD1: jlc_smt
+    CAD1: jlc_smt
+    RAD2: jlc_smt
+    CAD2: jlc_smt
+    RAD3: jlc_smt
+    CAD3: jlc_smt
+    RAD4: jlc_smt
+    CAD4: jlc_smt
+    RAD5: jlc_smt
+    CAD5: jlc_smt
+    RAD6: jlc_smt
+    CAD6: jlc_smt
+    RAD7: jlc_smt
+    CAD7: jlc_smt
+    RAD8: jlc_smt
+    CAD8: jlc_smt
+    RAD9: jlc_smt
+    CAD9: jlc_smt
+  lcsc_parts:
+    U1: C3009902
+    J12V: C8465
+    D1: C7420316
+    U2: C5120796
+    CIN1: C15850
+    COUT1: C15850
+    COUT2: C14663
+    RAD0: C22978
+    CAD0: C14663
+    RAD1: C22978
+    CAD1: C14663
+    RAD2: C22978
+    CAD2: C14663
+    RAD3: C22978
+    CAD3: C14663
+    RAD4: C22978
+    CAD4: C14663
+    RAD5: C22978
+    CAD5: C14663
+    RAD6: C22978
+    CAD6: C14663
+    RAD7: C22978
+    CAD7: C14663
+    RAD8: C22978
+    CAD8: C14663
+    RAD9: C22978
+    CAD9: C14663
+  panelization:
+    mode: single_board
+  required_artifacts:
+    - gd32f310c8t6.jlc.bom.csv
+    - gd32f310c8t6.jlc.pnp.csv
+fiducials:
+  - name: fid_1
+    at: [5mm, 5mm]
+  - name: fid_2
+    at: [95mm, 5mm]
+  - name: fid_3
+    at: [90mm, 90mm]
+mounting_holes:
+  - name: mh_1
+    at: [6mm, 94mm]
+    diameter: 3.4mm
+    drill: 3.2mm
+  - name: mh_2
+    at: [94mm, 94mm]
+    diameter: 3.4mm
+    drill: 3.2mm
+validation_tests:
+  - name: adc_filter_response
+    kind: analog_measurement
+    net: ADC0_FILT
+    criteria: "Inject a known DC level on ADC0_IN and verify ADC0_FILT settles within tolerance; RC cutoff is <= 500 Hz by source contract."

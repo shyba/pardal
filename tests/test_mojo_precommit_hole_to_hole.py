@@ -13,7 +13,7 @@ def test_mojo_precommit_via_hole_to_hole_blocks_other_net(tmp_path: Path):
         pytest.skip("pixi not available; skipping Mojo via hole clearance test")
 
     ee_root = Path(__file__).resolve().parents[2]
-    mojo_root = ee_root / "pardal-pcb" / "pardal_router_mojo"
+    mojo_root = ee_root / "pardal-pcb" / "routing" / "mojo_router"
     bin_path = mojo_root / "build" / "pardal-router-mojo"
     if not bin_path.exists():
         subprocess.run([pixi, "run", "bash", "build.sh"], cwd=mojo_root, check=True)

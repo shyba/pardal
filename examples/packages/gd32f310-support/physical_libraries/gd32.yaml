@@ -1,0 +1,17 @@
+schema: pardal.physical_library/v1
+
+libraries:
+  gd32f310:
+    footprints:
+      - acme/gd32f310-support:gd32f310_lqfp32
+    netclasses:
+      - signal
+      - power
+    placements:
+      - templates/placements/gd32f310_12v_adc.yaml
+    route_groups:
+      - templates/routes/adc_frontend.yaml
+    mechanical:
+      - templates/mechanical/mounting_holes.yaml
+    metadata:
+      purpose: gd32f310_12v_adc

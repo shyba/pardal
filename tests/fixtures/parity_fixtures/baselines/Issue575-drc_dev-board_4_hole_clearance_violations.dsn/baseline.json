@@ -1,0 +1,345 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:32:42.050960179-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue575-drc_dev-board_4_hole_clearance_violations.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Trace [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1243.57,
+                "y": -520.583
+              },
+              "uuid": "813"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1241.0,
+                "y": -521.1
+              },
+              "uuid": "275"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Trace [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1255.0,
+                "y": -521.1
+              },
+              "uuid": "280"
+            },
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1250.57,
+                "y": -520.583
+              },
+              "uuid": "814"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Trace [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1269.0,
+                "y": -493.1
+              },
+              "uuid": "281"
+            },
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1270.88,
+                "y": -494.97950000000003
+              },
+              "uuid": "739"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Trace [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1276.25,
+                "y": -678.0
+              },
+              "uuid": "42"
+            },
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1265.395,
+                "y": -673.378
+              },
+              "uuid": "767"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1315.25,
+                "y": -869.41
+              },
+              "uuid": "759"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1315.25,
+                "y": -876.3000000000001
+              },
+              "uuid": "133"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1276.125,
+                "y": -695.0
+              },
+              "uuid": "56"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1276.0,
+                "y": -712.0
+              },
+              "uuid": "70"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [GPIO21] and Pin [GPIO21]",
+          "items": [
+            {
+              "description": "Trace [GPIO21]",
+              "pos": {
+                "x": 1329.9,
+                "y": -678.0
+              },
+              "uuid": "404"
+            },
+            {
+              "description": "Pin [GPIO21]",
+              "pos": {
+                "x": 1326.375,
+                "y": -678.0
+              },
+              "uuid": "197"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D2-A)] and Trace [Net-(D2-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D2-A)]",
+              "pos": {
+                "x": 1291.875,
+                "y": -695.0
+              },
+              "uuid": "57"
+            },
+            {
+              "description": "Trace [Net-(D2-A)]",
+              "pos": {
+                "x": 1300.815,
+                "y": -695.0
+              },
+              "uuid": "386"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D3-A)] and Trace [Net-(D3-A)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D3-A)]",
+              "pos": {
+                "x": 1309.875,
+                "y": -678.0
+              },
+              "uuid": "198"
+            },
+            {
+              "description": "Trace [Net-(D3-A)]",
+              "pos": {
+                "x": 1300.94,
+                "y": -678.0
+              },
+              "uuid": "385"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": [
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1255.0,
+                "y": -493.1
+              },
+              "uuid": "278"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1255.0,
+                "y": -493.1
+              },
+              "uuid": "277"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1255.0,
+                "y": -493.1
+              },
+              "uuid": "277"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1255.0,
+                "y": -493.1
+              },
+              "uuid": "278"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1241.0,
+                "y": -521.1
+              },
+              "uuid": "276"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1241.0,
+                "y": -521.1
+              },
+              "uuid": "275"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0000 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1241.0,
+                "y": -521.1
+              },
+              "uuid": "275"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1241.0,
+                "y": -521.1
+              },
+              "uuid": "276"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ]
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 9,
+    "violations": 4
+  },
+  "fanout": true,
+  "fixture_id": "Issue575-drc_dev-board_4_hole_clearance_violations.dsn",
+  "fixture_relpath": "freerouting/tests/Issue575-drc_dev-board_4_hole_clearance_violations.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207558,
+  "hashes": {
+    "board_statistics_sha256": "4d54fe5e076043c09f4f1431be18cc30dda179d27dcb74892c881d6d46cd1e3c",
+    "freerouting_drc_sha256": "f7fd050718e6624f6096a002b9622be8da1b60e46c025287689e4fcf9b7d2d50",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "89f9f6e69f4dda26d1f55dffe893b39af7ccef068f9260d07d3604515c1fe493"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue575-drc_dev-board_4_hole_clearance_violations.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue575-drc_dev-board_4_hole_clearance_violations.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue575-drc_dev-board_4_hole_clearance_violations.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue575-drc_dev-board_4_hole_clearance_violations.dsn/routed.ses"
+  },
+  "runtime_s": 3.7344577359617688,
+  "seed": 12345,
+  "strip_planes": false
+}

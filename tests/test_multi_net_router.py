@@ -1,10 +1,10 @@
 """Tests for MultiNetRouter (multi-net routing coordination)."""
 
 import pytest
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.pathfinder import PathFinder
-from pcb_tool.routing.layer_optimizer import LayerOptimizer
-from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition, RoutedNet
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.pathfinder import PathFinder
+from pardal.routing.layer_optimizer import LayerOptimizer
+from pardal.routing.multi_net_router import MultiNetRouter, NetDefinition, RoutedNet
 
 
 def test_multi_net_router_initialization():

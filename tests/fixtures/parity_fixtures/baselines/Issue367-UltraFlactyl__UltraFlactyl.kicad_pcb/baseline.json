@@ -1,0 +1,1155 @@
+{
+  "drc": {
+    "kicad_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T22:40:58+0000",
+      "kicad_version": "9.0.6",
+      "schematic_parity": [],
+      "source": "routed.kicad_pcb",
+      "unconnected_items": [],
+      "violations": [
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S2",
+              "pos": {
+                "x": 57.5,
+                "y": 39.75
+              },
+              "uuid": "0353edd0-12c1-4818-bdd6-d1adb564f947"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S33",
+              "pos": {
+                "x": 144.5,
+                "y": 118.75
+              },
+              "uuid": "0bd53385-b81c-4e57-8464-a9b540496e5d"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'WeAct_Black_Pill_V2.0'.",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 173.12,
+                "y": 72.1
+              },
+              "uuid": "0f2e61fe-90b5-458f-b99c-9fd66c0cfa40"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S21",
+              "pos": {
+                "x": 152.5,
+                "y": 94.25
+              },
+              "uuid": "13bb766d-0110-4161-923f-3f164aafc132"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S4",
+              "pos": {
+                "x": 95.5,
+                "y": 32.25
+              },
+              "uuid": "178ee609-7d3f-416a-8f78-b11f25e017f8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S29",
+              "pos": {
+                "x": 76.5,
+                "y": 110.75
+              },
+              "uuid": "186bd277-2dae-4663-9862-ccab2af31ee7"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S18",
+              "pos": {
+                "x": 95.5,
+                "y": 70.25
+              },
+              "uuid": "1e0eb801-75ac-4204-b25c-fcc0f849c9e4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S23",
+              "pos": {
+                "x": 57.5,
+                "y": 96.75
+              },
+              "uuid": "2e36aae3-699a-4e74-aaab-03efbd5d183c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S5",
+              "pos": {
+                "x": 114.5,
+                "y": 34.75
+              },
+              "uuid": "3fa684a2-7d74-4b4f-8ead-fedf2806c535"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S9",
+              "pos": {
+                "x": 57.5,
+                "y": 58.75
+              },
+              "uuid": "422cd99f-f013-46b6-8a37-4e556ca45b16"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S8",
+              "pos": {
+                "x": 38.5,
+                "y": 58.75
+              },
+              "uuid": "503e110e-0986-494e-a675-fcd851d061de"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S3",
+              "pos": {
+                "x": 76.5,
+                "y": 34.75
+              },
+              "uuid": "54a5545a-9359-4afb-9369-b83559c0972c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S14",
+              "pos": {
+                "x": 152.5,
+                "y": 75.25
+              },
+              "uuid": "58f652bf-25b2-4224-beba-187574c7a023"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S12",
+              "pos": {
+                "x": 114.5,
+                "y": 53.75
+              },
+              "uuid": "69a5cadf-2968-4cdc-ae50-bb969150a6a1"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S15",
+              "pos": {
+                "x": 38.58,
+                "y": 77.75
+              },
+              "uuid": "6c9feb8d-6a00-4749-89fa-0a3fa5fc17a2"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S30",
+              "pos": {
+                "x": 95.5,
+                "y": 108.25
+              },
+              "uuid": "6d8a9524-a731-4753-9c56-57ce46d809db"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S27",
+              "pos": {
+                "x": 133.5,
+                "y": 94.25
+              },
+              "uuid": "6d938931-ee46-4c57-b470-f6b3ec2dae7c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S25",
+              "pos": {
+                "x": 95.5,
+                "y": 89.25
+              },
+              "uuid": "7045e505-ff31-43eb-ba4b-260578f7568f"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S31",
+              "pos": {
+                "x": 135.5,
+                "y": 136.75
+              },
+              "uuid": "724ed752-f799-4b6f-8f2c-1c6b12d780ac"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S20",
+              "pos": {
+                "x": 133.5,
+                "y": 75.25
+              },
+              "uuid": "7c6c50cd-7c49-4b3c-b3b0-7429d02324c8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S10",
+              "pos": {
+                "x": 76.42,
+                "y": 53.75
+              },
+              "uuid": "937c12b1-8cd0-4d6e-82fd-20d763e002e1"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S13",
+              "pos": {
+                "x": 133.5,
+                "y": 56.25
+              },
+              "uuid": "9a9350e9-496d-4433-b888-4ac14d3f52bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 181.6125,
+                "y": 108.25
+              },
+              "uuid": "9caafe57-4a2e-4938-910a-0685ddc18c6c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S22",
+              "pos": {
+                "x": 38.5,
+                "y": 96.75
+              },
+              "uuid": "c022c7ca-05be-46ea-8634-220c9ff5ceb8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S19",
+              "pos": {
+                "x": 114.5,
+                "y": 72.75
+              },
+              "uuid": "ca9247bd-9562-488c-892b-24bd90070992"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S32",
+              "pos": {
+                "x": 124.58,
+                "y": 113.75
+              },
+              "uuid": "d5ca66c8-e476-49e2-839d-22b584dfaa4c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S28",
+              "pos": {
+                "x": 164.5,
+                "y": 126.7024
+              },
+              "uuid": "d5d1a4e2-50d3-454b-ad1e-b96c12781c8b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S11",
+              "pos": {
+                "x": 95.5,
+                "y": 51.25
+              },
+              "uuid": "dcb8d093-6059-43bd-9f9b-1bc933656f11"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S34",
+              "pos": {
+                "x": 156.5,
+                "y": 145.75
+              },
+              "uuid": "dcf09278-0892-4597-90af-67d511da7fcf"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S17",
+              "pos": {
+                "x": 76.5,
+                "y": 72.75
+              },
+              "uuid": "dea2040b-c5dc-4cfa-8a99-ef6391ac1741"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S7",
+              "pos": {
+                "x": 152.5,
+                "y": 56.25
+              },
+              "uuid": "e3715615-4ba0-4371-88e6-e5f690b2f4a6"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S16",
+              "pos": {
+                "x": 57.5,
+                "y": 77.75
+              },
+              "uuid": "e96afc97-db88-4bac-b919-1bee34a41dda"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S26",
+              "pos": {
+                "x": 114.5,
+                "y": 91.75
+              },
+              "uuid": "ed7147ab-b330-4500-8673-70a5c81ff350"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S1",
+              "pos": {
+                "x": 38.5,
+                "y": 39.75
+              },
+              "uuid": "ef2092d8-f62e-492c-a7c8-98aade6147f0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S24",
+              "pos": {
+                "x": 76.5,
+                "y": 91.75
+              },
+              "uuid": "fc2b87d5-47fa-45c1-b659-55c141a48ea6"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Hotswap'.",
+          "items": [
+            {
+              "description": "Footprint S6",
+              "pos": {
+                "x": 133.42,
+                "y": 37.25
+              },
+              "uuid": "fc725f42-924b-4b78-96bf-38ce6755aa96"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D6",
+              "pos": {
+                "x": 129.5,
+                "y": 45.75
+              },
+              "uuid": "0845f0f9-f077-4792-8ce9-b126a22ade34"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D34",
+              "pos": {
+                "x": 150.0756,
+                "y": 151.5798
+              },
+              "uuid": "0c1ffa27-446f-432e-b0b7-6546062575a4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D8",
+              "pos": {
+                "x": 34.5,
+                "y": 67.25
+              },
+              "uuid": "1a996404-4db1-4c08-9b06-8254a8a9a0a9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D31",
+              "pos": {
+                "x": 129.3976,
+                "y": 143.5096
+              },
+              "uuid": "1e3e0a0f-172f-4775-bb84-255bd6b19a40"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D11",
+              "pos": {
+                "x": 91.5,
+                "y": 59.75
+              },
+              "uuid": "281b7729-5211-41d1-b3a3-82bb5b3f63ca"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D33",
+              "pos": {
+                "x": 138.3976,
+                "y": 125.5096
+              },
+              "uuid": "29fa998b-75a3-43e2-92e0-a8d074b53166"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D25",
+              "pos": {
+                "x": 91.5,
+                "y": 97.75
+              },
+              "uuid": "33218ef5-f1f9-45c4-b683-87d0feb922fd"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D9",
+              "pos": {
+                "x": 53.5,
+                "y": 67.25
+              },
+              "uuid": "384d7b2b-5ca6-4a33-ae00-69bde5a6bfa0"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D5",
+              "pos": {
+                "x": 110.5,
+                "y": 43.25
+              },
+              "uuid": "3df7b0c1-6510-43f1-bec7-685496ec050b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D15",
+              "pos": {
+                "x": 34.5,
+                "y": 86.25
+              },
+              "uuid": "4730e03d-58ad-49db-86eb-e8f01df09d65"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 34.69,
+                "y": 48.25
+              },
+              "uuid": "4874675d-8018-407b-a9fb-9d2871ae344b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D4",
+              "pos": {
+                "x": 91.69,
+                "y": 40.75
+              },
+              "uuid": "48deda4d-f4f3-4230-891a-c346dff461ef"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D18",
+              "pos": {
+                "x": 92.0,
+                "y": 78.75
+              },
+              "uuid": "4dc3d01c-c51b-40dd-995a-de2f12c0ad41"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D29",
+              "pos": {
+                "x": 72.5,
+                "y": 119.25
+              },
+              "uuid": "5788dbad-4c16-42fb-b26c-f26aeb5653ab"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D10",
+              "pos": {
+                "x": 73.0,
+                "y": 62.25
+              },
+              "uuid": "585ddae9-40c9-4f44-810c-29131e8ff29a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D27",
+              "pos": {
+                "x": 130.0,
+                "y": 102.75
+              },
+              "uuid": "5a70099c-9ab6-444c-a092-6da81e03dea1"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D7",
+              "pos": {
+                "x": 148.5,
+                "y": 64.75
+              },
+              "uuid": "630f59df-9c54-4a2c-b822-101989344cbd"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D19",
+              "pos": {
+                "x": 111.0,
+                "y": 81.25
+              },
+              "uuid": "7960cbd6-82bf-4219-a16a-7133f4787b1c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D14",
+              "pos": {
+                "x": 148.5,
+                "y": 83.75
+              },
+              "uuid": "7bbeabaa-1c3e-43a3-82f1-c2e494ae7cde"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D22",
+              "pos": {
+                "x": 35.0,
+                "y": 105.25
+              },
+              "uuid": "888ef3a6-85c4-4083-9f12-2017758dfcf9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D23",
+              "pos": {
+                "x": 53.5,
+                "y": 105.25
+              },
+              "uuid": "8a2a1c99-cbed-4bad-88ab-0cf1c7c0842c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D16",
+              "pos": {
+                "x": 54.0,
+                "y": 86.25
+              },
+              "uuid": "a62d7a90-9ab9-406d-9aeb-edfee7f00a26"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D20",
+              "pos": {
+                "x": 130.0,
+                "y": 83.75
+              },
+              "uuid": "a945bf64-0e4c-442d-ae65-cd56ba77b24e"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D32",
+              "pos": {
+                "x": 119.2733,
+                "y": 121.4579
+              },
+              "uuid": "b0dba6ae-cd4e-4b3b-99bc-b45f7c49ca48"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D3",
+              "pos": {
+                "x": 72.69,
+                "y": 43.25
+              },
+              "uuid": "b1807716-31ff-4f42-b489-e48ff4776a28"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D28",
+              "pos": {
+                "x": 157.5756,
+                "y": 132.5798
+              },
+              "uuid": "c585c013-8d06-48b4-8f44-8b488c9ddd1c"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D26",
+              "pos": {
+                "x": 110.5,
+                "y": 100.25
+              },
+              "uuid": "cde85276-48e7-4cac-a245-0d4e89dfbbba"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D17",
+              "pos": {
+                "x": 72.5,
+                "y": 81.25
+              },
+              "uuid": "db1ea1fc-6886-429a-86ee-0bc2ceab4ee9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D21",
+              "pos": {
+                "x": 149.0,
+                "y": 102.75
+              },
+              "uuid": "df4fdb7d-7a2b-4655-9383-578e057c704a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D12",
+              "pos": {
+                "x": 110.69,
+                "y": 62.25
+              },
+              "uuid": "e39c24b3-0b6e-4613-b26e-f7d8169fa0d1"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D2",
+              "pos": {
+                "x": 53.69,
+                "y": 48.25
+              },
+              "uuid": "eff7b3c7-048f-4a0f-b5d2-f3a071736b49"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D24",
+              "pos": {
+                "x": 73.0,
+                "y": 100.25
+              },
+              "uuid": "f547d983-83ab-48ff-8b86-fb5d33e4f6ca"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D30",
+              "pos": {
+                "x": 92.0,
+                "y": 116.75
+              },
+              "uuid": "f6af6de7-b813-43f9-94e0-459370a2622f"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'ScottoKeebs_Components'.",
+          "items": [
+            {
+              "description": "Footprint D13",
+              "pos": {
+                "x": 130.0,
+                "y": 64.75
+              },
+              "uuid": "fdafd541-02e3-4aed-b73b-f6024594e0b3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Silkscreen clipped by solder mask",
+          "items": [
+            {
+              "description": "Segment of U2 on F.Silkscreen",
+              "pos": {
+                "x": 169.5125,
+                "y": 111.3
+              },
+              "uuid": "28794ae9-3399-4281-95b9-c99db94223aa"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_over_copper"
+        },
+        {
+          "description": "Silkscreen clipped by solder mask",
+          "items": [
+            {
+              "description": "Segment of U2 on F.Silkscreen",
+              "pos": {
+                "x": 181.6125,
+                "y": 105.2
+              },
+              "uuid": "e3596a0a-7c78-4b0d-a5ac-a1b59399250d"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_over_copper"
+        },
+        {
+          "description": "Silkscreen clipped by solder mask",
+          "items": [
+            {
+              "description": "Segment of U2 on F.Silkscreen",
+              "pos": {
+                "x": 181.6125,
+                "y": 111.3
+              },
+              "uuid": "92f5f351-0690-4eb9-8eba-9b44b9c7e0ac"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_over_copper"
+        },
+        {
+          "description": "Silkscreen overlap",
+          "items": [
+            {
+              "description": "Footprint text of U1 (A1)",
+              "pos": {
+                "x": 181.883,
+                "y": 79.974
+              },
+              "uuid": "202fa1ed-d7f7-428c-971f-6cbc6118dbb2"
+            },
+            {
+              "description": "PCB text 'A1' on F.Silkscreen",
+              "pos": {
+                "x": 181.883,
+                "y": 79.974
+              },
+              "uuid": "933642d9-f8f5-4037-a39a-12e5ff8ddf43"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_overlap"
+        }
+      ]
+    },
+    "unconnected": 0,
+    "violations": 74
+  },
+  "fanout": true,
+  "fixture_id": "Issue367-UltraFlactyl__UltraFlactyl.kicad_pcb",
+  "fixture_relpath": "freerouting/tests/Issue367-UltraFlactyl/UltraFlactyl.kicad_pcb",
+  "fixture_type": "kicad",
+  "generated_at_unix_s": 1769207988,
+  "hashes": {
+    "kicad_drc_sha256": "8fcf39bf971dd3d983ec59b65928e300351fe3d0b367f75db8e4397c650171e9",
+    "routed_pcb_sha256": "416ae52e276067b727c4d48615c32a8974767c7adfee9a9b43390ed4de0aa17e"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "kicad_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue367-UltraFlactyl__UltraFlactyl.kicad_pcb/kicad_drc.json",
+    "routed_pcb": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue367-UltraFlactyl__UltraFlactyl.kicad_pcb/routed.kicad_pcb"
+  },
+  "runtime_s": 70.2283194969641,
+  "seed": 12345,
+  "strip_planes": false
+}

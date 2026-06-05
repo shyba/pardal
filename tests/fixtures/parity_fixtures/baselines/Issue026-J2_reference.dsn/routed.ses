@@ -1,0 +1,43 @@
+(session "Issue026-J2_reference"
+  (base_design "Issue026-J2_reference")
+  (placement
+    (resolution um 10)
+    (component "TE_1888019-6:TE_1888019-6"
+      (place J2 1352550 -857250 front 90)
+    )
+    (component "TE_1-84953-5:TE_1-84953-5"
+      (place U1 1114100 -855500 front 90)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "5.1.5-52549c5~86~ubuntu16.04.1")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

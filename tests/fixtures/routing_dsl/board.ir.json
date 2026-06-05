@@ -1,0 +1,126 @@
+{
+  "schema": "pardal.board_ir",
+  "version": "0.1",
+  "board_ir_id": "board-ir-demo-v001",
+  "frozen_board_snapshot_id": "board-snapshot-demo-v001",
+  "units": {
+    "length": "mm",
+    "angle": "deg"
+  },
+  "outline": [
+    {"x": 0.0, "y": 0.0},
+    {"x": 50.0, "y": 0.0},
+    {"x": 50.0, "y": 30.0},
+    {"x": 0.0, "y": 30.0}
+  ],
+  "bounds": {
+    "min_x": 0.0,
+    "min_y": 0.0,
+    "max_x": 50.0,
+    "max_y": 30.0
+  },
+  "stackup": [
+    {"id": "layer-fcu", "name": "F.Cu", "kind": "signal", "order": 1},
+    {"id": "layer-in1", "name": "In1.Cu", "kind": "plane", "order": 2},
+    {"id": "layer-bcu", "name": "B.Cu", "kind": "signal", "order": 3}
+  ],
+  "nets": [
+    {"id": "net-gnd", "name": "GND"},
+    {"id": "net-vcc", "name": "VCC"},
+    {"id": "net-sig", "name": "SIG_A"}
+  ],
+  "components": [
+    {
+      "id": "comp-u1",
+      "refdes": "U1",
+      "footprint": "Package_QFP:LQFP-32_7x7mm_P0.8mm",
+      "layer": "F.Cu",
+      "position": {"x": 12.0, "y": 12.0},
+      "rotation": 0.0
+    },
+    {
+      "id": "comp-j1",
+      "refdes": "J1",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+      "layer": "F.Cu",
+      "position": {"x": 40.0, "y": 20.0},
+      "rotation": 90.0
+    }
+  ],
+  "pads": [
+    {
+      "id": "pad-u1-1",
+      "component_id": "comp-u1",
+      "net_id": "net-sig",
+      "layer": "F.Cu",
+      "kind": "smd",
+      "position": {"x": 11.0, "y": 11.0}
+    },
+    {
+      "id": "pad-u1-2",
+      "component_id": "comp-u1",
+      "net_id": "net-vcc",
+      "layer": "F.Cu",
+      "kind": "smd",
+      "position": {"x": 13.0, "y": 11.0}
+    },
+    {
+      "id": "pad-j1-1",
+      "component_id": "comp-j1",
+      "net_id": "net-gnd",
+      "layer": "F.Cu",
+      "kind": "thru_hole",
+      "position": {"x": 39.0, "y": 19.0}
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "obs-antenna",
+      "kind": "keepout",
+      "layer": "F.Cu",
+      "shape": {
+        "type": "rect",
+        "x": 20.0,
+        "y": 5.0,
+        "width": 10.0,
+        "height": 4.0
+      }
+    }
+  ],
+  "envelopes": [
+    {
+      "id": "env-u1",
+      "kind": "placement",
+      "ref_id": "comp-u1",
+      "shape": {
+        "type": "rect",
+        "x": 8.0,
+        "y": 8.0,
+        "width": 8.0,
+        "height": 8.0
+      }
+    },
+    {
+      "id": "env-j1",
+      "kind": "route",
+      "ref_id": "pad-j1-1",
+      "shape": {
+        "type": "rect",
+        "x": 36.0,
+        "y": 16.0,
+        "width": 8.0,
+        "height": 8.0
+      }
+    }
+  ],
+  "provenance": {
+    "source": "tests/fixtures/routing_dsl/board.ir.json",
+    "notes": "deterministic frozen board snapshot"
+  },
+  "route_plan_anchor_ids": [
+    "comp-u1",
+    "comp-j1",
+    "pad-u1-1",
+    "pad-j1-1"
+  ]
+}

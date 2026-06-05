@@ -17,7 +17,7 @@ def test_dsn_to_problem_to_mojo_routes_smoke(tmp_path: Path):
     dsn = ee_root / "freerouting" / "tests" / "Issue269-min_fr_test" / "min_fr_test_no_quotes.dsn"
     assert dsn.exists()
 
-    from pcb_tool.tools.convert_dsn_to_problem import convert_dsn_to_problem
+    from pardal.tools.convert_dsn_to_problem import convert_dsn_to_problem
 
     problem = tmp_path / "problem.json"
     routes = tmp_path / "routes.json"
@@ -44,7 +44,7 @@ def test_dsn_to_problem_to_mojo_routes_smoke(tmp_path: Path):
         )
     )
 
-    mojo_root = ee_root / "pardal-pcb" / "pardal_router_mojo"
+    mojo_root = ee_root / "pardal-pcb" / "routing" / "mojo_router"
     bin_path = mojo_root / "build" / "pardal-router-mojo"
     if not bin_path.exists():
         subprocess.run([pixi, "run", "bash", "build.sh"], cwd=mojo_root, check=True)

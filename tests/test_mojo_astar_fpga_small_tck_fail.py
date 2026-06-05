@@ -6,7 +6,7 @@ from pathlib import Path
 
 def _mojo_bin() -> Path:
     root = Path(__file__).resolve().parents[1]
-    return root / "pardal_router_mojo" / "build" / "pardal-router-mojo"
+    return root / "routing" / "mojo_router" / "build" / "pardal-router-mojo"
 
 
 def test_fpga_small_tck_astar_capture_reproduces_no_path() -> None:
@@ -14,7 +14,7 @@ def test_fpga_small_tck_astar_capture_reproduces_no_path() -> None:
     # When clearance/KO is treated as a *hard* block (allow_overlaps=False), the
     # net is unroutable in the current congested snapshot.
     bin_path = _mojo_bin()
-    assert bin_path.exists(), f"missing mojo router binary at {bin_path} (run pardal_router_mojo/build.sh)"
+    assert bin_path.exists(), f"missing mojo router binary at {bin_path} (run routing/mojo_router/build.sh)"
 
     fixture = Path(__file__).with_name("data") / "fpga_small_tck_astar_strict_no_overlaps.json"
     proc = subprocess.run(
@@ -31,7 +31,7 @@ def test_fpga_small_tck_astar_capture_succeeds_with_overlap_penalties() -> None:
     # Same snapshot, but with allow_overlaps=True, where KO/clearance becomes a
     # soft constraint (penalty) instead of a hard block. This should find a path.
     bin_path = _mojo_bin()
-    assert bin_path.exists(), f"missing mojo router binary at {bin_path} (run pardal_router_mojo/build.sh)"
+    assert bin_path.exists(), f"missing mojo router binary at {bin_path} (run routing/mojo_router/build.sh)"
 
     fixture = Path(__file__).with_name("data") / "fpga_small_tck_astar_fail_0p2.json"
     proc = subprocess.run(

@@ -14,11 +14,11 @@ def test_parity_fpga_small_oracle(tmp_path: Path):
         pytest.skip("docker not available")
 
     repo_root = Path(__file__).resolve().parents[1]
-    fixture_in = repo_root / "fpga" / "fpga_unrouted.kicad_pcb"
+    fixture_in = repo_root / "examples" / "fpga" / "fpga_unrouted.kicad_pcb"
     if not fixture_in.exists():
         pytest.skip("fpga fixture not present")
 
-    tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
+    tool = repo_root / "pardal" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
 
     out_dir = repo_root / "build" / "pytest_parity" / tmp_path.name / "fpga_small_oracle"

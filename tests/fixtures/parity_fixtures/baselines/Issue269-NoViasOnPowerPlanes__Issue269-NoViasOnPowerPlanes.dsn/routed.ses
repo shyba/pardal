@@ -1,0 +1,99 @@
+(session "Issue269-NoViasOnPowerPlanes"
+  (base_design "Issue269-NoViasOnPowerPlanes")
+  (placement
+    (resolution um 10)
+    (component Capacitor_SMD:C_1206_3216Metric
+      (place C3 1509250 -990600 front 0)
+    )
+    (component Connector_BarrelJack:BarrelJack_Horizontal
+      (place J1 1166805 -761315 front 0)
+    )
+    (component Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder
+      (place R9 1197864 -934212 front 0)
+      (place R1 1833532 -991108 front 0)
+      (place R10 1270000 -838200 front 0)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical
+      (place J2 1676400 -762000 front 0)
+    )
+    (component LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder
+      (place D2 1285150 -990600 front 0)
+    )
+    (component Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder::1
+      (place R6 1143000 -1158400 back 270)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "8.0.0")
+    )
+    (library_out 
+      (padstack "Via[0-3]_300:100_um"
+        (shape
+          (circle F.Cu 3000 0 0)
+        )
+        (shape
+          (circle GND 3000 0 0)
+        )
+        (shape
+          (circle PWR 3000 0 0)
+        )
+        (shape
+          (circle B.Cu 3000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_300:100_um"
+        (shape
+          (circle F.Cu 3000 0 0)
+        )
+        (shape
+          (circle GND 3000 0 0)
+        )
+        (shape
+          (circle PWR 3000 0 0)
+        )
+        (shape
+          (circle B.Cu 3000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_300:100_um"
+        (shape
+          (circle F.Cu 3000 0 0)
+        )
+        (shape
+          (circle GND 3000 0 0)
+        )
+        (shape
+          (circle PWR 3000 0 0)
+        )
+        (shape
+          (circle B.Cu 3000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-3]_300:100_um"
+        (shape
+          (circle F.Cu 3000 0 0)
+        )
+        (shape
+          (circle GND 3000 0 0)
+        )
+        (shape
+          (circle PWR 3000 0 0)
+        )
+        (shape
+          (circle B.Cu 3000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

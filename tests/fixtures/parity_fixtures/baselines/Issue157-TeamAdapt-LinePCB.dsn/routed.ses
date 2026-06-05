@@ -1,0 +1,624 @@
+(session "Issue157-TeamAdapt-LinePCB"
+  (base_design "Issue157-TeamAdapt-LinePCB")
+  (placement
+    (resolution um 10)
+    (component "PSR Resistors:R_0201_0603Metric_10k"
+      (place R27 874776 -723646 front 0)
+      (place R18 1392682 -512064 front 180)
+      (place R1 1400048 -1284478 front 180)
+    )
+    (component "Package_TO_SOT_SMD:TO-252-2"
+      (place Q2 1430528 -726440 front 0)
+    )
+    (component "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+      (place Q1 1258684 -726682 front 0)
+    )
+    (component "Diode_THT:D_DO-41_SOD81_P2.54mm_Vertical_AnodeUp"
+      (place D49 1592326 -966216 front 90)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder
+      (place R35 1083622 -1450108 front 244)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::1
+      (place R19 1083622 -373863 front 116)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::2
+      (place D40 983739 -435974 front 128)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::3
+      (place R20 1231941 -323515 front 101)
+    )
+    (component "LED_SMD:LED_PLCC-2"
+      (place D11 829381 -1211985 front 210)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::4
+      (place R55 1429772 -565150 front 0)
+    )
+    (component MountingHole:MountingHole_3.2mm_M3
+      (place U41 863811 -1395099 front 0)
+      (place H17 863942 -426982 front 270)
+      (place H18 1835573 -1391747 front 90)
+      (place H12 1837089 -430965 front 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::5
+      (place R41 810872 -646613 front 154)
+    )
+    (component "Package_DIP:DIP-16_W7.62mm_Socket"
+      (place U3 1259994 -472848 front 90)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::6
+      (place R34 1231941 -1500455 front 259)
+    )
+    (component "LED_SMD:LED_PLCC-2::1"
+      (place D2 1928549 -1067276 front 345)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::7
+      (place R6 1614368 -1450108 front 296)
+    )
+    (component "LED_SMD:LED_PLCC-2::2"
+      (place D17 1048996 -392371 front 120)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::8
+      (place R10 1015654 -1410866 front 236)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::9
+      (place R36 953388 -1363088 front 229)
+      (place R12 810872 -1177358 front 206)
+    )
+    (component "LED_SMD:LED_PLCC-2::3"
+      (place D18 1193704 -332431 front 105)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::10
+      (place R37 850114 -1245327 front 214)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::11
+      (place D34 872984 -1277241 front 218)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::12
+      (place R13 760525 -1029039 front 191)
+    )
+    (component "LED_SMD:LED_PLCC-2::4"
+      (place D5 1648994 -1431600 front 300)
+    )
+    (component "LED_SMD:LED_PLCC-2::5"
+      (place D24 1928549 -756694 front 15)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::13
+      (place R33 1388237 -1510699 front 274)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::14
+      (place R29 1887118 -1177358 front 334)
+    )
+    (component "LED_SMD:LED_PLCC-2::6"
+      (place D19 1348995 -311987 front 90)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::15
+      (place D31 1270679 -1506851 front 263)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::16
+      (place R51 1947709 -872744 front 4)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::17
+      (place R14 750281 -872744 front 176)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::18
+      (place D35 794668 -1141595 front 203)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::19
+      (place R7 1466049 -1500455 front 281)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::20
+      (place D33 983739 -1387996 front 233)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::21
+      (place D46 1825006 -546729 front 38)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::22
+      (place D43 1427311 -317120 front 83)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::23
+      (place D32 1119385 -1466312 front 248)
+    )
+    (component "LED_SMD:LED_PLCC-2::7"
+      (place D10 924732 -1336249 front 225)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::24
+      (place D39 872984 -546729 front 143)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::25
+      (place R32 1541858 -1480142 front 289)
+    )
+    (component "Package_DIP:DIP-16_W7.62mm_Socket::1"
+      (place U2 912522 -1002130 front 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::26
+      (place D44 1578605 -357659 front 68)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::27
+      (place R48 1744602 -460882 front 49)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::28
+      (place R9 1156132 -1480142 front 251)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::29
+      (place R11 897892 -1307592 front 221)
+    )
+    (component "LED_SMD:LED_PLCC-2::8"
+      (place D6 1504286 -1491540 front 285)
+    )
+    (component "LED_SMD:LED_PLCC-2::9"
+      (place D8 1193704 -1491540 front 255)
+    )
+    (component "LED_SMD:LED_PLCC-2::10"
+      (place D15 829381 -611986 front 150)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::30
+      (place R53 1266952 -563880 front 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::31
+      (place R30 1800098 -1307592 front 319)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::32
+      (place R5 1744602 -1363088 front 311)
+    )
+    (component "LED_SMD:LED_PLCC-2::11"
+      (place D3 1868609 -1211985 front 330)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::33
+      (place D28 1714251 -1387996 front 308)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::34
+      (place R49 1847876 -578644 front 34)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::35
+      (place R17 953388 -460882 front 131)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::36
+      (place R42 897892 -516379 front 139)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::37
+      (place R8 1309753 -1510699 front 266)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::38
+      (place R24 1800098 -516379 front 41)
+    )
+    (component "OptoDevice:Luna_NSL-32"
+      (place U5 1261364 -663752 front 0)
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+      (place R56 1296162 -1077214 front 0)
+    )
+    (component "LED_SMD:LED_PLCC-2::12"
+      (place D7 1348995 -1511984 front 270)
+    )
+    (component "LED_SMD:LED_PLCC-2::13"
+      (place D22 1773258 -487722 front 45)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::39
+      (place R22 1541858 -343828 front 71)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::40
+      (place D26 1903322 -1141595 front 338)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::41
+      (place D41 1119385 -357659 front 113)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::42
+      (place D30 1427311 -1506851 front 278)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::43
+      (place R40 760525 -794931 front 169)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::44
+      (place D47 1903322 -682376 front 23)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::45
+      (place R54 1372870 -564388 front 0)
+    )
+    (component "LED_SMD:LED_PLCC-2::14"
+      (place D23 1868609 -611986 front 30)
+    )
+    (component VoltageBooster:4PinConn
+      (place U4 1332484 -910844 front 0)
+    )
+    (component "LED_SMD:LED_PLCC-2::15"
+      (place D14 769441 -756694 front 165)
+    )
+    (component "LED_SMD:LED_PLCC-2::16"
+      (place D1 1948994 -911985 front 0)
+    )
+    (component Capacitor_THT:CP_Radial_D25.0mm_P10.00mm_SnapIn
+      (place C1 1747012 -960708 front 90)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::46
+      (place R43 1015654 -413105 front 124)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::47
+      (place R45 1309753 -313271 front 94)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::48
+      (place R26 1937465 -794931 front 11)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::49
+      (place D29 1578605 -1466312 front 293)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::50
+      (place R47 1614368 -373863 front 64)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::51
+      (place R3 1917152 -1104849 front 341)
+    )
+    (component "OptoDevice:Luna_NSL-32::1"
+      (place U6 1533652 -624282 front 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::52
+      (place D27 1825006 -1277241 front 323)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::53
+      (place R25 1887118 -646613 front 26)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::54
+      (place R38 780838 -1104849 front 199)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::55
+      (place R15 780838 -719122 front 161)
+    )
+    (component "LED_SMD:LED_PLCC-2::17"
+      (place D21 1648994 -392371 front 60)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::56
+      (place D42 1270679 -317120 front 98)
+    )
+    (component Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder
+      (place R52 1320546 -563372 front 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::57
+      (place R23 1682336 -413105 front 56)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::58
+      (place R21 1388237 -313271 front 86)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::59
+      (place R46 1466049 -323515 front 79)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::60
+      (place R16 850114 -578644 front 146)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::61
+      (place D25 1943861 -990301 front 353)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::62
+      (place R39 750281 -951227 front 184)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::63
+      (place D45 1714251 -435974 front 53)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::64
+      (place R31 1682336 -1410866 front 304)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::65
+      (place R2 1947709 -951227 front 356)
+      (place D48 1943861 -833670 front 8)
+    )
+    (component "LED_SMD:LED_PLCC-2::18"
+      (place D12 769441 -1067276 front 195)
+    )
+    (component "LED_SMD:LED_PLCC-2::19"
+      (place D20 1504286 -332431 front 75)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::66
+      (place R44 1156132 -343828 front 109)
+    )
+    (component "LED_SMD:LED_PLCC-2::20"
+      (place D4 1773258 -1336249 front 315)
+    )
+    (component "LED_SMD:LED_PLCC-2::21"
+      (place D13 748996 -911985 front 180)
+    )
+    (component "LED_SMD:LED_PLCC-2::22"
+      (place D9 1048996 -1431600 front 240)
+    )
+    (component "LED_SMD:LED_PLCC-2::23"
+      (place D16 924732 -487722 front 135)
+    )
+    (component 
+      (place U69 1837089 -430965 front 0)
+      (place U21 863942 -426982 front 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::67
+      (place D38 794668 -682376 front 158)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::68
+      (place D36 754129 -990301 front 188)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::69
+      (place R28 1937465 -1029039 front 349)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::70
+      (place R50 1917152 -719122 front 19)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::71
+      (place D37 754129 -833670 front 173)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::72
+      (place R4 1847876 -1245327 front 326)
+    )
+    (component "Package_DIP:DIP-16_W7.62mm_Socket::2"
+      (place U1 1256438 -1418490 front 90)
+    )
+    (component "Connector_TE-Connectivity:TE_MATE-N-LOK_1-770858-x_2x05_P4.14mm_Vertical"
+      (place J1 1038776 -828708 back 0)
+    )
+    (component "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal"
+      (place U7 1064434 -685908 back 270)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "(6.0.9)")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net "Net-(C1-Pad1)"
+        (wire
+          (path B.Cu 20000
+            1064434 -685908
+            1064430 -685908
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 20000
+            1272660 -685908
+            1064434 -685908
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 20000
+            1313430 -726682
+            1272660 -685908
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 20000
+            1747010 -960708
+            1688420 -960708
+            1592330 -864616
+            1592330 -739090
+            1539140 -685908
+            1272660 -685908
+          )
+          (type protect)
+        )
+      )
+      (net GND
+        (wire
+          (path F.Cu 20000
+            1261360 -625652
+            1261360 -573792
+            1251450 -563880
+          )
+          (type protect)
+        )
+      )
+      (net "Net-(D49-Pad1)"
+        (wire
+          (path F.Cu 20000
+            1430530 -726440
+            1430530 -657506
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1430530 -657506
+            1432050 -655982
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1064430 -635908
+            1184710 -756182
+            1455540 -756182
+            1485280 -726440
+            1485280 -812663
+            1592330 -919711
+            1592330 -966216
+          )
+          (type protect)
+        )
+      )
+      (net "12v"
+        (wire
+          (path B.Cu 20000
+            1432050 -630682
+            1407170 -605802
+            1059180 -605802
+            1038100 -626889
+            1038100 -726458
+            1117480 -805844
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1038780 -828708
+            1094620 -828708
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1094620 -828708
+            1117480 -805844
+          )
+          (type protect)
+        )
+      )
+      (net Kicker
+        (wire
+          (path F.Cu 2500
+            1383020 -590042
+            1408680 -590042
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2500
+            1414270 -584454
+            1414270 -565150
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2500
+            1357370 -564388
+            1383020 -590042
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2500
+            1408680 -590042
+            1414270 -584454
+          )
+          (type protect)
+        )
+      )
+      (net "Net-(Q1-Pad1)"
+        (wire
+          (path F.Cu 20000
+            1310550 -579634
+            1362960 -632052
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1258680 -726682
+            1353310 -632052
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1310550 -563372
+            1310550 -579634
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1353310 -632052
+            1362960 -632052
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1282450 -563880
+            1310040 -563880
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1310040 -563880
+            1310550 -563372
+          )
+          (type protect)
+        )
+      )
+      (net "48v"
+        (wire
+          (path F.Cu 20000
+            1362964 -657352
+            1371350 -657352
+            1398270 -630428
+            1359660 -591820
+            1353840 -591820
+            1332550 -570521
+            1332550 -563372
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1368180 -726682
+            1368180 -662572
+            1362960 -657352
+            1362964 -657352
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 20000
+            1368180 -726682
+            1368180 -836544
+            1547480 -1015840
+          )
+          (type protect)
+        )
+      )
+      (net "Net-(R54-Pad2)"
+        (wire
+          (path F.Cu 20000
+            1261360 -663752
+            1227890 -663752
+            1196340 -632206
+            1196340 -573278
+            1231140 -538480
+            1362460 -538480
+            1362720 -538734
+            1387600 -538734
+            1388370 -539502
+            1388370 -564388
+          )
+          (type protect)
+        )
+      )
+      (net "Net-(R55-Pad2)"
+        (wire
+          (path F.Cu 20000
+            1533650 -624282
+            1504400 -624282
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 20000
+            1504400 -624282
+            1445270 -565150
+          )
+          (type protect)
+        )
+      )
+    )
+  )
+)

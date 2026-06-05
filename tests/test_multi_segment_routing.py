@@ -8,9 +8,9 @@ for creating routing paths that avoid obstacles.
 import pytest
 from io import StringIO
 import sys
-from pcb_tool.commands import RouteCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board, Net, Component, Pad
+from pardal.commands import RouteCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board, Net, Component, Pad
 
 
 @pytest.fixture

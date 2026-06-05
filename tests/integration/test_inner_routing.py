@@ -16,11 +16,11 @@ from typing import Dict, List, Tuple
 # Add pardal-pcb to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from pcb_tool.data_model import Board, Net, Component, TraceSegment, Pad, Via, NetClass
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.pathfinder import PathFinder
-from pcb_tool.kicad_writer import KicadWriter
-from pcb_tool.footprint_library import get_footprint_pads
+from pardal.data_model import Board, Net, Component, TraceSegment, Pad, Via, NetClass
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.pathfinder import PathFinder
+from pardal.kicad_writer import KicadWriter
+from pardal.footprint_library import get_footprint_pads
 
 # Import from existing test infrastructure
 from tests.integration.test_routing_scenarios import DRCConfig, RoutingTestCase
@@ -246,7 +246,7 @@ class TestInnerLayerRouting:
 
     def test_6layer_board_support(self, tmp_path):
         """Test that 6-layer boards are supported."""
-        from pcb_tool.data_model import STANDARD_LAYER_STACKS
+        from pardal.data_model import STANDARD_LAYER_STACKS
 
         layers = STANDARD_LAYER_STACKS[6]
         assert len(layers) == 6

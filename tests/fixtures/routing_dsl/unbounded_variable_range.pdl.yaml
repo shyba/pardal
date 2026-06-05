@@ -1,0 +1,14 @@
+schema: pardal.routes
+version: 0.1
+board:
+  board_ir_id: dspic-dev-board-ir-v001
+  frozen_board_snapshot_id: dspic-dev-board-snapshot-v001
+route_groups:
+  - id: rg_unbounded_var
+    select:
+      nets: [TEST]
+    variables:
+      fanout_pitch:
+        start: 0mm
+        end: 4mm
+        step: 0.25mm

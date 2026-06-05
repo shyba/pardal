@@ -1,8 +1,8 @@
 # tests/test_netlist_reader.py
 import pytest
 from pathlib import Path
-from pcb_tool.netlist_reader import NetlistReader
-from pcb_tool.data_model import Board
+from pardal.netlist_reader import NetlistReader
+from pardal.data_model import Board
 
 # Sample KiCad netlist content for testing
 SAMPLE_NETLIST = """(export (version D)
@@ -148,6 +148,50 @@ def test_net_with_single_connection(sample_netlist_file):
     assert led_net.code == "3"
     assert len(led_net.connections) == 1
     assert ("U1", "19") in led_net.connections
+
+
+def test_multiline_quoted_nodes_are_parsed(tmp_path):
+    """Atopile emits quoted refs/pins in multiline node blocks."""
+    netlist_path = tmp_path / "quoted.net"
+    netlist_path.write_text(
+        """(export
+  (version "E")
+  (components
+    (comp
+      (ref "C1")
+      (value "C_0603")
+      (footprint "atopile:C_0603_1608Metric")
+    )
+    (comp
+      (ref "U1")
+      (value "MCU")
+      (footprint "atopile:TQFP-64_10x10mm_P0.5mm")
+    )
+  )
+  (nets
+    (net
+      (code 1)
+      (name "AVDD")
+      (node
+        (ref "C1")
+        (pin "1")
+      )
+      (node
+        (ref "U1")
+        (pin "11")
+      )
+    )
+  )
+)
+""",
+        encoding="utf-8",
+    )
+
+    board = NetlistReader().read(netlist_path)
+
+    assert board.components["C1"].footprint == "Capacitor_SMD:C_0603_1608Metric"
+    assert board.components["U1"].footprint == "Package_QFP:TQFP-64_10x10mm_P0.5mm"
+    assert board.nets["AVDD"].connections == [("C1", "1"), ("U1", "11")]
 
 
 def test_empty_netlist():

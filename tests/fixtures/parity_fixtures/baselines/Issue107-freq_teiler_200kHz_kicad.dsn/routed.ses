@@ -1,0 +1,258 @@
+(session "Issue107-freq_teiler_200kHz_kicad"
+  (base_design "Issue107-freq_teiler_200kHz_kicad")
+  (placement
+    (resolution um 10)
+    (component "AF_freq_teiler_200kHz_kicad:Drehschalter mit Winkel"
+      (place SW2 1158240 -1009650 front 0)
+    )
+    (component "Package_DIP:DIP-14_W7.62mm_Socket_LongPads"
+      (place U2 1549400 -806450 front 90)
+      (place U1 1377950 -643890 front 90)
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+      (place R20 1035050 -717550 front 0)
+      (place R1 1638300 -565150 front 270)
+      (place R3 1587500 -565150 front 270)
+      (place R4 825500 -1079500 front 180)
+      (place R5 1390650 -939800 front 90)
+      (place R6 787400 -939800 front 0)
+      (place R7 1187450 -387350 front 0)
+      (place R9 717550 -730250 front 0)
+      (place R11 1231900 -793750 front 180)
+      (place R13 1289050 -425450 front 180)
+      (place R16 933450 -863600 front 90)
+      (place R18 1263650 -793750 front 90)
+      (place R15 889000 -908050 front 180)
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal::1
+      (place "10k1" 831850 -539750 front 180)
+      (place R2 1397000 -796290 front 90)
+      (place R8 952500 -628650 front 270)
+      (place R10 831850 -577850 front 180)
+      (place R12 1231900 -463550 front 180)
+      (place R14 1517650 -444500 front 0)
+      (place R17 901700 -762000 front 180)
+      (place R19 1003300 -793750 front 0)
+      (place R21 1060450 -755650 front 0)
+      (place R22 1574800 -952500 front 90)
+    )
+    (component Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm
+      (place C1 1815210 -569214 front 0)
+      (place C2 1814960 -537083 front 0)
+      (place C4 1835150 -689229 front 180)
+      (place C6 1832740 -898400 front 180)
+      (place C9 2051050 -540766 front 0)
+      (place C11 2064130 -724281 front 180)
+      (place C13 2067430 -896870 front 180)
+      (place C15 2037330 -1030480 front 0)
+    )
+    (component Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm::1
+      (place C3 1836420 -721487 front 180)
+      (place C5 1832360 -930020 front 180)
+      (place C7 1802380 -1069210 front 0)
+      (place C8 1802380 -1031620 front 0)
+      (place C10 2051050 -573278 front 0)
+      (place C12 2064130 -692150 front 180)
+      (place C14 2068960 -929260 front 180)
+      (place C16 2038350 -1066800 front 0)
+    )
+    (component Capacitor_THT:C_Disc_D16.0mm_W5.0mm_P7.50mm
+      (place C18 849380 -469900 front 90)
+      (place C19 1059180 -477139 front 90)
+      (place C22 1498600 -730250 front 270)
+      (place C24 673100 -971550 front 270)
+    )
+    (component Capacitor_THT:C_Disc_D16.0mm_W5.0mm_P7.50mm::1
+      (place C21 1327150 -574040 front 270)
+      (place C23 673100 -793750 front 270)
+      (place C25 673100 -615950 front 270)
+      (place C26 1054100 -577850 front 270)
+    )
+    (component "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+      (place D1 933450 -1054100 front 270)
+    )
+    (component "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal::1"
+      (place D2 933450 -1158240 front 270)
+    )
+    (component "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
+      (place D5 889000 -547497 front 0)
+    )
+    (component "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal::1"
+      (place D6 753360 -406654 front 90)
+    )
+    (component "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal"
+      (place J1 1748160 -1126620 front 180)
+      (place J3 827020 -1127000 front 180)
+      (place J13 1485900 -1123950 front 180)
+    )
+    (component "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal::1"
+      (place J2 2008380 -1126740 front 180)
+    )
+    (component AF_freq_teiler_200kHz_kicad:Solf_Choke_Toroid_4x10mm_Vertical
+      (place L1 1875660 -603250 front 180)
+      (place L2 1854200 -863600 front 90)
+      (place L6 2004950 -1012700 front 0)
+    )
+    (component AF_freq_teiler_200kHz_kicad:Solf_Choke_Toroid_4x10mm_Vertical::1
+      (place L3 1767970 -1014220 front 0)
+      (place L4 2108200 -603250 front 180)
+      (place L5 2086100 -862080 front 90)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
+      (place SW1 1479550 -501650 front 90)
+    )
+    (component "Package_DIP:DIP-16_W7.62mm_Socket_LongPads"
+      (place U3 723900 -1047750 front 90)
+      (place U6 1104900 -654050 front 90)
+    )
+    (component "Package_DIP:DIP-16_W7.62mm_Socket_LongPads::1"
+      (place U4 723900 -869950 front 90)
+      (place U5 723900 -692150 front 90)
+    )
+    (component "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown"
+      (place U7 927860 -486664 front 0)
+    )
+    (component LED_THT:LED_D5.0mm
+      (place D3 1423100 -356600 front 0)
+    )
+    (component LED_THT:LED_D5.0mm::1
+      (place D4 1498100 -356600 front 0)
+    )
+    (component Capacitor_THT:CP_Radial_D6.3mm_P2.50mm
+      (place C17 753360 -469900 front 0)
+    )
+    (component Capacitor_THT:CP_Radial_D6.3mm_P2.50mm::1
+      (place C20 1065660 -316992 front 90)
+    )
+    (component Connector_Pin:Pin_D0.9mm_L10.0mm_W2.4mm_FlatFork
+      (place J4 1409700 -977900 front 180)
+      (place J5 933450 -933450 front 90)
+      (place J7 914400 -730250 front 0)
+      (place J10 990600 -723900 front 0)
+      (place J12 1479550 -920750 front 180)
+    )
+    (component Connector_Pin:Pin_D0.9mm_L10.0mm_W2.4mm_FlatFork::1
+      (place J6 933450 -895350 front 90)
+      (place J8 1301750 -793750 front 0)
+      (place J9 977900 -762000 front 0)
+      (place J11 1028700 -755650 front 0)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::1
+      (place J14 825500 -304800 front 90)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "(5.1.5)-3")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_1600:800_um"
+        (shape
+          (circle F.Cu 16000 0 0)
+        )
+        (shape
+          (circle B.Cu 16000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_1600:800_um"
+        (shape
+          (circle F.Cu 16000 0 0)
+        )
+        (shape
+          (circle B.Cu 16000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net VCC
+        (wire
+          (path B.Cu 2500
+            673100 -615950
+            723900 -615950
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            673100 -793750
+            723900 -793750
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            723900 -793750
+            717550 -787400
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            1498600 -730250
+            1549400 -730250
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            1054100 -577850
+            1104900 -577850
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            1327150 -574040
+            1371600 -574040
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            673100 -971550
+            723900 -971550
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            723900 -787400
+            730250 -793750
+          )
+          (type protect)
+        )
+        (wire
+          (path B.Cu 2500
+            723900 -615950
+            730250 -622300
+          )
+          (type protect)
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,98 @@
+{
+  "drc": {
+    "kicad_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T22:38:38+0000",
+      "kicad_version": "9.0.6",
+      "schematic_parity": [],
+      "source": "routed.kicad_pcb",
+      "unconnected_items": [],
+      "violations": [
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 106.68,
+                "y": 129.54
+              },
+              "uuid": "ebe70aac-18ab-4c9a-a12f-24947855381a"
+            },
+            {
+              "description": "Segment of J1 on F.Silkscreen",
+              "pos": {
+                "x": 102.8805,
+                "y": 71.5315
+              },
+              "uuid": "9680b06e-8bd5-49a6-9f23-ef9a640c5e60"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Silkscreen clipped by board edge",
+          "items": [
+            {
+              "description": "Segment on Edge.Cuts",
+              "pos": {
+                "x": 106.68,
+                "y": 129.54
+              },
+              "uuid": "ebe70aac-18ab-4c9a-a12f-24947855381a"
+            },
+            {
+              "description": "Segment of J1 on F.Silkscreen",
+              "pos": {
+                "x": 111.6805,
+                "y": 80.7315
+              },
+              "uuid": "5734c599-c465-44c2-80dc-aee5a5f975ea"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_edge_clearance"
+        },
+        {
+          "description": "Footprint 'PinHeader_1x06_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 167.64,
+                "y": 76.2
+              },
+              "uuid": "cd472c07-49b0-43d1-9768-94dd38b72eb4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        }
+      ]
+    },
+    "unconnected": 0,
+    "violations": 3
+  },
+  "fanout": true,
+  "fixture_id": "Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.kicad_pcb",
+  "fixture_relpath": "freerouting/tests/Issue269-NoViasOnPowerPlanes/Issue269-NoViasOnPowerPlanes.kicad_pcb",
+  "fixture_type": "kicad",
+  "generated_at_unix_s": 1769207905,
+  "hashes": {
+    "kicad_drc_sha256": "fcbae6d45e4b013f58232883c03b1cfb8ac1902453540a3db3b69b6410c7c223",
+    "routed_pcb_sha256": "985df6860363194688d4060a6b91fe4762cb4f97af6f5bad117201d63ae63150"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "kicad_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.kicad_pcb/kicad_drc.json",
+    "routed_pcb": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-NoViasOnPowerPlanes__Issue269-NoViasOnPowerPlanes.kicad_pcb/routed.kicad_pcb"
+  },
+  "runtime_s": 12.399668645986822,
+  "seed": 12345,
+  "strip_planes": false
+}

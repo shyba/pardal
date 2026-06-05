@@ -9,7 +9,7 @@ description = "A command-line PCB place & route tool with autorouting and DRC."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
-dependencies = ["z3-solver==4.12.6.0"]
+dependencies = ["PyYAML>=6.0", "z3-solver==4.12.6.0"]
 
 [project.optional-dependencies]
 dev = [
@@ -17,20 +17,19 @@ dev = [
 ]
 
 [project.scripts]
-pardal = "pcb_tool.cli:main"
-pcb-tool = "pcb_tool.__main__:main"
-pardal-finalize = "pcb_tool.finalize:main"
+pardal = "pardal.cli:main"
+pardal-finalize = "pardal.finalize:main"
 
 [tool.setuptools]
-packages = {find = {include = ["pcb_tool*"]}}
+packages = {find = {include = ["pardal*"]}}
 
 [tool.setuptools.dynamic]
-version = {attr = "pcb_tool.__version__"}
+version = {attr = "pardal.__version__"}
 
 [tool.black]
 target-version = ["py310"]
 line-length = 88
-extend-exclude = "(^venv/|^build/|^dist/|^\\.venv/|pcb_tool/fastpath/_astar\\.c$)"
+extend-exclude = "(^venv/|^build/|^dist/|^\\.venv/|pardal/fastpath/_astar\\.c$)"
 
 [tool.pytest.ini_options]
 markers = [

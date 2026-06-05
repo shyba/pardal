@@ -14,9 +14,9 @@ Solution: One net must route around the other
 """
 
 import pytest
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.z3_router import Z3Router, Z3RoutingConfig, RoutingError
-from pcb_tool.routing.multi_net_router import NetDefinition
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.z3_router import Z3Router, Z3RoutingConfig, RoutingError
+from pardal.routing.multi_net_router import NetDefinition
 
 
 class TestZ3PathContinuity:

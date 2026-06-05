@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from pcb_tool.kicad_render import Render3dOptions, render_3d_docker
+from pardal.kicad_render import Render3dOptions, render_3d_docker
 
 
 pytestmark = pytest.mark.slow

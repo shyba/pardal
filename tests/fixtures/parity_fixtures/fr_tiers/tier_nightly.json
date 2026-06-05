@@ -1,0 +1,5 @@
+[
+  "freerouting/tests/Issue184-motorizedopener/motorizedopener.kicad_pcb",
+  "examples/fpga/fpga_unrouted.kicad_pcb",
+  "examples/fpga_large/fpga_large_rust_strict_fast_0p2.kicad_pcb"
+]

@@ -18,8 +18,8 @@ Test Categories:
 
 import pytest
 import math
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.multi_net_router import MultiNetRouter, NetDefinition
 
 
 class TestDenseGridRouting:
@@ -761,7 +761,7 @@ class TestEdgeCases:
     def test_hairpin_turn(self):
         """Route trace that requires sharp hairpin turn."""
         grid = RoutingGrid(40.0, 40.0, resolution_mm=0.1)
-        from pcb_tool.routing.pathfinder import PathFinder
+        from pardal.routing.pathfinder import PathFinder
 
         finder = PathFinder(grid)
 

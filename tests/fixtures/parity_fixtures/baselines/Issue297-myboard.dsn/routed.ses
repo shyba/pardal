@@ -1,0 +1,198 @@
+(session "Issue297-myboard"
+  (base_design "Issue297-myboard")
+  (placement
+    (resolution um 10)
+    (component "easyeda2kicad:LED0603-RD"
+      (place U8 1428223 -1051917 front 250)
+    )
+    (component LED_THT:LED_D5.0mm_Horizontal_O6.35mm_Z15.0mm
+      (place D3 1562893 -968567 front 130)
+      (place D2 1350746 -923758 front 240)
+    )
+    (component "easyeda2kicad:LED0805-RD_GREEN"
+      (place LED3 1783223 -294917 front 65)
+    )
+    (component "easyeda2kicad:LED0805-RD_GREEN::1"
+      (place LED2 1223223 -512917 front 75)
+    )
+    (component Downloads:antenna
+      (place L1 1241223 -1131917 front 0)
+    )
+    (component "easyeda2kicad:LED-SMD_6P-L5.0-W5.0-TL"
+      (place LED5 1422566 -723110 front 5)
+    )
+    (component LOGO::1
+      (place G*** 1449223 -457917 front 0)
+    )
+    (component "easyeda2kicad:LED-SMD_6P-L5.0-W5.0-TL::1"
+      (place LED1 1692123 -824233 front 320)
+    )
+    (component "easyeda2kicad:SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BL"
+      (place U3 1098498 -1328417 back 180)
+    )
+    (component easyeda2kicad:C0201
+      (place C10 1613923 -407917 back 180)
+    )
+    (component easyeda2kicad:R0402
+      (place R7 1097223 -1247917 back 90)
+    )
+    (component "easyeda2kicad:SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR"
+      (place Q3 1032723 -1328417 back 90)
+    )
+    (component easyeda2kicad:R0603
+      (place R9 1429223 -1632917 back 270)
+    )
+    (component "easyeda2kicad:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+      (place Q2 1056223 -890917 back 90)
+      (place Q1 1353223 -1210917 back 90)
+    )
+    (component easyeda2kicad:C0402
+      (place C9 1380000 -1365500 back 270)
+      (place C13 1269401 -1183000 back 270)
+    )
+    (component easyeda2kicad:R0402::1
+      (place R3 1315523 -1545417 back 180)
+    )
+    (component easyeda2kicad:R0402::2
+      (place R4 1352220 -1365000 back 270)
+      (place R21 1271401 -1146000 back 270)
+      (place R5 1582000 -1250000 back 270)
+      (place R12 1533223 -373217 back 270)
+    )
+    (component easyeda2kicad:R0603::1
+      (place R2 1273223 -1521917 back 90)
+    )
+    (component "easyeda2kicad:HDR-TH_10P-P2.54-H-F-W10.0-N"
+      (place U9 1621348 -763917 back 90)
+      (place U6 1621223 -1049017 back 90)
+    )
+    (component Capacitor_SMD:C_0402_1005Metric
+      (place C6 1384223 -1405917 back 270)
+    )
+    (component Resistor_SMD:R_0402_1005Metric
+      (place R14 1325123 -1033917 back 180)
+    )
+    (component "easyeda2kicad:XQFN-8_L1.6-W1.6-P0.50-BL"
+      (place U1 1724223 -390417 back 180)
+    )
+    (component Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder
+      (place JP1 1141223 -1275892 back 270)
+      (place JP2 1141223 -1310892 back 270)
+    )
+    (component "easyeda2kicad:VSON-6_L1.5-W1.5-P0.50-TL"
+      (place U4 1355223 -1427717 back 90)
+    )
+    (component easyeda2kicad:C0603
+      (place C3 1352220 -1338000 back 0)
+      (place C8 1279401 -1090000 back 0)
+      (place C12 1279401 -1125000 back 0)
+      (place C11 1279401 -1107000 back 0)
+    )
+    (component "easyeda2kicad:QFN-20_L3.0-W3.0-P0.40-TL-EP1.7"
+      (place U7 1503000 -1251375 back 270)
+    )
+    (component "easyeda2kicad:IND-SMD_L2.0-W1.6"
+      (place Inductor1 1386223 -1457917 back 180)
+    )
+    (component LED_SMD:LED_0805_2012Metric
+      (place U5 1129223 -329917 back 180)
+    )
+    (component Resistor_SMD:R_0402_1005Metric::1
+      (place R15 1348223 -1033917 back 0)
+      (place R11 1295923 -1645917 back 0)
+    )
+    (component easyeda2kicad:R0603::2
+      (place R10 1430217 -1659484 back 0)
+    )
+    (component "easyeda2kicad:WIRELM-SMD_DL-LLCC68-S"
+      (place U10 1108723 -1018917 back 0)
+    )
+    (component "easyeda2kicad:IND-SMD_L2.0-W1.6::1"
+      (place Inductor2 1315223 -1487917 back 0)
+    )
+    (component "easyeda2kicad:BAT-SMD_MY-2032-12"
+      (place BT1 1150000 -1440000 back 0)
+      (place BT3 1570000 -1440000 back 0)
+    )
+    (component easyeda2kicad:C0603::1
+      (place C4 1325000 -1360000 back 90)
+      (place C1 1410223 -1431917 back 90)
+    )
+    (component easyeda2kicad:C0402::1
+      (place C2 1283223 -1484417 back 90)
+    )
+    (component "easyeda2kicad:SOD-523_L1.2-W0.8-LS1.6-RD"
+      (place D6 1238057 -1258998 back 180)
+    )
+    (component "easyeda2kicad:USB-C-SMD_HX-TYPE-C-6PIN-5A-143"
+      (place U12 1365223 -1614442 back 0)
+    )
+    (component Capacitor_SMD:C_0402_1005Metric::1
+      (place C5 1283500 -1249000 back 180)
+    )
+    (component Resistor_SMD:R_0402_1005Metric::2
+      (place R1 1655301 -1341256 back 90)
+    )
+    (component easyeda2kicad:R0402::3
+      (place U11 1306923 -1400917 back 0)
+    )
+    (component Resistor_SMD:R_0402_1005Metric::3
+      (place R16 1365223 -1030917 back 270)
+      (place R18 1072223 -395817 back 270)
+      (place R13 1140223 -395817 back 270)
+      (place R17 1309223 -1029017 back 270)
+    )
+    (component "easyeda2kicad:SOD-523_L1.2-W0.8-LS1.6-RD::1"
+      (place D4 1355000 -1320000 back 0)
+    )
+    (component "easyeda2kicad:CRYSTAL-SMD_4P-L3.2-W2.5-BL_SIT8008BI"
+      (place Y1 1280000 -1330000 back 270)
+    )
+    (component "easyeda2kicad:SOD-523_L1.2-W0.8-LS1.6-RD::2"
+      (place D5 1295223 -1617917 back 270)
+    )
+    (component "easyeda2kicad:LED0603-RD_GREEN"
+      (place LED4 1063223 -328917 back 180)
+    )
+    (component easyeda2kicad:R0805
+      (place R20 1289401 -1163000 back 270)
+    )
+    (component "easyeda2kicad:SOD-123_L2.8-W1.8-LS3.7-RD"
+      (place D1 1040498 -1179917 back 90)
+    )
+    (component "easyeda2kicad:SOT-563_L1.6-W1.2-P0.50-LS1.6-BR"
+      (place U2 1314223 -1525417 back 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "8.0.1")
+    )
+    (library_out 
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

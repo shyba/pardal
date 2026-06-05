@@ -1,0 +1,29 @@
+{
+  "suite": {
+    "allow_unpinned_mojo_cfg": true,
+    "kicad_drc_timeout_s": 300.0,
+    "no_cache": true
+  },
+  "defaults": {
+    "freerouting_capture_stderr": true,
+    "freerouting_capture_stdout": true,
+    "freerouting_enable_logging": true,
+    "freerouting_java_image": "eclipse-temurin:25-jre",
+    "freerouting_log_level": "INFO",
+    "freerouting_seed": 1,
+    "freerouting_trace_jsonl": "auto",
+    "freerouting_trace_max_events": 200000,
+    "freerouting_use_local_jar": "freerouting/build/libs/freerouting-executable.jar"
+  },
+  "cases": [
+    {
+      "name": "fpga_large_core",
+      "pcb": "examples/fpga_large/fpga_large_rust_strict_fast_0p2.kicad_pcb",
+      "freerouting_max_passes": 1,
+      "freerouting_job_timeout": "00:10:00",
+      "freerouting_trace_nets": "U1_B10,U1_B11,U1_C10,U1_R10",
+      "mojo_cfg": "examples/fpga_large/mojo_cfg_ncr_fast_keepouts_nooverlap.json",
+      "mojo_resolution": 0.2
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+schema: pardal.footprints/v1
+
+footprints:
+  gd32f310_lqfp32:
+    kind: kicad_mod
+    kicad: Package_QFP:LQFP-32_7x7mm_P0.8mm
+    path: GD32F310K8_LQFP32.kicad_mod
+    package: LQFP-32
+    pitch: 0.8 mm
+    courtyard_required: true
+    aliases:
+      - LQFP-32
+      - GD32F310K8T6
+    metadata:
+      body: 7x7mm

@@ -6,9 +6,9 @@ with support for wildcard pattern matching.
 """
 
 import pytest
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.pathfinder import PathFinder
-from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.pathfinder import PathFinder
+from pardal.routing.multi_net_router import MultiNetRouter, NetDefinition
 
 
 def test_per_net_via_cost_basic():

@@ -1,0 +1,5957 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:28:16.294062315-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue269-caniot-tiny-arm.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Trace [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1281.865,
+                "y": -687.86
+              },
+              "uuid": "652"
+            },
+            {
+              "description": "Trace [+3.3V]",
+              "pos": {
+                "x": 1274.935,
+                "y": -680.9325
+              },
+              "uuid": "1522"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1417.5,
+                "y": -626.75
+              },
+              "uuid": "271"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1413.68,
+                "y": -651.28
+              },
+              "uuid": "1048"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1366.42,
+                "y": -540.12
+              },
+              "uuid": "988"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1392.42,
+                "y": -540.12
+              },
+              "uuid": "1000"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1351.92,
+                "y": -604.62
+              },
+              "uuid": "1036"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1323.25,
+                "y": -607.5
+              },
+              "uuid": "255"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1392.42,
+                "y": -540.12
+              },
+              "uuid": "1000"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1407.5,
+                "y": -513.25
+              },
+              "uuid": "226"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1323.25,
+                "y": -607.5
+              },
+              "uuid": "255"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1291.92,
+                "y": -612.52
+              },
+              "uuid": "1060"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1075.678,
+                "y": -574.87
+              },
+              "uuid": "821"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1044.3,
+                "y": -580.32
+              },
+              "uuid": "615"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1168.5,
+                "y": -385.0
+              },
+              "uuid": "1084"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1135.38,
+                "y": -389.86
+              },
+              "uuid": "1108"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1366.42,
+                "y": -540.12
+              },
+              "uuid": "988"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1342.5,
+                "y": -513.25
+              },
+              "uuid": "239"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1584.3,
+                "y": -457.2
+              },
+              "uuid": "1024"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1622.74,
+                "y": -454.94
+              },
+              "uuid": "693"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1468.9,
+                "y": -636.7
+              },
+              "uuid": "1012"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1503.195,
+                "y": -661.0600000000001
+              },
+              "uuid": "1208"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1436.75,
+                "y": -607.5
+              },
+              "uuid": "208"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1468.9,
+                "y": -636.7
+              },
+              "uuid": "1012"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1291.92,
+                "y": -612.52
+              },
+              "uuid": "1060"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1247.4,
+                "y": -599.32
+              },
+              "uuid": "15"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1560.8,
+                "y": -641.35
+              },
+              "uuid": "1096"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1560.8,
+                "y": -584.2
+              },
+              "uuid": "1132"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1503.195,
+                "y": -661.0600000000001
+              },
+              "uuid": "1208"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1560.8,
+                "y": -641.35
+              },
+              "uuid": "1096"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1247.4,
+                "y": -599.32
+              },
+              "uuid": "15"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1247.4,
+                "y": -535.35
+              },
+              "uuid": "3"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1135.38,
+                "y": -389.86
+              },
+              "uuid": "1108"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1111.0,
+                "y": -330.0
+              },
+              "uuid": "1121"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1366.42,
+                "y": -540.12
+              },
+              "uuid": "988"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1351.92,
+                "y": -604.62
+              },
+              "uuid": "1036"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1417.5,
+                "y": -626.75
+              },
+              "uuid": "271"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1351.92,
+                "y": -604.62
+              },
+              "uuid": "1036"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1140.8,
+                "y": -470.5
+              },
+              "uuid": "591"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1135.38,
+                "y": -389.86
+              },
+              "uuid": "1108"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1530.49,
+                "y": -473.48
+              },
+              "uuid": "680"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1560.8,
+                "y": -584.2
+              },
+              "uuid": "1132"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [+3.3V] and Pin [+3.3V]",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1543.98,
+                "y": -777.265
+              },
+              "uuid": "666"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1503.195,
+                "y": -661.0600000000001
+              },
+              "uuid": "1208"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1082.265,
+                "y": -549.47
+              },
+              "uuid": "1451"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1075.678,
+                "y": -549.47
+              },
+              "uuid": "819"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1078.975,
+                "y": -536.77
+              },
+              "uuid": "1475"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1075.678,
+                "y": -536.77
+              },
+              "uuid": "818"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1562.4,
+                "y": -513.604
+              },
+              "uuid": "1506"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1622.74,
+                "y": -508.38
+              },
+              "uuid": "355"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Trace [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1622.74,
+                "y": -404.14
+              },
+              "uuid": "691"
+            },
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1631.125,
+                "y": -406.639
+              },
+              "uuid": "1471"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1075.678,
+                "y": -562.17
+              },
+              "uuid": "820"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1075.678,
+                "y": -549.47
+              },
+              "uuid": "819"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1075.678,
+                "y": -549.47
+              },
+              "uuid": "819"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1075.678,
+                "y": -536.77
+              },
+              "uuid": "818"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Trace [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1064.2505,
+                "y": -835.2495
+              },
+              "uuid": "868"
+            },
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1081.0,
+                "y": -827.625
+              },
+              "uuid": "1394"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1471.92,
+                "y": -592.37
+              },
+              "uuid": "977"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1471.92,
+                "y": -572.87
+              },
+              "uuid": "965"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1347.42,
+                "y": -540.12
+              },
+              "uuid": "989"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1347.5,
+                "y": -513.25
+              },
+              "uuid": "238"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1411.42,
+                "y": -540.12
+              },
+              "uuid": "1001"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -513.25
+              },
+              "uuid": "225"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1436.75,
+                "y": -552.5
+              },
+              "uuid": "219"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1411.42,
+                "y": -540.12
+              },
+              "uuid": "1001"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -626.75
+              },
+              "uuid": "270"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1432.68,
+                "y": -651.28
+              },
+              "uuid": "1049"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1323.25,
+                "y": -602.5
+              },
+              "uuid": "254"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1291.92,
+                "y": -593.52
+              },
+              "uuid": "1061"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1323.25,
+                "y": -602.5
+              },
+              "uuid": "254"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1351.92,
+                "y": -585.62
+              },
+              "uuid": "1037"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Trace [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1122.922,
+                "y": -536.77
+              },
+              "uuid": "817"
+            },
+            {
+              "description": "Trace [GND]",
+              "pos": {
+                "x": 1088.85,
+                "y": -543.12
+              },
+              "uuid": "1476"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1432.68,
+                "y": -651.28
+              },
+              "uuid": "1049"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1468.9,
+                "y": -655.7
+              },
+              "uuid": "1013"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1436.75,
+                "y": -552.5
+              },
+              "uuid": "219"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1471.92,
+                "y": -572.87
+              },
+              "uuid": "965"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1503.195,
+                "y": -680.0600000000001
+              },
+              "uuid": "1207"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1468.9,
+                "y": -655.7
+              },
+              "uuid": "1013"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1351.92,
+                "y": -585.62
+              },
+              "uuid": "1037"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1347.42,
+                "y": -540.12
+              },
+              "uuid": "989"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1621.79,
+                "y": -688.34
+              },
+              "uuid": "709"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1622.74,
+                "y": -744.5
+              },
+              "uuid": "336"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1468.9,
+                "y": -655.7
+              },
+              "uuid": "1013"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1471.92,
+                "y": -592.37
+              },
+              "uuid": "977"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1347.42,
+                "y": -540.12
+              },
+              "uuid": "989"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1411.42,
+                "y": -540.12
+              },
+              "uuid": "1001"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1218.8,
+                "y": -533.345
+              },
+              "uuid": "762"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1199.8,
+                "y": -599.57
+              },
+              "uuid": "746"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1279.25,
+                "y": -665.0
+              },
+              "uuid": "50"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1291.92,
+                "y": -593.52
+              },
+              "uuid": "1061"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1025.66,
+                "y": -480.0
+              },
+              "uuid": "376"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1075.678,
+                "y": -536.77
+              },
+              "uuid": "818"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1622.74,
+                "y": -508.38
+              },
+              "uuid": "355"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1565.3,
+                "y": -457.2
+              },
+              "uuid": "1025"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/NRST] and Pin [/NRST]",
+          "items": [
+            {
+              "description": "Pin [/NRST]",
+              "pos": {
+                "x": 1465.24,
+                "y": -841.6800000000001
+              },
+              "uuid": "556"
+            },
+            {
+              "description": "Pin [/NRST]",
+              "pos": {
+                "x": 1436.75,
+                "y": -577.5
+              },
+              "uuid": "214"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/NRST] and Pin [/NRST]",
+          "items": [
+            {
+              "description": "Pin [/NRST]",
+              "pos": {
+                "x": 1219.2,
+                "y": -415.0
+              },
+              "uuid": "169"
+            },
+            {
+              "description": "Pin [/NRST]",
+              "pos": {
+                "x": 1436.75,
+                "y": -577.5
+              },
+              "uuid": "214"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/HSE_IN] and Pin [/HSE_IN]",
+          "items": [
+            {
+              "description": "Pin [/HSE_IN]",
+              "pos": {
+                "x": 1471.92,
+                "y": -607.87
+              },
+              "uuid": "976"
+            },
+            {
+              "description": "Pin [/HSE_IN]",
+              "pos": {
+                "x": 1496.92,
+                "y": -604.52
+              },
+              "uuid": "310"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/HSE_OUT] and Pin [/HSE_OUT]",
+          "items": [
+            {
+              "description": "Pin [/HSE_OUT]",
+              "pos": {
+                "x": 1471.92,
+                "y": -557.37
+              },
+              "uuid": "964"
+            },
+            {
+              "description": "Pin [/HSE_OUT]",
+              "pos": {
+                "x": 1496.92,
+                "y": -555.72
+              },
+              "uuid": "311"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D1-K)] and Trace [Net-(D1-K)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D1-K)]",
+              "pos": {
+                "x": 1297.615,
+                "y": -687.86
+              },
+              "uuid": "651"
+            },
+            {
+              "description": "Trace [Net-(D1-K)]",
+              "pos": {
+                "x": 1297.56,
+                "y": -687.8025
+              },
+              "uuid": "1369"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U1-PB6)] and Trace [Net-(U1-PB6)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-PB6)]",
+              "pos": {
+                "x": 1172.705,
+                "y": -554.635
+              },
+              "uuid": "74"
+            },
+            {
+              "description": "Trace [Net-(U1-PB6)]",
+              "pos": {
+                "x": 1173.97,
+                "y": -553.365
+              },
+              "uuid": "1360"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U1-PB7)] and Trace [Net-(U1-PB7)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-PB7)]",
+              "pos": {
+                "x": 1172.705,
+                "y": -577.495
+              },
+              "uuid": "98"
+            },
+            {
+              "description": "Trace [Net-(U1-PB7)]",
+              "pos": {
+                "x": 1174.365,
+                "y": -579.1575
+              },
+              "uuid": "1351"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U1-PB7)] and Pin [Net-(U1-PB7)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-PB7)]",
+              "pos": {
+                "x": 1247.4,
+                "y": -581.07
+              },
+              "uuid": "14"
+            },
+            {
+              "description": "Pin [Net-(U1-PB7)]",
+              "pos": {
+                "x": 1392.5,
+                "y": -626.75
+              },
+              "uuid": "266"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/TIM1_CH2] and Pin [/TIM1_CH2]",
+          "items": [
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1521.945,
+                "y": -670.5600000000001
+              },
+              "uuid": "1209"
+            },
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1560.8,
+                "y": -673.1
+              },
+              "uuid": "1144"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/TIM1_CH2] and Pin [/TIM1_CH2]",
+          "items": [
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1521.945,
+                "y": -670.5600000000001
+              },
+              "uuid": "1209"
+            },
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -577.5
+              },
+              "uuid": "249"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/TIM1_CH2] and Pin [/TIM1_CH2]",
+          "items": [
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -577.5
+              },
+              "uuid": "249"
+            },
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1422.4,
+                "y": -355.6
+              },
+              "uuid": "1176"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U4-CANL)] and Trace [Net-(U4-CANL)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U4-CANL)]",
+              "pos": {
+                "x": 1026.395,
+                "y": -382.27
+              },
+              "uuid": "27"
+            },
+            {
+              "description": "Trace [Net-(U4-CANL)]",
+              "pos": {
+                "x": 1036.53,
+                "y": -392.40250000000003
+              },
+              "uuid": "1341"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(J5-Pin_2)] and Pin [Net-(J5-Pin_2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(J5-Pin_2)]",
+              "pos": {
+                "x": 1588.8,
+                "y": -673.1
+              },
+              "uuid": "1145"
+            },
+            {
+              "description": "Pin [Net-(J5-Pin_2)]",
+              "pos": {
+                "x": 1621.79,
+                "y": -662.94
+              },
+              "uuid": "710"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(J4-Pin_2)] and Pin [Net-(J4-Pin_2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(J4-Pin_2)]",
+              "pos": {
+                "x": 1168.4,
+                "y": -330.2
+              },
+              "uuid": "1157"
+            },
+            {
+              "description": "Pin [Net-(J4-Pin_2)]",
+              "pos": {
+                "x": 1139.0,
+                "y": -330.0
+              },
+              "uuid": "1120"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(J4-Pin_3)] and Pin [Net-(J4-Pin_3)]",
+          "items": [
+            {
+              "description": "Pin [Net-(J4-Pin_3)]",
+              "pos": {
+                "x": 1196.5,
+                "y": -385.0
+              },
+              "uuid": "1085"
+            },
+            {
+              "description": "Pin [Net-(J4-Pin_3)]",
+              "pos": {
+                "x": 1193.8,
+                "y": -355.6
+              },
+              "uuid": "1158"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(J8-Pin_1)] and Pin [Net-(J8-Pin_1)]",
+          "items": [
+            {
+              "description": "Pin [Net-(J8-Pin_1)]",
+              "pos": {
+                "x": 1135.38,
+                "y": -417.86
+              },
+              "uuid": "1109"
+            },
+            {
+              "description": "Pin [Net-(J8-Pin_1)]",
+              "pos": {
+                "x": 1168.4,
+                "y": -415.0
+              },
+              "uuid": "167"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(J2-Pin_4)] and Pin [Net-(J2-Pin_4)]",
+          "items": [
+            {
+              "description": "Pin [Net-(J2-Pin_4)]",
+              "pos": {
+                "x": 1622.74,
+                "y": -584.58
+              },
+              "uuid": "358"
+            },
+            {
+              "description": "Pin [Net-(J2-Pin_4)]",
+              "pos": {
+                "x": 1588.8,
+                "y": -584.2
+              },
+              "uuid": "1133"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/USB_D+] and Pin [/USB_D+]",
+          "items": [
+            {
+              "description": "Pin [/USB_D+]",
+              "pos": {
+                "x": 1249.68,
+                "y": -812.8000000000001
+              },
+              "uuid": "401"
+            },
+            {
+              "description": "Pin [/USB_D+]",
+              "pos": {
+                "x": 1323.25,
+                "y": -592.5
+              },
+              "uuid": "252"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/USB_D-] and Pin [/USB_D-]",
+          "items": [
+            {
+              "description": "Pin [/USB_D-]",
+              "pos": {
+                "x": 1323.25,
+                "y": -587.5
+              },
+              "uuid": "251"
+            },
+            {
+              "description": "Pin [/USB_D-]",
+              "pos": {
+                "x": 1249.68,
+                "y": -799.8000000000001
+              },
+              "uuid": "403"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/SWCLK] and Pin [/SWCLK]",
+          "items": [
+            {
+              "description": "Pin [/SWCLK]",
+              "pos": {
+                "x": 1622.74,
+                "y": -533.78
+              },
+              "uuid": "356"
+            },
+            {
+              "description": "Pin [/SWCLK]",
+              "pos": {
+                "x": 1342.5,
+                "y": -626.75
+              },
+              "uuid": "256"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/SWDIO] and Pin [/SWDIO]",
+          "items": [
+            {
+              "description": "Pin [/SWDIO]",
+              "pos": {
+                "x": 1622.74,
+                "y": -559.1800000000001
+              },
+              "uuid": "357"
+            },
+            {
+              "description": "Pin [/SWDIO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -597.5
+              },
+              "uuid": "253"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/GPIO_PC12] and Pin [/GPIO_PC12]",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC12]",
+              "pos": {
+                "x": 1362.5,
+                "y": -626.75
+              },
+              "uuid": "260"
+            },
+            {
+              "description": "Pin [/GPIO_PC12]",
+              "pos": {
+                "x": 1193.8,
+                "y": -330.2
+              },
+              "uuid": "1159"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/SP1_SCK] and Pin [/SP1_SCK]",
+          "items": [
+            {
+              "description": "Pin [/SP1_SCK]",
+              "pos": {
+                "x": 1372.5,
+                "y": -626.75
+              },
+              "uuid": "262"
+            },
+            {
+              "description": "Pin [/SP1_SCK]",
+              "pos": {
+                "x": 1219.2,
+                "y": -355.6
+              },
+              "uuid": "1160"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/GPIO_PC13] and Pin [/GPIO_PC13]",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC13]",
+              "pos": {
+                "x": 1219.2,
+                "y": -330.2
+              },
+              "uuid": "1161"
+            },
+            {
+              "description": "Pin [/GPIO_PC13]",
+              "pos": {
+                "x": 1436.75,
+                "y": -602.5
+              },
+              "uuid": "209"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/SPI1_MOSI] and Pin [/SPI1_MOSI]",
+          "items": [
+            {
+              "description": "Pin [/SPI1_MOSI]",
+              "pos": {
+                "x": 1244.6000000000001,
+                "y": -355.6
+              },
+              "uuid": "1162"
+            },
+            {
+              "description": "Pin [/SPI1_MOSI]",
+              "pos": {
+                "x": 1382.5,
+                "y": -626.75
+              },
+              "uuid": "264"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/GPIO_PC14] and Pin [/GPIO_PC14]",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC14]",
+              "pos": {
+                "x": 1244.6000000000001,
+                "y": -330.2
+              },
+              "uuid": "1163"
+            },
+            {
+              "description": "Pin [/GPIO_PC14]",
+              "pos": {
+                "x": 1436.75,
+                "y": -597.5
+              },
+              "uuid": "210"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/SP1_MISO] and Pin [/SP1_MISO]",
+          "items": [
+            {
+              "description": "Pin [/SP1_MISO]",
+              "pos": {
+                "x": 1377.5,
+                "y": -626.75
+              },
+              "uuid": "263"
+            },
+            {
+              "description": "Pin [/SP1_MISO]",
+              "pos": {
+                "x": 1270.0,
+                "y": -355.6
+              },
+              "uuid": "1164"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/GPIO_PC15] and Pin [/GPIO_PC15]",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC15]",
+              "pos": {
+                "x": 1436.75,
+                "y": -592.5
+              },
+              "uuid": "211"
+            },
+            {
+              "description": "Pin [/GPIO_PC15]",
+              "pos": {
+                "x": 1270.0,
+                "y": -330.2
+              },
+              "uuid": "1165"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/GPIO_PB2] and Pin [/GPIO_PB2]",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PB2]",
+              "pos": {
+                "x": 1362.5,
+                "y": -513.25
+              },
+              "uuid": "235"
+            },
+            {
+              "description": "Pin [/GPIO_PB2]",
+              "pos": {
+                "x": 1295.4,
+                "y": -355.6
+              },
+              "uuid": "1166"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/GPIO_PA10] and Pin [/GPIO_PA10]",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PA10]",
+              "pos": {
+                "x": 1323.25,
+                "y": -582.5
+              },
+              "uuid": "250"
+            },
+            {
+              "description": "Pin [/GPIO_PA10]",
+              "pos": {
+                "x": 1295.4,
+                "y": -330.2
+              },
+              "uuid": "1167"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC0] and Pin [/ADC0]",
+          "items": [
+            {
+              "description": "Pin [/ADC0]",
+              "pos": {
+                "x": 1320.8,
+                "y": -330.2
+              },
+              "uuid": "1169"
+            },
+            {
+              "description": "Pin [/ADC0]",
+              "pos": {
+                "x": 1436.75,
+                "y": -542.5
+              },
+              "uuid": "221"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/USART3_RTS] and Pin [/USART3_RTS]",
+          "items": [
+            {
+              "description": "Pin [/USART3_RTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -542.5
+              },
+              "uuid": "242"
+            },
+            {
+              "description": "Pin [/USART3_RTS]",
+              "pos": {
+                "x": 1346.2,
+                "y": -355.6
+              },
+              "uuid": "1170"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC1] and Pin [/ADC1]",
+          "items": [
+            {
+              "description": "Pin [/ADC1]",
+              "pos": {
+                "x": 1436.75,
+                "y": -537.5
+              },
+              "uuid": "222"
+            },
+            {
+              "description": "Pin [/ADC1]",
+              "pos": {
+                "x": 1346.2,
+                "y": -330.2
+              },
+              "uuid": "1171"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC2] and Pin [/ADC2]",
+          "items": [
+            {
+              "description": "Pin [/ADC2]",
+              "pos": {
+                "x": 1371.6000000000001,
+                "y": -330.2
+              },
+              "uuid": "1173"
+            },
+            {
+              "description": "Pin [/ADC2]",
+              "pos": {
+                "x": 1436.75,
+                "y": -532.5
+              },
+              "uuid": "223"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC3] and Pin [/ADC3]",
+          "items": [
+            {
+              "description": "Pin [/ADC3]",
+              "pos": {
+                "x": 1417.5,
+                "y": -513.25
+              },
+              "uuid": "224"
+            },
+            {
+              "description": "Pin [/ADC3]",
+              "pos": {
+                "x": 1397.0,
+                "y": -330.2
+              },
+              "uuid": "1175"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC4] and Pin [/ADC4]",
+          "items": [
+            {
+              "description": "Pin [/ADC4]",
+              "pos": {
+                "x": 1422.4,
+                "y": -330.2
+              },
+              "uuid": "1177"
+            },
+            {
+              "description": "Pin [/ADC4]",
+              "pos": {
+                "x": 1402.5,
+                "y": -513.25
+              },
+              "uuid": "227"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC5] and Pin [/ADC5]",
+          "items": [
+            {
+              "description": "Pin [/ADC5]",
+              "pos": {
+                "x": 1447.8,
+                "y": -330.2
+              },
+              "uuid": "1179"
+            },
+            {
+              "description": "Pin [/ADC5]",
+              "pos": {
+                "x": 1397.5,
+                "y": -513.25
+              },
+              "uuid": "228"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/I2C1_SDA] and Trace [/I2C1_SDA]",
+          "items": [
+            {
+              "description": "Pin [/I2C1_SDA]",
+              "pos": {
+                "x": 1122.922,
+                "y": -574.87
+              },
+              "uuid": "814"
+            },
+            {
+              "description": "Trace [/I2C1_SDA]",
+              "pos": {
+                "x": 1137.375,
+                "y": -574.87
+              },
+              "uuid": "1289"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/I2C1_SDA] and Pin [/I2C1_SDA]",
+          "items": [
+            {
+              "description": "Trace [/I2C1_SDA]",
+              "pos": {
+                "x": 1153.145,
+                "y": -576.1825
+              },
+              "uuid": "1288"
+            },
+            {
+              "description": "Pin [/I2C1_SDA]",
+              "pos": {
+                "x": 1154.455,
+                "y": -577.495
+              },
+              "uuid": "99"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/I2C1_SDA] and Trace [/I2C1_SDA]",
+          "items": [
+            {
+              "description": "Pin [/I2C1_SDA]",
+              "pos": {
+                "x": 1473.2,
+                "y": -355.6
+              },
+              "uuid": "1180"
+            },
+            {
+              "description": "Trace [/I2C1_SDA]",
+              "pos": {
+                "x": 1153.145,
+                "y": -576.1825
+              },
+              "uuid": "1288"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/I2C1_SDA] and Pin [/I2C1_SDA]",
+          "items": [
+            {
+              "description": "Pin [/I2C1_SDA]",
+              "pos": {
+                "x": 1473.2,
+                "y": -355.6
+              },
+              "uuid": "1180"
+            },
+            {
+              "description": "Pin [/I2C1_SDA]",
+              "pos": {
+                "x": 1622.74,
+                "y": -795.3000000000001
+              },
+              "uuid": "338"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/I2C1_SCL] and Trace [/I2C1_SCL]",
+          "items": [
+            {
+              "description": "Pin [/I2C1_SCL]",
+              "pos": {
+                "x": 1122.922,
+                "y": -562.17
+              },
+              "uuid": "815"
+            },
+            {
+              "description": "Trace [/I2C1_SCL]",
+              "pos": {
+                "x": 1134.92,
+                "y": -562.17
+              },
+              "uuid": "1281"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/I2C1_SCL] and Pin [/I2C1_SCL]",
+          "items": [
+            {
+              "description": "Trace [/I2C1_SCL]",
+              "pos": {
+                "x": 1150.69,
+                "y": -558.4025
+              },
+              "uuid": "1280"
+            },
+            {
+              "description": "Pin [/I2C1_SCL]",
+              "pos": {
+                "x": 1154.455,
+                "y": -554.635
+              },
+              "uuid": "75"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/I2C1_SCL] and Trace [/I2C1_SCL]",
+          "items": [
+            {
+              "description": "Pin [/I2C1_SCL]",
+              "pos": {
+                "x": 1498.6000000000001,
+                "y": -355.6
+              },
+              "uuid": "1182"
+            },
+            {
+              "description": "Trace [/I2C1_SCL]",
+              "pos": {
+                "x": 1150.69,
+                "y": -558.4025
+              },
+              "uuid": "1280"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/I2C1_SCL] and Pin [/I2C1_SCL]",
+          "items": [
+            {
+              "description": "Pin [/I2C1_SCL]",
+              "pos": {
+                "x": 1498.6000000000001,
+                "y": -355.6
+              },
+              "uuid": "1182"
+            },
+            {
+              "description": "Pin [/I2C1_SCL]",
+              "pos": {
+                "x": 1622.74,
+                "y": -769.9
+              },
+              "uuid": "337"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC7] and Pin [/ADC7]",
+          "items": [
+            {
+              "description": "Pin [/ADC7]",
+              "pos": {
+                "x": 1387.5,
+                "y": -513.25
+              },
+              "uuid": "230"
+            },
+            {
+              "description": "Pin [/ADC7]",
+              "pos": {
+                "x": 1498.6000000000001,
+                "y": -330.2
+              },
+              "uuid": "1183"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/USART4_RX] and Pin [/USART4_RX]",
+          "items": [
+            {
+              "description": "Pin [/USART4_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -626.75
+              },
+              "uuid": "259"
+            },
+            {
+              "description": "Pin [/USART4_RX]",
+              "pos": {
+                "x": 1524.0,
+                "y": -355.6
+              },
+              "uuid": "1184"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC9] and Pin [/ADC9]",
+          "items": [
+            {
+              "description": "Pin [/ADC9]",
+              "pos": {
+                "x": 1524.0,
+                "y": -330.2
+              },
+              "uuid": "1185"
+            },
+            {
+              "description": "Pin [/ADC9]",
+              "pos": {
+                "x": 1367.5,
+                "y": -513.25
+              },
+              "uuid": "234"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/USART4_TX] and Pin [/USART4_TX]",
+          "items": [
+            {
+              "description": "Pin [/USART4_TX]",
+              "pos": {
+                "x": 1549.4,
+                "y": -355.6
+              },
+              "uuid": "1186"
+            },
+            {
+              "description": "Pin [/USART4_TX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -626.75
+              },
+              "uuid": "258"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/ADC8] and Pin [/ADC8]",
+          "items": [
+            {
+              "description": "Pin [/ADC8]",
+              "pos": {
+                "x": 1549.4,
+                "y": -330.2
+              },
+              "uuid": "1187"
+            },
+            {
+              "description": "Pin [/ADC8]",
+              "pos": {
+                "x": 1372.5,
+                "y": -513.25
+              },
+              "uuid": "233"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/TIM3_CH3] and Pin [/TIM3_CH3]",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH3]",
+              "pos": {
+                "x": 1295.4,
+                "y": -415.0
+              },
+              "uuid": "172"
+            },
+            {
+              "description": "Pin [/TIM3_CH3]",
+              "pos": {
+                "x": 1323.25,
+                "y": -562.5
+              },
+              "uuid": "246"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/TIM3_CH4] and Pin [/TIM3_CH4]",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH4]",
+              "pos": {
+                "x": 1320.8,
+                "y": -415.0
+              },
+              "uuid": "173"
+            },
+            {
+              "description": "Pin [/TIM3_CH4]",
+              "pos": {
+                "x": 1323.25,
+                "y": -567.5
+              },
+              "uuid": "247"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/USER_BUTTON] and Pin [/USER_BUTTON]",
+          "items": [
+            {
+              "description": "Pin [/USER_BUTTON]",
+              "pos": {
+                "x": 1323.25,
+                "y": -532.5
+              },
+              "uuid": "240"
+            },
+            {
+              "description": "Pin [/USER_BUTTON]",
+              "pos": {
+                "x": 1371.6000000000001,
+                "y": -415.0
+              },
+              "uuid": "175"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/USER_BUTTON] and Pin [/USER_BUTTON]",
+          "items": [
+            {
+              "description": "Pin [/USER_BUTTON]",
+              "pos": {
+                "x": 1323.25,
+                "y": -532.5
+              },
+              "uuid": "240"
+            },
+            {
+              "description": "Pin [/USER_BUTTON]",
+              "pos": {
+                "x": 1290.0,
+                "y": -859.125
+              },
+              "uuid": "62"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/SW_BOOT0] and Pin [/SW_BOOT0]",
+          "items": [
+            {
+              "description": "Pin [/SW_BOOT0]",
+              "pos": {
+                "x": 1622.74,
+                "y": -429.54
+              },
+              "uuid": "692"
+            },
+            {
+              "description": "Pin [/SW_BOOT0]",
+              "pos": {
+                "x": 1583.925,
+                "y": -431.8
+              },
+              "uuid": "1072"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(J10-Pin_2)] and Trace [Net-(J10-Pin_2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(J10-Pin_2)]",
+              "pos": {
+                "x": 1008.145,
+                "y": -382.27
+              },
+              "uuid": "26"
+            },
+            {
+              "description": "Trace [Net-(J10-Pin_2)]",
+              "pos": {
+                "x": 1008.02,
+                "y": -382.145
+              },
+              "uuid": "1257"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(U1-BOOT0)] and Pin [Net-(U1-BOOT0)]",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-BOOT0)]",
+              "pos": {
+                "x": 1397.5,
+                "y": -626.75
+              },
+              "uuid": "267"
+            },
+            {
+              "description": "Pin [Net-(U1-BOOT0)]",
+              "pos": {
+                "x": 1565.675,
+                "y": -431.8
+              },
+              "uuid": "1073"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/USER_LED] and Pin [/USER_LED]",
+          "items": [
+            {
+              "description": "Pin [/USER_LED]",
+              "pos": {
+                "x": 1323.25,
+                "y": -547.5
+              },
+              "uuid": "243"
+            },
+            {
+              "description": "Pin [/USER_LED]",
+              "pos": {
+                "x": 1495.72,
+                "y": -776.015
+              },
+              "uuid": "86"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/CAN_RX] and Pin [/CAN_RX]",
+          "items": [
+            {
+              "description": "Pin [/CAN_RX]",
+              "pos": {
+                "x": 1402.5,
+                "y": -626.75
+              },
+              "uuid": "268"
+            },
+            {
+              "description": "Pin [/CAN_RX]",
+              "pos": {
+                "x": 1102.55,
+                "y": -470.25
+              },
+              "uuid": "455"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/CAN_TX] and Pin [/CAN_TX]",
+          "items": [
+            {
+              "description": "Pin [/CAN_TX]",
+              "pos": {
+                "x": 1102.55,
+                "y": -489.75
+              },
+              "uuid": "452"
+            },
+            {
+              "description": "Pin [/CAN_TX]",
+              "pos": {
+                "x": 1407.5,
+                "y": -626.75
+              },
+              "uuid": "269"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(J5-Pin_3)] and Pin [Net-(J5-Pin_3)]",
+          "items": [
+            {
+              "description": "Pin [Net-(J5-Pin_3)]",
+              "pos": {
+                "x": 1621.79,
+                "y": -637.54
+              },
+              "uuid": "711"
+            },
+            {
+              "description": "Pin [Net-(J5-Pin_3)]",
+              "pos": {
+                "x": 1588.8,
+                "y": -641.35
+              },
+              "uuid": "1097"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": [
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [unconnected-(J1-ID-Pad4)] (expected: 2.0020 mm, actual: 2.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1222.95,
+                "y": -843.45
+              },
+              "uuid": "929"
+            },
+            {
+              "description": "Pin [unconnected-(J1-ID-Pad4)]",
+              "pos": {
+                "x": 1216.45,
+                "y": -843.45
+              },
+              "uuid": "928"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(J1-ID-Pad4)] and Pin [GND] (expected: 2.0020 mm, actual: 2.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(J1-ID-Pad4)]",
+              "pos": {
+                "x": 1216.45,
+                "y": -843.45
+              },
+              "uuid": "928"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1222.95,
+                "y": -843.45
+              },
+              "uuid": "929"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(J1-ID-Pad4)] and Pin [Net-(FL1-D+_OUT)] (expected: 2.0020 mm, actual: 2.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(J1-ID-Pad4)]",
+              "pos": {
+                "x": 1216.45,
+                "y": -843.45
+              },
+              "uuid": "928"
+            },
+            {
+              "description": "Pin [Net-(FL1-D+_OUT)]",
+              "pos": {
+                "x": 1209.95,
+                "y": -843.45
+              },
+              "uuid": "927"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(FL1-D+_OUT)] and Pin [unconnected-(J1-ID-Pad4)] (expected: 2.0020 mm, actual: 2.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(FL1-D+_OUT)]",
+              "pos": {
+                "x": 1209.95,
+                "y": -843.45
+              },
+              "uuid": "927"
+            },
+            {
+              "description": "Pin [unconnected-(J1-ID-Pad4)]",
+              "pos": {
+                "x": 1216.45,
+                "y": -843.45
+              },
+              "uuid": "928"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(FL1-D+_OUT)] and Pin [Net-(FL1-D-_OUT)] (expected: 2.0020 mm, actual: 2.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(FL1-D+_OUT)]",
+              "pos": {
+                "x": 1209.95,
+                "y": -843.45
+              },
+              "uuid": "927"
+            },
+            {
+              "description": "Pin [Net-(FL1-D-_OUT)]",
+              "pos": {
+                "x": 1203.45,
+                "y": -843.45
+              },
+              "uuid": "926"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(FL1-D-_OUT)] and Pin [Net-(FL1-D+_OUT)] (expected: 2.0020 mm, actual: 2.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(FL1-D-_OUT)]",
+              "pos": {
+                "x": 1203.45,
+                "y": -843.45
+              },
+              "uuid": "926"
+            },
+            {
+              "description": "Pin [Net-(FL1-D+_OUT)]",
+              "pos": {
+                "x": 1209.95,
+                "y": -843.45
+              },
+              "uuid": "927"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(FL1-D-_OUT)] and Pin [VBUS] (expected: 2.0020 mm, actual: 2.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(FL1-D-_OUT)]",
+              "pos": {
+                "x": 1203.45,
+                "y": -843.45
+              },
+              "uuid": "926"
+            },
+            {
+              "description": "Pin [VBUS]",
+              "pos": {
+                "x": 1196.95,
+                "y": -843.45
+              },
+              "uuid": "925"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VBUS] and Pin [Net-(FL1-D-_OUT)] (expected: 2.0020 mm, actual: 2.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VBUS]",
+              "pos": {
+                "x": 1196.95,
+                "y": -843.45
+              },
+              "uuid": "925"
+            },
+            {
+              "description": "Pin [Net-(FL1-D-_OUT)]",
+              "pos": {
+                "x": 1203.45,
+                "y": -843.45
+              },
+              "uuid": "926"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1097.7505,
+                "y": -835.2495
+              },
+              "uuid": "871"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1081.0005,
+                "y": -819.9995
+              },
+              "uuid": "869"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1097.7505,
+                "y": -804.7495
+              },
+              "uuid": "870"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1081.0005,
+                "y": -819.9995
+              },
+              "uuid": "869"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1081.0005,
+                "y": -819.9995
+              },
+              "uuid": "869"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1097.7505,
+                "y": -835.2495
+              },
+              "uuid": "871"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1081.0005,
+                "y": -819.9995
+              },
+              "uuid": "869"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1097.7505,
+                "y": -804.7495
+              },
+              "uuid": "870"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1081.0005,
+                "y": -819.9995
+              },
+              "uuid": "869"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1064.2505,
+                "y": -835.2495
+              },
+              "uuid": "868"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1081.0005,
+                "y": -819.9995
+              },
+              "uuid": "869"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1064.2505,
+                "y": -804.7495
+              },
+              "uuid": "867"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1064.2505,
+                "y": -835.2495
+              },
+              "uuid": "868"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1081.0005,
+                "y": -819.9995
+              },
+              "uuid": "869"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [GND] (expected: 2.0020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1064.2505,
+                "y": -804.7495
+              },
+              "uuid": "867"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1081.0005,
+                "y": -819.9995
+              },
+              "uuid": "869"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U4-S-Pad8)] and Pin [Net-(J10-Pin_1)] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U4-S-Pad8)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -489.75
+              },
+              "uuid": "459"
+            },
+            {
+              "description": "Pin [Net-(J10-Pin_1)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -483.25
+              },
+              "uuid": "458"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(J10-Pin_1)] and Pin [unconnected-(U4-S-Pad8)] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(J10-Pin_1)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -483.25
+              },
+              "uuid": "458"
+            },
+            {
+              "description": "Pin [unconnected-(U4-S-Pad8)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -489.75
+              },
+              "uuid": "459"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(J10-Pin_1)] and Pin [Net-(U4-CANL)] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(J10-Pin_1)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -483.25
+              },
+              "uuid": "458"
+            },
+            {
+              "description": "Pin [Net-(U4-CANL)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -476.75
+              },
+              "uuid": "457"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(U4-CANL)] and Pin [Net-(J10-Pin_1)] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(U4-CANL)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -476.75
+              },
+              "uuid": "457"
+            },
+            {
+              "description": "Pin [Net-(J10-Pin_1)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -483.25
+              },
+              "uuid": "458"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(U4-CANL)] and Pin [unconnected-(U4-FAULT-Pad5)] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(U4-CANL)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -476.75
+              },
+              "uuid": "457"
+            },
+            {
+              "description": "Pin [unconnected-(U4-FAULT-Pad5)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -470.25
+              },
+              "uuid": "456"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U4-FAULT-Pad5)] and Pin [Net-(U4-CANL)] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U4-FAULT-Pad5)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -470.25
+              },
+              "uuid": "456"
+            },
+            {
+              "description": "Pin [Net-(U4-CANL)]",
+              "pos": {
+                "x": 1077.45,
+                "y": -476.75
+              },
+              "uuid": "457"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/CAN_RX] and Pin [+3.3V] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [/CAN_RX]",
+              "pos": {
+                "x": 1102.55,
+                "y": -470.25
+              },
+              "uuid": "455"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1102.55,
+                "y": -476.75
+              },
+              "uuid": "454"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3V] and Pin [/CAN_RX] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1102.55,
+                "y": -476.75
+              },
+              "uuid": "454"
+            },
+            {
+              "description": "Pin [/CAN_RX]",
+              "pos": {
+                "x": 1102.55,
+                "y": -470.25
+              },
+              "uuid": "455"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3V] and Pin [GND] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1102.55,
+                "y": -476.75
+              },
+              "uuid": "454"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1102.55,
+                "y": -483.25
+              },
+              "uuid": "453"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [+3.3V] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1102.55,
+                "y": -483.25
+              },
+              "uuid": "453"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1102.55,
+                "y": -476.75
+              },
+              "uuid": "454"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [/CAN_TX] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1102.55,
+                "y": -483.25
+              },
+              "uuid": "453"
+            },
+            {
+              "description": "Pin [/CAN_TX]",
+              "pos": {
+                "x": 1102.55,
+                "y": -489.75
+              },
+              "uuid": "452"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/CAN_TX] and Pin [GND] (expected: 2.0020 mm, actual: 1.6980 mm)",
+          "items": [
+            {
+              "description": "Pin [/CAN_TX]",
+              "pos": {
+                "x": 1102.55,
+                "y": -489.75
+              },
+              "uuid": "452"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1102.55,
+                "y": -483.25
+              },
+              "uuid": "453"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3V] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1417.5,
+                "y": -626.75
+              },
+              "uuid": "271"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -626.75
+              },
+              "uuid": "270"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [+3.3V] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -626.75
+              },
+              "uuid": "270"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1417.5,
+                "y": -626.75
+              },
+              "uuid": "271"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [/CAN_TX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -626.75
+              },
+              "uuid": "270"
+            },
+            {
+              "description": "Pin [/CAN_TX]",
+              "pos": {
+                "x": 1407.5,
+                "y": -626.75
+              },
+              "uuid": "269"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/CAN_TX] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/CAN_TX]",
+              "pos": {
+                "x": 1407.5,
+                "y": -626.75
+              },
+              "uuid": "269"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -626.75
+              },
+              "uuid": "270"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/CAN_TX] and Pin [/CAN_RX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/CAN_TX]",
+              "pos": {
+                "x": 1407.5,
+                "y": -626.75
+              },
+              "uuid": "269"
+            },
+            {
+              "description": "Pin [/CAN_RX]",
+              "pos": {
+                "x": 1402.5,
+                "y": -626.75
+              },
+              "uuid": "268"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/CAN_RX] and Pin [/CAN_TX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/CAN_RX]",
+              "pos": {
+                "x": 1402.5,
+                "y": -626.75
+              },
+              "uuid": "268"
+            },
+            {
+              "description": "Pin [/CAN_TX]",
+              "pos": {
+                "x": 1407.5,
+                "y": -626.75
+              },
+              "uuid": "269"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/CAN_RX] and Pin [Net-(U1-BOOT0)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/CAN_RX]",
+              "pos": {
+                "x": 1402.5,
+                "y": -626.75
+              },
+              "uuid": "268"
+            },
+            {
+              "description": "Pin [Net-(U1-BOOT0)]",
+              "pos": {
+                "x": 1397.5,
+                "y": -626.75
+              },
+              "uuid": "267"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(U1-BOOT0)] and Pin [/CAN_RX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-BOOT0)]",
+              "pos": {
+                "x": 1397.5,
+                "y": -626.75
+              },
+              "uuid": "267"
+            },
+            {
+              "description": "Pin [/CAN_RX]",
+              "pos": {
+                "x": 1402.5,
+                "y": -626.75
+              },
+              "uuid": "268"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(U1-BOOT0)] and Pin [Net-(U1-PB7)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-BOOT0)]",
+              "pos": {
+                "x": 1397.5,
+                "y": -626.75
+              },
+              "uuid": "267"
+            },
+            {
+              "description": "Pin [Net-(U1-PB7)]",
+              "pos": {
+                "x": 1392.5,
+                "y": -626.75
+              },
+              "uuid": "266"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(U1-PB7)] and Pin [Net-(U1-BOOT0)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-PB7)]",
+              "pos": {
+                "x": 1392.5,
+                "y": -626.75
+              },
+              "uuid": "266"
+            },
+            {
+              "description": "Pin [Net-(U1-BOOT0)]",
+              "pos": {
+                "x": 1397.5,
+                "y": -626.75
+              },
+              "uuid": "267"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(U1-PB7)] and Pin [Net-(U1-PB6)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-PB7)]",
+              "pos": {
+                "x": 1392.5,
+                "y": -626.75
+              },
+              "uuid": "266"
+            },
+            {
+              "description": "Pin [Net-(U1-PB6)]",
+              "pos": {
+                "x": 1387.5,
+                "y": -626.75
+              },
+              "uuid": "265"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(U1-PB6)] and Pin [Net-(U1-PB7)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-PB6)]",
+              "pos": {
+                "x": 1387.5,
+                "y": -626.75
+              },
+              "uuid": "265"
+            },
+            {
+              "description": "Pin [Net-(U1-PB7)]",
+              "pos": {
+                "x": 1392.5,
+                "y": -626.75
+              },
+              "uuid": "266"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(U1-PB6)] and Pin [/SPI1_MOSI] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(U1-PB6)]",
+              "pos": {
+                "x": 1387.5,
+                "y": -626.75
+              },
+              "uuid": "265"
+            },
+            {
+              "description": "Pin [/SPI1_MOSI]",
+              "pos": {
+                "x": 1382.5,
+                "y": -626.75
+              },
+              "uuid": "264"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SPI1_MOSI] and Pin [Net-(U1-PB6)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SPI1_MOSI]",
+              "pos": {
+                "x": 1382.5,
+                "y": -626.75
+              },
+              "uuid": "264"
+            },
+            {
+              "description": "Pin [Net-(U1-PB6)]",
+              "pos": {
+                "x": 1387.5,
+                "y": -626.75
+              },
+              "uuid": "265"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SPI1_MOSI] and Pin [/SP1_MISO] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SPI1_MOSI]",
+              "pos": {
+                "x": 1382.5,
+                "y": -626.75
+              },
+              "uuid": "264"
+            },
+            {
+              "description": "Pin [/SP1_MISO]",
+              "pos": {
+                "x": 1377.5,
+                "y": -626.75
+              },
+              "uuid": "263"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SP1_MISO] and Pin [/SPI1_MOSI] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SP1_MISO]",
+              "pos": {
+                "x": 1377.5,
+                "y": -626.75
+              },
+              "uuid": "263"
+            },
+            {
+              "description": "Pin [/SPI1_MOSI]",
+              "pos": {
+                "x": 1382.5,
+                "y": -626.75
+              },
+              "uuid": "264"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SP1_MISO] and Pin [/SP1_SCK] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SP1_MISO]",
+              "pos": {
+                "x": 1377.5,
+                "y": -626.75
+              },
+              "uuid": "263"
+            },
+            {
+              "description": "Pin [/SP1_SCK]",
+              "pos": {
+                "x": 1372.5,
+                "y": -626.75
+              },
+              "uuid": "262"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SP1_SCK] and Pin [/SP1_MISO] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SP1_SCK]",
+              "pos": {
+                "x": 1372.5,
+                "y": -626.75
+              },
+              "uuid": "262"
+            },
+            {
+              "description": "Pin [/SP1_MISO]",
+              "pos": {
+                "x": 1377.5,
+                "y": -626.75
+              },
+              "uuid": "263"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SP1_SCK] and Pin [/TIM3_ETR] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SP1_SCK]",
+              "pos": {
+                "x": 1372.5,
+                "y": -626.75
+              },
+              "uuid": "262"
+            },
+            {
+              "description": "Pin [/TIM3_ETR]",
+              "pos": {
+                "x": 1367.5,
+                "y": -626.75
+              },
+              "uuid": "261"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_ETR] and Pin [/SP1_SCK] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_ETR]",
+              "pos": {
+                "x": 1367.5,
+                "y": -626.75
+              },
+              "uuid": "261"
+            },
+            {
+              "description": "Pin [/SP1_SCK]",
+              "pos": {
+                "x": 1372.5,
+                "y": -626.75
+              },
+              "uuid": "262"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_ETR] and Pin [/GPIO_PC12] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_ETR]",
+              "pos": {
+                "x": 1367.5,
+                "y": -626.75
+              },
+              "uuid": "261"
+            },
+            {
+              "description": "Pin [/GPIO_PC12]",
+              "pos": {
+                "x": 1362.5,
+                "y": -626.75
+              },
+              "uuid": "260"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PC12] and Pin [/TIM3_ETR] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC12]",
+              "pos": {
+                "x": 1362.5,
+                "y": -626.75
+              },
+              "uuid": "260"
+            },
+            {
+              "description": "Pin [/TIM3_ETR]",
+              "pos": {
+                "x": 1367.5,
+                "y": -626.75
+              },
+              "uuid": "261"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PC12] and Pin [/USART4_RX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC12]",
+              "pos": {
+                "x": 1362.5,
+                "y": -626.75
+              },
+              "uuid": "260"
+            },
+            {
+              "description": "Pin [/USART4_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -626.75
+              },
+              "uuid": "259"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART4_RX] and Pin [/GPIO_PC12] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART4_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -626.75
+              },
+              "uuid": "259"
+            },
+            {
+              "description": "Pin [/GPIO_PC12]",
+              "pos": {
+                "x": 1362.5,
+                "y": -626.75
+              },
+              "uuid": "260"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART4_RX] and Pin [/USART4_TX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART4_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -626.75
+              },
+              "uuid": "259"
+            },
+            {
+              "description": "Pin [/USART4_TX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -626.75
+              },
+              "uuid": "258"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART4_TX] and Pin [/USART4_RX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART4_TX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -626.75
+              },
+              "uuid": "258"
+            },
+            {
+              "description": "Pin [/USART4_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -626.75
+              },
+              "uuid": "259"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART4_TX] and Pin [/GPIO_PA15] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART4_TX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -626.75
+              },
+              "uuid": "258"
+            },
+            {
+              "description": "Pin [/GPIO_PA15]",
+              "pos": {
+                "x": 1347.5,
+                "y": -626.75
+              },
+              "uuid": "257"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PA15] and Pin [/USART4_TX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PA15]",
+              "pos": {
+                "x": 1347.5,
+                "y": -626.75
+              },
+              "uuid": "257"
+            },
+            {
+              "description": "Pin [/USART4_TX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -626.75
+              },
+              "uuid": "258"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PA15] and Pin [/SWCLK] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PA15]",
+              "pos": {
+                "x": 1347.5,
+                "y": -626.75
+              },
+              "uuid": "257"
+            },
+            {
+              "description": "Pin [/SWCLK]",
+              "pos": {
+                "x": 1342.5,
+                "y": -626.75
+              },
+              "uuid": "256"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SWCLK] and Pin [/GPIO_PA15] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SWCLK]",
+              "pos": {
+                "x": 1342.5,
+                "y": -626.75
+              },
+              "uuid": "256"
+            },
+            {
+              "description": "Pin [/GPIO_PA15]",
+              "pos": {
+                "x": 1347.5,
+                "y": -626.75
+              },
+              "uuid": "257"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3V] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1323.25,
+                "y": -607.5
+              },
+              "uuid": "255"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1323.25,
+                "y": -602.5
+              },
+              "uuid": "254"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [+3.3V] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1323.25,
+                "y": -602.5
+              },
+              "uuid": "254"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1323.25,
+                "y": -607.5
+              },
+              "uuid": "255"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [/SWDIO] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1323.25,
+                "y": -602.5
+              },
+              "uuid": "254"
+            },
+            {
+              "description": "Pin [/SWDIO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -597.5
+              },
+              "uuid": "253"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SWDIO] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SWDIO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -597.5
+              },
+              "uuid": "253"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1323.25,
+                "y": -602.5
+              },
+              "uuid": "254"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/SWDIO] and Pin [/USB_D+] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/SWDIO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -597.5
+              },
+              "uuid": "253"
+            },
+            {
+              "description": "Pin [/USB_D+]",
+              "pos": {
+                "x": 1323.25,
+                "y": -592.5
+              },
+              "uuid": "252"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USB_D+] and Pin [/SWDIO] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USB_D+]",
+              "pos": {
+                "x": 1323.25,
+                "y": -592.5
+              },
+              "uuid": "252"
+            },
+            {
+              "description": "Pin [/SWDIO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -597.5
+              },
+              "uuid": "253"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USB_D+] and Pin [/USB_D-] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USB_D+]",
+              "pos": {
+                "x": 1323.25,
+                "y": -592.5
+              },
+              "uuid": "252"
+            },
+            {
+              "description": "Pin [/USB_D-]",
+              "pos": {
+                "x": 1323.25,
+                "y": -587.5
+              },
+              "uuid": "251"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USB_D-] and Pin [/USB_D+] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USB_D-]",
+              "pos": {
+                "x": 1323.25,
+                "y": -587.5
+              },
+              "uuid": "251"
+            },
+            {
+              "description": "Pin [/USB_D+]",
+              "pos": {
+                "x": 1323.25,
+                "y": -592.5
+              },
+              "uuid": "252"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USB_D-] and Pin [/GPIO_PA10] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USB_D-]",
+              "pos": {
+                "x": 1323.25,
+                "y": -587.5
+              },
+              "uuid": "251"
+            },
+            {
+              "description": "Pin [/GPIO_PA10]",
+              "pos": {
+                "x": 1323.25,
+                "y": -582.5
+              },
+              "uuid": "250"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PA10] and Pin [/USB_D-] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PA10]",
+              "pos": {
+                "x": 1323.25,
+                "y": -582.5
+              },
+              "uuid": "250"
+            },
+            {
+              "description": "Pin [/USB_D-]",
+              "pos": {
+                "x": 1323.25,
+                "y": -587.5
+              },
+              "uuid": "251"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PA10] and Pin [/TIM1_CH2] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PA10]",
+              "pos": {
+                "x": 1323.25,
+                "y": -582.5
+              },
+              "uuid": "250"
+            },
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -577.5
+              },
+              "uuid": "249"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM1_CH2] and Pin [/GPIO_PA10] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -577.5
+              },
+              "uuid": "249"
+            },
+            {
+              "description": "Pin [/GPIO_PA10]",
+              "pos": {
+                "x": 1323.25,
+                "y": -582.5
+              },
+              "uuid": "250"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM1_CH2] and Pin [/MCO] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -577.5
+              },
+              "uuid": "249"
+            },
+            {
+              "description": "Pin [/MCO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -572.5
+              },
+              "uuid": "248"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/MCO] and Pin [/TIM1_CH2] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/MCO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -572.5
+              },
+              "uuid": "248"
+            },
+            {
+              "description": "Pin [/TIM1_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -577.5
+              },
+              "uuid": "249"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/MCO] and Pin [/TIM3_CH4] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/MCO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -572.5
+              },
+              "uuid": "248"
+            },
+            {
+              "description": "Pin [/TIM3_CH4]",
+              "pos": {
+                "x": 1323.25,
+                "y": -567.5
+              },
+              "uuid": "247"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_CH4] and Pin [/MCO] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH4]",
+              "pos": {
+                "x": 1323.25,
+                "y": -567.5
+              },
+              "uuid": "247"
+            },
+            {
+              "description": "Pin [/MCO]",
+              "pos": {
+                "x": 1323.25,
+                "y": -572.5
+              },
+              "uuid": "248"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_CH4] and Pin [/TIM3_CH3] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH4]",
+              "pos": {
+                "x": 1323.25,
+                "y": -567.5
+              },
+              "uuid": "247"
+            },
+            {
+              "description": "Pin [/TIM3_CH3]",
+              "pos": {
+                "x": 1323.25,
+                "y": -562.5
+              },
+              "uuid": "246"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_CH3] and Pin [/TIM3_CH4] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH3]",
+              "pos": {
+                "x": 1323.25,
+                "y": -562.5
+              },
+              "uuid": "246"
+            },
+            {
+              "description": "Pin [/TIM3_CH4]",
+              "pos": {
+                "x": 1323.25,
+                "y": -567.5
+              },
+              "uuid": "247"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_CH3] and Pin [/TIM3_CH2] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH3]",
+              "pos": {
+                "x": 1323.25,
+                "y": -562.5
+              },
+              "uuid": "246"
+            },
+            {
+              "description": "Pin [/TIM3_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -557.5
+              },
+              "uuid": "245"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_CH2] and Pin [/TIM3_CH3] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -557.5
+              },
+              "uuid": "245"
+            },
+            {
+              "description": "Pin [/TIM3_CH3]",
+              "pos": {
+                "x": 1323.25,
+                "y": -562.5
+              },
+              "uuid": "246"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_CH2] and Pin [/TIM3_CH1] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -557.5
+              },
+              "uuid": "245"
+            },
+            {
+              "description": "Pin [/TIM3_CH1]",
+              "pos": {
+                "x": 1323.25,
+                "y": -552.5
+              },
+              "uuid": "244"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_CH1] and Pin [/TIM3_CH2] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH1]",
+              "pos": {
+                "x": 1323.25,
+                "y": -552.5
+              },
+              "uuid": "244"
+            },
+            {
+              "description": "Pin [/TIM3_CH2]",
+              "pos": {
+                "x": 1323.25,
+                "y": -557.5
+              },
+              "uuid": "245"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/TIM3_CH1] and Pin [/USER_LED] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/TIM3_CH1]",
+              "pos": {
+                "x": 1323.25,
+                "y": -552.5
+              },
+              "uuid": "244"
+            },
+            {
+              "description": "Pin [/USER_LED]",
+              "pos": {
+                "x": 1323.25,
+                "y": -547.5
+              },
+              "uuid": "243"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USER_LED] and Pin [/TIM3_CH1] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USER_LED]",
+              "pos": {
+                "x": 1323.25,
+                "y": -547.5
+              },
+              "uuid": "243"
+            },
+            {
+              "description": "Pin [/TIM3_CH1]",
+              "pos": {
+                "x": 1323.25,
+                "y": -552.5
+              },
+              "uuid": "244"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USER_LED] and Pin [/USART3_RTS] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USER_LED]",
+              "pos": {
+                "x": 1323.25,
+                "y": -547.5
+              },
+              "uuid": "243"
+            },
+            {
+              "description": "Pin [/USART3_RTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -542.5
+              },
+              "uuid": "242"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART3_RTS] and Pin [/USER_LED] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART3_RTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -542.5
+              },
+              "uuid": "242"
+            },
+            {
+              "description": "Pin [/USER_LED]",
+              "pos": {
+                "x": 1323.25,
+                "y": -547.5
+              },
+              "uuid": "243"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART3_RTS] and Pin [/USART3_CTS] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART3_RTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -542.5
+              },
+              "uuid": "242"
+            },
+            {
+              "description": "Pin [/USART3_CTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -537.5
+              },
+              "uuid": "241"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART3_CTS] and Pin [/USART3_RTS] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART3_CTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -537.5
+              },
+              "uuid": "241"
+            },
+            {
+              "description": "Pin [/USART3_RTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -542.5
+              },
+              "uuid": "242"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART3_CTS] and Pin [/USER_BUTTON] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART3_CTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -537.5
+              },
+              "uuid": "241"
+            },
+            {
+              "description": "Pin [/USER_BUTTON]",
+              "pos": {
+                "x": 1323.25,
+                "y": -532.5
+              },
+              "uuid": "240"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USER_BUTTON] and Pin [/USART3_CTS] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USER_BUTTON]",
+              "pos": {
+                "x": 1323.25,
+                "y": -532.5
+              },
+              "uuid": "240"
+            },
+            {
+              "description": "Pin [/USART3_CTS]",
+              "pos": {
+                "x": 1323.25,
+                "y": -537.5
+              },
+              "uuid": "241"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3V] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1342.5,
+                "y": -513.25
+              },
+              "uuid": "239"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1347.5,
+                "y": -513.25
+              },
+              "uuid": "238"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [+3.3V] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1347.5,
+                "y": -513.25
+              },
+              "uuid": "238"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1342.5,
+                "y": -513.25
+              },
+              "uuid": "239"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [/USART_RX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1347.5,
+                "y": -513.25
+              },
+              "uuid": "238"
+            },
+            {
+              "description": "Pin [/USART_RX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -513.25
+              },
+              "uuid": "237"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART_RX] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART_RX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -513.25
+              },
+              "uuid": "237"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1347.5,
+                "y": -513.25
+              },
+              "uuid": "238"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART_RX] and Pin [/USART_RX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART_RX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -513.25
+              },
+              "uuid": "237"
+            },
+            {
+              "description": "Pin [/USART_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -513.25
+              },
+              "uuid": "236"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART_RX] and Pin [/USART_RX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -513.25
+              },
+              "uuid": "236"
+            },
+            {
+              "description": "Pin [/USART_RX]",
+              "pos": {
+                "x": 1352.5,
+                "y": -513.25
+              },
+              "uuid": "237"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/USART_RX] and Pin [/GPIO_PB2] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/USART_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -513.25
+              },
+              "uuid": "236"
+            },
+            {
+              "description": "Pin [/GPIO_PB2]",
+              "pos": {
+                "x": 1362.5,
+                "y": -513.25
+              },
+              "uuid": "235"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PB2] and Pin [/USART_RX] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PB2]",
+              "pos": {
+                "x": 1362.5,
+                "y": -513.25
+              },
+              "uuid": "235"
+            },
+            {
+              "description": "Pin [/USART_RX]",
+              "pos": {
+                "x": 1357.5,
+                "y": -513.25
+              },
+              "uuid": "236"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PB2] and Pin [/ADC9] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PB2]",
+              "pos": {
+                "x": 1362.5,
+                "y": -513.25
+              },
+              "uuid": "235"
+            },
+            {
+              "description": "Pin [/ADC9]",
+              "pos": {
+                "x": 1367.5,
+                "y": -513.25
+              },
+              "uuid": "234"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC9] and Pin [/GPIO_PB2] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC9]",
+              "pos": {
+                "x": 1367.5,
+                "y": -513.25
+              },
+              "uuid": "234"
+            },
+            {
+              "description": "Pin [/GPIO_PB2]",
+              "pos": {
+                "x": 1362.5,
+                "y": -513.25
+              },
+              "uuid": "235"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC9] and Pin [/ADC8] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC9]",
+              "pos": {
+                "x": 1367.5,
+                "y": -513.25
+              },
+              "uuid": "234"
+            },
+            {
+              "description": "Pin [/ADC8]",
+              "pos": {
+                "x": 1372.5,
+                "y": -513.25
+              },
+              "uuid": "233"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC8] and Pin [/ADC9] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC8]",
+              "pos": {
+                "x": 1372.5,
+                "y": -513.25
+              },
+              "uuid": "233"
+            },
+            {
+              "description": "Pin [/ADC9]",
+              "pos": {
+                "x": 1367.5,
+                "y": -513.25
+              },
+              "uuid": "234"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC8] and Pin [unconnected-(U1-PC5-Pad25)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC8]",
+              "pos": {
+                "x": 1372.5,
+                "y": -513.25
+              },
+              "uuid": "233"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC5-Pad25)]",
+              "pos": {
+                "x": 1377.5,
+                "y": -513.25
+              },
+              "uuid": "232"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC5-Pad25)] and Pin [/ADC8] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC5-Pad25)]",
+              "pos": {
+                "x": 1377.5,
+                "y": -513.25
+              },
+              "uuid": "232"
+            },
+            {
+              "description": "Pin [/ADC8]",
+              "pos": {
+                "x": 1372.5,
+                "y": -513.25
+              },
+              "uuid": "233"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC5-Pad25)] and Pin [unconnected-(U1-PC4-Pad24)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC5-Pad25)]",
+              "pos": {
+                "x": 1377.5,
+                "y": -513.25
+              },
+              "uuid": "232"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC4-Pad24)]",
+              "pos": {
+                "x": 1382.5,
+                "y": -513.25
+              },
+              "uuid": "231"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC4-Pad24)] and Pin [unconnected-(U1-PC5-Pad25)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC4-Pad24)]",
+              "pos": {
+                "x": 1382.5,
+                "y": -513.25
+              },
+              "uuid": "231"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC5-Pad25)]",
+              "pos": {
+                "x": 1377.5,
+                "y": -513.25
+              },
+              "uuid": "232"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC4-Pad24)] and Pin [/ADC7] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC4-Pad24)]",
+              "pos": {
+                "x": 1382.5,
+                "y": -513.25
+              },
+              "uuid": "231"
+            },
+            {
+              "description": "Pin [/ADC7]",
+              "pos": {
+                "x": 1387.5,
+                "y": -513.25
+              },
+              "uuid": "230"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC7] and Pin [unconnected-(U1-PC4-Pad24)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC7]",
+              "pos": {
+                "x": 1387.5,
+                "y": -513.25
+              },
+              "uuid": "230"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC4-Pad24)]",
+              "pos": {
+                "x": 1382.5,
+                "y": -513.25
+              },
+              "uuid": "231"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC7] and Pin [/ADC6] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC7]",
+              "pos": {
+                "x": 1387.5,
+                "y": -513.25
+              },
+              "uuid": "230"
+            },
+            {
+              "description": "Pin [/ADC6]",
+              "pos": {
+                "x": 1392.5,
+                "y": -513.25
+              },
+              "uuid": "229"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC6] and Pin [/ADC7] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC6]",
+              "pos": {
+                "x": 1392.5,
+                "y": -513.25
+              },
+              "uuid": "229"
+            },
+            {
+              "description": "Pin [/ADC7]",
+              "pos": {
+                "x": 1387.5,
+                "y": -513.25
+              },
+              "uuid": "230"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC6] and Pin [/ADC5] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC6]",
+              "pos": {
+                "x": 1392.5,
+                "y": -513.25
+              },
+              "uuid": "229"
+            },
+            {
+              "description": "Pin [/ADC5]",
+              "pos": {
+                "x": 1397.5,
+                "y": -513.25
+              },
+              "uuid": "228"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC5] and Pin [/ADC6] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC5]",
+              "pos": {
+                "x": 1397.5,
+                "y": -513.25
+              },
+              "uuid": "228"
+            },
+            {
+              "description": "Pin [/ADC6]",
+              "pos": {
+                "x": 1392.5,
+                "y": -513.25
+              },
+              "uuid": "229"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC5] and Pin [/ADC4] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC5]",
+              "pos": {
+                "x": 1397.5,
+                "y": -513.25
+              },
+              "uuid": "228"
+            },
+            {
+              "description": "Pin [/ADC4]",
+              "pos": {
+                "x": 1402.5,
+                "y": -513.25
+              },
+              "uuid": "227"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC4] and Pin [/ADC5] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC4]",
+              "pos": {
+                "x": 1402.5,
+                "y": -513.25
+              },
+              "uuid": "227"
+            },
+            {
+              "description": "Pin [/ADC5]",
+              "pos": {
+                "x": 1397.5,
+                "y": -513.25
+              },
+              "uuid": "228"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC4] and Pin [+3.3V] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC4]",
+              "pos": {
+                "x": 1402.5,
+                "y": -513.25
+              },
+              "uuid": "227"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1407.5,
+                "y": -513.25
+              },
+              "uuid": "226"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3V] and Pin [/ADC4] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1407.5,
+                "y": -513.25
+              },
+              "uuid": "226"
+            },
+            {
+              "description": "Pin [/ADC4]",
+              "pos": {
+                "x": 1402.5,
+                "y": -513.25
+              },
+              "uuid": "227"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3V] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1407.5,
+                "y": -513.25
+              },
+              "uuid": "226"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -513.25
+              },
+              "uuid": "225"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [+3.3V] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -513.25
+              },
+              "uuid": "225"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1407.5,
+                "y": -513.25
+              },
+              "uuid": "226"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [/ADC3] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -513.25
+              },
+              "uuid": "225"
+            },
+            {
+              "description": "Pin [/ADC3]",
+              "pos": {
+                "x": 1417.5,
+                "y": -513.25
+              },
+              "uuid": "224"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC3] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC3]",
+              "pos": {
+                "x": 1417.5,
+                "y": -513.25
+              },
+              "uuid": "224"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1412.5,
+                "y": -513.25
+              },
+              "uuid": "225"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC2] and Pin [/ADC1] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC2]",
+              "pos": {
+                "x": 1436.75,
+                "y": -532.5
+              },
+              "uuid": "223"
+            },
+            {
+              "description": "Pin [/ADC1]",
+              "pos": {
+                "x": 1436.75,
+                "y": -537.5
+              },
+              "uuid": "222"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC1] and Pin [/ADC2] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC1]",
+              "pos": {
+                "x": 1436.75,
+                "y": -537.5
+              },
+              "uuid": "222"
+            },
+            {
+              "description": "Pin [/ADC2]",
+              "pos": {
+                "x": 1436.75,
+                "y": -532.5
+              },
+              "uuid": "223"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC1] and Pin [/ADC0] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC1]",
+              "pos": {
+                "x": 1436.75,
+                "y": -537.5
+              },
+              "uuid": "222"
+            },
+            {
+              "description": "Pin [/ADC0]",
+              "pos": {
+                "x": 1436.75,
+                "y": -542.5
+              },
+              "uuid": "221"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC0] and Pin [/ADC1] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC0]",
+              "pos": {
+                "x": 1436.75,
+                "y": -542.5
+              },
+              "uuid": "221"
+            },
+            {
+              "description": "Pin [/ADC1]",
+              "pos": {
+                "x": 1436.75,
+                "y": -537.5
+              },
+              "uuid": "222"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/ADC0] and Pin [+3.3VA] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/ADC0]",
+              "pos": {
+                "x": 1436.75,
+                "y": -542.5
+              },
+              "uuid": "221"
+            },
+            {
+              "description": "Pin [+3.3VA]",
+              "pos": {
+                "x": 1436.75,
+                "y": -547.5
+              },
+              "uuid": "220"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3VA] and Pin [/ADC0] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3VA]",
+              "pos": {
+                "x": 1436.75,
+                "y": -547.5
+              },
+              "uuid": "220"
+            },
+            {
+              "description": "Pin [/ADC0]",
+              "pos": {
+                "x": 1436.75,
+                "y": -542.5
+              },
+              "uuid": "221"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3VA] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3VA]",
+              "pos": {
+                "x": 1436.75,
+                "y": -547.5
+              },
+              "uuid": "220"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1436.75,
+                "y": -552.5
+              },
+              "uuid": "219"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [+3.3VA] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1436.75,
+                "y": -552.5
+              },
+              "uuid": "219"
+            },
+            {
+              "description": "Pin [+3.3VA]",
+              "pos": {
+                "x": 1436.75,
+                "y": -547.5
+              },
+              "uuid": "220"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Pin [unconnected-(U1-PC3-Pad11)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1436.75,
+                "y": -552.5
+              },
+              "uuid": "219"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC3-Pad11)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -557.5
+              },
+              "uuid": "218"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC3-Pad11)] and Pin [GND] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC3-Pad11)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -557.5
+              },
+              "uuid": "218"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1436.75,
+                "y": -552.5
+              },
+              "uuid": "219"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC3-Pad11)] and Pin [unconnected-(U1-PC2-Pad10)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC3-Pad11)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -557.5
+              },
+              "uuid": "218"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC2-Pad10)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -562.5
+              },
+              "uuid": "217"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC2-Pad10)] and Pin [unconnected-(U1-PC3-Pad11)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC2-Pad10)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -562.5
+              },
+              "uuid": "217"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC3-Pad11)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -557.5
+              },
+              "uuid": "218"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC2-Pad10)] and Pin [unconnected-(U1-PC1-Pad9)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC2-Pad10)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -562.5
+              },
+              "uuid": "217"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC1-Pad9)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -567.5
+              },
+              "uuid": "216"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC1-Pad9)] and Pin [unconnected-(U1-PC2-Pad10)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC1-Pad9)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -567.5
+              },
+              "uuid": "216"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC2-Pad10)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -562.5
+              },
+              "uuid": "217"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC1-Pad9)] and Pin [unconnected-(U1-PC0-Pad8)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC1-Pad9)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -567.5
+              },
+              "uuid": "216"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC0-Pad8)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -572.5
+              },
+              "uuid": "215"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC0-Pad8)] and Pin [unconnected-(U1-PC1-Pad9)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC0-Pad8)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -572.5
+              },
+              "uuid": "215"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC1-Pad9)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -567.5
+              },
+              "uuid": "216"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [unconnected-(U1-PC0-Pad8)] and Pin [/NRST] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [unconnected-(U1-PC0-Pad8)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -572.5
+              },
+              "uuid": "215"
+            },
+            {
+              "description": "Pin [/NRST]",
+              "pos": {
+                "x": 1436.75,
+                "y": -577.5
+              },
+              "uuid": "214"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/NRST] and Pin [unconnected-(U1-PC0-Pad8)] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/NRST]",
+              "pos": {
+                "x": 1436.75,
+                "y": -577.5
+              },
+              "uuid": "214"
+            },
+            {
+              "description": "Pin [unconnected-(U1-PC0-Pad8)]",
+              "pos": {
+                "x": 1436.75,
+                "y": -572.5
+              },
+              "uuid": "215"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/NRST] and Pin [/HSE_OUT] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/NRST]",
+              "pos": {
+                "x": 1436.75,
+                "y": -577.5
+              },
+              "uuid": "214"
+            },
+            {
+              "description": "Pin [/HSE_OUT]",
+              "pos": {
+                "x": 1436.75,
+                "y": -582.5
+              },
+              "uuid": "213"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/HSE_OUT] and Pin [/NRST] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/HSE_OUT]",
+              "pos": {
+                "x": 1436.75,
+                "y": -582.5
+              },
+              "uuid": "213"
+            },
+            {
+              "description": "Pin [/NRST]",
+              "pos": {
+                "x": 1436.75,
+                "y": -577.5
+              },
+              "uuid": "214"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/HSE_OUT] and Pin [/HSE_IN] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/HSE_OUT]",
+              "pos": {
+                "x": 1436.75,
+                "y": -582.5
+              },
+              "uuid": "213"
+            },
+            {
+              "description": "Pin [/HSE_IN]",
+              "pos": {
+                "x": 1436.75,
+                "y": -587.5
+              },
+              "uuid": "212"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/HSE_IN] and Pin [/HSE_OUT] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/HSE_IN]",
+              "pos": {
+                "x": 1436.75,
+                "y": -587.5
+              },
+              "uuid": "212"
+            },
+            {
+              "description": "Pin [/HSE_OUT]",
+              "pos": {
+                "x": 1436.75,
+                "y": -582.5
+              },
+              "uuid": "213"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/HSE_IN] and Pin [/GPIO_PC15] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/HSE_IN]",
+              "pos": {
+                "x": 1436.75,
+                "y": -587.5
+              },
+              "uuid": "212"
+            },
+            {
+              "description": "Pin [/GPIO_PC15]",
+              "pos": {
+                "x": 1436.75,
+                "y": -592.5
+              },
+              "uuid": "211"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PC15] and Pin [/HSE_IN] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC15]",
+              "pos": {
+                "x": 1436.75,
+                "y": -592.5
+              },
+              "uuid": "211"
+            },
+            {
+              "description": "Pin [/HSE_IN]",
+              "pos": {
+                "x": 1436.75,
+                "y": -587.5
+              },
+              "uuid": "212"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PC15] and Pin [/GPIO_PC14] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC15]",
+              "pos": {
+                "x": 1436.75,
+                "y": -592.5
+              },
+              "uuid": "211"
+            },
+            {
+              "description": "Pin [/GPIO_PC14]",
+              "pos": {
+                "x": 1436.75,
+                "y": -597.5
+              },
+              "uuid": "210"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PC14] and Pin [/GPIO_PC15] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC14]",
+              "pos": {
+                "x": 1436.75,
+                "y": -597.5
+              },
+              "uuid": "210"
+            },
+            {
+              "description": "Pin [/GPIO_PC15]",
+              "pos": {
+                "x": 1436.75,
+                "y": -592.5
+              },
+              "uuid": "211"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PC14] and Pin [/GPIO_PC13] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC14]",
+              "pos": {
+                "x": 1436.75,
+                "y": -597.5
+              },
+              "uuid": "210"
+            },
+            {
+              "description": "Pin [/GPIO_PC13]",
+              "pos": {
+                "x": 1436.75,
+                "y": -602.5
+              },
+              "uuid": "209"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PC13] and Pin [/GPIO_PC14] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC13]",
+              "pos": {
+                "x": 1436.75,
+                "y": -602.5
+              },
+              "uuid": "209"
+            },
+            {
+              "description": "Pin [/GPIO_PC14]",
+              "pos": {
+                "x": 1436.75,
+                "y": -597.5
+              },
+              "uuid": "210"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/GPIO_PC13] and Pin [+3.3V] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [/GPIO_PC13]",
+              "pos": {
+                "x": 1436.75,
+                "y": -602.5
+              },
+              "uuid": "209"
+            },
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1436.75,
+                "y": -607.5
+              },
+              "uuid": "208"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [+3.3V] and Pin [/GPIO_PC13] (expected: 2.0020 mm, actual: 1.9940 mm)",
+          "items": [
+            {
+              "description": "Pin [+3.3V]",
+              "pos": {
+                "x": 1436.75,
+                "y": -607.5
+              },
+              "uuid": "208"
+            },
+            {
+              "description": "Pin [/GPIO_PC13]",
+              "pos": {
+                "x": 1436.75,
+                "y": -602.5
+              },
+              "uuid": "209"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ]
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 109,
+    "violations": 148
+  },
+  "fanout": true,
+  "fixture_id": "Issue269-caniot-tiny-arm.dsn",
+  "fixture_relpath": "freerouting/tests/Issue269-caniot-tiny-arm.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207288,
+  "hashes": {
+    "board_statistics_sha256": "b48155180c797204f550243bf8225f5bbb7be874fa805b942c118e524bf62f5e",
+    "freerouting_drc_sha256": "5731fe1f49fa5f6dcb3b9feac28bf3b5da8fbab72443ce50073d5d7a6ca31d87",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "25d6a98743fbec5fff4ea0880c271f80a8f807d11ac49c6a7057ec1f6e1e8641"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-caniot-tiny-arm.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-caniot-tiny-arm.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-caniot-tiny-arm.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-caniot-tiny-arm.dsn/routed.ses"
+  },
+  "runtime_s": 8.091609542956576,
+  "seed": 12345,
+  "strip_planes": false
+}

@@ -16,10 +16,10 @@ from pathlib import Path
 # Add project to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from pcb_tool.board_builder import fpga_board
-from pcb_tool.routing_strategies import route_board
-from pcb_tool.kicad_writer import KicadWriter
-from pcb_tool.api import check_internal_drc, run_kicad_drc
+from pardal.board_builder import fpga_board
+from pardal.routing_strategies import route_board
+from pardal.kicad_writer import KicadWriter
+from pardal.api import check_internal_drc, run_kicad_drc
 
 
 def create_fpga_board():

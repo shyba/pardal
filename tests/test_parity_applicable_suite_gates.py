@@ -23,8 +23,8 @@ def test_parity_applicable_suite_policy_gates(tmp_path: Path) -> None:
     out_dir = repo_root / "build" / "pytest_parity_suite" / tmp_path.name / "applicable"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    tool = repo_root / "pcb_tool" / "tools" / "run_parity_suite.py"
-    policy_json = repo_root / "parity_fixtures" / "parity_gate_policy.json"
+    tool = repo_root / "pardal" / "tools" / "run_parity_suite.py"
+    policy_json = repo_root / "tests/fixtures/parity_fixtures" / "parity_gate_policy.json"
     assert tool.exists()
     assert policy_json.exists()
 

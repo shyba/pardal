@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from pcb_tool.tools.routes_json_to_ses import routes_to_ses
+from pardal.tools.routes_json_to_ses import routes_to_ses
 
 
 def test_routes_json_to_ses_writes_session(tmp_path: Path):

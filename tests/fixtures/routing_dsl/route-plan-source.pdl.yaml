@@ -1,0 +1,75 @@
+schema: pardal.routes
+version: 0.1
+board:
+  board_ir_id: board-ir-demo-v001
+  frozen_board_snapshot_id: board-snapshot-demo-v001
+
+defaults:
+  units:
+    length: mm
+  search:
+    candidate_order: lexical
+    max_candidates: 8
+  diagnostics:
+    emit_best_failed_candidate: true
+
+route_groups:
+  - id: rg_route_u1_to_j1
+    name: route_u1_to_j1
+    select:
+      nets: [SIG_A]
+      endpoints:
+        - ref: U1
+          pads: ["1"]
+        - ref: J1
+          pads: ["1"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: [In1.Cu]
+      corridors:
+        - id: obs-antenna
+          mode: hard
+      keepouts: []
+    replacement:
+      mode: scoped
+      nets: [SIG_A]
+      existing_route_groups: [rg_route_u1_to_j1]
+      allow_power: false
+      allow_planes: false
+      max_removed_segments: 4
+      max_removed_vias: 1
+    placement_moves:
+      - ref: J1
+        envelope:
+          dx: [-1.0mm, 1.0mm]
+          dy: [0.0mm, 0.0mm]
+        rotations: [0, 180]
+        required: false
+    variables:
+      fanout_side:
+        values: [west, east]
+      lane_order:
+        values:
+          - [1, 2]
+          - [2, 1]
+
+  - id: rg_route_bus
+    name: route_bus
+    select:
+      nets: [GND, VCC]
+      endpoints:
+        - ref: U1
+          pads: ["2"]
+    scope:
+      allowed_layers: [F.Cu, B.Cu]
+      forbidden_layers: []
+      corridors: []
+      keepouts:
+        - id: obs-antenna
+          mode: soft
+    variables:
+      bus_order:
+        values:
+          - [GND, VCC]
+          - [VCC, GND]
+

@@ -1,7 +1,7 @@
 # tests/test_data_model.py
 import pytest
 from pathlib import Path
-from pcb_tool.data_model import Board, Component, Net
+from pardal.data_model import Board, Component, Net
 
 
 def test_component_creation():

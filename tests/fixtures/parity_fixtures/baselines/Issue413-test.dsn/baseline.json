@@ -1,0 +1,68 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:30:56.606398034-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue413-test.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [N1] and Pin [N1]",
+          "items": [
+            {
+              "description": "Pin [N1]",
+              "pos": {
+                "x": 525.0,
+                "y": -3825.0
+              },
+              "uuid": "21"
+            },
+            {
+              "description": "Pin [N1]",
+              "pos": {
+                "x": 3025.0,
+                "y": -2525.0
+              },
+              "uuid": "14"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 1,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue413-test.dsn",
+  "fixture_relpath": "freerouting/tests/Issue413-test.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207454,
+  "hashes": {
+    "board_statistics_sha256": "348012000a4c078c509e1ccaaea466f67a32669597607cec43a7e4177b19d122",
+    "freerouting_drc_sha256": "20ebcb75b507fb188faaace03ad0a71d20ca542a62d221278532fcbe4a796100",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "631c1ab22b024425d3a79dc6532488567228744c31d20510ab340cc825e4e442"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue413-test.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue413-test.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue413-test.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue413-test.dsn/routed.ses"
+  },
+  "runtime_s": 2.5923594589694403,
+  "seed": 12345,
+  "strip_planes": false
+}

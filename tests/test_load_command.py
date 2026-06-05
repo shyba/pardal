@@ -1,8 +1,8 @@
 import pytest
 from pathlib import Path
-from pcb_tool.commands import LoadCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board
+from pardal.commands import LoadCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board
 
 # Sample netlist for testing
 SAMPLE_NETLIST = """(export (version D)

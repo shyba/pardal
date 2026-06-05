@@ -24,13 +24,13 @@ from dataclasses import dataclass, field
 # Add pardal-pcb to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from pcb_tool.data_model import Board, Net, Component, TraceSegment, Pad
-from pcb_tool.commands import MoveCommand
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.pathfinder import PathFinder
-from pcb_tool.routing.crossing_detector import CrossingDetector
-from pcb_tool.kicad_writer import KicadWriter
-from pcb_tool.footprint_library import get_footprint_pads
+from pardal.data_model import Board, Net, Component, TraceSegment, Pad
+from pardal.commands import MoveCommand
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.pathfinder import PathFinder
+from pardal.routing.crossing_detector import CrossingDetector
+from pardal.kicad_writer import KicadWriter
+from pardal.footprint_library import get_footprint_pads
 
 
 # =============================================================================

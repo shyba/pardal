@@ -1,0 +1,22 @@
+schema: pardal.project/v1
+requires-pardal: "^0.1.0"
+
+project:
+  type: board
+  name: gd32f310-12v-adc
+
+dependencies:
+  - type: file
+    path: ../packages/pardal-core
+  - type: file
+    path: ../packages/jlcpcb-lcsc
+  - type: file
+    path: ../packages/gd32f310-support
+
+builds:
+  default:
+    entry: boards/gd32f310_12v_adc.pardal.yaml
+    source_contract: contracts/gd32f310_12v_adc.contract.yaml
+    profiles:
+      - acme/gd32f310-support:gd32f310_adc_12v
+      - jlcpcb/lcsc:jlcpcb_smt

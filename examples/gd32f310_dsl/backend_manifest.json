@@ -1,0 +1,34 @@
+{
+  "backend": {
+    "id": "mojo",
+    "version": "1.0"
+  },
+  "capabilities": {
+    "clearance_mm": {
+      "max": 0.3,
+      "min": 0.1
+    },
+    "differential_pairs": false,
+    "keepouts": true,
+    "supported_layers": [
+      "F.Cu",
+      "In1.Cu",
+      "In2.Cu",
+      "B.Cu"
+    ],
+    "unsupported_features": [],
+    "vias": {
+      "max_count": 256,
+      "types": [
+        "through",
+        "blind",
+        "buried"
+      ]
+    },
+    "width_mm": {
+      "max": 0.5,
+      "min": 0.1
+    },
+    "zones": true
+  }
+}

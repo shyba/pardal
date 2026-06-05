@@ -17,7 +17,7 @@ def test_parity_fixture_issue269_min_fr_test_freerouting_only(tmp_path: Path):
     if not fixture_in.exists():
         pytest.skip("FreeRouting min_fr_test fixture not present")
 
-    tool = repo_root / "pcb_tool" / "tools" / "run_parity_fixture.py"
+    tool = repo_root / "pardal" / "tools" / "run_parity_fixture.py"
     assert tool.exists()
 
     out_dir = tmp_path / "out"

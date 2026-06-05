@@ -1,0 +1,137 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:20:04.882478837-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue110-testProjectFromFreeroutingBugTest.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [/\u0446\u0435\u043f\u044c] and Pin [/\u0446\u0435\u043f\u044c]",
+          "items": [
+            {
+              "description": "Pin [/\u0446\u0435\u043f\u044c]",
+              "pos": {
+                "x": 1599.1000000000001,
+                "y": -1069.5
+              },
+              "uuid": "11"
+            },
+            {
+              "description": "Pin [/\u0446\u0435\u043f\u044c]",
+              "pos": {
+                "x": 1308.0,
+                "y": -913.0
+              },
+              "uuid": "41"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/\u0446\u0435\u043b\u044c] and Pin [/\u0446\u0435\u043b\u044c]",
+          "items": [
+            {
+              "description": "Pin [/\u0446\u0435\u043b\u044c]",
+              "pos": {
+                "x": 1308.0,
+                "y": -938.4
+              },
+              "uuid": "42"
+            },
+            {
+              "description": "Pin [/\u0446\u0435\u043b\u044c]",
+              "pos": {
+                "x": 1599.1000000000001,
+                "y": -1044.1
+              },
+              "uuid": "12"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/\u0446\u0435\u043f\u044c1] and Pin [/\u0446\u0435\u043f\u044c1]",
+          "items": [
+            {
+              "description": "Pin [/\u0446\u0435\u043f\u044c1]",
+              "pos": {
+                "x": 1384.2,
+                "y": -938.4
+              },
+              "uuid": "47"
+            },
+            {
+              "description": "Pin [/\u0446\u0435\u043f\u044c1]",
+              "pos": {
+                "x": 1599.1000000000001,
+                "y": -917.1
+              },
+              "uuid": "17"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/\u0446\u0435\u043f\u044c2] and Pin [/\u0446\u0435\u043f\u044c2]",
+          "items": [
+            {
+              "description": "Pin [/\u0446\u0435\u043f\u044c2]",
+              "pos": {
+                "x": 1599.1000000000001,
+                "y": -1094.9
+              },
+              "uuid": "10"
+            },
+            {
+              "description": "Pin [/\u0446\u0435\u043f\u044c2]",
+              "pos": {
+                "x": 1384.2,
+                "y": -913.0
+              },
+              "uuid": "48"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 4,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue110-testProjectFromFreeroutingBugTest.dsn",
+  "fixture_relpath": "freerouting/tests/Issue110-testProjectFromFreeroutingBugTest.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769206802,
+  "hashes": {
+    "board_statistics_sha256": "61d98b0addd1397955d2d0894a3d6d730d3f773b8fd38600d86d41ac75c13d75",
+    "freerouting_drc_sha256": "d06f0ba2940617bef5614dd380fd8c86848e51c2d41593c6203c5259aeb36e77",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "360b46fcefa6b83cd5402569a019435407d6f3b04ca8d1bb7f56972694c675cf"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue110-testProjectFromFreeroutingBugTest.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue110-testProjectFromFreeroutingBugTest.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue110-testProjectFromFreeroutingBugTest.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue110-testProjectFromFreeroutingBugTest.dsn/routed.ses"
+  },
+  "runtime_s": 2.8799663549871184,
+  "seed": 12345,
+  "strip_planes": false
+}

@@ -6,8 +6,8 @@ the SHOW BOARD command is executed on a board with routing.
 """
 
 import pytest
-from pcb_tool.data_model import Board, Component, Net, TraceSegment, Via
-from pcb_tool.commands import ShowBoardCommand
+from pardal.data_model import Board, Component, Net, TraceSegment, Via
+from pardal.commands import ShowBoardCommand
 
 
 class TestGridVisualization:

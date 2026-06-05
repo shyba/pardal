@@ -1,0 +1,15 @@
+schema: pardal.routes
+version: 0.1
+board:
+  board_ir_id: dspic-dev-board-ir-v001
+  frozen_board_snapshot_id: dspic-dev-board-snapshot-v001
+route_groups:
+  - id: rg_bad_move
+    select:
+      nets: [TEST]
+    placement_moves:
+      - ref: J1
+        envelope:
+          dx: [-1.0, 1.0]
+          dy: [0mm, 2mm]
+        rotations: [0]

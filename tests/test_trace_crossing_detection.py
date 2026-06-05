@@ -6,8 +6,8 @@ detect when traces from different nets cross on the same layer.
 """
 
 import pytest
-from pcb_tool.commands import CheckDrcCommand
-from pcb_tool.data_model import Board, Net, Component, Pad, TraceSegment
+from pardal.commands import CheckDrcCommand
+from pardal.data_model import Board, Net, Component, Pad, TraceSegment
 
 
 @pytest.fixture

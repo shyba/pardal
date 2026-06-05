@@ -11,9 +11,9 @@ Tests include:
 
 import pytest
 from pathlib import Path
-from pcb_tool.repl import REPL
-from pcb_tool.data_model import Board, Net, Component, Pad, NetClass
-from pcb_tool.commands import (
+from pardal.repl import REPL
+from pardal.data_model import Board, Net, Component, Pad, NetClass
+from pardal.commands import (
     SetWidthCommand,
     SetLayersCommand,
     SetClearanceCommand,

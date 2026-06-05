@@ -1,5 +1,5 @@
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.pathfinder import PathFinder
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.pathfinder import PathFinder
 
 
 def test_fastpath_used_for_forced_single_layer():

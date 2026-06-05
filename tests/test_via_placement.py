@@ -7,8 +7,8 @@ and via count minimization algorithms.
 
 import pytest
 import math
-from pcb_tool.routing.grid import RoutingGrid, GridCell
-from pcb_tool.routing.via_placer import ViaPlacement
+from pardal.routing.grid import RoutingGrid, GridCell
+from pardal.routing.via_placer import ViaPlacement
 
 
 class TestViaPlacementInitialization:

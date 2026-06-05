@@ -8,8 +8,8 @@ Performance target: <60 seconds.
 import pytest
 import time
 from pathlib import Path
-from pcb_tool.repl import REPL
-from pcb_tool.data_model import Pad
+from pardal.repl import REPL
+from pardal.data_model import Pad
 
 
 @pytest.fixture

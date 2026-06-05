@@ -6,10 +6,10 @@ explicit routing order, and integrated via costs.
 """
 
 import pytest
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.multi_net_router import MultiNetRouter, NetDefinition
-from pcb_tool.routing.constraints import RoutingConstraints
-from pcb_tool.commands import AutoRouteCommand
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.multi_net_router import MultiNetRouter, NetDefinition
+from pardal.routing.constraints import RoutingConstraints
+from pardal.commands import AutoRouteCommand
 
 
 def test_must_route_constraint():

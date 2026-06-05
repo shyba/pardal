@@ -13,7 +13,7 @@ def test_mojo_precommit_shorts_blocks_unavoidable_crossing(tmp_path: Path):
         pytest.skip("pixi not available; skipping Mojo shorts precommit test")
 
     ee_root = Path(__file__).resolve().parents[2]
-    mojo_root = ee_root / "pardal-pcb" / "pardal_router_mojo"
+    mojo_root = ee_root / "pardal-pcb" / "routing" / "mojo_router"
     bin_path = mojo_root / "build" / "pardal-router-mojo"
     if not bin_path.exists():
         subprocess.run([pixi, "run", "bash", "build.sh"], cwd=mojo_root, check=True)
@@ -127,7 +127,7 @@ def test_mojo_precommit_shorts_blocks_unavoidable_crossing_fast_index(tmp_path: 
         pytest.skip("pixi not available; skipping Mojo shorts precommit test")
 
     ee_root = Path(__file__).resolve().parents[2]
-    mojo_root = ee_root / "pardal-pcb" / "pardal_router_mojo"
+    mojo_root = ee_root / "pardal-pcb" / "routing" / "mojo_router"
     bin_path = mojo_root / "build" / "pardal-router-mojo"
     if not bin_path.exists():
         subprocess.run([pixi, "run", "bash", "build.sh"], cwd=mojo_root, check=True)

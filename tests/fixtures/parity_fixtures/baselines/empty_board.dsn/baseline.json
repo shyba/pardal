@@ -1,0 +1,41 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T15:22:18.563002366-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "empty_board.dsn",
+      "unconnected_items": [],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 0,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "empty_board.dsn",
+  "fixture_relpath": "freerouting/tests/empty_board.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769192536,
+  "hashes": {
+    "board_statistics_sha256": "90ebae5abc094072dad215182fc6aadb1376d9f2c9558ecc592a1fdafce46907",
+    "freerouting_drc_sha256": "be5b4b933332f615b70aff3ba36acdf5d64fbe932c153f7c4659c101ebaa1ddb",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "max_passes": 50,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/empty_board.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/empty_board.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/empty_board.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/empty_board.dsn/routed.ses"
+  },
+  "runtime_s": 2.531347100972198,
+  "seed": 12345,
+  "strip_planes": false
+}

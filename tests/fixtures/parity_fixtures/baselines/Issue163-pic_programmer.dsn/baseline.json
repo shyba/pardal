@@ -1,0 +1,805 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:22:16.982223643-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue163-pic_programmer.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Trace [/PC-CLOCK-OUT] and Pin [/PC-CLOCK-OUT]",
+          "items": [
+            {
+              "description": "Trace [/PC-CLOCK-OUT]",
+              "pos": {
+                "x": 876.9350000000001,
+                "y": -1236.98
+              },
+              "uuid": "1299"
+            },
+            {
+              "description": "Pin [/PC-CLOCK-OUT]",
+              "pos": {
+                "x": 877.57,
+                "y": -1219.2
+              },
+              "uuid": "351"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/TXD] and Pin [/TXD]",
+          "items": [
+            {
+              "description": "Trace [/TXD]",
+              "pos": {
+                "x": 875.665,
+                "y": -1163.32
+              },
+              "uuid": "1304"
+            },
+            {
+              "description": "Pin [/TXD]",
+              "pos": {
+                "x": 876.3000000000001,
+                "y": -1145.54
+              },
+              "uuid": "441"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [Net-(C2-Pad1)] and Pin [Net-(C2-Pad1)]",
+          "items": [
+            {
+              "description": "Trace [Net-(C2-Pad1)]",
+              "pos": {
+                "x": 851.535,
+                "y": -806.45
+              },
+              "uuid": "1582"
+            },
+            {
+              "description": "Pin [Net-(C2-Pad1)]",
+              "pos": {
+                "x": 845.82,
+                "y": -901.7
+              },
+              "uuid": "103"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [VCC] and Trace [VCC]",
+          "items": [
+            {
+              "description": "Trace [VCC]",
+              "pos": {
+                "x": 1117.6000000000001,
+                "y": -1117.6000000000001
+              },
+              "uuid": "1398"
+            },
+            {
+              "description": "Trace [VCC]",
+              "pos": {
+                "x": 1089.025,
+                "y": -1117.6000000000001
+              },
+              "uuid": "1375"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [VCC] and Pin [VCC]",
+          "items": [
+            {
+              "description": "Trace [VCC]",
+              "pos": {
+                "x": 1247.775,
+                "y": -673.1
+              },
+              "uuid": "1397"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1257.3,
+                "y": -672.3000000000001
+              },
+              "uuid": "64"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Trace [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1476.07,
+                "y": -977.9
+              },
+              "uuid": "27"
+            },
+            {
+              "description": "Trace [VCC]",
+              "pos": {
+                "x": 1461.135,
+                "y": -977.9
+              },
+              "uuid": "1586"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Trace [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1079.5,
+                "y": -1182.3700000000001
+              },
+              "uuid": "1038"
+            },
+            {
+              "description": "Trace [VCC]",
+              "pos": {
+                "x": 1085.85,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1399"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VCC] and Trace [VCC]",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1079.5,
+                "y": -1118.8700000000001
+              },
+              "uuid": "990"
+            },
+            {
+              "description": "Trace [VCC]",
+              "pos": {
+                "x": 1089.025,
+                "y": -1117.6000000000001
+              },
+              "uuid": "1375"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [VPP] and Pin [VPP]",
+          "items": [
+            {
+              "description": "Pin [VPP]",
+              "pos": {
+                "x": 1371.6000000000001,
+                "y": -571.5
+              },
+              "uuid": "694"
+            },
+            {
+              "description": "Pin [VPP]",
+              "pos": {
+                "x": 1341.1200000000001,
+                "y": -622.3000000000001
+              },
+              "uuid": "1262"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/pic_sockets/VCC_PIC] and Trace [/pic_sockets/VCC_PIC]",
+          "items": [
+            {
+              "description": "Pin [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 2155.19,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1097"
+            },
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 2127.25,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1453"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D1-Pad2)] and Trace [Net-(D1-Pad2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D1-Pad2)]",
+              "pos": {
+                "x": 787.0,
+                "y": -673.0
+              },
+              "uuid": "659"
+            },
+            {
+              "description": "Trace [Net-(D1-Pad2)]",
+              "pos": {
+                "x": 832.485,
+                "y": -628.65
+              },
+              "uuid": "1460"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [Net-(D4-Pad2)] and Pin [Net-(D4-Pad2)]",
+          "items": [
+            {
+              "description": "Trace [Net-(D4-Pad2)]",
+              "pos": {
+                "x": 990.6,
+                "y": -1114.425
+              },
+              "uuid": "1467"
+            },
+            {
+              "description": "Pin [Net-(D4-Pad2)]",
+              "pos": {
+                "x": 1003.3000000000001,
+                "y": -1118.8700000000001
+              },
+              "uuid": "989"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [Net-(D4-Pad2)] and Pin [Net-(D4-Pad2)]",
+          "items": [
+            {
+              "description": "Trace [Net-(D4-Pad2)]",
+              "pos": {
+                "x": 1095.375,
+                "y": -1089.66
+              },
+              "uuid": "1466"
+            },
+            {
+              "description": "Pin [Net-(D4-Pad2)]",
+              "pos": {
+                "x": 1079.5,
+                "y": -1085.85
+              },
+              "uuid": "966"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Trace [/VPP/MCLR] and Pin [/VPP/MCLR]",
+          "items": [
+            {
+              "description": "Trace [/VPP/MCLR]",
+              "pos": {
+                "x": 2127.25,
+                "y": -1098.55
+              },
+              "uuid": "1483"
+            },
+            {
+              "description": "Pin [/VPP/MCLR]",
+              "pos": {
+                "x": 2078.9900000000002,
+                "y": -1155.7
+              },
+              "uuid": "1100"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/CLOCK-RB6] and Trace [/CLOCK-RB6]",
+          "items": [
+            {
+              "description": "Pin [/CLOCK-RB6]",
+              "pos": {
+                "x": 2155.19,
+                "y": -1231.9
+              },
+              "uuid": "1101"
+            },
+            {
+              "description": "Trace [/CLOCK-RB6]",
+              "pos": {
+                "x": 2162.175,
+                "y": -1231.9
+              },
+              "uuid": "1515"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [/DATA-RB7] and Trace [/DATA-RB7]",
+          "items": [
+            {
+              "description": "Pin [/DATA-RB7]",
+              "pos": {
+                "x": 2155.19,
+                "y": -1206.5
+              },
+              "uuid": "1099"
+            },
+            {
+              "description": "Trace [/DATA-RB7]",
+              "pos": {
+                "x": 2146.3,
+                "y": -1212.8500000000001
+              },
+              "uuid": "1533"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(D2-Pad2)] and Trace [Net-(D2-Pad2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(D2-Pad2)]",
+              "pos": {
+                "x": 1003.3000000000001,
+                "y": -1182.3700000000001
+              },
+              "uuid": "1037"
+            },
+            {
+              "description": "Trace [Net-(D2-Pad2)]",
+              "pos": {
+                "x": 990.6,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1562"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": [
+        {
+          "description": "Clearance violation between Trace [/pic_sockets/VCC_PIC] and Pin [VCC] (expected: 2.8020 mm, actual: 2.5000 mm)",
+          "items": [
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 1488.07,
+                "y": -985.07
+              },
+              "uuid": "1459"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1476.07,
+                "y": -977.9
+              },
+              "uuid": "27"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Trace [/pic_sockets/VCC_PIC] and Pin [VCC] (expected: 2.8020 mm, actual: 2.5000 mm)",
+          "items": [
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 1488.07,
+                "y": -982.16
+              },
+              "uuid": "1457"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1476.07,
+                "y": -977.9
+              },
+              "uuid": "27"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Trace [/pic_sockets/VCC_PIC] and Pin [GND] (expected: 2.8020 mm, actual: 2.7990 mm)",
+          "items": [
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 2074.5950000000003,
+                "y": -1193.8500000000001
+              },
+              "uuid": "1415"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 2078.9900000000002,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1098"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Trace [/pic_sockets/VCC_PIC] and Pin [GND] (expected: 2.8020 mm, actual: 2.7990 mm)",
+          "items": [
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 2074.5950000000003,
+                "y": -1193.8500000000001
+              },
+              "uuid": "1415"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 2078.9900000000002,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1098"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Trace [/pic_sockets/VCC_PIC] and Pin [GND] (expected: 2.8020 mm, actual: 2.8000 mm)",
+          "items": [
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 2074.5950000000003,
+                "y": -1193.8500000000001
+              },
+              "uuid": "1415"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 2078.9900000000002,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1098"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Trace [/CTS] and Pin [Net-(D4-Pad2)] (expected: 2.5020 mm, actual: 2.5000 mm)",
+          "items": [
+            {
+              "description": "Trace [/CTS]",
+              "pos": {
+                "x": 1014.75,
+                "y": -1130.3
+              },
+              "uuid": "1288"
+            },
+            {
+              "description": "Pin [Net-(D4-Pad2)]",
+              "pos": {
+                "x": 1003.3000000000001,
+                "y": -1118.8700000000001
+              },
+              "uuid": "989"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Trace [/CTS] and Pin [VCC] (expected: 2.8020 mm, actual: 2.8000 mm)",
+          "items": [
+            {
+              "description": "Trace [/CTS]",
+              "pos": {
+                "x": 1014.75,
+                "y": -1130.3
+              },
+              "uuid": "1288"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1079.5,
+                "y": -1118.8700000000001
+              },
+              "uuid": "990"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Trace [/pic_sockets/VCC_PIC] (expected: 2.8020 mm, actual: 2.7990 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 2078.9900000000002,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1098"
+            },
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 2074.5950000000003,
+                "y": -1193.8500000000001
+              },
+              "uuid": "1415"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Trace [/pic_sockets/VCC_PIC] (expected: 2.8020 mm, actual: 2.7990 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 2078.9900000000002,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1098"
+            },
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 2074.5950000000003,
+                "y": -1193.8500000000001
+              },
+              "uuid": "1415"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [GND] and Trace [/pic_sockets/VCC_PIC] (expected: 2.8020 mm, actual: 2.8000 mm)",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 2078.9900000000002,
+                "y": -1181.1000000000001
+              },
+              "uuid": "1098"
+            },
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 2074.5950000000003,
+                "y": -1193.8500000000001
+              },
+              "uuid": "1415"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VCC] and Trace [/CTS] (expected: 2.8020 mm, actual: 2.8000 mm)",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1079.5,
+                "y": -1118.8700000000001
+              },
+              "uuid": "990"
+            },
+            {
+              "description": "Trace [/CTS]",
+              "pos": {
+                "x": 1014.75,
+                "y": -1130.3
+              },
+              "uuid": "1288"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [Net-(D4-Pad2)] and Trace [/CTS] (expected: 2.5020 mm, actual: 2.5000 mm)",
+          "items": [
+            {
+              "description": "Pin [Net-(D4-Pad2)]",
+              "pos": {
+                "x": 1003.3000000000001,
+                "y": -1118.8700000000001
+              },
+              "uuid": "989"
+            },
+            {
+              "description": "Trace [/CTS]",
+              "pos": {
+                "x": 1014.75,
+                "y": -1130.3
+              },
+              "uuid": "1288"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [/pic_sockets/VCC_PIC] and Pin [VCC] (expected: 2.8020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 1487.32,
+                "y": -977.9
+              },
+              "uuid": "28"
+            },
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1476.07,
+                "y": -977.9
+              },
+              "uuid": "27"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VCC] and Trace [/pic_sockets/VCC_PIC] (expected: 2.8020 mm, actual: 2.5000 mm)",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1476.07,
+                "y": -977.9
+              },
+              "uuid": "27"
+            },
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 1488.07,
+                "y": -985.07
+              },
+              "uuid": "1459"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VCC] and Trace [/pic_sockets/VCC_PIC] (expected: 2.8020 mm, actual: 2.5000 mm)",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1476.07,
+                "y": -977.9
+              },
+              "uuid": "27"
+            },
+            {
+              "description": "Trace [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 1488.07,
+                "y": -982.16
+              },
+              "uuid": "1457"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        },
+        {
+          "description": "Clearance violation between Pin [VCC] and Pin [/pic_sockets/VCC_PIC] (expected: 2.8020 mm, actual: 0.0000 mm)",
+          "items": [
+            {
+              "description": "Pin [VCC]",
+              "pos": {
+                "x": 1476.07,
+                "y": -977.9
+              },
+              "uuid": "27"
+            },
+            {
+              "description": "Pin [/pic_sockets/VCC_PIC]",
+              "pos": {
+                "x": 1487.32,
+                "y": -977.9
+              },
+              "uuid": "28"
+            }
+          ],
+          "severity": "error",
+          "type": "clearance"
+        }
+      ]
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 17,
+    "violations": 16
+  },
+  "fanout": true,
+  "fixture_id": "Issue163-pic_programmer.dsn",
+  "fixture_relpath": "freerouting/tests/Issue163-pic_programmer.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769206932,
+  "hashes": {
+    "board_statistics_sha256": "e15c0fe9b5579a7fc85ddb4f1e92ee0cab189cadca71618156b2c67fee1b2709",
+    "freerouting_drc_sha256": "194dc481c453664ad214b924898ab8465e1a28c382d784013d369b6a07f45591",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "a5382828f5db4b1f32b28164f9ee7f7a4f707b59bea87d6dce5a859cc841848c"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue163-pic_programmer.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue163-pic_programmer.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue163-pic_programmer.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue163-pic_programmer.dsn/routed.ses"
+  },
+  "runtime_s": 4.3513620310113765,
+  "seed": 12345,
+  "strip_planes": false
+}

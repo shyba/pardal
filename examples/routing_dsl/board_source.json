@@ -1,0 +1,103 @@
+{
+  "schema": "pardal.board_ir_source",
+  "version": "0.1",
+  "board_ir_id": "routing-dsl-example-board-v001",
+  "units": {
+    "length": "mm",
+    "angle": "deg"
+  },
+  "outline": [
+    {"x": 0.0, "y": 0.0},
+    {"x": 24.0, "y": 0.0},
+    {"x": 24.0, "y": 18.0},
+    {"x": 0.0, "y": 18.0}
+  ],
+  "bounds": {
+    "min_x": 0.0,
+    "min_y": 0.0,
+    "max_x": 24.0,
+    "max_y": 18.0
+  },
+  "stackup": [
+    {"id": "layer-fcu", "name": "F.Cu", "kind": "signal", "order": 1},
+    {"id": "layer-bcu", "name": "B.Cu", "kind": "signal", "order": 2}
+  ],
+  "nets": [
+    {"id": "net-gnd", "name": "GND"},
+    {"id": "net-sig", "name": "SIG_A"}
+  ],
+  "components": [
+    {
+      "id": "comp-u1",
+      "refdes": "U1",
+      "footprint": "Package_QFP:LQFP-32_7x7mm_P0.8mm",
+      "layer": "F.Cu",
+      "position": {"x": 8.0, "y": 8.0},
+      "rotation": 0.0
+    },
+    {
+      "id": "comp-j1",
+      "refdes": "J1",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+      "layer": "F.Cu",
+      "position": {"x": 18.0, "y": 10.0},
+      "rotation": 90.0
+    }
+  ],
+  "pads": [
+    {
+      "id": "pad-u1-1",
+      "component_id": "comp-u1",
+      "net_id": "net-sig",
+      "layer": "F.Cu",
+      "kind": "smd",
+      "position": {"x": 7.0, "y": 7.0}
+    },
+    {
+      "id": "pad-j1-1",
+      "component_id": "comp-j1",
+      "net_id": "net-sig",
+      "layer": "F.Cu",
+      "kind": "thru_hole",
+      "position": {"x": 17.0, "y": 9.0}
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "obs-center",
+      "kind": "keepout",
+      "layer": "F.Cu",
+      "shape": {
+        "type": "rect",
+        "x": 10.0,
+        "y": 4.0,
+        "width": 4.0,
+        "height": 3.0
+      }
+    }
+  ],
+  "envelopes": [
+    {
+      "id": "env-u1",
+      "kind": "placement",
+      "ref_id": "comp-u1",
+      "layer": "F.Cu",
+      "shape": {
+        "type": "rect",
+        "x": 6.0,
+        "y": 6.0,
+        "width": 4.0,
+        "height": 4.0
+      }
+    }
+  ],
+  "provenance": {
+    "source": "examples/routing_dsl/board_source.json"
+  },
+  "route_plan_anchor_ids": [
+    "comp-u1",
+    "comp-j1",
+    "pad-u1-1",
+    "pad-j1-1"
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "issue180_core",
+    "pcb": "freerouting/tests/Issue180-Test/Test.kicad_pcb"
+  },
+  {
+    "name": "fpga_small_core",
+    "pcb": "examples/fpga/fpga_unrouted.kicad_pcb"
+  },
+  {
+    "name": "issue269_power_planes_core",
+    "pcb": "freerouting/tests/Issue269-NoViasOnPowerPlanes/Issue269-NoViasOnPowerPlanes.kicad_pcb"
+  }
+]

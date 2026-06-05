@@ -1,0 +1,85 @@
+# GD32F310C8T6 source intent for the Pardal routing DSL example.
+# The executable source-of-truth pin table is in generate.py and source_manifest.json.
+
+module GD32F310Core:
+    # pin 01: VBAT -> 3V3
+    # pin 02: PC13 -> PIN_02_PC13
+    # pin 03: PC14 -> PIN_03_PC14
+    # pin 04: PC15 -> PIN_04_PC15
+    # pin 05: PF0 -> PIN_05_PF0
+    # pin 06: PF1 -> PIN_06_PF1
+    # pin 07: NRST -> PIN_07_NRST
+    # pin 08: VSSA -> GND
+    # pin 09: VDDA -> 3V3
+    # pin 10: PA0 -> ADC0_FILT (ADC_IN0)
+    # pin 11: PA1 -> ADC1_FILT (ADC_IN1)
+    # pin 12: PA2 -> ADC2_FILT (ADC_IN2)
+    # pin 13: PA3 -> ADC3_FILT (ADC_IN3)
+    # pin 14: PA4 -> ADC4_FILT (ADC_IN4)
+    # pin 15: PA5 -> ADC5_FILT (ADC_IN5)
+    # pin 16: PA6 -> ADC6_FILT (ADC_IN6)
+    # pin 17: PA7 -> ADC7_FILT (ADC_IN7)
+    # pin 18: PB0 -> ADC8_FILT (ADC_IN8)
+    # pin 19: PB1 -> ADC9_FILT (ADC_IN9)
+    # pin 20: PB2 -> PIN_20_PB2
+    # pin 21: PB10 -> PIN_21_PB10
+    # pin 22: PB11 -> PIN_22_PB11
+    # pin 23: VSS -> GND
+    # pin 24: VDD -> 3V3
+    # pin 25: PB12 -> PIN_25_PB12
+    # pin 26: PB13 -> PIN_26_PB13
+    # pin 27: PB14 -> PIN_27_PB14
+    # pin 28: PB15 -> PIN_28_PB15
+    # pin 29: PA8 -> PIN_29_PA8
+    # pin 30: PA9 -> PIN_30_PA9
+    # pin 31: PA10 -> PIN_31_PA10
+    # pin 32: PA11 -> PIN_32_PA11
+    # pin 33: PA12 -> PIN_33_PA12
+    # pin 34: PA13 -> PIN_34_PA13
+    # pin 35: PF6 -> PIN_35_PF6
+    # pin 36: PF7 -> PIN_36_PF7
+    # pin 37: PA14 -> PIN_37_PA14
+    # pin 38: PA15 -> PIN_38_PA15
+    # pin 39: PB3 -> PIN_39_PB3
+    # pin 40: PB4 -> PIN_40_PB4
+    # pin 41: PB5 -> PIN_41_PB5
+    # pin 42: PB6 -> PIN_42_PB6
+    # pin 43: PB7 -> PIN_43_PB7
+    # pin 44: BOOT0 -> PIN_44_BOOT0
+    # pin 45: PB8 -> PIN_45_PB8
+    # pin 46: PB9 -> PIN_46_PB9
+    # pin 47: VSS -> GND
+    # pin 48: VDD -> 3V3
+
+module AdcInputFilter:
+    # 3.3 kOhm series resistor, 100 nF shunt capacitor, source-side test pad.
+
+module AdcFilterBank:
+    # ADC_IN0: TPADC0 -> RAD0 -> CAD0 -> ADC0_FILT
+    # ADC_IN1: TPADC1 -> RAD1 -> CAD1 -> ADC1_FILT
+    # ADC_IN2: TPADC2 -> RAD2 -> CAD2 -> ADC2_FILT
+    # ADC_IN3: TPADC3 -> RAD3 -> CAD3 -> ADC3_FILT
+    # ADC_IN4: TPADC4 -> RAD4 -> CAD4 -> ADC4_FILT
+    # ADC_IN5: TPADC5 -> RAD5 -> CAD5 -> ADC5_FILT
+    # ADC_IN6: TPADC6 -> RAD6 -> CAD6 -> ADC6_FILT
+    # ADC_IN7: TPADC7 -> RAD7 -> CAD7 -> ADC7_FILT
+    # ADC_IN8: TPADC8 -> RAD8 -> CAD8 -> ADC8_FILT
+    # ADC_IN9: TPADC9 -> RAD9 -> CAD9 -> ADC9_FILT
+
+module TwelveVoltSupply:
+    # J12V 12V input, SS14 reverse-protection diode, AMS1117-3.3 SOT-89 regulator.
+    # CIN1/COUT1 are 10 uF bulk capacitors; COUT2 is 100 nF local decoupling.
+
+module JlcCatalogParts:
+    # AMS1117_3V3_SOT89: C5120796
+    # C_100NF_0603: C14663
+    # C_10UF_0805: C15850
+    # C_1UF_0603: C15849
+    # GD32F310C8T6: C3009902
+    # J_2P_5_08: C8465
+    # R_1K_0603: C21190
+    # R_3K3_0603: C22978
+    # SS14_SMA: C7420316
+
+module GD32F310C8T6Breakout:
+    # composed from GD32F310Core, AdcFilterBank, TwelveVoltSupply, and JlcCatalogParts

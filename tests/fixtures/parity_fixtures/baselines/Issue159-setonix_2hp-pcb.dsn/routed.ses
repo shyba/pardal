@@ -1,0 +1,64 @@
+(session "Issue159-setonix_2hp-pcb"
+  (base_design "Issue159-setonix_2hp-pcb")
+  (placement
+    (resolution um 10)
+    (component footys:thonkiconn_real_wcenter
+      (place J1 2139500 -470000 front 0)
+      (place J3 2139500 -980000 front 0)
+    )
+    (component LED_THT:LED_D5.0mm
+      (place D6 2144250 -765000 front 0)
+      (place D8 2144250 -880000 front 0)
+      (place D7 2109250 -822500 front 0)
+      (place D3 2109750 -312500 front 0)
+      (place D1 2109500 -197500 front 0)
+      (place D2 2144250 -255000 front 0)
+      (place D4 2144250 -370000 front 0)
+      (place D5 2109250 -707500 front 0)
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical
+      (place R1 2108000 -367100 front 270)
+      (place R2 2108000 -877050 front 270)
+    )
+    (component footys:thonkiconn_real_wcenter_widesleeve
+      (place J2 2139500 -610000 front 180)
+    )
+    (component footys:thonkiconn_real_wcenter_widesleeve::1
+      (place J4 2139500 -1120000 front 180)
+    )
+    (component footys:jumper_0603_v2
+      (place JP1 2140500 -980000 back 180)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "(6.99.0-5202-g5deee405da)")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

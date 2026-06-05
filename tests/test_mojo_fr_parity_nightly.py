@@ -11,8 +11,8 @@ import pytest
 
 NIGHTLY_FIXTURES = [
     "freerouting/tests/Issue184-motorizedopener/motorizedopener.kicad_pcb",
-    "fpga/fpga_unrouted.kicad_pcb",
-    "fpga_large/fpga_large_rust_strict_fast_0p2.kicad_pcb",
+    "examples/fpga/fpga_unrouted.kicad_pcb",
+    "examples/fpga_large/fpga_large_rust_strict_fast_0p2.kicad_pcb",
 ]
 
 
@@ -44,7 +44,7 @@ def _fixture_id_from_path(pcb: Path) -> str:
 
 def _baseline_json_for_fixture(pcb: Path) -> Path:
     repo_root = _repo_root()
-    return repo_root / "parity_fixtures" / "baselines" / _fixture_id_from_path(pcb) / "baseline.json"
+    return repo_root / "tests/fixtures/parity_fixtures" / "baselines" / _fixture_id_from_path(pcb) / "baseline.json"
 
 
 def _extract_last_json_obj(text: str) -> dict:
@@ -67,7 +67,7 @@ def _run_check(*, fixture: Path, out_dir: Path, timeout_s: float) -> dict:
     cmd = [
         str(python_bin),
         "-m",
-        "pcb_tool.tools.check_mojo_against_kicad_baseline",
+        "pardal.tools.check_mojo_against_kicad_baseline",
         str(fixture),
         "--out-dir",
         str(out_dir),

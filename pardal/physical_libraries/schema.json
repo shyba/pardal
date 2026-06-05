@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "description": "Informal schema for the data-only physical library catalog. The Python validator is authoritative in this slice.",
+  "entry_kinds": {
+    "dfm_profile": {
+      "required": ["id", "kind", "description", "manufacturer", "service", "limits"],
+      "notes": "Data only. Must not affect production gates unless a future stream wires explicit consumers."
+    },
+    "pattern_placeholder": {
+      "required": [
+        "id",
+        "kind",
+        "description",
+        "pattern_family",
+        "target_expansion_kind",
+        "required_parameters",
+        "execution"
+      ],
+      "constraints": {
+        "target_expansion_kind": "route_group",
+        "execution.enabled": false
+      },
+      "notes": "Non-executing placeholders for future reusable route_group-backed physical patterns."
+    }
+  }
+}

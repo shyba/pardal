@@ -1,0 +1,89 @@
+(session "Issue558-dev-board"
+  (base_design "Issue558-dev-board")
+  (placement
+    (resolution um 10)
+    (component Resistor_SMD:R_0603_1608Metric
+      (place R1 1334000 -855000 front 270)
+      (place R2 1207000 -854000 front 270)
+    )
+    (component "easyeda2kicad:SW-SMD_L3.9-W3.0-P4.45"
+      (place SW2 1352000 -900000 front 90)
+      (place SW1 1189000 -900000 front 90)
+    )
+    (component LED_SMD:LED_0603_1608Metric
+      (place D3 1284125 -678000 front 0)
+      (place D2 1284000 -695000 front 0)
+      (place D1 1283875 -712000 front 0)
+    )
+    (component Capacitor_SMD:C_0603_1608Metric
+      (place C3 1205000 -689250 front 270)
+      (place C2 1221000 -689250 front 270)
+      (place C1 1238000 -689250 front 270)
+    )
+    (component "TYPE-C-31-M-12:HRO_TYPE-C-31-M-12"
+      (place J1 1272000 -918000 front 0)
+    )
+    (component "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+      (place U3 1268000 -773000 front 90)
+    )
+    (component Capacitor_SMD:C_0603_1608Metric::1
+      (place C5 1284000 -662000 front 180)
+    )
+    (component Resistor_SMD:R_0603_1608Metric::1
+      (place R5 1318000 -695000 front 180)
+      (place R6 1318125 -678000 front 180)
+      (place R4 1318000 -712000 front 180)
+      (place R3 1318000 -662000 front 180)
+    )
+    (component "PCM_Espressif:ESP32-S3-WROOM-1"
+      (place U2 1270000 -512500 front 0)
+    )
+    (component Capacitor_SMD:C_0603_1608Metric::2
+      (place C4 1316000 -796000 front 90)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical
+      (place J3 1397000 -431800 back 0)
+      (place J2 1143000 -431850 back 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "9.0.1")
+    )
+    (library_out 
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

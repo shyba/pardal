@@ -6,9 +6,9 @@ and optimization, including command chaining and state management.
 
 import pytest
 from pathlib import Path
-from pcb_tool.data_model import Board, Component, Net, Pad
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.commands import AutoRouteCommand, OptimizeRoutingCommand
+from pardal.data_model import Board, Component, Net, Pad
+from pardal.command_parser import CommandParser
+from pardal.commands import AutoRouteCommand, OptimizeRoutingCommand
 
 
 def create_test_netlist_board():
@@ -213,7 +213,7 @@ def test_repl_workflow_autoroute_unrouted_only():
     parser = CommandParser()
 
     # Manually route GND net (simulate previous routing)
-    from pcb_tool.data_model import TraceSegment
+    from pardal.data_model import TraceSegment
 
     board.nets["GND"].add_segment(TraceSegment("GND", (50, 50), (45, 45), "F.Cu", 0.25))
 

@@ -1,0 +1,40 @@
+schema: pardal.profile/v1
+
+profiles:
+  general_fab_ready:
+    enable_checks:
+      - release.gerbers_missing
+      - release.drill_missing
+      - release.archive_not_uploadable
+  prototype:
+    enable_checks: []
+  production_real_footprints:
+    enable_checks:
+      - footprint.package_reference_missing
+      - footprint.package_mismatch
+  power_supply_baseline:
+    enable_checks:
+      - power.rail_budget_missing
+      - power.linear_regulator_drop_too_high
+      - power.ldo_thermal_budget_missing
+      - power.rail_width_policy_missing
+      - power.cap_voltage_rating_missing
+      - layout.power_net_uses_finepitch_width
+    requires_contract:
+      supply_rails: true
+  four_layer_fab_ready:
+    imports:
+      - pardal/core:general_fab_ready
+    enable_checks:
+      - layout.power_net_uses_finepitch_width
+      - layout.layer_roles_no_reference_plane
+      - layout.no_ground_plane
+      - dfm.absolute_min_trace_clearance_used_globally
+      - dfm.fabrication_tolerance_margin_missing
+  analog_rc_filters:
+    enable_checks:
+      - analog.rc_filter_contract_complete
+      - analog.rc_filter_values_resolve
+      - analog.rc_filter_cutoff_within_limit
+    requires_contract:
+      adc_frontends: true

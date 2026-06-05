@@ -5,7 +5,7 @@ Tests detection of crossing traces between different nets.
 """
 
 import pytest
-from pcb_tool.routing.crossing_detector import CrossingDetector, Crossing
+from pardal.routing.crossing_detector import CrossingDetector, Crossing
 
 
 def test_x_pattern_horizontal_vertical_crossing():

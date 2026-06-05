@@ -1,0 +1,309 @@
+(session Test
+  (base_design Test)
+  (placement
+    (resolution um 10)
+    (component "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+      (place U5 1198000 -996050 front 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder
+      (place C5 1199500 -1034780 front 180)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm
+      (place J21 1173950 -1177290 front 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::1
+      (place C7 1390000 -1034780 front 180)
+    )
+    (component Inductor_SMD:L_1210_3225Metric_Pad1.42x2.65mm_HandSolder
+      (place L1 1869080 -965835 front 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::2
+      (place C6 1294750 -1034780 front 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::3
+      (place C13 1869080 -1086310 front 180)
+    )
+    (component "Package_TO_SOT_SMD:TSOT-23-6_HandSoldering"
+      (place U8 1869080 -1025520 front 180)
+    )
+    (component "Siddall:Seeeduino_XIAO-MOUDLE14P-2.54-21X17.8MM_PINS"
+      (place U11 1727200 -993140 front 270)
+    )
+    (component "Package_TO_SOT_SMD:SOT-23_Handsoldering"
+      (place U9 1744000 -1026100 front 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::4
+      (place C18 1744000 -962940 front 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::5
+      (place C15 1199500 -1075000 front 180)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::1
+      (place J23 1229750 -1177290 front 0)
+      (place J10 1536340 -1177290 front 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::6
+      (place C14 1869080 -1115060 front 180)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::2
+      (place J22 1201850 -1177290 front 0)
+      (place J3 1341040 -1177290 front 0)
+    )
+    (component "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm::1"
+      (place U6 1293370 -996050 front 0)
+    )
+    (component "Package_TO_SOT_SMD:SOT-23-5_HandSoldering"
+      (place U10 1806000 -1025440 front 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::7
+      (place C11 1806000 -1057940 front 180)
+    )
+    (component "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm::2"
+      (place U7 1388620 -996050 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::3
+      (place J25 1885950 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::4
+      (place J24 1858010 -1177290 front 0)
+      (place J7 1452640 -1177290 front 0)
+    )
+    (component "Package_SO:SOIC-24W_7.5x15.4mm_P1.27mm"
+      (place U2 1636877 -1063989 front 180)
+    )
+    (component "Package_SO:SOIC-24W_7.5x15.4mm_P1.27mm::1"
+      (place U3 1497262 -1064128 front 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::8
+      (place C3 1537375 -973139 front 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::9
+      (place C17 1806000 -962940 front 180)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::5
+      (place J28 1257300 -1177290 front 0)
+      (place J17 1731640 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::6
+      (place J14 1647940 -1177290 front 0)
+      (place J20 1815340 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::7
+      (place J19 1787440 -1177290 front 0)
+      (place J12 1592140 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::8
+      (place J6 1424740 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::9
+      (place J8 1480540 -1177290 front 0)
+      (place J1 1285240 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::10
+      (place J9 1508440 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::11
+      (place J15 1675840 -1177290 front 0)
+      (place J13 1620040 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::12
+      (place J2 1313140 -1177290 front 0)
+      (place J5 1396840 -1177290 front 0)
+      (place J11 1564240 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::13
+      (place J16 1703740 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::14
+      (place J18 1759540 -1177290 front 0)
+    )
+    (component Connector_Wire:SolderWirePad_1x01_Drill0.8mm::15
+      (place J4 1368940 -1177290 front 0)
+    )
+    (component Capacitor_THT:C_Radial_D10.0mm_H12.5mm_P5.00mm
+      (place C10 1357500 -1109000 front 0)
+      (place C9 1249000 -1109000 front 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::10
+      (place C2 1677000 -973000 front 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::11
+      (place C16 1806000 -1086250 front 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::12
+      (place C19 1806000 -1115000 front 180)
+    )
+    (component Diode_SMD:D_MiniMELF
+      (place D7 1869080 -1058000 front 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder
+      (place R9 1325230 -1043000 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::1
+      (place R17 1806000 -1086250 back 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::2
+      (place R13 1390000 -1075000 back 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::3
+      (place R11 1869080 -1026160 back 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::4
+      (place R8 1390000 -1043000 back 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::13
+      (place C8 1744000 -962940 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::5
+      (place R5 1263000 -1043000 back 180)
+    )
+    (component Siddall:Fuse_Bussman_1206_3216Metric_Pad1.42x1.75mm_HandSolder
+      (place F1 1869080 -1115060 back 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::14
+      (place C12 1199500 -1075000 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::6
+      (place R7 1263000 -1075000 back 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::7
+      (place R10 1806000 -1115000 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::8
+      (place R15 1869080 -963000 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::9
+      (place R14 1806000 -962940 back 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::10
+      (place R6 1199500 -1043000 back 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::11
+      (place R20 1325230 -981420 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::12
+      (place R21 1263000 -981405 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::13
+      (place R12 1806000 -1026100 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::14
+      (place R18 1744000 -1025940 back 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::15
+      (place R16 1869080 -1086310 back 0)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::16
+      (place R1 1390000 -1012520 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::17
+      (place R22 1199500 -981405 back 180)
+    )
+    (component "Package_SO:SOIC-24W_7.5x15.4mm_P1.27mm::2"
+      (place U4 1497262 -1064128 back 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::15
+      (place C4 1537375 -973278 back 0)
+    )
+    (component Diode_SMD:D_MiniMELF::1
+      (place D5 1806000 -1058000 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::18
+      (place R19 1390000 -981420 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::19
+      (place R4 1199500 -1012520 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::20
+      (place R3 1263000 -1012520 back 180)
+    )
+    (component Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder::21
+      (place R2 1325230 -1012520 back 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::16
+      (place C1 1677000 -973139 back 180)
+    )
+    (component "Package_SO:SOIC-24W_7.5x15.4mm_P1.27mm::3"
+      (place U1 1636587 -1063989 back 0)
+    )
+    (component Diode_SMD:D_MiniMELF::2
+      (place D6 1869000 -1058000 back 180)
+    )
+    (component Diode_SMD:D_MiniMELF::3
+      (place D1 1390000 -1130000 back 180)
+    )
+    (component Diode_SMD:D_MiniMELF::4
+      (place D4 1199500 -1130000 back 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder::17
+      (place C20 1325230 -1075000 back 180)
+    )
+    (component Diode_SMD:D_MiniMELF::5
+      (place D2 1325230 -1130000 back 180)
+    )
+    (component Diode_SMD:D_MiniMELF::6
+      (place D3 1263000 -1130000 back 180)
+    )
+    (component Diode_SMD:D_MiniMELF::7
+      (place D8 1744000 -1057940 back 180)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "6.0.10-86aedd382b~118~ubuntu20.04.1")
+    )
+    (library_out 
+      (padstack "Via[0-1]_508:254_um"
+        (shape
+          (circle Top 5080 0 0)
+        )
+        (shape
+          (circle Bottom 5080 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:400_um"
+        (shape
+          (circle Top 6000 0 0)
+        )
+        (shape
+          (circle Bottom 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_508:254_um"
+        (shape
+          (circle Top 5080 0 0)
+        )
+        (shape
+          (circle Bottom 5080 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:400_um"
+        (shape
+          (circle Top 6000 0 0)
+        )
+        (shape
+          (circle Bottom 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_508:254_um"
+        (shape
+          (circle Top 5080 0 0)
+        )
+        (shape
+          (circle Bottom 5080 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

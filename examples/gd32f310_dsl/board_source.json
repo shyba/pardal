@@ -1,0 +1,2026 @@
+{
+  "board_ir_id": "gd32f310c8t6-lqfp48-breakout-v001",
+  "bounds": {
+    "max_x": 100.0,
+    "max_y": 100.0,
+    "min_x": 0.0,
+    "min_y": 0.0
+  },
+  "components": [
+    {
+      "footprint": "Package_QFP:LQFP-48_7x7mm_P0.5mm",
+      "id": "comp-u1",
+      "layer": "F.Cu",
+      "position": {
+        "x": 50.0,
+        "y": 50.0
+      },
+      "refdes": "U1",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j01",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 28.0
+      },
+      "refdes": "J01",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j02",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 32.0
+      },
+      "refdes": "J02",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j03",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 36.0
+      },
+      "refdes": "J03",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j04",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 40.0
+      },
+      "refdes": "J04",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j05",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 44.0
+      },
+      "refdes": "J05",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j06",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 48.0
+      },
+      "refdes": "J06",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j07",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 52.0
+      },
+      "refdes": "J07",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j08",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 56.0
+      },
+      "refdes": "J08",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j09",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 60.0
+      },
+      "refdes": "J09",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j10",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 64.0
+      },
+      "refdes": "J10",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j11",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 68.0
+      },
+      "refdes": "J11",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j12",
+      "layer": "F.Cu",
+      "position": {
+        "x": 10.0,
+        "y": 72.0
+      },
+      "refdes": "J12",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j13",
+      "layer": "F.Cu",
+      "position": {
+        "x": 28.0,
+        "y": 90.0
+      },
+      "refdes": "J13",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j14",
+      "layer": "F.Cu",
+      "position": {
+        "x": 32.0,
+        "y": 90.0
+      },
+      "refdes": "J14",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j15",
+      "layer": "F.Cu",
+      "position": {
+        "x": 36.0,
+        "y": 90.0
+      },
+      "refdes": "J15",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j16",
+      "layer": "F.Cu",
+      "position": {
+        "x": 40.0,
+        "y": 90.0
+      },
+      "refdes": "J16",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j17",
+      "layer": "F.Cu",
+      "position": {
+        "x": 44.0,
+        "y": 90.0
+      },
+      "refdes": "J17",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j18",
+      "layer": "F.Cu",
+      "position": {
+        "x": 48.0,
+        "y": 90.0
+      },
+      "refdes": "J18",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j19",
+      "layer": "F.Cu",
+      "position": {
+        "x": 52.0,
+        "y": 90.0
+      },
+      "refdes": "J19",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j20",
+      "layer": "F.Cu",
+      "position": {
+        "x": 56.0,
+        "y": 90.0
+      },
+      "refdes": "J20",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j21",
+      "layer": "F.Cu",
+      "position": {
+        "x": 60.0,
+        "y": 90.0
+      },
+      "refdes": "J21",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j22",
+      "layer": "F.Cu",
+      "position": {
+        "x": 64.0,
+        "y": 90.0
+      },
+      "refdes": "J22",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j23",
+      "layer": "F.Cu",
+      "position": {
+        "x": 68.0,
+        "y": 90.0
+      },
+      "refdes": "J23",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j24",
+      "layer": "F.Cu",
+      "position": {
+        "x": 72.0,
+        "y": 90.0
+      },
+      "refdes": "J24",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j25",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 72.0
+      },
+      "refdes": "J25",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j26",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 68.0
+      },
+      "refdes": "J26",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j27",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 64.0
+      },
+      "refdes": "J27",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j28",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 60.0
+      },
+      "refdes": "J28",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j29",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 56.0
+      },
+      "refdes": "J29",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j30",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 52.0
+      },
+      "refdes": "J30",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j31",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 48.0
+      },
+      "refdes": "J31",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j32",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 44.0
+      },
+      "refdes": "J32",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j33",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 40.0
+      },
+      "refdes": "J33",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j34",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 36.0
+      },
+      "refdes": "J34",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j35",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 32.0
+      },
+      "refdes": "J35",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j36",
+      "layer": "F.Cu",
+      "position": {
+        "x": 90.0,
+        "y": 28.0
+      },
+      "refdes": "J36",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j37",
+      "layer": "F.Cu",
+      "position": {
+        "x": 72.0,
+        "y": 10.0
+      },
+      "refdes": "J37",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j38",
+      "layer": "F.Cu",
+      "position": {
+        "x": 68.0,
+        "y": 10.0
+      },
+      "refdes": "J38",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j39",
+      "layer": "F.Cu",
+      "position": {
+        "x": 64.0,
+        "y": 10.0
+      },
+      "refdes": "J39",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j40",
+      "layer": "F.Cu",
+      "position": {
+        "x": 60.0,
+        "y": 10.0
+      },
+      "refdes": "J40",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j41",
+      "layer": "F.Cu",
+      "position": {
+        "x": 56.0,
+        "y": 10.0
+      },
+      "refdes": "J41",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j42",
+      "layer": "F.Cu",
+      "position": {
+        "x": 52.0,
+        "y": 10.0
+      },
+      "refdes": "J42",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j43",
+      "layer": "F.Cu",
+      "position": {
+        "x": 48.0,
+        "y": 10.0
+      },
+      "refdes": "J43",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j44",
+      "layer": "F.Cu",
+      "position": {
+        "x": 44.0,
+        "y": 10.0
+      },
+      "refdes": "J44",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j45",
+      "layer": "F.Cu",
+      "position": {
+        "x": 40.0,
+        "y": 10.0
+      },
+      "refdes": "J45",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j46",
+      "layer": "F.Cu",
+      "position": {
+        "x": 36.0,
+        "y": 10.0
+      },
+      "refdes": "J46",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j47",
+      "layer": "F.Cu",
+      "position": {
+        "x": 32.0,
+        "y": 10.0
+      },
+      "refdes": "J47",
+      "rotation": 0.0
+    },
+    {
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical",
+      "id": "comp-j48",
+      "layer": "F.Cu",
+      "position": {
+        "x": 28.0,
+        "y": 10.0
+      },
+      "refdes": "J48",
+      "rotation": 0.0
+    }
+  ],
+  "envelopes": [
+    {
+      "id": "env-u1",
+      "kind": "placement",
+      "layer": "F.Cu",
+      "ref_id": "comp-u1",
+      "shape": {
+        "height": 16.0,
+        "type": "rect",
+        "width": 16.0,
+        "x": 42.0,
+        "y": 42.0
+      }
+    }
+  ],
+  "nets": [
+    {
+      "id": "net-gnd",
+      "name": "GND"
+    },
+    {
+      "id": "net-3v3",
+      "name": "3V3"
+    },
+    {
+      "id": "net-pin-02",
+      "name": "PIN_02_PC13"
+    },
+    {
+      "id": "net-pin-03",
+      "name": "PIN_03_PC14"
+    },
+    {
+      "id": "net-pin-04",
+      "name": "PIN_04_PC15"
+    },
+    {
+      "id": "net-pin-05",
+      "name": "PIN_05_PF0"
+    },
+    {
+      "id": "net-pin-06",
+      "name": "PIN_06_PF1"
+    },
+    {
+      "id": "net-pin-07",
+      "name": "PIN_07_NRST"
+    },
+    {
+      "id": "net-pin-10",
+      "name": "ADC0_FILT"
+    },
+    {
+      "id": "net-pin-11",
+      "name": "ADC1_FILT"
+    },
+    {
+      "id": "net-pin-12",
+      "name": "ADC2_FILT"
+    },
+    {
+      "id": "net-pin-13",
+      "name": "ADC3_FILT"
+    },
+    {
+      "id": "net-pin-14",
+      "name": "ADC4_FILT"
+    },
+    {
+      "id": "net-pin-15",
+      "name": "ADC5_FILT"
+    },
+    {
+      "id": "net-pin-16",
+      "name": "ADC6_FILT"
+    },
+    {
+      "id": "net-pin-17",
+      "name": "ADC7_FILT"
+    },
+    {
+      "id": "net-pin-18",
+      "name": "ADC8_FILT"
+    },
+    {
+      "id": "net-pin-19",
+      "name": "ADC9_FILT"
+    },
+    {
+      "id": "net-pin-20",
+      "name": "PIN_20_PB2"
+    },
+    {
+      "id": "net-pin-21",
+      "name": "PIN_21_PB10"
+    },
+    {
+      "id": "net-pin-22",
+      "name": "PIN_22_PB11"
+    },
+    {
+      "id": "net-pin-25",
+      "name": "PIN_25_PB12"
+    },
+    {
+      "id": "net-pin-26",
+      "name": "PIN_26_PB13"
+    },
+    {
+      "id": "net-pin-27",
+      "name": "PIN_27_PB14"
+    },
+    {
+      "id": "net-pin-28",
+      "name": "PIN_28_PB15"
+    },
+    {
+      "id": "net-pin-29",
+      "name": "PIN_29_PA8"
+    },
+    {
+      "id": "net-pin-30",
+      "name": "PIN_30_PA9"
+    },
+    {
+      "id": "net-pin-31",
+      "name": "PIN_31_PA10"
+    },
+    {
+      "id": "net-pin-32",
+      "name": "PIN_32_PA11"
+    },
+    {
+      "id": "net-pin-33",
+      "name": "PIN_33_PA12"
+    },
+    {
+      "id": "net-pin-34",
+      "name": "PIN_34_PA13"
+    },
+    {
+      "id": "net-pin-35",
+      "name": "PIN_35_PF6"
+    },
+    {
+      "id": "net-pin-36",
+      "name": "PIN_36_PF7"
+    },
+    {
+      "id": "net-pin-37",
+      "name": "PIN_37_PA14"
+    },
+    {
+      "id": "net-pin-38",
+      "name": "PIN_38_PA15"
+    },
+    {
+      "id": "net-pin-39",
+      "name": "PIN_39_PB3"
+    },
+    {
+      "id": "net-pin-40",
+      "name": "PIN_40_PB4"
+    },
+    {
+      "id": "net-pin-41",
+      "name": "PIN_41_PB5"
+    },
+    {
+      "id": "net-pin-42",
+      "name": "PIN_42_PB6"
+    },
+    {
+      "id": "net-pin-43",
+      "name": "PIN_43_PB7"
+    },
+    {
+      "id": "net-pin-44",
+      "name": "PIN_44_BOOT0"
+    },
+    {
+      "id": "net-pin-45",
+      "name": "PIN_45_PB8"
+    },
+    {
+      "id": "net-pin-46",
+      "name": "PIN_46_PB9"
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "obs-mcu-courtyard",
+      "kind": "courtyard",
+      "layer": "F.Cu",
+      "shape": {
+        "height": 14.0,
+        "type": "rect",
+        "width": 14.0,
+        "x": 43.0,
+        "y": 43.0
+      }
+    }
+  ],
+  "outline": [
+    {
+      "x": 0.0,
+      "y": 0.0
+    },
+    {
+      "x": 100.0,
+      "y": 0.0
+    },
+    {
+      "x": 100.0,
+      "y": 100.0
+    },
+    {
+      "x": 0.0,
+      "y": 100.0
+    }
+  ],
+  "pads": [
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-1",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-3v3",
+      "position": {
+        "x": 47.25,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j01",
+      "id": "pad-j01-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-3v3",
+      "position": {
+        "x": 10.0,
+        "y": 28.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-2",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-02",
+      "position": {
+        "x": 47.75,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j02",
+      "id": "pad-j02-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-02",
+      "position": {
+        "x": 10.0,
+        "y": 32.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-3",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-03",
+      "position": {
+        "x": 48.25,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j03",
+      "id": "pad-j03-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-03",
+      "position": {
+        "x": 10.0,
+        "y": 36.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-4",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-04",
+      "position": {
+        "x": 48.75,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j04",
+      "id": "pad-j04-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-04",
+      "position": {
+        "x": 10.0,
+        "y": 40.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-5",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-05",
+      "position": {
+        "x": 49.25,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j05",
+      "id": "pad-j05-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-05",
+      "position": {
+        "x": 10.0,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-6",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-06",
+      "position": {
+        "x": 49.75,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j06",
+      "id": "pad-j06-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-06",
+      "position": {
+        "x": 10.0,
+        "y": 48.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-7",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-07",
+      "position": {
+        "x": 50.25,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j07",
+      "id": "pad-j07-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-07",
+      "position": {
+        "x": 10.0,
+        "y": 52.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-8",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-gnd",
+      "position": {
+        "x": 50.75,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j08",
+      "id": "pad-j08-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-gnd",
+      "position": {
+        "x": 10.0,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-9",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-3v3",
+      "position": {
+        "x": 51.25,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j09",
+      "id": "pad-j09-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-3v3",
+      "position": {
+        "x": 10.0,
+        "y": 60.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-10",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-10",
+      "position": {
+        "x": 51.75,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j10",
+      "id": "pad-j10-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-10",
+      "position": {
+        "x": 10.0,
+        "y": 64.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-11",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-11",
+      "position": {
+        "x": 52.25,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j11",
+      "id": "pad-j11-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-11",
+      "position": {
+        "x": 10.0,
+        "y": 68.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-12",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-12",
+      "position": {
+        "x": 52.75,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-j12",
+      "id": "pad-j12-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-12",
+      "position": {
+        "x": 10.0,
+        "y": 72.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-13",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-13",
+      "position": {
+        "x": 56.0,
+        "y": 47.25
+      }
+    },
+    {
+      "component_id": "comp-j13",
+      "id": "pad-j13-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-13",
+      "position": {
+        "x": 28.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-14",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-14",
+      "position": {
+        "x": 56.0,
+        "y": 47.75
+      }
+    },
+    {
+      "component_id": "comp-j14",
+      "id": "pad-j14-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-14",
+      "position": {
+        "x": 32.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-15",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-15",
+      "position": {
+        "x": 56.0,
+        "y": 48.25
+      }
+    },
+    {
+      "component_id": "comp-j15",
+      "id": "pad-j15-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-15",
+      "position": {
+        "x": 36.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-16",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-16",
+      "position": {
+        "x": 56.0,
+        "y": 48.75
+      }
+    },
+    {
+      "component_id": "comp-j16",
+      "id": "pad-j16-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-16",
+      "position": {
+        "x": 40.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-17",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-17",
+      "position": {
+        "x": 56.0,
+        "y": 49.25
+      }
+    },
+    {
+      "component_id": "comp-j17",
+      "id": "pad-j17-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-17",
+      "position": {
+        "x": 44.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-18",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-18",
+      "position": {
+        "x": 56.0,
+        "y": 49.75
+      }
+    },
+    {
+      "component_id": "comp-j18",
+      "id": "pad-j18-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-18",
+      "position": {
+        "x": 48.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-19",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-19",
+      "position": {
+        "x": 56.0,
+        "y": 50.25
+      }
+    },
+    {
+      "component_id": "comp-j19",
+      "id": "pad-j19-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-19",
+      "position": {
+        "x": 52.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-20",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-20",
+      "position": {
+        "x": 56.0,
+        "y": 50.75
+      }
+    },
+    {
+      "component_id": "comp-j20",
+      "id": "pad-j20-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-20",
+      "position": {
+        "x": 56.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-21",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-21",
+      "position": {
+        "x": 56.0,
+        "y": 51.25
+      }
+    },
+    {
+      "component_id": "comp-j21",
+      "id": "pad-j21-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-21",
+      "position": {
+        "x": 60.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-22",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-22",
+      "position": {
+        "x": 56.0,
+        "y": 51.75
+      }
+    },
+    {
+      "component_id": "comp-j22",
+      "id": "pad-j22-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-22",
+      "position": {
+        "x": 64.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-23",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-gnd",
+      "position": {
+        "x": 56.0,
+        "y": 52.25
+      }
+    },
+    {
+      "component_id": "comp-j23",
+      "id": "pad-j23-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-gnd",
+      "position": {
+        "x": 68.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-24",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-3v3",
+      "position": {
+        "x": 56.0,
+        "y": 52.75
+      }
+    },
+    {
+      "component_id": "comp-j24",
+      "id": "pad-j24-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-3v3",
+      "position": {
+        "x": 72.0,
+        "y": 90.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-25",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-25",
+      "position": {
+        "x": 52.75,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j25",
+      "id": "pad-j25-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-25",
+      "position": {
+        "x": 90.0,
+        "y": 72.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-26",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-26",
+      "position": {
+        "x": 52.25,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j26",
+      "id": "pad-j26-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-26",
+      "position": {
+        "x": 90.0,
+        "y": 68.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-27",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-27",
+      "position": {
+        "x": 51.75,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j27",
+      "id": "pad-j27-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-27",
+      "position": {
+        "x": 90.0,
+        "y": 64.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-28",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-28",
+      "position": {
+        "x": 51.25,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j28",
+      "id": "pad-j28-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-28",
+      "position": {
+        "x": 90.0,
+        "y": 60.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-29",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-29",
+      "position": {
+        "x": 50.75,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j29",
+      "id": "pad-j29-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-29",
+      "position": {
+        "x": 90.0,
+        "y": 56.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-30",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-30",
+      "position": {
+        "x": 50.25,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j30",
+      "id": "pad-j30-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-30",
+      "position": {
+        "x": 90.0,
+        "y": 52.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-31",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-31",
+      "position": {
+        "x": 49.75,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j31",
+      "id": "pad-j31-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-31",
+      "position": {
+        "x": 90.0,
+        "y": 48.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-32",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-32",
+      "position": {
+        "x": 49.25,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j32",
+      "id": "pad-j32-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-32",
+      "position": {
+        "x": 90.0,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-33",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-33",
+      "position": {
+        "x": 48.75,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j33",
+      "id": "pad-j33-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-33",
+      "position": {
+        "x": 90.0,
+        "y": 40.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-34",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-34",
+      "position": {
+        "x": 48.25,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j34",
+      "id": "pad-j34-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-34",
+      "position": {
+        "x": 90.0,
+        "y": 36.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-35",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-35",
+      "position": {
+        "x": 47.75,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j35",
+      "id": "pad-j35-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-35",
+      "position": {
+        "x": 90.0,
+        "y": 32.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-36",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-36",
+      "position": {
+        "x": 47.25,
+        "y": 44.0
+      }
+    },
+    {
+      "component_id": "comp-j36",
+      "id": "pad-j36-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-36",
+      "position": {
+        "x": 90.0,
+        "y": 28.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-37",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-37",
+      "position": {
+        "x": 44.0,
+        "y": 52.75
+      }
+    },
+    {
+      "component_id": "comp-j37",
+      "id": "pad-j37-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-37",
+      "position": {
+        "x": 72.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-38",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-38",
+      "position": {
+        "x": 44.0,
+        "y": 52.25
+      }
+    },
+    {
+      "component_id": "comp-j38",
+      "id": "pad-j38-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-38",
+      "position": {
+        "x": 68.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-39",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-39",
+      "position": {
+        "x": 44.0,
+        "y": 51.75
+      }
+    },
+    {
+      "component_id": "comp-j39",
+      "id": "pad-j39-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-39",
+      "position": {
+        "x": 64.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-40",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-40",
+      "position": {
+        "x": 44.0,
+        "y": 51.25
+      }
+    },
+    {
+      "component_id": "comp-j40",
+      "id": "pad-j40-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-40",
+      "position": {
+        "x": 60.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-41",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-41",
+      "position": {
+        "x": 44.0,
+        "y": 50.75
+      }
+    },
+    {
+      "component_id": "comp-j41",
+      "id": "pad-j41-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-41",
+      "position": {
+        "x": 56.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-42",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-42",
+      "position": {
+        "x": 44.0,
+        "y": 50.25
+      }
+    },
+    {
+      "component_id": "comp-j42",
+      "id": "pad-j42-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-42",
+      "position": {
+        "x": 52.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-43",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-43",
+      "position": {
+        "x": 44.0,
+        "y": 49.75
+      }
+    },
+    {
+      "component_id": "comp-j43",
+      "id": "pad-j43-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-43",
+      "position": {
+        "x": 48.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-44",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-44",
+      "position": {
+        "x": 44.0,
+        "y": 49.25
+      }
+    },
+    {
+      "component_id": "comp-j44",
+      "id": "pad-j44-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-44",
+      "position": {
+        "x": 44.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-45",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-45",
+      "position": {
+        "x": 44.0,
+        "y": 48.75
+      }
+    },
+    {
+      "component_id": "comp-j45",
+      "id": "pad-j45-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-45",
+      "position": {
+        "x": 40.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-46",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-pin-46",
+      "position": {
+        "x": 44.0,
+        "y": 48.25
+      }
+    },
+    {
+      "component_id": "comp-j46",
+      "id": "pad-j46-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-pin-46",
+      "position": {
+        "x": 36.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-47",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-gnd",
+      "position": {
+        "x": 44.0,
+        "y": 47.75
+      }
+    },
+    {
+      "component_id": "comp-j47",
+      "id": "pad-j47-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-gnd",
+      "position": {
+        "x": 32.0,
+        "y": 10.0
+      }
+    },
+    {
+      "component_id": "comp-u1",
+      "id": "pad-u1-48",
+      "kind": "smd",
+      "layer": "F.Cu",
+      "net_id": "net-3v3",
+      "position": {
+        "x": 44.0,
+        "y": 47.25
+      }
+    },
+    {
+      "component_id": "comp-j48",
+      "id": "pad-j48-1",
+      "kind": "thru_hole",
+      "layer": "F.Cu",
+      "net_id": "net-3v3",
+      "position": {
+        "x": 28.0,
+        "y": 10.0
+      }
+    }
+  ],
+  "provenance": {
+    "adc_channels": {
+      "PA0": "ADC_IN0",
+      "PA1": "ADC_IN1",
+      "PA2": "ADC_IN2",
+      "PA3": "ADC_IN3",
+      "PA4": "ADC_IN4",
+      "PA5": "ADC_IN5",
+      "PA6": "ADC_IN6",
+      "PA7": "ADC_IN7",
+      "PB0": "ADC_IN8",
+      "PB1": "ADC_IN9"
+    },
+    "datasheet": "GigaDevice GD32F310xx Datasheet Rev2.2, Table 2-4 GD32F310Cx LQFP48 pin definitions",
+    "package": "LQFP48",
+    "part": "GD32F310C8T6",
+    "source": "examples/gd32f310_dsl/generate.py"
+  },
+  "route_plan_anchor_ids": [
+    "comp-u1",
+    "comp-j01",
+    "pad-u1-1",
+    "pad-j01-1",
+    "comp-j02",
+    "pad-u1-2",
+    "pad-j02-1",
+    "comp-j03",
+    "pad-u1-3",
+    "pad-j03-1",
+    "comp-j04",
+    "pad-u1-4",
+    "pad-j04-1",
+    "comp-j05",
+    "pad-u1-5",
+    "pad-j05-1",
+    "comp-j06",
+    "pad-u1-6",
+    "pad-j06-1",
+    "comp-j07",
+    "pad-u1-7",
+    "pad-j07-1",
+    "comp-j08",
+    "pad-u1-8",
+    "pad-j08-1",
+    "comp-j09",
+    "pad-u1-9",
+    "pad-j09-1",
+    "comp-j10",
+    "pad-u1-10",
+    "pad-j10-1",
+    "comp-j11",
+    "pad-u1-11",
+    "pad-j11-1",
+    "comp-j12",
+    "pad-u1-12",
+    "pad-j12-1",
+    "comp-j13",
+    "pad-u1-13",
+    "pad-j13-1",
+    "comp-j14",
+    "pad-u1-14",
+    "pad-j14-1",
+    "comp-j15",
+    "pad-u1-15",
+    "pad-j15-1",
+    "comp-j16",
+    "pad-u1-16",
+    "pad-j16-1",
+    "comp-j17",
+    "pad-u1-17",
+    "pad-j17-1",
+    "comp-j18",
+    "pad-u1-18",
+    "pad-j18-1",
+    "comp-j19",
+    "pad-u1-19",
+    "pad-j19-1",
+    "comp-j20",
+    "pad-u1-20",
+    "pad-j20-1",
+    "comp-j21",
+    "pad-u1-21",
+    "pad-j21-1",
+    "comp-j22",
+    "pad-u1-22",
+    "pad-j22-1",
+    "comp-j23",
+    "pad-u1-23",
+    "pad-j23-1",
+    "comp-j24",
+    "pad-u1-24",
+    "pad-j24-1",
+    "comp-j25",
+    "pad-u1-25",
+    "pad-j25-1",
+    "comp-j26",
+    "pad-u1-26",
+    "pad-j26-1",
+    "comp-j27",
+    "pad-u1-27",
+    "pad-j27-1",
+    "comp-j28",
+    "pad-u1-28",
+    "pad-j28-1",
+    "comp-j29",
+    "pad-u1-29",
+    "pad-j29-1",
+    "comp-j30",
+    "pad-u1-30",
+    "pad-j30-1",
+    "comp-j31",
+    "pad-u1-31",
+    "pad-j31-1",
+    "comp-j32",
+    "pad-u1-32",
+    "pad-j32-1",
+    "comp-j33",
+    "pad-u1-33",
+    "pad-j33-1",
+    "comp-j34",
+    "pad-u1-34",
+    "pad-j34-1",
+    "comp-j35",
+    "pad-u1-35",
+    "pad-j35-1",
+    "comp-j36",
+    "pad-u1-36",
+    "pad-j36-1",
+    "comp-j37",
+    "pad-u1-37",
+    "pad-j37-1",
+    "comp-j38",
+    "pad-u1-38",
+    "pad-j38-1",
+    "comp-j39",
+    "pad-u1-39",
+    "pad-j39-1",
+    "comp-j40",
+    "pad-u1-40",
+    "pad-j40-1",
+    "comp-j41",
+    "pad-u1-41",
+    "pad-j41-1",
+    "comp-j42",
+    "pad-u1-42",
+    "pad-j42-1",
+    "comp-j43",
+    "pad-u1-43",
+    "pad-j43-1",
+    "comp-j44",
+    "pad-u1-44",
+    "pad-j44-1",
+    "comp-j45",
+    "pad-u1-45",
+    "pad-j45-1",
+    "comp-j46",
+    "pad-u1-46",
+    "pad-j46-1",
+    "comp-j47",
+    "pad-u1-47",
+    "pad-j47-1",
+    "comp-j48",
+    "pad-u1-48",
+    "pad-j48-1"
+  ],
+  "schema": "pardal.board_ir_source",
+  "stackup": [
+    {
+      "id": "layer-fcu",
+      "kind": "signal",
+      "name": "F.Cu",
+      "order": 1
+    },
+    {
+      "id": "layer-in1",
+      "kind": "plane",
+      "name": "In1.Cu",
+      "order": 2
+    },
+    {
+      "id": "layer-in2",
+      "kind": "plane",
+      "name": "In2.Cu",
+      "order": 3
+    },
+    {
+      "id": "layer-bcu",
+      "kind": "signal",
+      "name": "B.Cu",
+      "order": 4
+    }
+  ],
+  "units": {
+    "angle": "deg",
+    "length": "mm"
+  },
+  "version": "0.1"
+}

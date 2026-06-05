@@ -8,8 +8,8 @@ the board is routable with 2 layers using the automated system.
 
 import pytest
 from pathlib import Path
-from pcb_tool.data_model import Board
-from pcb_tool.commands import (
+from pardal.data_model import Board
+from pardal.commands import (
     LoadCommand,
     MoveCommand,
     AutoRouteCommand,
@@ -195,7 +195,7 @@ class TestInjectorAutoRoute:
         vias_before = sum(len(net.vias) for net in board.nets.values())
 
         # Run optimization
-        from pcb_tool.commands import OptimizeRoutingCommand
+        from pardal.commands import OptimizeRoutingCommand
 
         optimize_cmd = OptimizeRoutingCommand(net_name="ALL")
         result = optimize_cmd.execute(board)

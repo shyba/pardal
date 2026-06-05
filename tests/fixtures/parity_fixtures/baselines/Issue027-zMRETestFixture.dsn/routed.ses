@@ -1,0 +1,667 @@
+(session "Issue027-zMRETestFixture"
+  (base_design "Issue027-zMRETestFixture")
+  (placement
+    (resolution um 10)
+    (component rusefi_lib:SM0805_jumper
+      (place R2 1466850 -1314450 front 270)
+      (place R1 1492250 -1314450 front 270)
+      (place D4 1466850 -1377950 front 270)
+      (place D3 1466850 -1441250 front 270)
+      (place D2 1492250 -1377950 front 270)
+      (place D1 1492250 -1441450 front 270)
+      (place R93 469900 -1111250 front 0)
+      (place R92 469900 -1085850 front 0)
+      (place R91 469900 -1060450 front 0)
+      (place R89 469900 -1035050 front 0)
+      (place R88 469900 -1009650 front 0)
+      (place R87 469900 -984250 front 0)
+      (place R86 469900 -958850 front 0)
+      (place R85 469900 -933450 front 0)
+      (place R84 469900 -908050 front 0)
+      (place R83 469900 -882650 front 0)
+      (place R82 469900 -857250 front 0)
+      (place R81 469900 -831850 front 0)
+      (place R80 469900 -806450 front 0)
+      (place R79 469900 -781050 front 0)
+      (place R78 469900 -755650 front 0)
+      (place R77 469900 -730250 front 0)
+      (place R76 450850 -1530350 front 0)
+      (place R75 450850 -1504950 front 0)
+      (place R74 450850 -1479550 front 0)
+      (place R73 450850 -1454150 front 0)
+      (place R72 450850 -1428750 front 0)
+      (place R71 450850 -1403350 front 0)
+      (place R70 450850 -1377950 front 0)
+      (place R69 450850 -1352550 front 0)
+      (place R68 450850 -1327150 front 0)
+      (place R67 450850 -1301750 front 0)
+      (place R66 450850 -1276350 front 0)
+      (place R65 450850 -1250950 front 0)
+      (place R64 450850 -1225550 front 0)
+      (place R63 450850 -1200150 front 0)
+      (place R62 450850 -1174750 front 0)
+      (place R61 450850 -1149350 front 0)
+      (place R39 425450 -501650 front 0)
+      (place R32 425450 -450850 front 0)
+      (place R30 425450 -654050 front 0)
+      (place R26 425450 -603250 front 0)
+      (place R24 425450 -400050 front 0)
+      (place R20 425450 -552450 front 0)
+      (place R17 1276350 -450850 front 270)
+      (place R16 1250950 -450850 front 270)
+      (place R3 908050 -596900 front 0)
+      (place D97 342900 -1085850 front 180)
+      (place D96 406400 -1085850 front 180)
+      (place D94 342900 -1035050 front 180)
+      (place D93 406400 -1035050 front 180)
+      (place D92 342900 -984250 front 180)
+      (place D91 406400 -984250 front 180)
+      (place D90 342900 -933450 front 180)
+      (place D89 406400 -933450 front 180)
+      (place D88 342900 -882650 front 180)
+      (place D87 406400 -882650 front 180)
+      (place D86 342900 -831850 front 180)
+      (place D85 406400 -831850 front 180)
+      (place D84 342900 -781050 front 180)
+      (place D83 406400 -781050 front 180)
+      (place D82 342900 -730250 front 180)
+      (place D81 406400 -730250 front 180)
+      (place D80 514350 -1530350 front 0)
+      (place D79 514350 -1504950 front 0)
+      (place D78 514350 -1479550 front 0)
+      (place D77 514350 -1454150 front 0)
+      (place D76 514350 -1428750 front 0)
+      (place D75 514350 -1403350 front 0)
+      (place D74 514350 -1377950 front 0)
+      (place D73 514350 -1352550 front 0)
+      (place D72 514350 -1327150 front 0)
+      (place D71 514350 -1301750 front 0)
+      (place D70 514350 -1276350 front 0)
+      (place D69 514350 -1250950 front 0)
+      (place D68 514350 -1225550 front 0)
+      (place D67 514350 -1200150 front 0)
+      (place D66 514350 -1174750 front 0)
+      (place D65 514350 -1149350 front 0)
+      (place D64 577850 -1530350 front 0)
+      (place D63 577850 -1504950 front 0)
+      (place D62 577850 -1479550 front 0)
+      (place D61 577850 -1454150 front 0)
+      (place D60 577850 -1428750 front 0)
+      (place D59 577850 -1403350 front 0)
+      (place D58 577850 -1377950 front 0)
+      (place D57 577850 -1352550 front 0)
+      (place D56 577850 -1327150 front 0)
+      (place D55 577850 -1301750 front 0)
+      (place D54 577850 -1276350 front 0)
+      (place D53 577850 -1250950 front 0)
+      (place D52 577850 -1225550 front 0)
+      (place D51 577850 -1200150 front 0)
+      (place D50 577850 -1174750 front 0)
+      (place D49 577850 -1149350 front 0)
+      (place D24 1250950 -323850 front 90)
+      (place D23 1250950 -387350 front 90)
+      (place R25 443230 -628650 front 0)
+      (place R19 444500 -577850 front 0)
+      (place D6 577850 -387350 front 90)
+      (place R4 577850 -450850 front 270)
+      (place D5 577850 -323850 front 90)
+      (place R34 876300 -450850 front 270)
+      (place R33 850900 -450850 front 270)
+      (place R28 1104900 -450850 front 270)
+      (place R27 1079500 -450850 front 270)
+      (place R22 1047750 -450850 front 270)
+      (place R21 1022350 -450850 front 270)
+      (place R56 819150 -450850 front 270)
+      (place R55 793750 -450850 front 270)
+      (place D30 850900 -323850 front 90)
+      (place D29 850900 -387350 front 90)
+      (place D28 1079500 -323850 front 90)
+      (place D27 1079500 -387350 front 90)
+      (place D26 1022350 -323850 front 90)
+      (place D25 1022350 -387350 front 90)
+      (place D48 793750 -323850 front 90)
+      (place D47 793750 -387350 front 90)
+      (place R60 1422400 -774700 front 270)
+      (place R58 1504950 -704850 front 0)
+      (place R57 1504950 -679450 front 0)
+      (place D22 762000 -387350 front 270)
+      (place D20 730250 -387350 front 270)
+      (place D18 698500 -387350 front 270)
+      (place D16 666750 -387350 front 270)
+      (place D14 635000 -387350 front 270)
+      (place D12 603250 -387350 front 270)
+      (place D10 584200 -806450 front 270)
+      (place D8 615950 -806450 front 90)
+      (place R59 1422400 -584200 front 90)
+      (place R54 1504950 -450850 front 270)
+      (place R53 1479550 -450850 front 270)
+      (place R52 1447800 -450850 front 270)
+      (place R51 1422400 -450850 front 270)
+      (place R50 1219200 -450850 front 270)
+      (place R49 1193800 -450850 front 270)
+      (place R48 1390650 -450850 front 270)
+      (place R47 1365250 -450850 front 270)
+      (place R46 1333500 -450850 front 270)
+      (place R45 1308100 -450850 front 270)
+      (place R44 1162050 -450850 front 270)
+      (place R43 1136650 -450850 front 270)
+      (place R42 990600 -450850 front 270)
+      (place R41 965200 -450850 front 270)
+      (place R40 933450 -450850 front 270)
+      (place R18 424180 -374650 front 0)
+      (place R37 908050 -450850 front 270)
+      (place R15 424180 -349250 front 0)
+      (place R14 424180 -323850 front 0)
+      (place R13 424180 -298450 front 0)
+      (place R29 443230 -679450 front 0)
+      (place R38 443230 -527050 front 0)
+      (place R31 443230 -476250 front 0)
+      (place R23 443230 -425450 front 0)
+      (place R12 762000 -323850 front 270)
+      (place R11 730250 -323850 front 270)
+      (place R10 698500 -323850 front 270)
+      (place R9 666750 -323850 front 270)
+      (place R8 635000 -323850 front 270)
+      (place R7 603250 -323850 front 270)
+      (place R6 584200 -869950 front 270)
+      (place R5 615950 -869950 front 270)
+      (place R90 1219200 -812800 front 180)
+      (place D46 1479550 -323850 front 90)
+      (place D45 1479550 -387350 front 90)
+      (place D44 1422400 -323850 front 90)
+      (place D43 1422400 -387350 front 90)
+      (place D42 1193800 -323850 front 90)
+      (place D41 1193800 -387350 front 90)
+      (place D40 1365250 -323850 front 90)
+      (place D39 1365250 -387350 front 90)
+      (place D38 1308100 -323850 front 90)
+      (place D37 1308100 -387350 front 90)
+      (place D36 1136650 -323850 front 90)
+      (place D35 1136650 -387350 front 90)
+      (place D34 965200 -323850 front 90)
+      (place D33 965200 -387350 front 90)
+      (place D32 908050 -323850 front 90)
+      (place D31 908050 -387350 front 90)
+      (place D21 762000 -450850 front 270)
+      (place D19 730250 -450850 front 270)
+      (place D17 698500 -450850 front 270)
+      (place D15 666750 -450850 front 270)
+      (place D13 635000 -450850 front 270)
+      (place D11 603250 -450850 front 270)
+      (place D9 584200 -742950 front 270)
+      (place D7 614784 -742666 front 90)
+      (place D95 1244600 -793750 front 0)
+    )
+    (component Connector_Pin:Pin_D0.7mm_L6.5mm_W1.8mm_FlatFork
+      (place J11 1162050 -1200150 front 90)
+      (place J10 1162050 -1231900 front 90)
+      (place J8 1460500 -793750 front 270)
+      (place J7 1460500 -565150 front 270)
+      (place J6 1454150 -679450 front 270)
+      (place J5 1454150 -641350 front 270)
+    )
+    (component rusefi_lib:Molex_48_MRE
+      (place U1 884798 -644906 front 0)
+    )
+    (component rusefi_lib:KeyStone_3557
+      (place J4 340825 -669818 front 90)
+      (place J3 340868 -551180 front 270)
+    )
+    (component "Button_Switch_SMD:SW_SPST_B3SL-1002P"
+      (place SW2 1524000 -762000 front 270)
+      (place SW1 1524000 -596900 front 270)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical_SMD
+      (place J9 783082 -1108960 front 90)
+    )
+    (component Connector_Pin:Pin_D0.7mm_L6.5mm_W1.8mm_FlatFork::1
+      (place J2 381000 -476250 front 270)
+      (place J1 342900 -476250 front 270)
+    )
+    (component TestPoint:TestPoint_Pad_D2.0mm
+      (place TP4 670814 -1151890 front 0)
+      (place TP3 670814 -1060450 front 0)
+      (place TP2 670814 -1090930 front 0)
+      (place TP1 670814 -1121410 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "(5.1.5)-3")
+    )
+    (library_out 
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_685.8:330.2_um"
+        (shape
+          (circle F.Cu 6858 0 0)
+        )
+        (shape
+          (circle B.Cu 6858 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_1092.2:685.8_um"
+        (shape
+          (circle F.Cu 10922 0 0)
+        )
+        (shape
+          (circle B.Cu 10922 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_1541.78:1186.18_um"
+        (shape
+          (circle F.Cu 15418 0 0)
+        )
+        (shape
+          (circle B.Cu 15418 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_1000:400_um"
+        (shape
+          (circle F.Cu 10000 0 0)
+        )
+        (shape
+          (circle B.Cu 10000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_685.8:330.2_um"
+        (shape
+          (circle F.Cu 6858 0 0)
+        )
+        (shape
+          (circle B.Cu 6858 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_685.8:330.2_um"
+        (shape
+          (circle F.Cu 6858 0 0)
+        )
+        (shape
+          (circle B.Cu 6858 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_685.8:330.2_um"
+        (shape
+          (circle F.Cu 6858 0 0)
+        )
+        (shape
+          (circle B.Cu 6858 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_1092.2:685.8_um"
+        (shape
+          (circle F.Cu 10922 0 0)
+        )
+        (shape
+          (circle B.Cu 10922 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_1541.78:1186.18_um"
+        (shape
+          (circle F.Cu 15418 0 0)
+        )
+        (shape
+          (circle B.Cu 15418 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_1000:400_um"
+        (shape
+          (circle F.Cu 10000 0 0)
+        )
+        (shape
+          (circle B.Cu 10000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_685.8:330.2_um"
+        (shape
+          (circle F.Cu 6858 0 0)
+        )
+        (shape
+          (circle B.Cu 6858 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net /12V_KEY
+        (wire
+          (path F.Cu 16764
+            922190 -644932
+            922190 -601810
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            922190 -601810
+            927100 -596900
+          )
+          (type protect)
+        )
+      )
+      (net "Net-(J1-Pad1)"
+        (wire
+          (path F.Cu 16764
+            323342 -551180
+            334391 -540131
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            334391 -540131
+            338455 -540131
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            338455 -540131
+            342900 -535686
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            323342 -551180
+            358394 -551180
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            342900 -476250
+            342900 -535686
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            342900 -535686
+            358394 -551180
+          )
+          (type protect)
+        )
+      )
+      (net /12V_MREL
+        (wire
+          (path F.Cu 2032
+            450850 -1111250
+            330200 -1111250
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            457200 -1111250
+            450850 -1111250
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            330200 -755650
+            323850 -749300
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            323850 -749300
+            323850 -730250
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            457200 -755650
+            330200 -755650
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            330200 -806450
+            323850 -800100
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            323850 -800100
+            323850 -781050
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            457200 -806450
+            330200 -806450
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            330200 -857250
+            323850 -850900
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            323850 -850900
+            323850 -831850
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            457200 -857250
+            330200 -857250
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            330200 -908050
+            323850 -901700
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            323850 -901700
+            323850 -882650
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            457200 -908050
+            330200 -908050
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            330200 -958850
+            323850 -952500
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            323850 -952500
+            323850 -933450
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            457200 -958850
+            330200 -958850
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            330200 -1009650
+            323850 -1003300
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            323850 -1003300
+            323850 -984250
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            457200 -1009650
+            330200 -1009650
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            330200 -1060450
+            323850 -1054100
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            323850 -1054100
+            323850 -1035050
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            457200 -1060450
+            330200 -1060450
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            330200 -1111250
+            323850 -1104900
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            323850 -1104900
+            323850 -1085850
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            670814 -1060450
+            607314 -1123950
+            450850 -1123950
+            450850 -1111250
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            732282 -1083710
+            694074 -1083710
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 2032
+            694074 -1083710
+            670814 -1060450
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            885190 -644932
+            694918 -644932
+            636143 -703707
+            392240 -703707
+            358351 -669818
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            358351 -669818
+            323299 -669818
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            885190 -644932
+            885190 -600710
+          )
+          (type protect)
+        )
+        (wire
+          (path F.Cu 16764
+            885190 -600710
+            889000 -596900
+          )
+          (type protect)
+        )
+      )
+    )
+  )
+)

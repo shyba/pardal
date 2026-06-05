@@ -1,0 +1,43 @@
+(session "Issue110-testProjectFromFreeroutingBugTest01"
+  (base_design "Issue110-testProjectFromFreeroutingBugTest01")
+  (placement
+    (resolution um 10)
+    (component "Package_DIP:DIP-16_W7.62mm_SMDSocket_SmallPads"
+      (place "Микросхема2" 1561000 -1006000 front 0)
+    )
+    (component "Package_DIP:DIP-8_W7.62mm"
+      (place "Микросхема1" 1308000 -913000 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "6.0.4-6f826c9f35~116~ubuntu21.10.1")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

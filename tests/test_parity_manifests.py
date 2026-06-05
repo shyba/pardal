@@ -27,7 +27,7 @@ def _load_json(relpath: str):
 
 
 def test_parity_core_required_fixtures_have_pinned_cfg() -> None:
-    core = _load_json("parity_fixtures/parity_core.json")
+    core = _load_json("tests/fixtures/parity_fixtures/parity_core.json")
     assert isinstance(core, list)
     by_name = {str(row["name"]): row for row in core if isinstance(row, dict) and "name" in row}
 
@@ -54,15 +54,15 @@ def test_parity_core_required_fixtures_have_pinned_cfg() -> None:
 
 
 def test_fr_tier_placement_for_issue269_no_vias() -> None:
-    fast = _load_json("parity_fixtures/fr_tiers/tier_fast.json")
-    medium = _load_json("parity_fixtures/fr_tiers/tier_medium.json")
+    fast = _load_json("tests/fixtures/parity_fixtures/fr_tiers/tier_fast.json")
+    medium = _load_json("tests/fixtures/parity_fixtures/fr_tiers/tier_medium.json")
     target = "freerouting/tests/Issue269-NoViasOnPowerPlanes/Issue269-NoViasOnPowerPlanes.kicad_pcb"
     assert target not in fast
     assert target in medium
 
 
 def test_parity_applicable_now_tracks_current_scope() -> None:
-    applicable = _load_json("parity_fixtures/parity_applicable_now.json")
+    applicable = _load_json("tests/fixtures/parity_fixtures/parity_applicable_now.json")
     assert isinstance(applicable, list)
     by_name = {str(row["name"]): row for row in applicable if isinstance(row, dict) and "name" in row}
     expected = {
@@ -73,7 +73,7 @@ def test_parity_applicable_now_tracks_current_scope() -> None:
     assert set(by_name.keys()) == expected
     assert "fpga_large_core" not in by_name
 
-    core = _load_json("parity_fixtures/parity_core.json")
+    core = _load_json("tests/fixtures/parity_fixtures/parity_core.json")
     core_by_name = {str(row["name"]): row for row in core if isinstance(row, dict) and "name" in row}
     for name in sorted(expected):
         assert name in core_by_name

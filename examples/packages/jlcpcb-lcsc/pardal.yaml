@@ -1,0 +1,23 @@
+schema: pardal.project/v1
+requires-pardal: "^0.1.0"
+
+project:
+  type: package
+  identifier: jlcpcb/lcsc
+  version: 0.1.0
+  repository: https://example.invalid/jlcpcb/lcsc
+  summary: JLCPCB and LCSC production profiles
+  license: MIT
+  authors:
+    - name: Pardal
+
+trust:
+  python_checks: true
+
+exports:
+  profiles:
+    - profiles/
+  parts:
+    - parts/
+  checks:
+    - checks/

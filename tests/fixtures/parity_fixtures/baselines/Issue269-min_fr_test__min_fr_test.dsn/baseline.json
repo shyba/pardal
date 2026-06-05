@@ -1,0 +1,114 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:28:19.050891993-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "min_fr_test.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1629.0,
+                "y": -920.0
+              },
+              "uuid": "3"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1590.0,
+                "y": -850.0
+              },
+              "uuid": "21"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Conduction Area [GND] and Pin [GND]",
+          "items": [
+            {
+              "description": "Conduction Area [GND]",
+              "pos": {
+                "x": 1640.0,
+                "y": -900.0
+              },
+              "uuid": "2"
+            },
+            {
+              "description": "Pin [GND]",
+              "pos": {
+                "x": 1590.0,
+                "y": -850.0
+              },
+              "uuid": "21"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(J1-Pin_1)] and Pin [Net-(J1-Pin_1)]",
+          "items": [
+            {
+              "description": "Pin [Net-(J1-Pin_1)]",
+              "pos": {
+                "x": 1550.0,
+                "y": -850.0
+              },
+              "uuid": "30"
+            },
+            {
+              "description": "Pin [Net-(J1-Pin_1)]",
+              "pos": {
+                "x": 1710.0,
+                "y": -900.0
+              },
+              "uuid": "12"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 3,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue269-min_fr_test__min_fr_test.dsn",
+  "fixture_relpath": "freerouting/tests/Issue269-min_fr_test/min_fr_test.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207296,
+  "hashes": {
+    "board_statistics_sha256": "9d63a3743ece30db239dd895ee10618370c034e3776b26dfe072b61d11a37c46",
+    "freerouting_drc_sha256": "b91e58b0bc21486e28d0ff2755b611200edf479d4ee09dcf76258bb3fd2c051d",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "2a6b6f660e5172b079773dad53d13004e64643d532d7ebbe812a3b515bd737bd"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-min_fr_test__min_fr_test.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-min_fr_test__min_fr_test.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-min_fr_test__min_fr_test.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue269-min_fr_test__min_fr_test.dsn/routed.ses"
+  },
+  "runtime_s": 2.6343846159870736,
+  "seed": 12345,
+  "strip_planes": false
+}

@@ -1,0 +1,241 @@
+(session "Issue110-RelayModule"
+  (base_design "Issue110-RelayModule")
+  (placement
+    (resolution um 10)
+    (component :
+      (place FU1 1132500 -2217500 front 90)
+      (place FU2 1360000 -1855000 front 180)
+    )
+    (component "Реле:SRD-xxVDC-SL-C"
+      (place K1 1220000 -2220000 front 180)
+    )
+    (component "Реле:SRD-xxVDC-SL-C::1"
+      (place K2 1220000 -2040000 front 180)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical
+      (place XP2 1765250 -1922250 front 270)
+    )
+    (component "Модули:ESP-01"
+      (place XS1 1482500 -2025950 front 0)
+    )
+    (component "Соединители:KF301-2P"
+      (place XT2 1020000 -2105600 front 270)
+    )
+    (component "Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal"
+      (place VD4 1680000 -1821900 front 270)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical
+      (place XP3 1820000 -2132500 front 180)
+    )
+    (component "Соединители:KF301-2P::1"
+      (place XT4 1775000 -1855000 front 0)
+    )
+    (component "Crystal:Crystal_HC49-4H_Vertical"
+      (place Y1 1547500 -1977500 front 270)
+    )
+    (component LED_THT:LED_D3.0mm
+      (place VD1 1625000 -1890000 front 270)
+    )
+    (component Capacitor_THT:CP_Radial_D4.0mm_P2.00mm
+      (place C5 1485000 -1825274 front 270)
+    )
+    (component :PinSocket_1x08_P2.54mm_Horizontal
+      (place XS2 1868500 -2111250 front 180)
+    )
+    (component "Package_TO_SOT_THT:TO-220-3_Vertical"
+      (place D2 1587900 -1830550 front 180)
+    )
+    (component "Package_TO_SOT_THT:TO-92_Inline"
+      (place Q2 1502700 -1956400 front 180)
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
+      (place XP1 1580000 -2211750 front 180)
+    )
+    (component Capacitor_THT:CP_Radial_D4.0mm_P2.00mm::1
+      (place C4 1577500 -1890274 front 270)
+    )
+    (component "Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal::1"
+      (place VD2 1417500 -2127500 front 270)
+    )
+    (component "Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal::2"
+      (place VD3 1415000 -1919400 front 270)
+    )
+    (component "Package_TO_SOT_THT:TO-92_Inline::1"
+      (place Q1 1472500 -2175000 front 270)
+    )
+    (component "Соединители:KF301-2P::2"
+      (place XT3 1020000 -1983100 front 270)
+    )
+    (component "Package_QFP:LQFP-48_7x7mm_P0.5mm"
+      (place U1 1694000 -2045000 front 315)
+    )
+    (component "Соединители:KF301-2P::3"
+      (place XT1 1762100 -2197000 front 0)
+    )
+    (component Capacitor_THT:CP_Radial_D4.0mm_P2.00mm::2
+      (place C3 1640000 -1820524 front 270)
+    )
+    (component "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+      (place D1 1655000 -2191000 back 90)
+    )
+    (component Resistor_SMD:R_1206_3216Metric
+      (place R3 1508600 -2187700 back 0)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric
+      (place C2 1522500 -1996300 back 90)
+    )
+    (component Resistor_SMD:R_1206_3216Metric::1
+      (place R4 1445000 -2022500 back 0)
+    )
+    (component "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+      (place D3 1530000 -1887500 back 90)
+    )
+    (component Resistor_SMD:R_1206_3216Metric::2
+      (place R2 1614000 -2206000 back 270)
+    )
+    (component Resistor_SMD:R_1206_3216Metric::3
+      (place R1 1640000 -1867500 back 180)
+    )
+    (component Capacitor_SMD:C_1206_3216Metric::1
+      (place C1 1522500 -2046300 back 90)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "6.0.4-6f826c9f35~116~ubuntu21.10.1")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net GND
+        (via "Via[0-1]_800:400_um" 1647830 -2110450
+          (type protect)
+        )
+      )
+      (net +3V3
+        (via "Via[0-1]_800:400_um" 1500720 -2005240
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1671180 -2103380
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1508580 -1990560
+          (type protect)
+        )
+      )
+      (net /KN1
+        (via "Via[0-1]_800:400_um" 1691220 -2059500
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1769650 -2062620
+          (type protect)
+        )
+      )
+      (net /KN2
+        (via "Via[0-1]_800:400_um" 1693020 -2069500
+          (type protect)
+        )
+      )
+      (net /KN3
+        (via "Via[0-1]_800:400_um" 1703030 -2069230
+          (type protect)
+        )
+      )
+      (net /SWDIO
+        (via "Via[0-1]_800:400_um" 1667510 -2055070
+          (type protect)
+        )
+      )
+      (net /SWCLK
+        (via "Via[0-1]_800:400_um" 1764500 -2017950
+          (type protect)
+        )
+      )
+      (net /NRST
+        (via "Via[0-1]_800:400_um" 1651140 -2007070
+          (type protect)
+        )
+      )
+      (net /ESP_GPIO0
+        (via "Via[0-1]_800:400_um" 1654570 -2086940
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1688420 -2040480
+          (type protect)
+        )
+      )
+      (net /USART_RX
+        (via "Via[0-1]_800:400_um" 1641860 -2073900
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1761340 -2028640
+          (type protect)
+        )
+      )
+      (net /COMP_DTR
+        (via "Via[0-1]_800:400_um" 1634460 -2044540
+          (type protect)
+        )
+      )
+      (net /CAN_TX
+        (via "Via[0-1]_800:400_um" 1641290 -2146890
+          (type protect)
+        )
+      )
+      (net /REL_CH1
+        (via "Via[0-1]_800:400_um" 1545660 -2088740
+          (type protect)
+        )
+      )
+      (net /REL_CH2
+        (via "Via[0-1]_800:400_um" 1509420 -2114710
+          (type protect)
+        )
+      )
+      (net /CAN_RX
+        (via "Via[0-1]_800:400_um" 1682820 -2135820
+          (type protect)
+        )
+      )
+      (net /ESP_GPIO2
+        (via "Via[0-1]_800:400_um" 1662400 -2038540
+          (type protect)
+        )
+        (via "Via[0-1]_800:400_um" 1620120 -2037750
+          (type protect)
+        )
+      )
+    )
+  )
+)

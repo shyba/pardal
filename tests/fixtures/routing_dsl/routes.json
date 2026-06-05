@@ -1,0 +1,44 @@
+{
+  "schema": "mojo.routes",
+  "version": "1.0",
+  "route_plan_id": "route-plan-2d6b5c1f",
+  "route_plan_hash": "sha256:2d6b5c1f4dbd2a0f9d56f9f4a9d7ddc33f0d8da6c9d4c0f9b1b772b0e3f5c1a0",
+  "frozen_board_snapshot_id": "board-snapshot-demo-v001",
+  "routes": [
+    {
+      "route_group_id": "rg_route_u1_to_j1",
+      "candidate_id": "cand_rg_route_u1_to_j1_0000",
+      "candidate_index": 0,
+      "assignment_hash": "38251c9820c4",
+      "assignment": {
+        "fanout_side": "west"
+      },
+      "patch": {
+        "remove_objects": [],
+        "move_components": [],
+        "add_tracks": [
+          {
+            "net": "SIG_A",
+            "layer": "F.Cu",
+            "width": 0.18,
+            "points": [
+              {"x": 11.0, "y": 11.0},
+              {"x": 13.0, "y": 13.0}
+            ]
+          }
+        ],
+        "add_vias": [],
+        "add_arcs": [],
+        "add_zones": [],
+        "set_net_ties": []
+      },
+      "diagnostics": [
+        {"id": "diag-routing-001"}
+      ],
+      "backend_native": {
+        "route_id": "mojo-route-0001",
+        "solve_ms": 12
+      }
+    }
+  ]
+}

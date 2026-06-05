@@ -5,8 +5,8 @@ Tests management of blocking constraints for Z3 iterative refinement.
 """
 
 import pytest
-from pcb_tool.routing.lazy_constraints import LazyConstraintManager
-from pcb_tool.routing.crossing_detector import Crossing
+from pardal.routing.lazy_constraints import LazyConstraintManager
+from pardal.routing.crossing_detector import Crossing
 
 
 def test_add_crossing_blocks():

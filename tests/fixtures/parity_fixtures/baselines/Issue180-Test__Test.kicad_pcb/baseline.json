@@ -1,0 +1,412 @@
+{
+  "drc": {
+    "kicad_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T22:34:23+0000",
+      "kicad_version": "9.0.6",
+      "schematic_parity": [],
+      "source": "routed.kicad_pcb",
+      "unconnected_items": [],
+      "violations": [
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 56.388,
+                "y": 41.148
+              },
+              "uuid": "13d6af9f-ad46-4cca-a000-f2042b79228e"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J13",
+              "pos": {
+                "x": 133.858,
+                "y": 53.848
+              },
+              "uuid": "1a96348b-df8b-4788-a16e-93478274c75b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint MT3",
+              "pos": {
+                "x": 26.035,
+                "y": 163.195
+              },
+              "uuid": "1c47db02-15f2-4721-8b5c-97243d6d8e2b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 70.358,
+                "y": 25.273
+              },
+              "uuid": "35a2183f-f4de-4de2-8c79-5e4eb9a5390d"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J7",
+              "pos": {
+                "x": 133.858,
+                "y": 48.768
+              },
+              "uuid": "3fe80ab0-e8f3-4ca6-9010-561f9f2b9411"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J8",
+              "pos": {
+                "x": 133.858,
+                "y": 46.228
+              },
+              "uuid": "400374a6-a518-4253-bc13-41681e404b13"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 36.068,
+                "y": 25.273
+              },
+              "uuid": "626d77c8-565b-4384-8cf9-093f06b98486"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint MT1",
+              "pos": {
+                "x": 26.035,
+                "y": 20.955
+              },
+              "uuid": "6a1cc3a5-e69b-4d3a-a7dc-1cdd5e61cfd4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Footprint 'DIP-16_W7.62mm_LongPads' does not match copy in library 'Package_DIP'.",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 69.723,
+                "y": 41.148
+              },
+              "uuid": "6f4be3df-52f2-4bfd-9eec-2d487cd2f034"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_mismatch"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J5",
+              "pos": {
+                "x": 133.858,
+                "y": 28.448
+              },
+              "uuid": "769d3583-f66f-4bf2-acb3-5aa2589d8cf5"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J14",
+              "pos": {
+                "x": 133.858,
+                "y": 51.308
+              },
+              "uuid": "7bb65aa5-587b-4ca1-8399-9c998b6d4cdd"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J3",
+              "pos": {
+                "x": 133.858,
+                "y": 33.528
+              },
+              "uuid": "7f0ad8fb-1f18-442d-817d-d8b3ec26cf65"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 39.243,
+                "y": 44.958
+              },
+              "uuid": "8379b4fd-4975-4db8-85ff-885a88069fc8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J12",
+              "pos": {
+                "x": 133.858,
+                "y": 36.068
+              },
+              "uuid": "88110cc9-2d7a-461e-990c-1f001f76f507"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J10",
+              "pos": {
+                "x": 133.858,
+                "y": 41.148
+              },
+              "uuid": "88bb8e82-2320-4754-91bf-ffe78d4af40d"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J4",
+              "pos": {
+                "x": 133.858,
+                "y": 30.988
+              },
+              "uuid": "8b53c732-ec64-4ad9-bc5d-36f01848e24b"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R3",
+              "pos": {
+                "x": 64.008,
+                "y": 53.848
+              },
+              "uuid": "932273a7-ee4e-400a-b6a5-904660ce43e9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 97.068,
+                "y": 34.163
+              },
+              "uuid": "a0603ed3-b4d3-4f24-8152-7a306bdc0b47"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J9",
+              "pos": {
+                "x": 133.858,
+                "y": 43.688
+              },
+              "uuid": "a2c05477-5206-4e22-8406-abc13e3b18b9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 44.323,
+                "y": 33.528
+              },
+              "uuid": "ae7fce94-f4d1-4f00-b5ad-59f8eb48f6ae"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint MT4",
+              "pos": {
+                "x": 168.275,
+                "y": 163.195
+              },
+              "uuid": "baea6723-0866-46e9-b93f-f7b853441bd9"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 60.238,
+                "y": 34.163
+              },
+              "uuid": "bd4d8382-ac6a-495b-a12e-e0005c003327"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J11",
+              "pos": {
+                "x": 133.858,
+                "y": 38.608
+              },
+              "uuid": "d4214cf2-d65c-4376-89c1-1490ed603672"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint MT2",
+              "pos": {
+                "x": 168.275,
+                "y": 20.955
+              },
+              "uuid": "d4aa04fe-9b1b-4bc5-9dd4-df7b7c67f2b8"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'Groz_KiCad_Libs'.",
+          "items": [
+            {
+              "description": "Footprint J6",
+              "pos": {
+                "x": 133.858,
+                "y": 25.908
+              },
+              "uuid": "f9dfd84c-8a8d-4786-8992-577cbb6f841a"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        }
+      ]
+    },
+    "unconnected": 0,
+    "violations": 25
+  },
+  "fanout": true,
+  "fixture_id": "Issue180-Test__Test.kicad_pcb",
+  "fixture_relpath": "freerouting/tests/Issue180-Test/Test.kicad_pcb",
+  "fixture_type": "kicad",
+  "generated_at_unix_s": 1769207595,
+  "hashes": {
+    "kicad_drc_sha256": "75642be022a7fc7aec7649324714092ceaf139d3006b7bb0258336e5b58a49a8",
+    "routed_pcb_sha256": "3e773bf5c8ef950e06661a215b9a73632304ed9b17de7ae966a49bf884f2647d"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "kicad_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue180-Test__Test.kicad_pcb/kicad_drc.json",
+    "routed_pcb": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue180-Test__Test.kicad_pcb/routed.kicad_pcb"
+  },
+  "runtime_s": 68.31250469497172,
+  "seed": 12345,
+  "strip_planes": false
+}

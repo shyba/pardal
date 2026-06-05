@@ -1,0 +1,8 @@
+schema: pardal.parts/v1
+
+parts:
+  C112130:
+    manufacturer: GigaDevice
+    mpn: GD32F310K8T6
+    package: LQFP-32
+    lcsc: C112130

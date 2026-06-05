@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from pcb_tool.footprint_templates import generate_qfp_pads
+from pardal.footprint_templates import generate_qfp_pads
 
 
 def test_generate_qfp_pads_no_overlap_for_tqfp32():

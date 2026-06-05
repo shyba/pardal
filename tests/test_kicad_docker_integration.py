@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from pcb_tool.drc import run_drc_docker
+from pardal.drc import run_drc_docker
 
 
 pytestmark = pytest.mark.slow

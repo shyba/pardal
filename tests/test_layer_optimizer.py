@@ -1,8 +1,8 @@
 """Tests for LayerOptimizer (Z3-based layer assignment optimization)."""
 
 import pytest
-from pcb_tool.routing.grid import RoutingGrid
-from pcb_tool.routing.layer_optimizer import LayerOptimizer, NetPath, LayerAssignment
+from pardal.routing.grid import RoutingGrid
+from pardal.routing.layer_optimizer import LayerOptimizer, NetPath, LayerAssignment
 
 
 def test_optimizer_initialization():

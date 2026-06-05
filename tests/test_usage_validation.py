@@ -152,13 +152,13 @@ class TestCLIInterface:
     def test_version_output_format(self):
         """
         USAGE.md shows:
-            $ pcb-tool --version
-            pcb-tool 0.1.0 (MVP1)
+            $ pardal --version
+            pardal 0.1.0
 
         Test exact format, not just "version in output".
         """
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool", "--version"],
+            [sys.executable, "-m", "pardal", "--version"],
             capture_output=True,
             text=True,
         )
@@ -166,33 +166,41 @@ class TestCLIInterface:
         assert result.returncode == 0
         # Exact format check
         assert re.match(
-            r"pcb-tool \d+\.\d+\.\d+ \(MVP1\)", result.stdout.strip()
+            r"pardal \d+\.\d+\.\d+", result.stdout.strip()
         ), f"Version output format mismatch: {result.stdout}"
 
     def test_help_output_contains_all_documented_flags(self):
         """
-        USAGE.md documents these flags:
-            --help, --load FILE, --batch FILE, --exec CMD, --version
+        The top-level CLI documents the production subcommands. REPL-specific
+        load/batch/exec flags live under `pardal repl --help`.
 
         All must appear in --help output.
         """
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool", "--help"], capture_output=True, text=True
+            [sys.executable, "-m", "pardal", "--help"], capture_output=True, text=True
         )
 
         assert result.returncode == 0
 
-        required_flags = ["--help", "--load", "--batch", "--exec", "--version"]
-        for flag in required_flags:
-            assert flag in result.stdout, f"Missing documented flag: {flag}"
+        for command in ["build", "drc", "place", "route", "repl"]:
+            assert command in result.stdout, f"Missing documented command: {command}"
 
         # Check description matches
-        assert "PCB Place & Route Tool" in result.stdout
+        assert "PCB layout tool with placement, autorouting, and DRC" in result.stdout
+
+        repl_help = subprocess.run(
+            [sys.executable, "-m", "pardal", "repl", "--help"],
+            capture_output=True,
+            text=True,
+        )
+        assert repl_help.returncode == 0
+        for flag in ["--help", "--load", "--batch", "--exec"]:
+            assert flag in repl_help.stdout, f"Missing documented REPL flag: {flag}"
 
     def test_multiple_exec_flags(self, real_netlist_file, tmp_path):
         """
         USAGE.md Workflow 5 shows:
-            $ pcb-tool --load input.kicad_pcb --exec "MOVE R1 TO 10 20" --exec "SAVE output.kicad_pcb"
+            $ pardal --load input.kicad_pcb --exec "MOVE R1 TO 10 20" --exec "SAVE output.kicad_pcb"
 
         Multiple --exec flags must work in sequence.
         """
@@ -202,7 +210,8 @@ class TestCLIInterface:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -266,7 +275,7 @@ class TestInteractiveSession:
         """
         # Simulate starting REPL with immediate EXIT
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool", "--exec", "EXIT"],
+            [sys.executable, "-m", "pardal", "repl", "--exec", "EXIT"],
             capture_output=True,
             text=True,
             timeout=10,
@@ -297,7 +306,8 @@ class TestInteractiveSession:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -328,7 +338,8 @@ class TestInteractiveSession:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -352,7 +363,8 @@ class TestInteractiveSession:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -373,7 +385,8 @@ class TestInteractiveSession:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--exec",
                 f"LOAD {tmp_path / 'nonexistent.net'}",
             ],
@@ -405,7 +418,8 @@ class TestShowBoardRendering:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -437,7 +451,8 @@ class TestShowBoardRendering:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -466,7 +481,8 @@ class TestShowBoardRendering:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -493,7 +509,8 @@ class TestShowBoardRendering:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -558,7 +575,7 @@ class TestUsageWorkflows:
             exec_args.extend(["--exec", cmd])
 
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool"] + exec_args,
+            [sys.executable, "-m", "pardal"] + exec_args,
             capture_output=True,
             text=True,
         )
@@ -581,14 +598,14 @@ class TestUsageWorkflows:
         """
         USAGE.md Workflow 3: Batch Commands
 
-            $ pcb-tool --batch placement.txt
+            $ pardal --batch placement.txt
             Executing commands from placement.txt...
             OK: Loaded board with 12 components, 8 nets
             ...
             Executed 15 commands successfully
         """
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool", "--batch", str(batch_script_file)],
+            [sys.executable, "-m", "pardal", "repl", "--batch", str(batch_script_file)],
             capture_output=True,
             text=True,
         )
@@ -617,7 +634,8 @@ class TestUsageWorkflows:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--batch",
                 str(batch_script_with_edge_cases),
             ],
@@ -659,7 +677,7 @@ class TestUsageWorkflows:
             exec_args.extend(["--exec", cmd])
 
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool"] + exec_args,
+            [sys.executable, "-m", "pardal"] + exec_args,
             capture_output=True,
             text=True,
         )
@@ -715,7 +733,7 @@ class TestUndoRedoEdgeCases:
             exec_args.extend(["--exec", cmd])
 
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool"] + exec_args,
+            [sys.executable, "-m", "pardal"] + exec_args,
             capture_output=True,
             text=True,
         )
@@ -743,7 +761,7 @@ class TestUndoRedoEdgeCases:
             exec_args.extend(["--exec", cmd])
 
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool"] + exec_args,
+            [sys.executable, "-m", "pardal"] + exec_args,
             capture_output=True,
             text=True,
         )
@@ -769,7 +787,8 @@ class TestSaveEdgeCases:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--exec",
                 f"SAVE {tmp_path / 'no_load.kicad_pcb'}",
             ],
@@ -790,7 +809,8 @@ class TestSaveEdgeCases:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -813,7 +833,8 @@ class TestSaveEdgeCases:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -849,7 +870,8 @@ class TestListAndWhereCommands:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -885,7 +907,8 @@ class TestListAndWhereCommands:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -918,7 +941,7 @@ class TestHelpCommand:
         All documented commands must appear.
         """
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool", "--exec", "HELP"],
+            [sys.executable, "-m", "pardal", "repl", "--exec", "HELP"],
             capture_output=True,
             text=True,
         )
@@ -953,7 +976,7 @@ class TestHelpCommand:
         Test HELP MOVE shows syntax from docs.
         """
         result = subprocess.run(
-            [sys.executable, "-m", "pcb_tool", "--exec", "HELP MOVE"],
+            [sys.executable, "-m", "pardal", "repl", "--exec", "HELP MOVE"],
             capture_output=True,
             text=True,
         )
@@ -983,7 +1006,8 @@ class TestRotationBehavior:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -1006,7 +1030,8 @@ class TestRotationBehavior:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -1044,7 +1069,8 @@ class TestKiCadCoordinates:
             [
                 sys.executable,
                 "-m",
-                "pcb_tool",
+                "pardal",
+                "repl",
                 "--load",
                 str(real_netlist_file),
                 "--exec",
@@ -1087,8 +1113,9 @@ class TestExitBehavior:
                 [
                     sys.executable,
                     "-m",
-                    "pcb_tool",
-                    "--load",
+                    "pardal",
+                    "repl",
+                "--load",
                     str(real_netlist_file),
                     "--exec",
                     exit_cmd,

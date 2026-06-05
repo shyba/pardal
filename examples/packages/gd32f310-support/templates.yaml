@@ -1,0 +1,9 @@
+schema: pardal.templates/v1
+
+templates:
+  gd32f310_12v_adc:
+    description: GD32F310 ADC frontend starter project
+    path: templates/gd32f310_12v_adc
+    default_dependencies:
+      - acme/gd32f310-support
+      - jlcpcb/lcsc

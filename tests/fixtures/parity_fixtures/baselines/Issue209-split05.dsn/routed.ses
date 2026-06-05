@@ -1,0 +1,127 @@
+(session "Issue209-split05"
+  (base_design "Issue209-split05")
+  (placement
+    (resolution um 10)
+    (component PG1350
+      (place S1 0 0 front 355)
+      (place S2 14816 169353 front 355)
+      (place S3 29633 338706 front 355)
+      (place S4 201604 32553 front 350)
+      (place S5 231125 199970 front 350)
+      (place S6 260645 367388 front 350)
+      (place S7 400069 17867 front 345)
+      (place S8 444068 182074 front 345)
+      (place S9 488068 346281 front 345)
+      (place S10 586146 -52698 front 340)
+      (place S11 644290 107050 front 340)
+      (place S12 702433 266798 front 340)
+      (place S13 758525 -158006 front 335)
+      (place S14 830370 -3933 front 335)
+      (place S15 902215 150139 front 335)
+      (place S16 1056673 -1329 front 245)
+      (place S17 940815 -247422 front 245)
+      (place S18 493117 -308294 front 230)
+      (place S19 624577 -431657 front 230)
+      (place S20 749609 -562679 front 230)
+      (place S21 874641 -693702 front 230)
+      (place S22 1050122 -484572 front 230)
+    )
+    (component PG1350::1
+      (place S23 0 0 front 175)
+      (place S24 14816 169353 front 175)
+      (place S25 29633 338706 front 175)
+    )
+    (component PG1350::2
+      (place S26 201604 32553 front 170)
+      (place S27 231125 199970 front 170)
+      (place S28 260645 367388 front 170)
+    )
+    (component PG1350::3
+      (place S29 400069 17867 front 165)
+      (place S30 444068 182074 front 165)
+      (place S31 488068 346281 front 165)
+    )
+    (component PG1350::4
+      (place S32 586146 -52698 front 160)
+      (place S33 644290 107050 front 160)
+      (place S34 702433 266798 front 160)
+    )
+    (component PG1350::5
+      (place S35 758525 -158006 front 155)
+      (place S36 830370 -3933 front 155)
+      (place S37 902215 150139 front 155)
+    )
+    (component PG1350::6
+      (place S38 1056673 -1329 front 65)
+      (place S39 940815 -247422 front 65)
+    )
+    (component PG1350::7
+      (place S40 493117 -308294 front 50)
+      (place S41 624577 -431657 front 50)
+      (place S42 749609 -562679 front 50)
+      (place S43 874641 -693702 front 50)
+      (place S44 1050122 -484572 front 50)
+    )
+    (component "TRRS-PJ-320A-dual"
+      (place TRRS1 1525200 -51895 front 320)
+    )
+    (component D_0805
+      (place D1 -68178 81251 front 355)
+      (place D2 -53361 250604 front 355)
+      (place D3 -38545 419957 front 355)
+      (place D4 140767 119437 front 350)
+      (place D5 170288 286854 front 350)
+      (place D6 199808 454272 front 350)
+      (place D7 347036 109723 front 345)
+      (place D8 391035 273930 front 345)
+      (place D9 435035 438137 front 345)
+      (place D10 541321 43430 front 340)
+      (place D11 599464 203178 front 340)
+      (place D12 657608 362926 front 340)
+      (place D13 722248 -58336 front 335)
+      (place D14 794093 95736 front 335)
+      (place D15 865938 249808 front 335)
+      (place D16 1156342 34947 front 245)
+      (place D17 1040484 -211146 front 245)
+      (place D18 598779 -299050 front 230)
+      (place D19 730239 -422412 front 230)
+      (place D20 855271 -553435 front 230)
+      (place D21 980304 -684458 front 230)
+      (place D22 1155785 -475327 front 230)
+    )
+    (component "RP2040-Zero"
+      (place RP2040Zero1 1154151 -114090 front 332)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "7.0.5-0")
+    )
+    (library_out 
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_800:400_um"
+        (shape
+          (circle F.Cu 8000 0 0)
+        )
+        (shape
+          (circle B.Cu 8000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+    )
+  )
+)

@@ -1,6 +1,7 @@
 """Tests for CLI DRC flags: --force and --warnerr."""
 
 import subprocess
+import sys
 import pytest
 from pathlib import Path
 
@@ -35,10 +36,10 @@ class TestBuildDrcFlags:
     def test_build_help_shows_force_flag(self):
         """Verify --force flag appears in help text."""
         result = subprocess.run(
-            ["./venv/bin/pardal", "build", "--help"],
+            [sys.executable, "-m", "pardal.cli", "build", "--help"],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
         assert result.returncode == 0
         assert "--force" in result.stdout
@@ -47,10 +48,10 @@ class TestBuildDrcFlags:
     def test_build_help_shows_warnerr_flag(self):
         """Verify --warnerr flag appears in help text."""
         result = subprocess.run(
-            ["./venv/bin/pardal", "build", "--help"],
+            [sys.executable, "-m", "pardal.cli", "build", "--help"],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
         assert result.returncode == 0
         assert "--warnerr" in result.stdout
@@ -62,7 +63,7 @@ class TestBuildDrcFlags:
 
         result = subprocess.run(
             [
-                "./venv/bin/pardal",
+                sys.executable, "-m", "pardal.cli",
                 "build",
                 str(simple_netlist),
                 "-o",
@@ -71,7 +72,7 @@ class TestBuildDrcFlags:
             ],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
 
         # Should succeed without running DRC
@@ -86,7 +87,7 @@ class TestBuildDrcFlags:
 
         result = subprocess.run(
             [
-                "./venv/bin/pardal",
+                sys.executable, "-m", "pardal.cli",
                 "build",
                 str(simple_netlist),
                 "-o",
@@ -95,7 +96,7 @@ class TestBuildDrcFlags:
             ],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
 
         # Should succeed (force overrides errors)
@@ -110,7 +111,7 @@ class TestBuildDrcFlags:
 
         result = subprocess.run(
             [
-                "./venv/bin/pardal",
+                sys.executable, "-m", "pardal.cli",
                 "build",
                 str(simple_netlist),
                 "-o",
@@ -120,7 +121,7 @@ class TestBuildDrcFlags:
             ],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
 
         # Should succeed
@@ -134,8 +135,8 @@ class TestDrcCommand:
     @pytest.fixture
     def simple_pcb(self, tmp_path):
         """Create a simple PCB file for testing."""
-        from pcb_tool.data_model import Board, Component, Pad
-        from pcb_tool.kicad_writer import KicadWriter
+        from pardal.data_model import Board, Component, Pad
+        from pardal.kicad_writer import KicadWriter
 
         board = Board()
         board.width = 20.0
@@ -162,10 +163,10 @@ class TestDrcCommand:
     def test_drc_command_exists(self):
         """Verify drc command is available."""
         result = subprocess.run(
-            ["./venv/bin/pardal", "drc", "--help"],
+            [sys.executable, "-m", "pardal.cli", "drc", "--help"],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
         assert result.returncode == 0
         assert "DRC" in result.stdout or "drc" in result.stdout.lower()
@@ -173,10 +174,10 @@ class TestDrcCommand:
     def test_drc_on_valid_pcb(self, simple_pcb):
         """Test DRC command on a valid PCB file."""
         result = subprocess.run(
-            ["./venv/bin/pardal", "drc", str(simple_pcb)],
+            [sys.executable, "-m", "pardal.cli", "drc", str(simple_pcb)],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
 
         # May pass or fail depending on kicad-cli availability and board content
@@ -190,20 +191,20 @@ class TestFlagCombinations:
     def test_warnerr_without_force_description(self):
         """Verify --warnerr description in help."""
         result = subprocess.run(
-            ["./venv/bin/pardal", "build", "--help"],
+            [sys.executable, "-m", "pardal.cli", "build", "--help"],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
         assert "--warnerr" in result.stdout
 
     def test_all_drc_flags_documented(self):
         """Verify all DRC-related flags are documented."""
         result = subprocess.run(
-            ["./venv/bin/pardal", "build", "--help"],
+            [sys.executable, "-m", "pardal.cli", "build", "--help"],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
 
         # Check all DRC flags
@@ -243,7 +244,7 @@ class TestCliReturnCodes:
 
         result = subprocess.run(
             [
-                "./venv/bin/pardal",
+                sys.executable, "-m", "pardal.cli",
                 "build",
                 "/nonexistent/file.net",
                 "-o",
@@ -251,7 +252,7 @@ class TestCliReturnCodes:
             ],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
 
         assert result.returncode != 0
@@ -259,10 +260,10 @@ class TestCliReturnCodes:
     def test_missing_output_arg_returns_error(self, simple_netlist):
         """Missing -o argument should return error."""
         result = subprocess.run(
-            ["./venv/bin/pardal", "build", str(simple_netlist)],
+            [sys.executable, "-m", "pardal.cli", "build", str(simple_netlist)],
             capture_output=True,
             text=True,
-            cwd="/home/user/repos/ee/pardal-pcb",
+            cwd=".",
         )
 
         assert result.returncode != 0

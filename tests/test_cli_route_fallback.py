@@ -5,9 +5,9 @@ from pathlib import Path
 
 import pytest
 
-from pcb_tool.cli import cmd_route
-from pcb_tool.data_model import Board, Component, Net, Pad
-from pcb_tool.kicad_writer import KicadWriter
+from pardal.cli import cmd_route
+from pardal.data_model import Board, Component, Net, Pad
+from pardal.kicad_writer import KicadWriter
 
 
 def test_cmd_route_fallback_works_without_pcbnew(tmp_path: Path, monkeypatch):

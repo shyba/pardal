@@ -1,0 +1,38 @@
+schema: pardal.project/v1
+requires-pardal: "^0.1.0"
+
+project:
+  type: package
+  identifier: acme/gd32f310-support
+  version: 0.1.0
+  repository: https://example.invalid/acme/gd32f310-support
+  summary: GD32F310 source contracts, parts, and profiles
+  license: MIT
+  authors:
+    - name: ACME Hardware
+
+trust:
+  python_checks: true
+
+exports:
+  profiles:
+    - profiles/
+  parts:
+    - parts/
+  footprints:
+    - footprints/
+  checks:
+    - checks/
+  physical_libraries:
+    - physical_libraries/
+  route_policies:
+    - routing/
+  board_templates:
+    - templates.yaml
+  examples:
+    - examples.yaml
+
+dependencies:
+  - type: registry
+    identifier: jlcpcb/lcsc
+    release: 0.1.0

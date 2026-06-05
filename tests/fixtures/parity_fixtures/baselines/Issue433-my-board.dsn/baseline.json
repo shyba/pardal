@@ -1,0 +1,252 @@
+{
+  "drc": {
+    "freerouting_drc": {
+      "$schema": "https://schemas.kicad.org/drc.v1.json",
+      "coordinate_units": "mm",
+      "date": "2026-01-23T19:32:01.925348032-03:00",
+      "freerouting_version": "Freerouting 2.1.2-SNAPSHOT",
+      "kicad_version": "N/A",
+      "schematic_parity": [],
+      "source": "Issue433-my-board.dsn",
+      "unconnected_items": [
+        {
+          "description": "Unconnected items: Pin [Net-(R1_source_component_2-Pad2)] and Pin [Net-(R1_source_component_2-Pad2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(R1_source_component_2-Pad2)]",
+              "pos": {
+                "x": -68.569,
+                "y": -85.004
+              },
+              "uuid": "3"
+            },
+            {
+              "description": "Pin [Net-(R1_source_component_2-Pad2)]",
+              "pos": {
+                "x": -107.27,
+                "y": -115.79
+              },
+              "uuid": "30"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(XI_source_component_3-Pad12)] and Pin [Net-(XI_source_component_3-Pad12)]",
+          "items": [
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad12)]",
+              "pos": {
+                "x": 101.248,
+                "y": 69.93
+              },
+              "uuid": "15"
+            },
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad12)]",
+              "pos": {
+                "x": -58.569,
+                "y": -85.004
+              },
+              "uuid": "2"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(XI_source_component_3-Pad15)] and Pin [Net-(XI_source_component_3-Pad15)]",
+          "items": [
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad15)]",
+              "pos": {
+                "x": 36.89,
+                "y": -89.64
+              },
+              "uuid": "29"
+            },
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad15)]",
+              "pos": {
+                "x": -24.302,
+                "y": 48.35
+              },
+              "uuid": "18"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(XI_source_component_3-Pad16)] and Pin [Net-(XI_source_component_3-Pad16)]",
+          "items": [
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad16)]",
+              "pos": {
+                "x": -24.302,
+                "y": 67.4
+              },
+              "uuid": "19"
+            },
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad16)]",
+              "pos": {
+                "x": 36.89,
+                "y": -109.64
+              },
+              "uuid": "28"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(R1_source_component_2-Pad2)] and Pin [Net-(XI_source_component_3-Pad2)]",
+          "items": [
+            {
+              "description": "Pin [Net-(R1_source_component_2-Pad2)]",
+              "pos": {
+                "x": -68.569,
+                "y": -85.004
+              },
+              "uuid": "3"
+            },
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad2)]",
+              "pos": {
+                "x": -60.402,
+                "y": 95.33
+              },
+              "uuid": "5"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [Net-(XI_source_component_3-Pad3)] and Pin [Net-(XI_source_component_3-Pad3)]",
+          "items": [
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad3)]",
+              "pos": {
+                "x": -60.402,
+                "y": 69.93
+              },
+              "uuid": "6"
+            },
+            {
+              "description": "Pin [Net-(XI_source_component_3-Pad3)]",
+              "pos": {
+                "x": -107.27,
+                "y": -45.79
+              },
+              "uuid": "32"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND_source_net_0] and Pin [GND_source_net_0]",
+          "items": [
+            {
+              "description": "Pin [GND_source_net_0]",
+              "pos": {
+                "x": 101.248,
+                "y": 95.33
+              },
+              "uuid": "16"
+            },
+            {
+              "description": "Pin [GND_source_net_0]",
+              "pos": {
+                "x": 32.848,
+                "y": 105.45
+              },
+              "uuid": "23"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND_source_net_0] and Pin [GND_source_net_0]",
+          "items": [
+            {
+              "description": "Pin [GND_source_net_0]",
+              "pos": {
+                "x": -107.27,
+                "y": -80.79
+              },
+              "uuid": "31"
+            },
+            {
+              "description": "Pin [GND_source_net_0]",
+              "pos": {
+                "x": -107.27,
+                "y": -10.790000000000001
+              },
+              "uuid": "33"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        },
+        {
+          "description": "Unconnected items: Pin [GND_source_net_0] and Pin [GND_source_net_0]",
+          "items": [
+            {
+              "description": "Pin [GND_source_net_0]",
+              "pos": {
+                "x": -107.27,
+                "y": -10.790000000000001
+              },
+              "uuid": "33"
+            },
+            {
+              "description": "Pin [GND_source_net_0]",
+              "pos": {
+                "x": 32.848,
+                "y": 105.45
+              },
+              "uuid": "23"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected"
+        }
+      ],
+      "violations": []
+    },
+    "freerouting_job_state": {
+      "state": "COMPLETED"
+    },
+    "unconnected": 9,
+    "violations": 0
+  },
+  "fanout": true,
+  "fixture_id": "Issue433-my-board.dsn",
+  "fixture_relpath": "freerouting/tests/Issue433-my-board.dsn",
+  "fixture_type": "dsn",
+  "generated_at_unix_s": 1769207519,
+  "hashes": {
+    "board_statistics_sha256": "f5ac6e5650b4e7e4a5b1cb9a00738c1addd30e77822c52cd737380ab24ff8167",
+    "freerouting_drc_sha256": "981f808160f770c31899b5d04db911c694c574214d4e57527f2fb4535ae72721",
+    "job_state_sha256": "feaac6d6819f032d914b332fe547d94864fbeac9995561034766777e770dc5d9",
+    "routed_ses_sha256": "3f00ee1f8fd666e3bc33cc1db7dfce3d502c3e344aad64d1d90049e7678e165a"
+  },
+  "job_timeout": "00:01:00",
+  "max_passes": 1,
+  "oracle_error": null,
+  "oracle_ok": true,
+  "outputs": {
+    "board_statistics_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue433-my-board.dsn/board_statistics.json",
+    "freerouting_drc_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue433-my-board.dsn/freerouting_drc.json",
+    "job_state_json": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue433-my-board.dsn/job_state.json",
+    "routed_ses": "pardal-pcb/tests/fixtures/parity_fixtures/baselines/Issue433-my-board.dsn/routed.ses"
+  },
+  "runtime_s": 2.789503492997028,
+  "seed": 12345,
+  "strip_planes": false
+}

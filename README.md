@@ -1,70 +1,119 @@
 # Pardal PCB
 
-A command-line PCB Place & Route tool with Python API.
+Command-line PCB place & route tool with a Python API and a Mojo backend route path.
 
 ![Pardal PCB example](example.jpg)
 
-## Features
+## What this project covers
 
-- **Multi-layer Routing**: 2, 4, 6, and 8-layer boards with A* pathfinding and Z3 optimization
-- **Python API**: Fluent `BoardBuilder` interface for programmatic board creation
-- **Routing Strategies**: Pre-configured strategies for FPGA, mixed-signal, and simple boards
-- **20+ Commands**: LOAD, SAVE, MOVE, ROTATE, FLIP, LOCK, UNLOCK, LIST, AUTOROUTE, STATS, CREATE, and more
-- **CLI Modes**: Interactive REPL, batch file execution, single command execution
-- **File Formats**: Reads KiCad netlist (.net) and PCB (.kicad_pcb), writes KiCad PCB
-- **SDK Workflow**: Generate production-quality boards with library footprints, 0 DRC errors
-- **Footprint Templates**: Auto-generates pads for common packages (QFP, SOIC, 0603, etc.)
+- Python-native board construction and routing workflows
+- CLI flows for `build`, `place`, `route`, `drc`, and `repl`
+- FreeRouting interop (`freeroute`)
+- Mojo backend routing (`backend-route`) using KiCad 9 in Docker for extract/apply
 
-## Dependencies
+## Requirements
 
-### Required
-- **Python 3.10+**
-- **KiCad 9.0+** installed (provides `pcbnew` Python module and `kicad-cli`)
+- Python 3.10+
+- Docker (required for `backend-route` and `freeroute`)
+- KiCad on host is optional for backend-route/freeroute (Docker supplies KiCad 9 there)
+- System `pcbnew` is required for `pardal-finalize`
 
-Install on Debian/Ubuntu:
-```bash
-sudo apt install kicad kicad-packages3d python3-venv
-```
+## KiCad compatibility
 
-### Python Environment Notes
+- Full supported path: KiCad 9 (native or Docker-based tooling)
+- Current default backend route path uses Docker image `kicad/kicad:9.0.6-full`
+- Older host KiCad versions may still work for limited flows, but are not the full baseline
 
-Pardal uses **two Python environments** for different tasks:
-
-| Task | Python | Why |
-|------|--------|-----|
-| Routing, board creation | venv (`./venv/bin/python`) | Pure Python, isolated dependencies |
-| Finalization, KiCad SDK | System (`/usr/bin/python3`) | `pcbnew` module installed with KiCad |
-
-**Most users only need venv** for routing. System Python is only needed for the `finalize` command that adds library footprints and copper zones.
-
-Verify KiCad SDK is available:
-```bash
-/usr/bin/python3 -c "import pcbnew; print('KiCad', pcbnew.Version())"
-```
-
-## Installation
+## Install
 
 ```bash
-git clone <repo-url> pardal-pcb
-cd pardal-pcb
 python3 -m venv venv
+./venv/bin/pip install -U pip
 ./venv/bin/pip install -e .
 ```
 
-For the `pardal` command shortcut (optional):
+Optional global shortcut:
+
 ```bash
 pip install -e .
 pardal --help
 ```
 
-## Python API Quick Start
+## CLI quickstart
 
-Create a 4-layer FPGA board in ~20 lines:
+```bash
+# Show commands
+./venv/bin/python -m pardal.cli --help
+
+# Build from netlist (+ optional route)
+pardal build project.net -p placement.txt -o board.kicad_pcb
+pardal build project.net -p placement.txt -o board.kicad_pcb --route
+
+# Route an existing PCB
+pardal route board.kicad_pcb -o board_routed.kicad_pcb
+
+# Run DRC
+pardal drc board_routed.kicad_pcb --format text
+
+# REPL
+pardal repl
+```
+
+## Route DSL workflow
+
+The route DSL commands stage artifacts only. They are not release-ready, JLC-ready, or orderable claims.
+
+```bash
+# Seed the checked-in example directory
+pardal route-dsl example init --example-dir examples/routing_dsl
+
+# Assemble the example artifacts and print the manifest path
+pardal route-dsl example run --example-dir examples/routing_dsl
+
+# Pure artifact stages
+pardal route-dsl board-ir examples/routing_dsl/board_source.json -o examples/routing_dsl/board.ir.json
+pardal route-dsl plan examples/routing_dsl/routes.pdl.yaml examples/routing_dsl/board.ir.json examples/routing_dsl/backend_manifest.json --route-plan-output examples/routing_dsl/route-plan.ir.json --artifact-output examples/routing_dsl/capability-report.json
+pardal route-dsl candidates examples/routing_dsl/board.ir.json examples/routing_dsl/route-plan.ir.json examples/routing_dsl/backend_manifest.json -o examples/routing_dsl/route-candidates.json --routes examples/routing_dsl/routes.json
+
+# Apply-to-copy: validate first, then copy input board bytes to the output board path and still write an apply report
+pardal route-dsl apply examples/routing_dsl/board.ir.json examples/routing_dsl/route-plan.ir.json examples/routing_dsl/route-candidates.json -o examples/routing_dsl/apply-report.json --selected-candidate-id cand_rg_fpc_escape_a_0001 --input-board input.kicad_pcb --output-board output.kicad_pcb
+
+# fpga-large staged finish-readiness lane
+pardal route-dsl fpga-large prepare --work-dir /tmp/pardal-fpga-large
+pardal route-dsl fpga-large resume --work-dir /tmp/pardal-fpga-large
+pardal route-dsl fpga-large report --work-dir /tmp/pardal-fpga-large
+```
+
+## Mojo backend route quickstart
+
+Routes an existing `.kicad_pcb` by extracting with KiCad 9 in Docker, routing on host backend, then applying back with KiCad 9 in Docker.
+
+```bash
+pardal backend-route input.kicad_pcb \
+  -o output.kicad_pcb \
+  --docker-image kicad/kicad:9.0.6-full \
+  --cfg tests/fixtures/parity_fixtures/mojo_cfgs/strict_spacing.json \
+  --extract-timeout-s 120 \
+  --route-timeout-s 120 \
+  --apply-timeout-s 120
+```
+
+Useful debug artifacts:
+
+- `--problem-json /path/problem.json`
+- `--routes-json /path/routes.json`
+
+Deprecated alias:
+
+- `pardal rust-route` (same behavior as `backend-route`, kept for compatibility)
+
+## Python API quickstart
 
 ```python
-from pcb_tool.board_builder import fpga_board
-from pcb_tool.routing_strategies import route_board
-from pcb_tool.kicad_writer import KicadWriter
+from pathlib import Path
+from pardal.board_builder import fpga_board
+from pardal.routing_strategies import route_board
+from pardal.kicad_writer import KicadWriter
 
 board = (fpga_board(layers=4, width=40, height=40)
     .component("U1", "TQFP-32", (20, 20), value="FPGA")
@@ -76,159 +125,41 @@ board = (fpga_board(layers=4, width=40, height=40)
 result = route_board(board, "fpga")
 print(f"Routed {result.nets_routed}/{result.nets_total} nets")
 
-KicadWriter().write(board, "board.kicad_pcb")
+KicadWriter().write(board, Path("board.kicad_pcb"))
 ```
 
-See [docs/PYTHON_API_GUIDE.md](docs/PYTHON_API_GUIDE.md) for complete API reference.
-
-## Atopile Users - Quick Start
-
-**If you have an atopile project**, use these commands:
+## Atopile handoff (minimal)
 
 ```bash
-# Set PARDAL_DIR to where pardal-pcb is located
-PARDAL_DIR=/path/to/pardal-pcb
+# Use the placed board produced by ato build
+pardal route build/builds/default/default/default.kicad_pcb -o board_routed.kicad_pcb
 
-# After `ato build`, your files are at:
-# build/builds/default/default/default.kicad_pcb  ← Has placed components
-# build/builds/default/default/default.net        ← Netlist only
+# Optional: backend route instead of Python router
+pardal backend-route build/builds/default/default/default.kicad_pcb -o board_routed.kicad_pcb
 
-# Route the existing board (use .kicad_pcb to keep atopile's placement!)
-PYTHONPATH=$PARDAL_DIR/venv/lib/python3.*/site-packages \
-  /usr/bin/python3 -m pcb_tool.cli route \
-  build/builds/default/default/default.kicad_pcb \
-  -o board_routed.kicad_pcb
-
-# Finalize for production (library footprints + GND zones)
-/usr/bin/python3 -m pcb_tool.finalize \
-  board_routed.kicad_pcb board_final.kicad_pcb
-
-# Verify 0 DRC errors
-kicad-cli pcb drc board_final.kicad_pcb
+# Finalization uses system Python + pcbnew
+/usr/bin/python3 -m pardal.finalize board_routed.kicad_pcb board_final.kicad_pcb
 ```
 
-**Important**: Use `pardal route` on `.kicad_pcb`, NOT `pardal build` on `.net` - otherwise you lose atopile's placement!
+## Finalization
 
-## Quick Start (General)
-
-```bash
-# Install
-pip install -e .
-
-# Show available commands
-pardal --help
-
-# Build PCB from netlist with placement script (when starting from scratch)
-pardal build project.net -p placement.txt -o board.kicad_pcb
-
-# Run DRC check
-pardal drc board.kicad_pcb
-
-# Interactive mode
-pardal repl
-```
-
-## CLI Commands
-
-| Command | Description |
-|---------|-------------|
-| `pardal build` | Load netlist, place components, optionally route, save PCB, run DRC |
-| `pardal drc` | Run KiCad DRC check on existing PCB file |
-| `pardal place` | Place components from netlist (no routing) |
-| `pardal route` | Autoroute existing PCB file |
-| `pardal repl` | Interactive REPL mode |
-
-### Examples
-
-```bash
-# Full build with autorouting
-pardal build project.net -p placement.txt -o board.kicad_pcb --route
-
-# Build without DRC check
-pardal build project.net -o board.kicad_pcb --no-drc
-
-# Check DRC and save JSON report
-pardal drc board.kicad_pcb -o report.json --format json
-
-# Run batch commands
-pardal repl --batch commands.txt
-```
-
-### Interactive Mode
-```bash
-./venv/bin/python -m pcb_tool
-pcb> HELP
-pcb> LOAD ../manual_temp_test/example.net
-pcb> LIST COMPONENTS
-pcb> MOVE U1 TO 10 20
-pcb> AUTOROUTE ALL
-pcb> SHOW BOARD
-pcb> SAVE output.kicad_pcb
-pcb> EXIT
-```
-
-### Batch Mode
-```bash
-./venv/bin/python -m pcb_tool --batch placement.txt
-```
-
-### Command Execution
-```bash
-./venv/bin/python -m pcb_tool --load example.net --exec "MOVE U1 TO 10 20" --exec "SAVE output.kicad_pcb"
-```
-
-## DRC Validation
-
-**Important**: The internal `CHECK DRC` command performs basic connectivity checks only. For full DRC validation matching KiCad's standards, use `kicad-cli`:
-
-```bash
-kicad-cli pcb drc --output drc_report.txt board.kicad_pcb
-```
-
-This runs KiCad's complete DRC engine including clearance, copper pour, footprint, and electrical rule checks.
-
-## SDK Workflow (Recommended)
-
-For production-quality boards with proper footprints and 0 DRC errors, use the SDK-based workflow:
-
-1. **Route board** using pardal-pcb's autorouter
-2. **Regenerate with SDK** to get library footprints with full graphics/3D models
-3. **Add zones** for copper pours
-4. **Validate** with `kicad-cli pcb drc`
-
-See `docs/SDK_WORKFLOW_GUIDE.md` for complete instructions.
-
-## Documentation
-
-- **[docs/PYTHON_API_GUIDE.md](docs/PYTHON_API_GUIDE.md)**: Complete Python API reference
-- **[docs/QUICK_REFERENCE.md](docs/QUICK_REFERENCE.md)**: Command cheat sheet
-- **[docs/PRODUCTION_WORKFLOW.md](docs/PRODUCTION_WORKFLOW.md)**: Routing to production guide
-- **[docs/AI_INTEGRATION.md](docs/AI_INTEGRATION.md)**: Guide for AI assistants
-- **[docs/AUTOROUTING_GUIDE.md](docs/AUTOROUTING_GUIDE.md)**: Autorouting internals
-- **[docs/SDK_WORKFLOW_GUIDE.md](docs/SDK_WORKFLOW_GUIDE.md)**: KiCad SDK details
-- **USAGE.md**: CLI command reference
+`pardal-finalize` (or `python -m pardal.finalize`) is the production-oriented step that replaces simplified footprints and rebuilds zones using system `pcbnew`.
 
 ## Testing
 
-Run the full test suite:
+Fast checks:
+
 ```bash
-./venv/bin/pytest tests/ -v
+./venv/bin/python -m pytest -q tests/test_cli.py tests/test_repl.py tests/test_api_io.py tests/test_route_command.py
+./venv/bin/python -m pytest -q tests/integration/test_routing_scenarios.py tests/integration/test_variable_widths.py
 ```
 
-## Architecture
+## Troubleshooting
 
-- **Command Pattern**: All operations as reversible command objects
-- **Vertical Slices**: End-to-end features over horizontal layers
-- **Clean Separation**: Data model, commands, parsers, I/O handlers
-
-## Limitations
-
-- **Linux only**: Footprint library paths assume standard KiCad installation at `/usr/share/kicad/footprints/`
-- **KiCad 9+**: Requires KiCad 9.0 or newer for SDK compatibility
-- **System Python for finalization**: The `finalize` command requires system Python with pcbnew (see Dependencies)
+- `Error: docker permission denied`: ensure your user can access Docker daemon.
+- `backend-route timed out`: increase `--extract-timeout-s`, `--route-timeout-s`, and `--apply-timeout-s`.
+- Missing backend binary/config behavior: run without `--cfg` first, then add config incrementally.
 
 ## License
 
-This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
-
-See [LICENSE](LICENSE) for the full license text.
+GNU Affero General Public License v3.0 (AGPL-3.0). See `LICENSE`.

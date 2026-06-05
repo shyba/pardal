@@ -1,7 +1,7 @@
 import pytest
-from pcb_tool.commands import ExitCommand
-from pcb_tool.command_parser import CommandParser
-from pcb_tool.data_model import Board
+from pardal.commands import ExitCommand
+from pardal.command_parser import CommandParser
+from pardal.data_model import Board
 
 
 def test_exit_command_creation():
